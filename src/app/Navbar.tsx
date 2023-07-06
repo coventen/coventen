@@ -156,8 +156,8 @@ const Navbar: React.FC = () => {
 
     return (
         <>
-            <nav className={`relative z-[9000] bg-white w-full md:static md:text-sm md:border-none ${state ? "shadow-lg rounded-b-xl md:shadow-none" : ""}`}>
-                <div className="items-center gap-x-14 px-4 py-5 max-w-screen-xl mx-auto md:flex md:px-8">
+            <nav className={`relative z-[9000] bg-white/20 backdrop-blur-lg w-full md:static md:text-sm md:border-none ${state ? "shadow-lg rounded-b-xl md:shadow-none" : ""}`}>
+                <div className="items-center gap-x-14 px-4 py-3 top-0 max-w-screen-xl mx-auto md:flex md:px-8">
                     <div className="flex items-center justify-between py-3 md:py-5 md:block">
                         <div >
                             {/* <img src="https://www.floatui.com/logo.svg" width={120} height={50} alt="Float UI logo" /> */}

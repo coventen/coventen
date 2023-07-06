@@ -6,17 +6,17 @@ import Services from '@/components/Home/Services'
 import Image from 'next/image'
 import Footer from './Footer'
 import Navbar from './Navbar'
+import Categories from '@/components/Home/Categories'
 
 export default function Home() {
   return (
     <>
-      <nav>
-        <Navbar />
-      </nav>
+
       <Hero />
+      <Categories />
       <Services />
       <AboutUs />
-      <ImportantLinks />
+      {/* <ImportantLinks /> */}
       <Companies />
       <Footer />
 

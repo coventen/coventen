@@ -9,14 +9,14 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: '#6366f1',
+        primary: '#2DCDDF',
         highlight: '#00ff84',
         secondary: '#6440fb',
-        primaryLight: '#1a064f',
+        primaryLight: '#6366f1',
         bgLight: '#f5f7fe',
         dimText: '#777777',
       },
     },
   },
-  plugins: [],
+  plugins: [require('@tailwindcss/forms')],
 };

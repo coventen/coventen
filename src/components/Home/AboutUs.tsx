@@ -1,20 +1,22 @@
+import Image from 'next/image';
 import React from 'react';
-
+// style={{ background: "linear-gradient(152.92deg, rgba(192, 132, 252, 0.2) 4.54%, rgba(232, 121, 249, 0.26) 34.2%, rgba(192, 132, 252, 0.1) 77.55%)" }}
 const AboutUs = () => {
     return (
         <section className='py-16'>
             <div className=" relative z-10">
-                <div className="absolute inset-0 max-w-xs mx-auto h-96 blur-[90px]" style={{ background: "linear-gradient(152.92deg, rgba(192, 132, 252, 0.2) 4.54%, rgba(232, 121, 249, 0.26) 34.2%, rgba(192, 132, 252, 0.1) 77.55%)" }}></div>
+                {/* <div className="absolute inset-0 max-w-xs mx-auto h-96 blur-[90px] bg-gradient-to-br from-primary/30 to-slate-400" ></div> */}
 
                 <div className="max-w-screen-xl m-auto px-6 text-gray-600 ">
                     <div className="lg:bg-gray-50 dark:lg:bg-darker lg:p-16 rounded-xl space-y-6 md:flex flex-row-reverse md:gap-6 justify-center md:space-y-0 lg:items-center">
-                        <div className="md:5/12 lg:w-1/2">
-                            <img
-                                src="/assets/home/bg-1.png"
+                        <div className="md:5/12 lg:w-1/2 lg:h-96">
+                            <Image
+                                src="/assets/home/hero.jpg"
                                 alt="image"
                                 loading="lazy"
-                                width=""
-                                height=""
+                                width={1000}
+                                height={1000}
+                                className='rounded-xl h-full w-full object-cover object-center'
                             />
                         </div>
                         <div className="md:7/12 lg:w-1/2">
