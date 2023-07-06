@@ -18,9 +18,9 @@ export default function Hero() {
 
                         <form action="" className="w-full">
                             <div className="relative flex p-1 rounded-xl bg-white shadow-2xl md:p-2">
-                                <div id="catJobBox" className="hidden text-gray-600 relative md:flex justify-between items-center min-w-max select-none">
-                                    <input type="checkbox" name="" id="toggleJobLstCat" className="peer hidden outline-none" />
-                                    <input type="text" name="" id="catJobName" value="Design" className="pl-3 w-full bg-white text-base font-medium cursor-pointer" />
+                                <div id="catJobBox" className="hidden text-gray-600 relative md:flex justify-between items-center  max-w-40 select-none">
+                                    <input type="checkbox" name="" id="toggleJobLstCat" className="peer hidden outline-none border-none" />
+                                    <input type="text" name="" id="catJobName" value="Design" className="pl-3 border-none outline-none w-full bg-white text-base font-medium cursor-pointer" />
                                     <label htmlFor="toggleJobLstCat" className="absolute top-0 left-0 w-full h-full"></label>
                                     <span className="min-w-max">
                                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
@@ -29,14 +29,14 @@ export default function Hero() {
                                     </span>
                                     <div id="catJobLst" className="absolute transition-all duration-500 ease-in-out translate-y-10 opacity-0 invisible peer-checked:opacity-100 peer-checked:visible peer-checked:translate-y-1 top-full left-0 w-full bg-white bg-opacity-80 rounded-lg py-2">
                                         <ul className="flex flex-col w-full">
-                                            <li className="cursor-default transition hover:bg-gray-100 hover:bg-opacity-80 flex px-5 py-2">Design</li>
-                                            <li className="cursor-default transition hover:bg-gray-100 hover:bg-opacity-80 flex px-5 py-2">Development</li>
+                                            <li className="cursor-default transition hover:bg-gray-100 hover:bg-opacity-80 flex px-5 py-2">Products</li>
+                                            <li className="cursor-default transition hover:bg-gray-100 hover:bg-opacity-80 flex px-5 py-2">Labs</li>
                                             <li className="cursor-default transition hover:bg-gray-100 hover:bg-opacity-80 flex px-5 py-2">Marketing</li>
                                         </ul>
                                     </div>
                                 </div>
-                                <input placeholder="Your favorite position" className="w-full p-4 outline-none text-gray-600" type="text" />
-                                <button type="button" title="Start buying" className="ml-auto py-3 px-6 rounded-lg text-center transition bg-gradient-to-br from-primary to-primary hover:to-purple-600 active:from-pink-700 focus:from-pink-600 md:px-12">
+                                <input placeholder="Search products and labs.." className="w-full p-4 outline-none  border-none text-gray-600" type="text" />
+                                <button type="button" title="Start buying" className="ml-auto py-3 px-6 rounded-lg text-center transition bg-gradient-to-br from-primary to-primary  md:px-12">
                                     <span className="hidden text-white font-semibold md:block">
                                         Search
                                     </span>
