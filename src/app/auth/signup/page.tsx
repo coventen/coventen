@@ -46,9 +46,11 @@ export default function Login() {
                     </div>
                 </div>
                 <div
+
+
                     className="absolute inset-0 my-auto h-[500px]"
                     style={{
-                        background: "linear-gradient(152.92deg, rgba(192, 132, 252, 0.2) 4.54%, rgba(232, 121, 249, 0.26) 34.2%, rgba(192, 132, 252, 0.1) 77.55%)", filter: "blur(85px)"
+                        background: "linear-gradient(152.92deg, rgba(0, 177, 253, 0.2) 4.54%, rgba(0, 177, 253, 0.26) 34.2%, rgba(113, 250, 202, 0.1) 77.55%)", filter: "blur(85px)"
                     }}
                 >
 
