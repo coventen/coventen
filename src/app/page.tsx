@@ -11,7 +11,9 @@ import Categories from '@/components/Home/Categories'
 export default function Home() {
   return (
     <>
-
+      <nav>
+        <Navbar />
+      </nav>
       <Hero />
       <Categories />
       <Services />

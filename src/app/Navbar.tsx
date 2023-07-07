@@ -141,9 +141,9 @@ const Navbar: React.FC = () => {
     ];
 
     const navigation: NavigationItem[] = [
-        { title: "Features", path: "javascript:void(0)", isDrapdown: true, navs: dropdownNavs },
-        { title: "Integrations", path: "javascript:void(0)", isDrapdown: false },
-        { title: "Customers", path: "javascript:void(0)", isDrapdown: false },
+        { title: "Features", path: "/", isDrapdown: true, navs: dropdownNavs },
+        { title: "Products", path: "/products", isDrapdown: false },
+        { title: "Dashboard", path: "/admin/dashboard", isDrapdown: false },
         { title: "Pricing", path: "javascript:void(0)", isDrapdown: false },
     ];
 

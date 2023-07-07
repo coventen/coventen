@@ -1,7 +1,7 @@
 'use client'
 
 import Image from 'next/image'
-import { useEffect, useState } from 'react'
+
 
 export default function Hero() {
 
@@ -15,7 +15,6 @@ export default function Hero() {
                         <h1 className="text-white text-center text-3xl font-bold sm:text-4xl md:text-5xl">
                             {"Don't"} look again for your next freelance projects, you got them.
                         </h1>
-
                         <form action="" className="w-full">
                             <div className="relative flex p-1 rounded-xl bg-white shadow-2xl md:p-2">
                                 <div id="catJobBox" className="hidden text-gray-600 relative md:flex justify-between items-center  max-w-40 select-none">
@@ -36,7 +35,7 @@ export default function Hero() {
                                     </div>
                                 </div>
                                 <input placeholder="Search products and labs.." className="w-full p-4 outline-none  border-none text-gray-600" type="text" />
-                                <button type="button" title="Start buying" className="ml-auto py-3 px-6 rounded-lg text-center transition bg-gradient-to-br from-primary to-primary  md:px-12">
+                                <button type="button" title="Start buying" className="ml-auto py-3 px-6 rounded-lg text-center transition bg-primary   md:px-12">
                                     <span className="hidden text-white font-semibold md:block">
                                         Search
                                     </span>

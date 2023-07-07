@@ -1,8 +1,27 @@
 'use client'
 
 import Link from "next/link"
+import { useState } from "react";
 
 export default function Login() {
+    const [selectedOption, setSelectedOption] = useState('');
+
+
+    const options = [
+        'Freelancer',
+        'Testing Agent',
+        'Manufacturer',
+        'Academics / Insitute',
+        'For my company',
+        'Foregin Client',
+        'Importer',
+        'Consumer',
+        'Testing Lab / Service Provider',
+    ];
+
+    const handleSelect = (e: any) => {
+        setSelectedOption(e.target.value);
+    };
     return (
         <main className="w-full flex">
             <div className="relative flex-1 hidden items-center justify-center h-screen bg-white lg:flex">
@@ -113,6 +132,29 @@ export default function Login() {
                                 className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-primary shadow-sm rounded-lg"
                             />
                         </div>
+                        {/* select options  */}
+                        <div>
+                            <label className="font-medium">
+                                User type
+                            </label>
+                            <div className="relative inline-flex w-full">
+                                <select
+                                    value={selectedOption}
+                                    onChange={handleSelect}
+                                    className="appearance-none relative w-full mt-2 px-3 py-2 text-gray-700 bg-transparent outline-none border focus:border-primary shadow-sm rounded-lg"
+                                >
+                                    <option value="" disabled>Select an option</option>
+                                    {options.map((option) => (
+                                        <option key={option} value={option}>
+                                            {option}
+                                        </option>
+                                    ))}
+                                </select>
+
+                            </div>
+                        </div>
+
+                        {/* ------- */}
                         <div>
                             <label className="font-medium">
                                 Password
