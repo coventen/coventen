@@ -144,7 +144,8 @@ const Navbar: React.FC = () => {
         { title: "Features", path: "/", isDrapdown: true, navs: dropdownNavs },
         { title: "Products", path: "/products", isDrapdown: false },
         { title: "Dashboard", path: "/admin/dashboard", isDrapdown: false },
-        { title: "Pricing", path: "javascript:void(0)", isDrapdown: false },
+        { title: "Services", path: "/services", isDrapdown: false },
+        { title: "Learn", path: "/learn", isDrapdown: false },
     ];
 
     useEffect(() => {
