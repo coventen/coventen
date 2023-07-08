@@ -5,7 +5,7 @@ interface IAccordionItem {
     text: string;
 }
 
-const AccordionItem = ({ header, text }) => {
+const AccordionItem = ({ header, text }: IAccordionItem) => {
     const [active, setActive] = useState(false);
 
     const handleToggle = () => {
