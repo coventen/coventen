@@ -13,7 +13,7 @@ export default function Hero() {
                 <div className="relative container m-auto px-6 md:px-12 lg:px-6">
                     <div className="mb-12 pt-40 space-y-16 md:mb-20 md:pt-56 lg:w-8/12 lg:mx-auto">
                         <h1 className="text-white text-center text-3xl font-bold sm:text-4xl md:text-5xl">
-                            {"Don't"} look again for your next freelance projects, you got them.
+                            Accurate and Reliable Lab Testing Services for Your Needs
                         </h1>
                         <form action="" className="w-full">
                             <div className="relative flex p-1 rounded-xl bg-white shadow-2xl md:p-2">
