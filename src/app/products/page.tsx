@@ -7,7 +7,6 @@ const ProductPage = () => {
     return (
         <Sidebar>
             <>
-
                 <section className="text-gray-600 body-font">
                     <div className="container px-5 pb-24 mx-auto">
                         <div className="flex flex-wrap -m-4">

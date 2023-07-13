@@ -6,6 +6,7 @@ import { BsThreeDotsVertical } from 'react-icons/bs';
 import { AiTwotoneDelete, AiFillEye } from 'react-icons/ai';
 import { BiSolidEditAlt } from 'react-icons/bi';
 import Error from '@/components/Error';
+import { toast } from 'react-hot-toast';
 
 
 //props interface
@@ -35,6 +36,7 @@ query Notifications($where: NotificationWhere) {
       title
       type
       description
+      createdAt
     }
   }
   `
@@ -78,6 +80,7 @@ const PersonalizeNotification = ({ newNotification }: INotificationTab) => {
         });
         if (data) {
             refetch();
+            toast.error('Notification Deleted Successfully');
         }
     };
 

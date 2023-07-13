@@ -4,6 +4,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { Dialog, Transition } from '@headlessui/react';
 import { useGqlClient } from '@/hooks/UseGqlClient';
 import { useMutation } from 'graphql-hooks';
+import { toast } from 'react-hot-toast';
 
 //props interface
 interface INotificationModal {
@@ -83,8 +84,7 @@ function NotificationModal({ isOpen, setIsOpen, setNewNotification }: INotificat
         })
 
         if (data) {
-            console.log(data)
-            alert('Notification Created Successfully')
+            toast.success('Notification Created Successfully')
             setNewNotification(true)
         }
         closeModal();
