@@ -8,11 +8,10 @@ import { useGqlClient } from '@/hooks/UseGqlClient';
 import { useQuery } from 'graphql-hooks';
 import React, { useEffect } from 'react';
 
-
-//props interface
 interface Props {
     setSlideOverOpen: (value: boolean) => void;
 }
+
 
 // GraphQL query to fetch notifications
 const GET_NOTIFICATION = `
@@ -27,8 +26,13 @@ const GET_NOTIFICATION = `
   }
 `;
 
+
 //component
 const NotificationBlck = ({ setSlideOverOpen }: Props) => {
+    // Access Electron APIs and custom functions exposed by the preload script
+    const electron = (window as any).electron;
+    const ipcRenderer = (window as any).ipcRenderer;
+    const localDataStorage = (window as any).localDataStorage;
 
     // Create GraphQL client using custom hook
     const client = useGqlClient();
@@ -36,8 +40,50 @@ const NotificationBlck = ({ setSlideOverOpen }: Props) => {
     // Perform the GraphQL query to fetch notifications
     const { data, loading, error } = useQuery(GET_NOTIFICATION, { client });
 
+    // Handle displaying a notification
+    const handleNotify = (title: string, description: string) => {
+        Notification.requestPermission().then((result) => {
+            new Notification(title, {
+                body: description,
+                icon: 'https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png',
+            });
+        });
+    };
+
+    // Handle saving notification ID in local storage
+    const handleNotificationView = (id: string) => {
+        const previousData = localDataStorage.getSavedData('viewedNotification');
+
+        const data = {
+            key: 'viewedNotification',
+            value: previousData ? [...previousData, id] : [id],
+        };
+
+        ipcRenderer.send('save:data', data);
+    };
+
+    useEffect(() => {
+        // Retrieve viewed notification IDs from local storage
+        const viewedNotification = localDataStorage.getSavedData('viewedNotification');
+
+        if (data?.notifications?.length) {
+            data?.notifications?.forEach((item: any) => {
+                if (viewedNotification?.includes(item?.id)) {
+                    return;
+                }
+
+                handleNotify(item?.title, item?.description);
+                handleNotificationView(item?.id);
+            });
+        }
+    }, [data]); //eslint-disable-line
+
+
+
+
 
     //render
+
     return (
         <>
             <div>

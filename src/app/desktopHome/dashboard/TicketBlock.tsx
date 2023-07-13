@@ -20,7 +20,7 @@ const TicketBlock = () => {
                                                     </div>
                                                 </td>
                                                 <td className="pl-5">
-                                                    <button className="py-3 px-3 text-sm focus:outline-none leading-none text-gray-600  rounded">11/07/23 11:53</button>
+                                                    <button className="py-3 px-3 text-sm focus:outline-none leading-none text-green-700  bg-green-200 rounded">11/07/23 11:53</button>
                                                 </td>
 
                                                 <td className="pl-4">

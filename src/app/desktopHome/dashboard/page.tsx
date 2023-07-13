@@ -19,18 +19,7 @@ const Dashboard = () => {
             title: "Total Projects",
             value: "12",
         },
-        {
-            title: "Rejected Projects",
-            value: "12",
-        },
-        {
-            title: "Total revenue",
-            value: "12",
-        },
-        {
-            title: "Total revenue",
-            value: "12",
-        }
+
     ]
 
     return (

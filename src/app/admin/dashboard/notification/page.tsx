@@ -2,14 +2,25 @@
 import React, { useState } from 'react';
 import { Tab } from '@headlessui/react';
 import GenarelNotification from './GenarelNotification';
+import NotificationModal from './NotificationModal';
+import PersonalizeNotification from './PersonalizeNotification';
+
 
 
 function classNames(...classes: string[]) {
     return classes.filter(Boolean).join(' ');
 }
 
+
+
 const NotificationPage = () => {
-    const [openModal, setOpenModal] = useState(false);
+
+    // States
+    const [isOpen, setIsOpen] = useState(false);
+    const [newNotification, setNewNotification] = useState(false);
+
+
+
     return (
         <>
             <div className="w-full  bg-white rounded-lg py-4 md:py-7 px-4 md:px-8 xl:px-10 ">
@@ -51,24 +62,23 @@ const NotificationPage = () => {
                                 </Tab>
                             </div>
 
-                            <button className="focus:ring-2 focus:ring-offset-2 focus:ring-indigo-600 mt-4 sm:mt-0 inline-flex items-start justify-start px-6 py-3 bg-primary hover:bg-indigo-600 focus:outline-none rounded">
+                            <button onClick={() => setIsOpen(true)} className="focus:ring-2 focus:ring-offset-2 focus:ring-indigo-600 mt-4 sm:mt-0 inline-flex items-start justify-start px-6 py-3 bg-primary hover:bg-indigo-600 focus:outline-none rounded">
                                 <p className="text-sm font-medium leading-none text-white">Add Notification</p>
                             </button>
                         </Tab.List>
                         <Tab.Panels>
                             <Tab.Panel>
-                                <GenarelNotification />
+                                <GenarelNotification newNotification={newNotification} />
                             </Tab.Panel>
                             <Tab.Panel>
-                                <div className="w-full bg-white rounded-xl mt-2 py-2 shadow-md">
-                                    hrllo
-                                </div>
+                                <PersonalizeNotification newNotification={newNotification} />
                             </Tab.Panel>
                         </Tab.Panels>
                     </Tab.Group>
                 </div>
 
             </div>
+            <NotificationModal setIsOpen={setIsOpen} isOpen={isOpen} setNewNotification={setNewNotification} />
         </>
     );
 };

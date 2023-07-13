@@ -7,6 +7,7 @@ import { AiTwotoneDelete, AiFillEye } from 'react-icons/ai';
 import { BiSolidEditAlt } from 'react-icons/bi';
 import Error from '@/components/Error';
 
+
 //props interface
 interface INotificationTab {
     newNotification: boolean;
@@ -21,6 +22,7 @@ interface INotification {
     type: string;
     description: string;
     createdAt: string;
+
 }
 
 
@@ -45,7 +47,9 @@ mutation Mutation($where: NotificationWhere) {
   }
   `
 //component 
-const GenarelNotification = ({ newNotification }: INotificationTab) => {
+const PersonalizeNotification = ({ newNotification }: INotificationTab) => {
+    // State
+    const [isOpen, setIsOpen] = useState(false);
 
     // Create GraphQL client using custom hook
     const client = useGqlClient();
@@ -84,12 +88,10 @@ const GenarelNotification = ({ newNotification }: INotificationTab) => {
         }
     }, [newNotification])  //eslint-disable-line
 
-
     // Render when there are no notifications
     if (data?.notifications?.length === 0) {
         return <div className="w-full h-full mt-12 text-sm mx-5"> No Data Found</div>;
     }
-
 
     // Render when there is an error
     if (error || deleteState.error) {
@@ -156,4 +158,4 @@ const GenarelNotification = ({ newNotification }: INotificationTab) => {
     );
 };
 
-export default GenarelNotification;
+export default PersonalizeNotification;
