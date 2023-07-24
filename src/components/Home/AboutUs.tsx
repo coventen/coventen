@@ -21,10 +21,13 @@ const AboutUs = () => {
                         </div>
                         <div className="md:7/12 lg:w-1/2">
                             <h2 className="text-3xl font-bold text-gray-900 md:text-4xl dark:text-white">
-                                VBOX Test Suite
+                                What We Do
                             </h2>
-                            <p className="my-8 text-gray-600 dark:text-gray-300">
-                                Our user-friendly, intuitive data analysis software is free to all VBOX users and comes preloaded with application specific plugins that make it quick and easy to conduct
+                            {/* <p className="my-3 text-gray-600 dark:text-gray-300 md:text-sm">
+                                We create best in class product designs, validation and manufacturing support for automotive, aerospace, electrical and electronics industries globally at present and more services are on its way to simplify your manufacturing needs
+                            </p> */}
+                            <p className="my-3 text-gray-600 dark:text-gray-300 md:text-sm">
+                                We have hundreds of OEM associate with us thousands of products, solutions and facilities to help manufacturers simplifying their product inventio
                             </p>
                             <div className="divide-y space-y-4 divide-gray-100 dark:divide-gray-800">
                                 <div className="mt-8 flex gap-4 md:items-center">
@@ -34,8 +37,8 @@ const AboutUs = () => {
                                         </svg>
                                     </div>
                                     <div className="w-5/6">
-                                        <h4 className="font-semibold text-lg text-gray-700 dark:text-indigo-300">Create your own custom tests</h4>
-                                        <p className="text-gray-500 dark:text-gray-400">Asperiores nemo possimus nesciunt quam mollitia.</p>
+                                        <h4 className="font-semibold text-lg text-gray-700 dark:text-indigo-300">Laser Measurements and Trackers</h4>
+                                        <p className="text-gray-500 dark:text-gray-400 text-sm">We have trackers of different technologies like laser based, flexi mounted, mounted on arms, mounted on CMMs.</p>
                                     </div>
                                 </div>
                                 <div className="pt-4 flex gap-4 md:items-center">
@@ -45,7 +48,7 @@ const AboutUs = () => {
                                         </svg>
                                     </div>
                                     <div className="w-5/6">
-                                        <h4 className="font-semibold text-lg text-gray-700 dark:text-teal-300">Available in over 10 different language</h4>
+                                        <h4 className="font-semibold text-lg text-gray-700 dark:text-teal-300">Probe Systems or Contact Measurement </h4>
                                         <p className="text-gray-500 dark:text-gray-400">Asperiores nemo possimus nesciunt quam mollitia.</p>
                                     </div>
                                 </div>

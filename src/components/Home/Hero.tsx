@@ -11,9 +11,9 @@ export default function Hero() {
                 <Image className="absolute inset-0 w-full h-full object-cover object-top" src="/assets/home/hero.jpg" width={400} height={500} alt="hero background image" />
                 <div aria-hidden="true" className="absolute inset-0 w-full h-full bg-gradient-to-t from-primary/50 to-black/30 bg-opacity-40 backdrop-blur-sm"></div>
                 <div className="relative container m-auto px-6 md:px-12 lg:px-6">
-                    <div className="mb-12 pt-40 space-y-16 md:mb-20 md:pt-56 lg:w-8/12 lg:mx-auto">
-                        <h1 className="text-white text-center text-3xl font-bold sm:text-4xl md:text-5xl">
-                            Accurate and Reliable Lab Testing Services for Your Needs
+                    <div className="mb-12 pt-40 space-y-16 md:mb-20 md:pt-56 lg:w-8/12 lg:mx-auto ">
+                        <h1 className="text-white text-center text-3xl font-bold sm:text-4xl md:text-5xl -mt-20">
+                            We believe in best manufacturing practices will bring out best products
                         </h1>
                         <form action="" className="w-full">
                             <div className="relative flex p-1 rounded-xl bg-white shadow-2xl md:p-2">

@@ -7,7 +7,7 @@ const Categories = () => {
     const Categories = [
         {
             id: 1,
-            name: "Water Testing Lab",
+            name: "3D Testing Lab",
             image: '/assets/home/lab1.jpg'
 
         },
@@ -58,9 +58,9 @@ const Categories = () => {
                 <div className="mx-auto max-w-screen-2xl px-4 md:px-16">
 
                     <div className="mb-10 md:mb-16">
-                        <h2 className="mb-4 text-center text-2xl font-bold text-gray-800 md:mb-6 lg:text-3xl">Categories</h2>
+                        <h2 className="mb-4 text-center text-2xl font-bold text-gray-800 md:mb-3 lg:text-3xl">Lab Categories</h2>
 
-                        <p className="mx-auto max-w-screen-md text-center text-gray-500 md:text-lg">This is a section of some simple filler text, also known as placeholder text. It shares some characteristics of a real written text but is random or otherwise generated.</p>
+                        <p className="mx-auto max-w-screen-md text-center text-gray-500 md:text-sm">Our aim is to increase quality consciousness of every man-made product, and to reduce manufacturing efforts of young entrepreneurs, we believe in best manufacturing practices will bring out best products, we help every customer getting their best product and every manufacturer producing them best at most sustainable ways…</p>
                     </div>
 
 

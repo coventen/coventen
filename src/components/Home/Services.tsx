@@ -9,7 +9,7 @@ export default function Services() {
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
                 </svg>,
-            title: "ADAS Testing",
+            title: "Designing Services",
             desc: "Test and validate the very latest Advanced Driver Assistance Systems with centimetre-level accuracy, including Park Assist, Autonomous Emergency Braking and Lane Keeping."
         },
         {
@@ -59,12 +59,11 @@ export default function Services() {
             <div className="max-w-screen-xl mx-auto px-4 text-gray-600 md:px-8">
                 <div className="relative max-w-2xl mx-auto sm:text-center">
                     <div className="relative z-10 mt-16">
-                        <h3 className="text-gray-800 text-3xl font-semibold sm:text-4xl">
-                            Applications
+                        <h3 className="text-gray-800 text-3xl font-semibold sm:text-4xl mb-3">
+                            Popular Services
                         </h3>
-                        <p className="mt-3">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec congue, nisl eget molestie varius, enim ex faucibus purus.
-                        </p>
+
+                        <p className="mx-auto max-w-screen-md text-center text-gray-500 md:text-sm">We’re India’s leading quality consciousness and test service providers, perhaps we are first in the domain to bring these services for manufacturers in India connecting global quality standards and labs</p>
                     </div>
                     {/* <div aria-hidden="true" className="absolute inset-0 my-auto max-w-xsh-32 rotate-45 bg-gradient-to-r from-[#00b1fd] to-[#71faca] blur-[90px] opacity-50 dark:opacity-20">
                     </div> */}
