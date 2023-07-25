@@ -3,7 +3,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 import { Dialog, Disclosure, Menu, Transition } from '@headlessui/react';
-import { BiSolidDownArrow, BiSolidUpArrow } from 'react-icons/bi';
+import { BsTicketDetailed } from 'react-icons/bs';
+import { FaAngleDown } from 'react-icons/fa';
 
 
 
@@ -73,14 +74,14 @@ const layout = ({
     children: React.ReactNode
 }) => {
     return (
-        <>
+        <div className='w-full absolute top-0 z-[966666666]'>
             <section className="bg-gray-100 dark:bg-gray-900 ">
                 <aside
                     className="fixed top-0 z-10 ml-[-100%] flex h-screen w-full flex-col justify-between border-r bg-white px-6 pb-3 transition duration-300 md:w-4/12 lg:ml-0 lg:w-[25%] xl:w-[20%] 2xl:w-[15%] dark:bg-gray-800 dark:border-gray-700"
                 >
                     <div className='mt-5'>
 
-                        <Link href='/admin/dashboard/profile' className="mt-8 text-center">
+                        <Link href='/vendor/dashboard/profile' className="mt-8 text-center">
                             <Image
                                 height={500}
                                 width={500}
@@ -93,104 +94,193 @@ const layout = ({
                         </Link>
 
                         <ul className="mt-8 space-y-2 tracking-wide overflow-y-auto text-sm">
-                            <li>
-                                <Link
-                                    href="/admin/dashboard"
-                                    aria-label="dashboard"
-                                    className="relative flex items-center space-x-4 rounded-xl bg-gradient-to-r from-primary to-primary/75 px-4 py-3 text-white"
+                            <Link
+                                href="/vendor/dashboard"
+                                aria-label="dashboard"
+                                className="relative w-full  flex items-center space-x-4 rounded-xl bg-gradient-to-r from-primary to-primary/80 px-4 py-3 text-white"
+                            >
+                                <svg className="-ml-1 h-6 w-6" viewBox="0 0 24 24" fill="none">
+                                    <path
+                                        d="M6 8a2 2 0 0 1 2-2h1a2 2 0 0 1 2 2v1a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V8ZM6 15a2 2 0 0 1 2-2h1a2 2 0 0 1 2 2v1a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2v-1Z"
+                                        className="dark:fill-slate-600 fill-current text-cyan-400"
+                                    ></path>
+                                    <path
+                                        d="M13 8a2 2 0 0 1 2-2h1a2 2 0 0 1 2 2v1a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2V8Z"
+                                        className="fill-current text-cyan-200 group-hover:text-primary"
+                                    ></path>
+                                    <path
+                                        d="M13 15a2 2 0 0 1 2-2h1a2 2 0 0 1 2 2v1a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-1Z"
+                                        className="fill-current group-hover:text-sky-300"
+                                    ></path>
+                                </svg>
+                                <span className="-mr-1 font-medium">Dashboard</span>
+                            </Link>
+                            <Link
+                                href="/vendor/dashboard/notification"
+                                className="group w-full flex items-center space-x-4 rounded-md px-4 py-3 text-gray-600 dark:text-gray-300 hover:bg-slate-100 dark:hover:bg-gray-700 hover:text-gray-800 dark:hover:text-gray-50"
+                            >
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    className="h-5 w-5"
+                                    viewBox="0 0 20 20"
+                                    fill="currentColor"
                                 >
-                                    <svg className="-ml-1 h-6 w-6" viewBox="0 0 24 24" fill="none">
-                                        <path
-                                            d="M6 8a2 2 0 0 1 2-2h1a2 2 0 0 1 2 2v1a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V8ZM6 15a2 2 0 0 1 2-2h1a2 2 0 0 1 2 2v1a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2v-1Z"
-                                            className="dark:fill-slate-600 fill-current text-cyan-400"
-                                        ></path>
-                                        <path
-                                            d="M13 8a2 2 0 0 1 2-2h1a2 2 0 0 1 2 2v1a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2V8Z"
-                                            className="fill-current text-primary group-hover:text-cyan-300"
-                                        ></path>
-                                        <path
-                                            d="M13 15a2 2 0 0 1 2-2h1a2 2 0 0 1 2 2v1a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-1Z"
-                                            className="fill-current group-hover:text-sky-300"
-                                        ></path>
-                                    </svg>
-                                    <span className="-mr-1 font-medium">Dashboard</span>
-                                </Link>
-                            </li>
-                            <li>
-                                <Link
-                                    href="/admin/dashboard/messages"
-                                    className="group flex items-center space-x-4 rounded-md px-4 py-3 text-gray-600 dark:text-gray-300"
+                                    <path
+                                        className="fill-current text-gray-300 group-hover:text-primary"
+                                        fill-rule="evenodd"
+                                        d="M2 6a2 2 0 012-2h4l2 2h4a2 2 0 012 2v1H8a3 3 0 00-3 3v1.5a1.5 1.5 0 01-3 0V6z"
+                                        clip-rule="evenodd"
+                                    />
+                                    <path
+                                        className="fill-current text-gray-600 group-hover:text-cyan-600 dark:group-hover:text-sky-400"
+                                        d="M6 12a2 2 0 012-2h8a2 2 0 012 2v2a2 2 0 01-2 2H2h2a2 2 0 002-2v-2z"
+                                    />
+                                </svg>
+                                <span className="group-hover:text-gray-700  dark:group-hover:text-gray-50">Notifications</span>
+                            </Link>
+                            <Link
+                                href="/vendor/dashboard/invoice"
+                                className="group w-full flex items-center space-x-4 rounded-md px-4 py-3 text-gray-600 dark:text-gray-300 hover:bg-slate-100 dark:hover:bg-gray-700 hover:text-gray-800 dark:hover:text-gray-50"
+                            >
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    className="h-5 w-5"
+                                    viewBox="0 0 20 20"
+                                    fill="currentColor"
                                 >
-                                    <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        className="h-5 w-5"
-                                        viewBox="0 0 20 20"
-                                        fill="currentColor"
-                                    >
-                                        <path
-                                            className="fill-current text-gray-300 group-hover:text-cyan-300"
-                                            fillRule="evenodd"
-                                            d="M2 6a2 2 0 012-2h4l2 2h4a2 2 0 012 2v1H8a3 3 0 00-3 3v1.5a1.5 1.5 0 01-3 0V6z"
-                                            clipRule="evenodd"
-                                        />
-                                        <path
-                                            className="fill-current text-gray-600 group-hover:text-cyan-600 dark:group-hover:text-sky-400"
-                                            d="M6 12a2 2 0 012-2h8a2 2 0 012 2v2a2 2 0 01-2 2H2h2a2 2 0 002-2v-2z"
-                                        />
-                                    </svg>
-                                    <span className="group-hover:text-gray-700 dark:group-hover:text-gray-50">Messages</span>
-                                </Link>
-                            </li>
-                            <li>
-                                <Link
-                                    href="/admin/dashboard/messages"
-                                    className="group flex items-center space-x-4 rounded-md px-4 py-3 text-gray-600 dark:text-gray-300"
+                                    <path
+                                        className="fill-current text-gray-300 group-hover:text-primary"
+                                        fill-rule="evenodd"
+                                        d="M2 6a2 2 0 012-2h4l2 2h4a2 2 0 012 2v1H8a3 3 0 00-3 3v1.5a1.5 1.5 0 01-3 0V6z"
+                                        clip-rule="evenodd"
+                                    />
+                                    <path
+                                        className="fill-current text-gray-600 group-hover:text-cyan-600 dark:group-hover:text-sky-400"
+                                        d="M6 12a2 2 0 012-2h8a2 2 0 012 2v2a2 2 0 01-2 2H2h2a2 2 0 002-2v-2z"
+                                    />
+                                </svg>
+                                <span className="group-hover:text-gray-700  dark:group-hover:text-gray-50">Invoices</span>
+                            </Link>
+                            <Link
+                                href="/vendor/dashboard/documents"
+                                className="group w-full flex items-center space-x-4 rounded-md px-4 py-3 text-gray-600 dark:text-gray-300 hover:bg-slate-100 dark:hover:bg-gray-700 hover:text-gray-800 dark:hover:text-gray-50"
+                            >
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    className="h-5 w-5"
+                                    viewBox="0 0 20 20"
+                                    fill="currentColor"
                                 >
-                                    <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        className="h-5 w-5"
-                                        viewBox="0 0 20 20"
-                                        fill="currentColor"
-                                    >
-                                        <path
-                                            className="fill-current text-gray-300 group-hover:text-cyan-300"
-                                            fillRule="evenodd"
-                                            d="M2 6a2 2 0 012-2h4l2 2h4a2 2 0 012 2v1H8a3 3 0 00-3 3v1.5a1.5 1.5 0 01-3 0V6z"
-                                            clipRule="evenodd"
-                                        />
-                                        <path
-                                            className="fill-current text-gray-600 group-hover:text-cyan-600 dark:group-hover:text-sky-400"
-                                            d="M6 12a2 2 0 012-2h8a2 2 0 012 2v2a2 2 0 01-2 2H2h2a2 2 0 002-2v-2z"
-                                        />
-                                    </svg>
-                                    <span className="group-hover:text-gray-700 dark:group-hover:text-gray-50">Messages</span>
-                                </Link>
-                            </li>
-                            <li>
-                                <Link
-                                    href="/admin/dashboard/messages"
-                                    className="group flex items-center space-x-4 rounded-md px-4 py-3 text-gray-600 dark:text-gray-300"
+                                    <path
+                                        className="fill-current text-gray-300 group-hover:text-primary"
+                                        fill-rule="evenodd"
+                                        d="M2 6a2 2 0 012-2h4l2 2h4a2 2 0 012 2v1H8a3 3 0 00-3 3v1.5a1.5 1.5 0 01-3 0V6z"
+                                        clip-rule="evenodd"
+                                    />
+                                    <path
+                                        className="fill-current text-gray-600 group-hover:text-cyan-600 dark:group-hover:text-sky-400"
+                                        d="M6 12a2 2 0 012-2h8a2 2 0 012 2v2a2 2 0 01-2 2H2h2a2 2 0 002-2v-2z"
+                                    />
+                                </svg>
+                                <span className="group-hover:text-gray-700  dark:group-hover:text-gray-50">Documents</span>
+                            </Link>
+                            <Link
+                                href="/vendor/dashboard/support"
+                                className="group w-full flex items-center space-x-4 rounded-md px-4 py-3 text-gray-600 dark:text-gray-300 hover:bg-slate-100 dark:hover:bg-gray-700 hover:text-gray-800 dark:hover:text-gray-50"
+                            >
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    className="h-5 w-5"
+                                    viewBox="0 0 20 20"
+                                    fill="currentColor"
                                 >
-                                    <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        className="h-5 w-5"
-                                        viewBox="0 0 20 20"
-                                        fill="currentColor"
-                                    >
-                                        <path
-                                            className="fill-current text-gray-300 group-hover:text-cyan-300"
-                                            fillRule="evenodd"
-                                            d="M2 6a2 2 0 012-2h4l2 2h4a2 2 0 012 2v1H8a3 3 0 00-3 3v1.5a1.5 1.5 0 01-3 0V6z"
-                                            clipRule="evenodd"
-                                        />
-                                        <path
-                                            className="fill-current text-gray-600 group-hover:text-cyan-600 dark:group-hover:text-sky-400"
-                                            d="M6 12a2 2 0 012-2h8a2 2 0 012 2v2a2 2 0 01-2 2H2h2a2 2 0 002-2v-2z"
-                                        />
-                                    </svg>
-                                    <span className="group-hover:text-gray-700 dark:group-hover:text-gray-50">Messages</span>
-                                </Link>
-                            </li>
+                                    <path
+                                        className="fill-current text-gray-300 group-hover:text-primary"
+                                        fill-rule="evenodd"
+                                        d="M2 6a2 2 0 012-2h4l2 2h4a2 2 0 012 2v1H8a3 3 0 00-3 3v1.5a1.5 1.5 0 01-3 0V6z"
+                                        clip-rule="evenodd"
+                                    />
+                                    <path
+                                        className="fill-current text-gray-600 group-hover:text-cyan-600 dark:group-hover:text-sky-400"
+                                        d="M6 12a2 2 0 012-2h8a2 2 0 012 2v2a2 2 0 01-2 2H2h2a2 2 0 002-2v-2z"
+                                    />
+                                </svg>
+                                <span className="group-hover:text-gray-700  dark:group-hover:text-gray-50">Support</span>
+                            </Link>
+
+                            <Disclosure>
+                                {({ open }) => (
+                                    <>
+                                        <Disclosure.Button className="group w-full flex items-center justify-between space-x-4 rounded-md px-4 py-3 text-gray-600 dark:text-gray-300 hover:bg-slate-100 dark:hover:bg-gray-700 hover:text-gray-800 dark:hover:text-gray-50">
+                                            <div className='flex items-center space-x-2'>
+                                                <p><BsTicketDetailed /></p>
+                                                <p className='group-hover:text-gray-700 dark:group-hover:text-gray-50 '>Ticket system</p>
+                                            </div>
+
+                                            <FaAngleDown
+                                                className={`${open ? 'rotate-180 transform' : ''
+                                                    } h-5 w-5 text-gray-400 dark:text-white`}
+                                            />
+                                        </Disclosure.Button>
+                                        <Disclosure.Panel className="pl-4 w-full pt-2 pb-2 text-sm text-gray-800 dark:text-white">
+                                            <ul className='w-full'>
+                                                <li className='w-full'>
+                                                    <Link
+                                                        href="/vendor/dashboard/ticket_system/all_tickets"
+                                                        className="group w-full flex items-center space-x-4 rounded-md px-4 py-3 text-gray-600 dark:text-gray-300 hover:bg-slate-100 dark:hover:bg-gray-700 hover:text-gray-800 dark:hover:text-gray-50"
+                                                    >
+                                                        <svg
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            className="h-5 w-5"
+                                                            viewBox="0 0 20 20"
+                                                            fill="currentColor"
+                                                        >
+                                                            <path
+                                                                className="fill-current text-gray-300 group-hover:text-primary"
+                                                                fill-rule="evenodd"
+                                                                d="M2 6a2 2 0 012-2h4l2 2h4a2 2 0 012 2v1H8a3 3 0 00-3 3v1.5a1.5 1.5 0 01-3 0V6z"
+                                                                clip-rule="evenodd"
+                                                            />
+                                                            <path
+                                                                className="fill-current text-gray-600 group-hover:text-cyan-600 dark:group-hover:text-sky-400"
+                                                                d="M6 12a2 2 0 012-2h8a2 2 0 012 2v2a2 2 0 01-2 2H2h2a2 2 0 002-2v-2z"
+                                                            />
+                                                        </svg>
+                                                        <span className="group-hover:text-gray-700  dark:group-hover:text-gray-50">All Tickets</span>
+                                                    </Link>
+                                                </li>
+                                                <li className='w-full'>
+                                                    <Link
+                                                        href="/vendor/dashboard/ticket_system/chats"
+                                                        className="group w-full flex items-center space-x-4 rounded-md px-4 py-3 text-gray-600 dark:text-gray-300 hover:bg-slate-100 dark:hover:bg-gray-700 hover:text-gray-800 dark:hover:text-gray-50"
+                                                    >
+                                                        <svg
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            className="h-5 w-5"
+                                                            viewBox="0 0 20 20"
+                                                            fill="currentColor"
+                                                        >
+                                                            <path
+                                                                className="fill-current text-gray-300 group-hover:text-primary"
+                                                                fill-rule="evenodd"
+                                                                d="M2 6a2 2 0 012-2h4l2 2h4a2 2 0 012 2v1H8a3 3 0 00-3 3v1.5a1.5 1.5 0 01-3 0V6z"
+                                                                clip-rule="evenodd"
+                                                            />
+                                                            <path
+                                                                className="fill-current text-gray-600 group-hover:text-cyan-600 dark:group-hover:text-sky-400"
+                                                                d="M6 12a2 2 0 012-2h8a2 2 0 012 2v2a2 2 0 01-2 2H2h2a2 2 0 002-2v-2z"
+                                                            />
+                                                        </svg>
+                                                        <span className="group-hover:text-gray-700  dark:group-hover:text-gray-50">Chats</span>
+                                                    </Link>
+                                                </li>
+                                            </ul>
+                                        </Disclosure.Panel>
+                                    </>
+                                )}
+                            </Disclosure>
+
+
                             {/* {
                                 urls.map((url) =>
                                     <li key={url.id}>
@@ -420,7 +510,7 @@ const layout = ({
                 </div>
             </section>
 
-        </>
+        </div>
     );
 };
 

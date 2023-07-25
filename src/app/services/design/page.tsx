@@ -16,7 +16,7 @@ const page = () => {
 
                                     <p className="mt-8 text-lg text-gray-600 dark:text-gray-400">Our industrial designing services are meant to support industries to ramp up all their product design needs like components, subassemblies, independent aftermarket products, dies and molds, and other essential tools that are used in manufacturing </p>
 
-                                    <Link href='#nonContact' className="w-full px-5 py-2 mt-6 text-sm tracking-wider text-white uppercase transition-colors duration-300 transform bg-primary rounded-lg lg:w-auto hover:bg-primary/90 focus:outline-none focus:bg-primary/90">View More</Link>
+                                    {/* <Link href='#nonContact' className="w-full px-5 py-2 mt-6 text-sm tracking-wider text-white uppercase transition-colors duration-300 transform bg-primary rounded-lg lg:w-auto hover:bg-primary/90 focus:outline-none focus:bg-primary/90">View More</Link> */}
                                 </div>
                             </div>
 
