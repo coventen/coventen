@@ -2,6 +2,13 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 
+type categoryType = {
+    id: number,
+    name: string,
+    image: string,
+    link: string
+}
+
 const Categories = () => {
 
     const Categories = [
@@ -15,7 +22,8 @@ const Categories = () => {
         {
             id: 2,
             name: "Food Testing Lab",
-            image: '/assets/home/lab2.jpg'
+            image: '/assets/home/lab2.jpg',
+            link: "/services/design"
         },
         {
             id: 3,
@@ -65,7 +73,7 @@ const Categories = () => {
                 <div className="mx-auto max-w-screen-2xl px-4 md:px-16">
 
                     <div className="mb-10 md:mb-16">
-                        <h2 className="mb-4 text-center text-2xl font-bold text-gray-800 md:mb-3 lg:text-3xl">Lab Categories</h2>
+                        <h2 className="mb-4 text-center text-2xl font-bold text-gray-800 md:mb-3 lg:text-3xl">Categories</h2>
 
                         <p className="mx-auto max-w-screen-md text-center text-gray-500 md:text-sm">Our aim is to increase quality consciousness of every man-made product, and to reduce manufacturing efforts of young entrepreneurs, we believe in best manufacturing practices will bring out best products, we help every customer getting their best product and every manufacturer producing them best at most sustainable ways…</p>
                     </div>
@@ -74,7 +82,9 @@ const Categories = () => {
                     <div className="grid gap-4 sm:grid-cols-2 md:gap-6 lg:grid-cols-3 xl:grid-cols-4 xl:gap-8">
                         {
                             Categories.map((category) =>
-                                <Link key={category?.id} href={category?.link as string} className="group relative flex h-48 flex-col overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-64 xl:h-80">
+                                <Link
+                                    href={category.link}
+                                    key={category.id} className="group relative flex h-48 flex-col overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-64 xl:h-80">
                                     <Image src={category?.image} height={500} width={500} loading="lazy" alt="Photo by Minh Pham" className="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110" />
 
                                     <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-gray-800 to-primary/30  md:via-transparent"></div>

@@ -73,7 +73,7 @@ const Navbar: React.FC = () => {
         { title: "Products", path: "/products", isDrapdown: false },
         { title: "Dashboard", path: "/admin/dashboard", isDrapdown: false },
         { title: "Services", path: "/services/design", isDrapdown: false },
-        { title: "Learn", path: "/learn", isDrapdown: false },
+        { title: "Learn", path: "/", isDrapdown: false },
     ];
 
     useEffect(() => {
