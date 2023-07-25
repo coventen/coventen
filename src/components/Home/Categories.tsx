@@ -7,8 +7,9 @@ const Categories = () => {
     const Categories = [
         {
             id: 1,
-            name: "3D Testing Lab",
-            image: '/assets/home/lab1.jpg'
+            name: "Design System",
+            image: '/assets/home/lab1.jpg',
+            link: "/services/design"
 
         },
         {
@@ -19,33 +20,39 @@ const Categories = () => {
         {
             id: 3,
             name: "Soil Testing Lab",
-            image: '/assets/home/lab3.jpg'
+            image: '/assets/home/lab3.jpg',
+            link: "/services/design"
         },
         {
             id: 4,
             name: "Metal Testing Lab",
-            image: '/assets/home/lab4.jpg'
+            image: '/assets/home/lab4.jpg',
+            link: "/services/design"
         },
         {
             id: 5,
             name: "Electronics Testing Lab",
-            image: '/assets/home/lab5.jpg'
+            image: '/assets/home/lab5.jpg',
+            link: "/services/design"
         },
         {
             id: 6,
             name: "Chemical Testing Lab",
-            image: '/assets/home/lab6.jpg'
+            image: '/assets/home/lab6.jpg',
+            link: "/services/design"
         },
         {
             id: 7,
             name: "Petroleum Testing Lab",
-            image: '/assets/home/lab4.jpg'
+            image: '/assets/home/lab4.jpg',
+            link: "/services/design"
 
         },
         {
             id: 8,
             name: "Material Testing Lab",
-            image: '/assets/home/lab2.jpg'
+            image: '/assets/home/lab2.jpg',
+            link: "/services/design"
         }
     ]
 
@@ -67,7 +74,7 @@ const Categories = () => {
                     <div className="grid gap-4 sm:grid-cols-2 md:gap-6 lg:grid-cols-3 xl:grid-cols-4 xl:gap-8">
                         {
                             Categories.map((category) =>
-                                <Link key={category?.id} href="#" className="group relative flex h-48 flex-col overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-64 xl:h-80">
+                                <Link key={category?.id} href={category?.link as string} className="group relative flex h-48 flex-col overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-64 xl:h-80">
                                     <Image src={category?.image} height={500} width={500} loading="lazy" alt="Photo by Minh Pham" className="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110" />
 
                                     <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-gray-800 to-primary/30  md:via-transparent"></div>
