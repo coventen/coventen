@@ -12,9 +12,9 @@ import Services2 from '@/components/Home/Services2'
 export default function Home() {
   return (
     <>
-      <nav>
+      {/* <nav>
         <Navbar />
-      </nav>
+      </nav> */}
       <Hero />
 
       <Categories />
