@@ -488,11 +488,11 @@ const layout = ({
                         </div>
                     </div>
 
-                    <div className="px-6 pt-6 2xl:container">
+                    <div className="px-6 pt-6 2xl:container h-full">
                         <div
                             className=" min-h-[90vh] w-full  rounded-xl "
                         >
-                            <span className="dark:text-white">{children}</span>
+                            <div className="dark:text-white h-full">{children}</div>
                         </div>
                     </div>
                 </div>

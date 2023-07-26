@@ -5,7 +5,7 @@ import UserTable from './UserTable';
 const page = () => {
     return (
         <>
-            <div className="antialiased rounded-md bg-white">
+            <div className="antialiased rounded-md bg-white dark:bg-darkBgLight h-full min-h-[80vh]">
                 <div className="container mx-auto px-4 sm:px-8">
                     <div className="py-8">
                         <div>
@@ -16,7 +16,7 @@ const page = () => {
 
                                 <div className="relative">
                                     <select
-                                        className=" h-full rounded-r border-t sm:rounded-r-none sm:border-r-0 border-r border-b block  w-full bg-white border-gray-300 text-gray-700 py-2 px-4 pr-8 leading-tight focus:outline-none focus:border-l focus:border-r focus:bg-white focus:border-gray-500">
+                                        className=" h-full rounded-r border-t sm:rounded-r-none sm:border-r-0 border-r border-b block  w-full bg-white border-gray-300  py-2 px-4 pr-8 leading-tight focus:outline-none focus:border-l focus:border-r  focus:border-gray-500  dark:bg-darkBg dark:border-darkBorder">
                                         <option>All</option>
                                         <option>Active</option>
                                         <option>Inactive</option>
@@ -33,7 +33,7 @@ const page = () => {
                                     </svg>
                                 </span>
                                 <input placeholder="Search"
-                                    className="  sm:rounded-l-none border border-gray-300 border-b block pl-8 pr-6 py-2 w-full bg-white text-sm placeholder-gray-400 text-gray-700 focus:bg-white focus:placeholder-gray-600 focus:text-gray-700 focus:outline-none" />
+                                    className="  sm:rounded-l-none border border-gray-300 border-b block pl-8 pr-6 py-2 w-full bg-white text-sm placeholder-gray-400 text-gray-700  focus:placeholder-gray-600 focus:text-gray-700 focus:outline-none dark:bg-darkBg dark:border-darkBorder" />
                             </div>
                         </div>
                         <div className="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">

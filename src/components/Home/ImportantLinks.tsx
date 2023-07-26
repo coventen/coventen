@@ -48,8 +48,8 @@ const ImportantLinks = () => {
         <section className="text-gray-600 body-font">
             <div className="container px-5 py-24 mx-auto">
                 <div className="text-center mb-20">
-                    <h1 className="text-3xl font-bold text-gray-900 md:text-4xl dark:text-white mb-4">Useful Links</h1>
-                    <p className="text-base leading-relaxed xl:w-2/4 lg:w-3/4 mx-auto text-gray-500s">Blue bottle crucifix vinyl post-ironic four dollar toast vegan taxidermy. Gastropub indxgo juice poutine, ramps microdosing banh mi pug.</p>
+                    <h1 className="text-3xl font-bold  md:text-4xl dark:text-white mb-4">Useful Links</h1>
+                    <p className="text-base leading-relaxed xl:w-2/4 lg:w-3/4 mx-auto text-dimText dark:text-darkDimText">Blue bottle crucifix vinyl post-ironic four dollar toast vegan taxidermy. Gastropub indxgo juice poutine, ramps microdosing banh mi pug.</p>
                     {/* <div className="flex mt-6 justify-center">
                         <div className="w-16 h-1 rounded-full bg-primary inline-flex"></div>
                     </div> */}
@@ -64,7 +64,7 @@ const ImportantLinks = () => {
                                     </svg>
                                 </div>
                                 <div className="flex-grow">
-                                    <h2 className="text-gray-900 text-lg title-font font-medium mb-3">{item.title}</h2>
+                                    <h2 className=" text-lg title-font font-medium mb-3">{item.title}</h2>
                                     <p className="leading-relaxed text-base">{item.details}</p>
                                     <a className="mt-3 text-primary inline-flex items-center">Learn More
                                         <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="w-4 h-4 ml-2" viewBox="0 0 24 24">

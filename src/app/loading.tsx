@@ -3,7 +3,7 @@ import React from 'react';
 const loading = () => {
     return (
         <div>
-            <div className="inset-0 bg-gray-800 fixed flex w-full h-full items-center justify-center duration-300 transition-opacity z-[50]" >
+            <div className="inset-0 bg-white dark:bg-gray-800 fixed flex w-full h-full items-center justify-center duration-300 transition-opacity z-[50]" >
                 <div className="flex-col">
                     <div className="w-24 h-24">
                         <svg viewBox="0 0 860.1 876.5">

@@ -5,12 +5,12 @@
 export default function Companies() {
     return (
         <div className="py-14">
-            <div className="max-w-screen-xl mx-auto px-4 md:px-8">
+            <div className="max-w-screen-2xl mx-auto px-2 lg:px-12">
                 <div className="max-w-xl mx-auto text-center">
-                    <h3 className="text-3xl font-bold text-gray-900 md:text-4xl dark:text-white mb-4">
+                    <h3 className="text-3xl font-bold  md:text-4xl  mb-4">
                         Our Global Customers
                     </h3>
-                    <p className="text-gray-600 mt-3">
+                    <p className="text-dimText dark:text-darkDimText mt-3">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dignissim nibh nisl, vel egestas magna rhoncus at. Nunc elementum efficitur tortor in laoreet.
                     </p>
                 </div>

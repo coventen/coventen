@@ -23,11 +23,11 @@ const RolesPage = () => {
     // };
 
     return (
-        <div className="w-full overflow-hidden bg-white h-full p-7 rounded-lg">
+        <div className="w-full overflow-hidden bg-white p-7 rounded-lg dark:bg-darkBgLight h-full min-h-[80vh]">
             <div className="flex items-center justify-between h-full">
                 <div className=" py-4 md:py-7">
                     <div className="flex items-center justify-between">
-                        <p className="focus:outline-none text-base sm:text-lg md:text-xl lg:text-2xl font-bold leading-normal text-gray-800">Roles</p>
+                        <p className="focus:outline-none text-base sm:text-lg md:text-xl lg:text-2xl font-bold leading-normal ">Roles</p>
 
                     </div>
                 </div>
@@ -42,8 +42,8 @@ const RolesPage = () => {
                                         ' py-2 px-8   mr-3',
                                         '',
                                         selected
-                                            ? ' border-b-2  border-primary text-gray-900'
-                                            : 'text-gray-900 hover:border-b-2   hover:border-primary'
+                                            ? ' border-b-2  border-primary '
+                                            : ' hover:border-b-2   hover:border-primary'
                                     )
                                 }
                             >
@@ -55,8 +55,8 @@ const RolesPage = () => {
                                         ' py-2 px-8   mr-3',
                                         '',
                                         selected
-                                            ? ' border-b-2  border-primary text-gray-900'
-                                            : 'text-gray-900 hover:border-b-2  hover:border-primary'
+                                            ? ' border-b-2  border-primary '
+                                            : ' hover:border-b-2  hover:border-primary'
                                     )
                                 }
                             >

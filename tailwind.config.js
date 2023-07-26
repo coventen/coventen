@@ -5,16 +5,17 @@ module.exports = {
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
-  darkMode: 'class',
+  // darkMode: 'class',
   theme: {
     extend: {
       colors: {
         primary: '#408dfb',
-        highlight: '#00ff84',
-        secondary: '#6440fb',
-        primaryLight: '#6366f1',
         bgLight: '#f5f7fe',
-        dimText: '#777777',
+        dimText: '#616876',
+        darkDimText: '#9ca3af',
+        darkBorder: '#303949',
+        darkBg: '#111827',
+        darkBgLight: '#1f2937',
         desktopPrimary: '#00406E',
         desktopText: '#3D3D3D',
         desktopPrimaryLight: '#E2F3FF',

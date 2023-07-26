@@ -9,61 +9,61 @@ export default function Services() {
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
                 </svg>,
-            title: "Designing Services",
-            desc: "Test and validate the very latest Advanced Driver Assistance Systems with centimetre-level accuracy, including Park Assist, Autonomous Emergency Braking and Lane Keeping."
+            title: "3D scanning",
+            desc: "3D scanning systems use light, sensors, lasers and Structured light sources to captures the three-dimensional shape and characteristics of an object."
         },
         {
             icon:
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z" />
                 </svg>,
-            title: "Autonomous Vehicle Testing",
-            desc: "VBOX systems can be used for validating the accuracy and performance of autonomous systems in real-world environments"
+            title: "3D inspection",
+            desc: "3D inspection refers to the method or process of using 3D scanning technology to assess and evaluate the quality, accuracy, and dimensional characteristics of an object or part."
         },
         {
             icon:
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
                 </svg>,
-            title: "Brake & Tyre Testing",
-            desc: "Accurately measure braking distance and pedal force in accordance with SAE and ECE standards, along with tyre performance, all year round."
+            title: "3D validation",
+            desc: "3D validation will be performed using non-contact and contact systems, when you have a design and first component, when you need to validate them through high precision measurements."
         },
         {
             icon:
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M6.429 9.75L2.25 12l4.179 2.25m0-4.5l5.571 3 5.571-3m-11.142 0L2.25 7.5 12 2.25l9.75 5.25-4.179 2.25m0 0L21.75 12l-4.179 2.25m0 0l4.179 2.25L12 21.75 2.25 16.5l4.179-2.25m11.142 0l-5.571 3-5.571-3" />
                 </svg>,
-            title: "Build on your terms",
-            desc: "Accurately measure braking distance and pedal force in accordance with SAE and ECE standards, along with tyre performance, all year round."
+            title: "3D to Cad",
+            desc: "Both non-contact and contact measurement systems can measure and produce 3D designs that can be later validated or recreated to final CAD (Computer-Aided Design)."
         },
         {
             icon:
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
                 </svg>,
-            title: "Pass-By Noise",
-            desc: "Accurately measure braking distance and pedal force in accordance with SAE and ECE standards, along with tyre performance, all year round."
+            title: "3D Onsight inspections ",
+            desc: "Our 3D scanning and inspection services can be customised and performed on site based on your requirements."
         },
         {
             icon:
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z" />
                 </svg>,
-            title: "Performance Testing",
-            desc: "Accurately measure braking distance and pedal force in accordance with SAE and ECE standards, along with tyre performance, all year round.."
+            title: "3D to Print",
+            desc: "Our 3D printing services will help you prototype and reproduce 3D scanned and CAD designed products to real products, our 3D to Print services are suitable to all manufacturing."
         },
     ]
 
     return (
         <section className="py-14">
-            <div className="max-w-screen-xl mx-auto px-4 text-gray-600 md:px-8">
+            <div className="max-w-screen-2xl mx-auto px-2 lg:px-12  md:px-8">
                 <div className="relative max-w-2xl mx-auto sm:text-center">
                     <div className="relative z-10 mt-16">
-                        <h3 className="text-gray-800 text-3xl font-semibold sm:text-4xl mb-3">
+                        <h3 className=" text-3xl font-semibold sm:text-4xl mb-3">
                             Popular Services
                         </h3>
 
-                        <p className="mx-auto max-w-screen-md text-center text-gray-500 md:text-sm">We’re India’s leading quality consciousness and test service providers, perhaps we are first in the domain to bring these services for manufacturers in India connecting global quality standards and labs</p>
+                        <p className="mx-auto max-w-screen-md text-center text-dimText dark:text-darkDimText md:text-sm">We’re India’s leading quality consciousness and test service providers, perhaps we are first in the domain to bring these services for manufacturers in India connecting global quality standards and labs</p>
                     </div>
                     {/* <div aria-hidden="true" className="absolute inset-0 my-auto max-w-xsh-32 rotate-45 bg-gradient-to-r from-[#00b1fd] to-[#71faca] blur-[90px] opacity-50 dark:opacity-20">
                     </div> */}
@@ -73,14 +73,14 @@ export default function Services() {
                     <ul className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
                         {
                             features.map((item, idx) => (
-                                <li key={idx} className="bg-white/30 space-y-3 p-4 border rounded-lg">
+                                <li key={idx} className="bg-white/30  space-y-3 p-4 border rounded-lg dark:bg-darkBgLight dark:border-darkBorder">
                                     <div className="text-primary pb-3">
                                         {item.icon}
                                     </div>
-                                    <h4 className="text-lg text-gray-800 font-semibold">
+                                    <h4 className="text-lg  font-semibold">
                                         {item.title}
                                     </h4>
-                                    <p>
+                                    <p className="text-dimText dark:text-darkDimText">
                                         {item.desc}
                                     </p>
                                 </li>

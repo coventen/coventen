@@ -4,14 +4,14 @@ const Footer = () => {
     return (
 
         <footer>
-            <div className="bg-gray-50 dark:bg-gray-800 pt-8 md:pt-20">
+            <div className="bg-gray-50 dark:bg-darkBg border-t dark:border-darkBorder pt-5 mt-8 md:mt-20">
                 <div className="container m-auto space-y-8 px-6 text-gray-600 dark:text-gray-300 ">
                     <div>
                         <div
                             className="mb-6 items-center justify-between gap-6 py-6 sm:flex md:mb-16 md:space-y-6 md:py-0"
                         >
                             {/* <img width="100" height="42" src="images/logo.svg" alt="logo tailus" className="w-32" /> */}
-                            <p className='text-gray-900 text-2xl font-bold '>Company Logo</p>
+                            <p className=' text-2xl font-bold '>Company Logo</p>
                             <div
                                 className="mt-6 flex flex-col-reverse flex-wrap gap-6 sm:mt-0 sm:flex-row sm:items-center"
                             >
@@ -147,34 +147,11 @@ const Footer = () => {
                                             </a
                                             >
                                         </li>
-                                        <li>
-                                            <form action="">
-                                                <label htmlFor="newsletter" className="text-lg text-gray-700 dark:text-gray-200"
-                                                >Subscribe to our newsletter
-                                                </label
-                                                >
-                                                <div className="relative mt-4">
-                                                    <input
-                                                        type="email"
-                                                        name="newsletter"
-                                                        id="newsletter"
-                                                        placeholder="Your email"
-                                                        className="invalid:outline-none placeholder-gray-600 dark:placeholder-white rounded-3xl w-full bg-gray-100 dark:bg-gray-900 px-4 py-3 ring-1 ring-gray-200 dark:ring-gray-700 invalid:ring-red-400"
-                                                    />
-                                                    <button
-                                                        type="submit"
-                                                        title="Submit"
-                                                        className="absolute right-0 w-max rounded-r-3xl bg-primary py-3 px-6 text-center transition"
-                                                    >
-                                                        <span className="font-semibold text-gray-900"> Send </span>
-                                                    </button>
-                                                </div>
-                                            </form>
-                                        </li>
+
                                     </ul>
                                 </div>
                             </div>
-                            <div className="flex justify-between border-t border-gray-400 py-8 text-gray-900">
+                            <div className="flex justify-between border-t border-gray-400  dark:border-darkBorder py-8 ">
                                 <span>&copy; Company Name - 2023</span>
                                 <span>All right reserved</span>
                             </div>

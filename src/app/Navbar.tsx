@@ -85,15 +85,15 @@ const Navbar: React.FC = () => {
 
     return (
         <>
-            <nav className={`relative z-[9000] bg-white/20 backdrop-blur-lg w-full md:static md:text-sm md:border-none ${state ? "shadow-lg rounded-b-xl md:shadow-none" : ""}`}>
+            <nav className={`relative z-[9000] bg-white/20  backdrop-blur-lg w-full md:static md:text-sm md:border-none ${state ? "shadow-lg rounded-b-xl md:shadow-none" : ""}  dark:bg-darkBg dark:text-white`}>
                 <div className="items-center gap-x-14 px-4 py-3 top-0 max-w-screen-xl mx-auto md:flex md:px-8">
                     <div className="flex items-center justify-between py-3 md:py-5 md:block">
                         <div >
                             {/* <img src="https://www.floatui.com/logo.svg" width={120} height={50} alt="Float UI logo" /> */}
-                            <Link href='/' className='text-xl font-bold text-gray-900'>Company Logo</Link>
+                            <Link href='/' className='text-xl font-bold text-gray-900 dark:text-white'>Company Logo</Link>
                         </div>
                         <div className="md:hidden">
-                            <button className="text-gray-500 hover:text-gray-800" onClick={() => setState(!state)}>
+                            <button className="text-gray-500 hover:text-gray-800 dark:text-white" onClick={() => setState(!state)}>
                                 {state ? (
                                     <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" viewBox="0 0 20 20" fill="currentColor">
                                         <path
@@ -120,7 +120,7 @@ const Navbar: React.FC = () => {
                                 <li key={idx}>
                                     {item.isDrapdown ? (
                                         <button
-                                            className="w-full flex items-center justify-between gap-1 text-gray-700 hover:text-primary"
+                                            className="w-full flex items-center justify-between gap-1 text-gray-700 hover:text-primary dark:text-white"
                                             onClick={() => setDrapdownState({ idx, isActive: !drapdownState.isActive })}
                                         >
                                             {item.title}
@@ -143,12 +143,12 @@ const Navbar: React.FC = () => {
                                             )}
                                         </button>
                                     ) : (
-                                        <a href={item.path} className="block text-gray-700 hover:text-primary">
+                                        <a href={item.path} className="block text-gray-700 dark:text-white hover:text-primary">
                                             {item.title}
                                         </a>
                                     )}
                                     {item.isDrapdown && drapdownState.idx === idx && drapdownState.isActive ? (
-                                        <div className="mt-6 bg-white inset-x-0 top-20 w-full md:absolute md:border-y md:shadow-md md:mt-0 z-[999999]">
+                                        <div className="mt-6 bg-white inset-x-0 top-20 w-full md:absolute md:border-y md:shadow-md md:mt-0 z-[999999999999] dark:bg-darkBgLight dark:text-white">
                                             <ul className="max-w-screen-xl bg-white mx-auto grid items-center gap-6 md:p-8 md:grid-cols-2 lg:grid-cols-3">
                                                 {item.navs?.map((dropdownItem, idx) => (
                                                     <li key={idx}>
@@ -179,16 +179,16 @@ const Navbar: React.FC = () => {
                             ))}
                             <div className="flex-1 items-center justify-end gap-x-6 space-y-3 md:flex md:space-y-0">
                                 <li>
-                                    <Link href="/auth/login" className="block py-3 text-center text-gray-700 hover:text-primary border rounded-lg md:border-none">
+                                    <Link href="/auth/login" className="block py-3 text-center  hover:text-primary border rounded-lg md:border-none">
                                         Log in
                                     </Link>
                                 </li>
                                 <li>
                                     <Link
                                         href="/auth/signup"
-                                        className="block py-3 px-4 font-medium text-center text-white bg-primary hover:bg-indigo-500 active:bg-indigo-700 active:shadow-none rounded-lg shadow md:inline"
+                                        className="block py-3 px-4 font-medium text-center text-white bg-primary active:shadow-none rounded-lg shadow md:inline"
                                     >
-                                        Sign in
+                                        Sign up
                                     </Link>
                                 </li>
                             </div>

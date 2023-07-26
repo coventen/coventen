@@ -13,13 +13,13 @@ const ServiceCard = ({ title }: IServiceCard) => {
         <div className="w-full mt-6 lg:mt-0 overflow-hidden p-2" >
             <div className="w-full flex  justify-between">
                 <div>
-                    <p className="font-medium text-gray-700">{title}</p>
+                    <p className="font-medium ">{title}</p>
                     {/* <p className="text-xs text-gray-400 mt-2">Non-contact measurement systems are perfect</p> */}
                 </div>
                 <div>
                     <button
 
-                        className="px-3 py-1 text-sm  font-medium text-blue-500 flex items-center space-x-1 rounded-md hover:bg-blue-50 transition duration-300"
+                        className="px-3 py-1 text-sm  font-medium text-primary flex items-center space-x-1 rounded-md hover:bg-blue-50 transition duration-300"
                     >
                         <span>More</span>
                         <FaArrowRight size={16} />
@@ -44,15 +44,15 @@ const ServiceCard = ({ title }: IServiceCard) => {
                             <tbody>
                                 {['3D to Print ', '3D inspection', '3D to Cad', '3D validation'].map(item =>
 
-                                    <tr key={item} className="border-b border-gray-200">
+                                    <tr key={item} className="border-b border-gray-200 dark:border-darkBorder">
                                         <td className="py-4 whitespace-nowrap">
                                             <div className="flex items-center space-x-2">
                                                 <div
-                                                    className="flex items-center justify-center h-7 w-7 bg-gray-300 text-sm  font-bold rounded-lg"
+                                                    className="flex items-center justify-center h-7 w-7 bg-gray-300  text-sm  font-bold rounded-lg dark:bg-primary dark:text-white"
                                                 >
                                                     H
                                                 </div>
-                                                <span className='text-sm font-medium text-gray-600'>
+                                                <span className='text-sm font-medium '>
                                                     {item}
                                                 </span>
                                             </div>

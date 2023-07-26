@@ -7,9 +7,9 @@ const AboutUs = () => {
             <div className=" relative z-10">
                 {/* <div className="absolute inset-0 max-w-xs mx-auto h-96 blur-[90px] bg-gradient-to-br from-primary/30 to-slate-400" ></div> */}
 
-                <div className="max-w-screen-xl m-auto px-6 text-gray-600 ">
-                    <div className="lg:bg-gray-50 dark:lg:bg-darker lg:p-16 rounded-xl space-y-6 md:flex flex-row-reverse md:gap-6 justify-center md:space-y-0 lg:items-center">
-                        <div className="md:5/12 lg:w-1/2 lg:h-96">
+                <div className="max-w-screen-2xl m-auto px-2 lg:px-12  ">
+                    <div className="bg-gray-50  lg:p-16 rounded-xl space-y-6 md:flex flex-row-reverse md:gap-6 justify-center md:space-y-0 lg:items-center dark:bg-darkBgLight">
+                        <div className="md:5/12 lg:w-1/2 lg:h-96 ">
                             <Image
                                 src="/assets/home/hero.jpg"
                                 alt="image"
@@ -20,13 +20,13 @@ const AboutUs = () => {
                             />
                         </div>
                         <div className="md:7/12 lg:w-1/2">
-                            <h2 className="text-3xl font-bold text-gray-900 md:text-4xl dark:text-white">
+                            <h2 className="text-3xl font-bold md:text-4xl dark:text-white">
                                 What We Do
                             </h2>
                             {/* <p className="my-3 text-gray-600 dark:text-gray-300 md:text-sm">
                                 We create best in class product designs, validation and manufacturing support for automotive, aerospace, electrical and electronics industries globally at present and more services are on its way to simplify your manufacturing needs
                             </p> */}
-                            <p className="my-3 text-gray-600 dark:text-gray-300 md:text-sm">
+                            <p className="my-3 text-dimText dark:text-darkDimText md:text-sm">
                                 We have hundreds of OEM associate with us thousands of products, solutions and facilities to help manufacturers simplifying their product inventio
                             </p>
                             <div className="divide-y space-y-4 divide-gray-100 dark:divide-gray-800">
@@ -37,8 +37,8 @@ const AboutUs = () => {
                                         </svg>
                                     </div>
                                     <div className="w-5/6">
-                                        <h4 className="font-semibold text-lg text-gray-700 dark:text-indigo-300">Laser Measurements and Trackers</h4>
-                                        <p className="text-gray-500 dark:text-gray-400 text-sm">We have trackers of different technologies like laser based, flexi mounted, mounted on arms, mounted on CMMs.</p>
+                                        <h4 className="font-semibold text-lg dark:text-indigo-300">Laser Measurements and Trackers</h4>
+                                        <p className="text-dimText dark:text-darkDimText text-sm">We have trackers of different technologies like laser based, flexi mounted, mounted on arms, mounted on CMMs.</p>
                                     </div>
                                 </div>
                                 <div className="pt-4 flex gap-4 md:items-center">
@@ -48,8 +48,8 @@ const AboutUs = () => {
                                         </svg>
                                     </div>
                                     <div className="w-5/6">
-                                        <h4 className="font-semibold text-lg text-gray-700 dark:text-teal-300">Probe Systems or Contact Measurement </h4>
-                                        <p className="text-gray-500 dark:text-gray-400">Asperiores nemo possimus nesciunt quam mollitia.</p>
+                                        <h4 className="font-semibold text-lg  dark:text-teal-300">Probe Systems or Contact Measurement </h4>
+                                        <p className="text-dimText dark:text-darkDimText">Asperiores nemo possimus nesciunt quam mollitia.</p>
                                     </div>
                                 </div>
                                 <div className="pt-4 flex gap-4 md:items-center">
@@ -60,7 +60,7 @@ const AboutUs = () => {
                                     </div>
                                     <div className="w-5/6">
                                         <h4 className="font-semibold text-lg text-gray-700 dark:text-teal-300">Live and post-event data analysis</h4>
-                                        <p className="text-gray-500 dark:text-gray-400">Asperiores nemo possimus nesciunt quam mollitia.</p>
+                                        <p className="text-dimText dark:text-darkDimText">Asperiores nemo possimus nesciunt quam mollitia.</p>
                                     </div>
                                 </div>
                             </div>
