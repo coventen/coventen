@@ -12,22 +12,22 @@ export type NavItem = {
 export const defaultNavItems: NavItem[] = [
     {
         label: "Dashboard",
-        href: "/",
+        href: "/desktopHome",
         icon: <LuLayoutDashboard className="w-6 h-6" />,
     },
-    {
-        label: "Notifications",
-        href: "/team",
-        icon: <LuBellRing className="w-6 h-6" />,
-    },
+    // {
+    //     label: "Notifications",
+    //     href: "/team",
+    //     icon: <LuBellRing className="w-6 h-6" />,
+    // },
     {
         label: "Projects",
-        href: "/projects",
+        href: "/desktopHome/projects",
         icon: <HiFolder className="w-6 h-6" />,
     },
     {
-        label: "Calendar",
-        href: "/calendar",
+        label: "Log in",
+        href: "/desktopHome/auth/login",
         icon: <HiCalendar className="w-6 h-6" />,
     },
 ];

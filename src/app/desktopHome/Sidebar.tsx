@@ -93,7 +93,7 @@ const Sidebar = ({
                         "grid place-content-stretch p-4": true,
                     })}
                 >
-                    <div className="flex gap-4 items-center h-11 overflow-hidden">
+                    <Link href="/desktopHome/profile" className="flex gap-4 cursor-pointer items-center h-11 overflow-hidden">
                         <Image
                             src={"/assets/no_user.png"}
                             height={36}
@@ -102,14 +102,14 @@ const Sidebar = ({
                             className="rounded-full"
                         />
                         {!collapsed && (
-                            <div className="flex flex-col">
+                            <Link href="/desktopHome/profile" className="flex flex-col">
                                 <span className="text-desktopText my-0">Tom Cook</span>
-                                <Link href="/" className="text-desktopText text-sm">
+                                <span className="text-desktopText text-sm">
                                     View Profile
-                                </Link>
-                            </div>
+                                </span>
+                            </Link>
                         )}
-                    </div>
+                    </Link>
                 </div>
             </div>
         </div>

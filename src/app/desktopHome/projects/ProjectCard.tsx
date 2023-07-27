@@ -69,27 +69,27 @@ const ProjectCard = () => {
                                 <div
                                     key={index}
 
-                                    className={`accordion-header    cursor-pointer transition flex space-x-5 px-3 items-center h-auto ${expandedIndex === index ? "bg-white" : ""
+                                    className={`accordion-header    cursor-pointer transition flex space-x-5 px-2 xl:px-3 items-center h-auto ${expandedIndex === index ? "bg-white" : ""
                                         }`}
                                     onClick={() => handleAccordionClick(index)}
                                 >
                                     <i className={`fas ${expandedIndex === index ? "fa-minus" : "fa-plus"}`}></i>
                                     <div className="flex items-center justify-between   p-3 ">
-                                        <div className='flex  flex-col space-y-3 w-[70%]'>
-                                            <p className='text-desktopText font-semibold text-sm'>
+                                        <div className='flex  flex-col space-y-3 w-80% xl:w-[70%]'>
+                                            <p className='text-desktopText font-semibold text-[10px] xl:text-sm'>
                                                 Username:  XYZAdmin
                                             </p>
-                                            <p className="text-xs lg:text-2xl text-desktopPrimary  font-semibold ">
+                                            <p className="text-sm lg:text-2xl text-desktopPrimary font-bold xl:font-semibold ">
                                                 {assing?.title}
                                             </p>
-                                            <p className='text-sm text-desktopTextLight'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eveniet facere cum esse consequatur, maxime, deleniti provident explicabo voluptate beatae nisi accusantium adipisci asperiores delectus totam quae? </p>
-                                            <p className='text-primary text-xs'>Created: July 5, 2023 | Last Updated: July 20, 2023</p>
+                                            <p className='text-xs xl:text-sm text-desktopTextLight'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eveniet facere cum esse consequatur, maxime, deleniti provident explicabo voluptate beatae nisi accusantium adipisci asperiores delectus totam quae? </p>
+                                            <p className='text-primary text-[10px] xl:text-sm    '>Created: July 5, 2023 | Last Updated: July 20, 2023</p>
                                         </div>
 
 
-                                        <div className='flex items-center justify-center'>
+                                        <div className='flex items-center justify-center ml-3'>
                                             <button
-                                                className=" bg-white border-2 border-desktopPrimary text-desktopPrimary font-bold rounded-lg px-6 py-3"
+                                                className=" bg-white border-2 border-desktopPrimary text-desktopPrimary font-bold text-sm xl:text-base rounded-lg px-4 xl:px-6 py-2 xl:py-3"
                                             // onClick={() => handleOpen(1)}
                                             >
                                                 {expandedIndex === index ? 'Hide Details' : 'View'}

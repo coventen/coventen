@@ -12,22 +12,23 @@ const Projects = () => {
         },
         {
             id: 2,
-            title: 'Task Completed',
+            title: 'Completed',
             value: 100
 
         },
         {
             id: 3,
-            title: 'Under Process',
+            title: 'On gonig',
             value: 100
         },
         {
             id: 4,
             title: 'Tickets',
             value: 300
-        }, {
+        },
+        {
             id: 5,
-            title: 'New Requests',
+            title: 'New',
             value: 200
         }
     ]
@@ -36,7 +37,7 @@ const Projects = () => {
     return (
         <div className='p-4 h-full max-h-screen  flex flex-col space-y-4'>
             {/* top cards section */}
-            <section className='grid grid-cols-1 lg:grid-cols-5 gap-4 h-[120px]'>
+            <section className='grid grid-cols-5 gap-4 '>
                 {
                     cardsData.map((card) =>
                         <div key={card.id}>
@@ -48,8 +49,8 @@ const Projects = () => {
             {/* project  sections  */}
             <section>
                 <div className='flex items-center justify-between'>
-                    <h2 className='text-3xl font-semibold text-desktopPrimary'>Projects</h2>
-                    <button className='bg-desktopPrimary text-lg font-semibold text-white px-8 py-4 rounded-md flex items-center justify-center space-x-3'>
+                    <h2 className='md:text-2xl xl:text-3xl font-semibold text-desktopPrimary'>Projects</h2>
+                    <button className='bg-desktopPrimary md:text-base xl:text-lg font-semibold text-white px-6 xl:px-8 py-2 xl:py-4 rounded-md flex items-center justify-center space-x-3'>
                         <p>Create Project</p>
                         <span><FaPlusCircle /></span>
                     </button>

@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import React from 'react';
 
 const page = () => {
@@ -32,7 +33,7 @@ const page = () => {
 
                                 <div className="flex  w-full mt-8">
                                     <div className="w-full px-3 mb-5 mt-6">
-                                        <button className="block text-xl w-full  bg-desktopPrimary/80 hover:bg-desktopPrimary focus:bg-desktopPrimary text-white rounded-lg px-3 py-4 font-semibold">Log in now</button>
+                                        <Link href='/desktopHome' className="block text-xl w-full  bg-desktopPrimary/80 hover:bg-desktopPrimary focus:bg-desktopPrimary text-white text-center rounded-lg px-3 py-4 font-semibold">Log in now</Link>
                                     </div>
                                 </div>
                             </form>
