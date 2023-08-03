@@ -1,0 +1,90 @@
+[
+  {
+    "id": 1,
+    "title": "Acoustic Emission Testing (AE)",
+    "subTitle": "What is Acoustic Emission Testing (AE) ",
+    "desc": "Acoustic Emission Testing is a versatile NDT method used in a wide range of applications to monitor, detect, and evaluate defects, structural changes, and potential failure mechanisms in materials and structures. Its real-time monitoring capabilities make it particularly valuable in safety-critical industries where early detection of damage can prevent catastrophic failures and ensure the long-term reliability of assets.",
+    "points": [
+      "AE testing observe, understand and monitor the release of acoustic waves from materials under stress or undergoing deformation, used to detect defects or monitor structural integrity, acoustic emission test monitors and analyses the acoustic waves emitted by materials and structures under stress or undergoing deformation.",
+      "Structural Health Monitoring (SHM): AE is employed to continuously monitor the integrity of structures such as bridges, buildings, pipelines, and aerospace components. It can detect and assess the growth of defects, such as cracks, in real-time, allowing for timely maintenance and preventing catastrophic failures.",
+      "Pressure Vessels and Tanks: AE is used to detect and monitor the growth of defects like corrosion, pitting, and cracking in pressure vessels and storage tanks, ensuring their safe operation and compliance with industry standards.",
+      "Welding Inspection: During and after welding processes, AE can be utilized to identify weld quality issues, such as weld discontinuities or incomplete fusion.",
+      "Pipeline Inspection: AE is employed to monitor the integrity of pipelines for leaks, cracks, and other defects, particularly in oil and gas, water distribution, and chemical industries.",
+      "Composite Material Inspection: AE is used to detect and evaluate defects in composite materials used in aerospace, automotive, and other industries, where conventional NDT methods may be less effective",
+      "Material Testing: AE is utilized in laboratory settings to study the behaviour of materials under stress, load, or fatigue conditions.",
+      "Rock Mechanics and Mining: AE is applied to monitor the stability of rock masses in mines, tunnels, and civil engineering projects, helping to predict potential rock failures.",
+      "Concrete and Civil Structures: AE can be used to assess the health of concrete structures and identify early signs of damage, such as cracking and reinforcement corrosion.",
+      "Bolt and Fastener Inspection: AE is employed to monitor the integrity of bolts and fasteners in critical applications, such as aerospace and heavy machinery.",
+      "Fatigue Crack Growth Monitoring: AE can detect the growth of fatigue cracks in materials subjected to cyclic loading, helping to predict the remaining useful life of components.",
+      "Composite Pressure Vessels: AE is used to evaluate the integrity of composite pressure vessels, commonly used in the aerospace and transportation industries.",
+      "Power Generation Equipment: AE is applied to monitor the condition of turbines, generators, and other power generation equipment to detect potential defects and failures."
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Eddy Current Testing (ET)",
+    "subTitle": "Why Eddy Current Testing (ET) ",
+    "desc": "Eddy Current Testing (ET) is a widely used non-destructive testing (NDT) method that is based on the principle of electromagnetic induction. It is primarily employed to inspect conductive materials for surface and near-surface defects, as well as to assess material properties such as conductivity and thickness. Eddy Current Testing is non-contact and capable of rapid inspections, making it well-suited for various industries, including aerospace, automotive, manufacturing, and power generation.",
+    "points": [
+      "Principles of Eddy Current Testing (ET)\n        The fundamental principle of Eddy Current Testing involves the generation of alternating current in a probe coil when it is brought close to a conductive material. This alternating current creates changing magnetic fields that induce eddy currents in the conductive material. The presence of defects, variations in material thickness, or changes in electrical conductivity causes disruptions in the eddy currents. These disruptions are detected by the probe coil, and the resulting signals are analysed to identify defects or evaluate material properties.\n        ",
+      "Eddy Current Testing can be performed using various types of probes, such as surface probes, encircling probes, and bobbin probes, each tailored for specific applications. The method is sensitive to defects near the surface and can detect surface-breaking cracks, corrosion, and material degradation. It is particularly useful for inspecting non-magnetic materials, including metals, metal alloys, and some non-metallic materials with conductive properties",
+      "One of the key advantages of Eddy Current Testing is its ability to perform inspections through thin coatings or paint, making it suitable for quality control of coated components. Additionally, Eddy Current Testing can be utilized for sorting materials based on their electrical conductivity and determining material hardness and heat treatment conditions",
+      "As with any NDT method, proper training and experience are essential for Eddy Current Testing inspectors to accurately interpret the signals and identify relevant indications. The inspection results are typically displayed in real-time on an instrument screen, allowing immediate evaluation and on-site decision-making",
+      "In summary, Eddy Current Testing is a versatile and valuable NDT technique for inspecting conductive materials for surface defects, assessing material properties, and ensuring the integrity and quality of critical components in various industries. Its rapid inspection capabilities and non-contact nature make it an essential tool for modern quality assurance and non-destructive evaluatio",
+      "We support all the industry based standards like ASTM, ASME, IS and all other standards you need"
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Infrared Thermography (IRT)",
+    "subTitle": "Why Infrared Thermography (IRT) ",
+    "desc": "",
+    "points": []
+  },
+  {
+    "id": 4,
+    "title": "Liquid Penetrant Testing (PT) or Dye Penetrant Testing (DP)",
+    "subTitle": "What is Liquid Penetrant Testing (PT) or Dye Penetrant Testing (DP) ",
+    "desc": "Another versatile non-destructive testing (NDT) method used to detect surface-breaking defects in non-porous materials. It is widely used to inspect a variety of components, including welds, castings, forgings, and machined parts, for surface flaws such as cracks, porosity, laps, and other discontinuities that may not be visible to the naked eye.",
+    "points": [
+      "This method of inspection conducted using visible dye penetrants for visual examination like low sulfur content visible dye penetrants are used, similarly Fluorescent Penetrant Kit with Visible Dye Developer, High-Temperature Visible Dye Penetrants are used to perform this method based on your need in some cases fluorescent dye penetrants with enhanced sensitivity is required in such cases fluorescent penetrants are examined under ultraviolet (UV) light, making small or subtle indications more detectable",
+      "Applications of Visible Dye Penetrants test or DP test are:",
+      "Weld Inspection: Visible dye penetrants are frequently used to inspect welds for surface cracks, porosity, lack of fusion, and other defects.",
+      "Casting Inspection: In the casting industry, visible dye penetrants help identify defects like shrinkage cracks and surface discontinuities.",
+      "Forging Inspection: Visible dye penetrants are used to detect surface defects in forged components.",
+      "Machined Part Inspection: Visible dye penetrants can be applied to machined parts to identify surface defects that may have occurred during the machining process.",
+      "General Surface Inspection: Visible dye penetrants are also used for general surface inspection of materials to identify any surface flaws or irregularities.",
+      "DP is suitable for all the manufacturers like aerospace, automotive, petrochemical, construction, railways etc.",
+      "Our Liquid Penetrant Testing (PT) can support customers with all their requirements and standards like ASME, ASTM, NAS, ASNT, ISO and so on",
+      "If you’re looking for suitable equipment for testing or purchase, or to know more technical details, visit our products division  "
+    ]
+  },
+  {
+    "id": 5,
+    "title": "Magnetic Particle Testing (MT)",
+    "subTitle": "Why Magnetic Particle Testing (MT)",
+    "desc": "We shortly call this method as MT and is used to detect surface and near-surface defects in ferromagnetic materials. Magnetic particles are applied to the surface, and the presence of defects is revealed by the attraction and accumulation of the particles. It relies on the principle that magnetic field distortion occurs around a defect, and this distortion can be visualized using magnetic particles. ",
+    "points": [
+      "The core fundamental principle of Magnetic Particle /MT Testing is based on the interaction between magnetic fields and material defects. When a magnetic field is applied to a ferromagnetic material, such as iron, steel, or nickel, the magnetic field lines pass through the material, creating an invisible magnetic flux. If there is a defect, such as a crack, porosity, or inclusion, present on or near the surface, the magnetic field lines become distorted, causing a leakage of the magnetic flux.",
+      "During the inspection, a magnetic field is induced into the test object either through direct magnetization (using a magnetic yoke or electromagnetic coil) or through indirect magnetization (using a magnetic bench or prod). Next, magnetic particles are applied to the surface of the test object in the form of dry particles or as a wet suspension (magnetic ink). These particles are specifically designed to be attracted to areas of magnetic flux leakage, making defects visible",
+      "If there is a surface or near-surface defect present, the magnetic particles will accumulate at the defect site, forming a visible indication. The indications take the form of well-defined lines or clusters, outlining the shape and extent of the defect. Inspectors can then examine these indications to assess the type, size, and location of the detected defects.",
+      "One of the advantages of Magnetic Particle Testing is its ability to inspect large areas rapidly. It is a cost-effective method that allows for quick and reliable detection of defects, even in complex geometries and hard-to-reach locations. Additionally, the technique can be used on various shapes and sizes of ferromagnetic materials, making it highly versatile.",
+      "Overall, Magnetic Particle Testing is an essential tool in the NDT toolkit, providing valuable information about the integrity and quality of ferromagnetic materials, contributing to the safety and reliability of critical components and structures in a wide range of industries.",
+      "Our magnetic particle testing (MT) can support customers with all their related requirements and standards like ASME, ASTM, NAS, ASNT, ISO and so on",
+      "If you are looking for suitable equipment for testing or purchase, or to know more technical details, visit our products section "
+    ]
+  },
+  {
+    "id": 6,
+    "title": "NDT Objective",
+    "subTitle": "What is NDT Objective",
+    "desc": "Non-destructive testing (NDT) is a group of techniques used to inspect and evaluate materials, components, and structures without causing damage to the tested objects. These methods are essential in various industries to ensure the safety, reliability, and quality of products and assets",
+    "points": [
+      "Non-destructive testing’s are basically cost effective, reliable and quick, for those who are looking for faster results we have suitable methods to perform NDT, greater versatility and reduction of downtime makes this tests as most preferred choices",
+      "Here are some advantages of Non-destructive testing:",
+      "NDT helps in avoiding costly failures, reducing downtime, and increasing the lifespan of components, ultimately leading to long-term cost savings , irrespective of type of material like plastics to metals or alloys we have suitable non-destructive testing method,",
+      "Some of our Non-destructive testing services are available on demand and on site too",
+      "When it comes to standards, we support hundreds of standards including CE, ASTM, ASME, BIS, IS and so on in Non-destructive testing"
+    ]
+  }
+]

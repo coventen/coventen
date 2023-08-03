@@ -76,7 +76,7 @@ const layout = ({
     children: React.ReactNode
 }) => {
     return (
-        <div className='fixed top-0 z-[99999999999] w-full'>
+        <div className='absolute overflow-scroll top-0 z-[99999999999] w-full min-h-screen h-auto'>
             <section className="bg-gray-100 dark:bg-gray-900 w-full ">
                 <aside
                     className="fixed top-0 z-10 ml-[-100%] flex h-screen w-full flex-col justify-between border-r bg-white px-6 pb-3 transition duration-300 md:w-4/12 lg:ml-0 lg:w-[25%] xl:w-[20%] 2xl:w-[15%] dark:bg-gray-800 dark:border-gray-700"
@@ -88,7 +88,7 @@ const layout = ({
 
                             <p className="text-2xl leading-6 text-gray-800 dark:text-white">Company Logo</p>
                         </div>
-                        <div className="mt-6 flex flex-col justify-start items-center  pl-4 w-full  space-y-3 pb-5 ">
+                        <div className="mt-6  flex flex-col justify-start items-center  pl-4 w-full  space-y-3 pb-5 ">
                             <Link
                                 href="/admin/dashboard"
                                 aria-label="dashboard"
@@ -387,7 +387,7 @@ const layout = ({
                         </button> */}
                     </div>
                 </aside>
-                <div className="ml-auto mb-6 lg:w-[75%] xl:w-[80%] 2xl:w-[85%]">
+                <div className="ml-auto mb-6 lg:w-[75%] xl:w-[80%] 2xl:w-[85%] ">
                     <div className="sticky top-0 h-16  bg-white dark:bg-gray-800  lg:py-2.5">
                         <div className="flex items-center justify-between space-x-4 px-6 2xl:container">
                             <h5 hidden className="text-2xl font-medium text-gray-600 lg:block dark:text-white">Dashboard</h5>
@@ -488,11 +488,11 @@ const layout = ({
                         </div>
                     </div>
 
-                    <div className="px-6 pt-6 2xl:container h-full">
+                    <div className="px-6 pt-6 2xl:container h-full  ">
                         <div
-                            className=" min-h-[90vh] w-full  rounded-xl "
+                            className=" min-h-[90vh] w-full  rounded-xl  "
                         >
-                            <div className="dark:text-white h-full">{children}</div>
+                            <div className="dark:text-white h-full  ">{children}</div>
                         </div>
                     </div>
                 </div>

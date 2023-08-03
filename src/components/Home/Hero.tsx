@@ -5,12 +5,22 @@ import Image from 'next/image'
 
 export default function Hero() {
 
+    const styles = {
+        background: `linear-gradient(0deg, rgba(64,141,251,0.427608543417367) 19%, rgba(1,0,0,0.2497373949579832) 82%), url('/assets/home/hero.jpg')`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center center',
+        backgroundRepeat: 'no-repeat',
+        brigthness: '50%',
+        // backgroundBlendMode: 'overlay',
+        backdropFilter: 'blur(150px)'
+    }
+
     return (
-        <>
-            <div className="relative min-h-screen top-0">
-                <Image className="absolute inset-0 w-full h-full object-cover object-top" src="/assets/home/hero.jpg" width={400} height={500} alt="hero background image" />
-                <div aria-hidden="true" className="absolute inset-0 w-full h-full bg-gradient-to-t from-primary/50 to-black/30 bg-opacity-40 backdrop-blur-sm dark:from-darkBg dark:to-darkBgLight"></div>
-                <div className="relative container m-auto px-6 md:px-12 lg:px-6">
+        <div>
+            <div style={styles} className=" min-h-screen">
+                {/* <Image className="absolute inset-0 w-full h-full object-cover object-top" src="/assets/home/hero.jpg" width={400} height={500} alt="hero background image" /> */}
+                {/* <div aria-hidden="true" className="absolute inset-0 w-full h-full bg-gradient-to-t from-primary/50 to-black/30 bg-opacity-40 backdrop-blur-sm dark:from-darkBg dark:to-darkBgLight"></div> */}
+                <div className="container m-auto px-6 md:px-12 lg:px-6">
                     <div className="mb-12 pt-40 space-y-16 md:mb-20 md:pt-56 lg:w-8/12 lg:mx-auto ">
                         <h1 className="text-white text-center text-3xl font-bold sm:text-4xl md:text-5xl -mt-20">
                             We believe in best manufacturing practices will bring out best products
@@ -51,11 +61,6 @@ export default function Hero() {
                 </div>
 
             </div>
-
-
-
-
-
-        </>
+        </div>
     )
 }
