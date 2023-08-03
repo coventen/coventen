@@ -24,7 +24,7 @@ const features = [
         name: 'About Us',
         url: '/industries/automotive_and_ev',
         description: 'Get college based on Entrance exams',
-        href: '#',
+        href: '/',
         icon: ChartPieIcon,
     },
 
@@ -35,7 +35,7 @@ const services = [
         name: 'Non Destuctive Testing',
         url: '/industries/automotive_and_ev',
         description: 'Get college based on Entrance exams',
-        href: '#',
+        href: '/',
         icon: ChartPieIcon,
         subService: []
     },
@@ -43,7 +43,7 @@ const services = [
         name: 'Calibration',
         url: '/industries/automotive_and_ev',
         description: 'Get college based on Entrance exams',
-        href: '#',
+        href: '/',
         icon: ChartPieIcon,
         subService: []
 
@@ -52,7 +52,7 @@ const services = [
         name: 'Microscopic Testing',
         url: '/industries/automotive_and_ev',
         description: 'Get college based on Entrance exams',
-        href: '#',
+        href: '/',
         icon: ChartPieIcon,
         subService: [
             {
@@ -96,49 +96,49 @@ const Industries = [
         name: 'Automobiles & EV',
         url: '/industries/automotive_and_ev',
         description: 'Get college based on Entrance exams',
-        href: '#',
+        href: '/',
         icon: ChartPieIcon,
     },
     {
         name: 'Composite Materials',
         url: '/industries/composite_meteials_and_plastics',
         description: 'Get college based on Entrance exams',
-        href: '#',
+        href: '/',
         icon: ChartPieIcon,
     },
     {
         name: 'Conbstruction',
         url: '/industries/construction',
         description: 'Get college based on Entrance exams',
-        href: '#',
+        href: '/',
         icon: ChartPieIcon,
     },
     {
         name: 'Electronics & Electricals',
         url: '/industries/electronics_and_electrical',
         description: 'Get college based on Entrance exams',
-        href: '#',
+        href: '/',
         icon: ChartPieIcon,
     },
     {
         name: 'Food',
         url: '/industries/food',
         description: 'Get college based on Entrance exams',
-        href: '#',
+        href: '/',
         icon: ChartPieIcon,
     },
     {
         name: 'Medical & Mines',
         url: '/industries/metal_and_mining',
         description: 'Get college based on Entrance exams',
-        href: '#',
+        href: '/',
         icon: ChartPieIcon,
     },
     {
         name: 'Oil & Gas',
         url: '/industries/oil_and_gas',
         description: 'Get college based on Entrance exams',
-        href: '#',
+        href: '/',
         icon: ChartPieIcon,
     },
 
@@ -307,26 +307,26 @@ export default function Navbar({ }) {
                                 <ul className="px-4 w-full sm:w-1/2 lg:w-1/4 border-gray-300 border-b sm:border-r lg:border-b-0 pb-6 pt-6 lg:pt-3">
                                     <h3 className="font-bold text-xl text-primaryText text-bold mb-2">Services</h3>
                                     <li>
-                                        <a href="#" className="block p-3 hover:bg-gray-100 rounded text-primaryText hover:text-primaryText">Lando Calrissian</a>
+                                        <a href="/" className="block p-3 hover:bg-gray-100 rounded text-primaryText hover:text-primaryText">Lando Calrissian</a>
                                     </li>
                                     <li>
-                                        <a href="#" className="block p-3 hover:bg-gray-100 rounded text-primaryText hover:text-primaryText">Nien Nunb</a>
+                                        <a href="/" className="block p-3 hover:bg-gray-100 rounded text-primaryText hover:text-primaryText">Nien Nunb</a>
                                     </li>
                                     <li>
-                                        <a href="#" className="block p-3 hover:bg-gray-100 rounded text-primaryText hover:text-primaryText">Mon Mothma</a>
+                                        <a href="/" className="block p-3 hover:bg-gray-100 rounded text-primaryText hover:text-primaryText">Mon Mothma</a>
                                     </li>
 
                                 </ul>
                                 <ul className="px-4 w-full sm:w-1/2 lg:w-1/4 border-gray-300 border-b sm:border-r lg:border-b-0 pb-6 pt-6 lg:pt-3">
                                     <h3 className="font-bold text-xl text-primaryText text-bold mb-2">Sub Services</h3>
                                     <li>
-                                        <a href="#" className="block p-3 hover:bg-gray-100 rounded text-primaryText hover:text-primaryText">Lando Calrissian</a>
+                                        <a href="/" className="block p-3 hover:bg-gray-100 rounded text-primaryText hover:text-primaryText">Lando Calrissian</a>
                                     </li>
                                     <li>
-                                        <a href="#" className="block p-3 hover:bg-gray-100 rounded text-primaryText hover:text-primaryText">Nien Nunb</a>
+                                        <a href="/" className="block p-3 hover:bg-gray-100 rounded text-primaryText hover:text-primaryText">Nien Nunb</a>
                                     </li>
                                     <li>
-                                        <a href="#" className="block p-3 hover:bg-gray-100 rounded text-primaryText hover:text-primaryText">Mon Mothma</a>
+                                        <a href="/" className="block p-3 hover:bg-gray-100 rounded text-primaryText hover:text-primaryText">Mon Mothma</a>
                                     </li>
 
 
@@ -380,7 +380,7 @@ export default function Navbar({ }) {
                     <div className="fixed inset-0 z-10" />
                     <Dialog.Panel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
                         <div className="flex items-center justify-between">
-                            <a href="#" className="-m-1.5 p-1.5">
+                            <a href="/" className="-m-1.5 p-1.5">
                                 <span className="sr-only">Typeyournode</span>
                                 <Image
                                     height={200}
