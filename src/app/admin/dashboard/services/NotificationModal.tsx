@@ -106,7 +106,7 @@ function NotificationModal({ isOpen, setIsOpen, setNewNotification }: INotificat
             <Transition.Root show={isOpen} as={Fragment}>
                 <Dialog
                     as="div"
-                    className="fixed z-10 inset-0 overflow-y-auto"
+                    className="fixed z-[1000000000] inset-0 overflow-y-auto"
                     onClose={closeModal}
                 >
                     <div className="flex items-center justify-center min-h-screen px-4 pt-4 pb-20 text-center sm:block sm:p-0">

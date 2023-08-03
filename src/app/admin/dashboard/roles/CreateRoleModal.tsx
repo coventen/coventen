@@ -33,11 +33,11 @@ const CreateRoleModal: React.FC<ModalProps> = ({ openModal, setOpenModal }) => {
         <Transition show={openModal} as={Fragment}>
             <Dialog
                 onClose={handleClose}
-                className="fixed inset-0 z-10 overflow-y-auto"
+                className="fixed inset-0 z-[100000000000] overflow-y-auto"
             >
                 <div className="min-h-screen px-4 text-center">
                     <Dialog.Overlay className="fixed inset-0 bg-black opacity-30" />
-                    <div className="inline-block my-8 overflow-hidden text-left align-bottom transition-all transform bg-white shadow-xl rounded-xl w-full max-w-3xl">
+                    <div className="inline-block my-8 py-12 overflow-hidden text-left align-bottom transition-all transform bg-white shadow-xl rounded-xl w-full max-w-xl">
                         <div className="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
                             <Dialog.Title
                                 as="h3"

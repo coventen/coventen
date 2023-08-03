@@ -1,5 +1,6 @@
 'use client'
 
+import Link from 'next/link';
 import React, { useState } from 'react';
 import { AiFillEye, AiTwotoneDelete } from 'react-icons/ai';
 
@@ -100,7 +101,7 @@ const InvoiceTable = () => {
                             <td className="px-5 py-5 border-b border-gray-200 bg-white text-xs">
                                 <div className="relative flex items-center justify-around  space-x-3 px-8 ">
 
-                                    <button className="focus:ring-2 focus:ring-offset-2  text-sm leading-none text-green-600 py-2 px-2 bg-gray-100 rounded hover:bg-gray-200 focus:outline-none"><AiFillEye /></button>
+                                    <Link href='/admin/dashboard/invoice/preview/1' className="focus:ring-2 focus:ring-offset-2  text-sm leading-none text-green-600 py-2 px-2 bg-gray-100 rounded hover:bg-gray-200 focus:outline-none"><AiFillEye /></Link>
                                     <button className="focus:ring-2 focus:ring-offset-2  text-sm leading-none text-red-600 py-2 px-2 bg-gray-100 rounded hover:bg-gray-200 focus:outline-none"><AiTwotoneDelete /></button>
                                 </div>
                             </td>

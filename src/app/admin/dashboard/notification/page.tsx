@@ -62,7 +62,7 @@ const NotificationPage = () => {
                                 </Tab>
                             </div>
 
-                            <button onClick={() => setIsOpen(true)} className="focus:ring-2 focus:ring-offset-2 focus:ring-indigo-600 mt-4 sm:mt-0 inline-flex items-start justify-start px-6 py-3 bg-primary hover:bg-indigo-600 focus:outline-none rounded">
+                            <button onClick={() => setIsOpen(true)} className="focus:ring-2 focus:ring-offset-2 focus:ring-primary mt-4 sm:mt-0 inline-flex items-start justify-start px-6 py-3 bg-primary hover:bg-primary focus:outline-none rounded">
                                 <p className="text-sm font-medium leading-none text-white">Add Notification</p>
                             </button>
                         </Tab.List>

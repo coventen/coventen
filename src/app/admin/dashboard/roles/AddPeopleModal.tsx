@@ -29,7 +29,7 @@ const AddPeopleModal: React.FC<ModalProps> = ({
     return (
         <div>
             <Dialog open={openPeopleModal} onClose={handleClose}>
-                <div className="fixed inset-0 z-10 overflow-y-auto">
+                <div className="fixed inset-0 z-[1000000000000] overflow-y-auto">
                     <div className="flex items-center justify-center min-h-screen px-4 pt-4 pb-20 text-center sm:p-0">
                         <Dialog.Overlay className="fixed inset-0 bg-gray-500 opacity-75" />
 
@@ -99,7 +99,7 @@ const AddPeopleModal: React.FC<ModalProps> = ({
                                 <button
                                     onClick={handleClose}
                                     type="button"
-                                    className="inline-flex justify-center ml-3 px-4 py-2 text-sm font-medium text-white bg-indigo-600 border border-transparent rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                                    className="inline-flex justify-center ml-3 px-4 py-2 text-sm font-medium text-white bg-primary border border-transparent rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                                 >
                                     Create
                                 </button>

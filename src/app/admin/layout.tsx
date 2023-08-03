@@ -131,7 +131,7 @@ const layout = ({
                                         d="M6 12a2 2 0 012-2h8a2 2 0 012 2v2a2 2 0 01-2 2H2h2a2 2 0 002-2v-2z"
                                     />
                                 </svg>
-                                <span className="group-hover:text-gray-700  dark:group-hover:text-gray-50">users</span>
+                                <span className="group-hover:text-gray-700  dark:group-hover:text-gray-50 text-sm">users</span>
                             </Link>
                             <Link
                                 href="/admin/dashboard/roles"
@@ -154,9 +154,9 @@ const layout = ({
                                         d="M6 12a2 2 0 012-2h8a2 2 0 012 2v2a2 2 0 01-2 2H2h2a2 2 0 002-2v-2z"
                                     />
                                 </svg>
-                                <span className="group-hover:text-gray-700  dark:group-hover:text-gray-50">Roles</span>
+                                <span className="group-hover:text-gray-700  dark:group-hover:text-gray-50 text-sm">Roles</span>
                             </Link>
-                            <Link
+                            {/* <Link
                                 href="/admin/dashboard/services"
                                 className="group w-full flex items-center space-x-4 rounded-md px-4 py-3 text-gray-600 dark:text-gray-300 hover:bg-slate-100 dark:hover:bg-gray-700 hover:text-gray-800 dark:hover:text-gray-50"
                             >
@@ -177,8 +177,8 @@ const layout = ({
                                         d="M6 12a2 2 0 012-2h8a2 2 0 012 2v2a2 2 0 01-2 2H2h2a2 2 0 002-2v-2z"
                                     />
                                 </svg>
-                                <span className="group-hover:text-gray-700  dark:group-hover:text-gray-50">Services</span>
-                            </Link>
+                                <span className="group-hover:text-gray-700  dark:group-hover:text-gray-50 text-sm">Services</span>
+                            </Link> */}
                             <Link
                                 href="/admin/dashboard/vendor"
                                 className="group w-full flex items-center space-x-4 rounded-md px-4 py-3 text-gray-600 dark:text-gray-300 hover:bg-slate-100 dark:hover:bg-gray-700 hover:text-gray-800 dark:hover:text-gray-50"
@@ -200,7 +200,7 @@ const layout = ({
                                         d="M6 12a2 2 0 012-2h8a2 2 0 012 2v2a2 2 0 01-2 2H2h2a2 2 0 002-2v-2z"
                                     />
                                 </svg>
-                                <span className="group-hover:text-gray-700  dark:group-hover:text-gray-50">Vendor List</span>
+                                <span className="group-hover:text-gray-700  dark:group-hover:text-gray-50 text-sm">Vendor List</span>
                             </Link>
                             <Link
                                 href="/admin/dashboard/notification"
@@ -223,7 +223,7 @@ const layout = ({
                                         d="M6 12a2 2 0 012-2h8a2 2 0 012 2v2a2 2 0 01-2 2H2h2a2 2 0 002-2v-2z"
                                     />
                                 </svg>
-                                <span className="group-hover:text-gray-700  dark:group-hover:text-gray-50">Notifications</span>
+                                <span className="group-hover:text-gray-700  dark:group-hover:text-gray-50 text-sm">Notifications</span>
                             </Link>
                             <Link
                                 href="/admin/dashboard/logs"
@@ -246,15 +246,16 @@ const layout = ({
                                         d="M6 12a2 2 0 012-2h8a2 2 0 012 2v2a2 2 0 01-2 2H2h2a2 2 0 002-2v-2z"
                                     />
                                 </svg>
-                                <span className="group-hover:text-gray-700  dark:group-hover:text-gray-50">Logs</span>
+                                <span className="group-hover:text-gray-700  dark:group-hover:text-gray-50 text-sm">Logs</span>
                             </Link>
+                            {/* ticket */}
                             <Disclosure>
                                 {({ open }) => (
                                     <>
                                         <Disclosure.Button className="group w-full flex items-center justify-between space-x-4 rounded-md px-4 py-3 text-gray-600 dark:text-gray-300 hover:bg-slate-100 dark:hover:bg-gray-700 hover:text-gray-800 dark:hover:text-gray-50">
                                             <div className='flex items-center space-x-2'>
                                                 <p><BsTicketDetailed /></p>
-                                                <p className='group-hover:text-gray-700 dark:group-hover:text-gray-50 '>Ticket system</p>
+                                                <p className='group-hover:text-gray-700 dark:group-hover:text-gray-50  text-sm'>Ticket system</p>
                                             </div>
 
                                             <FaAngleDown
@@ -286,7 +287,7 @@ const layout = ({
                                                                 d="M6 12a2 2 0 012-2h8a2 2 0 012 2v2a2 2 0 01-2 2H2h2a2 2 0 002-2v-2z"
                                                             />
                                                         </svg>
-                                                        <span className="group-hover:text-gray-700  dark:group-hover:text-gray-50">All Tickets</span>
+                                                        <span className="group-hover:text-gray-700  dark:group-hover:text-gray-50 text-sm">All Tickets</span>
                                                     </Link>
                                                 </li>
                                                 <li className='w-full'>
@@ -311,7 +312,80 @@ const layout = ({
                                                                 d="M6 12a2 2 0 012-2h8a2 2 0 012 2v2a2 2 0 01-2 2H2h2a2 2 0 002-2v-2z"
                                                             />
                                                         </svg>
-                                                        <span className="group-hover:text-gray-700  dark:group-hover:text-gray-50">Chats</span>
+                                                        <span className="group-hover:text-gray-700  dark:group-hover:text-gray-50 text-sm">Chats</span>
+                                                    </Link>
+                                                </li>
+                                            </ul>
+                                        </Disclosure.Panel>
+                                    </>
+                                )}
+                            </Disclosure>
+
+                            {/* invoice */}
+                            <Disclosure>
+                                {({ open }) => (
+                                    <>
+                                        <Disclosure.Button className="group w-full flex items-center justify-between space-x-4 rounded-md px-4 py-3 text-gray-600 dark:text-gray-300 hover:bg-slate-100 dark:hover:bg-gray-700 hover:text-gray-800 dark:hover:text-gray-50">
+                                            <div className='flex items-center space-x-2'>
+                                                <p><BsTicketDetailed /></p>
+                                                <p className='group-hover:text-gray-700 dark:group-hover:text-gray-50  text-sm'>Invoice</p>
+                                            </div>
+
+                                            <FaAngleDown
+                                                className={`${open ? 'rotate-180 transform' : ''
+                                                    } h-5 w-5 text-gray-400 dark:text-white`}
+                                            />
+                                        </Disclosure.Button>
+                                        <Disclosure.Panel className="pl-4 w-full pt-2 pb-2 text-sm text-gray-800 dark:text-white">
+                                            <ul className='w-full'>
+                                                <li className='w-full'>
+                                                    <Link
+                                                        href="/admin/dashboard/invoice/create_invoice"
+                                                        className="group w-full flex items-center space-x-4 rounded-md px-4 py-3 text-gray-600 dark:text-gray-300 hover:bg-slate-100 dark:hover:bg-gray-700 hover:text-gray-800 dark:hover:text-gray-50"
+                                                    >
+                                                        <svg
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            className="h-5 w-5"
+                                                            viewBox="0 0 20 20"
+                                                            fill="currentColor"
+                                                        >
+                                                            <path
+                                                                className="fill-current text-gray-300 group-hover:text-primary"
+                                                                fill-rule="evenodd"
+                                                                d="M2 6a2 2 0 012-2h4l2 2h4a2 2 0 012 2v1H8a3 3 0 00-3 3v1.5a1.5 1.5 0 01-3 0V6z"
+                                                                clip-rule="evenodd"
+                                                            />
+                                                            <path
+                                                                className="fill-current text-gray-600 group-hover:text-cyan-600 dark:group-hover:text-sky-400"
+                                                                d="M6 12a2 2 0 012-2h8a2 2 0 012 2v2a2 2 0 01-2 2H2h2a2 2 0 002-2v-2z"
+                                                            />
+                                                        </svg>
+                                                        <span className="group-hover:text-gray-700  dark:group-hover:text-gray-50 text-sm">Create</span>
+                                                    </Link>
+                                                </li>
+                                                <li className='w-full'>
+                                                    <Link
+                                                        href="/admin/dashboard/invoice"
+                                                        className="group w-full flex items-center space-x-4 rounded-md px-4 py-3 text-gray-600 dark:text-gray-300 hover:bg-slate-100 dark:hover:bg-gray-700 hover:text-gray-800 dark:hover:text-gray-50"
+                                                    >
+                                                        <svg
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            className="h-5 w-5"
+                                                            viewBox="0 0 20 20"
+                                                            fill="currentColor"
+                                                        >
+                                                            <path
+                                                                className="fill-current text-gray-300 group-hover:text-primary"
+                                                                fill-rule="evenodd"
+                                                                d="M2 6a2 2 0 012-2h4l2 2h4a2 2 0 012 2v1H8a3 3 0 00-3 3v1.5a1.5 1.5 0 01-3 0V6z"
+                                                                clip-rule="evenodd"
+                                                            />
+                                                            <path
+                                                                className="fill-current text-gray-600 group-hover:text-cyan-600 dark:group-hover:text-sky-400"
+                                                                d="M6 12a2 2 0 012-2h8a2 2 0 012 2v2a2 2 0 01-2 2H2h2a2 2 0 002-2v-2z"
+                                                            />
+                                                        </svg>
+                                                        <span className="group-hover:text-gray-700  dark:group-hover:text-gray-50 text-sm">All Invoice</span>
                                                     </Link>
                                                 </li>
                                             </ul>
@@ -340,7 +414,7 @@ const layout = ({
                                         d="M6 12a2 2 0 012-2h8a2 2 0 012 2v2a2 2 0 01-2 2H2h2a2 2 0 002-2v-2z"
                                     />
                                 </svg>
-                                <span className="group-hover:text-gray-700  dark:group-hover:text-gray-50">Support</span>
+                                <span className="group-hover:text-gray-700  dark:group-hover:text-gray-50 text-sm">Support</span>
                             </Link>
 
                         </div>
