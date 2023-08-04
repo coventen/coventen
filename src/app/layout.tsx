@@ -1,3 +1,4 @@
+import Footer from './Footer';
 import Navbar from './Navbar'
 import './globals.css'
 import { Inter } from 'next/font/google'
@@ -25,6 +26,7 @@ export default function RootLayout({
           <Navbar />
           {children}
         </main>
+        <Footer />
         <Toaster
           position="bottom-left"
         />

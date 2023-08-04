@@ -27,7 +27,7 @@ const Hero = () => {
                                 <span className="text-2xl leading-none align-baseline">.99</span>
                             </div>
                             <div onClick={() => setIsModalOpen(true)} className="inline-block align-bottom">
-                                <Button title='Inquery' />
+                                <Button title='Inquiry' />
                             </div>
                         </div>
                     </div>

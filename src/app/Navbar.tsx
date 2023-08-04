@@ -189,10 +189,16 @@ export default function Navbar({ }) {
 
 
                     <Link
-                        href="/college/search"
+                        href="/"
                         className="text-sm font-semibold leading-6 text-primaryText mr-8"
                     >
                         Home
+                    </Link>
+                    <Link
+                        href="/products"
+                        className="text-sm font-semibold leading-6 text-primaryText mr-8"
+                    >
+                        Products
                     </Link>
 
 
@@ -297,7 +303,7 @@ export default function Navbar({ }) {
                         </Popover>
                     </Popover.Group>
                     {/* service dorpdown */}
-                    <Dropdown title='Service' menu={services} />
+                    <Dropdown title='Service' />
 
                     {/* <div className="toggleable hover:bg-white  hover:text-primaryText px-12">
                         <input type="checkbox" value="selected" id="toggle-one" className="toggle-input" />

@@ -9,6 +9,8 @@ import Navbar from './Navbar'
 import Categories from '@/components/Home/Categories'
 import Services2 from '@/components/Home/Services2'
 import MegaMenu from '@/components/Mega'
+import Products from '@/components/Home/Products'
+import CTA from '@/components/Home/CTA'
 
 export default function Home() {
   return (
@@ -18,14 +20,16 @@ export default function Home() {
       </nav> */}
       {/* <MegaMenu /> */}
       <Hero />
-
-      <Categories />
       <Services />
+      <Products />
+      {/* <Categories /> */}
+
       {/* <Services2 /> */}
       <AboutUs />
+      <CTA />
       {/* <ImportantLinks /> */}
       <Companies />
-      <Footer />
+
 
     </>
   )
