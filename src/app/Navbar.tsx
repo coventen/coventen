@@ -351,7 +351,7 @@ export default function Navbar({ }) {
                         Learn
                     </Link>
                     <Link
-                        href="/events"
+                        href="/events/search"
                         className="text-sm font-semibold leading-6 text-primaryText mr-8"
                     >
                         Events

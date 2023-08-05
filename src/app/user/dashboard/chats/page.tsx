@@ -2,7 +2,6 @@
 import React, { useState } from 'react';
 import { Scrollbars } from 'react-custom-scrollbars-2';
 
-
 const ChatsPage = () => {
     const [onClose, setOnClose] = useState(false)
     return (
@@ -62,8 +61,8 @@ const ChatsPage = () => {
 
                                         </div>
                                         <div className="ml-2 flex text-[10px] text-gray-600">
-                                            <p className=' '>Company name </p>
-                                            <p className=''>{" "} - Vendors name</p>
+                                            <p className=' '>Vendors name </p>
+
                                         </div>
                                     </div>
 
@@ -86,8 +85,7 @@ const ChatsPage = () => {
 
                                         </div>
                                         <div className="ml-2 flex text-[10px] text-gray-600">
-                                            <p className=' '>Company name </p>
-                                            <p className=''>{" "} - Vendors name</p>
+                                            <p className=' '>Vendors name </p>
                                         </div>
                                     </div>
 
@@ -110,8 +108,7 @@ const ChatsPage = () => {
 
                                         </div>
                                         <div className="ml-2 flex text-[10px] text-gray-600">
-                                            <p className=' '>Company name </p>
-                                            <p className=''>{" "} - Vendors name</p>
+                                            <p className=' '>Vendors name </p>
                                         </div>
                                     </div>
 
@@ -134,8 +131,7 @@ const ChatsPage = () => {
 
                                         </div>
                                         <div className="ml-2 flex text-[10px] text-gray-600">
-                                            <p className=' '>Company name </p>
-                                            <p className=''>{" "} - Vendors name</p>
+                                            <p className=' '>Vendors name </p>
                                         </div>
                                     </div>
 
@@ -158,8 +154,7 @@ const ChatsPage = () => {
 
                                         </div>
                                         <div className="ml-2 flex text-[10px] text-gray-600">
-                                            <p className=' '>Company name </p>
-                                            <p className=''>{" "} - Vendors name</p>
+                                            <p className=' '>Vendors name </p>
                                         </div>
                                     </div>
 
@@ -181,7 +176,7 @@ const ChatsPage = () => {
                         >
                             <div onClick={() => setOnClose(true)} className='bg-white shadow-sm px-4 py-5 rounded-lg flex items-center'>
                                 <p className='bg-green-500 w-3 h-3 rounded-full mr-2'></p>
-                                <p className='font-bold'> Vendor Name</p>
+                                <p className='font-bold'> Empolyee Name</p>
 
                             </div>
                             {/* <Scrollbars style={{ width: 500, height: 300 }}>
@@ -194,7 +189,7 @@ const ChatsPage = () => {
                                         <div className="col-start-1 col-end-8 p-3 rounded-lg">
                                             <div className="flex flex-row items-center">
                                                 <div
-                                                    className="flex items-center justify-center h-10 w-10 rounded-full bg-indigo-500 flex-shrink-0"
+                                                    className="flex items-center justify-center h-10 w-10 rounded-full bg-primary flex-shrink-0"
                                                 >
                                                     A
                                                 </div>
@@ -208,7 +203,7 @@ const ChatsPage = () => {
                                         <div className="col-start-1 col-end-8 p-3 rounded-lg">
                                             <div className="flex flex-row items-center">
                                                 <div
-                                                    className="flex items-center justify-center h-10 w-10 rounded-full bg-indigo-500 flex-shrink-0"
+                                                    className="flex items-center justify-center h-10 w-10 rounded-full bg-primary flex-shrink-0"
                                                 >
                                                     A
                                                 </div>
@@ -226,7 +221,7 @@ const ChatsPage = () => {
                                         <div className="col-start-6 col-end-13 p-3 rounded-lg">
                                             <div className="flex items-center justify-start flex-row-reverse">
                                                 <div
-                                                    className="flex items-center justify-center h-10 w-10 rounded-full bg-indigo-500 flex-shrink-0"
+                                                    className="flex items-center justify-center h-10 w-10 rounded-full bg-primary flex-shrink-0"
                                                 >
                                                     A
                                                 </div>
@@ -240,7 +235,7 @@ const ChatsPage = () => {
                                         <div className="col-start-6 col-end-13 p-3 rounded-lg">
                                             <div className="flex items-center justify-start flex-row-reverse">
                                                 <div
-                                                    className="flex items-center justify-center h-10 w-10 rounded-full bg-indigo-500 flex-shrink-0"
+                                                    className="flex items-center justify-center h-10 w-10 rounded-full bg-primary flex-shrink-0"
                                                 >
                                                     A
                                                 </div>
@@ -256,7 +251,7 @@ const ChatsPage = () => {
                                         <div className="col-start-1 col-end-8 p-3 rounded-lg">
                                             <div className="flex flex-row items-center">
                                                 <div
-                                                    className="flex items-center justify-center h-10 w-10 rounded-full bg-indigo-500 flex-shrink-0"
+                                                    className="flex items-center justify-center h-10 w-10 rounded-full bg-primary flex-shrink-0"
                                                 >
                                                     A
                                                 </div>
@@ -270,7 +265,7 @@ const ChatsPage = () => {
                                         <div className="col-start-6 col-end-13 p-3 rounded-lg">
                                             <div className="flex items-center justify-start flex-row-reverse">
                                                 <div
-                                                    className="flex items-center justify-center h-10 w-10 rounded-full bg-indigo-500 flex-shrink-0"
+                                                    className="flex items-center justify-center h-10 w-10 rounded-full bg-primary flex-shrink-0"
                                                 >
                                                     A
                                                 </div>
@@ -291,7 +286,7 @@ const ChatsPage = () => {
                                         <div className="col-start-1 col-end-8 p-3 rounded-lg">
                                             <div className="flex flex-row items-center">
                                                 <div
-                                                    className="flex items-center justify-center h-10 w-10 rounded-full bg-indigo-500 flex-shrink-0"
+                                                    className="flex items-center justify-center h-10 w-10 rounded-full bg-primary flex-shrink-0"
                                                 >
                                                     A
                                                 </div>
@@ -361,7 +356,7 @@ const ChatsPage = () => {
                                 </div>
                                 <div className="ml-4">
                                     <button
-                                        className="flex items-center justify-center bg-indigo-500 hover:bg-indigo-600 rounded-xl text-white px-4 py-1 flex-shrink-0"
+                                        className="flex items-center justify-center bg-primary hover:bg-indigo-600 rounded-xl text-white px-4 py-1 flex-shrink-0"
                                     >
                                         <span>Send</span>
                                         <span className="ml-2">

@@ -108,7 +108,7 @@ const VerifyPage = () => {
 
 
 
-                    <div className='col-span-2 mt-8'>
+                    <div className='col-span-2 mt-8 '>
                         <AnimatedButton title='Submit' />
                     </div>
 
