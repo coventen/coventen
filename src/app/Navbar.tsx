@@ -22,8 +22,8 @@ import Dropdown from '@/components/Navbar/Dropdown/Dropdown';
 const features = [
     {
         name: 'About Us',
-        url: '/industries/automotive_and_ev',
-        description: 'Get college based on Entrance exams',
+        url: '/about_us',
+        description: 'know About Our company',
         href: '/',
         icon: ChartPieIcon,
     },
