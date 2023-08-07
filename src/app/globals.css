@@ -3,6 +3,13 @@
 @tailwind utilities;
 
 
+
+html {
+  scroll-behavior: smooth;
+}
+
+
+
 /* Path: src\app\app.component.html */
 
 
@@ -18,9 +25,19 @@ example:
   text-left
   w-full;
   }
+
+
+
+
+
+
+
+
+
+
   –––––––––––––––––––––––––––––––––––––––––––––––––– */
   .mega-menu {
-    display: none;
+    display: block;
     left: 0;
     position: absolute;
     text-align: left;
@@ -42,21 +59,22 @@ example:
     top: -1px;
   }
 
-  .hoverable:hover .mega-menu {
+  /* .hoverable:hover .mega-menu {
     display: block;
+    margin: 0 auto;
     z-index: 1000;
-  }
+  } */
 
 
   /* #toggle Class Styles */
 
-  .toggleable > label:after {
+  /* .toggleable > label:after {
     content: "\25BC";
     font-size: 10px;
     padding-left: 6px;
     position: relative;
     top: -1px;
-  }
+  } */
 
   .toggle-input {
     display: none;
@@ -75,10 +93,3 @@ example:
     background: transparent; /*@apply bg-teal-700 */
   }
 
-  .toggle-input:checked ~ label:after {
-    content: "\25B2";
-    font-size: 10px;
-    padding-left: 6px;
-    position: relative;
-    top: -1px;
-  }

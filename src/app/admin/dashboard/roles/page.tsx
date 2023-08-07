@@ -14,7 +14,7 @@ function classNames(...classes: string[]) {
 }
 
 const RolesPage = () => {
-    const [openModal, setOpenModal] = useState(false);
+    const [openModal, setOpenModal] = useState(true);
     const [value, setValue] = useState(0);
     const [openPeopleModal, setOpenPeopleModal] = useState(false);
 

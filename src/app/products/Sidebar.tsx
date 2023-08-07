@@ -3,7 +3,7 @@
 import React from 'react';
 import { Fragment, useState } from 'react';
 import { Dialog, Disclosure, Menu, Transition } from '@headlessui/react';
-import { Scrollbars } from 'react-custom-scrollbars-2';
+
 
 import {
     HiSquares2X2,
@@ -200,26 +200,26 @@ export default function Sidebar({
                                                                 </Disclosure.Button>
                                                             </h3>
                                                             <Disclosure.Panel className="pt-6">
-                                                                <Scrollbars style={{ width: '100%', height: 200 }}>
-                                                                    <div className="space-y-6">
-                                                                        {section.options.map(
-                                                                            (option: Option, optionIdx: number) => (
-                                                                                <Link
-                                                                                    href={option.path}
-                                                                                    key={option?.title}
-                                                                                    className="flex items-center"
+
+                                                                <div className="space-y-6">
+                                                                    {section.options.map(
+                                                                        (option: Option, optionIdx: number) => (
+                                                                            <Link
+                                                                                href={option.path}
+                                                                                key={option?.title}
+                                                                                className="flex items-center"
+                                                                            >
+                                                                                <label
+                                                                                    htmlFor={`filter-mobile-${section.id}-${optionIdx}`}
+                                                                                    className="ml-3 min-w-0 flex-1 text-gray-500"
                                                                                 >
-                                                                                    <label
-                                                                                        htmlFor={`filter-mobile-${section.id}-${optionIdx}`}
-                                                                                        className="ml-3 min-w-0 flex-1 text-gray-500"
-                                                                                    >
-                                                                                        {option?.title}
-                                                                                    </label>
-                                                                                </Link>
-                                                                            )
-                                                                        )}
-                                                                    </div>
-                                                                </Scrollbars>
+                                                                                    {option?.title}
+                                                                                </label>
+                                                                            </Link>
+                                                                        )
+                                                                    )}
+                                                                </div>
+
                                                             </Disclosure.Panel>
                                                         </>
                                                     )}
@@ -287,14 +287,14 @@ export default function Sidebar({
                                     </Menu>
 
 
-                                        <button
-                                            type="button"
-                                            className="-m-2 ml-4 p-2 text-gray-400 hover:text-gray-500 sm:ml-6 lg:hidden"
-                                            onClick={() => setMobileFiltersOpen(true)}
-                                        >
-                                            <span className="sr-only">Filters</span>
-                                            <HiFunnel className="h-5 w-5" aria-hidden="true" />
-                                        </button>
+                                    <button
+                                        type="button"
+                                        className="-m-2 ml-4 p-2 text-gray-400 hover:text-gray-500 sm:ml-6 lg:hidden"
+                                        onClick={() => setMobileFiltersOpen(true)}
+                                    >
+                                        <span className="sr-only">Filters</span>
+                                        <HiFunnel className="h-5 w-5" aria-hidden="true" />
+                                    </button>
                                 </div>
                             </div>
 
@@ -339,26 +339,26 @@ export default function Sidebar({
                                                         </Disclosure.Button>
                                                     </h3>
                                                     <Disclosure.Panel className="pt-6">
-                                                        <Scrollbars style={{ width: '100%', height: 200 }}>
-                                                            <div className="space-y-4">
-                                                                {section.options.map(
-                                                                    (option: Option, optionIdx: number) => (
-                                                                        <Link
-                                                                            href={option.path}
-                                                                            key={option.title}
-                                                                            className="flex items-center cursor-pointer"
+
+                                                        <div className="space-y-4">
+                                                            {section.options.map(
+                                                                (option: Option, optionIdx: number) => (
+                                                                    <Link
+                                                                        href={option.path}
+                                                                        key={option.title}
+                                                                        className="flex items-center cursor-pointer"
+                                                                    >
+                                                                        <label
+                                                                            htmlFor={`filter-${section.id}-${optionIdx}`}
+                                                                            className="ml-3 text-sm text-gray-600"
                                                                         >
-                                                                            <label
-                                                                                htmlFor={`filter-${section.id}-${optionIdx}`}
-                                                                                className="ml-3 text-sm text-gray-600"
-                                                                            >
-                                                                                {option.title}
-                                                                            </label>
-                                                                        </Link>
-                                                                    )
-                                                                )}
-                                                            </div>
-                                                        </Scrollbars>
+                                                                            {option.title}
+                                                                        </label>
+                                                                    </Link>
+                                                                )
+                                                            )}
+                                                        </div>
+
                                                     </Disclosure.Panel>
                                                 </>
                                             )}

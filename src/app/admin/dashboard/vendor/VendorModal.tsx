@@ -2,35 +2,27 @@
 import { Fragment, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { Dialog, Transition } from '@headlessui/react';
-import AutoComplete from '@/components/AutoComplete';
+import { useGqlClient } from '@/hooks/UseGqlClient';
+import { useMutation } from 'graphql-hooks';
+import { toast } from 'react-hot-toast';
 
 //props interface
-interface IModalProps {
-    isOpen: boolean;
-    setIsOpen: (value: boolean) => void;
-    // setNewNotification: (value: boolean) => void;
+interface INotificationModal {
+    isModalOpen: boolean;
+    setIsModalOpen: (value: boolean) => void;
 }
 
 
 
 //component
-function AssignmentModal({ isOpen, setIsOpen }: IModalProps) {
+function VendorModal({ isModalOpen, setIsModalOpen, }: INotificationModal) {
 
-    //states
-    const [selected, setSelected] = useState(null);
 
     //handle close modal
     function closeModal() {
-        setIsOpen(false);
+        setIsModalOpen(false);
     }
 
-    //handle open modal
-    function openModal() {
-        setIsOpen(true);
-    }
-
-    //from submit
-    const handleSubmit = async (e: any) => { }
 
 
     //render
@@ -38,10 +30,10 @@ function AssignmentModal({ isOpen, setIsOpen }: IModalProps) {
         <div>
 
 
-            <Transition.Root show={isOpen} as={Fragment}>
+            <Transition.Root show={isModalOpen} as={Fragment}>
                 <Dialog
                     as="div"
-                    className="fixed z-[5000000000] inset-0 overflow-y-auto"
+                    className="fixed z-[120000000000] inset-0 overflow-y-auto"
                     onClose={closeModal}
                 >
                     <div className="flex items-center justify-center min-h-screen px-4 pt-4 pb-20 text-center sm:block sm:p-0">
@@ -74,33 +66,45 @@ function AssignmentModal({ isOpen, setIsOpen }: IModalProps) {
                             leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
                         >
 
-                            <div className="inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-3xl sm:w-full sm:p-6">
-                                <p className="focus:outline-none pt-4 pb-8 text-base text-center sm:text-lg md:text-xl lg:text-2xl font-bold leading-normal text-gray-800">Assing Tasks</p>
-                                <form onSubmit={handleSubmit} className='p-8'>
-                                    {
-                                        [0, 1, 2].map((item) =>
+                            <div className="inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full sm:p-6">
+                                <p className="focus:outline-none pt-4 pb-8 text-base text-center sm:text-lg md:text-xl lg:text-2xl font-bold leading-normal text-gray-800">Create Vendor</p>
+                                <form className=''>
+                                    <div className="mb-5">
+                                        <label htmlFor="title" className="block  text-gray-700 text-sm mb-1">
+                                            Vendor name
+                                        </label>
+                                        <input
+                                            id="title"
+                                            name="title"
+                                            type="text"
+                                            className="mt-1 px-4 py-2 border border-gray-200 rounded-md w-full"
 
-                                            <div key={item} className='grid grid-cols-2 gap-6 mb-12'>
-                                                <div>
-                                                    <p className="text-xs lg:text-sm font-bold text-gray-600">
-                                                        Module-{item + 1}
-                                                    </p>
-                                                    <p className="text-xs lg:text-sm ">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                                                </div>
-                                                <div>
-                                                    <p className="text-xs lg:text-sm font-semibold mb-1  text-gray-700">
-                                                        Select Vendor
-                                                    </p>
+                                        />
+                                    </div>
+                                    <div className="mb-5">
+                                        <label htmlFor="title" className="block  text-gray-700 text-sm mb-1">
+                                            Email
+                                        </label>
+                                        <input
+                                            id="title"
+                                            name="title"
+                                            type="text"
+                                            className="mt-1 px-4 py-2 border border-gray-200 rounded-md w-full"
 
-                                                    <div className='relative'>
+                                        />
+                                    </div>
+                                    <div className="mb-5">
+                                        <label htmlFor="title" className="block  text-gray-700 text-sm mb-1">
+                                            Password
+                                        </label>
+                                        <input
+                                            id="title"
+                                            name="title"
+                                            type="password"
+                                            className="mt-1 px-4 py-2 border border-gray-200 rounded-md w-full"
 
-                                                        <AutoComplete setSelected={setSelected} selected={selected} />
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        )
-                                    }
-
+                                        />
+                                    </div>
 
                                     <div className="mt-10">
                                         <button
@@ -127,4 +131,4 @@ function AssignmentModal({ isOpen, setIsOpen }: IModalProps) {
     );
 }
 
-export default AssignmentModal;
+export default VendorModal;
