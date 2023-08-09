@@ -1,8 +1,9 @@
 // components/defaultNavItems.tsx
 import React from "react";
 
-import { HiCalendar, HiFolder, HiHome, HiUserGroup } from 'react-icons/hi';
-import { LuLayoutDashboard, LuBellRing } from 'react-icons/lu';
+
+
+import { LuAppWindow, LuCalculator, LuBellRing, LuUser, LuTerminalSquare, LuShieldCheck, LuReplaceAll, LuSchool2, LuQrCode, LuHeadphones } from "react-icons/lu";
 // define a NavItem prop
 export type NavItem = {
     label: string;
@@ -13,21 +14,26 @@ export const defaultNavItems: NavItem[] = [
     {
         label: "Dashboard",
         href: "/desktopHome",
-        icon: <LuLayoutDashboard className="w-6 h-6" />,
+        icon: <LuAppWindow className="w-6 h-6" />,
     },
-    // {
-    //     label: "Notifications",
-    //     href: "/team",
-    //     icon: <LuBellRing className="w-6 h-6" />,
-    // },
     {
         label: "Projects",
         href: "/desktopHome/projects",
-        icon: <HiFolder className="w-6 h-6" />,
+        icon: <LuTerminalSquare className="w-6 h-6" />,
+    },
+    {
+        label: "Invoices",
+        href: "/desktopHome/invoices",
+        icon: <LuCalculator className="w-6 h-6" />,
+    },
+    {
+        label: "Support",
+        href: "/desktopHome/support",
+        icon: <LuHeadphones className="w-6 h-6" />,
     },
     {
         label: "Log in",
         href: "/desktopHome/auth/login",
-        icon: <HiCalendar className="w-6 h-6" />,
+        icon: <LuUser className="w-6 h-6" />,
     },
 ];

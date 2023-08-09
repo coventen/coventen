@@ -3,9 +3,73 @@
 
 import React, { useCallback, useState } from 'react';
 import Dropzone from 'react-dropzone';
+import { useForm, SubmitHandler } from "react-hook-form"
+import { IModuleInput } from './createProject.interface';
 
-const ModuleFrom = () => {
+//interface props
+interface IModuleFrom {
+    index: number
+    modules: any[]
+    setModules: (modules: any[]) => void
+}
+
+
+
+//component
+const ModuleFrom = ({ index, setModules, modules }: IModuleFrom) => {
+
+
+    //states
     const [files, setFiles] = useState<File[]>([]);
+
+
+    // hook from 
+    const {
+        register,
+        handleSubmit,
+        formState: { errors },
+    } = useForm<any>()
+
+
+
+    // setting the module data
+    const handleModule: SubmitHandler<any> = (data) => {
+        //getting the dynamic data
+        const title = data[`moduleTitle${index}`];
+        const description = data[`moduleDescription${index}`];
+
+
+        // checking if all data is present
+        if (title && description) {
+            const moduleData: IModuleInput = {
+                title,
+                description,
+                documents: {
+                    files: [],
+                    images: []
+
+                }
+            };
+
+            // checking if the module is already present
+            const moduleIndex = modules.findIndex(module => module.hasOwnProperty(`moduleTitle${index}`));
+
+            // updating the module
+            if (moduleIndex !== -1) {
+                const updatedModules = [...modules];
+                updatedModules[moduleIndex][`moduleTitle${index}`] = moduleData;
+                setModules(updatedModules);
+            } else {
+                const newModule = {
+                    [`moduleTitle${index}`]: moduleData
+                };
+                setModules([...modules, newModule]);
+            }
+        }
+    };
+
+
+    //handlers
     const handleDrop = useCallback((acceptedFiles: File[]) => {
         setFiles(prevFiles => [...prevFiles, ...acceptedFiles]);
     }, [setFiles]);
@@ -18,15 +82,15 @@ const ModuleFrom = () => {
         });
     }, [setFiles]);
     return (
-        <>
+        <form onChange={handleSubmit(handleModule)}>
             <div className="">
-                <label htmlFor="address">Module Title</label>
-                <input type="text" name="address" id="address" className="h-10 border border-gray-300 mt-1 rounded px-4 w-full " value="" placeholder="" />
+                <label htmlFor="address">Module-{index}</label>
+                <input type="text" id="address" className="h-10 border border-gray-300 mt-1 rounded px-4 w-full " placeholder=""   {...register(`moduleTitle${index}`)} />
             </div>
 
             <div className="">
                 <label htmlFor="city">Description</label>
-                <textarea rows={4} name="city" id="city" className=" border border-gray-300 mt-1 rounded px-4 w-full " value="" placeholder="" />
+                <textarea rows={4} id="city" className=" border border-gray-300 mt-1 rounded px-4 w-full " placeholder="" {...register(`moduleDescription${index}`)} />
             </div>
             <div className="">
                 <Dropzone onDrop={handleDrop}>
@@ -65,7 +129,7 @@ const ModuleFrom = () => {
                     )}
                 </Dropzone>
             </div>
-        </>
+        </form>
     );
 };
 

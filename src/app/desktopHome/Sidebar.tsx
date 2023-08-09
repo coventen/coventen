@@ -44,7 +44,7 @@ const Sidebar = ({
                         "py-4 justify-center": collapsed,
                     })}
                 >
-                    {!collapsed && <span className="whitespace-nowrap">My Logo</span>}
+                    {!collapsed && <span className="whitespace-nowrap text-desktopPrimary font-bold text-xl">Brand Name</span>}
                     <button
                         className={classNames({
                             "grid place-content-center": true,
@@ -54,7 +54,7 @@ const Sidebar = ({
                         // 👇 set the collapsed state on click
                         onClick={() => setCollapsed(!collapsed)}
                     >
-                        <Icon className="w-5 h-5" />
+                        <Icon className="w-5 h-5 text-desktopPrimary" />
                     </button>
                 </div>
 

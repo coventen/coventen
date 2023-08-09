@@ -19,6 +19,7 @@ module.exports = {
         darkBgLight: '#1f2937',
         desktopPrimary: '#00406E',
         desktopText: '#3D3D3D',
+        desktopBgLight: '#E2F3FF',
         desktopPrimaryLight: '#E2F3FF',
         desktopTextLight: '#3d3d3d80',
       },

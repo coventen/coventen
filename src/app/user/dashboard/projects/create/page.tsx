@@ -1,5 +1,5 @@
 import React from 'react';
-import ProjectForm from './ProjectForm';
+import Main from './Main';
 
 const page = () => {
     return (
@@ -12,7 +12,7 @@ const page = () => {
                     </div>
                 </div>
                 <div>
-                    <ProjectForm />
+                    <Main />
                 </div>
 
 

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const loading = () => {
+const Loading = () => {
     return (
         <div>
             <div className="inset-0 bg-white dark:bg-gray-800 fixed flex w-full h-full items-center justify-center duration-300 transition-opacity z-[50]" >
@@ -33,4 +33,4 @@ const loading = () => {
     );
 };
 
-export default loading;
+export default Loading;

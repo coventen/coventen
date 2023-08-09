@@ -1,8 +1,7 @@
 // components/defaultNavItems.tsx
 import React from "react";
 
-import { HiCalendar, HiFolder, HiHome, HiUserGroup, HiChat } from 'react-icons/hi';
-import { LuLayoutDashboard, LuBellRing } from 'react-icons/lu';
+import { LuAppWindow, LuCalculator, LuBellRing, LuUser, LuTerminalSquare, LuShieldCheck, LuReplaceAll, LuSchool2, LuQrCode, LuHeadphones, LuMessagesSquare, LuBookKey } from "react-icons/lu";
 // define a NavItem prop
 export type NavItem = {
     label: string;
@@ -13,52 +12,58 @@ export const defaultNavItems: NavItem[] = [
     {
         label: "Dashboard",
         href: "/admin/dashboard",
-        icon: <LuLayoutDashboard className="" />,
+        icon: <LuAppWindow className="" />,
     },
 
     {
         label: "Users",
         href: "/admin/dashboard/users",
-        icon: <HiFolder className="" />,
+        icon: <LuUser className="" />,
     },
     {
         label: "Notifications",
         href: "/admin/dashboard/notification",
-        icon: <HiChat className="" />,
+        icon: <LuBellRing className="" />,
     },
     {
         label: "Vendors",
         href: "/admin/dashboard/vendor",
-        icon: <HiChat className="" />,
+        icon: <LuSchool2 className="" />,
     },
     {
         label: "Assignments",
         href: "/admin/dashboard/assignment",
-        icon: <HiChat className="" />,
+        icon: <LuReplaceAll className="" />,
     },
     {
         label: "Logs",
         href: "/admin/dashboard/logs",
-        icon: <HiChat className="" />,
+        icon: <LuQrCode className="" />,
     },
     {
         label: "Roles",
         href: "/admin/dashboard/roles",
-        icon: <HiChat className="" />,
+        icon: <LuShieldCheck className="" />,
     },
     {
-        label: "Notifications",
-        href: "/admin/dashboard/notification",
-        icon: <HiChat className="" />,
+        label: "Invoices",
+        href: "/admin/dashboard/invoice",
+        icon: <LuCalculator className="" />,
     },
     {
-        label: "Notifications",
-        href: "/admin/dashboard/notifications",
-        icon: <HiChat className="" />,
+        label: "All Tickets",
+        href: "/admin/dashboard/ticket_system/all_tickets",
+        icon: <LuBookKey className="" />,
     },
+    {
+        label: "Ongoing Chats",
+        href: "/admin/dashboard/ticket_system/chats",
+        icon: <LuMessagesSquare className="" />,
+    },
+
     {
         label: "Support",
-        href: "/admin/dashboard/support",
-        icon: <HiCalendar className="" />,
+        href: "/admin/dashboard/support/",
+        icon: <LuHeadphones className="" />,
     },
 ];

@@ -1,12 +1,13 @@
 
-
 import React from 'react';
-import HomeCard from '../HomeCard';
 import { FaPlusCircle } from 'react-icons/fa';
-import ProjectCard from './ProjectCard';
 import ProjectTable from './ProjectTable';
-import ProjectModal from './ProjectModal';
 import Link from 'next/link';
+import Main from './Main';
+
+
+
+
 
 const Projects = () => {
 
@@ -26,10 +27,9 @@ const Projects = () => {
 
                 </div>
             </section>
-            {/*  */}
-            <section>
-                <ProjectTable />
-            </section>
+
+            {/* table section */}
+            <Main />
 
 
 

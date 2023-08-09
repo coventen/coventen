@@ -1,27 +1,10 @@
-'use client'
 
 import Link from "next/link"
-import { useState } from "react";
+import SignUpFrom from "./SignUpFrom";
+import Main from "./Main";
 
 export default function Login() {
-    const [selectedOption, setSelectedOption] = useState('');
 
-
-    const options = [
-        'Freelancer',
-        'Testing Agent',
-        'Manufacturer',
-        'Academics / Insitute',
-        'For my company',
-        'Foregin Client',
-        'Importer',
-        'Consumer',
-        'Testing Lab / Service Provider',
-    ];
-
-    const handleSelect = (e: any) => {
-        setSelectedOption(e.target.value);
-    };
     return (
         <main className="w-full flex">
             <div className="relative flex-1 hidden items-center justify-center h-screen bg-white lg:flex">
@@ -66,71 +49,7 @@ export default function Login() {
                         </div>
                     </div>
 
-                    <form
-                        onSubmit={(e) => e.preventDefault()}
-                        className="space-y-5"
-                    >
-                        <div>
-                            <label className="font-medium">
-                                Name
-                            </label>
-                            <input
-                                type="text"
-                                required
-                                className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-primary shadow-sm rounded-lg"
-                            />
-                        </div>
-                        <div>
-                            <label className="font-medium">
-                                Email
-                            </label>
-                            <input
-                                type="email"
-                                required
-                                className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-primary shadow-sm rounded-lg"
-                            />
-                        </div>
-                        {/* select options  */}
-                        <div>
-                            <label className="font-medium">
-                                User type
-                            </label>
-                            <div className="relative inline-flex w-full">
-                                <select
-                                    value={selectedOption}
-                                    onChange={handleSelect}
-                                    className="appearance-none relative w-full mt-2 px-3 py-2 text-gray-700 bg-transparent outline-none border focus:border-primary shadow-sm rounded-lg"
-                                >
-                                    <option value="" disabled>Select an option</option>
-                                    {options.map((option) => (
-                                        <option key={option} value={option}>
-                                            {option}
-                                        </option>
-                                    ))}
-                                </select>
-
-                            </div>
-                        </div>
-
-                        {/* ------- */}
-                        <div>
-                            <label className="font-medium">
-                                Password
-                            </label>
-                            <input
-                                type="password"
-                                required
-                                className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-primary shadow-sm rounded-lg"
-                            />
-                        </div>
-                        <Link href='/auth/verify '>
-                            <button
-                                className="w-full px-4 mt-8 py-2 text-white font-medium bg-primary hover:bg-primary active:bg-primary rounded-lg duration-150"
-                            >
-                                Create account
-                            </button>
-                        </Link>
-                    </form>
+                    <Main />
                 </div>
             </div>
         </main>

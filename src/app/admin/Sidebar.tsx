@@ -37,24 +37,24 @@ const Sidebar = ({
     return (
         <div
             className={classNames({
-                "bg-white text-desktopText z-20 border-r ": true,
+                "bg-white text-primaryText z-20 border-r ": true,
             })}
         >
             <div
                 className={classNames({
-                    "flex flex-col justify-between": true,
+                    "flex flex-col justify-between ": true,
                     "h-full": true,
                 })}
             >
                 {/* logo and collapse button */}
                 <div
                     className={classNames({
-                        "flex items-center  ": true,
+                        "flex items-center  border-b border-gray-200 dark:border-darkBorder mb-5": true,
                         "p-4 justify-between": !collapsed,
                         "py-4 justify-center": collapsed,
                     })}
                 >
-                    {!collapsed && <span className="whitespace-nowrap">My Logo</span>}
+                    {!collapsed && <span className="whitespace-nowrap  font-bold">Brand Name</span>}
                     <button
                         className={classNames({
                             "grid place-content-center": true,
@@ -69,34 +69,42 @@ const Sidebar = ({
                 </div>
 
                 {/* nav items part */}
-                <Scrollbar removeTracksWhenNotUsed={false} className="w-full h-screen" >
-                    <nav className="flex-grow">
-                        <ul
-                            className={classNames({
-                                "my-2 flex flex-col gap-2 items-stretch": true,
-                            })}
-                        >
-                            {navItems.map((item, index) => {
-                                return (
-                                    <li
-                                        key={index}
-                                        className={classNames({
-                                            "text-desktopText hover:bg-gray-200 cursor-pointer flex": true, //colors
-                                            "transition-colors duration-300": true, //animation
-                                            "rounded-md p-2 mx-3 gap-4 ": !collapsed,
-                                            "rounded-full p-2 mx-3 w-10 h-10": collapsed,
-                                            "bg-primary text-white ": pathname === item.href,
-                                        })}
-                                    >
-                                        <Link href={item.href} className="flex gap-2 items-center justify-center ">
-                                            <span className="text-base">  {item.icon}</span> <span className=" text-sm font-semibold">{!collapsed && item.label}</span>
-                                        </Link>
-                                    </li>
-                                );
-                            })}
-                        </ul>
-                    </nav>
-                </Scrollbar>
+
+                <nav className="flex-grow overflow-y-auto scrollbar-thumb-blue scrollbar-thumb-rounded scrollbar-track-blue-lighter scrollbar-w-2 scrolling-touch">
+                    <ul
+                        className={classNames({
+                            "my-2 flex flex-col gap-2 items-stretch": true,
+                        })}
+                    >
+                        {navItems.map((item, index) => {
+                            return (
+                                <li
+                                    key={index}
+                                    className={classNames({
+                                        "text-primaryText hover:bg-gray-200 cursor-pointer flex": true, //colors
+                                        "transition-colors duration-300": true, //animation
+                                        "rounded-md p-2 mx-3 gap-4 ": !collapsed,
+                                        "rounded-full p-2 mx-3 w-10 h-10": collapsed,
+                                        "bg-primary text-white ": pathname === item.href,
+                                    })}
+                                >
+                                    <Link href={item.href} className="flex gap-2 items-center justify-center ">
+                                        <span
+                                            className={classNames({
+                                                "text-xl text-primaryText flex items-center justify-center": true, //colors
+                                                "bg-primary text-white ": pathname === item.href,
+                                            })}
+                                        >
+                                            {item.icon}
+                                        </span>
+                                        <span className=" font-semibold">{!collapsed && item.label}</span>
+                                    </Link>
+                                </li>
+                            );
+                        })}
+                    </ul>
+                </nav>
+
                 {/* profile part ...omitted for brevity */}
 
 
@@ -116,8 +124,8 @@ const Sidebar = ({
                         />
                         {!collapsed && (
                             <Link href="/user/dashboard/profile" className="flex flex-col">
-                                <span className="text-desktopText my-0">Tom Cook</span>
-                                <span className="text-desktopText text-sm">
+                                <span className="text-primaryText my-0">Tom Cook</span>
+                                <span className="text-primaryText text-sm">
                                     View Profile
                                 </span>
                             </Link>

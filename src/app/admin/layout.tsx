@@ -8,24 +8,27 @@ import Sidebar from "./Sidebar";
 const Layout = (props: PropsWithChildren) => {
     const [collapsed, setSidebarCollapsed] = useState(false);
     return (
-        <div className="absolute top-0 w-full z-[9999999999999] bg-white">
+        <div className="absolute top-0 w-full z-[9999999999999] bg-white overflow-hidden ">
             <div
                 className={classNames({
-                    "grid min-h-screen ": true,
+                    "grid min-h-screen  ": true,
                     // 👇 toggle the width of the sidebar depending on the state
                     "grid-cols-sidebar": !collapsed,
                     "grid-cols-sidebar-collapsed": collapsed,
                     // 👇 transition animation classes
-                    "transition-[grid-template-columns] duration-300 ease-in-out": true,
+                    "transition-[grid-template-columns] duration-300 ease-in-out overflow-hidden": true,
                 })}
             >
+                <div className=" max-h-screen overflow-y-auto scrollbar-thumb-blue scrollbar-thumb-rounded scrollbar-track-blue-lighter scrollbar-w-2 scrolling-touch">
 
-                <Sidebar
-                    collapsed={collapsed}
-                    setCollapsed={() => setSidebarCollapsed((prev) => !prev)}
-                />
+                    <Sidebar
+                        collapsed={collapsed}
+                        setCollapsed={() => setSidebarCollapsed((prev) => !prev)}
+                    />
+                </div>
+
                 {/* content */}
-                <div className="relative">
+                <div className="relative  max-h-screen overflow-y-auto scrollbar-thumb-blue scrollbar-thumb-rounded scrollbar-track-blue-lighter scrollbar-w-2 scrolling-touch">
                     <div className="sticky top-0 h-16  bg-white dark:bg-gray-800  lg:py-2.5 border-b shadow-sm">
                         <div className="flex items-center justify-between space-x-4 px-6 2xl:container">
                             <h5 hidden className="text-2xl font-medium text-gray-600 lg:block dark:text-white">Dashboard</h5>
@@ -48,7 +51,7 @@ const Layout = (props: PropsWithChildren) => {
                             <div className="flex space-x-4">
                                 {/* <!--search bar --> */}
                                 <div hidden className="md:block">
-                                    <div className="relative flex items-center text-gray-400 focus-within:text-cyan-400">
+                                    <div className="relative z-50 flex items-center text-gray-400 focus-within:text-cyan-400">
                                         <span className="absolute left-4 flex h-6 items-center border-r border-gray-300 pr-3 dark:border-gray-700">
                                             <svg
                                                 xmlns="http://ww50w3.org/2000/svg"
@@ -125,7 +128,7 @@ const Layout = (props: PropsWithChildren) => {
                             </div>
                         </div>
                     </div>
-                    <div className="w-full h-full min-h-[85vh] bg-bgLight p-2 lg:p-6">
+                    <div className="w-full min-h-screen h-auto   bg-bgLight p-2 lg:p-6 ">
                         {props.children}
                     </div>
 

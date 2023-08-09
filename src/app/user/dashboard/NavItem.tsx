@@ -13,7 +13,7 @@ export const defaultNavItems: NavItem[] = [
     {
         label: "Dashboard",
         href: "/user/dashboard",
-        icon: <LuLayoutDashboard className="w-6 h-6" />,
+        icon: <LuLayoutDashboard className="w-6 h-6 " />,
     },
 
     {

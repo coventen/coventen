@@ -20,8 +20,6 @@ interface IDropdownProps {
 
 
 
-
-
 const Dropdown = ({ data, title }: IDropdownProps) => {
 
     return (
