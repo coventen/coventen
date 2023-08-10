@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import InvoiceTable from './InvoiceTable';
 import Link from 'next/link';
+import Main from './Main';
 
 
 
@@ -60,7 +61,7 @@ const InvoicePage = () => {
                 <div className="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
                     <div className="inline-block min-w-full  rounded-sm overflow-hidden">
 
-                        <InvoiceTable />
+                        <Main />
                     </div>
                 </div>
 

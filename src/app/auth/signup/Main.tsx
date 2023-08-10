@@ -31,6 +31,11 @@ const Main = () => {
 
     // initializing user creation function
     const createUser = async (name: string, email: string, user_type: string) => {
+
+        if (user_type === "SERVICE PROVIDER") {
+            user_type = "SERVICE_PROVIDER"
+        }
+
         const { data } = await createUserFn({
             variables: {
                 input: [
@@ -42,7 +47,6 @@ const Main = () => {
                 ]
             }
         })
-
 
 
         if (data.createUsers.info.nodesCreated) {

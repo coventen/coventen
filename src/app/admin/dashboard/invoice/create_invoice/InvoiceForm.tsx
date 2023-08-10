@@ -1,12 +1,41 @@
 'use client'
 import AutoComplete from '@/components/AutoComplete';
 import React from 'react';
+import { useForm, SubmitHandler, set } from "react-hook-form"
+import ServicesFrom from './ServicesFrom';
+import { Invoice, Service } from '@/gql/graphql';
+import { BsPercent } from 'react-icons/bs';
 
-const InvoiceForm = () => {
+interface IInvoiceForm {
+    createInvoice: (invoiceData: Invoice, services: Service[], company: string) => void
+}
+
+const InvoiceForm = ({ createInvoice }: IInvoiceForm) => {
+
+    //states
     const [serviceCount, setServiceCount] = React.useState(3)
-    const [selected, setSelected] = React.useState(null);
+    const [selected, setSelected] = React.useState<any>(null);
+    const [services, setServices] = React.useState<any[]>([]);
+
+    console.log(services, 'services')
+
+    //hooks 
+    const {
+        register,
+        handleSubmit,
+        watch,
+        formState: { errors },
+    } = useForm<any>()
 
 
+    // handle creating invoice
+    const handleCreating: SubmitHandler<any> = (data) => {
+        console.log(data, 'data')
+        createInvoice(data, services, selected ? selected.name : '')
+    }
+
+
+    // handle service count
     if (serviceCount < 1) {
         setServiceCount(1)
     }
@@ -23,68 +52,71 @@ const InvoiceForm = () => {
 
 
                             <div className="lg:col-span-2">
-                                <div className="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-5">
+                                <form onSubmit={handleSubmit(handleCreating)} className="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-5">
                                     <div className="md:col-span-5 mb-10">
                                         <label htmlFor="full_name">Company Name</label>
                                         <div className='relative'>
 
                                             <AutoComplete setSelected={setSelected} selected={selected} />
                                         </div>
-                                        {/* <input type="text" name="full_name" id="full_name" className="h-10 border border-gray-300 mt-1 rounded px-4 w-full " value="" /> */}
+                                        {/* <input type="text" name="full_name" id="full_name" className="h-10 border border-gray-300 mt-1 rounded px-4 w-full "  /> */}
                                     </div>
 
                                     <div className="md:col-span-5">
                                         <label htmlFor="email">Email Address</label>
-                                        <input type="text" name="email" id="email" className="h-10 border border-gray-300 mt-1 rounded px-4 w-full " value="" placeholder="email@domain.com" />
+                                        <input type="text" id="email" className="h-10 border border-gray-300 mt-1 rounded px-4 w-full " placeholder="email@domain.com" {...register("companyEmail")} />
                                     </div>
 
                                     <div className="md:col-span-3">
                                         <label htmlFor="address">Address / Street</label>
-                                        <input type="text" name="address" id="address" className="h-10 border border-gray-300 mt-1 rounded px-4 w-full " value="" placeholder="" />
+                                        <input type="text" id="address" className="h-10 border border-gray-300 mt-1 rounded px-4 w-full " placeholder="" {...register("companyAddress")} />
                                     </div>
 
                                     <div className="md:col-span-2">
                                         <label htmlFor="city">City</label>
-                                        <input type="text" name="city" id="city" className="h-10 border border-gray-300 mt-1 rounded px-4 w-full " value="" placeholder="" />
+                                        <input type="text" className="h-10 border border-gray-300 mt-1 rounded px-4 w-full " placeholder=""{...register("city")} />
                                     </div>
 
                                     <div className="md:col-span-2">
                                         <label htmlFor="country">Country / region</label>
-                                        <div className="h-10  flex border border-gray-300  rounded items-center mt-1">
-                                            <input name="country" id="country" placeholder="Country" className="px-4 appearance-none outline-none text-gray-800 w-full bg-transparent" value="" />
-                                            <button className="cursor-pointer outline-none focus:outline-none transition-all text-gray-300 hover:text-red-600">
-                                                <svg className="w-4 h-4 mx-2 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                                    <line x1="18" y1="6" x2="6" y2="18"></line>
-                                                    <line x1="6" y1="6" x2="18" y2="18"></line>
-                                                </svg>
-                                            </button>
-                                            <button className="cursor-pointer outline-none focus:outline-none border-l border-gray-300 transition-all text-gray-300 hover:text-blue-600">
-                                                <svg className="w-4 h-4 mx-2 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>
-                                            </button>
-                                        </div>
+                                        <input type="text" className="h-10 border border-gray-300 mt-1 rounded px-4 w-full " placeholder=""{...register("country")} />
                                     </div>
 
                                     <div className="md:col-span-2">
                                         <label htmlFor="state">State / province</label>
-                                        <div className="h-10  flex border border-gray-300 border-gray-300 rounded items-center mt-1">
-                                            <input name="state" id="state" placeholder="State" className="px-4 appearance-none outline-none text-gray-800 w-full bg-transparent" value="" />
-                                            <button className="cursor-pointer outline-none focus:outline-none transition-all text-gray-300 hover:text-red-600">
-                                                <svg className="w-4 h-4 mx-2 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                                    <line x1="18" y1="6" x2="6" y2="18"></line>
-                                                    <line x1="6" y1="6" x2="18" y2="18"></line>
-                                                </svg>
-                                            </button>
-                                            <button className="cursor-pointer outline-none focus:outline-none border-l border-gray-300 transition-all text-gray-300 hover:text-blue-600">
-                                                <svg className="w-4 h-4 mx-2 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>
-                                            </button>
-                                        </div>
+                                        <input type="text" className="h-10 border border-gray-300 mt-1 rounded px-4 w-full " placeholder=""{...register("state")} />
                                     </div>
 
                                     <div className="md:col-span-1">
                                         <label htmlFor="zipcode">Gst no.</label>
-                                        <input type="text" name="zipcode" id="zipcode" className="transition-all flex items-center h-10 border border-gray-300 mt-1 rounded px-4 w-full " placeholder="" value="" />
+                                        <input type="text" id="zipcode" className="transition-all flex items-center h-10 border border-gray-300 mt-1 rounded px-4 w-full " placeholder=""   {...register("gstNumber")} />
                                     </div>
 
+                                    <div className='col-span-2'>
+                                        <p >Tax</p>
+
+                                        <div className="flex  sm:flex-row  ">
+                                            <div className="flex flex-row mb-1 sm:mb-0">
+
+                                                <div className="relative">
+                                                    <select
+                                                        className=" h-full rounded-r border-t  rounded-l-md sm:rounded-r-none sm:border-r-0 border-r border-b block  w-full bg-white border-gray-300 text-gray-700 py-2 px-4 pr-8 leading-tight focus:outline-none focus:border-l focus:border-r focus:bg-white focus:border-gray-500" {...register("taxType")}>
+                                                        <option>GST</option>
+                                                        <option>SGST</option>
+                                                        <option>UGST</option>
+                                                    </select>
+
+                                                </div>
+                                            </div>
+                                            <div className="block relative">
+                                                <span className="h-full absolute inset-y-0 left-0 flex items-center pl-2">
+                                                    <BsPercent />
+                                                </span>
+                                                <input placeholder="Tax rate"
+                                                    className="  sm:rounded-l-none rounded-r-md  border border-gray-300 border-b block pl-8 pr-6 py-2 w-full bg-white text-sm placeholder-gray-400 text-gray-700 focus:bg-white focus:placeholder-gray-600 focus:text-gray-700 focus:outline-none" {...register("taxRate")} />
+                                            </div>
+                                        </div>
+                                    </div>
 
                                     {/* services */}
                                     <div className="md:col-span-5 mt-8">
@@ -97,7 +129,7 @@ const InvoiceForm = () => {
 
                                                 <div>
                                                     <label >Add More service</label>
-                                                    <div className="h-10 w-28  flex border border-gray-300 border-gray-300 rounded items-center mt-1">
+                                                    <div className="h-10 w-28  flex border border-gray-300  rounded items-center mt-1">
                                                         <button
                                                             onClick={() => setServiceCount(serviceCount - 1)}
                                                             className="cursor-pointer outline-none focus:outline-none border-r border-gray-300 transition-all text-gray-500 hover:text-blue-600">
@@ -122,18 +154,10 @@ const InvoiceForm = () => {
                                             <div className='space-y-5'>
                                                 {
                                                     [...Array(serviceCount)].map((_, i) =>
-                                                        <div key={i} className='grid lg:grid-cols-5 gap-6'>
-                                                            <div className="md:col-span-4">
-                                                                <label htmlFor="address">Service Name</label>
-                                                                <input type="text" name="address" id="address" className="h-10 border border-gray-300 mt-1 rounded px-4 w-full " value="" placeholder="" />
-                                                            </div>
 
-                                                            <div className="md:col-span-1">
-                                                                <label htmlFor="city">Price</label>
-                                                                <input type="text" name="city" id="city" className="h-10 border border-gray-300 mt-1 rounded px-4 w-full " value="" placeholder="" />
-                                                            </div>
+                                                        <div key={i}>
+                                                            <ServicesFrom index={i} services={services} setServices={setServices} />
                                                         </div>
-
                                                     )
                                                 }
                                             </div>
@@ -148,7 +172,7 @@ const InvoiceForm = () => {
                                         </div>
                                     </div>
 
-                                </div>
+                                </form>
                             </div>
                         </div>
                     </div>

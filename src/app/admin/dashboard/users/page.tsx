@@ -1,6 +1,7 @@
 import React from 'react';
 
 import UserTable from './UserTable';
+import Main from './Main';
 
 const page = () => {
     return (
@@ -36,9 +37,10 @@ const page = () => {
                                     className="  sm:rounded-l-none border border-gray-300 border-b block pl-8 pr-6 py-2 w-full bg-white text-sm placeholder-gray-400 text-gray-700  focus:placeholder-gray-600 focus:text-gray-700 focus:outline-none dark:bg-darkBg dark:border-darkBorder" />
                             </div>
                         </div>
+                        {/* table start */}
                         <div className="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
                             <div className="inline-block min-w-full  rounded-sm overflow-hidden">
-                                <UserTable />
+                                <Main />
 
                             </div>
                         </div>

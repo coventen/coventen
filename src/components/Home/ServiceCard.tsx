@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import React from 'react';
 import { FaPlus, FaMinus, FaArrowRight } from 'react-icons/fa';
-import { Scrollbars } from 'react-custom-scrollbars-2';
+
 
 interface IServiceCard {
     title: string;

@@ -1,12 +1,24 @@
+import { User } from '@/gql/graphql';
+import Image from 'next/image';
 import React from 'react';
 import { AiTwotoneDelete } from 'react-icons/ai';
 import { BiSolidEditAlt } from 'react-icons/bi';
 
-const UserTable = () => {
+interface IUserTable {
+    data: User[]
+}
+
+
+//component
+const UserTable = ({ data }: IUserTable) => {
+
+
+
+
     return (
-        <table className="min-w-full leading-normal">
+        <table className="min-w-full leading-normal uppercase">
             <thead>
-                <tr>
+                <tr className='border-b border-gray-200'>
                     <th
                         className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-dimText dark:text-darkDimText uppercase tracking-wider dark:bg-darkBg dark:border-darkBorder">
                         User
@@ -17,136 +29,69 @@ const UserTable = () => {
                     </th>
                     <th
                         className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-dimText dark:text-darkDimText uppercase tracking-wider dark:bg-darkBg dark:border-darkBorder">
-                        Company
+                        User Type
                     </th>
                     <th
                         className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-dimText dark:text-darkDimText uppercase tracking-wider dark:bg-darkBg dark:border-darkBorder">
-                        Location
+                        Connectivity
                     </th>
                     <th
-                        className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-center text-xs font-semibold text-dimText dark:text-darkDimText uppercase tracking-wider dark:bg-darkBg dark:border-darkBorder">
-                        Action
+                        className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-dimText dark:text-darkDimText uppercase tracking-wider dark:bg-darkBg dark:border-darkBorder">
+                        Status
                     </th>
+
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td className="px-5 py-5 border-b border-gray-200 bg-white text-xs dark:bg-darkBg dark:border-darkBorder">
-                        <div className="flex items-center">
-                            <div className="flex-shrink-0 w-10 h-10">
-                                <img className="w-full h-full rounded-full"
-                                    src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.2&w=160&h=160&q=80"
-                                    alt="" />
-                            </div>
-                            <div className="ml-3">
-                                <p className=" whitespace-no-wrap">
-                                    Vera Carpenter
-                                </p>
-                            </div>
-                        </div>
-                    </td>
-                    <td className="px-5 py-5 border-b border-gray-200 bg-white text-xs dark:bg-darkBg dark:border-darkBorder">
-                        <p className=" whitespace-no-wrap">Admin</p>
-                    </td>
-                    <td className="px-5 py-5 border-b border-gray-200 bg-white text-xs dark:bg-darkBg dark:border-darkBorder">
-                        <p className=" whitespace-no-wrap">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        </p>
-                    </td>
-                    <td className="px-5 py-5 border-b border-gray-200 bg-white text-xs dark:bg-darkBg dark:border-darkBorder">
-                        <span
-                            className="relative inline-block px-3 py-1  leading-tight">
-                            <span aria-hidden
-                                className="absolute inset-0 opacity-50 rounded-full"></span>
-                            <span className="relative">Delhi</span>
-                        </span>
-                    </td>
-                    <td className="px-5 py-5 border-b border-gray-200 bg-white text-xs dark:bg-darkBg dark:border-darkBorder">
-                        <div className="relative flex items-center justify-around  space-x-3 px-8 ">
 
-                            <button className="focus:ring-2 focus:ring-offset-2  text-sm leading-none text-green-600 py-2 px-2 bg-gray-100 rounded hover:bg-gray-200 focus:outline-none"><BiSolidEditAlt /></button>
-                            <button className="focus:ring-2 focus:ring-offset-2  text-sm leading-none text-red-600 py-2 px-2 bg-gray-100 rounded hover:bg-gray-200 focus:outline-none"><AiTwotoneDelete /></button>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td className="px-5 py-5 border-b border-gray-200 bg-white text-xs dark:bg-darkBg dark:border-darkBorder">
-                        <div className="flex items-center">
-                            <div className="flex-shrink-0 w-10 h-10">
-                                <img className="w-full h-full rounded-full"
-                                    src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.2&w=160&h=160&q=80"
-                                    alt="" />
-                            </div>
-                            <div className="ml-3">
+                {
+                    data && data.map((user, index) =>
+                        <tr key={user?.id} className='border-b border-gray-200'>
+                            <td className="px-5 py-5  bg-white text-xs dark:bg-darkBg dark:border-darkBorder">
+                                <div className="flex items-center">
+                                    <div className="flex-shrink-0 w-10 h-10">
+                                        <Image height={200} width={200} className="w-full h-full rounded-full"
+                                            src={user?.image || '/assets/no_user.png'}
+                                            alt="" />
+                                    </div>
+                                    <div className="ml-3">
+                                        <p className=" whitespace-no-wrap">
+                                            {user?.name}
+                                        </p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td className="px-5 py-5  bg-white text-xs dark:bg-darkBg dark:border-darkBorder">
+                                <p className=" whitespace-no-wrap">{user?.email}</p>
+                            </td>
+                            <td className="px-5 py-5  bg-white text-xs dark:bg-darkBg dark:border-darkBorder">
                                 <p className=" whitespace-no-wrap">
-                                    Blake Bowman
+                                    {user?.user_type}
                                 </p>
-                            </div>
-                        </div>
-                    </td>
-                    <td className="px-5 py-5 border-b border-gray-200 bg-white text-xs dark:bg-darkBg dark:border-darkBorder">
-                        <p className=" whitespace-no-wrap">Editor</p>
-                    </td>
-                    <td className="px-5 py-5 border-b border-gray-200 bg-white text-xs dark:bg-darkBg dark:border-darkBorder">
-                        <p className=" whitespace-no-wrap">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        </p>
-                    </td>
-                    <td className="px-5 py-5 border-b border-gray-200 bg-white text-xs dark:bg-darkBg dark:border-darkBorder">
-                        <span
-                            className="relative inline-block px-3 py-1  leading-tight">
-                            <span aria-hidden
-                                className="absolute inset-0 opacity-50 rounded-full"></span>
-                            <span className="relative">Kolkata</span>
-                        </span>
-                    </td>
-                    <td className="px-5 py-5 border-b border-gray-200 bg-white text-xs dark:bg-darkBg dark:border-darkBorder">
-                        <div className="relative flex items-center justify-around  space-x-3 px-8 ">
+                            </td>
+                            <td className="px-5 py-5  bg-white text-xs dark:bg-darkBg dark:border-darkBorder rounded-xl font-semibold">
+                                <span
+                                    className="relative inline-block bg-gray-200 text-primaryText px-4 py-1  leading-tight">
+                                    <span
+                                        className="absolute  "></span>
+                                    <span className="relative">Offline</span>
+                                </span>
+                            </td>
+                            <td className="px-5 py-5  bg-white text-xs dark:bg-darkBg dark:border-darkBorder rounded-xl font-semibold">
+                                <span
+                                    className="relative inline-block bg-yellow-100 text-yellow-600 px-4 py-1  leading-tight">
+                                    <span
+                                        className="absolute  "></span>
+                                    <span className="relative">{user.status || 'PENDING'}</span>
+                                </span>
+                            </td>
 
-                            <button className="focus:ring-2 focus:ring-offset-2  text-sm leading-none text-green-600 py-2 px-2 bg-gray-100 rounded hover:bg-gray-200 focus:outline-none"><BiSolidEditAlt /></button>
-                            <button className="focus:ring-2 focus:ring-offset-2  text-sm leading-none text-red-600 py-2 px-2 bg-gray-100 rounded hover:bg-gray-200 focus:outline-none"><AiTwotoneDelete /></button>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td className="px-5 py-5 border-b border-gray-200 bg-white text-xs dark:bg-darkBg dark:border-darkBorder">
-                        <div className="flex items-center">
-                            <div className="flex-shrink-0 w-10 h-10">
-                                <img className="w-full h-full rounded-full"
-                                    src="https://images.unsplash.com/photo-1540845511934-7721dd7adec3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.2&w=160&h=160&q=80"
-                                    alt="" />
-                            </div>
-                            <div className="ml-3">
-                                <p className=" whitespace-no-wrap">
-                                    Dana Moore
-                                </p>
-                            </div>
-                        </div>
-                    </td>
-                    <td className="px-5 py-5 border-b border-gray-200 bg-white text-xs dark:bg-darkBg dark:border-darkBorder">
-                        <p className=" whitespace-no-wrap">Editor</p>
-                    </td>
-                    <td className="px-5 py-5 border-b border-gray-200 bg-white text-xs dark:bg-darkBg dark:border-darkBorder">
-                        <p className=" whitespace-no-wrap">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        </p>
-                    </td>
-                    <td className="px-5 py-5 border-b border-gray-200 bg-white text-xs dark:bg-darkBg dark:border-darkBorder">
-                        <span
-                            className="relative inline-block px-3 py-1  leading-tight">
-                            <span aria-hidden
-                                className="absolute inset-0  opacity-50 rounded-full"></span>
-                            <span className="relative">Delhi</span>
-                        </span>
-                    </td>
-                    <td className="px-5 py-5 border-b border-gray-200 bg-white text-xs dark:bg-darkBg dark:border-darkBorder">
-                        <div className="relative flex items-center justify-around  space-x-3 px-8 ">
+                        </tr>
 
-                            <button className="focus:ring-2 focus:ring-offset-2  text-sm leading-none text-green-600 py-2 px-2 bg-gray-100 rounded hover:bg-gray-200 focus:outline-none"><BiSolidEditAlt /></button>
-                            <button className="focus:ring-2 focus:ring-offset-2  text-sm leading-none text-red-600 py-2 px-2 bg-gray-100 rounded hover:bg-gray-200 focus:outline-none"><AiTwotoneDelete /></button>
-                        </div>
-                    </td>
-                </tr>
+                    )
+                }
+
+
 
 
             </tbody>

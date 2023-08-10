@@ -1,6 +1,6 @@
 'use client'
 import React, { useState } from 'react';
-import { Scrollbars } from 'react-custom-scrollbars-2';
+
 
 const ChatsPage = () => {
     const [onClose, setOnClose] = useState(false)

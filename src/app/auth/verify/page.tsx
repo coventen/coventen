@@ -1,12 +1,75 @@
 'use client'
 
 import AnimatedButton from '@/components/AnimatedButton';
+import { currentUser } from '@/firebase/oauth.config';
+import { useGqlClient } from '@/hooks/UseGqlClient';
+import { useMutation } from 'graphql-hooks';
 import React, { useCallback, useState } from 'react';
 import Dropzone from 'react-dropzone';
+import { useForm, SubmitHandler } from "react-hook-form"
+import { toast } from 'react-hot-toast';
+
+const VERIFY_USER = `
+mutation Mutation($where: UserWhere, $update: UserUpdateInput) {
+    updateUsers(where: $where, update: $update) {
+      info {
+        nodesCreated
+        nodesDeleted
+      }
+    }
+  }
+`
 
 const VerifyPage = () => {
 
+    // states
     const [files, setFiles] = useState<File[]>([]);
+
+    //hooks
+    const {
+        register,
+        handleSubmit,
+        formState: { errors },
+    } = useForm<any>()
+
+    const client = useGqlClient()
+    const user = currentUser()
+
+
+    // updating the user node 
+    const [updateUserFn, state] = useMutation(VERIFY_USER, { client });
+
+
+    // initializing user update function
+    const updateUser = async (data: any) => {
+        console.log(data, 'hellllllllllllllllllllllll')
+        const { data: updateData } = await updateUserFn({
+            variables: {
+                where: {
+                    email: user?.email
+                },
+                update: {
+                    isClient: {
+                        create: {
+                            node: {
+                                companyName: data.companyName,
+                                gst: data.registrationNumber,
+                                companyEmail: data.companyEmail
+                            }
+                        }
+                    }
+                }
+            }
+        })
+
+        if (updateData.updateUsers.info.nodesCreated) {
+            console.log('success')
+            toast.success('Please wait for the admin to verify your account')
+        }
+    }
+
+
+    // image functions
     const handleDrop = useCallback((acceptedFiles: File[]) => {
         setFiles(prevFiles => [...prevFiles, ...acceptedFiles]);
     }, [setFiles]);
@@ -22,7 +85,7 @@ const VerifyPage = () => {
         <div className="min-h-screen bg-gray-100 p-0 sm:p-12">
             <div className="mx-auto max-w-xl px-6 py-12 bg-white border-0 shadow-md rounded">
                 <h1 className="text-xl font-bold mb-10 text-gray-700 text-center">Please Fillup the form to continue</h1>
-                <form id="form" className=' grid grid-cols-1 lg:grid-cols-2 gap-4'>
+                <form onSubmit={handleSubmit(updateUser)} id="form" className=' grid grid-cols-1 lg:grid-cols-2 gap-4'>
                     <div>
                         <label className=" text-gray-500">
                             Company Name
@@ -30,6 +93,7 @@ const VerifyPage = () => {
                         <input
                             type="text"
                             required
+                            {...register('companyName')}
                             className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border border-gray-300 focus:border-primary shadow-sm rounded"
                         />
                     </div>
@@ -40,6 +104,7 @@ const VerifyPage = () => {
                         <input
                             type="email"
                             required
+                            {...register('companyEmail')}
                             className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border border-gray-300 focus:border-primary shadow-sm rounded"
                         />
                     </div>
@@ -51,19 +116,21 @@ const VerifyPage = () => {
                         <input
                             type="text"
                             required
+                            {...register('registrationNumber')}
                             className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border border-gray-300 focus:border-primary shadow-sm rounded"
                         />
                     </div>
-                    <div>
+                    {/* <div>
                         <label className=" text-gray-500">
                             Phone
                         </label>
                         <input
                             type="text"
                             required
+                            {...register('phone')}
                             className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border border-gray-300 focus:border-primary shadow-sm rounded"
                         />
-                    </div>
+                    </div> */}
                     <div className='col-span-2'>
                         <label className=" text-gray-500">
                             Documents

@@ -1,5 +1,6 @@
 import React from 'react';
 import InvoiceForm from './InvoiceForm';
+import Main from './Main';
 
 const page = () => {
     return (
@@ -12,7 +13,7 @@ const page = () => {
                     </div>
                 </div>
                 <div>
-                    <InvoiceForm />
+                    <Main />
                 </div>
 
 

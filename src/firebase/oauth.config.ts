@@ -1,4 +1,4 @@
-import { OAuthProvider, signOut, getAuth, signInWithRedirect,createUserWithEmailAndPassword, getRedirectResult } from "firebase/auth";
+import { OAuthProvider, signOut, getAuth, signInWithRedirect,createUserWithEmailAndPassword,signInWithEmailAndPassword, getRedirectResult } from "firebase/auth";
 import { app } from "./fireabase.config";
 
 
@@ -22,13 +22,23 @@ export async function signUpWithEmailAndPassword(email: string, password: string
       console.error("Error creating user:", error.message);
       throw error;
     }
+}
+  
+// sign in with email and password
+export async function logInWithEmailAndPassword(email: string, password: string) {
+    try {
+      const userCredential = await signInWithEmailAndPassword(auth, email, password);
+      const user = userCredential.user;
+      console.log("User created:", user.uid);
+      return user;
+    } catch (error: any) {
+      console.error("Error creating user:", error.message);
+      throw error;
+    }
   }
 
 
-
-
-
-
+// Sync user after redirect
 
 export async function syncUser() {
     const result = await getRedirectResult(auth);
