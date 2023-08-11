@@ -7,6 +7,7 @@ import { AiTwotoneDelete, AiFillEye } from 'react-icons/ai';
 import { BiSolidEditAlt } from 'react-icons/bi';
 import Error from '@/components/Error';
 import { toast } from 'react-hot-toast';
+import NotificationView from './NotificationView';
 
 
 //props interface
@@ -50,8 +51,10 @@ mutation Mutation($where: NotificationWhere) {
   `
 //component 
 const PersonalizeNotification = ({ newNotification }: INotificationTab) => {
-    // State
-    const [isOpen, setIsOpen] = useState(false);
+
+    //states
+    const [isNotificationViewModalOpen, setIsNotificationViewModalOpen] = useState(false);
+    const [currentNotification, setCurrentNotification] = useState<INotification | null>(null);
 
     // Create GraphQL client using custom hook
     const client = useGqlClient();
@@ -64,7 +67,7 @@ const PersonalizeNotification = ({ newNotification }: INotificationTab) => {
         client,
         variables: {
             where: {
-                type: 'PERSONALIZED'
+                type_IN: ["CLIENT", "VENDOR"]
             }
         }
     });
@@ -141,8 +144,11 @@ const PersonalizeNotification = ({ newNotification }: INotificationTab) => {
                                                 </td> */}
                                                     <td className="  text-center col-span-2 ">
                                                         <div className="relative flex items-center justify-around  px-8 ">
-                                                            <button className="focus:ring-2 focus:ring-offset-2  text-sm leading-none text-primary py-2 px-2 bg-gray-100 rounded hover:bg-gray-200 focus:outline-none"><AiFillEye /></button>
-                                                            <button className="focus:ring-2 focus:ring-offset-2  text-sm leading-none text-green-600 py-2 px-2 bg-gray-100 rounded hover:bg-gray-200 focus:outline-none"><BiSolidEditAlt /></button>
+                                                            <button onClick={() => {
+                                                                setIsNotificationViewModalOpen(true);
+                                                                setCurrentNotification(item);
+                                                            }} className="focus:ring-2 focus:ring-offset-2  text-sm leading-none text-primary py-2 px-2 bg-gray-100 rounded hover:bg-gray-200 focus:outline-none"><AiFillEye /></button>
+                                                            {/* <button className="focus:ring-2 focus:ring-offset-2  text-sm leading-none text-green-600 py-2 px-2 bg-gray-100 rounded hover:bg-gray-200 focus:outline-none"><BiSolidEditAlt /></button> */}
                                                             <button onClick={() => handleDelete(item?.id)} className="focus:ring-2 focus:ring-offset-2  text-sm leading-none text-red-600 py-2 px-2 bg-gray-100 rounded hover:bg-gray-200 focus:outline-none"><AiTwotoneDelete /></button>
                                                         </div>
                                                     </td>
@@ -157,6 +163,8 @@ const PersonalizeNotification = ({ newNotification }: INotificationTab) => {
                     </div>
                 </div>
             </div>
+            <NotificationView isNotificationViewModalOpen={isNotificationViewModalOpen} setIsNotificationViewModalOpen={setIsNotificationViewModalOpen}
+                data={currentNotification} />
         </div >
     );
 };

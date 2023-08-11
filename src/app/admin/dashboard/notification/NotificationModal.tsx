@@ -27,6 +27,9 @@ mutation CreateNotifications($input: [NotificationCreateInput!]!) {
 //component
 function NotificationModal({ isOpen, setIsOpen, setNewNotification }: INotificationModal) {
 
+    console.log(isOpen, 'this is me')
+
+
     //states
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
@@ -40,8 +43,9 @@ function NotificationModal({ isOpen, setIsOpen, setNewNotification }: INotificat
 
     // Options for select
     const options = [
-        "GENAREL",
-        "PERSONALIZED"
+        "GENERAL",
+        "CLIENT",
+        "VENDOR"
     ];
 
     //handle select option
@@ -73,7 +77,6 @@ function NotificationModal({ isOpen, setIsOpen, setNewNotification }: INotificat
             variables: {
                 input: [
                     {
-                        id: `notification-${uuidv4()}`,
                         title: title,
                         description: description,
                         type: userType,
