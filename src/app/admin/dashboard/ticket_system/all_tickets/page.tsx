@@ -2,6 +2,7 @@ import React from 'react';
 import { AiTwotoneDelete } from 'react-icons/ai';
 import { BiSolidEditAlt } from 'react-icons/bi';
 import TicketTable from './TicketTable';
+import Main from './Main';
 
 const page = () => {
     return (
@@ -39,7 +40,7 @@ const page = () => {
                     <div className="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
                         <div className="inline-block min-w-full  rounded-sm overflow-hidden">
 
-                            <TicketTable />
+                            <Main />
                         </div>
                     </div>
                 </div>

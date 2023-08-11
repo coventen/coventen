@@ -6,6 +6,7 @@ import { Invoice, Service } from '@/gql/graphql';
 import InvoiceForm from './InvoiceForm';
 import { currentUser } from '@/firebase/oauth.config';
 import { parse } from 'path';
+import { toast } from 'react-hot-toast';
 
 const CREATE_INVOICE = `
 mutation CreateInvoices($input: [InvoiceCreateInput!]!) {
@@ -33,14 +34,17 @@ const Main = () => {
 
 
     // initializing invoice creation function
-    const createInvoice = async (invoiceData: Invoice, services: any, company: string) => {
+    const createInvoice = async (invoiceData: any, services: any, company: any) => {
+        console.log(invoiceData.companyEmail
+            , 'this is it 444444444', invoiceData.companyAddress)
+
         const { data } = await createInvoiceFn({
             variables: {
                 input: [
                     {
-                        clientName: company,
-                        clientEmail: invoiceData.clientEmail,
-                        clientAddress: invoiceData.clientAddress,
+                        clientName: company.name,
+                        clientEmail: invoiceData.companyEmail,
+                        clientAddress: invoiceData.companyAddress,
                         price: invoiceData.price,
                         taxRate: 5,
                         taxType: invoiceData.taxType,
@@ -74,6 +78,10 @@ const Main = () => {
                 ]
             }
         })
+
+        if (data.createInvoices.info.nodesCreated) {
+            toast.success('Invoice created successfully')
+        }
     }
 
 

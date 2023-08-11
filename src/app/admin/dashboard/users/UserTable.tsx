@@ -6,11 +6,13 @@ import { BiSolidEditAlt } from 'react-icons/bi';
 
 interface IUserTable {
     data: User[]
+    setIsModalOpen: (value: boolean) => void;
+    setCurrentData: (value: any) => void;
 }
 
 
 //component
-const UserTable = ({ data }: IUserTable) => {
+const UserTable = ({ data, setIsModalOpen, setCurrentData }: IUserTable) => {
 
 
 
@@ -70,20 +72,22 @@ const UserTable = ({ data }: IUserTable) => {
                                 </p>
                             </td>
                             <td className="px-5 py-5  bg-white text-xs dark:bg-darkBg dark:border-darkBorder rounded-xl font-semibold">
-                                <span
-                                    className="relative inline-block bg-gray-200 text-primaryText px-4 py-1  leading-tight">
-                                    <span
-                                        className="absolute  "></span>
-                                    <span className="relative">Offline</span>
-                                </span>
+                                <p className=" whitespace-no-wrap">
+                                    Offline
+                                </p>
                             </td>
-                            <td className="px-5 py-5  bg-white text-xs dark:bg-darkBg dark:border-darkBorder rounded-xl font-semibold">
-                                <span
-                                    className="relative inline-block bg-yellow-100 text-yellow-600 px-4 py-1  leading-tight">
+                            <td className="px-5 py-5 cursor-pointer  bg-white text-xs dark:bg-darkBg dark:border-darkBorder rounded-xl font-semibold">
+                                <button
+                                    onClick={() => {
+                                        setCurrentData(user)
+                                        setIsModalOpen(true)
+                                    }}
+                                    disabled={user.status === "APPROVED"}
+                                    className="relative inline-block bg-gray-200 text-primaryText px-4 py-1 rounded-md  leading-tight">
                                     <span
                                         className="absolute  "></span>
-                                    <span className="relative">{user.status || 'PENDING'}</span>
-                                </span>
+                                    <span className="relative font-bold">{user.status === "APPROVED" ? 'Approved' : 'Approve'}</span>
+                                </button>
                             </td>
 
                         </tr>

@@ -34,9 +34,9 @@ const InvoiceTable = ({ data }: ITableItem) => {
                             </td>
                             <td className="pr-6 py-4 whitespace-nowrap">{item.totalPrice || 0}</td>
                             <td className="text-right whitespace-nowrap">
-                                <a href="javascript:void()" className="py-1.5 px-3 text-gray-600 hover:text-gray-500 duration-150 hover:bg-gray-50 border rounded-lg">
+                                <button className="py-1.5 px-3 text-gray-600 hover:text-gray-500 duration-150 hover:bg-gray-50 border rounded-lg">
                                     Send
-                                </a>
+                                </button>
                             </td>
                         </tr>
                     ))

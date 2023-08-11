@@ -16,6 +16,7 @@ interface ISignUpProps {
     createUser: (name: string, email: string, user_type: string) => void;
     loading: boolean;
     setLoading: (loading: boolean) => void;
+    setError: (error: string) => void;
 }
 
 
@@ -41,11 +42,11 @@ const options = [
 
 
 // component
-const SignUpFrom = ({ createUser, setLoading }: ISignUpProps) => {
+const SignUpFrom = ({ createUser, setLoading, setError, loading }: ISignUpProps) => {
 
     // states 
     const [selectedOption, setSelectedOption] = useState('');
-    const [error, setError] = useState('');
+
 
     // hooks
     const {
@@ -67,6 +68,7 @@ const SignUpFrom = ({ createUser, setLoading }: ISignUpProps) => {
             }
         } catch (error: any) {
             setError(error.message)
+            setLoading(false)
         }
 
 
@@ -148,7 +150,7 @@ const SignUpFrom = ({ createUser, setLoading }: ISignUpProps) => {
                 type='submit'
                 className="w-full px-4 mt-8 py-2 text-white font-medium bg-primary hover:bg-primary active:bg-primary rounded-lg duration-150"
             >
-                Create account
+                {loading ? "loading" : 'Create account'}
             </button>
             {/* </Link> */}
         </form>

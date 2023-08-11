@@ -2,7 +2,7 @@
 
 import { useGqlClient } from '@/hooks/UseGqlClient';
 import { useMutation } from 'graphql-hooks';
-import React from 'react';
+import React, { useState } from 'react';
 import { toast } from 'react-hot-toast';
 import SignUpFrom from './SignUpFrom';
 import { useRouter } from 'next/navigation';
@@ -21,6 +21,7 @@ const Main = () => {
 
     //states
     const [loading, setLoading] = React.useState(false);
+    const [error, setError] = useState('');
 
     // hooks
     const router = useRouter()
@@ -47,8 +48,6 @@ const Main = () => {
                 ]
             }
         })
-
-
         if (data.createUsers.info.nodesCreated) {
             setLoading(false)
             toast.success('Account created successfully')
@@ -67,10 +66,18 @@ const Main = () => {
     }
 
 
+    //handle error
+    if (state.error) {
+        <p className='text-red-600 font-semibold text-sm'>Sorry something went wrong</p>
+    }
+    if (error) {
+        <p className='text-red-600 font-semibold text-sm'>{error.substring(10)}</p>
+    }
+
 
     return (
         <>
-            <SignUpFrom createUser={createUser} loading={loading} setLoading={setLoading} />
+            <SignUpFrom createUser={createUser} loading={loading} setLoading={setLoading} setError={setError} />
         </>
     );
 };

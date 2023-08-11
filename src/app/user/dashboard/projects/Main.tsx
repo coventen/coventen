@@ -5,11 +5,13 @@ import ProjectTable from './ProjectTable';
 import Loading from '@/app/loading';
 import Error from '@/components/Error';
 import { useMutation, useQuery } from 'graphql-hooks';
+import { currentUser } from '@/firebase/oauth.config';
+import { toast } from 'react-hot-toast';
 
 
 const GET_ALL_PROJECTS_OVERVIEW = `
-        query Projects {
-        projects {
+query Query($where: ProjectWhere) {
+    projects(where: $where) {
         id
         title
         description
@@ -33,11 +35,24 @@ mutation Mutation($where: ProjectWhere) {
 const Main = () => {
 
 
-    //apollo client
+    //hooks
     const client = useGqlClient()
+    const user = currentUser()
 
     //fetch data
-    const { data, loading, refetch, error: fetchError } = useQuery(GET_ALL_PROJECTS_OVERVIEW, { client });
+    const { data, loading, refetch, error: fetchError } = useQuery(GET_ALL_PROJECTS_OVERVIEW, {
+        client, variables: {
+
+            where: {
+                clientOrdered: {
+                    userIs: {
+                        email: user?.email
+                    }
+                }
+            }
+
+        }
+    });
 
     //deleting project 
     const [deleteProjectFn, state, resetFn] = useMutation(DELETE_PROJECT, { client });
@@ -52,8 +67,10 @@ const Main = () => {
                 }
             }
         })
-        if (data) {
+        if (data.deleteProjects.nodesDeleted) {
             refetch()
+            toast.success('Project Deleted Successfully')
+            alert('Project Deleted Successfully')
         }
     }
 
@@ -62,6 +79,7 @@ const Main = () => {
     if (fetchError || state.error) return <Error message={'Sorry Something Went Wrong'} />
 
 
+    if (loading) return <Loading />
 
     return (
         <section >

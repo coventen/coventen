@@ -1,6 +1,16 @@
+'use client'
+
 import { useGqlClient } from '@/hooks/UseGqlClient';
 import { useQuery } from 'graphql-hooks';
 import React, { useState } from 'react';
+import AssignmentModal from './AssignmentModal';
+import Loading from '@/app/loading';
+
+interface ICurrentProject {
+    clientEmail: string;
+    moduleId: string;
+    projectTicket: string;
+}
 
 const GET_PROJECTS = `
 query Projects {
@@ -14,10 +24,16 @@ query Projects {
       createdAt
       country
       companyName
+      projectticketFor {
+        projectTicket
+      }
       hasModule {
         title
         description
         id
+        moduleticketFor {
+            ticket
+          }
       }
     }
   }
@@ -28,18 +44,24 @@ const Main = () => {
     //states
     const [expandedIndex, setExpandedIndex] = useState(null);
     const [isOpen, setIsOpen] = useState(false);
+    const [currentProject, setCurrentProject] = useState<ICurrentProject | {}>({});
+
 
 
     //hooks 
     const client = useGqlClient()
 
     //fetching vendors
-    const { data, loading } = useQuery(GET_PROJECTS, { client })
+    const { data, loading, refetch: refetchProjects } = useQuery(GET_PROJECTS, { client })
 
     //handle accordion click
     const handleAccordionClick = (index: any) => {
         setExpandedIndex((prevIndex) => (prevIndex === index ? null : index));
     };
+
+
+    if (loading) return <Loading />
+
 
     return (
         <div className="bg-white py-7 lg:px-4 w-full  ">
@@ -106,7 +128,7 @@ const Main = () => {
                                                 </h5>
                                                 <p className="text-xs lg:text-sm ">{assing?.description}</p>
 
-                                                <button onClick={() => setIsOpen(true)} className='absolute -top-1 right-2 py-[3px] px-3 lg:px-4 lg:py-2 bg-green-600 text-white rounded-lg text-xs'>Start</button>
+                                                {/* <button onClick={() => setIsOpen(true)} className='absolute -top-1 right-2 py-[3px] px-3 lg:px-4 lg:py-2 bg-green-600 text-white rounded-lg text-xs'>Start</button> */}
                                             </div>
                                             <div className="grid grid-cols-1 lg:grid-cols-3">
                                                 <div>
@@ -138,15 +160,35 @@ const Main = () => {
                                                     </ul>
                                                 </div>
                                                 <div className="col-span-2">
-                                                    <ul className="list-none">
+                                                    <ul className="list-none ">
                                                         {
-                                                            assing?.hasModule?.map((item, i) =>
-                                                                <li key={item?.id} className='py-1'>
-                                                                    <p className="text-xs lg:text-sm font-semibold text-gray-600">
-                                                                        Module-{i + 1} :  {item?.title}
-                                                                    </p>
+                                                            assing?.hasModule?.map((item: any, i: number) =>
+                                                                <li key={item?.id} className='py-1 w-full'>
+                                                                    <div className='flex items-center justify-between'>
+                                                                        <p className="text-xs lg:text-sm font-semibold text-gray-600">
+                                                                            Module-{i + 1} :  {item?.title}
+                                                                        </p>
+
+                                                                        <button
+                                                                            disabled={item.moduleticketFor?.ticket ? true : false}
+                                                                            onClick={() => {
+                                                                                setIsOpen(true)
+                                                                                setCurrentProject({
+                                                                                    clientEmail: assing?.email,
+                                                                                    moduleId: item?.id,
+                                                                                    projectTicket: assing?.projectticketFor.projectTicket,
+                                                                                })
+                                                                            }}
+                                                                            className={`
+                                                                            ${item.moduleticketFor?.ticket ? "bg-gray-400 text-primaryText" : "bg-green-600 text-white "}
+                                                                             py-[2px] px-3 lg:px-4 lg:py-1 rounded text-xs`}>
+
+                                                                            {item.moduleticketFor?.ticket ? "Assigned" : "Assign"}
+
+                                                                        </button>
+                                                                    </div>
                                                                     <p className="text-xs lg:text-sm ">
-                                                                        {item?.description}
+                                                                        Description:  {item?.description}
                                                                     </p>
                                                                 </li>
 
@@ -199,7 +241,7 @@ const Main = () => {
             }
 
 
-
+            <AssignmentModal setIsOpen={setIsOpen} isOpen={isOpen} currentProject={currentProject} refetchProjects={refetchProjects} />
         </div>
     );
 };

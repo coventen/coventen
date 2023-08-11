@@ -5,7 +5,10 @@ import React from 'react';
 import ModuleFrom from './ModuleFrom';
 import { IModuleInput, IProjectInput } from './createProject.interface';
 import { useGqlClient } from '@/hooks/UseGqlClient';
-import { useMutation } from 'graphql-hooks';
+import { useManualQuery, useMutation, useQuery } from 'graphql-hooks';
+import { currentUser } from '@/firebase/oauth.config';
+import { generateUniqueId } from '@/shared/genarateUniqueId';
+import { toast } from 'react-hot-toast';
 
 
 
@@ -16,6 +19,24 @@ const CREATE_PROJECT = `mutation Mutation($input: [ProjectCreateInput!]!) {
       }
     }
   }`
+const GET_PROJECT_COUNTER = `query Query {
+    counters {
+      projectCount
+      moduleCount
+      invoiceCount
+    }
+  }`
+const UPDATE_PROJECT_COUNTER = `
+mutation UpdateCounters($update: CounterUpdateInput) {
+    updateCounters(update: $update) {
+      counters {
+        projectCount
+      }
+    }
+  }
+
+
+  `
 
 
 
@@ -27,35 +48,41 @@ const Main = () => {
     const [selectedCompany, setSelectCompany] = React.useState(null);
     const [modules, setModules] = React.useState<any[]>([]);
 
+
+
+
+
     // hook from
     const {
         register,
         handleSubmit,
         formState: { errors },
     } = useForm<IProjectInput>()
+    const user = currentUser()
 
     //graphql client using custom hook
     const client = useGqlClient()
 
+    //fetching project counter
+    const [counterFn, counterState] = useManualQuery(GET_PROJECT_COUNTER, { client })
+
+
     // graphql mutation
     const [createProjectFn, state, resetFn] = useMutation(CREATE_PROJECT, { client })
+    const [updateProjectCounterFn, updateState] = useMutation(UPDATE_PROJECT_COUNTER, { client })
 
 
-    // handle module count at least 1 module is required
-    if (moduleCount < 1) {
-        setModuleCount(1)
-    }
 
 
     //handling project creation
     const handleProjectSubmit = (data: IProjectInput) => {
-        // const { state, country, city, address, email, projectDescription, projectName, gstNumber } = data
         createProject(data)
     }
 
     //handle project creation
     const createProject = async (projectData: IProjectInput) => {
         const { state, country, city, address, email, projectDescription, projectName, gstNumber } = projectData
+        const projectId = await generateProjectTicket()
 
         const { data } = await createProjectFn({
             variables: {
@@ -70,63 +97,92 @@ const Main = () => {
                         city: city,
                         address: address,
                         createdAt: new Date().toISOString(),
-                        // clientOrdered: {
-                        //     connect: {
-                        //         where: {
-                        //             node: {
-                        //                 id: "null"
-                        //             }
-                        //         }
-                        //     }
-                        // },
-                        hasModule: {
-                            create: [
-                                {
+                        projectticketFor: {
+                            create: {
+                                node: {
+                                    projectTicket: projectId
+                                }
+                            }
+                        },
+                        clientOrdered: {
+                            connect: {
+                                where: {
                                     node: {
-                                        title: "null",
-                                        description: "null",
+                                        userIs: {
+                                            email: user?.email
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        hasModule: {
+                            create: modules.map((module, i) => {
+                                const title = module[`moduleTitle${i + 1}`].title
+                                const description = module[`moduleTitle${i + 1}`].description
+                                const documents = module[`moduleTitle${i + 1}`].documents
+                                console.log(documents.files,)
+                                return {
+                                    node: {
+                                        title: title,
+                                        description: description,
                                         hasDocuments: {
                                             create: {
                                                 node: {
                                                     hasFiles: {
                                                         create: {
                                                             node: {
-                                                                links: "null"
+                                                                links: documents.files
                                                             }
                                                         }
                                                     },
-                                                    hasImages: {
-                                                        create: {
-                                                            node: {
-                                                                links: "null"
-                                                            }
-                                                        }
-                                                    }
                                                 }
                                             }
                                         }
                                     }
                                 }
-                            ]
+                            })
                         }
                     }
                 ]
             }
         })
 
-        if (data?.info?.nodesCreated) {
-            alert('Project Created')
+        console.log(data.createProjects.info.nodesCreated, 'fu0000000000000000000000000000000000')
+
+        if (data.createProjects.info.nodesCreated) {
+            toast.success('Project created successfully')
         }
     }
 
 
 
 
+    // generating project ticket
+
+    const generateProjectTicket = async () => {
+        const { data } = await counterFn()
+        const counter = data?.counters[0]
+        if (counter?.projectCount) {
+            const projectCount = counter?.projectCount + 1
+            const projectTicket = generateUniqueId("P-", projectCount)
+            // updating project counter
+            updateProjectCounterFn({
+                variables: {
+                    update: {
+                        projectCount: projectCount,
+                    }
+                }
+            })
+            return projectTicket
+        }
+        return null
+    }
 
 
 
-
-
+    if (moduleCount < 1) {
+        setModuleCount(1)
+    }
 
     //render
     return (
@@ -152,7 +208,7 @@ const Main = () => {
 
                                     <div className="md:col-span-5">
                                         <label htmlFor="email">Email Address</label>
-                                        <input type="text" className="h-10 border border-gray-300 mt-1 rounded px-4 w-full " placeholder="email@domain.com"
+                                        <input type="text" defaultValue={user?.email || ''} className="h-10 border border-gray-300 mt-1 rounded px-4 w-full " placeholder="email@domain.com"
                                             {...register("email")} />
                                     </div>
 

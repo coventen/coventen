@@ -1,7 +1,6 @@
-'use client'
+
 import Image from 'next/image';
 import React, { useState } from 'react';
-import { PhotoProvider, PhotoView } from 'react-photo-view';
 import 'react-photo-view/dist/react-photo-view.css';
 import AssignmentModal from './AssignmentModal';
 import Main from './Main';
@@ -10,154 +9,9 @@ import Main from './Main';
 //component
 const AssignmentPage = () => {
 
-    //states
-    const [expandedIndex, setExpandedIndex] = useState(null);
-    const [isOpen, setIsOpen] = useState(false);
-
-    //handle accordion click
-    const handleAccordionClick = (index: any) => {
-        setExpandedIndex((prevIndex) => (prevIndex === index ? null : index));
-    };
 
 
-    // fake data
-    const assignmentDAta = [
-        {
-            id: 1,
-            name: "User name",
-            company: "Aurigene",
-            email: "example@gmail.com",
-            title: "Aurigene Pharmaceutical Pvt Ltd",
-            description: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quia quas laudantium ullam magnam atque quibusdam nam molestias error harum est ",
-            location: "Pune Maharashtra",
-            phone: "1-770-736-8031 x56442",
-            website: "aurigene.org",
-            modules: [
-                {
-                    id: 1,
-                    title: 'lorem',
-                    description: "lorem description"
-                },
-                {
-                    id: 2,
-                    title: "problem 2",
-                    description: "problem 2"
-                },
-                {
-                    id: 3,
-                    title: "problem 3",
-                    description: "problem 3"
-                },
-                {
-                    id: 4,
-                    title: "problem 4",
-                    description: "problem 4"
-                },
-            ]
-
-        },
-        {
-            id: 2,
-            name: "User name",
-            company: "Aurigene",
-            email: "example@gmail.com",
-            description: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quia quas laudantium ullam magnam atque quibusdam nam molestias error harum est ",
-            title: "Biopharmax India Pvt Ltd",
-            location: "Pune Maharashtra",
-            phone: "1-770-736-8031 x56442",
-            website: "aurigene.org",
-            modules: [
-                {
-                    id: 1,
-                    title: 'lorem',
-                    description: "lorem description"
-                },
-                {
-                    id: 2,
-                    title: "problem 2",
-                    description: "problem 2"
-                },
-                {
-                    id: 3,
-                    title: "problem 3",
-                    description: "problem 3"
-                },
-                {
-                    id: 4,
-                    title: "problem 4",
-                    description: "problem 4"
-                },
-            ]
-        },
-        {
-            id: 3,
-            name: "User name",
-            company: "Aurigene",
-            email: "",
-            description: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quia quas laudantium ullam magnam atque quibusdam nam molestias error harum est ",
-            title: "Aurigene Pharmaceutical Pvt Ltd",
-            location: "Pune Maharashtra",
-            phone: "1-770-736-8031 x56442",
-            website: "aurigene.org",
-            modules: [
-                {
-                    id: 1,
-                    title: 'lorem',
-                    description: "lorem description"
-                },
-                {
-                    id: 2,
-                    title: "problem 2",
-                    description: "problem 2"
-                },
-                {
-                    id: 3,
-                    title: "problem 3",
-                    description: "problem 3"
-                },
-                {
-                    id: 4,
-                    title: "problem 4",
-                    description: "problem 4"
-                },
-            ]
-        },
-
-        {
-            id: 4,
-            name: "User name",
-            company: "Aurigene",
-            email: "",
-            description: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quia quas laudantium ullam magnam atque quibusdam nam molestias error harum est ",
-            title: "Aurigene Pharmaceutical Pvt Ltd",
-            location: "Pune Maharashtra",
-            phone: "1-770-736-8031 x56442",
-            website: "aurigene.org",
-            modules: [
-                {
-                    id: 1,
-                    title: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit.',
-                    description: "lorem description"
-                },
-                {
-                    id: 2,
-                    title: "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
-                    description: "problem 2"
-                },
-                {
-                    id: 3,
-                    title: "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
-                    description: "problem 3"
-                },
-                {
-                    id: 4,
-                    title: "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
-                    description: "problem 4"
-                },
-            ]
-        }
-    ]
-
+    //render
     return (
         <>
             <div className="w-full  bg-white min-h-[400px] rounded-lg py-4 md:py-7 px-4 md:px-8 xl:px-10 ">
@@ -202,7 +56,7 @@ const AssignmentPage = () => {
                     </div>
                 </div>
             </div >
-            <AssignmentModal setIsOpen={setIsOpen} isOpen={isOpen} />
+
         </>
     );
 };

@@ -1,41 +1,100 @@
 'use client'
 import { useGqlClient } from '@/hooks/UseGqlClient';
-import { useQuery } from 'graphql-hooks';
+import { useMutation, useQuery } from 'graphql-hooks';
 import React from 'react';
 import UserTable from './UserTable';
+import UserModal from './UserModal';
+import { toast } from 'react-hot-toast';
 
 
 const GET_USER = `
-query Query {
-    users {
-      name
-      id
-      email
-      status
-      user_type
-      image
-      connectivity
+query Users {
+  users {
+    id
+    companyName
+    companyEmail
+    bio
+    address
+    email
+    createdAt
+    gstNumber
+    status
+    user_type
+    hasDocuments {
+      hasImages {
+        id
+        links
+      }
+      hasFiles {
+        id
+        links
+      }
     }
   }
+}
+`
+
+const UPDATE_USER = `
+mutation UpdateUsers($where: UserWhere, $update: UserUpdateInput) {
+  updateUsers(where: $where, update: $update) {
+    info {
+      nodesCreated
+      nodesDeleted
+      relationshipsCreated
+    }
+  }
+}
 `
 
 
 
 const Main = () => {
 
-    //HOOKS
-    const client = useGqlClient()
+  //states
+  const [isModalOpen, setIsModalOpen] = React.useState(false)
+  const [currentData, setCurrentData] = React.useState<any>(null)
 
-    //fetching data 
-    const { data, error, loading } = useQuery(GET_USER, { client })
+  //HOOKS
+  const client = useGqlClient()
 
-    console.log(data, 'dsfkdjsfsdklfslkdfkldsfls')
+  //fetching data 
+  const { data, error, loading, refetch } = useQuery(GET_USER, { client })
 
-    return (
-        <>
-            <UserTable data={data?.users} />
-        </>
-    );
+  //APProving user or 
+  const [updateUserFn, { loading: updateUserLoading }] = useMutation(UPDATE_USER, { client })
+
+  // initializing update user mutation
+
+  const updateUser = async (email: string, status: string) => {
+
+    const { data } = await updateUserFn({
+      variables: {
+        where: {
+          email: email
+        },
+        update: {
+          status: status
+        }
+      }
+    })
+
+    if (data) {
+      refetch()
+      toast.success('User updated successfully')
+      setIsModalOpen(false)
+
+    }
+
+  }
+
+
+
+  return (
+    <>
+      <UserTable data={data?.users} setCurrentData={setCurrentData} setIsModalOpen={setIsModalOpen} />
+      <UserModal setIsModalOpen={setIsModalOpen} isModalOpen={isModalOpen} data={currentData} updateUser={updateUser} updateUserLoading={updateUserLoading} />
+    </>
+  );
 };
 
 export default Main;

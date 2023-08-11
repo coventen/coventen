@@ -38,15 +38,7 @@ function MultiSelect({ selectedOptions, setSelectedOptions, options, loading }: 
 
     return (
         <div onBlur={() => setIsOpen(false)} className="relative">
-            <div className='grid grid-cols-1 lg:grid-cols-6 gap-2'>
-                {selectedOptions.length > 0 && (
-                    selectedOptions.map((option: any, i: number) => (
-                        <div key={i} className=" pr-2 flex items-center justify-center text-xs pointer-events-none mt-3 mb-2 border border-gray-300 px-1 py-1 rounded-lg">
-                            {option.name}
-                        </div>
-                    ))
-                )}
-            </div>
+
             <input
                 type="text"
                 className="w-full py-2 pl-3 pr-10 text-left bg-white border border-gray-300 rounded-md shadow-sm cursor-default focus:outline-none focus:ring-1  focus:border-primary sm:text-sm"
@@ -102,6 +94,17 @@ function MultiSelect({ selectedOptions, setSelectedOptions, options, loading }: 
                     )}
                 </div>
             </Transition>
+
+
+            <div className='grid grid-cols-1 lg:grid-cols-6 gap-2'>
+                {selectedOptions.length > 0 && (
+                    selectedOptions.map((option: any, i: number) => (
+                        <div key={i} className=" pr-2 flex items-center justify-center text-xs pointer-events-none mt-3 mb-2 border border-gray-300 px-1 py-1 rounded-lg">
+                            {option.name}
+                        </div>
+                    ))
+                )}
+            </div>
         </div>
     );
 }

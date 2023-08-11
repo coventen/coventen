@@ -10,11 +10,12 @@ import { useForm, SubmitHandler } from "react-hook-form"
 import { toast } from 'react-hot-toast';
 
 const VERIFY_USER = `
-mutation Mutation($where: UserWhere, $update: UserUpdateInput) {
-    updateUsers(where: $where, update: $update) {
+mutation UpdateUsers($update: UserUpdateInput, $where: UserWhere) {
+    updateUsers(update: $update, where: $where) {
       info {
         nodesCreated
         nodesDeleted
+        relationshipsCreated
       }
     }
   }
@@ -42,22 +43,31 @@ const VerifyPage = () => {
 
     // initializing user update function
     const updateUser = async (data: any) => {
-        console.log(data, 'hellllllllllllllllllllllll')
+
+
+
         const { data: updateData } = await updateUserFn({
             variables: {
-                where: {
-                    email: user?.email
-                },
                 update: {
-                    isClient: {
+                    companyEmail: data.companyEmail,
+                    companyName: data.companyName,
+                    gstNumber: data.registrationNumber,
+                    hasDocuments: {
                         create: {
                             node: {
-                                companyName: data.companyName,
-                                gst: data.registrationNumber,
-                                companyEmail: data.companyEmail
+                                hasFiles: {
+                                    create: {
+                                        node: {
+                                            links: ['https://source.unsplash.com/random/?chemistry', 'https://source.unsplash.com/random/?chemistry']
+                                        }
+                                    }
+                                }
                             }
                         }
                     }
+                },
+                where: {
+                    email: user?.email
                 }
             }
         })

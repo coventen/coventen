@@ -5,14 +5,17 @@ import { useQuery } from 'graphql-hooks';
 
 import React, { useState } from 'react';
 const GET_VENDORS = `
-query Clients {
-    clients {
-      companyName
-      companyEmail
+query Users($where: UserWhere) {
+    users(where: $where) {
+      name
       id
-      userIs {
-        name
-      }
+      status
+      companyEmail
+      companyName
+      email
+      bio
+      gstNumber
+      user_type
     }
   }
 `
@@ -28,13 +31,14 @@ const Main = () => {
     const client = useGqlClient()
 
     //fetching vendors
-    const { data, loading } = useQuery(GET_VENDORS, { client })
+    const { data, loading } = useQuery(GET_VENDORS, { client, variables: { where: { user_type: "SERVICE_PROVIDER", status: "APPROVED" } } })
 
-    console.log(data)
 
     const handleAccordionClick = (index: any) => {
         setExpandedIndex((prevIndex) => (prevIndex === index ? null : index));
     };
+
+    if (data?.users.length === 0) return <div className="grid  mt-20 font-semibold text-primaryText">No Vendors Found</div>
 
     return (
         <div className=" grid place-items-center">
@@ -43,7 +47,7 @@ const Main = () => {
 
 
                     {
-                        data?.clients && data?.clients.map((vendor: any, index: number) =>
+                        data?.users && data?.users.map((vendor: any, index: number) =>
                             <>
                                 <div className="transition my-2  hover:bg-white border text-gray-600 border-gray-200 rounded-md">
                                     <>
@@ -66,8 +70,7 @@ const Main = () => {
                                                     <p className="text-xs lg:text-sm font-semibold text-gray-900">
                                                         Contact Person
                                                     </p>
-                                                    <p className="text-xs lg:text-sm   font-normal">{vendor?.userIs
-                                                        ?.name}</p>
+                                                    <p className="text-xs lg:text-sm   font-normal">{vendor?.name}</p>
                                                 </div>
                                                 <div className="hidden md:block">
                                                     <p className="text-xs lg:text-sm font-semibold text-gray-900">
@@ -99,7 +102,7 @@ const Main = () => {
                                                     <h5 className="text-gray-900 font-bold text-sm lg:text-md">
                                                         Description
                                                     </h5>
-                                                    <p className="text">{""}</p>
+                                                    <p className="text">{vendor?.bio}</p>
                                                 </div>
                                                 <div className="grid grid-cols-1 lg:grid-cols-3">
                                                     <div>
@@ -108,26 +111,16 @@ const Main = () => {
                                                                 <p className="text-xs lg:text-sm font-bold text-gray-900">
                                                                     Contact Person
                                                                 </p>
-                                                                <p>{""}</p>
+                                                                <p className='text-sm'>{vendor?.name}</p>
                                                             </li>
-                                                            <li>
-                                                                <p className="text-xs lg:text-sm font-bold text-gray-900">
-                                                                    Designation
-                                                                </p>
-                                                                <p>{""}</p>
-                                                            </li>
+
                                                             <li>
                                                                 <p className="text-xs lg:text-sm font-bold text-gray-900">
                                                                     Email
                                                                 </p>
-                                                                <p>{""}</p>
+                                                                <p className='text-sm'>{vendor?.email}</p>
                                                             </li>
-                                                            <li>
-                                                                <p className="text-xs lg:text-sm font-bold text-gray-900">
-                                                                    Phone
-                                                                </p>
-                                                                <p>{""}</p>
-                                                            </li>
+
                                                         </ul>
                                                     </div>
                                                     <div className="col-span-2">
@@ -136,27 +129,28 @@ const Main = () => {
                                                                 <p className="text-xs lg:text-sm font-bold text-gray-900">
                                                                     Address
                                                                 </p>
-                                                                <p>
-                                                                    {""}, {""}
+                                                                <p className='text-sm'>
+                                                                    {vendor?.address || 'N/A'}
                                                                 </p>
                                                             </li>
                                                             <li>
                                                                 <p className="text-xs lg:text-sm font-bold text-gray-900">
                                                                     City
                                                                 </p>
-                                                                <p>{""}</p>
+                                                                <p className='text-sm'>{vendor?.city || 'N/A'}</p>
                                                             </li>
                                                             <li>
                                                                 <p className="text-xs lg:text-sm font-bold text-gray-900">
                                                                     State
                                                                 </p>
-                                                                <p>{""}</p>
+                                                                <p className='text-sm'>{vendor?.state || 'N/A'}
+                                                                </p>
                                                             </li>
                                                             <li>
                                                                 <p className="text-xs lg:text-sm font-bold text-gray-900">
                                                                     Country
                                                                 </p>
-                                                                <p>{""}</p>
+                                                                <p className='text-sm'>{vendor?.country || 'N/A'}</p>
                                                             </li>
                                                         </ul>
                                                     </div>
