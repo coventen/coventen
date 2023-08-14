@@ -5,10 +5,22 @@ import { useForm, SubmitHandler, set } from "react-hook-form"
 import ServicesFrom from './ServicesFrom';
 import { Invoice, Service } from '@/gql/graphql';
 import { BsPercent } from 'react-icons/bs';
+import AutoSelect from '@/components/AutoSelect';
+import { useGqlClient } from '@/hooks/UseGqlClient';
+import { useQuery } from 'graphql-hooks';
 
 interface IInvoiceForm {
     createInvoice: (invoiceData: Invoice, services: Service[], company: string) => void
 }
+
+const GET_VENDORS = `
+query Users($where: UserWhere) {
+    users(where: $where) {
+      companyName
+      id
+    }
+  }
+`
 
 const InvoiceForm = ({ createInvoice }: IInvoiceForm) => {
 
@@ -17,7 +29,7 @@ const InvoiceForm = ({ createInvoice }: IInvoiceForm) => {
     const [selected, setSelected] = React.useState<any>(null);
     const [services, setServices] = React.useState<any[]>([]);
 
-    console.log(services, 'services')
+
 
     //hooks 
     const {
@@ -27,11 +39,22 @@ const InvoiceForm = ({ createInvoice }: IInvoiceForm) => {
         formState: { errors },
     } = useForm<any>()
 
+    const client = useGqlClient();
+    const { data: vendors, loading } = useQuery(GET_VENDORS, {
+        client,
+        variables: {
+            where: {
+                user_type: "CONSUMER",
+                status: "APPROVED"
+            }
+        }
+    })
+
 
     // handle creating invoice
     const handleCreating: SubmitHandler<any> = (data) => {
         console.log(data, 'data')
-        createInvoice(data, services, selected ? selected.name : '')
+        createInvoice(data, services, selected ? selected.companyName : '')
     }
 
 
@@ -57,7 +80,7 @@ const InvoiceForm = ({ createInvoice }: IInvoiceForm) => {
                                         <label htmlFor="full_name">Company Name</label>
                                         <div className='relative'>
 
-                                            <AutoComplete setSelected={setSelected} selected={selected} />
+                                            <AutoSelect setSelected={setSelected} selected={selected} data={vendors?.users} />
                                         </div>
                                         {/* <input type="text" name="full_name" id="full_name" className="h-10 border border-gray-300 mt-1 rounded px-4 w-full "  /> */}
                                     </div>

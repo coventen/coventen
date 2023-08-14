@@ -12,6 +12,7 @@ mutation Mutation($input: [UserCreateInput!]!) {
     createUsers(input: $input) {
       info {
         nodesCreated
+        relationshipsCreated
       }
     }
   }
@@ -31,7 +32,7 @@ const Main = () => {
     const [createUserFn, state] = useMutation(CREATE_USER, { client });
 
     // initializing user creation function
-    const createUser = async (name: string, email: string, user_type: string) => {
+    const createUser = async (name: string, email: string, user_type: string, sub_type: string) => {
 
         if (user_type === "SERVICE PROVIDER") {
             user_type = "SERVICE_PROVIDER"
@@ -43,7 +44,15 @@ const Main = () => {
                     {
                         name,
                         email,
-                        user_type
+                        user_type,
+                        isClient: {
+                            create: {
+                                node: {
+                                    sub_type: sub_type
+                                }
+                            }
+                        }
+
                     }
                 ]
             }

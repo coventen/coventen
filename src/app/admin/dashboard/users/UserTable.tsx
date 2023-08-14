@@ -83,7 +83,9 @@ const UserTable = ({ data, setIsModalOpen, setCurrentData }: IUserTable) => {
                                         setIsModalOpen(true)
                                     }}
                                     disabled={user.status === "APPROVED"}
-                                    className="relative inline-block bg-gray-200 text-primaryText px-4 py-1 rounded-md  leading-tight">
+                                    className={`   
+                                    ${user.status === "APPROVED" ? 'bg-gray-200 text-primaryText' : 'bg-green-500 text-white  '}
+                                    relative inline-block  px-4 py-1 rounded-md  leading-tight`}>
                                     <span
                                         className="absolute  "></span>
                                     <span className="relative font-bold">{user.status === "APPROVED" ? 'Approved' : 'Approve'}</span>

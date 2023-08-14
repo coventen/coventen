@@ -149,6 +149,8 @@ function AssignmentModal({ isOpen, setIsOpen, currentProject, refetchProjects }:
     }
 
 
+    console.log(currentProject, selected, selected.companyName, currentProject.projectTicket)
+
 
     //handle close modal
     function closeModal() {

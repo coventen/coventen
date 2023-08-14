@@ -6,10 +6,11 @@ import React, { useState } from 'react';
 import { AiFillEye, AiTwotoneDelete } from 'react-icons/ai';
 interface ITableItem {
     data: Invoice[]
+    deleteInvoice: (id: any) => void
 }
 
 
-const InvoiceTable = ({ data }: ITableItem) => {
+const InvoiceTable = ({ data, deleteInvoice }: ITableItem) => {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
@@ -34,8 +35,8 @@ const InvoiceTable = ({ data }: ITableItem) => {
                             </td>
                             <td className="pr-6 py-4 whitespace-nowrap">{item.totalPrice || 0}</td>
                             <td className="text-right whitespace-nowrap">
-                                <button className="py-1.5 px-3 text-gray-600 hover:text-gray-500 duration-150 hover:bg-gray-50 border rounded-lg">
-                                    Send
+                                <button onClick={() => deleteInvoice(item.id)} className="py-1.5 px-3 text-gray-600 hover:text-gray-500 duration-150 hover:bg-gray-50 border rounded-lg">
+                                    Delete
                                 </button>
                             </td>
                         </tr>

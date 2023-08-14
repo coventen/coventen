@@ -119,10 +119,10 @@ function UserModal({ setIsModalOpen, isModalOpen, data, updateUser, updateUserLo
                                                 {
                                                     data?.hasDocuments?.hasFiles?.links ?
                                                         data?.hasDocuments?.hasFiles?.links?.map((item, index) =>
-                                                            <div key={index} className=' h-14 w-full bg-gray-200 lg:h-20 lg:w-full '>
-                                                                <div className='flex items-center justify-center space-x-2'>
-                                                                    <p><HiOutlineDocumentDownload /></p>
-                                                                    <p> Document-{index + 1}</p>
+                                                            <div key={index} className=' h-14 w-full bg-gray-200 rounded-md lg:h-20 lg:w-full '>
+                                                                <div className='flex items-center text-xl  justify-center space-x-2'>
+                                                                    <p className='mt-5'><HiOutlineDocumentDownload /></p>
+                                                                    {/* <p className='text-[9px]'> Document-{index + 1}</p> */}
                                                                 </div>
                                                             </div>
 

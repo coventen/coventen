@@ -5,6 +5,7 @@ import classNames from "classnames";
 import React, { PropsWithChildren, useState } from "react";
 import { FaBars } from 'react-icons/fa';
 import Sidebar from "./Sidebar";
+import { Toaster } from "react-hot-toast";
 const Layout = (props: PropsWithChildren) => {
     const [collapsed, setSidebarCollapsed] = useState(false);
     return (
@@ -135,6 +136,9 @@ const Layout = (props: PropsWithChildren) => {
 
                 </div>
             </div>
+            <Toaster
+                position="bottom-right"
+            />
         </div>
     );
 };
