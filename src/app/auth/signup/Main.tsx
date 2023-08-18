@@ -32,10 +32,30 @@ const Main = () => {
     const [createUserFn, state] = useMutation(CREATE_USER, { client });
 
     // initializing user creation function
-    const createUser = async (name: string, email: string, user_type: string, sub_type: string) => {
+    const createUser = async (name: string, email: string, user_type: string, sub_type: string, selectedIndustries: any[]) => {
 
         if (user_type === "SERVICE PROVIDER") {
             user_type = "SERVICE_PROVIDER"
+            const { data } = await createUserFn({
+                variables: {
+                    input: [
+                        {
+                            name,
+                            email,
+                            user_type,
+                            isVendor: {
+                                create: {
+                                    node: {
+                                        industry: selectedIndustries.map((industry) => industry.name),
+                                        sub_type: sub_type
+                                    }
+                                }
+                            }
+
+                        }
+                    ]
+                }
+            })
         }
 
         const { data } = await createUserFn({

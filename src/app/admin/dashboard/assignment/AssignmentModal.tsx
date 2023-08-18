@@ -7,6 +7,7 @@ import { useGqlClient } from '@/hooks/UseGqlClient';
 import { useManualQuery, useMutation, useQuery } from 'graphql-hooks';
 import { toast } from 'react-hot-toast';
 import { generateUniqueId } from '@/shared/genarateUniqueId';
+import AutoSelectVendor from '@/components/AutoSelectVendor';
 
 
 
@@ -37,10 +38,14 @@ mutation UpdateCounters($update: CounterUpdateInput) {
   `
 
 const GET_VENDORS = `
-query Users($where: UserWhere) {
-    users(where: $where) {
-      companyName
+query Vendors( $userIsWhere2: UserWhere) {
+    vendors {
       id
+      userIs(where: $userIsWhere2) {
+        id
+        companyName
+        status
+      }
     }
   }
 `
@@ -50,6 +55,7 @@ mutation Mutation($input: [ModuleTicketCreateInput!]!) {
     createModuleTickets(input: $input) {
       info {
         nodesCreated
+        relationshipsCreated
       }
     }
   }
@@ -63,6 +69,8 @@ function AssignmentModal({ isOpen, setIsOpen, currentProject, refetchProjects }:
     //states
     const [selected, setSelected] = useState<any>({});
 
+    console.log(selected.companyName, "companyname")
+
     //hooks
     const client = useGqlClient();
 
@@ -70,15 +78,16 @@ function AssignmentModal({ isOpen, setIsOpen, currentProject, refetchProjects }:
     // Fetch data from graphql
     const [counterFn, counterState] = useManualQuery(GET_COUNTER, { client })
 
-    const { data: vendors, loading } = useQuery(GET_VENDORS, {
+    const { data, loading } = useQuery(GET_VENDORS, {
         client,
         variables: {
-            where: {
-                user_type: "SERVICE_PROVIDER",
+            userIsWhere2: {
                 status: "APPROVED"
             }
         }
     })
+
+    console.log(data?.vendors, 'vendors')
 
     //  mutations
     const [assignModuleFn, state] = useMutation(ASSIGN_MODULE, { client });
@@ -93,12 +102,13 @@ function AssignmentModal({ isOpen, setIsOpen, currentProject, refetchProjects }:
             variables: {
                 input: [
                     {
+                        status: "ASSIGNED",
                         vendorHas: {
                             connect: {
                                 where: {
                                     node: {
                                         userIs: {
-                                            companyName: selected.companyName,
+                                            companyName: selected?.userIs?.companyName,
                                             // id: null
                                         }
                                     }
@@ -139,6 +149,8 @@ function AssignmentModal({ isOpen, setIsOpen, currentProject, refetchProjects }:
                 ]
             }
         })
+
+        console.log(data, 'klkjfkldsf')
 
         if (data.createModuleTickets.info.nodesCreated) {
             setIsOpen(false);
@@ -240,7 +252,7 @@ function AssignmentModal({ isOpen, setIsOpen, currentProject, refetchProjects }:
 
                                             <div className='relative'>
 
-                                                <AutoSelect setSelected={setSelected} selected={selected} data={vendors?.users} />
+                                                <AutoSelectVendor setSelected={setSelected} selected={selected} data={data?.vendors} />
                                             </div>
                                         </div>
                                     </div>

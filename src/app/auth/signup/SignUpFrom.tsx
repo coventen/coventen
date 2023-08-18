@@ -2,6 +2,8 @@
 import { signUpWithEmailAndPassword } from '@/firebase/oauth.config';
 import React, { useState } from 'react';
 import { useForm, SubmitHandler, set } from "react-hook-form"
+import industries from '@/utlts/InductiresData.json';
+import MultiSelect from '@/components/Multiselect';
 
 
 
@@ -13,10 +15,11 @@ interface IFormInput {
 }
 
 interface ISignUpProps {
-    createUser: (name: string, email: string, user_type: string, sub_type: string) => void;
+    createUser: (name: string, email: string, user_type: string, sub_type: string, selectedIndustries: any[]) => void;
     loading: boolean;
     setLoading: (loading: boolean) => void;
     setError: (error: string) => void;
+
 }
 
 
@@ -50,6 +53,7 @@ const SignUpFrom = ({ createUser, setLoading, setError, loading }: ISignUpProps)
     // states 
     const [selectedOption, setSelectedOption] = useState('');
     const [selectSubType, setSelectSetSubType] = useState('CONSUMER');
+    const [selectedIndustries, setSelectedIndustries] = useState<any[]>([]);
 
 
     // hooks
@@ -68,7 +72,7 @@ const SignUpFrom = ({ createUser, setLoading, setError, loading }: ISignUpProps)
         try {
             const newUser = await signUpWithEmailAndPassword(data.email, data.password);
             if (newUser.uid) {
-                createUser(data.name, data.email, selectedOption, selectSubType)
+                createUser(data.name, data.email, selectedOption, selectSubType, selectedIndustries)
             }
         } catch (error: any) {
             setError(error.message)
@@ -88,7 +92,6 @@ const SignUpFrom = ({ createUser, setLoading, setError, loading }: ISignUpProps)
     };
 
 
-    console.log(selectedOption, selectSubType)
 
     // render
     return (
@@ -119,29 +122,17 @@ const SignUpFrom = ({ createUser, setLoading, setError, loading }: ISignUpProps)
                     className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-primary shadow-sm rounded-lg"
                 />
             </div>
-            {/* select SubType  */}
-            {/* <div>
+            <div>
                 <label className="font-medium">
-                    User type
+                    Password
                 </label>
-
-                <div className=' flex items-center  space-x-5 mt-6'>
-
-                    <div className="flex items-center mb-4">
-                        <input id="country-option-1" type="radio" name="countries" value="USA" className="h-4 w-4 border-gray-300 focus:ring-2 focus:ring-blue-300" aria-labelledby="country-option-1" aria-describedby="country-option-1" />
-                        <label htmlFor="country-option-1" className="text-sm font-medium text-gray-900 ml-2 block">
-                            CONSUMER
-                        </label>
-                    </div>
-
-                    <div className="flex items-center mb-4">
-                        <input id="country-option-2" type="radio" name="countries" value="Germany" className="h-4 w-4 border-gray-300 focus:ring-2 focus:ring-blue-300" aria-labelledby="country-option-2" aria-describedby="country-option-2" />
-                        <label htmlFor="country-option-2" className="text-sm font-medium text-gray-900 ml-2 block">
-                            SERVICE PROVIDER
-                        </label>
-                    </div>
-                </div>
-            </div> */}
+                <input
+                    type="password"
+                    required
+                    {...register("password")}
+                    className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-primary shadow-sm rounded-lg"
+                />
+            </div>
 
             <div>
                 <label className="font-medium">
@@ -184,19 +175,26 @@ const SignUpFrom = ({ createUser, setLoading, setError, loading }: ISignUpProps)
 
                 </div>
             </div>
+            {
+                selectedOption === 'SERVICE PROVIDER' && (
+
+                    <div>
+
+                        <label className="font-medium">
+                            User sub type
+                        </label>
+                        <div className="relative inline-flex w-full">
+                            <MultiSelect setSelectedOptions={setSelectedIndustries} selectedOptions={selectedIndustries} options={industries} />
+
+                        </div>
+                    </div>
+                )
+            }
+
+
 
             {/* ------- */}
-            <div>
-                <label className="font-medium">
-                    Password
-                </label>
-                <input
-                    type="password"
-                    required
-                    {...register("password")}
-                    className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-primary shadow-sm rounded-lg"
-                />
-            </div>
+
             {/* <Link href='/auth/verify '> */}
             <button
                 type='submit'

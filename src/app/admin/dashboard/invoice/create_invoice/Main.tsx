@@ -14,6 +14,7 @@ mutation CreateInvoices($input: [InvoiceCreateInput!]!) {
     createInvoices(input: $input) {
       info {
         nodesCreated
+        relationshipsCreated
       }
     }
   }
@@ -35,21 +36,41 @@ const Main = () => {
     const [createInvoiceFn, state] = useMutation(CREATE_INVOICE, { client });
 
 
+    // calculate total price
+    const calculateTotalPrice = (services: any, taxRate: number) => {
+        const allPriceArray = services.map((service: any, i: number) => {
+            let price = service[`serviceName${i}`].price
+            return parseInt(price)
+        })
+        const totalPrice = allPriceArray.reduce((a: number, b: number) => a + b, 0)
+        const totalPriceWithTax = Math.floor(totalPrice + (totalPrice * taxRate / 100))
+
+        return { totalPriceWithTax, totalPrice }
+    }
+
+
+
+
+
+
     // initializing invoice creation function
     const createInvoice = async (invoiceData: any, services: any, company: any) => {
-        console.log(invoiceData.companyEmail
-            , 'this is it 444444444', invoiceData.companyAddress)
+
+        const taxRate = parseInt(invoiceData?.taxRate)
+        const { totalPriceWithTax, totalPrice } = calculateTotalPrice(services, taxRate)
+
+        console.log("totalPriceWithTax", totalPriceWithTax, totalPrice, taxRate)
 
         const { data } = await createInvoiceFn({
             variables: {
                 input: [
                     {
                         clientName: company,
-                        clientEmail: invoiceData.companyEmail,
-                        clientAddress: invoiceData.companyAddress,
-                        price: invoiceData.price,
-                        taxRate: 5,
+                        totalPrice: totalPrice,
+                        priceWithTax: totalPriceWithTax,
+                        taxRate: taxRate,
                         taxType: invoiceData.taxType,
+                        createdAt: new Date().toISOString(),
                         hasClient: {
                             connect: {
                                 where: {
@@ -63,7 +84,6 @@ const Main = () => {
                         },
                         hasService: {
                             create: services.map((service: any, i: number) => {
-                                console.log(service, 'this is it 444444444')
                                 let name = service[`serviceName${i}`].serviceName
                                 let price = service[`serviceName${i}`].price
 
@@ -75,18 +95,8 @@ const Main = () => {
                                 }
                             }
                             )
-                        },
-                        adminCreated: {
-                            connect: {
-                                where: {
-                                    node: {
-                                        userIs: {
-                                            email: user?.email
-                                        }
-                                    }
-                                }
-                            }
                         }
+
                     }
                 ]
             }

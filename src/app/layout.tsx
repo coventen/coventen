@@ -1,3 +1,4 @@
+import Leads from '@/components/Leads';
 import Footer from './Footer';
 import Navbar from './Navbar'
 import './globals.css'
@@ -30,6 +31,7 @@ export default function RootLayout({
         <Toaster
           position="bottom-right"
         />
+        {/* <Leads /> */}
       </body>
     </html>
   )

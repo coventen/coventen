@@ -46,13 +46,16 @@ const Main = () => {
             where: {
                 clientOrdered: {
                     userIs: {
-                        email: user?.email
+                        email: user?.email || 'no email'
                     }
                 }
             }
 
         }
     });
+
+
+    console.log(data, user?.email, 'dklkkkkkkkkkkkkkkkkkkkkk')
 
     //deleting project 
     const [deleteProjectFn, state, resetFn] = useMutation(DELETE_PROJECT, { client });

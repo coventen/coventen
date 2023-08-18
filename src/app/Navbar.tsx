@@ -14,7 +14,6 @@ import {
     FaCaretDown,
 } from 'react-icons/fa';
 import Link from 'next/dist/client/link';
-import { FaAdjust, FaArrowRight, FaSearch } from 'react-icons/fa';
 import Dropdown from '@/components/Navbar/Dropdown/Dropdown';
 import Services from '@/components/Navbar/Dropdown/Services';
 import Features from '@/components/Navbar/Features';

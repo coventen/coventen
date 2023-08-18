@@ -65,7 +65,7 @@ const ServicesFrom = ({ index, setServices, services }: IServiceFrom) => {
 
             <div className="md:col-span-1">
                 <label htmlFor="">Price</label>
-                <input type="text" className="h-10 border border-gray-300 mt-1 rounded px-4 w-full " placeholder="" {...register(`price${index}`)} />
+                <input type='number' className="h-10 border border-gray-300 mt-1 rounded px-4 w-full " placeholder="" {...register(`price${index}`)} />
             </div>
         </form>
     );

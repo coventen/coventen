@@ -18,23 +18,24 @@ const InvoiceTable = ({ data, deleteInvoice }: ITableItem) => {
             <thead className="text-gray-600 font-medium border-b">
                 <tr>
                     <th className="py-3 pr-6">Company name</th>
-                    <th className="py-3 pr-6">email</th>
                     <th className="py-3 pr-6">Invoice Id</th>
                     <th className="py-3 pr-6">Price</th>
-                    <th className="py-3 pr-6">Action</th>
+                    <th className="py-3 pr-6 text-right">Action</th>
                 </tr>
             </thead>
             <tbody className="text-gray-600 divide-y">
                 {
                     data && data.map((item, idx) => (
-                        <tr key={item.id}>
+                        <tr key={item.id} className=''>
                             <td className="pr-6 py-4 whitespace-nowrap">{item.clientName}</td>
-                            <td className="pr-6 py-4 whitespace-nowrap">{item.clientEmail}</td>
                             <td className="pr-6 py-4 whitespace-nowrap">
                                 {item.id}
                             </td>
                             <td className="pr-6 py-4 whitespace-nowrap">{item.totalPrice || 0}</td>
-                            <td className="text-right whitespace-nowrap">
+                            <td className="text-right whitespace-nowrap space-x-3">
+                                <Link href={`/admin/dashboard/invoice/preview/${item.id}`} className="py-1.5 px-3 text-gray-600 hover:text-gray-500 duration-150 hover:bg-gray-50 border rounded-lg">
+                                    View
+                                </Link>
                                 <button onClick={() => deleteInvoice(item.id)} className="py-1.5 px-3 text-gray-600 hover:text-gray-500 duration-150 hover:bg-gray-50 border rounded-lg">
                                     Delete
                                 </button>

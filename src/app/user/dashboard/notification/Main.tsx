@@ -7,6 +7,7 @@ import { AiTwotoneDelete, AiFillEye } from 'react-icons/ai';
 import { BiSolidEditAlt } from 'react-icons/bi';
 import Error from '@/components/Error';
 import { toast } from 'react-hot-toast';
+import NotificationView from './NotificationView';
 
 //props interface
 interface INotificationTab {
@@ -38,64 +39,38 @@ query Notifications($where: NotificationWhere) {
     }
   }
   `
-//query for deleting notification
-const DELETE_NOTIFICATION = `
-mutation Mutation($where: NotificationWhere) {
-    deleteNotifications(where: $where) {
-      nodesDeleted
-    }
-  }
-  `
+
+
 //component 
-const GenarelNotification = ({ newNotification }: INotificationTab) => {
+const Main = () => {
+
+    //states
+    const [isNotificationViewModalOpen, setIsNotificationViewModalOpen] = useState(false);
+    const [currentNotification, setCurrentNotification] = useState<INotification | null>(null);
+
 
     // Create GraphQL client using custom hook
     const client = useGqlClient();
-
-    // GraphQL Mutations
-    const [deleteFn, deleteState, dReset] = useMutation(DELETE_NOTIFICATION, { client });
 
     // GraphQL Query
     const { data, loading, error, refetch } = useQuery(GET_NOTIFICATION, {
         client,
         variables: {
             where: {
-                type: 'GENAREL'
+                type_IN: ["GENERAL", "CLIENT"]
             }
         }
     });
 
-    // Delete Notification
-    const handleDelete = async (id: string) => {
-        const { data } = await deleteFn({
-            variables: {
-                where: {
-                    id: id
-                }
-            }
-        });
-        if (data) {
-            refetch();
-            toast.error('Notification Deleted Successfully');
-        }
-    };
-
-    // Fetch Notifications on newNotification change
-    useEffect(() => {
-        if (newNotification) {
-            refetch();
-        }
-    }, [newNotification])  //eslint-disable-line
 
 
-    // Render when there are no notifications
     if (data?.notifications?.length === 0) {
         return <div className="w-full h-full mt-12 text-sm mx-5"> No Data Found</div>;
     }
 
 
     // Render when there is an error
-    if (error || deleteState.error) {
+    if (error) {
         return <Error />;
     }
 
@@ -139,9 +114,11 @@ const GenarelNotification = ({ newNotification }: INotificationTab) => {
                                                 </td> */}
                                                 <td className="  text-center col-span-2 ">
                                                     <div className="relative flex items-center justify-around  px-8 ">
-                                                        <button className="focus:ring-2 focus:ring-offset-2  text-sm leading-none text-primary py-2 px-2 bg-gray-100 rounded hover:bg-gray-200 focus:outline-none"><AiFillEye /></button>
-                                                        <button className="focus:ring-2 focus:ring-offset-2  text-sm leading-none text-green-600 py-2 px-2 bg-gray-100 rounded hover:bg-gray-200 focus:outline-none"><BiSolidEditAlt /></button>
-                                                        <button onClick={() => handleDelete(item?.id)} className="focus:ring-2 focus:ring-offset-2  text-sm leading-none text-red-600 py-2 px-2 bg-gray-100 rounded hover:bg-gray-200 focus:outline-none"><AiTwotoneDelete /></button>
+                                                        <button onClick={() => {
+                                                            setIsNotificationViewModalOpen(true);
+                                                            setCurrentNotification(item);
+                                                        }} className="focus:ring-2 focus:ring-offset-2  text-sm leading-none text-primary py-2 px-2 bg-gray-100 rounded hover:bg-gray-200 focus:outline-none"><AiFillEye /></button>
+
                                                     </div>
                                                 </td>
                                             </tr>
@@ -155,8 +132,10 @@ const GenarelNotification = ({ newNotification }: INotificationTab) => {
                     </div>
                 </div>
             </div>
+            <NotificationView isNotificationViewModalOpen={isNotificationViewModalOpen} setIsNotificationViewModalOpen={setIsNotificationViewModalOpen}
+                data={currentNotification} />
         </div >
     );
 };
 
-export default GenarelNotification;
+export default Main;

@@ -3,7 +3,7 @@ import React from "react";
 
 
 
-import { LuAppWindow, LuCalculator, LuBellRing, LuUser, LuTerminalSquare, LuShieldCheck, LuReplaceAll, LuSchool2, LuQrCode, LuHeadphones } from "react-icons/lu";
+import { LuAppWindow, LuCalculator, LuBellRing, LuUser, LuTerminalSquare, LuShieldCheck, LuReplaceAll, LuSchool2, LuQrCode, LuHeadphones, LuCopySlash, LuClipboardCheck } from "react-icons/lu";
 // define a NavItem prop
 export type NavItem = {
     label: string;
@@ -25,6 +25,16 @@ export const defaultNavItems: NavItem[] = [
         label: "Invoices",
         href: "/desktopHome/invoices",
         icon: <LuCalculator className="w-6 h-6" />,
+    },
+    {
+        label: "Reports",
+        href: "/desktopHome/reports",
+        icon: <LuClipboardCheck className="w-6 h-6" />,
+    },
+    {
+        label: "Samples",
+        href: "/desktopHome/sample",
+        icon: <LuCopySlash className="w-6 h-6" />,
     },
     {
         label: "Support",

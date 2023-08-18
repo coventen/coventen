@@ -31,6 +31,10 @@ const InvoiceForm = ({ createInvoice }: IInvoiceForm) => {
 
 
 
+
+
+
+
     //hooks 
     const {
         register,
@@ -85,36 +89,6 @@ const InvoiceForm = ({ createInvoice }: IInvoiceForm) => {
                                         {/* <input type="text" name="full_name" id="full_name" className="h-10 border border-gray-300 mt-1 rounded px-4 w-full "  /> */}
                                     </div>
 
-                                    <div className="md:col-span-5">
-                                        <label htmlFor="email">Email Address</label>
-                                        <input type="text" id="email" className="h-10 border border-gray-300 mt-1 rounded px-4 w-full " placeholder="email@domain.com" {...register("companyEmail")} />
-                                    </div>
-
-                                    <div className="md:col-span-3">
-                                        <label htmlFor="address">Address / Street</label>
-                                        <input type="text" id="address" className="h-10 border border-gray-300 mt-1 rounded px-4 w-full " placeholder="" {...register("companyAddress")} />
-                                    </div>
-
-                                    <div className="md:col-span-2">
-                                        <label htmlFor="city">City</label>
-                                        <input type="text" className="h-10 border border-gray-300 mt-1 rounded px-4 w-full " placeholder=""{...register("city")} />
-                                    </div>
-
-                                    <div className="md:col-span-2">
-                                        <label htmlFor="country">Country / region</label>
-                                        <input type="text" className="h-10 border border-gray-300 mt-1 rounded px-4 w-full " placeholder=""{...register("country")} />
-                                    </div>
-
-                                    <div className="md:col-span-2">
-                                        <label htmlFor="state">State / province</label>
-                                        <input type="text" className="h-10 border border-gray-300 mt-1 rounded px-4 w-full " placeholder=""{...register("state")} />
-                                    </div>
-
-                                    <div className="md:col-span-1">
-                                        <label htmlFor="zipcode">Gst no.</label>
-                                        <input type="text" id="zipcode" className="transition-all flex items-center h-10 border border-gray-300 mt-1 rounded px-4 w-full " placeholder=""   {...register("gstNumber")} />
-                                    </div>
-
                                     <div className='col-span-2'>
                                         <p >Tax</p>
 
@@ -136,6 +110,7 @@ const InvoiceForm = ({ createInvoice }: IInvoiceForm) => {
                                                     <BsPercent />
                                                 </span>
                                                 <input placeholder="Tax rate"
+                                                    type='number'
                                                     className="  sm:rounded-l-none rounded-r-md  border border-gray-300 border-b block pl-8 pr-6 py-2 w-full bg-white text-sm placeholder-gray-400 text-gray-700 focus:bg-white focus:placeholder-gray-600 focus:text-gray-700 focus:outline-none" {...register("taxRate")} />
                                             </div>
                                         </div>
