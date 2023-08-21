@@ -8,14 +8,10 @@ import SignUpFrom from './SignUpFrom';
 import { useRouter } from 'next/navigation';
 
 const CREATE_USER = `
-mutation Mutation($input: [UserCreateInput!]!) {
-    createUsers(input: $input) {
-      info {
-        nodesCreated
-        relationshipsCreated
-      }
-    }
+mutation Mutation($email: String!, $name: String!) {
+    signUp(email: $email, name: $name)
   }
+  
 `
 
 const Main = () => {
