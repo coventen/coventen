@@ -56,42 +56,62 @@ const Main = () => {
                     ]
                 }
             })
-        }
 
-        const { data } = await createUserFn({
-            variables: {
-                input: [
-                    {
-                        name,
-                        email,
-                        user_type,
-                        isClient: {
-                            create: {
-                                node: {
-                                    sub_type: sub_type
+            if (data.createUsers.info.nodesCreated) {
+                setLoading(false)
+                toast.success('Account created successfully')
+                console.log('success')
+
+                // redirecting user to verification page or home page
+                if (user_type === 'CONSUMER') {
+                    router.push('/auth/verify')
+                    console.log('success')
+                } else if (user_type === 'SERVICE PROVIDER') {
+                    router.push('/')
+
+                }
+
+            }
+        } else {
+            const { data } = await createUserFn({
+                variables: {
+                    input: [
+                        {
+                            name,
+                            email,
+                            user_type,
+                            isClient: {
+                                create: {
+                                    node: {
+                                        sub_type: sub_type
+                                    }
                                 }
                             }
+
                         }
-
-                    }
-                ]
-            }
-        })
-        if (data.createUsers.info.nodesCreated) {
-            setLoading(false)
-            toast.success('Account created successfully')
-            console.log('success')
-
-            // redirecting user to verification page or home page
-            if (user_type === 'CONSUMER') {
-                router.push('/auth/verify')
+                    ]
+                }
+            })
+            if (data.createUsers.info.nodesCreated) {
+                setLoading(false)
+                toast.success('Account created successfully')
                 console.log('success')
-            } else if (user_type === 'SERVICE PROVIDER') {
-                router.push('/')
+
+                // redirecting user to verification page or home page
+                if (user_type === 'CONSUMER') {
+                    router.push('/auth/verify')
+                    console.log('success')
+                } else if (user_type === 'SERVICE PROVIDER') {
+                    router.push('/')
+
+                }
 
             }
-
         }
+
+
+
+
     }
 
 

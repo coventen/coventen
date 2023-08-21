@@ -23,15 +23,17 @@
 
 
 import { GraphQLClient } from 'graphql-hooks';
+// import memCache from 'graphql-hooks-memcache'
 
 
 
 
 export const useGqlClient = () => {
   const client = new GraphQLClient({
-    // url: 'https://mycollegeindia.as.r.appspot.com/graphql',
     url: 'http://localhost:4000/graphql',
   });
+
+  client.setHeader('authorization', `Bearer ${'hello'}`)
 
   return client;
 };

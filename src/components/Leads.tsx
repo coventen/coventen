@@ -39,7 +39,7 @@ const Leads = () => {
     const [selectedIndustry, setSelectedIndustry] = useState<any>('');
     const [email, setEmail] = useState<string>('');
     const [phone, setPhone] = useState<string>('');
-    const [gstNumber, setGstNumber] = useState<string>('');
+    const [message, setMessage] = useState<string>('');
 
 
     // hooks
@@ -59,7 +59,7 @@ const Leads = () => {
                 email: email,
                 phone: phone,
                 industry: selectedIndustry,
-                gstNumber: gstNumber,
+                gstNumber: "",
                 createdAt: new Date().toISOString()
             }
         )
@@ -82,7 +82,7 @@ const Leads = () => {
             toast.success('Test Requested Successfully')
             setEmail('')
             setPhone('')
-            setGstNumber('')
+            setMessage('')
         }
     }
 
@@ -138,15 +138,6 @@ const Leads = () => {
 
                                             />
                                             <div className="flex">
-                                                <div className="flex-grow w-1/4 pr-2">
-                                                    <input
-                                                        placeholder="Gst Number"
-                                                        defaultValue={gstNumber}
-                                                        onChange={(e) => setGstNumber(e.target.value)}
-                                                        className=" text-black placeholder-gray-600 w-full px-4 py-2.5 mt-2 text-base   transition duration-500 ease-in-out transform border-transparent rounded-sm bg-gray-200  focus:border-blueGray-500 focus:bg-white dark:focus:bg-gray-800 focus:outline-none focus:shadow-outline focus:ring-2 ring-offset-current ring-offset-2 ring-gray-400"
-
-                                                    />
-                                                </div>
                                                 <div className="flex-grow">
                                                     <select
                                                         value={selectedIndustry}
@@ -164,6 +155,17 @@ const Leads = () => {
                                                         ))}
                                                     </select>
                                                 </div>
+                                            </div>
+                                            <div className="flex">
+                                                <textarea
+                                                    rows={3}
+                                                    placeholder="message"
+                                                    required
+                                                    onChange={(e) => setPhone(e.target.value)}
+                                                    defaultValue={message}
+                                                    className=" text-black placeholder-gray-600 w-full px-4 py-2.5 mt-2 text-base   transition duration-500 ease-in-out transform border-transparent rounded-sm bg-gray-200  focus:border-blueGray-500 focus:bg-white dark:focus:bg-gray-800 focus:outline-none focus:shadow-outline focus:ring-2 ring-offset-current ring-offset-2 ring-gray-400"
+
+                                                />
                                             </div>
                                             <div className="mt-8">
                                                 <button type='submit' className='bg-primary font-bold text-white px-7 py-2.5 rounded'>
