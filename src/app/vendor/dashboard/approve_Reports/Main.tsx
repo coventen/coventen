@@ -7,6 +7,7 @@ import Loading from '@/app/loading';
 import { useGqlClient } from '@/hooks/UseGqlClient';
 import { useMutation } from 'graphql-hooks';
 import { toast } from 'react-hot-toast';
+import ComplainModal from './ComplainModal';
 
 
 
@@ -31,23 +32,18 @@ const Main = () => {
     const [currentModuleId, setCurrentModuleId] = useState('')
     const [reset, setReset] = useState(false)
     const [loading, setLoading] = useState(false)
+    const [isOpen, setIsOpen] = useState(false)
 
     // hooks
     const user = currentUser()
     const client = useGqlClient()
 
-    // UPDATING MODULE STATUS
+    // UPDATING MODULE 
     const [updateModuleStatusFn, updateStatus] = useMutation(UPDATE_MODULE, { client })
 
 
 
-
-    // getting module data
-    useEffect(() => {
-        getModulesData()
-    }, [reset]);
-
-    // functions
+    // functions start
 
 
     // get module data
@@ -60,10 +56,11 @@ const Main = () => {
                     email: user?.email
                 }
             },
-            status: "DRAFT"
+            status: "UNDER_REVIEW"
         }
 
 
+        // getting modules from shared function
         const modules = await GetModules(where)
         if (modules) {
             setLoading(false)
@@ -74,22 +71,18 @@ const Main = () => {
         }
     }
 
+    // refetching modules
+    useEffect(() => {
+        getModulesData()
+    }, [reset]);
 
     // update module status after uploading doc
-    const updateModule = async (status: string, id: string) => {
+    const updateModule = async (variables: any) => {
         const { data } = await updateModuleStatusFn({
-            variables: {
-                where: {
-                    id: id
-                },
-                update: {
-                    status: status,
-                    reports: ""
-                }
-            }
+            variables: variables
         })
 
-        if (data.updateModuleTickets.moduleTickets.length) {
+        if (data.updateModuleTickets.moduleTickets[0]?.id) {
             console.log('updated')
             setReset(!reset)
             getModulesData()
@@ -97,15 +90,37 @@ const Main = () => {
         }
     }
 
-    // on status change to completed upload doc and update status
-    const handleStatusChange = (e: any, id: string) => {
 
-        if (e.target.value == 'COMPLETED') {
-            setIsDocModalOpen(true)
-            setCurrentModuleId(id)
+
+    const approveModule = async (id: string) => {
+        const variables =
+        {
+            where: {
+                id: id
+            },
+            update: {
+                status: "DRAFT",
+            }
         }
+        updateModule(variables)
 
     }
+    const addComplain = async (complain: string) => {
+        const variables =
+        {
+            where: {
+                id: currentModuleId
+            },
+            update: {
+                status: "COMPLAINED",
+                complain: complain
+            }
+        }
+        updateModule(variables)
+
+    }
+
+
 
 
 
@@ -132,14 +147,23 @@ const Main = () => {
                         <td className="px-4 py-3 text-sm">{module?.forModule
                             ?.title || 'N/A'}</td>
                         <td className="px-4 py-3 text-sm space-x-2 flex items-center justify-center">
-                            <div className="relative w-40 ">
-                                <select
-                                    value={module?.status || 'ACCEPTED'}
-                                    onChange={(e) => handleStatusChange(e, module?.id)}
-                                    className=" h-full rounded-r block  w-full bg-white border text-sm pr-8 border-gray-300  py-1 px-3  leading-tight focus:outline-none  dark:bg-darkBg dark:border-darkBorder">
-                                    <option value='ACCEPTED'>IN DEVELOPMENT</option>
-                                    <option value='COMPLETED'>COMPLETED</option>
-                                </select>
+                            <div className="relative space-x-3">
+
+                                <button
+                                    disabled={module?.status === "DRAFT"}
+                                    onClick={() => approveModule(module?.id)}
+                                    className={`${module?.status === "COMPLAINED" && 'hidden'} px-3 py-2 font-semibold bg-green-200 text-green-700 rounded-sm`}>
+                                    {module?.status === "DRAFT" ? "Approved" : "Approve"}
+                                </button>
+                                <button
+                                    disabled={module?.status === "COMPLAINED"}
+                                    onClick={() => {
+                                        setIsOpen(true)
+                                        setCurrentModuleId(module?.id)
+                                    }
+                                    } className={`${module?.status === "DRAFT" && 'hidden'}  px-3 py-2 font-semibold bg-red-200 text-red-700 rounded-sm`}>
+                                    {module?.status === "COMPLAINED" ? "Rejected" : "Reject"}
+                                </button>
 
                             </div>
 
@@ -150,6 +174,7 @@ const Main = () => {
                 )
                 }
             </tbody>
+            <ComplainModal setIsOpen={setIsOpen} isOpen={isOpen} addComplain={addComplain} />
 
         </table>
     );

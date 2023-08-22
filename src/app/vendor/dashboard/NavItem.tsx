@@ -31,12 +31,27 @@ export const defaultNavItems: NavItem[] = [
         href: "/vendor/dashboard/projects",
         icon: <LuSchool2 className="" />,
     },
-
     {
-        label: "Logs",
-        href: "/vendor/dashboard/logs",
-        icon: <LuQrCode className="" />,
+        label: "Approve Projects",
+        href: "/vendor/dashboard/approve_Reports",
+        icon: <LuSchool2 className="" />,
     },
+    {
+        label: "Complains",
+        href: "/vendor/dashboard/complains",
+        icon: <LuSchool2 className="" />,
+    },
+    {
+        label: "Employees",
+        href: "/vendor/dashboard/employee",
+        icon: <LuSchool2 className="" />,
+    },
+    {
+        label: "Internal Emails",
+        href: "/vendor/dashboard/internal_email",
+        icon: <LuSchool2 className="" />,
+    },
+
     {
         label: "Invoices",
         href: "/vendor/dashboard/invoice",
@@ -57,5 +72,11 @@ export const defaultNavItems: NavItem[] = [
         label: "Support",
         href: "/vendor/dashboard/support/",
         icon: <LuHeadphones className="" />,
+    },
+
+    {
+        label: "Logs",
+        href: "/vendor/dashboard/logs",
+        icon: <LuQrCode className="" />,
     },
 ];

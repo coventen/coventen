@@ -101,7 +101,12 @@ const Main = () => {
             if (updateData?.updateUsers.info.nodesCreated) {
                 setLoading(false)
                 toast.success('Account created successfully')
-                router.push('/auth/verify')
+                if (user_type === "SERVICE_PROVIDER" || user_type === "CONSUMER") {
+                    router.push('/auth/verify')
+                } else {
+                    router.push('/')
+                }
+
             }
 
 

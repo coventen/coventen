@@ -1,7 +1,7 @@
 import React from 'react';
 import Main from './Main';
 
-const ApprovePage = () => {
+const page = () => {
     return (
         <div>
             <Main />
@@ -9,4 +9,4 @@ const ApprovePage = () => {
     );
 };
 
-export default ApprovePage;
+export default page;

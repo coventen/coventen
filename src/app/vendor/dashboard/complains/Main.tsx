@@ -2,11 +2,12 @@
 
 import { currentUser } from '@/firebase/oauth.config';
 import { useGqlClient } from '@/hooks/UseGqlClient';
-import { useQuery } from 'graphql-hooks';
+import { useMutation, useQuery } from 'graphql-hooks';
 import React from 'react';
 import ComplainTable from './ComplainTable';
 import UploadDocModal from './UploadDocModal';
 import ViewModal from './ViewModal';
+import { toast } from 'react-hot-toast';
 
 const GET_COMPLAIN = `
 query ModuleTickets($where: ModuleTicketWhere) {
@@ -23,6 +24,8 @@ query ModuleTickets($where: ModuleTicketWhere) {
   }
 
 `
+
+
 const Main = () => {
 
     // states
@@ -37,7 +40,7 @@ const Main = () => {
     const user = currentUser()
 
     // fetching data
-    const { data, error, loading } = useQuery(GET_COMPLAIN, {
+    const { data, error, loading, refetch } = useQuery(GET_COMPLAIN, {
         client,
         variables: {
             where: {
@@ -50,6 +53,7 @@ const Main = () => {
             }
         }
     })
+
 
 
 

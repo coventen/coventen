@@ -6,6 +6,7 @@ interface IComplainTableProps {
     setIsModalOpen: any;
     setCurrentComplain: any;
     setIsDocModalOpen: any;
+
 }
 
 
@@ -62,7 +63,7 @@ const ComplainTable = ({ data, setIsModalOpen, setCurrentComplain, setIsDocModal
                                         setIsModalOpen(true)
                                         setCurrentComplain(complain?.id)
                                     }}
-                                    className='bg-primary text-white px-3 py-1'>
+                                    className='bg-primary text-white px-4 py-2 rounded-sm'>
                                     View
                                 </button>
                                 <button
@@ -70,7 +71,7 @@ const ComplainTable = ({ data, setIsModalOpen, setCurrentComplain, setIsDocModal
                                         setIsDocModalOpen(true)
                                         setCurrentComplain(complain?.id)
                                     }}
-                                    className='bg-primary text-white px-3 py-1'>
+                                    className='bg-primary text-white px-4 py-2 rounded-sm'>
                                     Resend
                                 </button>
 

@@ -71,7 +71,6 @@ const Leads = () => {
                         email: email,
                         phone: phone,
                         industry: selectedIndustry,
-                        gstNumber: gstNumber
                     }
                 ]
             }

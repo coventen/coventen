@@ -102,7 +102,7 @@ function UploadDocModal({ setIsDocModalOpen, isDocModalOpen, currentModuleId, up
                 })
 
                 if (data.updateModuleTickets.moduleTickets.length) {
-                    updateModule('COMPLETED', currentModuleId)
+                    updateModule('UNDER_REVIEW', currentModuleId)
                     closeModal()
                 }
             }

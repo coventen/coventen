@@ -1,4 +1,5 @@
 'use client'
+import AutoSelectVendor from '@/components/AutoSelectVendor';
 import { signUpWithEmailAndPassword } from '@/firebase/oauth.config';
 import React, { useState } from 'react';
 import { useForm, SubmitHandler, set } from "react-hook-form"
@@ -41,7 +42,8 @@ const SubType = [
 const UserType = [
     'SERVICE_PROVIDER',
     'CONSUMER',
-    "EMPLOYEE"
+    "COVENTEN EMPLOYEE",
+    "LAB ASSISTANT"
 ]
 
 
@@ -50,7 +52,8 @@ const UserType = [
 // component
 const SignUpFrom = ({ createUser, setLoading, setError, loading, error }: ISignUpProps) => {
 
-
+    // states 
+    const [selected, setSelected] = useState<any>(null)
 
     // hooks
     const {
@@ -94,6 +97,16 @@ const SignUpFrom = ({ createUser, setLoading, setError, loading, error }: ISignU
                 onSubmit={handleSubmit(handleAuthentication)}
                 className="space-y-5"
             >
+                <div>
+                    <p className="text-xs lg:text-sm font-semibold mb-1  text-gray-700">
+                        Select Vendor
+                    </p>
+
+                    <div className='relative'>
+
+                        <AutoSelectVendor setSelected={setSelected} selected={selected} data={[]} />
+                    </div>
+                </div>
                 <div>
                     <label className="font-medium">
                         Name

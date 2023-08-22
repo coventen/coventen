@@ -65,7 +65,7 @@ const AcceptedModules = () => {
                     email: user?.email
                 }
             },
-            status: "ACCEPTED"
+            status_IN: ["UNDER_REVIEW", "ACCEPTED"]
         }
 
 
@@ -106,7 +106,7 @@ const AcceptedModules = () => {
     // on status change to completed upload doc and update status
     const handleStatusChange = (e: any, id: string) => {
 
-        if (e.target.value == 'COMPLETED') {
+        if (e.target.value == 'UNDER_REVIEW') {
             setIsDocModalOpen(true)
             setCurrentModuleId(id)
         }
@@ -144,7 +144,7 @@ const AcceptedModules = () => {
                                     onChange={(e) => handleStatusChange(e, module?.id)}
                                     className=" h-full rounded-r block  w-full bg-white border text-sm pr-8 border-gray-300  py-1 px-3  leading-tight focus:outline-none  dark:bg-darkBg dark:border-darkBorder">
                                     <option value='ACCEPTED'>IN DEVELOPMENT</option>
-                                    <option value='COMPLETED'>COMPLETED</option>
+                                    <option value='UNDER_REVIEW'>UNDER REVIEW</option>
                                 </select>
 
                             </div>

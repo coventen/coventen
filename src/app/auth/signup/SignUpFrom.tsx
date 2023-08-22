@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { useForm, SubmitHandler, set } from "react-hook-form"
 import industries from '@/utlts/InductiresData.json';
 import MultiSelect from '@/components/Multiselect';
+import AutoSelectVendor from '@/components/AutoSelectVendor';
 
 
 
@@ -27,22 +28,12 @@ interface ISignUpProps {
 
 
 
-// user type SubType
-const SubType = [
-    'Freelancer',
-    'Testing Agent',
-    'Manufacturer',
-    'Academics / Institute',
-    'Foreign Client',
-    'Importer',
-    'Consumer',
-    'Testing Lab / Service Provider',
-];
 
 const UserType = [
     'SERVICE_PROVIDER',
     'CONSUMER',
-    "EMPLOYEE"
+    "COVENTEN_EMPLOYEE",
+    "LAB_ASSISTANT"
 ]
 
 
@@ -55,6 +46,7 @@ const SignUpFrom = ({ createUser, setLoading, setError, loading, error }: ISignU
     const [selectedOption, setSelectedOption] = useState('');
     const [selectSubType, setSelectSetSubType] = useState('CONSUMER');
     const [selectedIndustries, setSelectedIndustries] = useState<any[]>([]);
+    const [selectedVendor, setSelectedVendor] = useState<any>(null);
 
 
     // hooks
@@ -92,6 +84,24 @@ const SignUpFrom = ({ createUser, setLoading, setError, loading, error }: ISignU
         setSelectSetSubType(e.target.value);
     };
 
+    // user type SubType
+    let SubType: string[] = [];
+
+    if (selectedOption === 'SERVICE_PROVIDER') {
+        SubType = [
+            'Freelancer',
+            'Testing Agent',
+            'Academics / Institute',
+            'Testing Lab',
+        ]
+    } else if (selectedOption === 'CONSUMER') {
+        SubType = [
+            'Manufacturer',
+            'Academics / Institute',
+            'Foreign Client',
+            'Importer',
+        ]
+    }
 
 
     // render
@@ -112,7 +122,7 @@ const SignUpFrom = ({ createUser, setLoading, setError, loading, error }: ISignU
                         type="text"
                         required
                         {...register("name")}
-                        className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-primary shadow-sm rounded-lg"
+                        className="block w-full cursor-default overflow-hidden rounded bg-white text-left border border-gray-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-teal-300 sm:text-sm"
                     />
                 </div>
                 <div>
@@ -123,7 +133,7 @@ const SignUpFrom = ({ createUser, setLoading, setError, loading, error }: ISignU
                         type="email"
                         required
                         {...register("email")}
-                        className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-primary shadow-sm rounded-lg"
+                        className="block w-full cursor-default overflow-hidden rounded bg-white text-left border border-gray-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-teal-300 sm:text-sm"
                     />
                 </div>
                 <div>
@@ -134,7 +144,7 @@ const SignUpFrom = ({ createUser, setLoading, setError, loading, error }: ISignU
                         type="password"
                         required
                         {...register("password")}
-                        className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-primary shadow-sm rounded-lg"
+                        className="block w-full cursor-default overflow-hidden rounded bg-white text-left border border-gray-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-teal-300 sm:text-sm"
                     />
                 </div>
 
@@ -146,7 +156,7 @@ const SignUpFrom = ({ createUser, setLoading, setError, loading, error }: ISignU
                         <select
                             value={selectedOption}
                             onChange={handleSelect}
-                            className="appearance-none relative w-full mt-2 px-3 py-2 text-gray-700 bg-transparent outline-none border focus:border-primary shadow-sm rounded-lg"
+                            className="block w-full cursor-default overflow-hidden rounded bg-white text-left border border-gray-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-teal-300 sm:text-sm"
                         >
                             <option value="" disabled>Select an option</option>
                             {UserType.map((option) => (
@@ -158,34 +168,41 @@ const SignUpFrom = ({ createUser, setLoading, setError, loading, error }: ISignU
 
                     </div>
                 </div>
-                <div>
-                    <label className="font-medium">
-                        User sub type
-                    </label>
-                    <div className="relative inline-flex w-full">
-                        <select
-                            value={selectSubType}
-                            onChange={handleSelectSub}
+                {/* collecting sub type for vendor or client */}
+                {
+                    selectedOption === 'SERVICE_PROVIDER' || selectedOption === 'CONSUMER' && (
 
-                            className="appearance-none relative w-full mt-2 px-3 py-2 text-gray-700 bg-transparent outline-none border focus:border-primary shadow-sm rounded-lg"
-                        >
-                            <option value="" disabled>Select an option</option>
-                            {SubType.map((option) => (
-                                <option key={option} value={option}>
-                                    {option}
-                                </option>
-                            ))}
-                        </select>
+                        <div>
+                            <label className="font-medium">
+                                User sub type
+                            </label>
+                            <div className="relative inline-flex w-full">
+                                <select
+                                    value={selectSubType}
+                                    onChange={handleSelectSub}
 
-                    </div>
-                </div>
+                                    className="block w-full cursor-default overflow-hidden rounded bg-white text-left border border-gray-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-teal-300 sm:text-sm"
+                                >
+                                    <option value="" disabled>Select an option</option>
+                                    {SubType.map((option) => (
+                                        <option key={option} value={option}>
+                                            {option}
+                                        </option>
+                                    ))}
+                                </select>
+
+                            </div>
+                        </div>
+                    )
+                }
+
                 {
                     selectedOption === 'SERVICE_PROVIDER' && (
 
                         <div>
 
                             <label className="font-medium">
-                                User sub type
+                                Industries
                             </label>
                             <div className="relative inline-flex w-full">
                                 <MultiSelect setSelectedOptions={setSelectedIndustries} selectedOptions={selectedIndustries} options={industries} />
@@ -195,18 +212,36 @@ const SignUpFrom = ({ createUser, setLoading, setError, loading, error }: ISignU
                     )
                 }
 
+                {
+                    selectedOption === 'LAB_ASSISTANT' && (
+                        <div>
+                            <label className="font-medium">
+                                Select Your Lab
+                            </label>
+
+
+                            <div className='relative'>
+
+                                <AutoSelectVendor selected={selectedVendor} setSelected={setSelectedVendor} />
+                            </div>
+                        </div>
+                    )
+                }
+
 
 
                 {/* ------- */}
 
-                {/* <Link href='/auth/verify '> */}
-                <button
-                    type='submit'
-                    className="w-full px-4 mt-8 py-2 text-white font-medium bg-primary hover:bg-primary active:bg-primary rounded-lg duration-150"
-                >
-                    {loading ? "loading" : 'Create account'}
-                </button>
-                {/* </Link> */}
+
+                <div>
+                    <button
+                        type='submit'
+                        className="w-full px-4 mt-10 py-2 text-white font-medium bg-primary hover:bg-primary active:bg-primary rounded duration-150"
+                    >
+                        {loading ? "loading" : 'Create account'}
+                    </button>
+                </div>
+
             </form>
         </>
     );

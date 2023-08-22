@@ -22,6 +22,26 @@ export const defaultNavItems: NavItem[] = [
         icon: <HiFolder className="w-6 h-6" />,
     },
     {
+        label: "Notification",
+        href: "/user/dashboard/notification",
+        icon: <HiFolder className="w-6 h-6" />,
+    },
+    {
+        label: "Internal Emails",
+        href: "/user/dashboard/internal_email",
+        icon: <HiFolder className="w-6 h-6" />,
+    },
+    {
+        label: "Reports",
+        href: "/user/dashboard/reports",
+        icon: <HiFolder className="w-6 h-6" />,
+    },
+    {
+        label: "Samples",
+        href: "/user/dashboard/sample",
+        icon: <HiFolder className="w-6 h-6" />,
+    },
+    {
         label: "Chats",
         href: "/user/dashboard/chats",
         icon: <HiChat className="w-6 h-6" />,

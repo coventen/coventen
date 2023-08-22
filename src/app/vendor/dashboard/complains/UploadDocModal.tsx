@@ -97,13 +97,13 @@ function UploadDocModal({ setIsDocModalOpen, isDocModalOpen, currentModuleId, up
                             id: currentModuleId
                         },
                         update: {
-                            reports: uploadedFilesData
+                            reports: uploadedFilesData,
+                            status: "UNDER_REVIEW"
                         }
                     },
                 })
 
                 if (data.updateModuleTickets.moduleTickets.length) {
-                    updateModule('COMPLETED', currentModuleId)
                     closeModal()
                 }
             }

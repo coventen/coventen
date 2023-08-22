@@ -17,10 +17,9 @@ query CommunicationTickets($where: CommunicationTicketWhere) {
       id
       sub
       date
-      files
-      message
     }
   }
+
 `
 const DELETE_MESSAGES = `
 mutation DeleteCommunicationTickets($where: CommunicationTicketWhere) {
@@ -39,8 +38,6 @@ const Main = () => {
     const client = useGqlClient()
     const user = currentUser()
 
-    console.log(user?.email, 'email')
-
     // fetching messages
     const { data, loading, error, refetch } = useQuery(GET_SET_MESSAGES, {
         client,
@@ -48,7 +45,7 @@ const Main = () => {
             where: {
                 forVendor_ALL: {
                     userIs: {
-                        email: user?.email || 'no email'
+                        email: user?.email
                     }
                 }
             }

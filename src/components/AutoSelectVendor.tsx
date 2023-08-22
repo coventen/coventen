@@ -1,26 +1,55 @@
+'use client'
 import { Fragment, useState } from 'react'
 import { Combobox, Transition } from '@headlessui/react'
 import { CheckIcon, ChevronUpDownIcon } from '@heroicons/react/20/solid'
+import { useGqlClient } from '@/hooks/UseGqlClient'
+import { useQuery } from 'graphql-hooks'
 
 
 
+const GET_VENDORS = `
+query Vendors( $userIsWhere2: UserWhere) {
+    vendors {
+      id
+      userIs(where: $userIsWhere2) {
+        id
+        companyName
+        status
+      }
+    }
+  }
+`
 
 
 
-
-const AutoSelectVendor = ({ selected, setSelected, data, loading }: any) => {
+const AutoSelectVendor = ({ selected, setSelected }: any) => {
 
     const [query, setQuery] = useState('')
+
+    //hooks
+    const client = useGqlClient();
+    const { data: vendorData, loading } = useQuery(GET_VENDORS, {
+        client,
+        variables: {
+            userIsWhere2: {
+                status: "APPROVED"
+            }
+        }
+    })
+
+    const data = vendorData?.vendors?.map((item: any) => item?.userIs)
 
     const filtereData =
         query === ''
             ? data
             : data?.filter((vendor: any) =>
-                vendor?.userIs?.companyName
-                    .toLowerCase()
-                    .replace(/\s+/g, '')
-                    .includes(query.toLowerCase().replace(/\s+/g, ''))
+                vendor.companyName
+                // .toLowerCase()
+                // .replace(/\s+/g, '')
+                // .includes(query.toLowerCase().replace(/\s+/g, ''))
             )
+
+
 
     return (
         <div className="absolute top-0 w-full">
@@ -29,7 +58,7 @@ const AutoSelectVendor = ({ selected, setSelected, data, loading }: any) => {
                     <div className="relative w-full cursor-default overflow-hidden rounded bg-white text-left border border-gray-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-teal-300 sm:text-sm">
                         <Combobox.Input
                             className="w-full border-none py-2 pl-3 pr-10 text-sm leading-5 text-gray-900 focus:ring-0"
-                            displayValue={(vendor: any) => vendor?.userIs?.companyName}
+                            displayValue={(vendor: any) => data?.companyName}
                             onChange={(event) => setQuery(event.target.value)}
                         />
                         <Combobox.Button className="absolute inset-y-0 right-0 flex items-center pr-2">
@@ -76,7 +105,7 @@ const AutoSelectVendor = ({ selected, setSelected, data, loading }: any) => {
                                                     className={`block truncate ${selected ? 'font-medium' : 'font-normal'
                                                         }`}
                                                 >
-                                                    {vendor?.userIs?.companyName}
+                                                    {vendor?.companyName || 'N/A'}
                                                 </span>
                                                 {selected ? (
                                                     <span
