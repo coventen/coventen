@@ -115,12 +115,12 @@ const Main = () => {
                                 data?.communicationTickets.length && data?.communicationTickets?.map((item: any) =>
 
                                     <li key={item?.id} >
-                                        <Link href={`/vendor/dashboard/messages/message_preview/${item?.id}`}
+                                        <div
                                             className="flex items-center border-b hover:bg-gray-200 px-2 py-1 w-full"
                                         >
 
                                             <div className=" flex items-center justify-between p-1 my-1 cursor-pointer  w-full">
-                                                <div className="flex items-center ">
+                                                <Link href={`/admin/dashboard/communication/message_preview/${item?.id}`} className="flex items-center ">
                                                     <div className="flex items-center mr-4 ml-1 space-x-1">
 
                                                         <button title="Read">
@@ -131,7 +131,7 @@ const Main = () => {
                                                     </div>
                                                     {/* <span className=" pr-2 truncate mr-8 text-sm font-semibold">William Livingston</span> */}
                                                     <span className=" text-gray-600 text-sm truncate mr-4">{item?.sub}</span>
-                                                </div>
+                                                </Link>
                                                 <div className=" flex items-center justify-end">
                                                     <div className="flex items-center space-x-2" >
 
@@ -152,7 +152,7 @@ const Main = () => {
                                                     </span>
                                                 </div>
                                             </div>
-                                        </Link>
+                                        </div>
                                     </li>
 
                                 )

@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React from 'react';
 
 const Footer = () => {
@@ -119,10 +120,10 @@ const Footer = () => {
                                             <a href="#" className="transition hover:text-primary">About</a>
                                         </li>
                                         <li>
-                                            <a href="#" className="transition hover:text-primary">Customers</a>
+                                            <Link href="/auth/employee_register" className="transition hover:text-primary">Employee Register</Link>
                                         </li>
                                         <li>
-                                            <a href="#" className="transition hover:text-primary">Enterprise</a>
+                                            <Link href="/auth/lab_assistant_register" className="transition hover:text-primary">Lab Assistant Register</Link>
                                         </li>
                                         <li>
                                             <a href="#" className="transition hover:text-primary">Partners</a>

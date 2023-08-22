@@ -3,11 +3,13 @@ import { Dialog, Transition, Disclosure } from '@headlessui/react';
 interface ModalProps {
     openPeopleModal: boolean;
     setOpenPeopleModal: (open: boolean) => void;
+    employeeList: any;
 }
 
 const AddPeopleModal: React.FC<ModalProps> = ({
     openPeopleModal,
     setOpenPeopleModal,
+    employeeList
 }) => {
     const [role, setRole] = useState('');
     const [personName, setPersonName] = useState([]);

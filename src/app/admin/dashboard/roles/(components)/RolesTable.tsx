@@ -1,44 +1,10 @@
 import React from 'react';
 
-const data = [
-    {
-        id: '1',
+interface IrolesProps {
+    rolesData: any
+}
 
-        roleName: 'Admin',
-        dateCreated: 'em@ploee.com',
-        recipient: 'John Doe',
-    },
-    {
-        id: '2',
-
-        roleName: 'Admin',
-        dateCreated: 'em@ploee.com',
-        recipient: 'John Doe',
-    },
-    {
-        id: '3',
-
-        roleName: 'Admin',
-        dateCreated: 'em@ploee.com',
-        recipient: 'John Doe',
-    },
-    {
-        id: '4',
-
-        roleName: 'Admin',
-        dateCreated: 'em@ploee.com',
-        recipient: 'John Doe',
-    },
-    {
-        id: '5',
-
-        roleName: 'Admin',
-        dateCreated: 'em@ploee.com',
-        recipient: 'John Doe',
-    },
-];
-
-const RolesTable = () => {
+const RolesTable = ({ rolesData }: IrolesProps) => {
     return (
         <div className="container mx-auto ">
             <div className="flex flex-col mt-10">
@@ -74,21 +40,21 @@ const RolesTable = () => {
                                         </th>
                                     </tr>
                                 </thead>
-                                <tbody className="bg-white divide-y divide-gray-200 dark:divide-darkBorder dark:bg-darkBg">
-                                    {data.map((row) => (
-                                        <tr key={row.id}>
+                                <tbody>
+                                    {rolesData && rolesData.map((item: any, i: number) => (
+                                        <tr key={item.id}>
                                             <td className="px-6 py-4 whitespace-nowrap">
-                                                <div className="text-sm ">{row.id}</div>
+                                                <div className="text-sm ">{i + 1}</div>
                                             </td>
                                             <td className="px-6 py-4 whitespace-nowrap">
                                                 <div className="text-sm ">
-                                                    {row.roleName}
+                                                    {item.name}
                                                 </div>
                                             </td>
                                             <td className="px-6 py-4 whitespace-nowrap">
                                                 <div className="flex items-center">
-                                                    {/* <Switch {...label} defaultChecked className="mr-4" /> */}
-                                                    <div className="text-sm text-gray-500">Active</div>
+
+                                                    <div className="text-sm text-gray-500">{item?.createdAt.slice(0, 10)}</div>
                                                 </div>
                                             </td>
                                             <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
@@ -107,7 +73,7 @@ const RolesTable = () => {
                     </div>
                 </div>
             </div>
-        </div>
+        </div >
     );
 };
 

@@ -8,6 +8,7 @@ import MultiSelect from '@/components/Multiselect';
 interface ModalProps {
     openModal: boolean;
     setOpenModal: (open: boolean) => void;
+    createRole: (name: string, permissions: string[]) => void;
 }
 
 interface Option {
@@ -16,8 +17,63 @@ interface Option {
     description?: string;
 }
 
-const CreateRoleModal: React.FC<ModalProps> = ({ openModal, setOpenModal }) => {
-    const [role, setRole] = useState('');
+let fieldsOptions: Option[] = [
+    {
+        id: 1,
+        name: 'Dashboard',
+    },
+    {
+        id: 2,
+        name: 'Users',
+    },
+    {
+        id: 3,
+        name: 'Roles',
+    },
+    {
+        id: 4,
+        name: 'Assignment',
+    },
+    {
+        id: 5,
+        name: 'Settings',
+    },
+    {
+        id: 6,
+        name: 'Invoices',
+    },
+    {
+        id: 7,
+        name: 'notifications',
+    },
+    {
+        id: 8,
+        name: 'Support',
+    },
+    {
+        id: 9,
+        name: 'Tickets System',
+    },
+    {
+        id: 10,
+        name: 'Users',
+    },
+    {
+        id: 11,
+        name: 'Vendor Management',
+    },
+    {
+        id: 12,
+        name: 'Logs',
+    }
+
+]
+
+
+// component
+const CreateRoleModal: React.FC<ModalProps> = ({ openModal, setOpenModal, createRole }) => {
+    // states
+    const [roleName, setRoleName] = useState('');
     const [personName, setPersonName] = useState<string[]>([]);
     const [selectedOptions, setSelectedOptions] = useState<Option[]>([])
 
@@ -36,58 +92,17 @@ const CreateRoleModal: React.FC<ModalProps> = ({ openModal, setOpenModal }) => {
     };
 
 
+    console.log('selectedOptions', selectedOptions.map((item) => item.name))
 
-    let fieldsOptions: Option[] = [
-        {
-            id: 1,
-            name: 'Dashboard',
-        },
-        {
-            id: 2,
-            name: 'Users',
-        },
-        {
-            id: 3,
-            name: 'Roles',
-        },
-        {
-            id: 4,
-            name: 'Assignment',
-        },
-        {
-            id: 5,
-            name: 'Settings',
-        },
-        {
-            id: 6,
-            name: 'Invoices',
-        },
-        {
-            id: 7,
-            name: 'notifications',
-        },
-        {
-            id: 8,
-            name: 'Support',
-        },
-        {
-            id: 9,
-            name: 'Tickets System',
-        },
-        {
-            id: 10,
-            name: 'Users',
-        },
-        {
-            id: 11,
-            name: 'Vendor Management',
-        },
-        {
-            id: 12,
-            name: 'Logs',
-        }
 
-    ]
+    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault()
+
+        const permissions = selectedOptions.map((item) => item.name)
+        createRole(roleName, permissions)
+
+    }
+
 
     return (
         <Transition show={openModal} as={Fragment}>
@@ -106,7 +121,7 @@ const CreateRoleModal: React.FC<ModalProps> = ({ openModal, setOpenModal }) => {
                                 Create User Role
                             </Dialog.Title>
                         </div>
-                        <div className="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+                        <form onSubmit={handleSubmit} className="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
                             <div className="min-h-auto space-y-6">
                                 <div>
                                     <label
@@ -118,8 +133,9 @@ const CreateRoleModal: React.FC<ModalProps> = ({ openModal, setOpenModal }) => {
                                     <input
                                         type="text"
                                         name="role"
-                                        id="role"
-                                        autoComplete="off"
+                                        value={roleName}
+                                        onChange={(e) => setRoleName(e.target.value)}
+                                        required
                                         className="mt-1 focus:ring-blue-500 focus:border-blue-500 block w-full sm:text-sm border-gray-300 rounded-md"
                                     />
                                 </div>
@@ -144,14 +160,14 @@ const CreateRoleModal: React.FC<ModalProps> = ({ openModal, setOpenModal }) => {
                                     Cancel
                                 </button>
                                 <button
-                                    onClick={handleClose}
-                                    type="button"
+
+                                    type="submit"
                                     className="inline-flex justify-center ml-3 px-4 py-2 text-sm font-medium text-white bg-primary border border-transparent rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
                                 >
                                     Create
                                 </button>
                             </div>
-                        </div>
+                        </form>
                     </div>
                 </div>
             </Dialog>

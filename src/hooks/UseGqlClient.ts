@@ -15,14 +15,8 @@
 
 
 
-
-
-
-
-
-
-
 import { GraphQLClient } from 'graphql-hooks';
+import Cookies from 'js-cookie';
 // import memCache from 'graphql-hooks-memcache'
 
 
@@ -33,7 +27,11 @@ export const useGqlClient = () => {
     url: 'http://localhost:4000/graphql',
   });
 
-  client.setHeader('authorization', `Bearer ${'hello'}`)
+  const token = Cookies.get('conventenToken');
+  if(token) {
+    client.setHeader('authorization', `Bearer ${token}`)
+  }
+
 
   return client;
 };

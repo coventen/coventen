@@ -8,6 +8,16 @@ import SignUpFrom from './SignUpFrom';
 import { useRouter } from 'next/navigation';
 import Cookies from 'js-cookie';
 
+
+interface CreateUserInput {
+    name: string;
+    email: string;
+    phone: string;
+    pan: string;
+    password: string;
+}
+
+
 const CREATE_USER = `
 mutation Mutation($email: String!, $name: String!, $userType: String!) {
     signUp(email: $email, name: $name, user_type: $userType)
@@ -40,68 +50,39 @@ const Main = () => {
     const [updateUserFn, updateState] = useMutation(UPDATE_USER, { client });
 
     // initializing user creation function
-    const createUser = async (name: string, email: string, user_type: string, sub_type: string, selectedIndustries: any[]) => {
+    const createUser = async ({ pan, phone, email, name }: CreateUserInput) => {
 
 
         const { data } = await createUserFn({
             variables: {
                 email,
                 name,
-                userType: user_type === "SERVICE PROVIDER" ? "SERVICE_PROVIDER" : user_type
+                userType: 'EMPLOYEE'
             }
         })
 
         if (data?.signUp) {
             // saving token to cookie
             Cookies.set('conventenToken', data.signUp)
-            // updating user
-            let updateVariables
-
-            // updating user variables
-            if (user_type === "SERVICE PROVIDER") {
-                updateVariables = {
-                    where: {
-                        email
-                    },
-                    update: {
-                        isVendor: {
-                            create: {
-                                node: {
-                                    industry: selectedIndustries.map((industry) => industry.name),
-                                    sub_type: sub_type
-                                }
-                            }
-                        }
-                    }
-                }
-
-            } else if (user_type === "CONSUMER") {
-                updateVariables = {
-                    where: {
-                        email
-                    },
-                    update: {
-                        isClient: {
-                            create: {
-                                node: {
-                                    sub_type: sub_type
-                                }
-                            }
-                        }
-                    }
-                }
-            }
 
             // updating user
 
             const { data: updateData } = await updateUserFn({
-                variables: updateVariables
+                variables: {
+                    where: {
+                        email
+                    },
+                    update: {
+                        phone,
+                        pan
+                    }
+                }
             })
 
-            if (updateData?.updateUsers.info.nodesCreated) {
+            if (updateData) {
                 setLoading(false)
                 toast.success('Account created successfully')
-                router.push('/auth/verify')
+                router.push('/')
             }
 
 
