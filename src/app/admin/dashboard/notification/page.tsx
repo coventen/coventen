@@ -4,6 +4,7 @@ import { Tab } from '@headlessui/react';
 import GenarelNotification from './GenarelNotification';
 import NotificationModal from './NotificationModal';
 import PersonalizeNotification from './PersonalizeNotification';
+import Main from './Main';
 
 
 
@@ -23,6 +24,7 @@ const NotificationPage = () => {
 
     return (
         <>
+            <Main />
             <div className="w-full  bg-white rounded-lg py-4 md:py-7 px-4 md:px-8 xl:px-10 ">
                 <div className=" py-4 md:py-7">
                     <div className="flex items-center justify-between">

@@ -44,12 +44,9 @@ const AutoSelectVendor = ({ selected, setSelected }: any) => {
             ? data
             : data?.filter((vendor: any) =>
                 vendor.companyName
-                // .toLowerCase()
-                // .replace(/\s+/g, '')
-                // .includes(query.toLowerCase().replace(/\s+/g, ''))
             )
 
-
+    console.log(selected, 'auto select vendor')
 
     return (
         <div className="absolute top-0 w-full">
@@ -58,7 +55,7 @@ const AutoSelectVendor = ({ selected, setSelected }: any) => {
                     <div className="relative w-full cursor-default overflow-hidden rounded bg-white text-left border border-gray-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-teal-300 sm:text-sm">
                         <Combobox.Input
                             className="w-full border-none py-2 pl-3 pr-10 text-sm leading-5 text-gray-900 focus:ring-0"
-                            displayValue={(vendor: any) => data?.companyName}
+                            displayValue={(vendor: any) => vendor?.companyName}
                             onChange={(event) => setQuery(event.target.value)}
                         />
                         <Combobox.Button className="absolute inset-y-0 right-0 flex items-center pr-2">

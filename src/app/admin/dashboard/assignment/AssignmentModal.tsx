@@ -87,11 +87,12 @@ function AssignmentModal({ isOpen, setIsOpen, currentProject, refetchProjects }:
         }
     })
 
-    console.log(data?.vendors, 'vendors')
 
     //  mutations
     const [assignModuleFn, state] = useMutation(ASSIGN_MODULE, { client });
     const [updateCounterFn, updateState] = useMutation(UPDATE_COUNTER, { client })
+
+
 
 
     // initializing  assign module
@@ -108,7 +109,7 @@ function AssignmentModal({ isOpen, setIsOpen, currentProject, refetchProjects }:
                                 where: {
                                     node: {
                                         userIs: {
-                                            companyName: selected?.userIs?.companyName,
+                                            companyName: selected?.companyName,
                                             // id: null
                                         }
                                     }

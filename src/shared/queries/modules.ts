@@ -3,8 +3,6 @@ import { ModuleTicketOptions, ModuleTicketWhere } from "@/gql/graphql"
 
 const GetModules = async (where: any={}, options: ModuleTicketOptions={}) => {
 
-    const user = currentUser()
-
     const res = fetch('http://localhost:4000/', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
@@ -39,6 +37,7 @@ const GetModules = async (where: any={}, options: ModuleTicketOptions={}) => {
 
     return data.moduleTickets
 }
+
 
 
 export default GetModules

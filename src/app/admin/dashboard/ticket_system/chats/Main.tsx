@@ -47,13 +47,11 @@ const Main = () => {
 
   // creating chat in firebase if not exist
   const getData = async () => {
-    console.log(currentModule, 'this is inside')
     const docRef = doc(db, "chats", currentModule);
     const docSnap = await getDoc(docRef);
 
     if (docSnap.exists()) {
       console.log("Document data:3", docSnap.data());
-      console.log(currentModule, 'this is inside2')
       const unsubscribe = onSnapshot(doc(db, "chats", currentModule), (doc) => {
 
         if (doc.exists()) {
