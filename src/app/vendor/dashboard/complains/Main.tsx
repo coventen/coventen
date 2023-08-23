@@ -10,10 +10,11 @@ import ViewModal from './ViewModal';
 import { toast } from 'react-hot-toast';
 import Error from '@/components/Error';
 import Loading from '@/app/loading';
+import Pagination from '@/components/Pagination';
 
 const GET_COMPLAIN = `
-query ModuleTickets($where: ModuleTicketWhere) {
-    moduleTickets(where: $where) {
+query ModuleTickets($options: ModuleTicketOptions, $where: ModuleTicketWhere) {
+    moduleTickets(options: $options, where: $where) {
       id
       ticket
       complain
@@ -34,11 +35,13 @@ const Main = () => {
     const [isModalOpen, setIsModalOpen] = React.useState(false)
     const [currentComplain, setCurrentComplain] = React.useState<any>('')
     const [isDocModalOpen, setIsDocModalOpen] = React.useState(false)
+    const [data, setData] = useState<any>([])
 
     // pagination states
-    const [pageLimit, setPageLimit] = useState(1)
+    const [pageLimit, setPageLimit] = useState(10)
     const [currentPage, setCurrentPage] = useState(1)
     const [totalPages, setTotalPages] = useState(0)
+    const [totalComplain, setTotalComplain] = useState(0)
 
 
 
@@ -53,18 +56,36 @@ const Main = () => {
 
 
 
-
-
-
-
-
-
-
-
     // refetching data based on pagination and search query
     useEffect(() => {
 
-        getComplainFn({
+        getComplainData()
+        getTotalComplains()
+    }, [currentPage]);
+
+    // getting total modules 
+    const getTotalComplains = async () => {
+        const { data } = await getComplainFn({
+            variables: {
+                where: {
+                    status: "COMPLAINED",
+                    vendorHas: {
+                        userIs: {
+                            email: user?.email
+                        }
+                    }
+                }
+            }
+        })
+        if (data.moduleTickets.length) {
+            setTotalComplain(data.moduleTickets.length)
+            setTotalPages(Math.ceil(data.moduleTickets.length / pageLimit))
+        }
+
+    }
+
+    const getComplainData = async () => {
+        const { data } = await getComplainFn({
             variables: {
                 where: {
                     status: "COMPLAINED",
@@ -80,25 +101,21 @@ const Main = () => {
                 }
             }
         })
-    }, [currentPage]);
 
-    // getting total modules 
-    const totalModules = state?.data?.moduleTickets?.length
-    if (totalModules) {
-        setTotalPages(Math.ceil(totalModules / pageLimit))
+        console.log(data, 'data3')
+
+        if (data.moduleTickets.length) {
+            setData(data.moduleTickets)
+        }
     }
 
 
 
 
 
-
-    const { data, error, loading, refetch } = useQuery(GET_COMPLAIN, {
-        client,
-        variables: {
-
-        }
-    })
+    // const { data, error, loading, refetch } = useQuery(GET_COMPLAIN, {
+    //     client,
+    // })
 
 
     if (state?.error) return <Error />
@@ -107,7 +124,12 @@ const Main = () => {
 
     return (
         <div>
-            <ComplainTable data={data?.moduleTickets} setIsModalOpen={setIsModalOpen} setCurrentComplain={setCurrentComplain} setIsDocModalOpen={setIsDocModalOpen} />
+            <ComplainTable data={data} setIsModalOpen={setIsModalOpen} setCurrentComplain={setCurrentComplain} setIsDocModalOpen={setIsDocModalOpen} />
+            <div className='w-full flex items-center justify-center'>
+                {totalComplain! > pageLimit &&
+                    <Pagination currentPage={currentPage} setCurrentPage={setCurrentPage} totalPages={totalPages} />}
+
+            </div>
             <UploadDocModal isDocModalOpen={isDocModalOpen} setIsDocModalOpen={setIsDocModalOpen} />
             <ViewModal currentComplain={currentComplain} setIsModalOpen={setIsModalOpen} isModalOpen={isModalOpen} />
         </div>

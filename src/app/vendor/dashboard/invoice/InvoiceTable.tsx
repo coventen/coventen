@@ -1,118 +1,49 @@
 'use client'
 
+import { Invoice } from '@/gql/graphql';
+import Link from 'next/link';
 import React, { useState } from 'react';
 import { AiFillEye, AiTwotoneDelete } from 'react-icons/ai';
+interface ITableItem {
+    data: Invoice[]
+    deleteInvoice: (id: any) => void
+}
 
 
-const InvoiceTable = () => {
+const InvoiceTable = ({ data, deleteInvoice }: ITableItem) => {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
-        <table className="w-full leading-normal">
-
-
-            <thead>
+        <table className="w-full table-auto text-sm text-left">
+            <thead className="text-gray-600 font-medium border-b">
                 <tr>
-                    <th
-                        className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase ">
-                        Client
-                    </th>
-                    <th
-                        className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 whitespace-nowrap  text-left text-xs font-semibold text-gray-600 uppercase ">
-                        Invoice Id
-                    </th>
-                    <th
-                        className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase ">
-                        Date
-                    </th>
-                    <th
-                        className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase ">
-                        Price
-                    </th>
-                    <th
-                        className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-center text-xs font-semibold text-gray-600 uppercase ">
-                        Status
-                    </th>
-                    <th
-                        className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-center text-xs font-semibold text-gray-600 uppercase ">
-                        Action
-                    </th>
+                    <th className="py-3 pr-6">Company name</th>
+                    <th className="py-3 pr-6">Invoice Id</th>
+                    <th className="py-3 pr-6">Price</th>
+                    <th className="py-3 pr-6 text-right">Action</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody className="text-gray-600 divide-y">
                 {
-                    [...Array(10)].map((_, i) =>
-                        <tr key={i}>
-                            <td className="px-5 py-5 border-b border-gray-200 bg-white text-xs">
-                                <div className="flex items-center">
-                                    <div className="flex-shrink-0 w-10 h-10">
-                                        <div
-                                            className="flex items-center justify-center h-10 w-10 bg-gray-300 text-lg  font-bold rounded-lg"
-                                        >
-                                            H
-                                        </div>
-                                    </div>
-                                    <div className="ml-3">
-                                        <p className="text-gray-700 font-bold  whitespace-nowrap ">
-                                            User Name
-                                        </p>
-                                        <p className="text-gray-700  text-[10px] whitespace-nowrap ">
-                                            Example  Company Name
-                                        </p>
-                                    </div>
-                                </div>
+                    data && data.map((item, idx) => (
+                        <tr key={item.id} className=''>
+                            <td className="pr-6 py-4 whitespace-nowrap">{item.clientName}</td>
+                            <td className="pr-6 py-4 whitespace-nowrap">
+                                {item.id}
                             </td>
-                            <td className="px-5 py-5 border-b border-gray-200 bg-white text-xs">
-                                <div className="flex items-center">
-                                    {/* <div className="flex-shrink-0 w-10 h-10">
-                            <div
-                                className="flex items-center justify-center h-10 w-10 bg-gray-300 text-lg  font-bold rounded-lg"
-                            >
-                                H
-                            </div>
-                        </div> */}
-                                    <div className="">
-                                        <p className="text-gray-700 whitespace-nowrap font-bold">
-                                            #H61235-01
-                                        </p>
-
-                                    </div>
-                                </div>
+                            <td className="pr-6 py-4 whitespace-nowrap">{item.totalPrice || 0}</td>
+                            <td className="text-right whitespace-nowrap space-x-3">
+                                <Link href={`/admin/dashboard/invoice/preview/${item.id}`} className="py-1.5 px-3 text-gray-600 hover:text-gray-500 duration-150 hover:bg-gray-50 border rounded-lg">
+                                    View
+                                </Link>
+                                <button onClick={() => deleteInvoice(item.id)} className="py-1.5 px-3 text-gray-600 hover:text-gray-500 duration-150 hover:bg-gray-50 border rounded-lg">
+                                    Delete
+                                </button>
                             </td>
-                            <td className="px-5 py-5 border-b border-gray-200 bg-white text-xs">
-                                <p className="text-gray-700  whitespace-nowrap  ">
-                                    12-12-2023
-                                </p>
-                            </td>
-                            <td className="px-3 py-5 border-b border-gray-200 bg-white text-xs">
-                                <p className="text-gray-700  whitespace-nowrap  ">
-                                    $1200
-                                </p>
-                            </td>
-                            <td className="px-5 py-5 border-b border-gray-200 bg-white text-xs">
-                                <span
-                                    className="relative inline-bloc mx-auto px-3 py-1  leading-tight">
-                                    <span aria-hidden
-                                        className="absolute inset-0 opacity-50 rounded-full"></span>
-                                    <span className="relative bg-green-200 text-green-800 px-5 py-1 rounded-lg font-semibold">paid</span>
-                                </span>
-                            </td>
-                            <td className="px-5 py-5 border-b border-gray-200 bg-white text-xs">
-                                <div className="relative flex items-center justify-around  space-x-3 px-8 ">
-
-                                    <button className="focus:ring-2 focus:ring-offset-2  text-sm leading-none text-green-600 py-2 px-2 bg-gray-100 rounded hover:bg-gray-200 focus:outline-none"><AiFillEye /></button>
-                                    <button className="focus:ring-2 focus:ring-offset-2  text-sm leading-none text-red-600 py-2 px-2 bg-gray-100 rounded hover:bg-gray-200 focus:outline-none"><AiTwotoneDelete /></button>
-                                </div>
-                            </td>
-                        </tr>)
+                        </tr>
+                    ))
                 }
-
-
-
-
-
             </tbody>
-            {/* <TicketModal isOpen={isOpen} setIsOpen={setIsOpen} /> */}
         </table>
     );
 };

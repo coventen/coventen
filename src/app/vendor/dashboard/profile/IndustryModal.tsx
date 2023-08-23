@@ -5,19 +5,20 @@ import { Dialog, Transition } from '@headlessui/react';
 import { useGqlClient } from '@/hooks/UseGqlClient';
 import { useMutation } from 'graphql-hooks';
 import { toast } from 'react-hot-toast';
-import AutoComplete from '@/components/AutoComplete';
+
 
 //props interface
 interface INotificationModal {
     isModalOpen: boolean;
     setIsModalOpen: (value: boolean) => void;
+    addIndustry: (industry: string) => void;
 
 }
 
 
 
 //component
-function SkillUpdateModal({ isModalOpen, setIsModalOpen }: INotificationModal) {
+function IndustryModal({ isModalOpen, setIsModalOpen, addIndustry }: INotificationModal) {
 
 
     //handle close modal
@@ -30,6 +31,13 @@ function SkillUpdateModal({ isModalOpen, setIsModalOpen }: INotificationModal) {
         setIsModalOpen(true);
     }
 
+    //add new industry
+    const handleSubmit = (e: any) => {
+        e.preventDefault()
+        const name = e.target.name.value
+        addIndustry(name)
+
+    }
 
 
 
@@ -42,7 +50,7 @@ function SkillUpdateModal({ isModalOpen, setIsModalOpen }: INotificationModal) {
             <Transition.Root show={isModalOpen} as={Fragment}>
                 <Dialog
                     as="div"
-                    className="fixed z-10 inset-0 overflow-y-auto"
+                    className="fixed z-[1000000000000005] inset-0 overflow-y-auto"
                     onClose={closeModal}
                 >
                     <div className="flex items-center justify-center min-h-screen px-4 pt-4 pb-20 text-center sm:block sm:p-0">
@@ -77,11 +85,11 @@ function SkillUpdateModal({ isModalOpen, setIsModalOpen }: INotificationModal) {
 
                             <div className="inline-block  align-bottom bg-white rounded-lg px-4 pt-5 pb-7 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full sm:p-8">
                                 <p className="focus:outline-none pt-4 pb-8 text-base text-center sm:text-lg md:text-xl lg:text-2xl font-bold leading-normal text-gray-800 border-b mb-7">Add New Skills</p>
-                                <div>
+                                <form onSubmit={handleSubmit}>
                                     <div className="flex flex-col space-y-3 w-full">
                                         <div className="col-span-full sm:col-span-3">
                                             <label htmlFor="firstname" className="text-sm mb-4">Skill name</label>
-                                            <input id="firstname" type="text" placeholder="Skill Name" className="w-full rounded-sm focus:ring ring-primary dark:border-gray-700 dark:text-gray-900" />
+                                            <input required name='name' id="firstname" type="text" placeholder="Skill Name" className="w-full rounded-sm focus:ring ring-primary dark:border-gray-700 dark:text-gray-900" />
                                         </div>
 
 
@@ -101,7 +109,7 @@ function SkillUpdateModal({ isModalOpen, setIsModalOpen }: INotificationModal) {
                                             Cancel
                                         </button>
                                     </div>
-                                </div>
+                                </form>
                             </div>
                         </Transition.Child>
                     </div>
@@ -111,4 +119,4 @@ function SkillUpdateModal({ isModalOpen, setIsModalOpen }: INotificationModal) {
     );
 }
 
-export default SkillUpdateModal;
+export default IndustryModal;

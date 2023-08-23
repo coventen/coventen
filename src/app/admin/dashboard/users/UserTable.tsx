@@ -1,3 +1,5 @@
+
+import TableSkeleton from '@/components/TableSkeleton';
 import { User } from '@/gql/graphql';
 import Image from 'next/image';
 import React from 'react';
@@ -8,17 +10,18 @@ interface IUserTable {
     data: User[]
     setIsModalOpen: (value: boolean) => void;
     setCurrentData: (value: any) => void;
+    loading: boolean
 }
 
 
 //component
-const UserTable = ({ data, setIsModalOpen, setCurrentData }: IUserTable) => {
+const UserTable = ({ data, setIsModalOpen, setCurrentData, loading }: IUserTable) => {
 
 
 
 
     return (
-        <table className="min-w-full leading-normal uppercase">
+        <table className="min-w-full leading-normal uppercase ">
             <thead>
                 <tr className='border-b border-gray-200'>
                     <th
@@ -45,6 +48,12 @@ const UserTable = ({ data, setIsModalOpen, setCurrentData }: IUserTable) => {
                 </tr>
             </thead>
             <tbody>
+                {
+                    loading &&
+                    <tr className='w-full'>
+                        <TableSkeleton />
+                    </tr>
+                }
 
                 {
                     data && data.map((user, index) =>

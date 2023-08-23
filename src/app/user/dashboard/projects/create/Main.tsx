@@ -253,7 +253,7 @@ const Main = () => {
 
                             <div className="lg:col-span-2">
                                 <div className="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-5">
-                                    <div className="md:col-span-5">
+                                    {/* <div className="md:col-span-5">
                                         <label htmlFor="email">Company Name</label>
                                         <input type="text" value={userInfo.companyName || ''} className="h-10 border border-gray-300 mt-1 rounded px-4 w-full "
                                             {...register("email")} />
@@ -263,7 +263,7 @@ const Main = () => {
                                         <label htmlFor="email">Email Address</label>
                                         <input type="text" value={user?.email || ''} className="h-10 border border-gray-300 mt-1 rounded px-4 w-full "
                                             {...register("email")} />
-                                    </div>
+                                    </div> */}
 
                                     <div className="md:col-span-3">
                                         <label htmlFor="address">Address / Street</label>

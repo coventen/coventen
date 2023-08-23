@@ -1,15 +1,18 @@
 'use client'
 import { useGqlClient } from '@/hooks/UseGqlClient';
-import { useMutation, useQuery } from 'graphql-hooks';
-import React from 'react';
+import { useManualQuery, useMutation, useQuery } from 'graphql-hooks';
+import React, { useState, useEffect } from 'react';
 import UserTable from './UserTable';
 import UserModal from './UserModal';
 import { toast } from 'react-hot-toast';
+import Pagination from '@/components/Pagination';
+import Error from '@/components/Error';
+import Loading from '@/app/loading';
 
 
 const GET_USER = `
-query Users {
-  users {
+query Users($where: UserWhere, $options: UserOptions) {
+  users(where: $where, options: $options) {
     id
     companyName
     companyEmail
@@ -54,14 +57,112 @@ const Main = () => {
   const [isModalOpen, setIsModalOpen] = React.useState(false)
   const [currentData, setCurrentData] = React.useState<any>(null)
 
+  // search sates
+  const [searchQuery, setSearchQuery] = useState('')
+  const [selectedUserType, setSelectedUserType] = useState('All')
+
+  // pagination states
+  const [pageLimit, setPageLimit] = useState(10)
+  const [currentPage, setCurrentPage] = useState(1)
+  const [totalPages, setTotalPages] = useState(0)
+  const [totalUser, setTotalUser] = useState(0)
+  const [userData, setUserData] = useState<any>([])
+
   //HOOKS
   const client = useGqlClient()
 
-  //fetching data 
-  const { data, error, loading, refetch } = useQuery(GET_USER, { client })
+  //quires 
+  const [getUserFn, userDataState] = useManualQuery(GET_USER, { client })
 
-  //APProving user or 
-  const [updateUserFn, { loading: updateUserLoading }] = useMutation(UPDATE_USER, { client })
+
+  //mutations
+  const [updateUserFn, updateUserState] = useMutation(UPDATE_USER, { client })
+
+
+
+
+
+  // refetching data based on pagination and search query
+  useEffect(() => {
+
+    // filtering using user type select
+    let user_type: string[]
+    if (selectedUserType !== 'All') {
+      user_type = [selectedUserType]
+    } else {
+      user_type = ["CONSUMER", "SERVICE_PROVIDER"]
+    }
+
+
+    // search variable
+    let where: any = {
+      user_type_IN: user_type
+    }
+
+    if (searchQuery) {
+      where = {
+        user_type_IN: user_type,
+        email_CONTAINS: searchQuery.toLowerCase()
+
+      }
+    }
+
+    getUserData(where)
+    getUserCount()
+  }, [currentPage, searchQuery, selectedUserType]);
+
+
+
+
+
+  // initializing query and mutations
+
+
+  const getUserCount = async () => {
+    const { data } = await getUserFn({
+      variables: {
+        where: {
+          user_type_IN: ["CONSUMER", "SERVICE_PROVIDER"]
+        }
+      }
+    })
+    if (data.users.length) {
+      setTotalUser(data.users.length)
+      setTotalPages(Math.ceil(data.users.length / pageLimit))
+    }
+
+  }
+
+  const getUserData = async (where: any) => {
+    const { data } = await getUserFn({
+      variables: {
+        where: where,
+        options: {
+          limit: pageLimit,
+          offset: (currentPage - 1) * pageLimit,
+          sort: [
+            {
+              createdAt: "ASC"
+            }
+          ]
+        }
+      }
+    })
+
+
+
+    if (data.users.length) {
+      setUserData(data?.users)
+    }
+  }
+
+
+
+
+
+
+
+
 
   // initializing update user mutation
 
@@ -79,7 +180,7 @@ const Main = () => {
     })
 
     if (data) {
-      refetch()
+      getUserData({ user_type_IN: ["CONSUMER", "SERVICE_PROVIDER"] })
       toast.success('User updated successfully')
       setIsModalOpen(false)
 
@@ -88,11 +189,49 @@ const Main = () => {
   }
 
 
+  if (userDataState?.error || updateUserState.error) return <Error />
+  if (updateUserState.loading) return <Loading />
+
 
   return (
     <>
-      <UserTable data={data?.users} setCurrentData={setCurrentData} setIsModalOpen={setIsModalOpen} />
-      <UserModal setIsModalOpen={setIsModalOpen} isModalOpen={isModalOpen} data={currentData} updateUser={updateUser} updateUserLoading={updateUserLoading} />
+      <div className="my-2 flex justify-end sm:flex-row flex-col mb-5">
+        <div className="flex flex-row mb-1 sm:mb-0">
+
+          <div className="relative">
+            <select
+              value={selectedUserType}
+              onChange={(e) => setSelectedUserType(e.target.value)}
+              className=" h-full rounded-r border-t sm:rounded-r-none sm:border-r-0 border-r border-b block  w-full  bg-white border-gray-300  py-2 px-4 pr-8 leading-tight focus:outline-none focus:border-l focus:border-r text-xs  focus:border-gray-500  dark:bg-darkBg dark:border-darkBorder">
+              <option value={"All"}>All</option>
+              <option value={"SERVICE_PROVIDER"}>Service Provider</option>
+              <option value={"CONSUMER"}>Consumer</option>
+            </select>
+
+          </div>
+        </div>
+        <div className="block relative">
+          <span className="h-full absolute inset-y-0 left-0 flex items-center pl-2">
+            <svg viewBox="0 0 24 24" className="h-4 w-4 fill-current text-gray-500">
+              <path
+                d="M10 4a6 6 0 100 12 6 6 0 000-12zm-8 6a8 8 0 1114.32 4.906l5.387 5.387a1 1 0 01-1.414 1.414l-5.387-5.387A8 8 0 012 10z">
+              </path>
+            </svg>
+          </span>
+          <input
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            placeholder="Search By Email"
+            className="  sm:rounded-l-none border border-gray-300 border-b block pl-8 pr-6 py-2 w-full bg-white text-sm placeholder-gray-400 text-gray-700  focus:placeholder-gray-600 focus:text-gray-700 focus:outline-none dark:bg-darkBg dark:border-darkBorder" />
+        </div>
+      </div>
+      <UserTable data={userData} setCurrentData={setCurrentData} setIsModalOpen={setIsModalOpen} loading={userDataState?.loading} />
+      <div className='w-full flex items-center justify-center'>
+        {totalUser! > pageLimit &&
+          <Pagination currentPage={currentPage} setCurrentPage={setCurrentPage} totalPages={totalPages} />}
+
+      </div>
+      <UserModal setIsModalOpen={setIsModalOpen} isModalOpen={isModalOpen} data={currentData} updateUser={updateUser} updateUserLoading={updateUserState?.loading} />
     </>
   );
 };

@@ -65,19 +65,18 @@ const Main = () => {
             variables: {
                 input: [
                     {
-                        clientName: company,
                         totalPrice: totalPrice,
                         priceWithTax: totalPriceWithTax,
                         taxRate: taxRate,
-                        sentBy: "ADMIN",
+                        sentBy: "VENDOR",
                         taxType: invoiceData.taxType,
                         createdAt: new Date().toISOString(),
-                        hasClient: {
+                        vendorCreated: {
                             connect: {
                                 where: {
                                     node: {
                                         userIs: {
-                                            companyName: company
+                                            email: user?.email
                                         }
                                     }
                                 }
@@ -105,7 +104,7 @@ const Main = () => {
 
         if (data.createInvoices.info.nodesCreated) {
             toast.success('Invoice created successfully')
-            router.push('/admin/dashboard/invoice')
+            router.push('/vendor/dashboard/invoice')
         }
     }
 

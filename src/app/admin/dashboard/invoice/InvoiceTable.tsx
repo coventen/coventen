@@ -17,7 +17,7 @@ const InvoiceTable = ({ data, deleteInvoice }: ITableItem) => {
         <table className="w-full table-auto text-sm text-left">
             <thead className="text-gray-600 font-medium border-b">
                 <tr>
-                    <th className="py-3 pr-6">Company name</th>
+                    <th className="py-3 pr-6">Serial No.</th>
                     <th className="py-3 pr-6">Invoice Id</th>
                     <th className="py-3 pr-6">Price</th>
                     <th className="py-3 pr-6 text-right">Action</th>
@@ -27,7 +27,7 @@ const InvoiceTable = ({ data, deleteInvoice }: ITableItem) => {
                 {
                     data && data.map((item, idx) => (
                         <tr key={item.id} className=''>
-                            <td className="pr-6 py-4 whitespace-nowrap">{item.clientName}</td>
+                            <td className="pr-6 py-4 whitespace-nowrap">{idx + 1}</td>
                             <td className="pr-6 py-4 whitespace-nowrap">
                                 {item.id}
                             </td>

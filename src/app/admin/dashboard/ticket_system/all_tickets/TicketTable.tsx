@@ -3,10 +3,18 @@
 import React, { useState } from 'react';
 import { AiTwotoneDelete } from 'react-icons/ai';
 import { BiSolidEditAlt } from 'react-icons/bi';
-import TicketModal from './TicketModal';
+import TicketModal from './TicketReassignModal';
 import { ModuleTicket } from '@/gql/graphql';
 
-const TicketTable = ({ data, setIsOpen }: { data: ModuleTicket[], setIsOpen: any }) => {
+
+interface ITicketTable {
+    data: ModuleTicket[],
+    setIsOpen: (value: boolean) => void,
+    setCurrentModuleTicket: (value: any) => void
+}
+
+
+const TicketTable = ({ data, setIsOpen, setCurrentModuleTicket }: ITicketTable) => {
 
 
     return (
@@ -42,13 +50,7 @@ const TicketTable = ({ data, setIsOpen }: { data: ModuleTicket[], setIsOpen: any
                         <tr key={item.id}>
                             <td className="px-5 py-5 border-b border-gray-200 bg-white text-xs">
                                 <div className="flex items-center">
-                                    <div className="flex-shrink-0 w-10 h-10">
-                                        <div
-                                            className="flex items-center justify-center h-10 w-10 bg-gray-300 text-lg  font-bold rounded-lg"
-                                        >
-                                            H
-                                        </div>
-                                    </div>
+
                                     <div className="ml-3">
                                         <p className="text-gray-700 font-bold whitespace-no-wrap">
                                             {item.clientHas?.userIs?.companyName || "N/A"}
@@ -61,13 +63,7 @@ const TicketTable = ({ data, setIsOpen }: { data: ModuleTicket[], setIsOpen: any
                             </td>
                             <td className="px-5 py-5 border-b border-gray-200 bg-white text-xs">
                                 <div className="flex items-center">
-                                    {/* <div className="flex-shrink-0 w-10 h-10">
-                            <div
-                                className="flex items-center justify-center h-10 w-10 bg-gray-300 text-lg  font-bold rounded-lg"
-                            >
-                                H
-                            </div>
-                        </div> */}
+
                                     <div className="">
                                         <p className="text-gray-700 ">
                                             {item.vendorHas?.userIs?.companyName || "N/A"}
@@ -91,9 +87,30 @@ const TicketTable = ({ data, setIsOpen }: { data: ModuleTicket[], setIsOpen: any
                             </td>
                             <td className="px-5 py-5 border-b border-gray-200 bg-white text-xs">
                                 <div className="relative flex items-center justify-around  space-x-3 px-8 ">
-                                    <button onClick={() => setIsOpen(true)} className="py-1.5 bg-red-600 px-3 text-white duration-150 uppercase  border rounded">
-                                        Resign
-                                    </button>
+                                    {
+                                        ((item?.status as string) === 'ACCEPTED' || (item?.status as string) === 'COMPLAINED' || (item?.status as string) === 'UNDER_REVIEW' || (item?.status as string) === 'DRAFT')
+                                            ? (
+                                                <button
+                                                    disabled
+                                                    onClick={() => setIsOpen(true)}
+                                                    className="py-1.5 bg-gray-600 px-3 text-white duration-150 uppercase border rounded"
+                                                >
+                                                    Resign
+                                                </button>
+                                            ) : (
+                                                <button
+                                                    onClick={() => {
+                                                        setIsOpen(true)
+                                                        setCurrentModuleTicket(item?.id)
+                                                    }}
+                                                    className="py-1.5 bg-red-600 px-3 text-white duration-150 uppercase border rounded"
+                                                >
+                                                    Resign
+                                                </button>
+                                            )
+                                    }
+
+
 
                                 </div>
                             </td>
