@@ -9,35 +9,75 @@ import Link from "next/link";
 import { NavItem, defaultNavItems } from "./NavItem";
 import { Scrollbar } from 'react-scrollbars-custom';
 import { usePathname } from 'next/navigation';
+import RestrictAdminRoute from "@/components/RestrictAdminRoute";
+import { useGqlClient } from "@/hooks/UseGqlClient";
+import { currentUser } from "@/firebase/oauth.config";
+import { useQuery } from "graphql-hooks";
+
+const GET_USER = `
+query Users($where: UserWhere) {
+    users(where: $where){
+      user_type
+      hasRole {
+        permissions
+      }
+    }
+  }`
+
 
 
 type Props = {
     collapsed: boolean;
     navItems?: NavItem[];
     setCollapsed(collapsed: boolean): void;
+    setShowSidebar(showSidebar: boolean): void;
+    showSidebar: boolean;
 };
 
-
-
+// component
 const Sidebar = ({
     collapsed,
     navItems = defaultNavItems,
     setCollapsed,
+    setShowSidebar,
+    showSidebar
 }: Props) => {
 
+    //states
+    const [accessibleNavItems, setAccessibleNavItems] = React.useState<NavItem[]>([])
 
+
+    // HOOKS
+    const client = useGqlClient()
+    const user = currentUser();
     const pathname = usePathname();
 
-    console.log(pathname)
+
+    // query
+    const { data, loading, error } = useQuery(GET_USER, {
+        client,
+        variables: {
+            where: {
+                email: user?.email || 'no email'
+            }
+        }
+    })
+
+
+
+
 
 
 
     // 👇 use the correct icon depending on the state.
     const Icon = collapsed ? HiChevronDoubleRight : HiChevronDoubleLeft;
     return (
+        // <RestrictAdminRoute setAccessibleNavItems={setAccessibleNavItems} navItems={navItems} accessibleNavItems={accessibleNavItems}>
         <div
             className={classNames({
-                "bg-white text-primaryText z-20 border-r ": true,
+                "bg-white text-primaryText z-20 border-r hidden lg:block": true,
+                "block": showSidebar,
+
             })}
         >
             <div
@@ -49,13 +89,13 @@ const Sidebar = ({
                 {/* logo and collapse button */}
                 <div
                     className={classNames({
-                        "flex items-center  border-b border-gray-200 dark:border-darkBorder mb-5": true,
-                        "p-4 justify-between": !collapsed,
-                        "py-4 justify-center": collapsed,
+                        "flex items-center  border-b border-gray-200 dark:border-darkBorder mb-5 p-4 justify-between": true,
+                        // "p-4 justify-between": !collapsed,
+                        // "py-4 justify-center": collapsed,
                     })}
                 >
                     {!collapsed && <span className="whitespace-nowrap  font-bold">Brand Name</span>}
-                    <button
+                    {/* <button
                         className={classNames({
                             "grid place-content-center": true,
                             "hover:bg-gray-200 ": true,
@@ -65,7 +105,7 @@ const Sidebar = ({
                         onClick={() => setCollapsed(!collapsed)}
                     >
                         <Icon className="w-5 h-5" />
-                    </button>
+                    </button> */}
                 </div>
 
                 {/* nav items part */}
@@ -134,6 +174,7 @@ const Sidebar = ({
                 </div> */}
             </div>
         </div>
+        // </RestrictAdminRoute >
     );
 };
 export default Sidebar;

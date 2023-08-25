@@ -1,5 +1,5 @@
 'use client'
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useGqlClient } from '@/hooks/UseGqlClient';
 import { useMutation } from 'graphql-hooks';
 import { Invoice, Service } from '@/gql/graphql';
@@ -8,6 +8,7 @@ import { currentUser } from '@/firebase/oauth.config';
 import { parse } from 'path';
 import { toast } from 'react-hot-toast';
 import { useRouter } from 'next/navigation';
+import { getEmployerEmail } from '@/shared/getEmployerEmail';
 
 const CREATE_INVOICE = `
 mutation CreateInvoices($input: [InvoiceCreateInput!]!) {
@@ -25,6 +26,9 @@ mutation CreateInvoices($input: [InvoiceCreateInput!]!) {
 // component
 const Main = () => {
 
+    // states
+    const [labEmail, setLabEmail] = useState('')
+
 
     // hooks
     const client = useGqlClient()
@@ -34,6 +38,24 @@ const Main = () => {
 
     // saving  user to database
     const [createInvoiceFn, state] = useMutation(CREATE_INVOICE, { client });
+
+
+    // get lab email when user changes
+    useEffect(() => {
+        getLabEmail()
+    }, [user?.email]);
+
+
+    // getting lab email if employee is logged in
+    const getLabEmail = async () => {
+        if (user?.email) {
+            const email = await getEmployerEmail(user?.email)
+            setLabEmail(email)
+        }
+
+
+    }
+
 
 
     // calculate total price
@@ -76,7 +98,7 @@ const Main = () => {
                                 where: {
                                     node: {
                                         userIs: {
-                                            email: user?.email
+                                            email: labEmail
                                         }
                                     }
                                 }

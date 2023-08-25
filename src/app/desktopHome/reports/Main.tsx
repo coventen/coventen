@@ -4,9 +4,6 @@ import { useMutation, useQuery } from 'graphql-hooks';
 import React, { useEffect } from 'react';
 import Sidebar from './Sidebar';
 
-import { addDoc, collection, doc, getDoc, getDocs, onSnapshot, setDoc } from "firebase/firestore";
-import { db } from '@/firebase/fireabase.config';
-import { set } from 'react-hook-form';
 import { currentUser } from '@/firebase/oauth.config';
 import DocCards from './DocCards';
 import Loading from '@/app/loading';
@@ -49,7 +46,6 @@ const Main = () => {
   // fetching data
   const { data, loading, error } = useQuery(GET_MODULE_TICKETS, {
     client,
-
     variables: {
       where: {
         clientHas: {
@@ -57,7 +53,7 @@ const Main = () => {
             email: user?.email || 'no email'
           }
         },
-        status: "COMPLETED"
+        status: "DRAFT"
       }
     }
 
@@ -66,7 +62,7 @@ const Main = () => {
   // ADDING COMPLAIN
   const [addComplainFn, state, resetFn] = useMutation(UPDATE_MODULE, { client });
 
-  console.log(data?.moduleTickets, 'data')
+
 
 
   // initializing add complain function
@@ -92,6 +88,29 @@ const Main = () => {
     }
 
   }
+  const confirmComplete = async () => {
+    const { data } = await addComplainFn({
+      variables: {
+        where: {
+          id: currentModule
+        },
+        update: {
+          status: "COMPLETED",
+        }
+      }
+    })
+
+    if (data.updateModuleTickets.moduleTickets[0].id) {
+      setIsOpen(false)
+      resetFn()
+      console.log('updated')
+      toast.success('Complain Added Successfully')
+    }
+
+  }
+
+
+  useEffect(() => { }, [data?.moduleTickets])
 
   console.log(data?.moduleTickets)
 
@@ -103,7 +122,7 @@ const Main = () => {
       <Sidebar data={data?.moduleTickets} setCurrentModule={setCurrentModule} />
       <div className='w-full'>
 
-        <DocCards currentModule={currentModule} setIsOpen={setIsOpen} />
+        <DocCards currentModule={currentModule} setIsOpen={setIsOpen} confirmComplete={confirmComplete} />
       </div>
       <ComplainModal isOpen={isOpen} setIsOpen={setIsOpen} addComplain={addComplain} />
     </div>

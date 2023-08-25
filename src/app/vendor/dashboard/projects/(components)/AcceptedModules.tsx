@@ -57,9 +57,10 @@ const AcceptedModules = () => {
     useEffect(() => {
         getModulesData()
         getTotalModulesCount()
-    }, [currentPage]);
+    }, [currentPage, user?.email]);
 
 
+    console.log(user?.email, 'user email')
 
     // get module data
     const getModulesData = async () => {
@@ -82,6 +83,7 @@ const AcceptedModules = () => {
 
 
         const modules = await GetModules(where, options)
+        console.log(modules, 'modules000000000000')
         if (modules) {
             setLoading(false)
             setModules(modules)
@@ -142,6 +144,8 @@ const AcceptedModules = () => {
         }
 
     }
+
+    console.log(module, 'accepted')
 
 
 

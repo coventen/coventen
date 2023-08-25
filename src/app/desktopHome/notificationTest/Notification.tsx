@@ -2,6 +2,8 @@
  * Notification Block Component
  * This component displays a list of notifications and handles notification functionality.
  */
+'use client'
+
 
 // Import required modules and components
 import { useGqlClient } from '@/hooks/UseGqlClient';
@@ -28,7 +30,7 @@ const GET_NOTIFICATION = `
 
 
 //component
-const NotificationBlck = ({ setSlideOverOpen }: Props) => {
+const NotificationBlck = () => {
     // Access Electron APIs and custom functions exposed by the preload script
     const electron = (window as any).electron;
     const ipcRenderer = (window as any).ipcRenderer;
@@ -38,45 +40,53 @@ const NotificationBlck = ({ setSlideOverOpen }: Props) => {
     const client = useGqlClient();
 
     // Perform the GraphQL query to fetch notifications
-    const { data, loading, error } = useQuery(GET_NOTIFICATION, { client });
+    const { data, loading, error } = useQuery(GET_NOTIFICATION, {
+        client,
+        revalidateOnMount: 3600,
+        revalidateOnReconnect: 3600,
+        revalidateOnFocus: true,
+    });
 
-    // Handle displaying a notification
-    const handleNotify = (title: string, description: string) => {
-        Notification.requestPermission().then((result) => {
-            new Notification(title, {
-                body: description,
-                icon: 'https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png',
-            });
-        });
-    };
 
-    // Handle saving notification ID in local storage
-    const handleNotificationView = (id: string) => {
-        const previousData = localDataStorage.getSavedData('viewedNotification');
+    console.log(data)
 
-        const data = {
-            key: 'viewedNotification',
-            value: previousData ? [...previousData, id] : [id],
-        };
+    // // Handle displaying a notification
+    // const handleNotify = (title: string, description: string) => {
+    //     Notification.requestPermission().then((result) => {
+    //         new Notification(title, {
+    //             body: description,
+    //             icon: 'https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png',
+    //         });
+    //     });
+    // };
 
-        ipcRenderer.send('save:data', data);
-    };
+    // // Handle saving notification ID in local storage
+    // const handleNotificationView = (id: string) => {
+    //     const previousData = localDataStorage.getSavedData('viewedNotification');
 
-    useEffect(() => {
-        // Retrieve viewed notification IDs from local storage
-        const viewedNotification = localDataStorage.getSavedData('viewedNotification');
+    //     const data = {
+    //         key: 'viewedNotification',
+    //         value: previousData ? [...previousData, id] : [id],
+    //     };
 
-        if (data?.notifications?.length) {
-            data?.notifications?.forEach((item: any) => {
-                if (viewedNotification?.includes(item?.id)) {
-                    return;
-                }
+    //     ipcRenderer.send('save:data', data);
+    // };
 
-                handleNotify(item?.title, item?.description);
-                handleNotificationView(item?.id);
-            });
-        }
-    }, [data]); //eslint-disable-line
+    // useEffect(() => {
+    //     // Retrieve viewed notification IDs from local storage
+    //     const viewedNotification = localDataStorage.getSavedData('viewedNotification');
+
+    //     if (data?.notifications?.length) {
+    //         data?.notifications?.forEach((item: any) => {
+    //             if (viewedNotification?.includes(item?.id)) {
+    //                 return;
+    //             }
+
+    //             handleNotify(item?.title, item?.description);
+    //             handleNotificationView(item?.id);
+    //         });
+    //     }
+    // }, [data]); //eslint-disable-line
 
 
 
@@ -103,7 +113,7 @@ const NotificationBlck = ({ setSlideOverOpen }: Props) => {
 
                                                 <td className="pl-4">
                                                     <button
-                                                        onClick={() => setSlideOverOpen(true)}
+
                                                         className="focus:ring-2 focus:ring-offset-2 focus:ring-red-300 text-sm leading-none text-gray-600 py-3 px-5 bg-gray-100 rounded hover:bg-gray-200 focus:outline-none"
                                                     >
                                                         View

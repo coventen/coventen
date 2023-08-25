@@ -142,7 +142,7 @@ const Main = () => {
           offset: (currentPage - 1) * pageLimit,
           sort: [
             {
-              createdAt: "ASC"
+              createdAt: "DESC"
             }
           ]
         }
@@ -221,10 +221,11 @@ const Main = () => {
           <input
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            placeholder="Search By Email"
+            placeholder="Search By Email and Name"
             className="  sm:rounded-l-none border border-gray-300 border-b block pl-8 pr-6 py-2 w-full bg-white text-sm placeholder-gray-400 text-gray-700  focus:placeholder-gray-600 focus:text-gray-700 focus:outline-none dark:bg-darkBg dark:border-darkBorder" />
         </div>
       </div>
+      {/* search */}
       <UserTable data={userData} setCurrentData={setCurrentData} setIsModalOpen={setIsModalOpen} loading={userDataState?.loading} />
       <div className='w-full flex items-center justify-center'>
         {totalUser! > pageLimit &&

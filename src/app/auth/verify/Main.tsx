@@ -1,137 +1,81 @@
 'use client'
 
-import React, { useState, useCallback, useEffect } from 'react';
-import { useGqlClient } from '@/hooks/UseGqlClient';
-import { useManualQuery, useMutation, useQuery } from 'graphql-hooks';
-import Editor from '@/components/Editor';
-import { EditorState, convertToRaw } from 'draft-js';
-import Loading from '@/app/loading';
-import { data } from 'autoprefixer';
-import { toast } from 'react-hot-toast';
-import { useRouter } from 'next/navigation';
+import AnimatedButton from '@/components/AnimatedButton';
 import { currentUser } from '@/firebase/oauth.config';
+import { useGqlClient } from '@/hooks/UseGqlClient';
 import HandleFileUpload from '@/shared/HandleFileUpload';
+import { useMutation } from 'graphql-hooks';
+import { useRouter } from 'next/navigation';
+import React, { useCallback, useEffect, useState } from 'react';
+import { useForm, SubmitHandler } from "react-hook-form"
+import { toast } from 'react-hot-toast';
+import Dropzone, { useDropzone } from 'react-dropzone';
+import { v4 as uuidv4 } from 'uuid';
 import { HiOutlineTrash } from 'react-icons/hi';
 import FilePreview from '@/app/vendor/dashboard/projects/(components)/FilePreview';
-import Dropzone from 'react-dropzone';
-import { v4 as uuidv4 } from 'uuid';
-import { getEmployerEmail } from '@/shared/getEmployerEmail';
 
 
 
-const CREATE_NEW_COMMUNICATION = `
-mutation Mutation($input: [CommunicationTicketCreateInput!]!) {
-    createCommunicationTickets(input: $input) {
+const VERIFY_USER = `
+mutation UpdateUsers($update: UserUpdateInput, $where: UserWhere) {
+    updateUsers(update: $update, where: $where) {
       info {
         nodesCreated
+        nodesDeleted
         relationshipsCreated
       }
     }
   }
-
 `
 
 
 
-//component
-const Main = () => {
 
+// component
+const Main = () => {
     // states
     const [uploading, setUploading] = useState(false)
+    const [error, setError] = useState('');
     const [files, setFiles] = useState<File[]>([]);
-    const [fileLinks, setFileLinks] = useState<any>([]);
-    const [subject, setSubject] = useState<string>("")
-    const [labEmail, setLabEmail] = useState('')
-    const [editorState, setEditorState] = useState(() =>
-        EditorState.createEmpty()
-    );
+    const [email, setEmail] = useState<string>('');
+    const [isCustomEmail, setIsCustomEmail] = useState<boolean>(true);
 
-    // hooks
+    //hooks
+    const {
+        register,
+        handleSubmit,
+        formState: { errors },
+    } = useForm<any>()
+
     const client = useGqlClient()
-    const router = useRouter()
     const user = currentUser()
+    const router = useRouter()
     const { uploadFile } = HandleFileUpload()
 
-    // mutation query
-    const [createCommunicationFn, createState, resetFn] = useMutation(CREATE_NEW_COMMUNICATION, { client })
+
+    // updating the user node 
+    const [updateUserFn, state] = useMutation(VERIFY_USER, { client });
 
 
-    // initializing the  communication creation
-    const createCommunication = async () => {
-        const dateTime = new Date().toISOString()
-
-        // text editor's content
-        const contentJson = convertToRaw(editorState.getCurrentContent());
-        const contentString = JSON.stringify(contentJson)
-
-        let { data } = await createCommunicationFn({
-            variables: {
-                input: [
-                    {
-                        sub: subject,
-                        message: contentString,
-                        date: dateTime,
-                        forVendor: {
-                            connect: [
-                                {
-                                    where: {
-                                        node: {
-                                            userIs: {
-                                                email: labEmail
-                                            }
-                                        }
-                                    }
-                                }
-                            ]
-                        }
-                    }
-                ]
-            }
-        })
-        if (data.createCommunicationTickets.info.nodesCreated) {
-            toast.success("Message sent successfully")
-            router.push('/vendor/dashboard/internal_email/sent')
-        }
-
-
-
-
-    }
-
-
-
-    // get lab email when user changes
-    useEffect(() => {
-        getLabEmail()
-    }, [user?.email]);
-
-
-
-    // getting lab email if employee is logged in
-    const getLabEmail = async () => {
-        if (user?.email) {
-            const email = await getEmployerEmail(user?.email)
-            setLabEmail(email)
-        }
-
-
-    }
-
-
-
-    // starts the communication creation
-    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault()
-        await handleUpload()
-        await createCommunication()
-        resetFn()
-    }
 
 
     // handling files
-    const handleDrop = useCallback((acceptedFiles: File[]) => {
+    const handleDrop = useCallback((acceptedFiles: File[], fileRejections: any) => {
+        // Handle accepted files
         setFiles(prevFiles => [...prevFiles, ...acceptedFiles]);
-    }, [setFiles]);
+
+        // Handle rejected files (due to size or other reasons)
+        if (fileRejections.length > 0) {
+            const fileSizeError = fileRejections.some((file: any) => file.file.size > 1 * 1024 * 1024);
+            if (fileSizeError) {
+                setError('File size is too large. Please select files smaller than 10MB.');
+            } else {
+                setError('Please check the file types or try again.');
+            }
+        } else {
+            setError('')
+        }
+    }, []);
 
     const handleRemove = useCallback((index: number) => {
         setFiles(prevFiles => {
@@ -143,59 +87,127 @@ const Main = () => {
 
 
 
-    const handleUpload = async () => {
+
+    //uploading files to firebase and change the status of the module
+    const updateUser = async (data: any) => {
         setUploading(true)
         const uploadPromises = files.map(async (file) => {
             const data = await uploadFile(file, `${file.name}-${uuidv4()}`, "ModuleReports");
             return data;
         });
 
-        const allFileLinks = await Promise.all(uploadPromises);
-        setFileLinks(allFileLinks);
+        try {
+            const uploadedFilesData = await Promise.all(uploadPromises);
+            if (uploadedFilesData) {
+                setUploading(false)
+                const { data: updateData } = await updateUserFn({
+                    variables: {
+                        update: {
+                            companyEmail: email,
+                            companyName: data.companyName,
+                            gstNumber: data.registrationNumber,
+                            hasDocuments: {
+                                create: {
+                                    node: {
+                                        hasFiles: {
+                                            create: {
+                                                node: {
+                                                    links: uploadedFilesData
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        where: {
+                            email: user?.email
+                        }
+                    }
+                })
 
+                if (updateData.updateUsers.info.nodesCreated) {
+                    console.log('success')
+                    toast.success('Please wait for the admin to verify your account')
+                    router.push('/')
+                }
+            }
+
+        } catch (error) {
+            console.error("Error uploading files:", error);
+        }
     };
 
-    if (createState.loading || uploading) return <Loading />
 
 
-    //render
+
+    useEffect(() => {
+        const domain = email.split('@')[1];
+        const yahooDomains = ['yahoo.com', 'ymail.com', 'rocketmail.com'];
+        const hotmailDomains = ['hotmail.com', 'outlook.com', 'live.com', 'msn.com'];
+        const gmailDomain = 'gmail.com';
+
+        if (yahooDomains.includes(domain) || hotmailDomains.includes(domain) || domain === gmailDomain) {
+            setIsCustomEmail(false)
+        } else {
+            setIsCustomEmail(true)
+        }
+
+    }, [email])
+
+
+
+
+
     return (
-        <form onSubmit={handleSubmit}>
-
-            <div className="mb-5 mt-16">
-                <label htmlFor="title" className="block  text-gray-700 text-sm mb-1">
-                    Receiver
+        <form onSubmit={handleSubmit(updateUser)} id="form" className=' grid grid-cols-1 lg:grid-cols-2 gap-4'>
+            <div>
+                <label className=" text-gray-500">
+                    Company Name
                 </label>
                 <input
                     type="text"
-                    defaultValue={"Admin"}
-                    readOnly
-                    className="mt-1 px-4 py-2 border border-gray-200 rounded-md w-full"
+                    required
+                    {...register('companyName')}
+                    className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border border-gray-300 focus:border-primary shadow-sm rounded"
                 />
             </div>
-            <div className="mb-5 mt-5">
-                <label htmlFor="title" className="block  text-gray-700 text-sm mb-1">
-                    Subject
+            <div>
+                <label className=" text-gray-500">
+                    Company Email
                 </label>
                 <input
-                    onChange={(e) => setSubject(e.target.value)}
-                    type="text"
-                    className="mt-1 px-4 py-2 border border-gray-200 rounded-md w-full"
+                    type="email"
+                    required
+                    onChange={(e) => setEmail(e.target.value)}
+                    className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border border-gray-300 focus:border-primary shadow-sm rounded"
                 />
             </div>
-            <div className='bg-white'>
-                <Editor setEditorState={setEditorState} editorState={editorState} />
+
+            <div>
+                <label className=" text-gray-500">
+                    Registration number
+                </label>
+                <input
+                    type="text"
+                    required
+                    {...register('registrationNumber')}
+                    className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border border-gray-300 focus:border-primary shadow-sm rounded"
+                />
             </div>
 
-            <div className="inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden  transform transition-all sm:my-8 sm:align-middle sm:max-w-2xl sm:w-full sm:p-6">
-                <p className="block  text-gray-700 text-sm mb-">Attachment</p>
-                <div className=''>
 
-
-                    <div>
+            {
+                !isCustomEmail && (
+                    <div className='col-span-2'>
+                        <label className=" text-gray-500">
+                            Documents
+                        </label>
                         <div>
 
-                            <Dropzone onDrop={handleDrop}>
+                            <Dropzone maxSize={10485760}
+
+                                onDrop={handleDrop}>
                                 {({ getRootProps, getInputProps }) => (
                                     <div {...getRootProps()}>
                                         <label
@@ -278,14 +290,18 @@ const Main = () => {
 
                         </div>
                     </div>
+                )
+            }
 
 
-                </div>
+
+
+
+            <div className='col-span-2 mt-8 '>
+                <AnimatedButton title='Submit' />
             </div>
 
-            <div>
-                <button type='submit' className='px-4 py-2 bg-primary text-white font-semibold'>Submit</button>
-            </div>
+
         </form>
     );
 };

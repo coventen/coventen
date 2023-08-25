@@ -3,7 +3,7 @@ import { Fragment, useCallback, useState } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
 import { useGqlClient } from '@/hooks/UseGqlClient';
 import { useMutation, useQuery } from 'graphql-hooks';
-import Dropzone from 'react-dropzone';
+import Dropzone, { useDropzone } from 'react-dropzone';
 import { v4 as uuidv4 } from 'uuid';
 
 
@@ -14,6 +14,7 @@ import Image from 'next/image';
 import { MdDelete } from 'react-icons/md';
 import FilePreview from './FilePreview';
 import HandleFileUpload from '@/shared/HandleFileUpload';
+import { toast } from 'react-hot-toast';
 
 //props interface
 interface IUserModalProps {
@@ -43,8 +44,8 @@ function UploadDocModal({ setIsDocModalOpen, isDocModalOpen, currentModuleId, up
 
     // states
     const [uploading, setUploading] = useState(false)
+    const [error, setError] = useState('');
     const [files, setFiles] = useState<File[]>([]);
-    const [fileLinks, setFileLinks] = useState<any>([]);
 
 
     //hooks
@@ -62,9 +63,22 @@ function UploadDocModal({ setIsDocModalOpen, isDocModalOpen, currentModuleId, up
     }
 
     // handling files
-    const handleDrop = useCallback((acceptedFiles: File[]) => {
+    const handleDrop = useCallback((acceptedFiles: File[], fileRejections: any) => {
+        // Handle accepted files
         setFiles(prevFiles => [...prevFiles, ...acceptedFiles]);
-    }, [setFiles]);
+
+        // Handle rejected files (due to size or other reasons)
+        if (fileRejections.length > 0) {
+            const fileSizeError = fileRejections.some((file: any) => file.file.size > 1 * 1024 * 1024);
+            if (fileSizeError) {
+                setError('File size is too large. Please select files smaller than 10MB.');
+            } else {
+                setError('Please check the file types or try again.');
+            }
+        } else {
+            setError('')
+        }
+    }, []);
 
     const handleRemove = useCallback((index: number) => {
         setFiles(prevFiles => {
@@ -73,7 +87,6 @@ function UploadDocModal({ setIsDocModalOpen, isDocModalOpen, currentModuleId, up
             return newFiles;
         });
     }, [setFiles]);
-
 
 
 
@@ -111,7 +124,6 @@ function UploadDocModal({ setIsDocModalOpen, isDocModalOpen, currentModuleId, up
             console.error("Error uploading files:", error);
         }
     };
-
 
 
 
@@ -161,12 +173,14 @@ function UploadDocModal({ setIsDocModalOpen, isDocModalOpen, currentModuleId, up
                             <div className="inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-2xl sm:w-full sm:p-6">
                                 <p className="focus:outline-none pt-4 pb-8 text-base text-center sm:text-lg md:text-xl lg:text-2xl font-bold leading-normal text-gray-800">Module Details</p>
                                 <div className=''>
-
+                                    <p className='text-red-500 font-semibold text-center'>{error}</p>
 
                                     <div>
                                         <div>
 
-                                            <Dropzone onDrop={handleDrop}>
+                                            <Dropzone maxSize={10485760}
+
+                                                onDrop={handleDrop}>
                                                 {({ getRootProps, getInputProps }) => (
                                                     <div {...getRootProps()}>
                                                         <label

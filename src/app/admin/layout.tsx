@@ -6,17 +6,21 @@ import React, { PropsWithChildren, useState } from "react";
 import { FaBars } from 'react-icons/fa';
 import Sidebar from "./Sidebar";
 import { Toaster } from "react-hot-toast";
+
+// component
 const Layout = (props: PropsWithChildren) => {
+
+    // state
     const [collapsed, setSidebarCollapsed] = useState(false);
+    const [showSidebar, setShowSidebar] = useState(true)
+
+
+    //render
     return (
         <div className="absolute top-0 w-full z-[9999999999999] bg-white overflow-hidden ">
             <div
                 className={classNames({
-                    "grid min-h-screen  ": true,
-                    // 👇 toggle the width of the sidebar depending on the state
-                    "grid-cols-sidebar": !collapsed,
-                    "grid-cols-sidebar-collapsed": collapsed,
-                    // 👇 transition animation classes
+                    "grid min-h-screen hide-sidebar lg:grid-cols-sidebar  ": true,
                     "transition-[grid-template-columns] duration-300 ease-in-out overflow-hidden": true,
                 })}
             >
@@ -25,6 +29,8 @@ const Layout = (props: PropsWithChildren) => {
                     <Sidebar
                         collapsed={collapsed}
                         setCollapsed={() => setSidebarCollapsed((prev) => !prev)}
+                        showSidebar={showSidebar}
+                        setShowSidebar={setShowSidebar}
                     />
                 </div>
 
@@ -33,7 +39,7 @@ const Layout = (props: PropsWithChildren) => {
                     <div className="sticky top-0 h-16  bg-white dark:bg-gray-800  lg:py-2.5 border-b shadow-sm">
                         <div className="flex items-center justify-between space-x-4 px-6 2xl:container">
                             <h5 hidden className="text-2xl font-medium text-gray-600 lg:block dark:text-white">Dashboard</h5>
-                            <button className="-mr-2 h-16 w-12 border-r lg:hidden dark:border-gray-700 dark:text-gray-300">
+                            <button onClick={() => setShowSidebar(!showSidebar)} className="-mr-2 h-16 w-12 border-r lg:hidden dark:border-gray-700 dark:text-gray-300">
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     className="my-auto h-6 w-6"

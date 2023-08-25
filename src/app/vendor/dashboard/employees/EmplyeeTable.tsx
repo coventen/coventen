@@ -39,6 +39,17 @@ const EmployeeTable = ({ employeeList, updateEmployeeStatus }: IRolesPeopleTable
                     </tr>
                 </thead>
                 <tbody>
+                    {
+                        !employeeList?.length && (
+                            <tr className="border-b border-gray-200">
+                                <td className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    No Employee found
+                                </td>
+
+                            </tr>
+
+                        )
+                    }
                     {employeeList?.length && employeeList?.map((item: any, i: number) => (
                         <tr key={i} className="border-b border-gray-200">
                             <td className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">

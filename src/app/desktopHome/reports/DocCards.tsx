@@ -16,7 +16,7 @@ query ModuleTickets($where: ModuleTicketWhere) {
 `
 
 
-const DocCards = ({ currentModule, setIsOpen }: { currentModule: string, setIsOpen: any }) => {
+const DocCards = ({ currentModule, setIsOpen, confirmComplete }: { currentModule: string, confirmComplete: any, setIsOpen: any }) => {
 
 
     //hooks 
@@ -70,9 +70,14 @@ const DocCards = ({ currentModule, setIsOpen }: { currentModule: string, setIsOp
                         <p className='bg-green-500 w-3 h-3 rounded-full mr-2'></p>
                         <p className='font-bold'> {data?.moduleTickets[0]?.ticket}</p>
                     </div>
-                    <button onClick={() => setIsOpen(true)} className='bg-desktopPrimary text-white font-semibold px-4 py-1'>
-                        Complain
-                    </button>
+                    <div className='space-x-3'>
+                        <button onClick={() => setIsOpen(true)} className='bg-desktopPrimary text-white font-semibold px-4 py-1'>
+                            Comment
+                        </button>
+                        <button onClick={confirmComplete} className='bg-desktopPrimary  text-white font-semibold px-4 py-1'>
+                            Confirm
+                        </button>
+                    </div>
 
                 </div>
 

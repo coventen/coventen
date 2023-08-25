@@ -1,13 +1,20 @@
 // components/defaultNavItems.tsx
 import React from "react";
 
-import { LuAppWindow, LuCalculator, LuBellRing, LuUser, LuTerminalSquare, LuShieldCheck, LuReplaceAll, LuSchool2, LuQrCode, LuHeadphones, LuMessagesSquare, LuBookKey } from "react-icons/lu";
+import { LuAppWindow, LuCalculator, LuBellRing, LuUser, LuShieldCheck, LuReplaceAll, LuSchool2, LuQrCode, LuHeadphones, LuMessagesSquare, LuBookKey } from "react-icons/lu";
 // define a NavItem prop
+
 export type NavItem = {
     label: string;
     href: string;
     icon: React.ReactNode;
 };
+
+
+
+
+
+
 export const defaultNavItems: NavItem[] = [
     {
         label: "Dashboard",

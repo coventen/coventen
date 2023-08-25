@@ -2,6 +2,8 @@ import React from 'react';
 import HomeCard from '../HomeCard';
 import { FaPlusCircle } from 'react-icons/fa';
 import ProjectCard from './ProjectCard';
+import Main from './Main';
+import Link from 'next/link';
 
 const Projects = () => {
     const cardsData = [
@@ -50,20 +52,20 @@ const Projects = () => {
             <section>
                 <div className='flex items-center justify-between'>
                     <h2 className='md:text-2xl xl:text-3xl font-semibold text-desktopPrimary'>Projects</h2>
-                    <button className='bg-desktopPrimary md:text-base xl:text-lg font-semibold text-white px-6 xl:px-8 py-2 xl:py-4 rounded-md flex items-center justify-center space-x-3'>
+                    <Link href='/desktopHome/projects/create' className='bg-desktopPrimary md:text-base xl:text-lg font-semibold text-white px-6 xl:px-8 py-2 xl:py-4 rounded-md flex items-center justify-center space-x-3'>
                         <p>Create Project</p>
                         <span><FaPlusCircle /></span>
-                    </button>
+                    </Link>
 
                 </div>
-                <div className='flex items-center justify-between bg-gray-200 py-4 mt-6 px-2 rounded-md'>
-                    <h2 className='text-sm font-semibold text-desktopText'>Project Details</h2>
-                    <h2 className='text-sm font-semibold text-desktopText'>Quick Actions</h2>
+                <div className='flex items-center justify-between bg-gray-200 py-4 mt-6 px-5 rounded-md'>
+                    <h2 className='text-sm font-semibold text-desktopPrimary'>Project Details</h2>
+                    <h2 className='text-sm font-semibold text-desktopPrimary'>Quick Actions</h2>
                 </div>
             </section>
             {/*  */}
             <section>
-                <ProjectCard />
+                <Main />
             </section>
 
 

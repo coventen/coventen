@@ -3,6 +3,8 @@ import { ModuleTicketOptions, ModuleTicketWhere } from "@/gql/graphql"
 
 const GetModules = async (where: any={}, options: ModuleTicketOptions={}) => {
 
+  console.log(where, 'where')
+
     const res = fetch('http://localhost:4000/', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
@@ -33,7 +35,7 @@ const GetModules = async (where: any={}, options: ModuleTicketOptions={}) => {
 
     const {data} = await res.then(res => res.json())
 
-    console.log(data)
+    console.log(data, 'ddota tdkjdsfkdsjfldjsfkjsdlkfjdskl')
 
     return data.moduleTickets
 }

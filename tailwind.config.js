@@ -26,6 +26,7 @@ module.exports = {
       gridTemplateColumns: {
         sidebar: '250px auto', //for sidebar layout
         'sidebar-collapsed': '64px auto', //for collapsed sidebar layout
+        'hide-sidebar': '1fr', //for hidden sidebar layout
       },
     },
   },

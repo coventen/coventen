@@ -3,8 +3,15 @@
 // components/Layout.tsx
 import classNames from "classnames";
 import React, { PropsWithChildren, useState } from "react";
+import { Toaster } from 'react-hot-toast';
 import { FaBars } from 'react-icons/fa';
 import Sidebar from "./Sidebar";
+
+
+
+
+
+// component
 const Layout = (props: PropsWithChildren) => {
     const [collapsed, setSidebarCollapsed] = useState(false);
     return (
@@ -27,6 +34,9 @@ const Layout = (props: PropsWithChildren) => {
                 {/* content */}
                 <div className=""> {props.children}</div>
             </div>
+            <Toaster
+                position="bottom-right"
+            />
         </div>
     );
 };

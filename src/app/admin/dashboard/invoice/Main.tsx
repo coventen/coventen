@@ -5,6 +5,7 @@ import { useManualQuery, useMutation, useQuery } from 'graphql-hooks';
 import React from 'react';
 import InvoiceTable from './InvoiceTable';
 import { toast } from 'react-hot-toast';
+import Pagination from '@/components/Pagination';
 
 const GET_INVOICES = `
 query Query($where: InvoiceWhere, $options: InvoiceOptions) {
@@ -33,7 +34,7 @@ const Main = () => {
   const [pageLimit, setPageLimit] = useState(10)
   const [currentPage, setCurrentPage] = useState(1)
   const [totalPages, setTotalPages] = useState(0)
-  const [totalUser, setTotalUser] = useState(0)
+  const [totalInvoice, setTotalInvoice] = useState(0)
   const [invoiceData, setInvoiceData] = useState<any>([])
 
   // hooks
@@ -68,7 +69,6 @@ const Main = () => {
 
   // initializing query and mutations
 
-
   const getInvoiceCount = async () => {
     const { data } = await getInvoiceFn({
       variables: {
@@ -78,7 +78,7 @@ const Main = () => {
       }
     })
     if (data.invoices.length) {
-      setTotalUser(data.invoices.length)
+      setTotalInvoice(data.invoices.length)
       setTotalPages(Math.ceil(data.invoices.length / pageLimit))
     }
 
@@ -93,7 +93,7 @@ const Main = () => {
           offset: (currentPage - 1) * pageLimit,
           sort: [
             {
-              createdAt: "ASC"
+              createdAt: "DESC"
             }
           ]
         }
@@ -131,6 +131,11 @@ const Main = () => {
   return (
     <div>
       <InvoiceTable data={invoiceData} deleteInvoice={deleteInvoice} />
+      <div className='w-full flex items-center justify-center'>
+        {totalInvoice! > pageLimit &&
+          <Pagination currentPage={currentPage} setCurrentPage={setCurrentPage} totalPages={totalPages} />}
+
+      </div>
     </div>
   );
 };

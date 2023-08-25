@@ -102,7 +102,7 @@ const Main = () => {
                     offset: (currentPage - 1) * pageLimit,
                     sort: [
                         {
-                            createdAt: "ASC"
+                            createdAt: "DESC"
                         }
                     ]
                 }

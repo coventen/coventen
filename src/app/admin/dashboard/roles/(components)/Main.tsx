@@ -60,7 +60,7 @@ const Main = () => {
         client,
         variables: {
             where: {
-                user_type: "EMPLOYEE"
+                user_type: "COVENTEN_EMPLOYEE"
             },
             "options": {
                 "sort": [

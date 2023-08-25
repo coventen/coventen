@@ -37,13 +37,18 @@ export const defaultNavItems: NavItem[] = [
         icon: <LuSchool2 className="" />,
     },
     {
+        label: "Project Samples",
+        href: "/vendor/dashboard/sample",
+        icon: <LuSchool2 className="" />,
+    },
+    {
         label: "Complains",
         href: "/vendor/dashboard/complains",
         icon: <LuSchool2 className="" />,
     },
     {
         label: "Employees",
-        href: "/vendor/dashboard/employee",
+        href: "/vendor/dashboard/employees",
         icon: <LuSchool2 className="" />,
     },
     {
@@ -53,7 +58,7 @@ export const defaultNavItems: NavItem[] = [
     },
 
     {
-        label: "Invoices",
+        label: "Estimation",
         href: "/vendor/dashboard/invoice",
         icon: <LuCalculator className="" />,
     },

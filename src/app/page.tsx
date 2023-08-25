@@ -11,6 +11,7 @@ import Services2 from '@/components/Home/Services2'
 import MegaMenu from '@/components/Mega'
 import Products from '@/components/Home/Products'
 import CTA from '@/components/Home/CTA'
+import Leads from '@/components/Leads'
 
 export default function Home() {
   return (
@@ -29,6 +30,7 @@ export default function Home() {
       <CTA />
       {/* <ImportantLinks /> */}
       <Companies />
+      <Leads />
 
 
     </>

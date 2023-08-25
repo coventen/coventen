@@ -14,7 +14,7 @@ const Main = () => {
     const options = {
         sort: [
             {
-                createdAt: "ASC"
+                createdAt: "DESC"
             }
         ]
     }

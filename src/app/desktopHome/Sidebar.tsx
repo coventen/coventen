@@ -60,35 +60,50 @@ const Sidebar = ({
 
                 {/* nav items part */}
                 <nav className="flex-grow">
-                    <ul
-                        className={classNames({
-                            "my-2 flex flex-col gap-2 items-stretch": true,
-                        })}
-                    >
-                        {navItems.map((item, index) => {
-                            return (
-                                <li
-                                    key={index}
+                    {
+                        navItems.map((item, index) =>
+
+                            <div key={index}>
+                                <p className={classNames({
+                                    "text-desktopText text-sm font-semibold": true, //colors
+                                    "transition-colors duration-300": true, //animation
+                                    "rounded-md p-1 mx-3 block ": !collapsed,
+                                    "rounded-full p-1 mx-3 hidden": collapsed,
+                                })}>{item?.section}</p>
+                                <ul
                                     className={classNames({
-                                        "text-desktopText hover:bg-gray-200  flex": true, //colors
-                                        "transition-colors duration-300": true, //animation
-                                        "rounded-md p-2 mx-3 gap-4 ": !collapsed,
-                                        "rounded-full p-2 mx-3 w-10 h-10": collapsed,
+                                        "my-2 flex flex-col gap-2 items-stretch": true,
                                     })}
                                 >
-                                    <Link href={item.href} className="flex gap-2 ">
-                                        <span>  {item.icon}</span> <span className="text-desktopText font-semibold">{!collapsed && item.label}</span>
-                                    </Link>
-                                </li>
-                            );
-                        })}
-                    </ul>
+                                    {item.links.map((item, index) => {
+                                        return (
+                                            <li
+                                                key={index}
+                                                className={classNames({
+                                                    "text-desktopText hover:bg-gray-200  flex": true, //colors
+                                                    "transition-colors duration-300": true, //animation
+                                                    "rounded-md p-2 mx-3 gap-4 ": !collapsed,
+                                                    "rounded-full p-2 mx-3 w-10 h-10": collapsed,
+                                                })}
+                                            >
+                                                <Link href={item.href} className="flex gap-2 ">
+                                                    <span>  {item.icon}</span> <span className="text-desktopText font-semibold">{!collapsed && item.label}</span>
+                                                </Link>
+                                            </li>
+                                        );
+                                    })}
+                                </ul>
+                            </div>
+                        )
+
+                    }
+
                 </nav>
                 {/* profile part ...omitted for brevity */}
 
 
                 {/* prifile */}
-                <div
+                {/* <div
                     className={classNames({
                         "grid place-content-stretch p-4": true,
                     })}
@@ -110,7 +125,7 @@ const Sidebar = ({
                             </Link>
                         )}
                     </Link>
-                </div>
+                </div> */}
             </div>
         </div>
     );

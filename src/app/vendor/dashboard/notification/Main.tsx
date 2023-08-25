@@ -1,7 +1,7 @@
 'use client'
 import React, { useEffect, useState, Suspense } from 'react';
 import { useGqlClient } from '@/hooks/UseGqlClient';
-import { useMutation, useQuery } from 'graphql-hooks';
+import { useManualQuery, useMutation, useQuery } from 'graphql-hooks';
 import { BsThreeDotsVertical } from 'react-icons/bs';
 import { AiTwotoneDelete, AiFillEye } from 'react-icons/ai';
 import { BiSolidEditAlt } from 'react-icons/bi';
@@ -47,10 +47,20 @@ const Main = () => {
     //states
     const [isNotificationViewModalOpen, setIsNotificationViewModalOpen] = useState(false);
     const [currentNotification, setCurrentNotification] = useState<INotification | null>(null);
+    // pagination states
+    const [pageLimit, setPageLimit] = useState(10)
+    const [currentPage, setCurrentPage] = useState(1)
+    const [totalPages, setTotalPages] = useState(0)
+    const [totalInvoice, setTotalInvoice] = useState(0)
+    const [invoiceData, setInvoiceData] = useState<any>([])
 
 
-    // Create GraphQL client using custom hook
+
+    // hooks
     const client = useGqlClient();
+
+    //quires 
+    const [getUserFn, userDataState] = useManualQuery(GET_NOTIFICATION, { client })
 
     // GraphQL Query
     const { data, loading, error, refetch } = useQuery(GET_NOTIFICATION, {

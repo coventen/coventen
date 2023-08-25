@@ -9,6 +9,7 @@ import { useMutation } from 'graphql-hooks';
 import { toast } from 'react-hot-toast';
 import ComplainModal from './ComplainModal';
 import Pagination from '@/components/Pagination';
+import { getEmployerEmail } from '@/shared/getEmployerEmail';
 
 
 
@@ -29,11 +30,12 @@ mutation UpdateModuleTickets($where: ModuleTicketWhere, $update: ModuleTicketUpd
 const Main = () => {
     //states
     const [modules, setModules] = useState([])
-    const [isDocModalOpen, setIsDocModalOpen] = useState(false)
     const [currentModuleId, setCurrentModuleId] = useState('')
     const [reset, setReset] = useState(false)
     const [loading, setLoading] = useState(false)
     const [isOpen, setIsOpen] = useState(false)
+    const [labEmail, setLabEmail] = useState('')
+    const [viewMOdal, setVewModal] = useState(false)
     // pagination states
     const [pageLimit, setPageLimit] = useState(10)
     const [currentPage, setCurrentPage] = useState(1)
@@ -41,27 +43,35 @@ const Main = () => {
     const [totalModules, setTotalModules] = useState(0)
 
     // hooks
+
     const user = currentUser()
     const client = useGqlClient()
 
-    // UPDATING MODULE 
+    // mutations
     const [updateModuleStatusFn, updateStatus] = useMutation(UPDATE_MODULE, { client })
 
-
-    console.log(totalModules)
 
 
 
 
     // fetching module data
     useEffect(() => {
+        getLabEmail()
         getModulesData()
         getTotalModulesCount()
-    }, [currentPage]);
+    }, [currentPage, user?.email, labEmail]);
 
 
 
+    // getting lab email if employee is logged in
+    const getLabEmail = async () => {
+        if (user?.email) {
+            const email = await getEmployerEmail(user?.email)
+            setLabEmail(email)
+        }
 
+
+    }
 
     // get module data
     const getModulesData = async () => {
@@ -70,7 +80,7 @@ const Main = () => {
         const where = {
             vendorHas: {
                 userIs: {
-                    email: user?.email || 'no email'
+                    email: labEmail || 'no email'
                 }
             },
             status: "UNDER_REVIEW"
@@ -97,7 +107,7 @@ const Main = () => {
         const where = {
             vendorHas: {
                 userIs: {
-                    email: user?.email || 'no email'
+                    email: labEmail || 'no email'
                 }
             },
             status: "UNDER_REVIEW"
@@ -217,6 +227,7 @@ const Main = () => {
                     }
                 </tbody>
                 <ComplainModal setIsOpen={setIsOpen} isOpen={isOpen} addComplain={addComplain} />
+                {/* <ViewModal setIsModalOpen={setVewModal} isModalOpen={viewMOdal} /> */}
 
             </table>
             <div className='w-full flex items-center justify-center'>

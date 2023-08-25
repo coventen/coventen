@@ -11,6 +11,7 @@ import { toast } from 'react-hot-toast';
 import Error from '@/components/Error';
 import Loading from '@/app/loading';
 import Pagination from '@/components/Pagination';
+import { getEmployerEmail } from '@/shared/getEmployerEmail';
 
 const GET_COMPLAIN = `
 query ModuleTickets($options: ModuleTicketOptions, $where: ModuleTicketWhere) {
@@ -36,6 +37,7 @@ const Main = () => {
     const [currentComplain, setCurrentComplain] = React.useState<any>('')
     const [isDocModalOpen, setIsDocModalOpen] = React.useState(false)
     const [data, setData] = useState<any>([])
+    const [labEmail, setLabEmail] = useState('')
 
     // pagination states
     const [pageLimit, setPageLimit] = useState(10)
@@ -58,10 +60,22 @@ const Main = () => {
 
     // refetching data based on pagination and search query
     useEffect(() => {
-
+        getLabEmail()
         getComplainData()
         getTotalComplains()
-    }, [currentPage]);
+    }, [currentPage, user?.email, labEmail]);
+
+
+
+    // getting lab email if employee is logged in
+    const getLabEmail = async () => {
+        if (user?.email) {
+            const email = await getEmployerEmail(user?.email)
+            setLabEmail(email)
+        }
+
+
+    }
 
     // getting total modules 
     const getTotalComplains = async () => {
@@ -71,7 +85,7 @@ const Main = () => {
                     status: "COMPLAINED",
                     vendorHas: {
                         userIs: {
-                            email: user?.email
+                            email: labEmail
                         }
                     }
                 }
@@ -91,7 +105,7 @@ const Main = () => {
                     status: "COMPLAINED",
                     vendorHas: {
                         userIs: {
-                            email: user?.email
+                            email: labEmail
                         }
                     }
                 },
@@ -111,11 +125,6 @@ const Main = () => {
 
 
 
-
-
-    // const { data, error, loading, refetch } = useQuery(GET_COMPLAIN, {
-    //     client,
-    // })
 
 
     if (state?.error) return <Error />

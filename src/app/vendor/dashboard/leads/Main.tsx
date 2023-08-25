@@ -6,11 +6,14 @@ import LeadsTable from './LeadsTable';
 import GetCurrentUserDetails from '@/shared/queries/currentUser';
 import { Leads, User } from '@/gql/graphql';
 import { useGqlClient } from '@/hooks/UseGqlClient';
-import { useMutation } from 'graphql-hooks';
+import { useMutation, useQuery } from 'graphql-hooks';
 import { IUpdateLead } from './interface';
 import LeadsModal from './leadModal';
 import { toast } from 'react-hot-toast';
 import Pagination from '@/components/Pagination';
+import { getEmployerEmail } from '@/shared/getEmployerEmail';
+import { currentUser } from '@/firebase/oauth.config';
+import Loading from '@/app/loading';
 
 
 const ACCEPT_LEAD = `
@@ -19,6 +22,14 @@ mutation UpdateLeads($where: LeadsWhere, $update: LeadsUpdateInput) {
         leads {
             id
           }
+    }
+  }
+`
+
+const GET_INDUSTRIES = `
+query Vendors($where: VendorWhere) {
+    vendors(where: $where) {
+      industry
     }
   }
 `
@@ -34,6 +45,7 @@ const Main = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [currentLead, setCurrentLead] = useState<Leads | {}>({});
     const [searchQuery, setSearchQuery] = useState('')
+    const [labEmail, setLabEmail] = useState('')
     // pagination states
     const [pageLimit, setPageLimit] = useState(10)
     const [currentPage, setCurrentPage] = useState(1)
@@ -43,9 +55,31 @@ const Main = () => {
 
     // hooks 
     const client = useGqlClient();
+    const user = currentUser()
 
-    // update leads 
+    //queries
+    const { data: industries, loading: industryLoading } = useQuery(GET_INDUSTRIES, {
+        client,
+        variables: {
+            where: {
+                userIs: {
+                    email: labEmail
+                }
+            }
+        }
+    })
+
+    // MUTATIONS
     const [updateLeadsFn, updateState] = useMutation(ACCEPT_LEAD, { client })
+
+
+
+
+
+
+    console.log(industries?.vendors[0]?.industry, ' this is good', labEmail);
+
+
 
 
     // handle update leads
@@ -74,30 +108,52 @@ const Main = () => {
 
     // get leads
     useEffect(() => {
+        getLabEmail()
         getLeadsData();
         getUserData()
         getTotalLeadsCount()
 
-    }, [currentPage, searchQuery]);
+    }, [currentPage, searchQuery, , user?.email, labEmail]);
+
+    // getting lab email if employee is logged in
+    const getLabEmail = async () => {
+        if (user?.email) {
+            const email = await getEmployerEmail(user?.email)
+            setLabEmail(email)
+        }
 
 
+    }
 
 
     const getLeadsData = async () => {
         let where
         if (searchQuery) {
             where = {
-                email_CONTAINS: searchQuery.toLocaleLowerCase(),
+                industry_IN: industries?.vendors[0]?.industry,
+                OR: [
+                    {
+                        email_CONTAINS: searchQuery.toLocaleLowerCase(),
+
+                    },
+                    {
+                        industry_CONTAINS: searchQuery.toLocaleLowerCase()
+
+                    },
+                    {
+                        phone_CONTAINS: searchQuery
+                    }
+                ]
             }
         } else {
-            where = {}
+            where = { industry_IN: industries?.vendors[0]?.industry, }
         }
 
         //fetch options
         const options = {
             sort: [
                 {
-                    createdAt: "ASC"
+                    createdAt: "DESC"
                 },
             ],
             limit: pageLimit,
@@ -124,6 +180,8 @@ const Main = () => {
     }
 
 
+    if (industryLoading) return <Loading />
+
 
     return (
         <div>
@@ -143,7 +201,7 @@ const Main = () => {
                     <input
                         value={searchQuery}
                         onChange={(e) => setSearchQuery(e.target.value)}
-                        placeholder="Search by email"
+                        placeholder="Search by email or industry"
                         className="  sm:rounded-l-none border border-gray-300 border-b block pl-8 pr-6 py-2 w-full bg-white text-sm placeholder-gray-400 text-gray-700  focus:placeholder-gray-600 focus:text-gray-700 focus:outline-none dark:bg-darkBg dark:border-darkBorder" />
                 </div>
             </div>
