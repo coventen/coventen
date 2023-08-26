@@ -16,19 +16,11 @@ import Leads from '@/components/Leads'
 export default function Home() {
   return (
     <>
-      {/* <nav>
-        <Navbar />
-      </nav> */}
-      {/* <MegaMenu /> */}
       <Hero />
       <Services />
       <Products />
-      {/* <Categories /> */}
-
-      {/* <Services2 /> */}
       <AboutUs />
-      <CTA />
-      {/* <ImportantLinks /> */}
+      {/* <CTA /> */}
       <Companies />
       <Leads />
 
