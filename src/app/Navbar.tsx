@@ -130,8 +130,8 @@ export default function Navbar({ }) {
                     >
                         Home
                     </Link>
-                    <Services />
                     <Features />
+                    <Services />
                     <Link
                         href="/products"
                         className="text-sm font-semibold leading-6 text-primaryText mr-8"

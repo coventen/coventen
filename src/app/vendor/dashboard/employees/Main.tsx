@@ -66,7 +66,7 @@ const Main = () => {
             where = {
                 user_type: "LAB_ASSISTANT",
                 hasEmployee: {
-                    employerEmail: labEmail
+                    employerEmail: labEmail || "no email"
                 },
                 OR: [
                     {
@@ -82,7 +82,7 @@ const Main = () => {
             where = {
                 user_type: "LAB_ASSISTANT",
                 hasEmployee: {
-                    employerEmail: labEmail
+                    employerEmail: labEmail || "no email"
                 }
             }
         }
@@ -119,7 +119,10 @@ const Main = () => {
         const { data } = await getEmployeeFn({
             variables: {
                 where: {
-                    user_type_IN: ["LAB_ASSISTANT"]
+                    user_type: "LAB_ASSISTANT",
+                    hasEmployee: {
+                        employerEmail: labEmail || "no email"
+                    }
                 }
             }
         })
@@ -170,7 +173,7 @@ const Main = () => {
             getEmployeeData({
                 user_type: "LAB_ASSISTANT",
                 hasEmployee: {
-                    employerEmail: labEmail
+                    employerEmail: labEmail || "no email"
                 }
             })
         }
