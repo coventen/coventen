@@ -49,41 +49,26 @@ export default function SideBarFilter({
     const filters = [
         {
             id: 1,
-            name: 'Search Tools',
+            name: 'Date',
             options: [
                 {
-                    title: 'Search Field',
+                    title: 'Today',
                     path: '/'
                 },
                 {
-                    title: 'Search Field',
+                    title: 'This Week',
                     path: '/'
                 },
                 {
-                    title: 'Search Field',
+                    title: 'This Month',
                     path: '/'
                 },
-                {
-                    title: 'Search Field',
-                    path: '/'
-                },
-                {
-                    title: 'Search Field',
-                    path: '/'
-                },
-                {
-                    title: 'Search Field',
-                    path: '/'
-                },
-                {
-                    title: 'Search Field',
-                    path: '/'
-                },
+
             ],
         },
         {
             id: 2,
-            name: 'Support Toos',
+            name: 'Category',
             options: [
                 {
                     title: 'Search Field',

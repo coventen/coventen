@@ -52,55 +52,53 @@ export default function Sidebar({
             name: 'Mechines',
             options: [
                 {
-                    title: 'VBOX 3iS',
+                    title: 'Scanners & Trackers',
                     path: '/admin/facilities'
                 },
                 {
-                    title: 'Video Loggers',
+                    title: 'Probe Systems',
                     path: '/admin/exams'
                 },
                 {
-                    title: 'VBOX Sigma',
+                    title: 'Robotic Arms',
                     path: '/admin/degree'
                 },
-                {
-                    title: 'VBOX Touch',
-                    path: '/admin/degreespecialization'
-                },
-                {
-                    title: 'RTK Base Station',
-                    path: '/admin/degreespecialization'
-                },
-                {
-                    title: 'Telemetry Radios',
-                    path: '/admin/degreespecialization'
-                },
-                {
-                    title: 'NTRIP Modem',
-                    path: '/admin/degreespecialization'
-                },
+
             ],
         },
         {
             id: 2,
-            name: 'Support Toos',
+            name: 'Consumables',
             options: [
                 {
-                    title: 'Add Facility',
+                    title: 'Probes',
                     path: '/admin/facilities'
                 },
                 {
-                    title: 'Add Exam',
+                    title: 'Oils',
                     path: '/admin/exams'
                 },
                 {
-                    title: 'Add Degreee',
+                    title: 'Fixtures',
                     path: '/admin/degree'
                 },
+
+            ],
+        },
+        {
+            id: 3,
+            name: 'Support Tools',
+            options: [
                 {
-                    title: 'Add Degree Specialization',
-                    path: '/admin/degreespecialization'
+                    title: 'Measuring Tools',
+                    path: '/admin/facilities'
                 },
+                {
+                    title: 'Safety Tools',
+                    path: '/admin/exams'
+                },
+
+
             ],
         },
 
