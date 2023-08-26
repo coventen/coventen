@@ -104,7 +104,7 @@ const Main = () => {
                     variables: {
                         update: {
                             companyEmail: email,
-                            companyName: data.companyName,
+                            companyName: data.companyName.toLowerCase(),
                             gstNumber: data.registrationNumber,
                             hasDocuments: {
                                 create: {
@@ -186,7 +186,7 @@ const Main = () => {
 
             <div>
                 <label className=" text-gray-500">
-                    Registration number
+                    GST Number
                 </label>
                 <input
                     type="text"

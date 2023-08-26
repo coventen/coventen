@@ -33,6 +33,9 @@ const RolesPeopleTable = ({ employeeList, updateEmployeeStatus }: IRolesPeopleTa
                         <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                             email
                         </th>
+                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            role
+                        </th>
                         <th className="px-6 py-3  text-xs text-center font-medium text-gray-500 uppercase tracking-wider">
                             Actions
                         </th>
@@ -49,6 +52,9 @@ const RolesPeopleTable = ({ employeeList, updateEmployeeStatus }: IRolesPeopleTa
                             </td>
                             <td className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                 {item.email}
+                            </td>
+                            <td className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                {item.hasRole.name || "N/A"}
                             </td>
                             <td className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                 <div className="flex justify-center space-x-4">

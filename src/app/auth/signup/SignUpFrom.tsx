@@ -16,7 +16,7 @@ interface IFormInput {
 }
 
 interface ISignUpProps {
-    createUser: (name: string, email: string, user_type: string, sub_type: string, selectedIndustries: any[]) => void;
+    createUser: (name: string, email: string, user_type: string, sub_type: string, selectedIndustries: any[], selectedVendor: string) => void;
     loading: boolean;
     setLoading: (loading: boolean) => void;
     setError: (error: string) => void;
@@ -48,6 +48,7 @@ const SignUpFrom = ({ createUser, setLoading, setError, loading, error }: ISignU
     const [selectedIndustries, setSelectedIndustries] = useState<any[]>([]);
     const [selectedVendor, setSelectedVendor] = useState<any>(null);
 
+    // console.log(selectedVendor.id, 'vendor')
 
     // hooks
     const {
@@ -65,7 +66,7 @@ const SignUpFrom = ({ createUser, setLoading, setError, loading, error }: ISignU
         try {
             const newUser = await signUpWithEmailAndPassword(data.email, data.password);
             if (newUser.uid) {
-                createUser(data.name, data.email, selectedOption, selectSubType, selectedIndustries)
+                createUser(data.name, data.email, selectedOption, selectSubType, selectedIndustries, selectedVendor?.email)
             }
         } catch (error: any) {
             setError(error.message)

@@ -64,10 +64,10 @@ const Main = () => {
         let where
         if (searchQuery) {
             where = {
-                Employee_type: "LAB_ASSISTANT",
-                // hasEmployee: {
-                //     employerEmail: labEmail
-                // },
+                user_type: "LAB_ASSISTANT",
+                hasEmployee: {
+                    employerEmail: labEmail
+                },
                 OR: [
                     {
                         email: searchQuery.toLowerCase(),
@@ -80,10 +80,10 @@ const Main = () => {
             }
         } else {
             where = {
-                Employee_type: "LAB_ASSISTANT",
-                // hasEmployee: {
-                //     employerEmail: labEmail
-                // }
+                user_type: "LAB_ASSISTANT",
+                hasEmployee: {
+                    employerEmail: labEmail
+                }
             }
         }
 
@@ -119,13 +119,13 @@ const Main = () => {
         const { data } = await getEmployeeFn({
             variables: {
                 where: {
-                    Employee_type_IN: ["LAB_ASSISTANT"]
+                    user_type_IN: ["LAB_ASSISTANT"]
                 }
             }
         })
-        if (data.Employees.length) {
-            setTotalEmployee(data.Employees.length)
-            setTotalPages(Math.ceil(data.Employees.length / pageLimit))
+        if (data?.users?.length) {
+            setTotalEmployee(data?.users?.length)
+            setTotalPages(Math.ceil(data?.users?.length / pageLimit))
         }
 
     }
@@ -145,8 +145,8 @@ const Main = () => {
                 }
             }
         })
-        if (data.Employees.length) {
-            setEmployeeData(data?.Employees)
+        if (data?.users?.length) {
+            setEmployeeData(data?.users)
         }
     }
 
@@ -168,10 +168,10 @@ const Main = () => {
             toast.success("Employee status updated successfully")
             // refetching data
             getEmployeeData({
-                Employee_type: "LAB_ASSISTANT",
-                // hasEmployee: {
-                //     employerEmail: null
-                // }
+                user_type: "LAB_ASSISTANT",
+                hasEmployee: {
+                    employerEmail: labEmail
+                }
             })
         }
     }

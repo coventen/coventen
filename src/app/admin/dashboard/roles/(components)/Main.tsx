@@ -12,6 +12,9 @@ query Users($where: UserWhere) {
       name
       email
       status
+      hasRole {
+        name
+      }
     }
   }
 `

@@ -40,7 +40,7 @@ const Main = () => {
     const [updateUserFn, updateState] = useMutation(UPDATE_USER, { client });
 
     // initializing user creation function
-    const createUser = async (name: string, email: string, user_type: string, sub_type: string, selectedIndustries: any[]) => {
+    const createUser = async (name: string, email: string, user_type: string, sub_type: string, selectedIndustries: any[], selectedVendor: string) => {
 
 
         const { data } = await createUserFn({
@@ -88,6 +88,21 @@ const Main = () => {
                                 }
                             }
                         }
+                    }
+                }
+            } else if (user_type === "LAB_ASSISTANT") {
+                updateVariables = {
+                    update: {
+                        hasEmployee: {
+                            create: {
+                                node: {
+                                    employerEmail: selectedVendor,
+                                }
+                            }
+                        }
+                    },
+                    where: {
+                        email: email
                     }
                 }
             }

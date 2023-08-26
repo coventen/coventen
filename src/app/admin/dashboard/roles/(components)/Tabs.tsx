@@ -5,7 +5,7 @@ import { FaPlusCircle } from 'react-icons/fa';
 import RolesTable from './RolesTable';
 import RolesPeopleTable from './RolesPeopleTable';
 import CreateRoleModal from '../CreateRoleModal';
-import AddPeopleModal from './AddPeopleModal';
+import AssignRole from './AssignRole';
 
 
 interface ITabsProps {
@@ -98,7 +98,7 @@ const Tabs = ({ employeeList, updateEmployeeStatus, createRole, rolesData }: ITa
                 <CreateRoleModal setOpenModal={setOpenModal} openModal={openModal} createRole={createRole} />
             )}
             {openPeopleModal && (
-                <AddPeopleModal
+                <AssignRole
                     setOpenPeopleModal={setOpenPeopleModal}
                     openPeopleModal={openPeopleModal}
                     employeeList={employeeList}

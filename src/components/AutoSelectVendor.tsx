@@ -15,6 +15,7 @@ query Vendors( $userIsWhere2: UserWhere) {
         id
         companyName
         status
+        email
       }
     }
   }
