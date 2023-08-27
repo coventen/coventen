@@ -44,7 +44,12 @@ const Sidebar = ({
 }: Props) => {
 
     //states
-    const [accessibleNavItems, setAccessibleNavItems] = React.useState<NavItem[]>([])
+    const [accessibleNavItems, setAccessibleNavItems] = React.useState<any[]>([])
+
+
+
+
+
 
 
     // HOOKS
@@ -53,18 +58,9 @@ const Sidebar = ({
     const pathname = usePathname();
 
 
-    // query
-    const { data, loading, error } = useQuery(GET_USER, {
-        client,
-        variables: {
-            where: {
-                email: user?.email || 'no email'
-            }
-        }
-    })
 
 
-
+    console.log(accessibleNavItems, 'accessibleNavItems000000000000000000000000000')
 
 
 
@@ -72,7 +68,7 @@ const Sidebar = ({
     // 👇 use the correct icon depending on the state.
     const Icon = collapsed ? HiChevronDoubleRight : HiChevronDoubleLeft;
     return (
-        // <RestrictAdminRoute setAccessibleNavItems={setAccessibleNavItems} navItems={navItems} accessibleNavItems={accessibleNavItems}>
+        // <RestrictAdminRoute setAccessibleNavItems={setAccessibleNavItems} navItems={defaultNavItems} accessibleNavItems={accessibleNavItems}>
         <div
             className={classNames({
                 "bg-white text-primaryText z-20 border-r hidden lg:block": true,
@@ -116,7 +112,7 @@ const Sidebar = ({
                             "my-2 flex flex-col gap-2 items-stretch": true,
                         })}
                     >
-                        {navItems.map((item, index) => {
+                        {navItems?.map((item, index) => {
                             return (
                                 <li
                                     key={index}

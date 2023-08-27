@@ -20,43 +20,7 @@ export type NavItem = {
     section: string;
     links: Links[]
 };
-// export const defaultNavItems: NavItem[] = [
-//     {
-//         label: "Dashboard",
-//         href: "/desktopHome",
-//         icon: <LuAppWindow className="w-6 h-6" />,
-//     },
-//     {
-//         label: "Projects",
-//         href: "/desktopHome/projects",
-//         icon: <LuTerminalSquare className="w-6 h-6" />,
-//     },
-//     {
-//         label: "Invoices",
-//         href: "/desktopHome/invoices",
-//         icon: <LuCalculator className="w-6 h-6" />,
-//     },
-//     {
-//         label: "Reports",
-//         href: "/desktopHome/reports",
-//         icon: <LuClipboardCheck className="w-6 h-6" />,
-//     },
-//     {
-//         label: "Samples",
-//         href: "/desktopHome/sample",
-//         icon: <LuCopySlash className="w-6 h-6" />,
-//     },
-//     {
-//         label: "Support",
-//         href: "/desktopHome/support",
-//         icon: <LuHeadphones className="w-6 h-6" />,
-//     },
-//     {
-//         label: "Log in",
-//         href: "/desktopHome/auth/login",
-//         icon: <LuUser className="w-6 h-6" />,
-//     },
-// ];
+
 
 
 export const defaultNavItems = [
@@ -80,7 +44,7 @@ export const defaultNavItems = [
         links: [
             {
                 label: "Internal Email",
-                href: "/desktopHome",
+                href: "/desktopHome/internal_email",
                 icon: <LuCopySlash className="w-6 h-6" />,
             },
             {

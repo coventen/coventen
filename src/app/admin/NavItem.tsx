@@ -53,7 +53,7 @@ export const defaultNavItems: NavItem[] = [
         icon: <LuShieldCheck className="" />,
     },
     {
-        label: "Invoices",
+        label: "Estimation",
         href: "/admin/dashboard/invoice",
         icon: <LuCalculator className="" />,
     },

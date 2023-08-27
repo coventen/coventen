@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { Fragment } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
 import MultiSelect from '@/components/Multiselect';
+import { defaultNavItems } from '../../NavItem';
 // import { CheckIcon } from '@heroicons/react/outline';
 
 interface ModalProps {
@@ -17,58 +18,14 @@ interface Option {
     description?: string;
 }
 
-let fieldsOptions: Option[] = [
-    {
-        id: 1,
-        name: 'Dashboard',
-    },
-    {
-        id: 2,
-        name: 'Users',
-    },
-    {
-        id: 3,
-        name: 'Roles',
-    },
-    {
-        id: 4,
-        name: 'Assignment',
-    },
-    {
-        id: 5,
-        name: 'Settings',
-    },
-    {
-        id: 6,
-        name: 'Invoices',
-    },
-    {
-        id: 7,
-        name: 'notifications',
-    },
-    {
-        id: 8,
-        name: 'Support',
-    },
-    {
-        id: 9,
-        name: 'Tickets System',
-    },
-    {
-        id: 10,
-        name: 'Users',
-    },
-    {
-        id: 11,
-        name: 'Vendor Management',
-    },
-    {
-        id: 12,
-        name: 'Logs',
+
+// getting all the nav routes as options
+let fieldsOptions: Option[] = defaultNavItems.map((item, index) => {
+    return {
+        id: index + 1,
+        name: item.label
     }
-
-]
-
+})
 
 // component
 const CreateRoleModal: React.FC<ModalProps> = ({ openModal, setOpenModal, createRole }) => {

@@ -73,7 +73,7 @@ const AssignRole: React.FC<ModalProps> = ({
     const assignRoleToEmployee = async (e: any) => {
         e.preventDefault()
 
-        console.log("i am inside assignRoleToEmployee", employeeEmail, role)
+        console.log("i am inside assignRoleToEmployee3333", employeeEmail, role)
         const { data } = await assignRoleFn({
             variables: {
                 "where": {
@@ -95,8 +95,12 @@ const AssignRole: React.FC<ModalProps> = ({
 
         })
 
-        if (data.updateUsers.info.nodesCreated && data.updateUsers.info.relationshipsCreated) {
-            setOpenPeopleModal(false)
+        console.log(data, 'inside data')
+
+        if (data?.updateUsers?.info?.relationshipsCreated) {
+
+            console.log("i am inside assignRoleToEmployee", employeeEmail, role)
+            handleClose()
             toast.success('Role assigned successfully')
         }
 
@@ -138,7 +142,7 @@ const AssignRole: React.FC<ModalProps> = ({
                                     <div>
                                         <label
                                             htmlFor="role"
-                                            className="block text-sm font-medium text-gray-700 mb-1"
+                                            className="block text-sm font-medium text-dimText mb-1"
                                         >
                                             Role
                                         </label>
@@ -163,7 +167,7 @@ const AssignRole: React.FC<ModalProps> = ({
                                     <div>
                                         <label
                                             htmlFor="employee"
-                                            className="block text-sm font-medium text-gray-700 mb-1"
+                                            className="block text-sm font-medium text-dimText mb-1"
                                         >
                                             Employee
                                         </label>
@@ -189,7 +193,7 @@ const AssignRole: React.FC<ModalProps> = ({
                                 <button
                                     onClick={handleClose}
                                     type="button"
-                                    className="inline-flex justify-center px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 "
+                                    className="inline-flex justify-center px-4 py-2 text-sm font-medium text-dimText bg-white border border-gray-300 rounded-md hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 "
                                 >
                                     Cancel
                                 </button>

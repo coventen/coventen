@@ -13,6 +13,9 @@ interface ITabsProps {
     updateEmployeeStatus: any
     createRole: (name: string, permissions: string[]) => void;
     rolesData: any
+    setOpenCreateRoleModal: (value: boolean) => void
+    openCreateRoleModal: boolean
+    deleteRole: (id: string) => void
 }
 
 
@@ -24,10 +27,10 @@ function classNames(...classes: string[]) {
 
 
 // component
-const Tabs = ({ employeeList, updateEmployeeStatus, createRole, rolesData }: ITabsProps) => {
+const Tabs = ({ employeeList, updateEmployeeStatus, deleteRole, createRole, rolesData, openCreateRoleModal, setOpenCreateRoleModal }: ITabsProps) => {
 
     // states 
-    const [openModal, setOpenModal] = useState(false);
+
     const [value, setValue] = useState(0);
     const [openPeopleModal, setOpenPeopleModal] = useState(false);
 
@@ -67,7 +70,7 @@ const Tabs = ({ employeeList, updateEmployeeStatus, createRole, rolesData }: ITa
                             </Tab>
                         </div>
                         <div className='space-x-3'>
-                            <button onClick={() => setOpenModal(true)} className="focus:ring-2 focus:ring-offset-2 focus:ring-primary/95 mt-4 sm:mt-0 inline-flex items-start justify-start px-6 py-3 bg-primary hover:bg-primary/95 focus:outline-none rounded">
+                            <button onClick={() => setOpenCreateRoleModal(true)} className="focus:ring-2 focus:ring-offset-2 focus:ring-primary/95 mt-4 sm:mt-0 inline-flex items-start justify-start px-6 py-3 bg-primary hover:bg-primary/95 focus:outline-none rounded">
                                 <div className="text-sm font-medium leading-none flex items-center justify-center space-x-2 text-white">
                                     <span className='mr-1'><FaPlusCircle /> </span>
                                     <span>Add Roles</span>
@@ -84,7 +87,7 @@ const Tabs = ({ employeeList, updateEmployeeStatus, createRole, rolesData }: ITa
                     </Tab.List>
                     <Tab.Panels>
                         <Tab.Panel>
-                            <RolesTable rolesData={rolesData} />
+                            <RolesTable rolesData={rolesData} deleteRole={deleteRole} />
                         </Tab.Panel>
                         <Tab.Panel>
                             <div className="w-full bg-white rounded-xl mt-2 py-2 ">
@@ -94,8 +97,8 @@ const Tabs = ({ employeeList, updateEmployeeStatus, createRole, rolesData }: ITa
                     </Tab.Panels>
                 </Tab.Group>
             </div>
-            {openModal && (
-                <CreateRoleModal setOpenModal={setOpenModal} openModal={openModal} createRole={createRole} />
+            {openCreateRoleModal && (
+                <CreateRoleModal setOpenModal={setOpenCreateRoleModal} openModal={openCreateRoleModal} createRole={createRole} />
             )}
             {openPeopleModal && (
                 <AssignRole

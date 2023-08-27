@@ -10,8 +10,8 @@ import Loading from '@/app/loading';
 
 //props interface
 interface IUserModalProps {
-    isModalOpen: boolean;
-    setIsModalOpen: (value: boolean) => void;
+    isViewModalOpen: boolean;
+    setIsViewModalOpen: (value: boolean) => void;
     currentModuleId: string
 }
 
@@ -34,7 +34,7 @@ query Modules($where: ModuleWhere) {
 
 
 //component
-function ViewModal({ setIsModalOpen, isModalOpen, currentModuleId }: IUserModalProps) {
+function ViewModal({ isViewModalOpen, setIsViewModalOpen, currentModuleId }: IUserModalProps) {
 
     //hooks
     const client = useGqlClient();
@@ -44,8 +44,11 @@ function ViewModal({ setIsModalOpen, isModalOpen, currentModuleId }: IUserModalP
     const { data, loading, error } = useQuery(GET_MODULE_DETAILS, {
         client,
         variables: {
+
             where: {
-                id: currentModuleId
+                moduleticketFor: {
+                    id: currentModuleId
+                }
             }
         }
     })
@@ -55,7 +58,7 @@ function ViewModal({ setIsModalOpen, isModalOpen, currentModuleId }: IUserModalP
 
     //handle close modal
     function closeModal() {
-        setIsModalOpen(false);
+        setIsViewModalOpen(false);
     }
 
     if (loading) return <Loading />
@@ -66,7 +69,7 @@ function ViewModal({ setIsModalOpen, isModalOpen, currentModuleId }: IUserModalP
         <div>
 
 
-            <Transition.Root show={isModalOpen} as={Fragment}>
+            <Transition.Root show={isViewModalOpen} as={Fragment}>
                 <Dialog
                     as="div"
                     className="fixed z-[120000000000] inset-0 overflow-y-auto"

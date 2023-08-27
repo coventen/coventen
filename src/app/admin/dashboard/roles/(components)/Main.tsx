@@ -47,12 +47,22 @@ query Query {
     }
   }
 `
+const DELETE_ROLE = `
+mutation Mutation($where: RoleWhere) {
+    deleteRoles(where: $where) {
+      nodesDeleted
+    }
+  }
+`
 
 
 
 
 // COMPONENT
 const Main = () => {
+
+    // states 
+    const [openCreateRoleModal, setOpenCreateRoleModal] = React.useState(false);
 
     // hooks
     const client = useGqlClient()
@@ -80,8 +90,10 @@ const Main = () => {
     const [updateEmployeeStatusFn, updateEmployeeState] = useMutation(UPDATE_EMPLOYEE_STATUS, {
         client
     })
-
     const [createRoleFn, createRoleStatus] = useMutation(CREATE_ROLE, {
+        client
+    })
+    const [deleteRoleFn, deleteRoleStatus] = useMutation(DELETE_ROLE, {
         client
     })
 
@@ -107,6 +119,7 @@ const Main = () => {
 
         if (data) {
             toast.success("Employee status updated successfully")
+            setOpenCreateRoleModal(false)
             refetch()
         }
     }
@@ -128,8 +141,24 @@ const Main = () => {
 
         })
 
-        if (data.createRoles.roles.length > 0) {
+        if (data.createRoles.roles.length) {
             toast.success("Role created successfully")
+            setOpenCreateRoleModal(false)
+            refetchRoles()
+        }
+    }
+
+    const deleteRole = async (id: string) => {
+        const { data } = await deleteRoleFn({
+            variables: {
+                where: {
+                    id: id
+                }
+            }
+        })
+
+        if (data.deleteRoles.nodesDeleted) {
+            toast.success("Role deleted successfully")
             refetchRoles()
         }
     }
@@ -141,7 +170,7 @@ const Main = () => {
 
     return (
         <>
-            <Tabs employeeList={employeeList?.users} updateEmployeeStatus={updateEmployeeStatus} createRole={createRole} rolesData={rolesData?.roles} />
+            <Tabs employeeList={employeeList?.users} deleteRole={deleteRole} updateEmployeeStatus={updateEmployeeStatus} createRole={createRole} rolesData={rolesData?.roles} setOpenCreateRoleModal={setOpenCreateRoleModal} openCreateRoleModal={openCreateRoleModal} />
         </>
     );
 };

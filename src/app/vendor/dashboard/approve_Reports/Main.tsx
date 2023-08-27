@@ -35,7 +35,7 @@ const Main = () => {
     const [loading, setLoading] = useState(false)
     const [isOpen, setIsOpen] = useState(false)
     const [labEmail, setLabEmail] = useState('')
-    const [viewMOdal, setVewModal] = useState(false)
+    const [isViewModalOpen, setIsViewModalOpen] = useState(false)
     // pagination states
     const [pageLimit, setPageLimit] = useState(10)
     const [currentPage, setCurrentPage] = useState(1)
@@ -202,6 +202,15 @@ const Main = () => {
                                 <div className="relative space-x-3">
 
                                     <button
+
+                                        onClick={() => {
+                                            setIsViewModalOpen(true)
+                                            setCurrentModuleId(module?.id)
+                                        }}
+                                        className={` px-3 py-2 font-semibold bg-primary/20 text-primary rounded-sm`}>
+                                        View
+                                    </button>
+                                    <button
                                         disabled={module?.status === "DRAFT"}
                                         onClick={() => approveModule(module?.id)}
                                         className={`${module?.status === "COMPLAINED" && 'hidden'} px-3 py-2 font-semibold bg-green-200 text-green-700 rounded-sm`}>
@@ -235,6 +244,7 @@ const Main = () => {
                     <Pagination currentPage={currentPage} setCurrentPage={setCurrentPage} totalPages={totalPages} />}
 
             </div>
+            <ViewModal setIsViewModalOpen={setIsViewModalOpen} isViewModalOpen={isViewModalOpen} currentModuleId={currentModuleId} />
         </>
     );
 };

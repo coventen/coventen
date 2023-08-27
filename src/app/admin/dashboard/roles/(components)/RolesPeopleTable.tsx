@@ -24,19 +24,19 @@ const RolesPeopleTable = ({ employeeList, updateEmployeeStatus }: IRolesPeopleTa
             <table className="table-auto w-full">
                 <thead className="bg-gray-50">
                     <tr>
-                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        <th className="px-6 py-3 text-left text-xs font-medium text-dimText lowercase tracking-wider">
                             serial
                         </th>
-                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        <th className="px-6 py-3 text-left text-xs font-medium text-dimText lowercase tracking-wider">
                             Name
                         </th>
-                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        <th className="px-6 py-3 text-left text-xs font-medium text-dimText lowercase tracking-wider">
                             email
                         </th>
-                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        <th className="px-6 py-3 text-left text-xs font-medium text-dimText lowercase tracking-wider">
                             role
                         </th>
-                        <th className="px-6 py-3  text-xs text-center font-medium text-gray-500 uppercase tracking-wider">
+                        <th className="px-6 py-3  text-xs text-center font-medium text-dimText lowercase tracking-wider">
                             Actions
                         </th>
                     </tr>
@@ -44,19 +44,19 @@ const RolesPeopleTable = ({ employeeList, updateEmployeeStatus }: IRolesPeopleTa
                 <tbody>
                     {employeeList?.map((item: any, i: number) => (
                         <tr key={i} className="border-b border-gray-200">
-                            <td className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            <td className="px-6 py-3 text-left text-xs font-medium text-dimText lowercase tracking-wider">
                                 {i + 1}
                             </td>
-                            <td className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                {item.name}
+                            <td className="px-6 py-3 text-left text-xs font-medium text-dimText lowercase tracking-wider">
+                                {item?.name}
                             </td>
-                            <td className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                {item.email}
+                            <td className="px-6 py-3 text-left text-xs font-medium text-dimText lowercase tracking-wider">
+                                {item?.email}
                             </td>
-                            <td className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                {item.hasRole.name || "N/A"}
+                            <td className="px-6 py-3 text-left text-xs font-medium text-dimText lowercase tracking-wider">
+                                {item?.hasRole?.name || "N/A"}
                             </td>
-                            <td className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            <td className="px-6 py-3 text-left text-xs font-medium text-dimText lowercase tracking-wider">
                                 <div className="flex justify-center space-x-4">
                                     {
                                         item.status === "PENDING" ?

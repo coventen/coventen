@@ -2,9 +2,10 @@ import React from 'react';
 
 interface IrolesProps {
     rolesData: any
+    deleteRole: (id: string) => void
 }
 
-const RolesTable = ({ rolesData }: IrolesProps) => {
+const RolesTable = ({ rolesData, deleteRole }: IrolesProps) => {
     return (
         <div className="container mx-auto ">
             <div className="flex flex-col mt-10">
@@ -59,7 +60,7 @@ const RolesTable = ({ rolesData }: IrolesProps) => {
                                             </td>
                                             <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
 
-                                                <button className="text-red-600 bg-red-200 px-2 py-1 rounded hover:text-red-900">
+                                                <button onClick={() => deleteRole(item.id)} className="text-red-600 bg-red-200 px-2 py-1 rounded hover:text-red-900">
                                                     <span>Delete</span>
                                                 </button>
                                             </td>

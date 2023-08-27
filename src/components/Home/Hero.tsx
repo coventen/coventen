@@ -6,13 +6,12 @@ import Image from 'next/image'
 export default function Hero() {
 
     const styles = {
-        background: `linear-gradient(0deg, rgba(64,141,251,0.427608543417367) 19%, rgba(1,0,0,0.2497373949579832) 82%), url('/assets/home/hero.jpg')`,
+        background: `linear-gradient(0deg, rgba(64,141,251,0.427608543417367) 19%, rgba(1,0,0,0.4.45) 82%), url('/assets/home/hero.jpg')`,
         backgroundSize: 'cover',
         backgroundPosition: 'center center',
         backgroundRepeat: 'no-repeat',
-        brigthness: '50%',
-        // backgroundBlendMode: 'overlay',
-        // backdropFilter: 'blur(150px)'
+        backgroundAttachment: "fixed",
+        backdropFilter: "blur(80px)"
     }
 
     return (
