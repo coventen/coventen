@@ -69,7 +69,6 @@ function AssignmentModal({ isOpen, setIsOpen, currentProject, refetchProjects }:
     //states
     const [selected, setSelected] = useState<any>({});
 
-    console.log(selected.companyName, "companyname")
 
     //hooks
     const client = useGqlClient();
@@ -104,6 +103,7 @@ function AssignmentModal({ isOpen, setIsOpen, currentProject, refetchProjects }:
                 input: [
                     {
                         status: "ASSIGNED",
+                        createdAt: new Date().toISOString(),
                         vendorHas: {
                             connect: {
                                 where: {

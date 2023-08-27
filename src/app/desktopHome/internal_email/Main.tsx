@@ -3,7 +3,7 @@ import Loading from '@/app/loading';
 import Error from '@/components/Error';
 import { currentUser } from '@/firebase/oauth.config';
 import { useGqlClient } from '@/hooks/UseGqlClient';
-import { useManualQuery, useMutation, useQuery } from 'graphql-hooks';
+import { useMutation, useQuery } from 'graphql-hooks';
 import Link from 'next/link';
 import React from 'react';
 import { toast } from 'react-hot-toast';
@@ -46,7 +46,7 @@ const Main = () => {
         client,
         variables: {
             where: {
-                forVendor_ALL: {
+                forClient_ALL: {
                     userIs: {
                         email: user?.email || 'no email'
                     }

@@ -19,10 +19,7 @@ const LeadsTable = ({ data }: ILeadsTable) => {
                         className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-dimText dark:text-darkDimText uppercase tracking-wider dark:bg-darkBg dark:border-darkBorder">
                         Phone
                     </th>
-                    <th
-                        className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-dimText dark:text-darkDimText uppercase tracking-wider dark:bg-darkBg dark:border-darkBorder">
-                        Gst Number
-                    </th>
+
                     <th
                         className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-dimText dark:text-darkDimText uppercase tracking-wider dark:bg-darkBg dark:border-darkBorder">
                         Industry
@@ -52,11 +49,7 @@ const LeadsTable = ({ data }: ILeadsTable) => {
                                     {lead?.phone}
                                 </p>
                             </td>
-                            <td className="px-5 py-5  bg-white text-xs dark:bg-darkBg dark:border-darkBorder rounded-xl font-semibold">
-                                <p className=" whitespace-no-wrap">
-                                    {lead?.gstNumber || 'N/A'}
-                                </p>
-                            </td>
+
                             <td className="px-5 py-5  bg-white text-xs dark:bg-darkBg dark:border-darkBorder rounded-xl font-semibold">
                                 <p className=" whitespace-no-wrap">
                                     {lead?.industry}

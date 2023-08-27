@@ -43,7 +43,7 @@ const Main = () => {
         client,
         variables: {
             where: {
-                forVendor_ALL: {
+                forClient_ALL: {
                     userIs: {
                         email: user?.email
                     }

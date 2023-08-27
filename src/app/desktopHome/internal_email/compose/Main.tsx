@@ -98,9 +98,9 @@ const Main = () => {
     // starts the communication creation
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
-        await handleUpload()
+        // await handleUpload()
         await createCommunication()
-        resetFn()
+
     }
 
 

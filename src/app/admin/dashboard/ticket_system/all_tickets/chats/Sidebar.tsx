@@ -29,38 +29,36 @@ const Sidebar = ({ data, setCurrentModule }: { data: any, setCurrentModule: any 
 
             <div className="flex flex-col mt-8 max-h-screen overflow-hidden">
                 <div className="flex flex-row items-center justify-between text-xs">
-                    <span className="font-bold">All Support Conversations</span>
+                    <span className="font-bold">All Conversations</span>
                     <span
                         className="flex items-center justify-center bg-gray-300 h-4 w-4 rounded-full"
-                    >4</span
+                    >{data?.length}</span
                     >
                 </div>
                 <div className="flex flex-col max-h-screen space-y-1 mt-4 -mx-2 h-full overflow-y-auto scrollbar-thumb-blue scrollbar-thumb-rounded scrollbar-track-blue-lighter scrollbar-w-2 scrolling-touch">
 
+
                     {
                         data && data?.map((item: any) =>
 
-                            <button onClick={() => setCurrentModule(item.ticket)} key={data.id}
+                            <button onClick={() => setCurrentModule({
+                                ticket: item.ticket,
+                                id: item.id,
+                            })} key={data.id}
                                 className="flex flex-row items-center hover:bg-gray-100 rounded-xl p-2 border-b"
                             >
-                                <div
-                                    className="flex items-center justify-center h-10 w-10 bg-primary/20 text-primary font-bold rounded-lg"
-                                >
-                                    H
-                                </div>
+
                                 <div>
 
                                     <div className="ml-2  ">
+                                        <p className='text-primary  text-sm text-left'>#{item.ticket}</p>
                                         <div>
-                                            <span className='text-sm font-semibold '> {item?.forModule?.title}</span>
-                                            <span className='text-primary text-[9px] ml-2'>{item.ticket}</span>
+                                            <span className='text-sm font-semibold text-left'> {item?.forModule?.title.slice(0, 30)}</span>
+
                                         </div>
 
                                     </div>
-                                    <div className="ml-2 flex text-[10px] text-gray-600">
-                                        <p className=' '>Company name </p>
-                                        <p className=''>{" "} - Vendors name</p>
-                                    </div>
+
                                 </div>
 
                             </button>
@@ -69,7 +67,24 @@ const Sidebar = ({ data, setCurrentModule }: { data: any, setCurrentModule: any 
                     }
 
 
+                    {!data &&
+                        <button
+                            className="flex flex-row items-center hover:bg-gray-100 rounded-xl p-2 border-b"
+                        >
 
+
+                            <div className="ml-2  ">
+                                <div>
+                                    <span className='text-sm font-semibold '> No Chat Available</span>
+
+                                </div>
+
+                            </div>
+
+
+
+                        </button>
+                    }
 
 
 
@@ -79,7 +94,7 @@ const Sidebar = ({ data, setCurrentModule }: { data: any, setCurrentModule: any 
 
             </div>
             {/* side bar end */}
-        </div>
+        </div >
     );
 };
 

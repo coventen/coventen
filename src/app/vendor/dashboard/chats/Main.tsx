@@ -26,7 +26,7 @@ query ModuleTickets($where: ModuleTicketWhere, $options: ModuleTicketOptions) {
 // component
 const Main = () => {
   //states
-  const [currentModule, setCurrentModule] = React.useState('');
+  const [currentModule, setCurrentModule] = React.useState<any>('');
   const [messages, setMessages] = React.useState<any>([]);
 
 
@@ -41,7 +41,7 @@ const Main = () => {
     client,
     variables: {
       where: {
-        clientHas: {
+        vendorHas: {
           userIs: {
             email: user?.email || 'no email'
           }
@@ -86,11 +86,11 @@ const Main = () => {
 
   // creating chat in firebase if not exist
   const getData = async () => {
-    const docRef = doc(db, "chats", currentModule);
+    const docRef = doc(db, "chats", currentModule.id);
     const docSnap = await getDoc(docRef);
 
     if (docSnap.exists()) {
-      const unsubscribe = onSnapshot(doc(db, "chats", currentModule), (doc) => {
+      const unsubscribe = onSnapshot(doc(db, "chats", currentModule.id), (doc) => {
 
         if (doc.exists()) {
           setMessages(doc.data().messages)
@@ -99,7 +99,7 @@ const Main = () => {
         return () => unsubscribe();
       });
     } else {
-      await setDoc(doc(db, "chats", currentModule), { messages: [] });
+      await setDoc(doc(db, "chats", currentModule.id), { messages: [] });
     }
 
   }

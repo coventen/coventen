@@ -49,7 +49,7 @@ export const defaultNavItems = [
             },
             {
                 label: "Chats",
-                href: "/desktopHome",
+                href: "/desktopHome/chats",
                 icon: <LuReplaceAll className="w-6 h-6" />,
             }
         ]
@@ -60,6 +60,11 @@ export const defaultNavItems = [
             {
                 label: "Projects",
                 href: "/desktopHome/projects",
+                icon: <LuTerminalSquare className="w-6 h-6" />,
+            },
+            {
+                label: "Samples",
+                href: "/desktopHome/sample",
                 icon: <LuTerminalSquare className="w-6 h-6" />,
             },
             {

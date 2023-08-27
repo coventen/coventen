@@ -10,7 +10,7 @@ import { toast } from 'react-hot-toast';
 interface IComplainModal {
     isOpen: boolean;
     setIsOpen: (value: boolean) => void;
-    addComplain: (complain: string) => void;
+    addComplain: (complain: string, status: string) => void;
 
 }
 
@@ -33,7 +33,7 @@ function ComplainModal({ isOpen, setIsOpen, addComplain }: IComplainModal) {
         e.preventDefault()
         const description = e.target.description.value
         if (description.length) {
-            addComplain(description)
+            addComplain(description, "COMPLAINED")
         }
     }
 

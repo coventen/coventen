@@ -1,12 +1,20 @@
 'use client'
 import { db } from '@/firebase/fireabase.config';
 import { currentUser } from '@/firebase/oauth.config';
+import HandleFileUpload from '@/shared/HandleFileUpload';
 import { Timestamp, arrayUnion, doc, updateDoc } from 'firebase/firestore';
-import React, { useState } from 'react';
-import { v4 as uuid } from 'uuid'
+import React, { useEffect, useRef, useState } from 'react';
+import { PhotoProvider, PhotoView } from 'react-photo-view';
+import 'react-photo-view/dist/react-photo-view.css';
+import { toast } from 'react-hot-toast';
+import { saveAs } from 'file-saver';
+import { v4 as uuidv4 } from 'uuid';
 interface Props {
     messages: any[];
-    currentModule: string;
+    currentModule: {
+        ticket: string;
+        id: string;
+    };
 }
 
 
@@ -15,11 +23,24 @@ const ChatBody = ({ messages, currentModule }: Props) => {
     //states
     const [onClose, setOnClose] = useState(false)
     const [text, setText] = useState('')
-    const [file, setFile] = useState<any>(null)
+    const [fileLinks, setFileLinks] = useState<any>('')
+    const [uploading, setUploading] = useState(false);
+
+    // refs
+    const latestMessageRef = useRef(null)
 
     //hooks
     const user = currentUser()
+    const { uploadFile } = HandleFileUpload()
 
+
+    // handling scroll to the latest message
+    useEffect(() => {
+        if (latestMessageRef.current) {
+            // @ts-ignore
+            latestMessageRef.current.scrollIntoView({ behavior: "smooth" })
+        }
+    }, [messages])
 
 
 
@@ -30,11 +51,12 @@ const ChatBody = ({ messages, currentModule }: Props) => {
         e.target.reset()
 
         if (text) {
-            await updateDoc(doc(db, "chats", currentModule), {
+            await updateDoc(doc(db, "chats", currentModule.id), {
                 messages: arrayUnion({
-                    id: uuid(),
+                    id: uuidv4(),
                     text,
                     senderId: user?.email,
+                    image: null,
                     date: Timestamp.now(),
                 })
             })
@@ -46,6 +68,49 @@ const ChatBody = ({ messages, currentModule }: Props) => {
 
 
 
+    // handling file upload
+    const handleUploadImage = async (e: any) => {
+        const files = e.target.files
+        const filesArray = Array.from(files);
+        console.log(filesArray, 'file array')
+        uploadFiles(filesArray as File[])
+    }
+
+
+    // upload files
+    const uploadFiles = async (files: File[]) => {
+        setUploading(true)
+        const filePromise = files.map(async (file) => {
+            const data = await uploadFile(file, `${file.name}-${uuidv4()}`, "ChatImages");
+            return data;
+
+        });
+        const fileLinks = await Promise.all(filePromise);
+        if (fileLinks.length) {
+            await updateDoc(doc(db, "chats", currentModule.id), {
+                messages: arrayUnion({
+                    id: uuidv4(),
+                    text: "",
+                    senderId: user?.email,
+                    image: fileLinks,
+                    date: Timestamp.now(),
+                })
+            })
+            setUploading(false)
+        } else {
+            setUploading(false)
+            toast.error("Error uploading image")
+        }
+
+    }
+
+    const handleDownload = (link: string, index: number) => {
+        console.log(link, index)
+        saveAs(link, 'image-' + index + '.png');
+    };
+
+
+
 
     return (
         <div className="flex flex-col flex-auto h-full px-6">
@@ -54,7 +119,7 @@ const ChatBody = ({ messages, currentModule }: Props) => {
             >
                 <div onClick={() => setOnClose(true)} className='bg-white shadow-sm px-4 py-5 rounded-lg flex items-center'>
                     <p className='bg-green-500 w-3 h-3 rounded-full mr-2'></p>
-                    <p className='font-bold'> Vendor Name</p>
+                    <p className='font-bold'> {currentModule?.ticket}</p>
 
                 </div>
                 {/* <Scrollbars style={{ width: 500, height: 300 }}>
@@ -65,24 +130,6 @@ const ChatBody = ({ messages, currentModule }: Props) => {
                     <div className="flex flex-col h-full ">
                         <div className="grid grid-cols-12 gap-y-2">
 
-                            <div className="col-start-1 col-end-8 p-3 rounded-lg">
-                                <div className="flex flex-row items-center">
-                                    <div
-                                        className="flex items-center justify-center h-10 w-10 rounded-full bg-indigo-500 flex-shrink-0"
-                                    >
-                                        A
-                                    </div>
-                                    <div
-                                        className="relative ml-3 text-sm bg-white py-2 px-4 shadow rounded-xl"
-                                    >
-                                        <div>
-                                            Lorem ipsum dolor sit amet, consectetur adipisicing
-                                            elit. Vel ipsa commodi illum saepe numquam maxime
-                                            asperiores voluptate sit, minima perspiciatis.
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
 
 
                             {
@@ -93,12 +140,29 @@ const ChatBody = ({ messages, currentModule }: Props) => {
                                             <div
                                                 className="flex items-center justify-center h-10 w-10 rounded-full bg-primary text-white font-bold flex-shrink-0"
                                             >
-                                                A
+                                                {user?.email?.slice(0, 1).toUpperCase()}
                                             </div>
                                             <div
+                                                ref={latestMessageRef}
                                                 className="relative mr-3 text-sm bg-indigo-100 py-2 px-4 shadow rounded-xl"
                                             >
-                                                <div>{message.text}</div>
+
+                                                {
+                                                    message?.image && message?.image?.map((image: any, i: number) => (
+
+
+                                                        <div key={i} onClick={() => handleDownload(image, i)}>
+                                                            <img src={image} alt="" className='' />
+                                                        </div>
+
+
+                                                    ))
+                                                }
+                                                {
+                                                    message.text && <div>{message.text}</div>
+                                                }
+
+
                                             </div>
                                         </div>
                                     </div>
@@ -106,6 +170,38 @@ const ChatBody = ({ messages, currentModule }: Props) => {
 
                                 )
                             }
+                            {
+                                uploading && (
+                                    <div className="col-start-6 col-end-13 p-3 rounded-lg">
+                                        <div className="flex items-center justify-start flex-row-reverse">
+                                            <div
+                                                className="flex items-center justify-center h-10 w-10 rounded-full bg-primary text-white font-bold flex-shrink-0"
+                                            >
+                                                {user?.email?.slice(0, 1).toUpperCase()}
+                                            </div>
+                                            <div
+
+                                                className="relative mr-3 text-sm bg-indigo-100 py-2 px-4 shadow rounded-xl"
+                                            >
+                                                <p>Uploading Image....</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                )
+                            }
+
+                            {
+                                !messages.length && (
+
+                                    <div className="col-start-6 col-end-13 p-3 rounded-lg flex items-center justify-center">
+                                        <p>
+                                            No messages yet
+                                        </p>
+                                    </div>
+
+                                )
+                            }
+
 
 
 

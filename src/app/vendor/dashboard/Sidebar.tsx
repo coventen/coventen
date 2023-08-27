@@ -1,34 +1,106 @@
 'use client'
 
 // components/Sidebar.tsx
-import React from "react";
+import React, { useEffect } from "react";
 import classNames from "classnames";
 import { HiChevronDoubleLeft, HiChevronDoubleRight } from 'react-icons/hi';
 import Image from "next/image";
 import Link from "next/link";
-import { NavItem, defaultNavItems } from "./NavItem";
-import { Scrollbar } from 'react-scrollbars-custom';
+import { NavItem, defaultNavItems } from './NavItem';
 import { usePathname } from 'next/navigation';
+import { useGqlClient } from "@/hooks/UseGqlClient";
+import { currentUser } from "@/firebase/oauth.config";
+import { useManualQuery } from "graphql-hooks";
+import UnAuthorized from "@/components/UnAuthorized";
 
 
 type Props = {
     collapsed: boolean;
-    navItems?: NavItem[];
     setCollapsed(collapsed: boolean): void;
 };
 
+const GET_USER = `
+query Users($where: UserWhere) {
+    users(where: $where){
+      user_type
+      hasRole {
+        permissions
+      }
+    }
+  }`
 
 
+
+
+
+
+// component
 const Sidebar = ({
     collapsed,
-    navItems = defaultNavItems,
     setCollapsed,
 }: Props) => {
 
+    // states
+    const [data, setData] = React.useState<any>(null)
+    const [loading, setLoading] = React.useState<boolean>(true)
+    const [filteredNavItems, setFilteredNavItems] = React.useState<NavItem[]>(defaultNavItems)
 
+    // HOOKS
+    const client = useGqlClient()
+    const user = currentUser();
+    const userEmail = user?.email
     const pathname = usePathname();
 
-    console.log(pathname)
+
+    //query
+    const [getUserFn, getUserState] = useManualQuery(GET_USER, { client })
+
+
+
+
+    useEffect(() => {
+        getUserData()
+        checkUserType()
+
+        console.log('useEffect')
+    }, [userEmail, data?.users?.length])
+
+
+
+    // checking user type
+
+    const checkUserType = () => {
+        setLoading(true)
+        if (data?.users?.length) {
+            if (data?.users[0]?.user_type != "SERVICE_PROVIDER" || data?.users[0]?.user_type != "LAB_ASSISTANT") {
+                setLoading(false)
+                return <UnAuthorized />
+            } else if (data?.users[0]?.user_type == "LAB_ASSISTANT") {
+
+                const filtered = defaultNavItems.filter((item) => item.label !== "Employees" && item.label !== "Approve Projects")
+
+            }
+        } else {
+            setLoading(false)
+        }
+    }
+
+    const getUserData = async () => {
+        const { data } = await getUserFn({
+            variables: {
+                where: {
+                    email: user?.email || 'no email'
+                }
+            }
+        })
+
+        if (data?.users?.length) {
+            setData(data)
+        }
+    }
+
+
+
 
 
 
@@ -76,7 +148,7 @@ const Sidebar = ({
                             "my-2 flex flex-col gap-2 items-stretch": true,
                         })}
                     >
-                        {navItems.map((item, index) => {
+                        {filteredNavItems.map((item, index) => {
                             return (
                                 <li
                                     key={index}

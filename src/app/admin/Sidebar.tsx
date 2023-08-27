@@ -7,7 +7,6 @@ import { HiChevronDoubleLeft, HiChevronDoubleRight } from 'react-icons/hi';
 import Image from "next/image";
 import Link from "next/link";
 import { NavItem, defaultNavItems } from "./NavItem";
-import { Scrollbar } from 'react-scrollbars-custom';
 import { usePathname } from 'next/navigation';
 import RestrictAdminRoute from "@/components/RestrictAdminRoute";
 import { useGqlClient } from "@/hooks/UseGqlClient";

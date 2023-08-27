@@ -215,7 +215,7 @@ const Main = () => {
 
 
 
-    if (loading) return <div><Loading /></div>
+
 
 
 
@@ -263,6 +263,10 @@ const Main = () => {
     if (moduleCount < 1) {
         setModuleCount(1)
     }
+
+
+
+    if (loading) return <div><Loading /></div>
 
     //render
     return (

@@ -32,7 +32,7 @@ query Users($where: UserWhere, $options: UserOptions) {
 
 
 
-function MultiSelect({ selectedUserType, selectedOptions, setSelectedOptions }: Props) {
+function UserSelect({ selectedUserType, selectedOptions, setSelectedOptions }: Props) {
 
     const [users, setUsers] = useState<any[]>([])
     const [isOpen, setIsOpen] = useState(false);
@@ -171,4 +171,4 @@ function MultiSelect({ selectedUserType, selectedOptions, setSelectedOptions }: 
     );
 }
 
-export default MultiSelect;
+export default UserSelect;

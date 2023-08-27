@@ -1,20 +1,21 @@
 'use client'
 
 import React, { useState, useCallback } from 'react';
-import UserSelect from './UserSelect';
 import { useGqlClient } from '@/hooks/UseGqlClient';
-import { useManualQuery, useMutation, useQuery } from 'graphql-hooks';
-import Editor from '@/components/Editor';
+import { useMutation } from 'graphql-hooks';
 import { EditorState, convertToRaw } from 'draft-js';
 import Loading from '@/app/loading';
-import { data } from 'autoprefixer';
 import { toast } from 'react-hot-toast';
 import { useRouter } from 'next/navigation';
 import HandleFileUpload from '@/shared/HandleFileUpload';
-import { HiOutlineTrash } from 'react-icons/hi';
-import FilePreview from '@/app/vendor/dashboard/projects/(components)/FilePreview';
-import Dropzone from 'react-dropzone';
 import { v4 as uuidv4 } from 'uuid';
+import Editor from '@/components/Editor';
+import Dropzone from 'react-dropzone';
+import FilePreview from '@/app/vendor/dashboard/projects/(components)/FilePreview';
+import { HiOutlineTrash } from 'react-icons/hi';
+import UserSelect from './UserSelect';
+
+
 
 
 
@@ -99,7 +100,6 @@ const Main = () => {
 
         }
         else if (selectedUserType === "SERVICE_PROVIDER") {
-            console.log(' ia ma inside the vendor')
             let { data } = await createCommunicationFn({
                 variables: {
                     input: [

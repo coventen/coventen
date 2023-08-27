@@ -56,8 +56,7 @@ const RestrictAdminRoute = ({ children, accessibleNavItems, setAccessibleNavItem
     }, [userEmail, data?.users?.length])
 
 
-    console.log(data?.users
-        , 'data', userEmail)
+
 
 
 

@@ -6,40 +6,80 @@ import Sidebar from './Sidebar';
 import ChatBody from './ChatBody';
 import { addDoc, collection, doc, getDoc, getDocs, onSnapshot, setDoc } from "firebase/firestore";
 import { db } from '@/firebase/fireabase.config';
-import { set } from 'react-hook-form';
+import { currentUser } from '@/firebase/oauth.config';
+import Loading from '@/app/loading';
+import Error from '@/components/Error';
+
+
 
 const GET_MODULE_TICKETS = `
-query ModuleTickets {
-    moduleTickets {
-      ticket
-      forModule {
-        title
-      }
+query ModuleTickets($where: ModuleTicketWhere, $options: ModuleTicketOptions) {
+  moduleTickets(where: $where, options: $options) {
+    ticket
+    forModule {
+      title
     }
   }
+}
 `
 
-
+// component
 const Main = () => {
   //states
   const [currentModule, setCurrentModule] = React.useState('');
   const [messages, setMessages] = React.useState<any>([]);
+
+
+
   //hooks 
   const client = useGqlClient();
+  const user = currentUser();
+
 
   // fetching data
-  const { data, loading, error } = useQuery(GET_MODULE_TICKETS, { client });
+  const { data, loading, error } = useQuery(GET_MODULE_TICKETS, {
+    client,
+    variables: {
+      where: {
+
+        clientHas: {
+          userIs: {
+            email: user?.email || 'no email'
+          }
+        }
+      },
+      options: {
+        sort: [
+          {
+            createdAt: "DESC"
+          }
+        ]
+      }
+
+    }
+  });
 
 
+  console.log(messages)
+
+
+
+  // setting  the latest module as current module
+  useEffect(() => {
+    if (data?.moduleTickets) {
+      setCurrentModule(data?.moduleTickets[0]?.ticket)
+    }
+
+  }, [data?.moduleTickets]);
+
+
+  // getting data based on current module
   useEffect(() => {
 
     if (currentModule) {
-      console.log(currentModule, 'this is current module')
       getData()
     }
   }, [currentModule]);
-
-
 
 
 
@@ -51,11 +91,9 @@ const Main = () => {
     const docSnap = await getDoc(docRef);
 
     if (docSnap.exists()) {
-      console.log("Document data:3", docSnap.data());
       const unsubscribe = onSnapshot(doc(db, "chats", currentModule), (doc) => {
 
         if (doc.exists()) {
-          console.log("Current data: 54646", doc.data().messages);
           setMessages(doc.data().messages)
         }
 
@@ -65,17 +103,18 @@ const Main = () => {
       await setDoc(doc(db, "chats", currentModule), { messages: [] });
     }
 
-
-    // try {
-
-    //   const res = await getDocs(collection(db, "chats", "NSu0LN5Xup8XWJTni3Qx"));
-
-    //   console.log(res, 'this i sressssssssssss')
-
-    // } catch (error) {
-    //   console.log(error);
-    // }
   }
+
+
+
+
+
+
+
+
+  if (loading) return <Loading />;
+
+  if (error) return <Error />
 
   return (
     <>

@@ -6,7 +6,7 @@ const Sidebar = ({ data, setCurrentModule }: { data: any, setCurrentModule: any 
         <div className="flex flex-col py-8 pl-6 pr-2 w-80 rounded-lg bg-white flex-shrink-0">
             <div className="flex flex-row items-center  h-12 w-full">
                 <div
-                    className="flex items-center justify-center rounded-2xl text-primary bg-primary/30 h-10 w-10"
+                    className="flex items-center justify-center rounded-2xl text-desktopPrimary bg-deskttext-desktopPrimary/30 h-10 w-10"
                 >
                     <svg
                         className="w-6 h-6"
@@ -23,18 +23,12 @@ const Sidebar = ({ data, setCurrentModule }: { data: any, setCurrentModule: any 
                         ></path>
                     </svg>
                 </div>
-                <div className="ml-2 font-bold text-2xl">All Tickets</div>
+                <div className="ml-2 font-bold text-2xl text-desktopPrimary">All Tickets</div>
             </div>
 
 
             <div className="flex flex-col mt-8 max-h-screen overflow-hidden">
-                <div className="flex flex-row items-center justify-between text-xs">
-                    <span className="font-bold">All Conversations</span>
-                    <span
-                        className="flex items-center justify-center bg-gray-300 h-4 w-4 rounded-full"
-                    >{data?.length}</span
-                    >
-                </div>
+
                 <div className="flex flex-col max-h-screen space-y-1 mt-4 -mx-2 h-full overflow-y-auto scrollbar-thumb-blue scrollbar-thumb-rounded scrollbar-track-blue-lighter scrollbar-w-2 scrolling-touch">
 
 
@@ -48,7 +42,7 @@ const Sidebar = ({ data, setCurrentModule }: { data: any, setCurrentModule: any 
                                 <div>
 
                                     <div className="ml-2  ">
-                                        <p className='text-primary  text-sm text-left'>#{item.ticket}</p>
+                                        <p className='text-desktopPrimary text-md text-left'>#{item.ticket}</p>
                                         <div>
                                             <span className='text-sm font-semibold text-left'> {item?.forModule?.title.slice(0, 30)}</span>
 

@@ -21,11 +21,6 @@ const GetLeads = async (where:any = {}, options: any = {})=> {
               variables: {
                 where: where,
                 options: options
-              },
-              context: {
-                fetchOptions: {
-                  next: { revalidate: 10 },
-                },
               }
         })
     })
