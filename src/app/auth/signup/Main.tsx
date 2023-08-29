@@ -105,6 +105,10 @@ const Main = () => {
                         email: email
                     }
                 }
+            } else {
+                setLoading(false)
+                toast.success('Account created successfully')
+                router.push('/')
             }
 
             // updating user

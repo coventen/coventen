@@ -11,7 +11,7 @@ import { NavItem, defaultNavItems } from "./NavItem";
 
 type Props = {
     collapsed: boolean;
-    navItems?: NavItem[];
+    navItems?: any;
     setCollapsed(collapsed: boolean): void;
 };
 
@@ -61,7 +61,7 @@ const Sidebar = ({
                 {/* nav items part */}
                 <nav className="flex-grow">
                     {
-                        navItems.map((item, index) =>
+                        navItems.map((item: any, index: number) =>
 
                             <div key={index}>
                                 <p className={classNames({
@@ -75,7 +75,7 @@ const Sidebar = ({
                                         "my-2 flex flex-col gap-2 items-stretch": true,
                                     })}
                                 >
-                                    {item.links.map((item, index) => {
+                                    {item.links.map((item: any, index: number) => {
                                         return (
                                             <li
                                                 key={index}

@@ -30,8 +30,8 @@ interface INotification {
 
 //query for getting notification data
 const GET_NOTIFICATION = `
-query Notifications($where: NotificationWhere) {
-    notifications(where: $where) {
+query Notifications($where: NotificationWhere, $options: NotificationOptions) {
+    notifications(where: $where, options: $options) {
       id
       image
       title
@@ -69,6 +69,13 @@ const PersonalizeNotification = ({ newNotification }: INotificationTab) => {
             where: {
                 type_IN: ["CLIENT", "VENDOR"]
             }
+        },
+        options: {
+            sort: [
+                {
+                    createdAt: "DESC"
+                }
+            ]
         }
     });
 

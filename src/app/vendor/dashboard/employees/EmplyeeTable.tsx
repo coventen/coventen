@@ -51,33 +51,33 @@ const EmployeeTable = ({ employeeList, updateEmployeeStatus }: IRolesPeopleTable
                         )
                     }
                     {employeeList?.length && employeeList?.map((item: any, i: number) => (
-                        <tr key={i} className="border-b border-gray-200">
+                        <tr key={item.userHas.id} className="border-b border-gray-200">
                             <td className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                 {i + 1}
                             </td>
                             <td className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                {item.name}
+                                {item.userHas.name}
                             </td>
                             <td className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                {item.email}
+                                {item.userHas.email}
                             </td>
                             <td className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                 <div className="flex justify-center space-x-4">
                                     {
-                                        item.status === "PENDING" ?
+                                        item.userHas.status === "PENDING" ?
                                             <>
-                                                <button onClick={(e) => handleStatusChange(item.id, "APPROVED")} className="text-green-700 bg-green-200 px-3 py-2 rounded-md">
+                                                <button onClick={(e) => handleStatusChange(item.userHas.id, "APPROVED")} className="text-green-700 bg-green-200 px-3 py-2 rounded-md">
                                                     Approve
                                                 </button>
                                                 <button className="text-red-700 bg-red-300 px-3 py-2 rounded-md">
                                                     Reject
                                                 </button>
                                             </>
-                                            : item.status === "APPROVED" ?
+                                            : item.userHas.status === "APPROVED" ?
                                                 <button disabled className="text-green-700 bg-green-200 px-3 py-2 rounded-md">
                                                     Approved
                                                 </button> :
-                                                item.status === "REJECTED" ?
+                                                item.userHas.status === "REJECTED" ?
                                                     <button disabled className="text-red-700 bg-red-300 px-3 py-2 rounded-md">
                                                         Rejected
                                                     </button>

@@ -28,8 +28,8 @@ interface INotification {
 
 //query for getting notification data
 const GET_NOTIFICATION = `
-query Notifications($where: NotificationWhere) {
-    notifications(where: $where) {
+query Notifications($where: NotificationWhere, $options: NotificationOptions) {
+    notifications(where: $where, options: $options) {
       id
       image
       title
@@ -68,6 +68,13 @@ const GenarelNotification = ({ newNotification }: INotificationTab) => {
             where: {
                 type: 'GENERAL'
             }
+        },
+        options: {
+            sort: [
+                {
+                    createdAt: "DESC"
+                }
+            ]
         }
     });
 

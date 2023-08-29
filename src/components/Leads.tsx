@@ -71,6 +71,8 @@ const Leads = () => {
                         email: email,
                         phone: phone,
                         industry: selectedIndustry,
+                        createdAt: new Date().toISOString(),
+                        message: message
                     }
                 ]
             }
@@ -95,13 +97,13 @@ const Leads = () => {
     // render   
     return (
         <div className="fixed top-52 right-0  hidden lg:block z-[999999999999999999999999999] overflow-hidden">
-            <div className={`transition-all duration-500 transform ${isLeadFromOpen ? 'translate-x-0' : 'translate-x-[90%]'
+            <div className={`transition-all duration-500 transform ${isLeadFromOpen ? 'translate-x-0' : 'translate-x-[93%]'
                 } `}>
                 <div className="flex  ">
-                    <button onClick={() => setIsLeadFromOpen(!isLeadFromOpen)} className="bg-primary text-white text-4xl rounded-sm hidden lg:block h-16 px-3 py-2">
+                    <button onClick={() => setIsLeadFromOpen(!isLeadFromOpen)} className="bg-primary text-white text-4xl rounded-sm hidden lg:block h-28 ">
 
                         {
-                            isLeadFromOpen ? <HiChevronRight /> : <HiChevronLeft />
+                            isLeadFromOpen ? <HiChevronRight /> : <p className='text-[10px] font-bold' style={{ textOrientation: "upright", writingMode: 'vertical-lr' }}>INQUIRY</p>
                         }
 
 
@@ -110,7 +112,7 @@ const Leads = () => {
                         <div className="flex  ">
                             <div className="m-auto">
                                 <div>
-                                    <form onSubmit={handleSubmit} className=" bg-white  shadow-lg ">
+                                    <form onSubmit={handleSubmit} className=" bg-white border border-gray-200 shadow-lg ">
                                         <div className="flex">
                                             <div className="flex-1 py-5 pl-5 text-primaryText overflow-hidden flex items-center  space-x-3">
                                                 <HiOutlineCalendar size={25} />

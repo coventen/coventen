@@ -1,9 +1,12 @@
 'use client'
 import { logInWithEmailAndPassword } from '@/firebase/oauth.config';
+import { useGqlClient } from '@/hooks/UseGqlClient';
+import { useMutation } from 'graphql-hooks';
 import { useRouter } from 'next/navigation';
 import React, { useState } from 'react';
 import { useForm, SubmitHandler } from "react-hook-form"
 import { toast } from 'react-hot-toast';
+import Cookies from 'js-cookie';
 
 
 
@@ -11,7 +14,11 @@ interface IFormInput {
     email: string;
     password: string;
 }
-
+const GET_TOKEN = `
+mutation SignIn($email: String!) {
+    signIn(email: $email)
+  }
+`
 
 
 
@@ -24,6 +31,7 @@ const LoginFrom = () => {
 
     // hooks
     const router = useRouter()
+    const client = useGqlClient()
     const {
         register,
         handleSubmit,
@@ -32,16 +40,35 @@ const LoginFrom = () => {
     } = useForm<IFormInput>()
 
 
+    // query to get token
+    const [getTokenFn, state] = useMutation(GET_TOKEN, { client });
+
+
 
     // handle authentication
     const handleAuthentication: SubmitHandler<IFormInput> = async (data) => {
         setLoading(true)
         try {
-            const newUser = await logInWithEmailAndPassword(data.email, data.password);
+            const newUser = await logInWithEmailAndPassword(data?.email, data?.password);
             if (newUser.uid) {
-                setLoading(false)
-                toast.success('Login Successful')
-                router.push('/')
+
+                const { data: tokenData } = await getTokenFn({
+                    variables: {
+                        email: data?.email
+                    }
+                })
+                if (tokenData.signIn) {
+                    // saving token to cookie
+                    Cookies.set('conventenToken', tokenData.signIn)
+                    setLoading(false)
+                    toast.success('Login Successful')
+                    router.push('/')
+                } else {
+                    setError('User Not Found')
+                    setLoading(false)
+                }
+
+
             }
         } catch (error: any) {
             setError(error.message)

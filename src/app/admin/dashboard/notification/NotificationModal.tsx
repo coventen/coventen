@@ -5,6 +5,7 @@ import { Dialog, Transition } from '@headlessui/react';
 import { useGqlClient } from '@/hooks/UseGqlClient';
 import { useMutation } from 'graphql-hooks';
 import { toast } from 'react-hot-toast';
+import HandleFileUpload from '@/shared/HandleFileUpload';
 
 //props interface
 interface INotificationModal {
@@ -36,8 +37,11 @@ function NotificationModal({ isOpen, setIsOpen, setNewNotification }: INotificat
     const [image, setImage] = useState(null);
     const [selectedOption, setSelectedOption] = useState('GENAREL');
 
-    // GraphQL Client
+    // hooks
     const client = useGqlClient()
+    const { uploadFile } = HandleFileUpload()
+
+
     // GraphQL Mutations for creating notification
     const [createNotification, state, resetFn] = useMutation(CREATE_NOTIFICATION, { client })
 
@@ -70,6 +74,9 @@ function NotificationModal({ isOpen, setIsOpen, setNewNotification }: INotificat
         const title = event.target.title.value;
         const description = event.target.description.value;
         const userType = event.target.userType.value;
+        const image = event.target.image.files[0];
+        const imageUrl = await handleImageUpload(image);
+
         const date = new Date();
         let isoDate = date.toISOString();
 
@@ -80,6 +87,7 @@ function NotificationModal({ isOpen, setIsOpen, setNewNotification }: INotificat
                         title: title,
                         description: description,
                         type: userType,
+                        image: imageUrl,
                         createdAt: isoDate,
                     }
                 ]
@@ -95,10 +103,13 @@ function NotificationModal({ isOpen, setIsOpen, setNewNotification }: INotificat
 
 
     //handle image upload to firebase
-    function handleImageUpload(event: any) {
-        const file = event.target.files[0];
-        setImage(file);
+    async function handleImageUpload(file: any) {
+        const res = await uploadFile(file, `${file.name}-${uuidv4()}`, "notification_images");
+        return res;
     }
+
+
+
 
 
     //render
@@ -203,6 +214,14 @@ function NotificationModal({ isOpen, setIsOpen, setNewNotification }: INotificat
                                         )
                                     }
 
+
+                                    <div className="mb-5">
+                                        <div>
+                                            <label htmlFor="image" className="block  text-gray-700 text-sm mb-1">Image</label>
+
+                                            <input type="file" name='image' className="mt-1 px-4 py-2 border border-gray-200 rounded-md w-full" accept="image/*" />
+                                        </div>
+                                    </div>
                                     <div className="mb-5">
                                         <label htmlFor="description" className="block  text-gray-700 text-sm mb-1">
                                             Description

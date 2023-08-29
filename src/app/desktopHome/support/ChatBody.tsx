@@ -11,11 +11,12 @@ import { saveAs } from 'file-saver';
 import { v4 as uuidv4 } from 'uuid';
 interface Props {
     messages: any[];
-    currentModule: string;
+    supportTicket: string;
+    handleSupportTicket: () => void;
 }
 
 
-const ChatBody = ({ messages, currentModule }: Props) => {
+const ChatBody = ({ messages, supportTicket, handleSupportTicket }: Props) => {
 
     //states
     const [onClose, setOnClose] = useState(false)
@@ -48,7 +49,8 @@ const ChatBody = ({ messages, currentModule }: Props) => {
         e.target.reset()
 
         if (text) {
-            await updateDoc(doc(db, "chats", currentModule), {
+            await handleSupportTicket()
+            await updateDoc(doc(db, "support", supportTicket), {
                 messages: arrayUnion({
                     id: uuidv4(),
                     text,
@@ -78,13 +80,14 @@ const ChatBody = ({ messages, currentModule }: Props) => {
     const uploadFiles = async (files: File[]) => {
         setUploading(true)
         const filePromise = files.map(async (file) => {
-            const data = await uploadFile(file, `${file.name}-${uuidv4()}`, "ChatImages");
+            const data = await uploadFile(file, `support-${uuidv4()}`, "support_Images");
             return data;
 
         });
         const fileLinks = await Promise.all(filePromise);
         if (fileLinks.length) {
-            await updateDoc(doc(db, "chats", currentModule), {
+            await handleSupportTicket()
+            await updateDoc(doc(db, "chats", supportTicket), {
                 messages: arrayUnion({
                     id: uuidv4(),
                     text: "",
@@ -110,17 +113,17 @@ const ChatBody = ({ messages, currentModule }: Props) => {
 
 
     return (
-        <div className="flex flex-col flex-auto h-full px-4 ml-6 shadow-md bg-white pb-2 rounded-lg border border-gray-100">
+        <div className="flex flex-col flex-auto h-full  ml-6 shadow-md bg-white pb-2 rounded-lg border border-gray-100">
             <div
                 className="flex flex-col flex-auto flex-shrink-0  bg-white h-full "
             >
-                <div className='bg-white shadow-sm px-4 py-5 rounded-lg flex items-center'>
+                <div className='bg-desktopBgLight px-5 shadow-sm  py-5  flex items-center'>
                     <p className='bg-green-500 w-3 h-3 rounded-full mr-2'></p>
-                    <p className='font-bold'> {user?.email}</p>
+                    <p className='font-bold text-desktopPrimary'> {user?.email}</p>
 
                 </div>
 
-                <div className="flex flex-col h-full overflow-y-auto scrollbar-thumb-blue scrollbar-thumb-rounded scrollbar-track-blue-lighter scrollbar-w-2 scrolling-touch mb-4  p-4">
+                <div className="flex flex-col px-5 h-full overflow-y-auto scrollbar-thumb-blue scrollbar-thumb-rounded scrollbar-track-blue-lighter scrollbar-w-2 scrolling-touch mb-4  p-4">
 
                     <div className="flex flex-col h-full ">
                         <div className="grid grid-cols-12 gap-y-2">
@@ -130,10 +133,10 @@ const ChatBody = ({ messages, currentModule }: Props) => {
                             {
                                 messages.map((message: any) =>
 
-                                    <div key={message?.id} className={`${message?.senderId == user?.email ? "col-start-6 " : "col-start-1"}  col-end-13 p-3 rounded-lg`}>
+                                    <div key={message?.id} className="col-start-6 col-end-13 p-3 rounded-lg">
                                         <div className="flex items-center justify-start flex-row-reverse">
                                             <div
-                                                className="flex items-center justify-center h-10 w-10 rounded-full bg-primary text-white font-bold flex-shrink-0"
+                                                className="flex items-center justify-center h-10 w-10 rounded-full bg-desktopPrimary text-white font-bold flex-shrink-0"
                                             >
                                                 {message?.senderId?.slice(0, 1).toUpperCase()}
                                             </div>
@@ -210,11 +213,7 @@ const ChatBody = ({ messages, currentModule }: Props) => {
 
                         <input onChange={(e) => setText(e.target.value)} type="text" placeholder="Write your message!" className="w-full outline-none focus:outline-none focus:border-none focus:ring-0 text-gray-600 placeholder-gray-600 pl-12 bg-primary/20 border-none shadow-md rounded-md py-3" />
                         <div className="absolute right-0 items-center inset-y-0 pr-5 hidden sm:flex ">
-                            <button type="button" className="inline-flex items-center justify-center rounded-full h-10 w-10 transition duration-500 ease-in-out text-gray-500 hover:bg-gray-300 focus:outline-none">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="h-6 w-6 text-gray-600">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13"></path>
-                                </svg>
-                            </button>
+
                             <div>
 
 

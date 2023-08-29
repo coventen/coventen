@@ -19,6 +19,7 @@ const InvoiceTable = ({ data, deleteInvoice }: ITableItem) => {
                 <tr>
                     <th className="py-3 pr-6">Serial No.</th>
                     <th className="py-3 pr-6">Invoice Id</th>
+                    <th className="py-3 pr-6">Status</th>
                     <th className="py-3 pr-6">Price</th>
                     <th className="py-3 pr-6 text-right">Action</th>
                 </tr>
@@ -30,6 +31,9 @@ const InvoiceTable = ({ data, deleteInvoice }: ITableItem) => {
                             <td className="pr-6 py-4 whitespace-nowrap">{idx + 1}</td>
                             <td className="pr-6 py-4 whitespace-nowrap">
                                 {item.id}
+                            </td>
+                            <td className="pr-6 py-4 whitespace-nowrap">
+                                {item.status}
                             </td>
                             <td className="pr-6 py-4 whitespace-nowrap">{item.totalPrice || 0}</td>
                             <td className="text-right whitespace-nowrap space-x-3">

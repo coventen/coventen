@@ -7,13 +7,17 @@ import { toast } from 'react-hot-toast';
 import EmployeeTable from './EmplyeeTable';
 import { currentUser } from '@/firebase/oauth.config';
 import { getEmployerEmail } from '@/shared/getEmployerEmail';
+import Error from '@/components/Error';
 
 const GET_EMPLOYEES = `
-query Users($where: UserWhere, $options: UserOptions) {
-    users(where: $where, options: $options) {
-      name
-      email
-      status
+query Employees($where: EmployeeWhere, $options: UserOptions) {
+    employees(where: $where) {
+      userHas(options: $options) {
+        id
+        name
+        email
+        status
+      }
     }
   }
 `
@@ -63,26 +67,30 @@ const Main = () => {
 
         let where
         if (searchQuery) {
-            where = {
-                user_type: "LAB_ASSISTANT",
-                hasEmployee: {
-                    employerEmail: labEmail || "no email"
-                },
-                OR: [
-                    {
-                        email: searchQuery.toLowerCase(),
+            where =
 
-                    },
-                    {
-                        name: searchQuery.toLowerCase()
-                    }
-                ]
+            {
+                employerEmail: labEmail || "no email",
+                userHas: {
+                    user_type: "LAB_ASSISTANT",
+                    OR: [
+                        {
+                            email: searchQuery.toLowerCase(),
+
+                        },
+                        {
+                            name: searchQuery.toLowerCase()
+                        }
+                    ]
+                }
             }
+
         } else {
             where = {
-                user_type: "LAB_ASSISTANT",
-                hasEmployee: {
-                    employerEmail: labEmail || "no email"
+
+                employerEmail: labEmail || "no email",
+                userHas: {
+                    user_type: "LAB_ASSISTANT",
                 }
             }
         }
@@ -110,6 +118,7 @@ const Main = () => {
 
     }
 
+    console.log(labEmail, 'lab email', user?.email)
 
 
     // initializing query and mutations
@@ -119,16 +128,16 @@ const Main = () => {
         const { data } = await getEmployeeFn({
             variables: {
                 where: {
-                    user_type: "LAB_ASSISTANT",
-                    hasEmployee: {
-                        employerEmail: labEmail || "no email"
+                    employerEmail: labEmail || "no email",
+                    userHas: {
+                        user_type: "LAB_ASSISTANT",
                     }
                 }
             }
         })
-        if (data?.users?.length) {
-            setTotalEmployee(data?.users?.length)
-            setTotalPages(Math.ceil(data?.users?.length / pageLimit))
+        if (data?.employees?.length) {
+            setTotalEmployee(data?.employees?.length)
+            setTotalPages(Math.ceil(data?.employees?.length / pageLimit))
         }
 
     }
@@ -148,8 +157,8 @@ const Main = () => {
                 }
             }
         })
-        if (data?.users?.length) {
-            setEmployeeData(data?.users)
+        if (data?.employees?.length) {
+            setEmployeeData(data?.employees)
         }
     }
 
@@ -171,9 +180,9 @@ const Main = () => {
             toast.success("Employee status updated successfully")
             // refetching data
             getEmployeeData({
-                user_type: "LAB_ASSISTANT",
-                hasEmployee: {
-                    employerEmail: labEmail || "no email"
+                employerEmail: labEmail || "no email",
+                userHas: {
+                    user_type: "LAB_ASSISTANT",
                 }
             })
         }
@@ -185,6 +194,8 @@ const Main = () => {
 
 
     if (EmployeeDataState.loading || updateEmployeeState.loading) return <Loading />
+    if (EmployeeDataState.error || updateEmployeeState.error) return <Error />
+    console.log(EmployeeDataState.error)
 
     return (
         <>

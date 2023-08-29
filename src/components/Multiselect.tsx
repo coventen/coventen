@@ -5,7 +5,7 @@ import { Transition } from '@headlessui/react';
 import { HiCheck, HiSelector } from 'react-icons/hi';
 
 interface Option {
-    id: number;
+    id: number | string;
     name: string;
     description?: string;
 }

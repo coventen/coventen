@@ -70,6 +70,7 @@ const Main = () => {
                         priceWithTax: totalPriceWithTax,
                         taxRate: taxRate,
                         sentBy: "ADMIN",
+                        status: "SENT",
                         taxType: invoiceData.taxType,
                         createdAt: new Date().toISOString(),
                         hasClient: {

@@ -1,7 +1,7 @@
 'use client'
 import React from 'react';
 
-const Sidebar = ({ data, setCurrentModule }: { data: any, setCurrentModule: any }) => {
+const Sidebar = ({ data, setCurrentSupportTicket }: { data: any, setCurrentSupportTicket: any }) => {
     return (
         <div className="flex flex-col py-8 pl-6 pr-2 w-80 rounded-lg bg-white flex-shrink-0">
             <div className="flex flex-row items-center  h-12 w-full">
@@ -41,7 +41,7 @@ const Sidebar = ({ data, setCurrentModule }: { data: any, setCurrentModule: any 
                     {
                         data && data?.map((item: any) =>
 
-                            <button onClick={() => setCurrentModule({
+                            <button onClick={() => setCurrentSupportTicket({
                                 ticket: item.ticket,
                                 id: item.id,
                             })} key={data.id}
@@ -50,12 +50,10 @@ const Sidebar = ({ data, setCurrentModule }: { data: any, setCurrentModule: any 
 
                                 <div>
 
-                                    <div className="ml-2  ">
-                                        <p className='text-primary  text-sm text-left'>#{item.ticket}</p>
-                                        <div>
-                                            <span className='text-sm font-semibold text-left'> {item?.forModule?.title.slice(0, 30)}</span>
+                                    <div className="  ">
+                                        <p className='text-primaryText font-semibold  text-xs text-left'>Ticket Id:</p>
+                                        <p className='text-primary  text-xs text-left'>#{item.ticket}</p>
 
-                                        </div>
 
                                     </div>
 

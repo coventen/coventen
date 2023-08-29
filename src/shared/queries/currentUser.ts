@@ -1,12 +1,18 @@
 import { currentUser } from "@/firebase/oauth.config"
+import Cookies from "js-cookie";
 
 const GetCurrentUserDetails = async () => {
 
     const user = currentUser()
 
+    const token = Cookies.get('conventenToken');
+
     const res = fetch('http://localhost:4000/', {
         method: 'POST',
-        headers: {'Content-Type': 'application/json'},
+        headers: {
+            "authorization": `Bearer ${token}`,
+            'Content-Type': 'application/json'
+        },
         body: JSON.stringify({
             query: `query Users($where: UserWhere) {
                 users(where: $where) {

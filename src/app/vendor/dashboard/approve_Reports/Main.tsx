@@ -9,7 +9,7 @@ import { useMutation } from 'graphql-hooks';
 import { toast } from 'react-hot-toast';
 import ComplainModal from './ComplainModal';
 import Pagination from '@/components/Pagination';
-import { getEmployerEmail } from '@/shared/getEmployerEmail';
+import Error from '@/components/Error';
 
 
 
@@ -34,7 +34,6 @@ const Main = () => {
     const [reset, setReset] = useState(false)
     const [loading, setLoading] = useState(false)
     const [isOpen, setIsOpen] = useState(false)
-    const [labEmail, setLabEmail] = useState('')
     const [isViewModalOpen, setIsViewModalOpen] = useState(false)
     // pagination states
     const [pageLimit, setPageLimit] = useState(10)
@@ -56,22 +55,13 @@ const Main = () => {
 
     // fetching module data
     useEffect(() => {
-        getLabEmail()
         getModulesData()
         getTotalModulesCount()
-    }, [currentPage, user?.email, labEmail]);
+    }, [currentPage, user?.email]);
 
 
 
-    // getting lab email if employee is logged in
-    const getLabEmail = async () => {
-        if (user?.email) {
-            const email = await getEmployerEmail(user?.email)
-            setLabEmail(email)
-        }
 
-
-    }
 
     // get module data
     const getModulesData = async () => {
@@ -80,7 +70,7 @@ const Main = () => {
         const where = {
             vendorHas: {
                 userIs: {
-                    email: labEmail || 'no email'
+                    email: user?.email || 'no email'
                 }
             },
             status: "UNDER_REVIEW"
@@ -107,7 +97,7 @@ const Main = () => {
         const where = {
             vendorHas: {
                 userIs: {
-                    email: labEmail || 'no email'
+                    email: user?.email || 'no email'
                 }
             },
             status: "UNDER_REVIEW"
@@ -176,6 +166,7 @@ const Main = () => {
 
 
     if (loading || updateStatus.loading) return <Loading />
+    if (updateStatus.error) return <Error />
 
     return (
         <>

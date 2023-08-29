@@ -1,12 +1,18 @@
 import { useGqlClient } from "@/hooks/UseGqlClient"
+import Cookies from "js-cookie";
 
 
 
 const GetLeads = async (where:any = {}, options: any = {})=> {
 
-    const res = fetch('http://localhost:4000/', {
-        method: 'POST',
-        headers: {'Content-Type': 'application/json'},
+  const token = Cookies.get('conventenToken');
+
+  const res = fetch('http://localhost:4000/', {
+      method: 'POST',
+      headers: {
+          "authorization": `Bearer ${token}`,
+          'Content-Type': 'application/json'
+      },
         body: JSON.stringify({
             query: `query Query($where: LeadsWhere, $options: LeadsOptions) {
                 leads(where: $where, options: $options) {

@@ -1,11 +1,16 @@
 import React from 'react';
 import MessageContent from './MessageContent';
+import Cookies from 'js-cookie';
 
 const getMessageDetails = async (id: string) => {
+    const token = Cookies.get('conventenToken');
 
     const res = fetch('http://localhost:4000/', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+            "authorization": `Bearer ${token}`,
+            'Content-Type': 'application/json'
+        },
         body: JSON.stringify({
             query: `query CommunicationTickets($where: CommunicationTicketWhere) {
                 communicationTickets(where: $where) {

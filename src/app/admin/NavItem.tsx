@@ -1,7 +1,7 @@
 // components/defaultNavItems.tsx
 import React from "react";
 
-import { LuAppWindow, LuCalculator, LuBellRing, LuUser, LuShieldCheck, LuReplaceAll, LuSchool2, LuQrCode, LuHeadphones, LuMessagesSquare, LuBookKey } from "react-icons/lu";
+import { LuAppWindow, LuCalculator, LuBellRing, LuUser, LuShieldCheck, LuReplaceAll, LuSchool2, LuQrCode, LuHeadphones, LuMessagesSquare, LuBookKey, LuCopySlash } from "react-icons/lu";
 // define a NavItem prop
 
 export type NavItem = {
@@ -11,66 +11,97 @@ export type NavItem = {
 };
 
 
+export const defaultNavItems = [
+    {
+        section: "General",
+        links: [
+            {
+                label: "Dashboard",
+                href: "/admin/dashboard",
+                icon: <LuAppWindow className="" />,
+            },
+            {
+                label: "Profile",
+                href: "/desktopHome/profile",
+                icon: <LuUser />,
+            },
+            {
+                label: "Notifications",
+                href: "/admin/dashboard/notification",
+                icon: <LuBellRing className="" />,
+            },
+        ]
+    },
+]
 
 
 
-
-export const defaultNavItems: NavItem[] = [
-    {
-        label: "Dashboard",
-        href: "/admin/dashboard",
-        icon: <LuAppWindow className="" />,
-    },
+export const controlledNavItems = [
 
     {
-        label: "Users",
-        href: "/admin/dashboard/users",
-        icon: <LuUser className="" />,
+        section: "Communication",
+        links: [
+            {
+                label: "Internal Email",
+                href: "/admin/dashboard/internal_email",
+                icon: <LuCopySlash />,
+            },
+            {
+                label: "Ongoing Chats",
+                href: "/admin/dashboard/ticket_system/chats",
+                icon: <LuMessagesSquare className="" />,
+            }
+        ]
     },
     {
-        label: "Notifications",
-        href: "/admin/dashboard/notification",
-        icon: <LuBellRing className="" />,
-    },
-    {
-        label: "Vendors",
-        href: "/admin/dashboard/vendor",
-        icon: <LuSchool2 className="" />,
-    },
-    {
-        label: "Assignments",
-        href: "/admin/dashboard/assignment",
-        icon: <LuReplaceAll className="" />,
-    },
-    {
-        label: "Logs",
-        href: "/admin/dashboard/logs",
-        icon: <LuQrCode className="" />,
-    },
-    {
-        label: "Roles",
-        href: "/admin/dashboard/roles",
-        icon: <LuShieldCheck className="" />,
-    },
-    {
-        label: "Estimation",
-        href: "/admin/dashboard/invoice",
-        icon: <LuCalculator className="" />,
-    },
-    {
-        label: "All Tickets",
-        href: "/admin/dashboard/ticket_system/all_tickets",
-        icon: <LuBookKey className="" />,
-    },
-    {
-        label: "Ongoing Chats",
-        href: "/admin/dashboard/ticket_system/chats",
-        icon: <LuMessagesSquare className="" />,
-    },
+        section: "Services Management",
+        links: [
+            {
+                label: "Estimation",
+                href: "/admin/dashboard/invoice",
+                icon: <LuCalculator className="" />,
+            },
+            {
+                label: "Assignments",
+                href: "/admin/dashboard/assignment",
+                icon: <LuReplaceAll className="" />,
+            },
 
-    {
-        label: "Support",
-        href: "/admin/dashboard/support/",
-        icon: <LuHeadphones className="" />,
+            {
+                label: "All Tickets",
+                href: "/admin/dashboard/ticket_system/all_tickets",
+                icon: <LuBookKey className="" />,
+            },
+        ]
     },
-];
+    {
+        section: "User Management",
+        links: [
+            {
+                label: "Leads",
+                href: "/admin/dashboard/leads",
+                icon: <LuUser className="" />,
+            },
+            {
+                label: "Users",
+                href: "/admin/dashboard/users",
+                icon: <LuUser className="" />,
+            },
+            {
+                label: "Vendors",
+                href: "/admin/dashboard/vendor",
+                icon: <LuSchool2 className="" />,
+            },
+            {
+                label: "Roles",
+                href: "/admin/dashboard/roles",
+                icon: <LuShieldCheck className="" />,
+            },
+            {
+                label: "Support",
+                href: "/admin/dashboard/support/",
+                icon: <LuHeadphones className="" />,
+            },
+        ]
+    },
+]

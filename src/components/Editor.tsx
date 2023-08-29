@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import dynamic from 'next/dynamic';
 import { EditorState, convertToRaw, convertFromRaw } from 'draft-js';
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
-import { Editor as TextEditor } from "react-draft-wysiwyg";
+// import { Editor as TextEditor } from "react-draft-wysiwyg";
 
 interface Props {
     editorState: EditorState;
@@ -12,12 +12,11 @@ interface Props {
 
 
 // Dynamically import the Editor component to avoid server-side rendering issues
-// Dynamically import the Editor component to avoid server-side rendering issues
-// const TextEditor = dynamic(
-//     () => import('react-draft-wysiwyg').then((mod) => mod.Editor),
-//     { ssr: false }
-// );
 
+const TextEditor = dynamic(
+    () => import('react-draft-wysiwyg').then((mod) => mod.Editor),
+    { ssr: false }
+);
 
 const Editor: React.FC<Props> = ({ editorState, setEditorState }) => {
 

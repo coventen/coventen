@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { Fragment } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
 import MultiSelect from '@/components/Multiselect';
-import { defaultNavItems } from '../../NavItem';
+import { controlledNavItems, defaultNavItems } from '../../NavItem';
 // import { CheckIcon } from '@heroicons/react/outline';
 
 interface ModalProps {
@@ -13,19 +13,19 @@ interface ModalProps {
 }
 
 interface Option {
-    id: number;
+    id: number | string;
     name: string;
     description?: string;
 }
 
 
 // getting all the nav routes as options
-let fieldsOptions: Option[] = defaultNavItems.map((item, index) => {
+const fieldsOptions: Option[] = controlledNavItems.flatMap(section => section.links.map((item, index) => {
     return {
-        id: index + 1,
+        id: item.label,
         name: item.label
     }
-})
+}));
 
 // component
 const CreateRoleModal: React.FC<ModalProps> = ({ openModal, setOpenModal, createRole }) => {
@@ -34,15 +34,10 @@ const CreateRoleModal: React.FC<ModalProps> = ({ openModal, setOpenModal, create
     const [personName, setPersonName] = useState<string[]>([]);
     const [selectedOptions, setSelectedOptions] = useState<Option[]>([])
 
-    const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-        const {
-            target: { value },
-        } = event;
-        setPersonName(
-            // On autofill we get a stringified value.
-            typeof value === 'string' ? value.split(',') : value
-        );
-    };
+
+
+
+    console.log('fieldsOptions', fieldsOptions)
 
     const handleClose = () => {
         setOpenModal(false);

@@ -115,7 +115,7 @@ const Main = () => {
 
                                 <Link href={`/desktopHome/invoices/preview/${invoice.id}`} className='font-semibold border border-desktopPrimary px-3  py-1.5 rounded'>View</Link>
                                 <button onClick={() => setIsOpen(true)} className='font-semibold border border-desktopPrimary px-3  py-1.5 rounded'>Complain</button>
-                                <button onClick={() => updateInvoice('', "COMPLETED")} className='font-semibold border border-desktopPrimary px-3  py-1.5 rounded'>Complain</button>
+                                <button onClick={() => updateInvoice('', "CONFIRMED")} className='font-semibold border border-desktopPrimary px-3  py-1.5 rounded'>Complain</button>
                             </div>
                         </div>
 
