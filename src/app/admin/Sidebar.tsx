@@ -57,21 +57,12 @@ const Sidebar = ({
 
 
 
-    console.log(accessibleNavItems, 'accessibleNavItems000000000000000000000000000')
-
-
-
-
     // 👇 use the correct icon depending on the state.
     const Icon = collapsed ? HiChevronDoubleRight : HiChevronDoubleLeft;
     return (
         // <RestrictAdminRoute setAccessibleNavItems={setAccessibleNavItems} navItems={defaultNavItems} accessibleNavItems={accessibleNavItems}>
         <div
-            className={classNames({
-                "bg-white text-primaryText z-20 border-r hidden lg:block": true,
-                "block": showSidebar,
-
-            })}
+            className={`bg-white text-primaryText z-[99999999999999565]  border-r  lg:block ${showSidebar ? 'block' : 'hidden'}`}
         >
             <div
                 className={classNames({
@@ -86,7 +77,9 @@ const Sidebar = ({
 
                     })}
                 >
-                    {!collapsed && <span className="whitespace-nowrap  font-bold">Brand Name</span>}
+                    {!collapsed && <div className="whitespace-nowrap  font-bold w-full ">
+                        <img src="/assets/log.png" className="h-8 " alt="logo" />
+                    </div>}
 
                 </div>
 
