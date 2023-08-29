@@ -73,7 +73,7 @@ const Footer = () => {
             <div className="gap-6 justify-between md:flex">
                 <div className="flex-1">
                     <div className="max-w-xs">
-                        <img src="https://www.floatui.com/logo.svg" className="w-32" />
+                        <img src="/assets/log.png" className="w-32" />
                         <p className="leading-relaxed mt-2 text-[15px]">
                             Lorem Ipsum has been the industry standard dummy text ever since the 1500s.
                         </p>

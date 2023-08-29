@@ -2,8 +2,9 @@
 
 import Image from 'next/image';
 
-import { Fragment, useState } from 'react';
-import { Dialog, Disclosure, Popover, Transition } from '@headlessui/react';
+import { Fragment, useEffect, useState } from 'react';
+import { Dialog, Disclosure, Popover, Transition, Menu } from '@headlessui/react';
+
 import {
     Bars3Icon,
     ChartPieIcon,
@@ -17,6 +18,9 @@ import Link from 'next/dist/client/link';
 import Dropdown from '@/components/Navbar/Dropdown/Dropdown';
 import Services from '@/components/Navbar/Dropdown/Services';
 import Features, { features } from '@/components/Navbar/Features';
+import { currentUser } from '@/firebase/oauth.config';
+import getUserStatus from '@/shared/queries/getUserStatus';
+import { toast } from 'react-hot-toast';
 
 
 
@@ -82,6 +86,51 @@ function classNames(...classes: any[]) {
 
 export default function Navbar({ }) {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+    const [userStatus, setUserStatus] = useState('')
+    const [currentUserType, setCurrentUserType] = useState('')
+
+    const user = currentUser()
+
+    useEffect(() => {
+        getUserData()
+    }, [user?.email])
+
+
+
+
+
+
+    const getUserData = async () => {
+        const userDta = await getUserStatus(user?.email || 'no email')
+        console.log(userDta, userDta[0]?.status, ' thjis is user data')
+        if (userDta) {
+            setUserStatus(userDta[0]?.status)
+            setCurrentUserType(userDta[0]?.user_type)
+        }
+    }
+
+
+    const handleDifferentUserRouting = (dest: string) => {
+        if (userStatus !== 'APPROVED') {
+            toast.error('Please Wait for Admin Approval')
+            return '/'
+        }
+        else if (currentUserType === 'ADMIN' || currentUserType === 'COVENTEN_EMPLOYEE') {
+            return `/admin/${dest}`
+        }
+        else if (currentUserType === 'CONSUMER') {
+            return `/user/${dest}`
+        }
+        else if (currentUserType === 'SERVICE_PROVIDER') {
+            return `/vendor/${dest}`
+        } else {
+            return '/'
+        }
+
+    }
+
+
+
 
 
     return (
@@ -145,15 +194,90 @@ export default function Navbar({ }) {
                         </Link>
                     </div>
                     <div className="hidden lg:flex lg:flex-1 lg:justify-end">
+                        {
+                            user?.email ?
+                                <>
 
-                        <Link
-                            href="/auth/login"
-                            className="-mx-3 block rounded-lg py-2.5 px-3 text-base font-semibold leading-7 text-primaryText hover:bg-gray-50"
-                        //  onClick={() => signInWithRedirectGoogle()}
-                        >
-                            Log in
-                            <span aria-hidden="true">&rarr;</span>
-                        </Link>
+                                    <Menu as="div" className="relative inline-block text-left">
+                                        <div>
+                                            <Menu.Button className="">
+                                                <div className="w-8 h-8 rounded-full overflow-hidden border-2 dark:border-white border-gray-900">
+                                                    <img src="https://images.unsplash.com/photo-1610397095767-84a5b4736cbd?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80" alt="" class="w-full h-full object-cover" />
+                                                </div>
+                                            </Menu.Button>
+                                        </div>
+
+                                        <Transition
+                                            as={Fragment}
+                                            enter="transition ease-out duration-100"
+                                            enterFrom="transform opacity-0 scale-95"
+                                            enterTo="transform opacity-100 scale-100"
+                                            leave="transition ease-in duration-75"
+                                            leaveFrom="transform opacity-100 scale-100"
+                                            leaveTo="transform opacity-0 scale-95"
+                                        >
+                                            <Menu.Items className="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                                                <div className="py-1">
+                                                    <Menu.Item>
+                                                        {({ active }) => (
+                                                            <Link
+                                                                href={handleDifferentUserRouting("dashboard")}
+                                                                className={classNames(
+                                                                    active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
+                                                                    'block px-4 py-2 text-sm'
+                                                                )}
+                                                            >
+                                                                Dashboard
+                                                            </Link>
+                                                        )}
+                                                    </Menu.Item>
+                                                    <Menu.Item>
+                                                        {({ active }) => (
+                                                            <Link
+                                                                href={handleDifferentUserRouting("profile")}
+                                                                className={classNames(
+                                                                    active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
+                                                                    'block px-4 py-2 text-sm'
+                                                                )}
+                                                            >
+                                                                Profile
+                                                            </Link>
+                                                        )}
+                                                    </Menu.Item>
+                                                    <form method="POST" action="#">
+                                                        <Menu.Item>
+                                                            {({ active }) => (
+                                                                <button
+                                                                    type="submit"
+                                                                    className={classNames(
+                                                                        active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
+                                                                        'block w-full px-4 py-2 text-left text-sm'
+                                                                    )}
+                                                                >
+                                                                    Sign out
+                                                                </button>
+                                                            )}
+                                                        </Menu.Item>
+                                                    </form>
+                                                </div>
+                                            </Menu.Items>
+                                        </Transition>
+                                    </Menu>
+
+
+                                </>
+                                :
+                                <Link
+                                    href="/auth/login"
+                                    className="-mx-3 block rounded-lg py-2.5 px-3 text-base font-semibold leading-7 text-primaryText hover:bg-gray-50"
+                                //  onClick={() => signInWithRedirectGoogle()}
+                                >
+                                    Log in
+                                    <span aria-hidden="true">&rarr;</span>
+                                </Link>
+                        }
+
+
                     </div>
                 </nav>
                 <Dialog
