@@ -41,7 +41,6 @@ const Main = () => {
 
     const [uploading, setUploading] = useState(false)
     const [files, setFiles] = useState<File[]>([]);
-    const [fileLinks, setFileLinks] = useState<any>([]);
     const [selectedUsers, setSelectedUsers] = useState<any[]>([])
     const [selectedUserType, setSelectedUserType] = useState<string>("CONSUMER")
     const [subject, setSubject] = useState<string>("")
@@ -65,9 +64,12 @@ const Main = () => {
         // text editor's content
         const contentJson = convertToRaw(editorState.getCurrentContent());
         const contentString = JSON.stringify(contentJson)
+        const fileLinks = await handleUpload()
 
+        console.log(fileLinks, 'file links')
 
         if (selectedUserType === "CONSUMER") {
+            console.log('consumer')
             let { data } = await createCommunicationFn({
                 variables: {
                     input: [
@@ -76,6 +78,7 @@ const Main = () => {
                             message: contentString,
                             date: dateTime,
                             files: fileLinks,
+                            sender: "ADMIN",
                             forClient: {
                                 connect: selectedUsers.map(user => {
                                     return {
@@ -93,13 +96,14 @@ const Main = () => {
                     ]
                 }
             })
-            if (data.createCommunicationTickets.info.nodesCreated) {
+            if (data?.createCommunicationTickets?.info?.nodesCreated) {
                 toast.success("Message sent successfully")
-                router.push('/admin/dashboard/communication/sent')
+                router.push('/admin/dashboard/internal_email/sent')
             }
 
         }
         else if (selectedUserType === "SERVICE_PROVIDER") {
+            console.log('vendor')
             let { data } = await createCommunicationFn({
                 variables: {
                     input: [
@@ -108,6 +112,7 @@ const Main = () => {
                             message: contentString,
                             date: dateTime,
                             files: fileLinks,
+                            sender: "ADMIN",
                             forVendor: {
                                 connect: selectedUsers.map(user => {
                                     return {
@@ -126,9 +131,9 @@ const Main = () => {
                 }
             })
 
-            if (data.createCommunicationTickets.info.nodesCreated) {
+            if (data?.createCommunicationTickets?.info?.nodesCreated) {
                 toast.success("Message sent successfully")
-                router.push('/admin/dashboard/communication/sent')
+                router.push('/admin/dashboard/internal_email/sent')
             }
 
         }
@@ -140,9 +145,7 @@ const Main = () => {
     // starts the communication creation
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
-        await handleUpload()
-        await createCommunication()
-        resetFn()
+        createCommunication()
     }
 
 
@@ -166,12 +169,13 @@ const Main = () => {
     const handleUpload = async () => {
         setUploading(true)
         const uploadPromises = files.map(async (file) => {
-            const data = await uploadFile(file, `${file.name}-${uuidv4()}`, "ModuleReports");
+            const data = await uploadFile(file, `${file.name}-${uuidv4()}`, "internal emails");
             return data;
         });
 
         const allFileLinks = await Promise.all(uploadPromises);
-        setFileLinks(allFileLinks);
+
+        return allFileLinks
 
     };
 
@@ -179,7 +183,12 @@ const Main = () => {
 
 
 
-    if (createState.loading || uploading) return <Loading />
+
+    if (createState.error) {
+        setUploading(false)
+        toast.error("Something went wrong . Please try again later")
+
+    }
 
 
     //render
@@ -322,7 +331,10 @@ const Main = () => {
             </div>
 
             <div>
-                <button type='submit' className='px-4 py-2 bg-primary text-white font-semibold'>Submit</button>
+                <button type='submit' className='px-4 py-2 mt-7 bg-primary text-white font-semibold'>{
+
+                    createState.loading || uploading ? 'loading..' : "Send"
+                }</button>
             </div>
         </form>
     );

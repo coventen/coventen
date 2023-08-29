@@ -91,6 +91,7 @@ const Main = () => {
         const { data } = await getInternalEmailFn({
             variables: {
                 where: {
+                    sender: "SERVICE_PROVIDER",
                     forVendor_ALL: {
                         userIs: {
                             email: labEmail

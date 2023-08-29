@@ -3,24 +3,24 @@ import Loading from '@/app/loading';
 import Error from '@/components/Error';
 import { currentUser } from '@/firebase/oauth.config';
 import { useGqlClient } from '@/hooks/UseGqlClient';
+import { getEmployerEmail } from '@/shared/getEmployerEmail';
 import { useManualQuery, useMutation, useQuery } from 'graphql-hooks';
 import Link from 'next/link';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { toast } from 'react-hot-toast';
 import { HiChevronLeft, HiChevronRight } from 'react-icons/hi';
 import { TfiReload } from 'react-icons/tfi';
 
 
 const GET_SET_MESSAGES = `
-query CommunicationTickets($where: CommunicationTicketWhere) {
-    communicationTickets(where: $where) {
+query CommunicationTickets($where: CommunicationTicketWhere, $options: CommunicationTicketOptions) {
+    communicationTickets(where: $where, options: $options) {
       id
       sub
       date
-      files
-      message
     }
   }
+
 `
 const DELETE_MESSAGES = `
 mutation DeleteCommunicationTickets($where: CommunicationTicketWhere) {
@@ -34,29 +34,84 @@ mutation DeleteCommunicationTickets($where: CommunicationTicketWhere) {
 // component
 const Main = () => {
 
+    // states
+    const [labEmail, setLabEmail] = useState('')
+    // pagination states
+    const [pageLimit, setPageLimit] = useState(10)
+    const [currentPage, setCurrentPage] = useState(1)
+    const [totalPages, setTotalPages] = useState(0)
+    const [totalInternalEmail, setTotalInternalEmail] = useState(0)
+    const [emailData, setEmailData] = useState<any>([])
 
     // hooks
     const client = useGqlClient()
     const user = currentUser()
 
-    console.log(user?.email, 'email')
+    //quires 
+    const [getInternalEmailFn, internalEmailState] = useManualQuery(GET_SET_MESSAGES, { client })
 
-    // fetching messages
-    const { data, loading, error, refetch } = useQuery(GET_SET_MESSAGES, {
-        client,
-        variables: {
-            where: {
-                forVendor_ALL: {
-                    userIs: {
-                        email: user?.email || 'no email'
+    // mutations
+    const [deleteMessageFn, deleteState] = useMutation(DELETE_MESSAGES, { client })
+
+
+    // refetching data based on pagination and search query
+    useEffect(() => {
+        getLabEmail()
+        getInternalEmailData()
+        getEmailCount()
+    }, [currentPage, user?.email, labEmail]);
+
+
+
+
+
+
+    // getting lab email if employee is logged in
+    const getLabEmail = async () => {
+        if (user?.email) {
+            const email = await getEmployerEmail(user?.email)
+            setLabEmail(email)
+        }
+
+
+    }
+
+    // initializing query and mutations
+
+    const getEmailCount = async () => {
+        const { data } = await getInternalEmailFn()
+        if (data.communicationTickets.length) {
+            setTotalInternalEmail(data.communicationTickets.length)
+            setTotalPages(Math.ceil(data.communicationTickets.length / pageLimit))
+        }
+
+    }
+
+    const getInternalEmailData = async () => {
+        const { data } = await getInternalEmailFn({
+            variables: {
+                where: {
+                    forVendor_ALL: {
+                        userIs: {
+                            email: labEmail
+                        }
                     }
+                },
+                options: {
+                    limit: pageLimit,
+                    offset: (currentPage - 1) * pageLimit,
+                    sort: [
+                        {
+                            date: "DESC"
+                        }
+                    ]
                 }
             }
+        })
+        if (data.communicationTickets.length) {
+            setEmailData(data?.communicationTickets)
         }
-    })
-
-    // delete message
-    const [deleteMessageFn, deleteState] = useMutation(DELETE_MESSAGES, { client })
+    }
 
 
 
@@ -73,15 +128,15 @@ const Main = () => {
         })
 
         if (data.deleteCommunicationTickets.nodesDeleted) {
-            refetch()
+            getInternalEmailData()
             toast.error("Message deleted successfully")
         }
     }
 
 
-    if (loading) return <Loading />
+    if (internalEmailState.loading || deleteState.loading) return <Loading />
 
-    if (error) return <Error />
+    if (internalEmailState.error || deleteState.error) return <Error />
 
     return (
         <div className="flex-1  w-full " >
@@ -89,13 +144,16 @@ const Main = () => {
                 <div className=" w-full">
                     <div className='border-b  w-full flex items-center justify-between py-4 px-2'>
                         <div className='flex items-center space-x-3 '>
-                            <div onClick={refetch} className='text-dimText cursor-pointer'>
+                            <div onClick={getInternalEmailData} className='text-dimText cursor-pointer'>
                                 <TfiReload />
                             </div>
                         </div>
                         <div className='flex items-center space-x-3 '>
                             <div className='text-dimText cursor-pointer'>
-                                <p className='text-sm'>0-50 of 75</p>
+                                <p className='text-sm'>
+                                    {(currentPage - 1) * pageLimit}
+                                    -{totalInternalEmail - ((currentPage - 1) * pageLimit)}
+                                    of {totalInternalEmail}</p>
                             </div>
                             <div className='text-dimText cursor-pointer'>
                                 <HiChevronLeft />
@@ -112,8 +170,8 @@ const Main = () => {
                     <div className=" mb-6 mt-4  w-full">
                         <ul className=''>
                             {
-                                data?.communicationTickets.length ?
-                                    data?.communicationTickets?.map((item: any) =>
+                                emailData.length ?
+                                    emailData?.map((item: any) =>
 
                                         <li key={item?.id} >
                                             <div
@@ -121,7 +179,7 @@ const Main = () => {
                                             >
 
                                                 <div className=" flex items-center justify-between p-1 my-1 cursor-pointer  w-full">
-                                                    <Link href={`/admin/dashboard/communication/message_preview/${item?.id}`} className="flex items-center ">
+                                                    <Link href={`/admin/dashboard/internal_email/message_preview/${item?.id}`} className="flex items-center ">
                                                         <div className="flex items-center mr-4 ml-1 space-x-1">
 
                                                             <button title="Read">

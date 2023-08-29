@@ -91,11 +91,8 @@ const Main = () => {
         const { data } = await getInternalEmailFn({
             variables: {
                 where: {
-                    sender: "SERVICE_PROVIDER",
-                    forClient_ALL: {
-                        userIs: {
-                            email: labEmail
-                        }
+                    where: {
+                        sender_IN: ["CONSUMER", "SERVICE_PROVIDER"]
                     }
                 },
                 options: {
@@ -119,7 +116,6 @@ const Main = () => {
     // delete message INIT
 
     const deleteMessage = async (id: string) => {
-        console.log('I am in delete message', id)
         const { data } = await deleteMessageFn({
             variables: {
                 where: {
@@ -180,7 +176,7 @@ const Main = () => {
                                             >
 
                                                 <div className=" flex items-center justify-between p-1 my-1 cursor-pointer  w-full">
-                                                    <Link href={`/user/dashboard/internal_email/message_preview/${item?.id}`} className="flex items-center ">
+                                                    <Link href={`/admin/dashboard/internal_email/message_preview/${item?.id}`} className="flex items-center ">
                                                         <div className="flex items-center mr-4 ml-1 space-x-1">
 
                                                             <button title="Read">

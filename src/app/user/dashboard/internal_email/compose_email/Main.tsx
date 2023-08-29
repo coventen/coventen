@@ -1,11 +1,12 @@
 'use client'
 
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import { useGqlClient } from '@/hooks/UseGqlClient';
-import { useMutation, } from 'graphql-hooks';
+import { useManualQuery, useMutation, useQuery } from 'graphql-hooks';
 import Editor from '@/components/Editor';
 import { EditorState, convertToRaw } from 'draft-js';
 import Loading from '@/app/loading';
+import { data } from 'autoprefixer';
 import { toast } from 'react-hot-toast';
 import { useRouter } from 'next/navigation';
 import { currentUser } from '@/firebase/oauth.config';
@@ -14,6 +15,7 @@ import { HiOutlineTrash } from 'react-icons/hi';
 import FilePreview from '@/app/vendor/dashboard/projects/(components)/FilePreview';
 import Dropzone from 'react-dropzone';
 import { v4 as uuidv4 } from 'uuid';
+import { getEmployerEmail } from '@/shared/getEmployerEmail';
 
 
 
@@ -31,7 +33,7 @@ mutation Mutation($input: [CommunicationTicketCreateInput!]!) {
 
 
 
-
+//component
 const Main = () => {
 
     // states
@@ -68,7 +70,8 @@ const Main = () => {
                         sub: subject,
                         message: contentString,
                         date: dateTime,
-                        forClient: {
+                        sender: "CONSUMER",
+                        forVendor: {
                             connect: [
                                 {
                                     where: {
@@ -87,13 +90,23 @@ const Main = () => {
         })
         if (data.createCommunicationTickets.info.nodesCreated) {
             toast.success("Message sent successfully")
-            router.push('/vendor/dashboard/internal_email/sent')
+            router.push('/user/dashboard/internal_email/sent')
         }
 
 
 
 
     }
+
+
+
+
+
+
+
+
+
+
 
     // starts the communication creation
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -102,8 +115,6 @@ const Main = () => {
         await createCommunication()
         resetFn()
     }
-
-
 
 
     // handling files

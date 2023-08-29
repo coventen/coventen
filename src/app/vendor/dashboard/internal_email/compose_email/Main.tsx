@@ -71,6 +71,7 @@ const Main = () => {
                         sub: subject,
                         message: contentString,
                         date: dateTime,
+                        sender: "SERVICE_PROVIDER",
                         forVendor: {
                             connect: [
                                 {

@@ -34,7 +34,7 @@ query Users($where: UserWhere, $options: UserOptions) {
 
 function UserSelect({ selectedUserType, selectedOptions, setSelectedOptions }: Props) {
 
-    const [users, setUsers] = useState<any[]>([])
+    const [users, setUsers] = useState<any>([])
     const [isOpen, setIsOpen] = useState(false);
     const [searchTerm, setSearchTerm] = useState('');
 
@@ -47,37 +47,54 @@ function UserSelect({ selectedUserType, selectedOptions, setSelectedOptions }: P
     // initializing fetching user
 
     useEffect(() => {
-        if (selectedUserType) {
-            setSelectedOptions([])
-            getUserFn({
-                variables: {
-                    where: {
-                        user_type: selectedUserType
-                    },
-                    options: {
-                        limit: 15
-                    }
+        if (selectedUserType && !searchTerm) {
+            let variable = {
+                where: {
+                    user_type: selectedUserType
+                },
+                options: {
+                    limit: 10
                 }
-            })
+            }
+            getUserData(variable)
         }
-        else if (searchTerm) {
-            getUserFn({
-                variables: {
-                    where: {
-                        email_CONTAINS: searchTerm
-                    },
-                    options: {
-                        limit: 15
-                    }
+        if (searchTerm && selectedUserType) {
+            let variable = {
+                where: {
+                    user_type: selectedUserType,
+                    email_CONTAINS: searchTerm.toLowerCase()
+                },
+                options: {
+                    limit: 10
                 }
-            })
+            }
+
+            getUserData(variable)
+
         }
 
     }, [selectedUserType, searchTerm])
 
 
 
-    console.log(queyState?.data)
+
+
+
+
+
+
+    const getUserData = async (variables: any) => {
+        const { data } = await getUserFn({
+            variables: variables
+        })
+        if (data.users.length) {
+            setUsers(data.users)
+        }
+    }
+
+
+
+
 
 
     // fetched user data

@@ -1,6 +1,9 @@
 import React from 'react';
 import MessageContent from './MessageContent';
 import Cookies from 'js-cookie';
+import FilePreview from '@/app/vendor/dashboard/projects/(components)/FilePreview';
+import Link from 'next/link';
+import { BsCloudDownload } from 'react-icons/bs';
 
 const getMessageDetails = async (id: string) => {
     const token = Cookies.get('conventenToken');
@@ -65,6 +68,26 @@ const page = async ({ params, searchParams }: any) => {
                 <div className="mt-2 leading-loose text-gray-600 dark:text-gray-300">
                     <MessageContent content={details?.message} />
                 </div>
+                <div className='grid grid-cols-1 lg:grid-cols-4 gap-2'>
+                    {
+                        details?.files?.map((fileLink: any, i: number) =>
+                            <Link href={fileLink} key={i}>
+                                <div
+                                    style={{
+                                        backgroundImage: `url(${'/assets/file.svg'})`,
+                                        backgroundRepeat: 'no-repeat',
+                                        backgroundPosition: 'center',
+
+                                    }}
+                                    className=' h-24 w-full text-xl bg-gray-100 flex items-center justify-center text-gray-800 font-semibold'>
+                                    <BsCloudDownload />
+                                </div>
+                            </Link>
+                        )
+
+                    }
+                </div>
+
 
                 {
                     details?.hasReply?.map((reply: any, i: number) =>
