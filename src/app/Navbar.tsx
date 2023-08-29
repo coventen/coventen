@@ -202,7 +202,7 @@ export default function Navbar({ }) {
                                         <div>
                                             <Menu.Button className="">
                                                 <div className="w-8 h-8 rounded-full overflow-hidden border-2 dark:border-white border-gray-900">
-                                                    <img src="https://images.unsplash.com/photo-1610397095767-84a5b4736cbd?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80" alt="" class="w-full h-full object-cover" />
+                                                    <img src="https://images.unsplash.com/photo-1610397095767-84a5b4736cbd?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80" alt="" className="w-full h-full object-cover" />
                                                 </div>
                                             </Menu.Button>
                                         </div>

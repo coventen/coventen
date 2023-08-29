@@ -34,15 +34,15 @@ export type Admin = {
   createdNotification?: Maybe<Notification>;
   createdNotificationAggregate?: Maybe<AdminNotificationCreatedNotificationAggregationSelection>;
   createdNotificationConnection: AdminCreatedNotificationConnection;
-  createdPage?: Maybe<Page>;
-  createdPageAggregate?: Maybe<AdminPageCreatedPageAggregationSelection>;
-  createdPageConnection: AdminCreatedPageConnection;
   createdProjectticket?: Maybe<ProjectTicket>;
   createdProjectticketAggregate?: Maybe<AdminProjectTicketCreatedProjectticketAggregationSelection>;
   createdProjectticketConnection: AdminCreatedProjectticketConnection;
   createdRole?: Maybe<Role>;
   createdRoleAggregate?: Maybe<AdminRoleCreatedRoleAggregationSelection>;
   createdRoleConnection: AdminCreatedRoleConnection;
+  createdServicepage?: Maybe<ServicePage>;
+  createdServicepageAggregate?: Maybe<AdminServicePageCreatedServicepageAggregationSelection>;
+  createdServicepageConnection: AdminCreatedServicepageConnection;
   createdSupportticket?: Maybe<SupportTicket>;
   createdSupportticketAggregate?: Maybe<AdminSupportTicketCreatedSupportticketAggregationSelection>;
   createdSupportticketConnection: AdminCreatedSupportticketConnection;
@@ -172,28 +172,6 @@ export type AdminCreatedNotificationConnectionArgs = {
 };
 
 
-export type AdminCreatedPageArgs = {
-  directed?: InputMaybe<Scalars['Boolean']['input']>;
-  options?: InputMaybe<PageOptions>;
-  where?: InputMaybe<PageWhere>;
-};
-
-
-export type AdminCreatedPageAggregateArgs = {
-  directed?: InputMaybe<Scalars['Boolean']['input']>;
-  where?: InputMaybe<PageWhere>;
-};
-
-
-export type AdminCreatedPageConnectionArgs = {
-  after?: InputMaybe<Scalars['String']['input']>;
-  directed?: InputMaybe<Scalars['Boolean']['input']>;
-  first?: InputMaybe<Scalars['Int']['input']>;
-  sort?: InputMaybe<Array<AdminCreatedPageConnectionSort>>;
-  where?: InputMaybe<AdminCreatedPageConnectionWhere>;
-};
-
-
 export type AdminCreatedProjectticketArgs = {
   directed?: InputMaybe<Scalars['Boolean']['input']>;
   options?: InputMaybe<ProjectTicketOptions>;
@@ -235,6 +213,28 @@ export type AdminCreatedRoleConnectionArgs = {
   first?: InputMaybe<Scalars['Int']['input']>;
   sort?: InputMaybe<Array<AdminCreatedRoleConnectionSort>>;
   where?: InputMaybe<AdminCreatedRoleConnectionWhere>;
+};
+
+
+export type AdminCreatedServicepageArgs = {
+  directed?: InputMaybe<Scalars['Boolean']['input']>;
+  options?: InputMaybe<ServicePageOptions>;
+  where?: InputMaybe<ServicePageWhere>;
+};
+
+
+export type AdminCreatedServicepageAggregateArgs = {
+  directed?: InputMaybe<Scalars['Boolean']['input']>;
+  where?: InputMaybe<ServicePageWhere>;
+};
+
+
+export type AdminCreatedServicepageConnectionArgs = {
+  after?: InputMaybe<Scalars['String']['input']>;
+  directed?: InputMaybe<Scalars['Boolean']['input']>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  sort?: InputMaybe<Array<AdminCreatedServicepageConnectionSort>>;
+  where?: InputMaybe<AdminCreatedServicepageConnectionWhere>;
 };
 
 
@@ -615,9 +615,9 @@ export type AdminConnectInput = {
   createdCommunicationticket?: InputMaybe<AdminCreatedCommunicationticketConnectFieldInput>;
   createdInvoice?: InputMaybe<AdminCreatedInvoiceConnectFieldInput>;
   createdNotification?: InputMaybe<AdminCreatedNotificationConnectFieldInput>;
-  createdPage?: InputMaybe<AdminCreatedPageConnectFieldInput>;
   createdProjectticket?: InputMaybe<AdminCreatedProjectticketConnectFieldInput>;
   createdRole?: InputMaybe<AdminCreatedRoleConnectFieldInput>;
+  createdServicepage?: InputMaybe<AdminCreatedServicepageConnectFieldInput>;
   createdSupportticket?: InputMaybe<AdminCreatedSupportticketConnectFieldInput>;
   hasLeads?: InputMaybe<AdminHasLeadsConnectFieldInput>;
   hasProject?: InputMaybe<AdminHasProjectConnectFieldInput>;
@@ -631,8 +631,8 @@ export type AdminConnectOrCreateInput = {
   createdCommunicationticket?: InputMaybe<AdminCreatedCommunicationticketConnectOrCreateFieldInput>;
   createdInvoice?: InputMaybe<AdminCreatedInvoiceConnectOrCreateFieldInput>;
   createdNotification?: InputMaybe<AdminCreatedNotificationConnectOrCreateFieldInput>;
-  createdPage?: InputMaybe<AdminCreatedPageConnectOrCreateFieldInput>;
   createdRole?: InputMaybe<AdminCreatedRoleConnectOrCreateFieldInput>;
+  createdServicepage?: InputMaybe<AdminCreatedServicepageConnectOrCreateFieldInput>;
   createdSupportticket?: InputMaybe<AdminCreatedSupportticketConnectOrCreateFieldInput>;
   hasLeads?: InputMaybe<AdminHasLeadsConnectOrCreateFieldInput>;
   hasProject?: InputMaybe<AdminHasProjectConnectOrCreateFieldInput>;
@@ -654,9 +654,9 @@ export type AdminCreateInput = {
   createdCommunicationticket?: InputMaybe<AdminCreatedCommunicationticketFieldInput>;
   createdInvoice?: InputMaybe<AdminCreatedInvoiceFieldInput>;
   createdNotification?: InputMaybe<AdminCreatedNotificationFieldInput>;
-  createdPage?: InputMaybe<AdminCreatedPageFieldInput>;
   createdProjectticket?: InputMaybe<AdminCreatedProjectticketFieldInput>;
   createdRole?: InputMaybe<AdminCreatedRoleFieldInput>;
+  createdServicepage?: InputMaybe<AdminCreatedServicepageFieldInput>;
   createdSupportticket?: InputMaybe<AdminCreatedSupportticketFieldInput>;
   hasLeads?: InputMaybe<AdminHasLeadsFieldInput>;
   hasProject?: InputMaybe<AdminHasProjectFieldInput>;
@@ -1210,158 +1210,6 @@ export type AdminCreatedNotificationUpdateFieldInput = {
   where?: InputMaybe<AdminCreatedNotificationConnectionWhere>;
 };
 
-export type AdminCreatedPageAggregateInput = {
-  AND?: InputMaybe<Array<AdminCreatedPageAggregateInput>>;
-  NOT?: InputMaybe<AdminCreatedPageAggregateInput>;
-  OR?: InputMaybe<Array<AdminCreatedPageAggregateInput>>;
-  count?: InputMaybe<Scalars['Int']['input']>;
-  count_GT?: InputMaybe<Scalars['Int']['input']>;
-  count_GTE?: InputMaybe<Scalars['Int']['input']>;
-  count_LT?: InputMaybe<Scalars['Int']['input']>;
-  count_LTE?: InputMaybe<Scalars['Int']['input']>;
-  node?: InputMaybe<AdminCreatedPageNodeAggregationWhereInput>;
-};
-
-export type AdminCreatedPageConnectFieldInput = {
-  connect?: InputMaybe<PageConnectInput>;
-  /** Whether or not to overwrite any matching relationship with the new properties. Will default to `false` in 4.0.0. */
-  overwrite?: Scalars['Boolean']['input'];
-  where?: InputMaybe<PageConnectWhere>;
-};
-
-export type AdminCreatedPageConnectOrCreateFieldInput = {
-  onCreate: AdminCreatedPageConnectOrCreateFieldInputOnCreate;
-  where: PageConnectOrCreateWhere;
-};
-
-export type AdminCreatedPageConnectOrCreateFieldInputOnCreate = {
-  node: PageOnCreateInput;
-};
-
-export type AdminCreatedPageConnection = {
-  __typename?: 'AdminCreatedPageConnection';
-  edges: Array<AdminCreatedPageRelationship>;
-  pageInfo: PageInfo;
-  totalCount: Scalars['Int']['output'];
-};
-
-export type AdminCreatedPageConnectionSort = {
-  node?: InputMaybe<PageSort>;
-};
-
-export type AdminCreatedPageConnectionWhere = {
-  AND?: InputMaybe<Array<AdminCreatedPageConnectionWhere>>;
-  NOT?: InputMaybe<AdminCreatedPageConnectionWhere>;
-  OR?: InputMaybe<Array<AdminCreatedPageConnectionWhere>>;
-  node?: InputMaybe<PageWhere>;
-};
-
-export type AdminCreatedPageCreateFieldInput = {
-  node: PageCreateInput;
-};
-
-export type AdminCreatedPageDeleteFieldInput = {
-  delete?: InputMaybe<PageDeleteInput>;
-  where?: InputMaybe<AdminCreatedPageConnectionWhere>;
-};
-
-export type AdminCreatedPageDisconnectFieldInput = {
-  disconnect?: InputMaybe<PageDisconnectInput>;
-  where?: InputMaybe<AdminCreatedPageConnectionWhere>;
-};
-
-export type AdminCreatedPageFieldInput = {
-  connect?: InputMaybe<AdminCreatedPageConnectFieldInput>;
-  connectOrCreate?: InputMaybe<AdminCreatedPageConnectOrCreateFieldInput>;
-  create?: InputMaybe<AdminCreatedPageCreateFieldInput>;
-};
-
-export type AdminCreatedPageNodeAggregationWhereInput = {
-  AND?: InputMaybe<Array<AdminCreatedPageNodeAggregationWhereInput>>;
-  NOT?: InputMaybe<AdminCreatedPageNodeAggregationWhereInput>;
-  OR?: InputMaybe<Array<AdminCreatedPageNodeAggregationWhereInput>>;
-  description_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
-  description_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
-  description_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
-  description_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
-  description_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
-  description_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  description_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  description_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  description_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  description_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  description_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  description_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  description_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  description_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  description_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  image_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
-  image_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
-  image_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
-  image_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
-  image_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
-  image_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  image_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  image_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  image_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  image_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  image_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  image_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  image_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  image_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  image_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  subtitle_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
-  subtitle_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
-  subtitle_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
-  subtitle_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
-  subtitle_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
-  subtitle_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  subtitle_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  subtitle_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  subtitle_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  subtitle_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  subtitle_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  subtitle_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  subtitle_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  subtitle_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  subtitle_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  title_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
-  title_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
-  title_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
-  title_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
-  title_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
-  title_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  title_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  title_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  title_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  title_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  title_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  title_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  title_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  title_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  title_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-};
-
-export type AdminCreatedPageRelationship = {
-  __typename?: 'AdminCreatedPageRelationship';
-  cursor: Scalars['String']['output'];
-  node: Page;
-};
-
-export type AdminCreatedPageUpdateConnectionInput = {
-  node?: InputMaybe<PageUpdateInput>;
-};
-
-export type AdminCreatedPageUpdateFieldInput = {
-  connect?: InputMaybe<AdminCreatedPageConnectFieldInput>;
-  connectOrCreate?: InputMaybe<AdminCreatedPageConnectOrCreateFieldInput>;
-  create?: InputMaybe<AdminCreatedPageCreateFieldInput>;
-  delete?: InputMaybe<AdminCreatedPageDeleteFieldInput>;
-  disconnect?: InputMaybe<AdminCreatedPageDisconnectFieldInput>;
-  update?: InputMaybe<AdminCreatedPageUpdateConnectionInput>;
-  where?: InputMaybe<AdminCreatedPageConnectionWhere>;
-};
-
 export type AdminCreatedProjectticketAggregateInput = {
   AND?: InputMaybe<Array<AdminCreatedProjectticketAggregateInput>>;
   NOT?: InputMaybe<AdminCreatedProjectticketAggregateInput>;
@@ -1575,6 +1423,113 @@ export type AdminCreatedRoleUpdateFieldInput = {
   where?: InputMaybe<AdminCreatedRoleConnectionWhere>;
 };
 
+export type AdminCreatedServicepageAggregateInput = {
+  AND?: InputMaybe<Array<AdminCreatedServicepageAggregateInput>>;
+  NOT?: InputMaybe<AdminCreatedServicepageAggregateInput>;
+  OR?: InputMaybe<Array<AdminCreatedServicepageAggregateInput>>;
+  count?: InputMaybe<Scalars['Int']['input']>;
+  count_GT?: InputMaybe<Scalars['Int']['input']>;
+  count_GTE?: InputMaybe<Scalars['Int']['input']>;
+  count_LT?: InputMaybe<Scalars['Int']['input']>;
+  count_LTE?: InputMaybe<Scalars['Int']['input']>;
+  node?: InputMaybe<AdminCreatedServicepageNodeAggregationWhereInput>;
+};
+
+export type AdminCreatedServicepageConnectFieldInput = {
+  connect?: InputMaybe<ServicePageConnectInput>;
+  /** Whether or not to overwrite any matching relationship with the new properties. Will default to `false` in 4.0.0. */
+  overwrite?: Scalars['Boolean']['input'];
+  where?: InputMaybe<ServicePageConnectWhere>;
+};
+
+export type AdminCreatedServicepageConnectOrCreateFieldInput = {
+  onCreate: AdminCreatedServicepageConnectOrCreateFieldInputOnCreate;
+  where: ServicePageConnectOrCreateWhere;
+};
+
+export type AdminCreatedServicepageConnectOrCreateFieldInputOnCreate = {
+  node: ServicePageOnCreateInput;
+};
+
+export type AdminCreatedServicepageConnection = {
+  __typename?: 'AdminCreatedServicepageConnection';
+  edges: Array<AdminCreatedServicepageRelationship>;
+  pageInfo: PageInfo;
+  totalCount: Scalars['Int']['output'];
+};
+
+export type AdminCreatedServicepageConnectionSort = {
+  node?: InputMaybe<ServicePageSort>;
+};
+
+export type AdminCreatedServicepageConnectionWhere = {
+  AND?: InputMaybe<Array<AdminCreatedServicepageConnectionWhere>>;
+  NOT?: InputMaybe<AdminCreatedServicepageConnectionWhere>;
+  OR?: InputMaybe<Array<AdminCreatedServicepageConnectionWhere>>;
+  node?: InputMaybe<ServicePageWhere>;
+};
+
+export type AdminCreatedServicepageCreateFieldInput = {
+  node: ServicePageCreateInput;
+};
+
+export type AdminCreatedServicepageDeleteFieldInput = {
+  delete?: InputMaybe<ServicePageDeleteInput>;
+  where?: InputMaybe<AdminCreatedServicepageConnectionWhere>;
+};
+
+export type AdminCreatedServicepageDisconnectFieldInput = {
+  disconnect?: InputMaybe<ServicePageDisconnectInput>;
+  where?: InputMaybe<AdminCreatedServicepageConnectionWhere>;
+};
+
+export type AdminCreatedServicepageFieldInput = {
+  connect?: InputMaybe<AdminCreatedServicepageConnectFieldInput>;
+  connectOrCreate?: InputMaybe<AdminCreatedServicepageConnectOrCreateFieldInput>;
+  create?: InputMaybe<AdminCreatedServicepageCreateFieldInput>;
+};
+
+export type AdminCreatedServicepageNodeAggregationWhereInput = {
+  AND?: InputMaybe<Array<AdminCreatedServicepageNodeAggregationWhereInput>>;
+  NOT?: InputMaybe<AdminCreatedServicepageNodeAggregationWhereInput>;
+  OR?: InputMaybe<Array<AdminCreatedServicepageNodeAggregationWhereInput>>;
+  title_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  title_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  title_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  title_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  title_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  title_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  title_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  title_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  title_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  title_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  title_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  title_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  title_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  title_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  title_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+};
+
+export type AdminCreatedServicepageRelationship = {
+  __typename?: 'AdminCreatedServicepageRelationship';
+  cursor: Scalars['String']['output'];
+  node: ServicePage;
+};
+
+export type AdminCreatedServicepageUpdateConnectionInput = {
+  node?: InputMaybe<ServicePageUpdateInput>;
+};
+
+export type AdminCreatedServicepageUpdateFieldInput = {
+  connect?: InputMaybe<AdminCreatedServicepageConnectFieldInput>;
+  connectOrCreate?: InputMaybe<AdminCreatedServicepageConnectOrCreateFieldInput>;
+  create?: InputMaybe<AdminCreatedServicepageCreateFieldInput>;
+  delete?: InputMaybe<AdminCreatedServicepageDeleteFieldInput>;
+  disconnect?: InputMaybe<AdminCreatedServicepageDisconnectFieldInput>;
+  update?: InputMaybe<AdminCreatedServicepageUpdateConnectionInput>;
+  where?: InputMaybe<AdminCreatedServicepageConnectionWhere>;
+};
+
 export type AdminCreatedSupportticketAggregateInput = {
   AND?: InputMaybe<Array<AdminCreatedSupportticketAggregateInput>>;
   NOT?: InputMaybe<AdminCreatedSupportticketAggregateInput>;
@@ -1645,6 +1600,16 @@ export type AdminCreatedSupportticketNodeAggregationWhereInput = {
   AND?: InputMaybe<Array<AdminCreatedSupportticketNodeAggregationWhereInput>>;
   NOT?: InputMaybe<AdminCreatedSupportticketNodeAggregationWhereInput>;
   OR?: InputMaybe<Array<AdminCreatedSupportticketNodeAggregationWhereInput>>;
+  createdAt_MAX_EQUAL?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_MAX_GT?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_MAX_GTE?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_MAX_LT?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_MAX_LTE?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_MIN_EQUAL?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_MIN_GT?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_MIN_GTE?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_MIN_LT?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_MIN_LTE?: InputMaybe<Scalars['DateTime']['input']>;
   ticket_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
   ticket_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
   ticket_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
@@ -1688,9 +1653,9 @@ export type AdminDeleteInput = {
   createdCommunicationticket?: InputMaybe<AdminCreatedCommunicationticketDeleteFieldInput>;
   createdInvoice?: InputMaybe<AdminCreatedInvoiceDeleteFieldInput>;
   createdNotification?: InputMaybe<AdminCreatedNotificationDeleteFieldInput>;
-  createdPage?: InputMaybe<AdminCreatedPageDeleteFieldInput>;
   createdProjectticket?: InputMaybe<AdminCreatedProjectticketDeleteFieldInput>;
   createdRole?: InputMaybe<AdminCreatedRoleDeleteFieldInput>;
+  createdServicepage?: InputMaybe<AdminCreatedServicepageDeleteFieldInput>;
   createdSupportticket?: InputMaybe<AdminCreatedSupportticketDeleteFieldInput>;
   hasLeads?: InputMaybe<AdminHasLeadsDeleteFieldInput>;
   hasProject?: InputMaybe<AdminHasProjectDeleteFieldInput>;
@@ -1704,9 +1669,9 @@ export type AdminDisconnectInput = {
   createdCommunicationticket?: InputMaybe<AdminCreatedCommunicationticketDisconnectFieldInput>;
   createdInvoice?: InputMaybe<AdminCreatedInvoiceDisconnectFieldInput>;
   createdNotification?: InputMaybe<AdminCreatedNotificationDisconnectFieldInput>;
-  createdPage?: InputMaybe<AdminCreatedPageDisconnectFieldInput>;
   createdProjectticket?: InputMaybe<AdminCreatedProjectticketDisconnectFieldInput>;
   createdRole?: InputMaybe<AdminCreatedRoleDisconnectFieldInput>;
+  createdServicepage?: InputMaybe<AdminCreatedServicepageDisconnectFieldInput>;
   createdSupportticket?: InputMaybe<AdminCreatedSupportticketDisconnectFieldInput>;
   hasLeads?: InputMaybe<AdminHasLeadsDisconnectFieldInput>;
   hasProject?: InputMaybe<AdminHasProjectDisconnectFieldInput>;
@@ -2515,21 +2480,6 @@ export type AdminOptions = {
   sort?: InputMaybe<Array<AdminSort>>;
 };
 
-export type AdminPageCreatedPageAggregationSelection = {
-  __typename?: 'AdminPageCreatedPageAggregationSelection';
-  count: Scalars['Int']['output'];
-  node?: Maybe<AdminPageCreatedPageNodeAggregateSelection>;
-};
-
-export type AdminPageCreatedPageNodeAggregateSelection = {
-  __typename?: 'AdminPageCreatedPageNodeAggregateSelection';
-  description: StringAggregateSelectionNullable;
-  id: IdAggregateSelectionNonNullable;
-  image: StringAggregateSelectionNullable;
-  subtitle: StringAggregateSelectionNullable;
-  title: StringAggregateSelectionNullable;
-};
-
 export type AdminProjectHasProjectAggregationSelection = {
   __typename?: 'AdminProjectHasProjectAggregationSelection';
   count: Scalars['Int']['output'];
@@ -2567,9 +2517,9 @@ export type AdminRelationInput = {
   createdCommunicationticket?: InputMaybe<AdminCreatedCommunicationticketCreateFieldInput>;
   createdInvoice?: InputMaybe<AdminCreatedInvoiceCreateFieldInput>;
   createdNotification?: InputMaybe<AdminCreatedNotificationCreateFieldInput>;
-  createdPage?: InputMaybe<AdminCreatedPageCreateFieldInput>;
   createdProjectticket?: InputMaybe<AdminCreatedProjectticketCreateFieldInput>;
   createdRole?: InputMaybe<AdminCreatedRoleCreateFieldInput>;
+  createdServicepage?: InputMaybe<AdminCreatedServicepageCreateFieldInput>;
   createdSupportticket?: InputMaybe<AdminCreatedSupportticketCreateFieldInput>;
   hasLeads?: InputMaybe<AdminHasLeadsCreateFieldInput>;
   hasProject?: InputMaybe<AdminHasProjectCreateFieldInput>;
@@ -2590,6 +2540,18 @@ export type AdminRoleCreatedRoleNodeAggregateSelection = {
   name: StringAggregateSelectionNullable;
 };
 
+export type AdminServicePageCreatedServicepageAggregationSelection = {
+  __typename?: 'AdminServicePageCreatedServicepageAggregationSelection';
+  count: Scalars['Int']['output'];
+  node?: Maybe<AdminServicePageCreatedServicepageNodeAggregateSelection>;
+};
+
+export type AdminServicePageCreatedServicepageNodeAggregateSelection = {
+  __typename?: 'AdminServicePageCreatedServicepageNodeAggregateSelection';
+  id: IdAggregateSelectionNonNullable;
+  title: StringAggregateSelectionNullable;
+};
+
 /** Fields to sort Admins by. The order in which sorts are applied is not guaranteed when specifying many fields in one AdminSort object. */
 export type AdminSort = {
   id?: InputMaybe<SortDirection>;
@@ -2603,6 +2565,7 @@ export type AdminSupportTicketCreatedSupportticketAggregationSelection = {
 
 export type AdminSupportTicketCreatedSupportticketNodeAggregateSelection = {
   __typename?: 'AdminSupportTicketCreatedSupportticketNodeAggregateSelection';
+  createdAt: DateTimeAggregateSelectionNullable;
   id: IdAggregateSelectionNonNullable;
   ticket: StringAggregateSelectionNonNullable;
 };
@@ -2617,9 +2580,9 @@ export type AdminUpdateInput = {
   createdCommunicationticket?: InputMaybe<AdminCreatedCommunicationticketUpdateFieldInput>;
   createdInvoice?: InputMaybe<AdminCreatedInvoiceUpdateFieldInput>;
   createdNotification?: InputMaybe<AdminCreatedNotificationUpdateFieldInput>;
-  createdPage?: InputMaybe<AdminCreatedPageUpdateFieldInput>;
   createdProjectticket?: InputMaybe<AdminCreatedProjectticketUpdateFieldInput>;
   createdRole?: InputMaybe<AdminCreatedRoleUpdateFieldInput>;
+  createdServicepage?: InputMaybe<AdminCreatedServicepageUpdateFieldInput>;
   createdSupportticket?: InputMaybe<AdminCreatedSupportticketUpdateFieldInput>;
   hasLeads?: InputMaybe<AdminHasLeadsUpdateFieldInput>;
   hasProject?: InputMaybe<AdminHasProjectUpdateFieldInput>;
@@ -2991,11 +2954,6 @@ export type AdminWhere = {
   createdNotificationConnection?: InputMaybe<AdminCreatedNotificationConnectionWhere>;
   createdNotificationConnection_NOT?: InputMaybe<AdminCreatedNotificationConnectionWhere>;
   createdNotification_NOT?: InputMaybe<NotificationWhere>;
-  createdPage?: InputMaybe<PageWhere>;
-  createdPageAggregate?: InputMaybe<AdminCreatedPageAggregateInput>;
-  createdPageConnection?: InputMaybe<AdminCreatedPageConnectionWhere>;
-  createdPageConnection_NOT?: InputMaybe<AdminCreatedPageConnectionWhere>;
-  createdPage_NOT?: InputMaybe<PageWhere>;
   createdProjectticket?: InputMaybe<ProjectTicketWhere>;
   createdProjectticketAggregate?: InputMaybe<AdminCreatedProjectticketAggregateInput>;
   createdProjectticketConnection?: InputMaybe<AdminCreatedProjectticketConnectionWhere>;
@@ -3006,6 +2964,11 @@ export type AdminWhere = {
   createdRoleConnection?: InputMaybe<AdminCreatedRoleConnectionWhere>;
   createdRoleConnection_NOT?: InputMaybe<AdminCreatedRoleConnectionWhere>;
   createdRole_NOT?: InputMaybe<RoleWhere>;
+  createdServicepage?: InputMaybe<ServicePageWhere>;
+  createdServicepageAggregate?: InputMaybe<AdminCreatedServicepageAggregateInput>;
+  createdServicepageConnection?: InputMaybe<AdminCreatedServicepageConnectionWhere>;
+  createdServicepageConnection_NOT?: InputMaybe<AdminCreatedServicepageConnectionWhere>;
+  createdServicepage_NOT?: InputMaybe<ServicePageWhere>;
   createdSupportticket?: InputMaybe<SupportTicketWhere>;
   createdSupportticketAggregate?: InputMaybe<AdminCreatedSupportticketAggregateInput>;
   createdSupportticketConnection?: InputMaybe<AdminCreatedSupportticketConnectionWhere>;
@@ -4386,6 +4349,16 @@ export type ClientHasSupportticketNodeAggregationWhereInput = {
   AND?: InputMaybe<Array<ClientHasSupportticketNodeAggregationWhereInput>>;
   NOT?: InputMaybe<ClientHasSupportticketNodeAggregationWhereInput>;
   OR?: InputMaybe<Array<ClientHasSupportticketNodeAggregationWhereInput>>;
+  createdAt_MAX_EQUAL?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_MAX_GT?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_MAX_GTE?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_MAX_LT?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_MAX_LTE?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_MIN_EQUAL?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_MIN_GT?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_MIN_GTE?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_MIN_LT?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_MIN_LTE?: InputMaybe<Scalars['DateTime']['input']>;
   ticket_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
   ticket_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
   ticket_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
@@ -5024,6 +4997,7 @@ export type ClientSupportTicketHasSupportticketAggregationSelection = {
 
 export type ClientSupportTicketHasSupportticketNodeAggregateSelection = {
   __typename?: 'ClientSupportTicketHasSupportticketNodeAggregateSelection';
+  createdAt: DateTimeAggregateSelectionNullable;
   id: IdAggregateSelectionNonNullable;
   ticket: StringAggregateSelectionNonNullable;
 };
@@ -6420,12 +6394,6 @@ export type CreateNotificationsMutationResponse = {
   notifications: Array<Notification>;
 };
 
-export type CreatePagesMutationResponse = {
-  __typename?: 'CreatePagesMutationResponse';
-  info: CreateInfo;
-  pages: Array<Page>;
-};
-
 export type CreateProjectTicketsMutationResponse = {
   __typename?: 'CreateProjectTicketsMutationResponse';
   info: CreateInfo;
@@ -6450,10 +6418,22 @@ export type CreateRolesMutationResponse = {
   roles: Array<Role>;
 };
 
+export type CreateServicePagesMutationResponse = {
+  __typename?: 'CreateServicePagesMutationResponse';
+  info: CreateInfo;
+  servicePages: Array<ServicePage>;
+};
+
 export type CreateServicesMutationResponse = {
   __typename?: 'CreateServicesMutationResponse';
   info: CreateInfo;
   services: Array<Service>;
+};
+
+export type CreateSubservicesMutationResponse = {
+  __typename?: 'CreateSubservicesMutationResponse';
+  info: CreateInfo;
+  subservices: Array<Subservice>;
 };
 
 export type CreateSupportTicketsMutationResponse = {
@@ -7386,7 +7366,7 @@ export type DocumentsWhere = {
 export type Employee = {
   __typename?: 'Employee';
   employerEmail: Scalars['String']['output'];
-  id: Scalars['String']['output'];
+  id: Scalars['ID']['output'];
   userHas?: Maybe<User>;
   userHasAggregate?: Maybe<EmployeeUserUserHasAggregationSelection>;
   userHasConnection: EmployeeUserHasConnection;
@@ -7418,7 +7398,7 @@ export type EmployeeAggregateSelection = {
   __typename?: 'EmployeeAggregateSelection';
   count: Scalars['Int']['output'];
   employerEmail: StringAggregateSelectionNonNullable;
-  id: StringAggregateSelectionNonNullable;
+  id: IdAggregateSelectionNonNullable;
 };
 
 export type EmployeeConnectInput = {
@@ -7429,13 +7409,16 @@ export type EmployeeConnectOrCreateInput = {
   userHas?: InputMaybe<EmployeeUserHasConnectOrCreateFieldInput>;
 };
 
+export type EmployeeConnectOrCreateWhere = {
+  node: EmployeeUniqueWhere;
+};
+
 export type EmployeeConnectWhere = {
   node: EmployeeWhere;
 };
 
 export type EmployeeCreateInput = {
   employerEmail: Scalars['String']['input'];
-  id: Scalars['String']['input'];
   userHas?: InputMaybe<EmployeeUserHasFieldInput>;
 };
 
@@ -7451,6 +7434,10 @@ export type EmployeeEdge = {
   __typename?: 'EmployeeEdge';
   cursor: Scalars['String']['output'];
   node: Employee;
+};
+
+export type EmployeeOnCreateInput = {
+  employerEmail: Scalars['String']['input'];
 };
 
 export type EmployeeOptions = {
@@ -7470,9 +7457,12 @@ export type EmployeeSort = {
   id?: InputMaybe<SortDirection>;
 };
 
+export type EmployeeUniqueWhere = {
+  id?: InputMaybe<Scalars['ID']['input']>;
+};
+
 export type EmployeeUpdateInput = {
   employerEmail?: InputMaybe<Scalars['String']['input']>;
-  id?: InputMaybe<Scalars['String']['input']>;
   userHas?: InputMaybe<EmployeeUserHasUpdateFieldInput>;
 };
 
@@ -7807,11 +7797,11 @@ export type EmployeeWhere = {
   employerEmail_ENDS_WITH?: InputMaybe<Scalars['String']['input']>;
   employerEmail_IN?: InputMaybe<Array<Scalars['String']['input']>>;
   employerEmail_STARTS_WITH?: InputMaybe<Scalars['String']['input']>;
-  id?: InputMaybe<Scalars['String']['input']>;
-  id_CONTAINS?: InputMaybe<Scalars['String']['input']>;
-  id_ENDS_WITH?: InputMaybe<Scalars['String']['input']>;
-  id_IN?: InputMaybe<Array<Scalars['String']['input']>>;
-  id_STARTS_WITH?: InputMaybe<Scalars['String']['input']>;
+  id?: InputMaybe<Scalars['ID']['input']>;
+  id_CONTAINS?: InputMaybe<Scalars['ID']['input']>;
+  id_ENDS_WITH?: InputMaybe<Scalars['ID']['input']>;
+  id_IN?: InputMaybe<Array<Scalars['ID']['input']>>;
+  id_STARTS_WITH?: InputMaybe<Scalars['ID']['input']>;
   userHas?: InputMaybe<UserWhere>;
   userHasAggregate?: InputMaybe<EmployeeUserHasAggregateInput>;
   userHasConnection?: InputMaybe<EmployeeUserHasConnectionWhere>;
@@ -9044,6 +9034,7 @@ export type InvoiceSort = {
 
 export enum InvoiceStatus {
   Complained = 'COMPLAINED',
+  Confirmed = 'CONFIRMED',
   Sent = 'SENT'
 }
 
@@ -9992,7 +9983,7 @@ export type LeadsWhere = {
 
 export type Management = {
   __typename?: 'Management';
-  id: Scalars['String']['output'];
+  id: Scalars['ID']['output'];
   moduelid: Scalars['String']['output'];
   moduleTitle: Scalars['String']['output'];
   reports?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
@@ -10051,7 +10042,7 @@ export type ManagementVendorHasConnectionArgs = {
 export type ManagementAggregateSelection = {
   __typename?: 'ManagementAggregateSelection';
   count: Scalars['Int']['output'];
-  id: StringAggregateSelectionNonNullable;
+  id: IdAggregateSelectionNonNullable;
   moduelid: StringAggregateSelectionNonNullable;
   moduleTitle: StringAggregateSelectionNonNullable;
 };
@@ -10066,12 +10057,15 @@ export type ManagementConnectOrCreateInput = {
   vendorHas?: InputMaybe<ManagementVendorHasConnectOrCreateFieldInput>;
 };
 
+export type ManagementConnectOrCreateWhere = {
+  node: ManagementUniqueWhere;
+};
+
 export type ManagementConnectWhere = {
   node: ManagementWhere;
 };
 
 export type ManagementCreateInput = {
-  id: Scalars['String']['input'];
   moduelid: Scalars['String']['input'];
   moduleTitle: Scalars['String']['input'];
   reports?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -10107,6 +10101,12 @@ export type ManagementModuleTicketSentReportsModuleticketNodeAggregateSelection 
   createdAt: DateTimeAggregateSelectionNullable;
   id: IdAggregateSelectionNonNullable;
   ticket: StringAggregateSelectionNonNullable;
+};
+
+export type ManagementOnCreateInput = {
+  moduelid: Scalars['String']['input'];
+  moduleTitle: Scalars['String']['input'];
+  reports?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
 };
 
 export type ManagementOptions = {
@@ -10260,8 +10260,11 @@ export type ManagementSort = {
   moduleTitle?: InputMaybe<SortDirection>;
 };
 
+export type ManagementUniqueWhere = {
+  id?: InputMaybe<Scalars['ID']['input']>;
+};
+
 export type ManagementUpdateInput = {
-  id?: InputMaybe<Scalars['String']['input']>;
   moduelid?: InputMaybe<Scalars['String']['input']>;
   moduleTitle?: InputMaybe<Scalars['String']['input']>;
   reports?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -10410,11 +10413,11 @@ export type ManagementWhere = {
   AND?: InputMaybe<Array<ManagementWhere>>;
   NOT?: InputMaybe<ManagementWhere>;
   OR?: InputMaybe<Array<ManagementWhere>>;
-  id?: InputMaybe<Scalars['String']['input']>;
-  id_CONTAINS?: InputMaybe<Scalars['String']['input']>;
-  id_ENDS_WITH?: InputMaybe<Scalars['String']['input']>;
-  id_IN?: InputMaybe<Array<Scalars['String']['input']>>;
-  id_STARTS_WITH?: InputMaybe<Scalars['String']['input']>;
+  id?: InputMaybe<Scalars['ID']['input']>;
+  id_CONTAINS?: InputMaybe<Scalars['ID']['input']>;
+  id_ENDS_WITH?: InputMaybe<Scalars['ID']['input']>;
+  id_IN?: InputMaybe<Array<Scalars['ID']['input']>>;
+  id_STARTS_WITH?: InputMaybe<Scalars['ID']['input']>;
   moduelid?: InputMaybe<Scalars['String']['input']>;
   moduelid_CONTAINS?: InputMaybe<Scalars['String']['input']>;
   moduelid_ENDS_WITH?: InputMaybe<Scalars['String']['input']>;
@@ -10450,6 +10453,7 @@ export type Module = {
   __typename?: 'Module';
   createdAt?: Maybe<Scalars['DateTime']['output']>;
   description?: Maybe<Scalars['String']['output']>;
+  files?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   hasDocuments?: Maybe<Documents>;
   hasDocumentsAggregate?: Maybe<ModuleDocumentsHasDocumentsAggregationSelection>;
   hasDocumentsConnection: ModuleHasDocumentsConnection;
@@ -10561,6 +10565,7 @@ export type ModuleConnectWhere = {
 export type ModuleCreateInput = {
   createdAt?: InputMaybe<Scalars['DateTime']['input']>;
   description?: InputMaybe<Scalars['String']['input']>;
+  files?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   hasDocuments?: InputMaybe<ModuleHasDocumentsFieldInput>;
   moduleticketFor?: InputMaybe<ModuleModuleticketForFieldInput>;
   projectHas?: InputMaybe<ModuleProjectHasFieldInput>;
@@ -10842,6 +10847,7 @@ export type ModuleModuleticketForUpdateFieldInput = {
 export type ModuleOnCreateInput = {
   createdAt?: InputMaybe<Scalars['DateTime']['input']>;
   description?: InputMaybe<Scalars['String']['input']>;
+  files?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   sampleStatus?: InputMaybe<SampleStatus>;
   title?: InputMaybe<Scalars['String']['input']>;
 };
@@ -11410,6 +11416,7 @@ export type ModuleTicketConnectInput = {
 export type ModuleTicketConnectOrCreateInput = {
   clientHas?: InputMaybe<ModuleTicketClientHasConnectOrCreateFieldInput>;
   forModule?: InputMaybe<ModuleTicketForModuleConnectOrCreateFieldInput>;
+  managementSentReports?: InputMaybe<ModuleTicketManagementSentReportsConnectOrCreateFieldInput>;
   userHas?: InputMaybe<ModuleTicketUserHasConnectOrCreateFieldInput>;
   vendorHas?: InputMaybe<ModuleTicketVendorHasConnectOrCreateFieldInput>;
 };
@@ -11600,7 +11607,7 @@ export type ModuleTicketManagementManagementSentReportsAggregationSelection = {
 
 export type ModuleTicketManagementManagementSentReportsNodeAggregateSelection = {
   __typename?: 'ModuleTicketManagementManagementSentReportsNodeAggregateSelection';
-  id: StringAggregateSelectionNonNullable;
+  id: IdAggregateSelectionNonNullable;
   moduelid: StringAggregateSelectionNonNullable;
   moduleTitle: StringAggregateSelectionNonNullable;
 };
@@ -11622,6 +11629,15 @@ export type ModuleTicketManagementSentReportsConnectFieldInput = {
   /** Whether or not to overwrite any matching relationship with the new properties. Will default to `false` in 4.0.0. */
   overwrite?: Scalars['Boolean']['input'];
   where?: InputMaybe<ManagementConnectWhere>;
+};
+
+export type ModuleTicketManagementSentReportsConnectOrCreateFieldInput = {
+  onCreate: ModuleTicketManagementSentReportsConnectOrCreateFieldInputOnCreate;
+  where: ManagementConnectOrCreateWhere;
+};
+
+export type ModuleTicketManagementSentReportsConnectOrCreateFieldInputOnCreate = {
+  node: ManagementOnCreateInput;
 };
 
 export type ModuleTicketManagementSentReportsConnection = {
@@ -11658,6 +11674,7 @@ export type ModuleTicketManagementSentReportsDisconnectFieldInput = {
 
 export type ModuleTicketManagementSentReportsFieldInput = {
   connect?: InputMaybe<ModuleTicketManagementSentReportsConnectFieldInput>;
+  connectOrCreate?: InputMaybe<ModuleTicketManagementSentReportsConnectOrCreateFieldInput>;
   create?: InputMaybe<ModuleTicketManagementSentReportsCreateFieldInput>;
 };
 
@@ -11665,21 +11682,6 @@ export type ModuleTicketManagementSentReportsNodeAggregationWhereInput = {
   AND?: InputMaybe<Array<ModuleTicketManagementSentReportsNodeAggregationWhereInput>>;
   NOT?: InputMaybe<ModuleTicketManagementSentReportsNodeAggregationWhereInput>;
   OR?: InputMaybe<Array<ModuleTicketManagementSentReportsNodeAggregationWhereInput>>;
-  id_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
-  id_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
-  id_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
-  id_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
-  id_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
-  id_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  id_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  id_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  id_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  id_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  id_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  id_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  id_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  id_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  id_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
   moduelid_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
   moduelid_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
   moduelid_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
@@ -11724,6 +11726,7 @@ export type ModuleTicketManagementSentReportsUpdateConnectionInput = {
 
 export type ModuleTicketManagementSentReportsUpdateFieldInput = {
   connect?: InputMaybe<ModuleTicketManagementSentReportsConnectFieldInput>;
+  connectOrCreate?: InputMaybe<ModuleTicketManagementSentReportsConnectOrCreateFieldInput>;
   create?: InputMaybe<ModuleTicketManagementSentReportsCreateFieldInput>;
   delete?: InputMaybe<ModuleTicketManagementSentReportsDeleteFieldInput>;
   disconnect?: InputMaybe<ModuleTicketManagementSentReportsDisconnectFieldInput>;
@@ -12437,6 +12440,9 @@ export type ModuleUniqueWhere = {
 export type ModuleUpdateInput = {
   createdAt?: InputMaybe<Scalars['DateTime']['input']>;
   description?: InputMaybe<Scalars['String']['input']>;
+  files?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  files_POP?: InputMaybe<Scalars['Int']['input']>;
+  files_PUSH?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   hasDocuments?: InputMaybe<ModuleHasDocumentsUpdateFieldInput>;
   moduleticketFor?: InputMaybe<ModuleModuleticketForUpdateFieldInput>;
   projectHas?: InputMaybe<ModuleProjectHasUpdateFieldInput>;
@@ -12459,6 +12465,8 @@ export type ModuleWhere = {
   description_ENDS_WITH?: InputMaybe<Scalars['String']['input']>;
   description_IN?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   description_STARTS_WITH?: InputMaybe<Scalars['String']['input']>;
+  files?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  files_INCLUDES?: InputMaybe<Scalars['String']['input']>;
   hasDocuments?: InputMaybe<DocumentsWhere>;
   hasDocumentsAggregate?: InputMaybe<ModuleHasDocumentsAggregateInput>;
   hasDocumentsConnection?: InputMaybe<ModuleHasDocumentsConnectionWhere>;
@@ -12511,12 +12519,13 @@ export type Mutation = {
   createModuleTickets: CreateModuleTicketsMutationResponse;
   createModules: CreateModulesMutationResponse;
   createNotifications: CreateNotificationsMutationResponse;
-  createPages: CreatePagesMutationResponse;
   createProjectTickets: CreateProjectTicketsMutationResponse;
   createProjects: CreateProjectsMutationResponse;
   createReplies: CreateRepliesMutationResponse;
   createRoles: CreateRolesMutationResponse;
+  createServicePages: CreateServicePagesMutationResponse;
   createServices: CreateServicesMutationResponse;
+  createSubservices: CreateSubservicesMutationResponse;
   createSupportTickets: CreateSupportTicketsMutationResponse;
   createUsers: CreateUsersMutationResponse;
   createVendors: CreateVendorsMutationResponse;
@@ -12534,12 +12543,13 @@ export type Mutation = {
   deleteModuleTickets: DeleteInfo;
   deleteModules: DeleteInfo;
   deleteNotifications: DeleteInfo;
-  deletePages: DeleteInfo;
   deleteProjectTickets: DeleteInfo;
   deleteProjects: DeleteInfo;
   deleteReplies: DeleteInfo;
   deleteRoles: DeleteInfo;
+  deleteServicePages: DeleteInfo;
   deleteServices: DeleteInfo;
+  deleteSubservices: DeleteInfo;
   deleteSupportTickets: DeleteInfo;
   deleteUsers: DeleteInfo;
   deleteVendors: DeleteInfo;
@@ -12559,12 +12569,13 @@ export type Mutation = {
   updateModuleTickets: UpdateModuleTicketsMutationResponse;
   updateModules: UpdateModulesMutationResponse;
   updateNotifications: UpdateNotificationsMutationResponse;
-  updatePages: UpdatePagesMutationResponse;
   updateProjectTickets: UpdateProjectTicketsMutationResponse;
   updateProjects: UpdateProjectsMutationResponse;
   updateReplies: UpdateRepliesMutationResponse;
   updateRoles: UpdateRolesMutationResponse;
+  updateServicePages: UpdateServicePagesMutationResponse;
   updateServices: UpdateServicesMutationResponse;
+  updateSubservices: UpdateSubservicesMutationResponse;
   updateSupportTickets: UpdateSupportTicketsMutationResponse;
   updateUsers: UpdateUsersMutationResponse;
   updateVendors: UpdateVendorsMutationResponse;
@@ -12641,11 +12652,6 @@ export type MutationCreateNotificationsArgs = {
 };
 
 
-export type MutationCreatePagesArgs = {
-  input: Array<PageCreateInput>;
-};
-
-
 export type MutationCreateProjectTicketsArgs = {
   input: Array<ProjectTicketCreateInput>;
 };
@@ -12666,8 +12672,18 @@ export type MutationCreateRolesArgs = {
 };
 
 
+export type MutationCreateServicePagesArgs = {
+  input: Array<ServicePageCreateInput>;
+};
+
+
 export type MutationCreateServicesArgs = {
   input: Array<ServiceCreateInput>;
+};
+
+
+export type MutationCreateSubservicesArgs = {
+  input: Array<SubserviceCreateInput>;
 };
 
 
@@ -12769,12 +12785,6 @@ export type MutationDeleteNotificationsArgs = {
 };
 
 
-export type MutationDeletePagesArgs = {
-  delete?: InputMaybe<PageDeleteInput>;
-  where?: InputMaybe<PageWhere>;
-};
-
-
 export type MutationDeleteProjectTicketsArgs = {
   delete?: InputMaybe<ProjectTicketDeleteInput>;
   where?: InputMaybe<ProjectTicketWhere>;
@@ -12799,9 +12809,21 @@ export type MutationDeleteRolesArgs = {
 };
 
 
+export type MutationDeleteServicePagesArgs = {
+  delete?: InputMaybe<ServicePageDeleteInput>;
+  where?: InputMaybe<ServicePageWhere>;
+};
+
+
 export type MutationDeleteServicesArgs = {
   delete?: InputMaybe<ServiceDeleteInput>;
   where?: InputMaybe<ServiceWhere>;
+};
+
+
+export type MutationDeleteSubservicesArgs = {
+  delete?: InputMaybe<SubserviceDeleteInput>;
+  where?: InputMaybe<SubserviceWhere>;
 };
 
 
@@ -12825,7 +12847,6 @@ export type MutationDeleteVendorsArgs = {
 
 export type MutationSignInArgs = {
   email: Scalars['String']['input'];
-  name: Scalars['String']['input'];
 };
 
 
@@ -12983,17 +13004,6 @@ export type MutationUpdateNotificationsArgs = {
 };
 
 
-export type MutationUpdatePagesArgs = {
-  connect?: InputMaybe<PageConnectInput>;
-  connectOrCreate?: InputMaybe<PageConnectOrCreateInput>;
-  create?: InputMaybe<PageRelationInput>;
-  delete?: InputMaybe<PageDeleteInput>;
-  disconnect?: InputMaybe<PageDisconnectInput>;
-  update?: InputMaybe<PageUpdateInput>;
-  where?: InputMaybe<PageWhere>;
-};
-
-
 export type MutationUpdateProjectTicketsArgs = {
   connect?: InputMaybe<ProjectTicketConnectInput>;
   connectOrCreate?: InputMaybe<ProjectTicketConnectOrCreateInput>;
@@ -13038,6 +13048,17 @@ export type MutationUpdateRolesArgs = {
 };
 
 
+export type MutationUpdateServicePagesArgs = {
+  connect?: InputMaybe<ServicePageConnectInput>;
+  connectOrCreate?: InputMaybe<ServicePageConnectOrCreateInput>;
+  create?: InputMaybe<ServicePageRelationInput>;
+  delete?: InputMaybe<ServicePageDeleteInput>;
+  disconnect?: InputMaybe<ServicePageDisconnectInput>;
+  update?: InputMaybe<ServicePageUpdateInput>;
+  where?: InputMaybe<ServicePageWhere>;
+};
+
+
 export type MutationUpdateServicesArgs = {
   connect?: InputMaybe<ServiceConnectInput>;
   connectOrCreate?: InputMaybe<ServiceConnectOrCreateInput>;
@@ -13046,6 +13067,17 @@ export type MutationUpdateServicesArgs = {
   disconnect?: InputMaybe<ServiceDisconnectInput>;
   update?: InputMaybe<ServiceUpdateInput>;
   where?: InputMaybe<ServiceWhere>;
+};
+
+
+export type MutationUpdateSubservicesArgs = {
+  connect?: InputMaybe<SubserviceConnectInput>;
+  connectOrCreate?: InputMaybe<SubserviceConnectOrCreateInput>;
+  create?: InputMaybe<SubserviceRelationInput>;
+  delete?: InputMaybe<SubserviceDeleteInput>;
+  disconnect?: InputMaybe<SubserviceDisconnectInput>;
+  update?: InputMaybe<SubserviceUpdateInput>;
+  where?: InputMaybe<SubserviceWhere>;
 };
 
 
@@ -13688,191 +13720,6 @@ export type NotificationsConnection = {
   totalCount: Scalars['Int']['output'];
 };
 
-export type Page = {
-  __typename?: 'Page';
-  adminCreated?: Maybe<Admin>;
-  adminCreatedAggregate?: Maybe<PageAdminAdminCreatedAggregationSelection>;
-  adminCreatedConnection: PageAdminCreatedConnection;
-  description?: Maybe<Scalars['String']['output']>;
-  id: Scalars['ID']['output'];
-  image?: Maybe<Scalars['String']['output']>;
-  subtitle?: Maybe<Scalars['String']['output']>;
-  title?: Maybe<Scalars['String']['output']>;
-};
-
-
-export type PageAdminCreatedArgs = {
-  directed?: InputMaybe<Scalars['Boolean']['input']>;
-  options?: InputMaybe<AdminOptions>;
-  where?: InputMaybe<AdminWhere>;
-};
-
-
-export type PageAdminCreatedAggregateArgs = {
-  directed?: InputMaybe<Scalars['Boolean']['input']>;
-  where?: InputMaybe<AdminWhere>;
-};
-
-
-export type PageAdminCreatedConnectionArgs = {
-  after?: InputMaybe<Scalars['String']['input']>;
-  directed?: InputMaybe<Scalars['Boolean']['input']>;
-  first?: InputMaybe<Scalars['Int']['input']>;
-  sort?: InputMaybe<Array<PageAdminCreatedConnectionSort>>;
-  where?: InputMaybe<PageAdminCreatedConnectionWhere>;
-};
-
-export type PageAdminAdminCreatedAggregationSelection = {
-  __typename?: 'PageAdminAdminCreatedAggregationSelection';
-  count: Scalars['Int']['output'];
-  node?: Maybe<PageAdminAdminCreatedNodeAggregateSelection>;
-};
-
-export type PageAdminAdminCreatedNodeAggregateSelection = {
-  __typename?: 'PageAdminAdminCreatedNodeAggregateSelection';
-  id: IdAggregateSelectionNonNullable;
-};
-
-export type PageAdminCreatedAggregateInput = {
-  AND?: InputMaybe<Array<PageAdminCreatedAggregateInput>>;
-  NOT?: InputMaybe<PageAdminCreatedAggregateInput>;
-  OR?: InputMaybe<Array<PageAdminCreatedAggregateInput>>;
-  count?: InputMaybe<Scalars['Int']['input']>;
-  count_GT?: InputMaybe<Scalars['Int']['input']>;
-  count_GTE?: InputMaybe<Scalars['Int']['input']>;
-  count_LT?: InputMaybe<Scalars['Int']['input']>;
-  count_LTE?: InputMaybe<Scalars['Int']['input']>;
-  node?: InputMaybe<PageAdminCreatedNodeAggregationWhereInput>;
-};
-
-export type PageAdminCreatedConnectFieldInput = {
-  connect?: InputMaybe<AdminConnectInput>;
-  /** Whether or not to overwrite any matching relationship with the new properties. Will default to `false` in 4.0.0. */
-  overwrite?: Scalars['Boolean']['input'];
-  where?: InputMaybe<AdminConnectWhere>;
-};
-
-export type PageAdminCreatedConnectOrCreateFieldInput = {
-  onCreate: PageAdminCreatedConnectOrCreateFieldInputOnCreate;
-  where: AdminConnectOrCreateWhere;
-};
-
-export type PageAdminCreatedConnectOrCreateFieldInputOnCreate = {
-  node: AdminOnCreateInput;
-};
-
-export type PageAdminCreatedConnection = {
-  __typename?: 'PageAdminCreatedConnection';
-  edges: Array<PageAdminCreatedRelationship>;
-  pageInfo: PageInfo;
-  totalCount: Scalars['Int']['output'];
-};
-
-export type PageAdminCreatedConnectionSort = {
-  node?: InputMaybe<AdminSort>;
-};
-
-export type PageAdminCreatedConnectionWhere = {
-  AND?: InputMaybe<Array<PageAdminCreatedConnectionWhere>>;
-  NOT?: InputMaybe<PageAdminCreatedConnectionWhere>;
-  OR?: InputMaybe<Array<PageAdminCreatedConnectionWhere>>;
-  node?: InputMaybe<AdminWhere>;
-};
-
-export type PageAdminCreatedCreateFieldInput = {
-  node: AdminCreateInput;
-};
-
-export type PageAdminCreatedDeleteFieldInput = {
-  delete?: InputMaybe<AdminDeleteInput>;
-  where?: InputMaybe<PageAdminCreatedConnectionWhere>;
-};
-
-export type PageAdminCreatedDisconnectFieldInput = {
-  disconnect?: InputMaybe<AdminDisconnectInput>;
-  where?: InputMaybe<PageAdminCreatedConnectionWhere>;
-};
-
-export type PageAdminCreatedFieldInput = {
-  connect?: InputMaybe<PageAdminCreatedConnectFieldInput>;
-  connectOrCreate?: InputMaybe<PageAdminCreatedConnectOrCreateFieldInput>;
-  create?: InputMaybe<PageAdminCreatedCreateFieldInput>;
-};
-
-export type PageAdminCreatedNodeAggregationWhereInput = {
-  AND?: InputMaybe<Array<PageAdminCreatedNodeAggregationWhereInput>>;
-  NOT?: InputMaybe<PageAdminCreatedNodeAggregationWhereInput>;
-  OR?: InputMaybe<Array<PageAdminCreatedNodeAggregationWhereInput>>;
-};
-
-export type PageAdminCreatedRelationship = {
-  __typename?: 'PageAdminCreatedRelationship';
-  cursor: Scalars['String']['output'];
-  node: Admin;
-};
-
-export type PageAdminCreatedUpdateConnectionInput = {
-  node?: InputMaybe<AdminUpdateInput>;
-};
-
-export type PageAdminCreatedUpdateFieldInput = {
-  connect?: InputMaybe<PageAdminCreatedConnectFieldInput>;
-  connectOrCreate?: InputMaybe<PageAdminCreatedConnectOrCreateFieldInput>;
-  create?: InputMaybe<PageAdminCreatedCreateFieldInput>;
-  delete?: InputMaybe<PageAdminCreatedDeleteFieldInput>;
-  disconnect?: InputMaybe<PageAdminCreatedDisconnectFieldInput>;
-  update?: InputMaybe<PageAdminCreatedUpdateConnectionInput>;
-  where?: InputMaybe<PageAdminCreatedConnectionWhere>;
-};
-
-export type PageAggregateSelection = {
-  __typename?: 'PageAggregateSelection';
-  count: Scalars['Int']['output'];
-  description: StringAggregateSelectionNullable;
-  id: IdAggregateSelectionNonNullable;
-  image: StringAggregateSelectionNullable;
-  subtitle: StringAggregateSelectionNullable;
-  title: StringAggregateSelectionNullable;
-};
-
-export type PageConnectInput = {
-  adminCreated?: InputMaybe<PageAdminCreatedConnectFieldInput>;
-};
-
-export type PageConnectOrCreateInput = {
-  adminCreated?: InputMaybe<PageAdminCreatedConnectOrCreateFieldInput>;
-};
-
-export type PageConnectOrCreateWhere = {
-  node: PageUniqueWhere;
-};
-
-export type PageConnectWhere = {
-  node: PageWhere;
-};
-
-export type PageCreateInput = {
-  adminCreated?: InputMaybe<PageAdminCreatedFieldInput>;
-  description?: InputMaybe<Scalars['String']['input']>;
-  image?: InputMaybe<Scalars['String']['input']>;
-  subtitle?: InputMaybe<Scalars['String']['input']>;
-  title?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type PageDeleteInput = {
-  adminCreated?: InputMaybe<PageAdminCreatedDeleteFieldInput>;
-};
-
-export type PageDisconnectInput = {
-  adminCreated?: InputMaybe<PageAdminCreatedDisconnectFieldInput>;
-};
-
-export type PageEdge = {
-  __typename?: 'PageEdge';
-  cursor: Scalars['String']['output'];
-  node: Page;
-};
-
 /** Pagination information (Relay) */
 export type PageInfo = {
   __typename?: 'PageInfo';
@@ -13880,88 +13727,6 @@ export type PageInfo = {
   hasNextPage: Scalars['Boolean']['output'];
   hasPreviousPage: Scalars['Boolean']['output'];
   startCursor?: Maybe<Scalars['String']['output']>;
-};
-
-export type PageOnCreateInput = {
-  description?: InputMaybe<Scalars['String']['input']>;
-  image?: InputMaybe<Scalars['String']['input']>;
-  subtitle?: InputMaybe<Scalars['String']['input']>;
-  title?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type PageOptions = {
-  limit?: InputMaybe<Scalars['Int']['input']>;
-  offset?: InputMaybe<Scalars['Int']['input']>;
-  /** Specify one or more PageSort objects to sort Pages by. The sorts will be applied in the order in which they are arranged in the array. */
-  sort?: InputMaybe<Array<PageSort>>;
-};
-
-export type PageRelationInput = {
-  adminCreated?: InputMaybe<PageAdminCreatedCreateFieldInput>;
-};
-
-/** Fields to sort Pages by. The order in which sorts are applied is not guaranteed when specifying many fields in one PageSort object. */
-export type PageSort = {
-  description?: InputMaybe<SortDirection>;
-  id?: InputMaybe<SortDirection>;
-  image?: InputMaybe<SortDirection>;
-  subtitle?: InputMaybe<SortDirection>;
-  title?: InputMaybe<SortDirection>;
-};
-
-export type PageUniqueWhere = {
-  id?: InputMaybe<Scalars['ID']['input']>;
-};
-
-export type PageUpdateInput = {
-  adminCreated?: InputMaybe<PageAdminCreatedUpdateFieldInput>;
-  description?: InputMaybe<Scalars['String']['input']>;
-  image?: InputMaybe<Scalars['String']['input']>;
-  subtitle?: InputMaybe<Scalars['String']['input']>;
-  title?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type PageWhere = {
-  AND?: InputMaybe<Array<PageWhere>>;
-  NOT?: InputMaybe<PageWhere>;
-  OR?: InputMaybe<Array<PageWhere>>;
-  adminCreated?: InputMaybe<AdminWhere>;
-  adminCreatedAggregate?: InputMaybe<PageAdminCreatedAggregateInput>;
-  adminCreatedConnection?: InputMaybe<PageAdminCreatedConnectionWhere>;
-  adminCreatedConnection_NOT?: InputMaybe<PageAdminCreatedConnectionWhere>;
-  adminCreated_NOT?: InputMaybe<AdminWhere>;
-  description?: InputMaybe<Scalars['String']['input']>;
-  description_CONTAINS?: InputMaybe<Scalars['String']['input']>;
-  description_ENDS_WITH?: InputMaybe<Scalars['String']['input']>;
-  description_IN?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  description_STARTS_WITH?: InputMaybe<Scalars['String']['input']>;
-  id?: InputMaybe<Scalars['ID']['input']>;
-  id_CONTAINS?: InputMaybe<Scalars['ID']['input']>;
-  id_ENDS_WITH?: InputMaybe<Scalars['ID']['input']>;
-  id_IN?: InputMaybe<Array<Scalars['ID']['input']>>;
-  id_STARTS_WITH?: InputMaybe<Scalars['ID']['input']>;
-  image?: InputMaybe<Scalars['String']['input']>;
-  image_CONTAINS?: InputMaybe<Scalars['String']['input']>;
-  image_ENDS_WITH?: InputMaybe<Scalars['String']['input']>;
-  image_IN?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  image_STARTS_WITH?: InputMaybe<Scalars['String']['input']>;
-  subtitle?: InputMaybe<Scalars['String']['input']>;
-  subtitle_CONTAINS?: InputMaybe<Scalars['String']['input']>;
-  subtitle_ENDS_WITH?: InputMaybe<Scalars['String']['input']>;
-  subtitle_IN?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  subtitle_STARTS_WITH?: InputMaybe<Scalars['String']['input']>;
-  title?: InputMaybe<Scalars['String']['input']>;
-  title_CONTAINS?: InputMaybe<Scalars['String']['input']>;
-  title_ENDS_WITH?: InputMaybe<Scalars['String']['input']>;
-  title_IN?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  title_STARTS_WITH?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type PagesConnection = {
-  __typename?: 'PagesConnection';
-  edges: Array<PageEdge>;
-  pageInfo: PageInfo;
-  totalCount: Scalars['Int']['output'];
 };
 
 export type Project = {
@@ -15508,9 +15273,6 @@ export type Query = {
   notifications: Array<Notification>;
   notificationsAggregate: NotificationAggregateSelection;
   notificationsConnection: NotificationsConnection;
-  pages: Array<Page>;
-  pagesAggregate: PageAggregateSelection;
-  pagesConnection: PagesConnection;
   projectTickets: Array<ProjectTicket>;
   projectTicketsAggregate: ProjectTicketAggregateSelection;
   projectTicketsConnection: ProjectTicketsConnection;
@@ -15523,9 +15285,15 @@ export type Query = {
   roles: Array<Role>;
   rolesAggregate: RoleAggregateSelection;
   rolesConnection: RolesConnection;
+  servicePages: Array<ServicePage>;
+  servicePagesAggregate: ServicePageAggregateSelection;
+  servicePagesConnection: ServicePagesConnection;
   services: Array<Service>;
   servicesAggregate: ServiceAggregateSelection;
   servicesConnection: ServicesConnection;
+  subservices: Array<Subservice>;
+  subservicesAggregate: SubserviceAggregateSelection;
+  subservicesConnection: SubservicesConnection;
   supportTickets: Array<SupportTicket>;
   supportTicketsAggregate: SupportTicketAggregateSelection;
   supportTicketsConnection: SupportTicketsConnection;
@@ -15804,25 +15572,6 @@ export type QueryNotificationsConnectionArgs = {
 };
 
 
-export type QueryPagesArgs = {
-  options?: InputMaybe<PageOptions>;
-  where?: InputMaybe<PageWhere>;
-};
-
-
-export type QueryPagesAggregateArgs = {
-  where?: InputMaybe<PageWhere>;
-};
-
-
-export type QueryPagesConnectionArgs = {
-  after?: InputMaybe<Scalars['String']['input']>;
-  first?: InputMaybe<Scalars['Int']['input']>;
-  sort?: InputMaybe<Array<InputMaybe<PageSort>>>;
-  where?: InputMaybe<PageWhere>;
-};
-
-
 export type QueryProjectTicketsArgs = {
   options?: InputMaybe<ProjectTicketOptions>;
   where?: InputMaybe<ProjectTicketWhere>;
@@ -15899,6 +15648,25 @@ export type QueryRolesConnectionArgs = {
 };
 
 
+export type QueryServicePagesArgs = {
+  options?: InputMaybe<ServicePageOptions>;
+  where?: InputMaybe<ServicePageWhere>;
+};
+
+
+export type QueryServicePagesAggregateArgs = {
+  where?: InputMaybe<ServicePageWhere>;
+};
+
+
+export type QueryServicePagesConnectionArgs = {
+  after?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  sort?: InputMaybe<Array<InputMaybe<ServicePageSort>>>;
+  where?: InputMaybe<ServicePageWhere>;
+};
+
+
 export type QueryServicesArgs = {
   options?: InputMaybe<ServiceOptions>;
   where?: InputMaybe<ServiceWhere>;
@@ -15915,6 +15683,25 @@ export type QueryServicesConnectionArgs = {
   first?: InputMaybe<Scalars['Int']['input']>;
   sort?: InputMaybe<Array<InputMaybe<ServiceSort>>>;
   where?: InputMaybe<ServiceWhere>;
+};
+
+
+export type QuerySubservicesArgs = {
+  options?: InputMaybe<SubserviceOptions>;
+  where?: InputMaybe<SubserviceWhere>;
+};
+
+
+export type QuerySubservicesAggregateArgs = {
+  where?: InputMaybe<SubserviceWhere>;
+};
+
+
+export type QuerySubservicesConnectionArgs = {
+  after?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  sort?: InputMaybe<Array<InputMaybe<SubserviceSort>>>;
+  where?: InputMaybe<SubserviceWhere>;
 };
 
 
@@ -17567,6 +17354,444 @@ export type ServiceOptions = {
   sort?: InputMaybe<Array<ServiceSort>>;
 };
 
+export type ServicePage = {
+  __typename?: 'ServicePage';
+  adminCreated?: Maybe<Admin>;
+  adminCreatedAggregate?: Maybe<ServicePageAdminAdminCreatedAggregationSelection>;
+  adminCreatedConnection: ServicePageAdminCreatedConnection;
+  hasSubservice?: Maybe<Subservice>;
+  hasSubserviceAggregate?: Maybe<ServicePageSubserviceHasSubserviceAggregationSelection>;
+  hasSubserviceConnection: ServicePageHasSubserviceConnection;
+  id: Scalars['ID']['output'];
+  title?: Maybe<Scalars['String']['output']>;
+};
+
+
+export type ServicePageAdminCreatedArgs = {
+  directed?: InputMaybe<Scalars['Boolean']['input']>;
+  options?: InputMaybe<AdminOptions>;
+  where?: InputMaybe<AdminWhere>;
+};
+
+
+export type ServicePageAdminCreatedAggregateArgs = {
+  directed?: InputMaybe<Scalars['Boolean']['input']>;
+  where?: InputMaybe<AdminWhere>;
+};
+
+
+export type ServicePageAdminCreatedConnectionArgs = {
+  after?: InputMaybe<Scalars['String']['input']>;
+  directed?: InputMaybe<Scalars['Boolean']['input']>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  sort?: InputMaybe<Array<ServicePageAdminCreatedConnectionSort>>;
+  where?: InputMaybe<ServicePageAdminCreatedConnectionWhere>;
+};
+
+
+export type ServicePageHasSubserviceArgs = {
+  directed?: InputMaybe<Scalars['Boolean']['input']>;
+  options?: InputMaybe<SubserviceOptions>;
+  where?: InputMaybe<SubserviceWhere>;
+};
+
+
+export type ServicePageHasSubserviceAggregateArgs = {
+  directed?: InputMaybe<Scalars['Boolean']['input']>;
+  where?: InputMaybe<SubserviceWhere>;
+};
+
+
+export type ServicePageHasSubserviceConnectionArgs = {
+  after?: InputMaybe<Scalars['String']['input']>;
+  directed?: InputMaybe<Scalars['Boolean']['input']>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  sort?: InputMaybe<Array<ServicePageHasSubserviceConnectionSort>>;
+  where?: InputMaybe<ServicePageHasSubserviceConnectionWhere>;
+};
+
+export type ServicePageAdminAdminCreatedAggregationSelection = {
+  __typename?: 'ServicePageAdminAdminCreatedAggregationSelection';
+  count: Scalars['Int']['output'];
+  node?: Maybe<ServicePageAdminAdminCreatedNodeAggregateSelection>;
+};
+
+export type ServicePageAdminAdminCreatedNodeAggregateSelection = {
+  __typename?: 'ServicePageAdminAdminCreatedNodeAggregateSelection';
+  id: IdAggregateSelectionNonNullable;
+};
+
+export type ServicePageAdminCreatedAggregateInput = {
+  AND?: InputMaybe<Array<ServicePageAdminCreatedAggregateInput>>;
+  NOT?: InputMaybe<ServicePageAdminCreatedAggregateInput>;
+  OR?: InputMaybe<Array<ServicePageAdminCreatedAggregateInput>>;
+  count?: InputMaybe<Scalars['Int']['input']>;
+  count_GT?: InputMaybe<Scalars['Int']['input']>;
+  count_GTE?: InputMaybe<Scalars['Int']['input']>;
+  count_LT?: InputMaybe<Scalars['Int']['input']>;
+  count_LTE?: InputMaybe<Scalars['Int']['input']>;
+  node?: InputMaybe<ServicePageAdminCreatedNodeAggregationWhereInput>;
+};
+
+export type ServicePageAdminCreatedConnectFieldInput = {
+  connect?: InputMaybe<AdminConnectInput>;
+  /** Whether or not to overwrite any matching relationship with the new properties. Will default to `false` in 4.0.0. */
+  overwrite?: Scalars['Boolean']['input'];
+  where?: InputMaybe<AdminConnectWhere>;
+};
+
+export type ServicePageAdminCreatedConnectOrCreateFieldInput = {
+  onCreate: ServicePageAdminCreatedConnectOrCreateFieldInputOnCreate;
+  where: AdminConnectOrCreateWhere;
+};
+
+export type ServicePageAdminCreatedConnectOrCreateFieldInputOnCreate = {
+  node: AdminOnCreateInput;
+};
+
+export type ServicePageAdminCreatedConnection = {
+  __typename?: 'ServicePageAdminCreatedConnection';
+  edges: Array<ServicePageAdminCreatedRelationship>;
+  pageInfo: PageInfo;
+  totalCount: Scalars['Int']['output'];
+};
+
+export type ServicePageAdminCreatedConnectionSort = {
+  node?: InputMaybe<AdminSort>;
+};
+
+export type ServicePageAdminCreatedConnectionWhere = {
+  AND?: InputMaybe<Array<ServicePageAdminCreatedConnectionWhere>>;
+  NOT?: InputMaybe<ServicePageAdminCreatedConnectionWhere>;
+  OR?: InputMaybe<Array<ServicePageAdminCreatedConnectionWhere>>;
+  node?: InputMaybe<AdminWhere>;
+};
+
+export type ServicePageAdminCreatedCreateFieldInput = {
+  node: AdminCreateInput;
+};
+
+export type ServicePageAdminCreatedDeleteFieldInput = {
+  delete?: InputMaybe<AdminDeleteInput>;
+  where?: InputMaybe<ServicePageAdminCreatedConnectionWhere>;
+};
+
+export type ServicePageAdminCreatedDisconnectFieldInput = {
+  disconnect?: InputMaybe<AdminDisconnectInput>;
+  where?: InputMaybe<ServicePageAdminCreatedConnectionWhere>;
+};
+
+export type ServicePageAdminCreatedFieldInput = {
+  connect?: InputMaybe<ServicePageAdminCreatedConnectFieldInput>;
+  connectOrCreate?: InputMaybe<ServicePageAdminCreatedConnectOrCreateFieldInput>;
+  create?: InputMaybe<ServicePageAdminCreatedCreateFieldInput>;
+};
+
+export type ServicePageAdminCreatedNodeAggregationWhereInput = {
+  AND?: InputMaybe<Array<ServicePageAdminCreatedNodeAggregationWhereInput>>;
+  NOT?: InputMaybe<ServicePageAdminCreatedNodeAggregationWhereInput>;
+  OR?: InputMaybe<Array<ServicePageAdminCreatedNodeAggregationWhereInput>>;
+};
+
+export type ServicePageAdminCreatedRelationship = {
+  __typename?: 'ServicePageAdminCreatedRelationship';
+  cursor: Scalars['String']['output'];
+  node: Admin;
+};
+
+export type ServicePageAdminCreatedUpdateConnectionInput = {
+  node?: InputMaybe<AdminUpdateInput>;
+};
+
+export type ServicePageAdminCreatedUpdateFieldInput = {
+  connect?: InputMaybe<ServicePageAdminCreatedConnectFieldInput>;
+  connectOrCreate?: InputMaybe<ServicePageAdminCreatedConnectOrCreateFieldInput>;
+  create?: InputMaybe<ServicePageAdminCreatedCreateFieldInput>;
+  delete?: InputMaybe<ServicePageAdminCreatedDeleteFieldInput>;
+  disconnect?: InputMaybe<ServicePageAdminCreatedDisconnectFieldInput>;
+  update?: InputMaybe<ServicePageAdminCreatedUpdateConnectionInput>;
+  where?: InputMaybe<ServicePageAdminCreatedConnectionWhere>;
+};
+
+export type ServicePageAggregateSelection = {
+  __typename?: 'ServicePageAggregateSelection';
+  count: Scalars['Int']['output'];
+  id: IdAggregateSelectionNonNullable;
+  title: StringAggregateSelectionNullable;
+};
+
+export type ServicePageConnectInput = {
+  adminCreated?: InputMaybe<ServicePageAdminCreatedConnectFieldInput>;
+  hasSubservice?: InputMaybe<ServicePageHasSubserviceConnectFieldInput>;
+};
+
+export type ServicePageConnectOrCreateInput = {
+  adminCreated?: InputMaybe<ServicePageAdminCreatedConnectOrCreateFieldInput>;
+  hasSubservice?: InputMaybe<ServicePageHasSubserviceConnectOrCreateFieldInput>;
+};
+
+export type ServicePageConnectOrCreateWhere = {
+  node: ServicePageUniqueWhere;
+};
+
+export type ServicePageConnectWhere = {
+  node: ServicePageWhere;
+};
+
+export type ServicePageCreateInput = {
+  adminCreated?: InputMaybe<ServicePageAdminCreatedFieldInput>;
+  hasSubservice?: InputMaybe<ServicePageHasSubserviceFieldInput>;
+  title?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type ServicePageDeleteInput = {
+  adminCreated?: InputMaybe<ServicePageAdminCreatedDeleteFieldInput>;
+  hasSubservice?: InputMaybe<ServicePageHasSubserviceDeleteFieldInput>;
+};
+
+export type ServicePageDisconnectInput = {
+  adminCreated?: InputMaybe<ServicePageAdminCreatedDisconnectFieldInput>;
+  hasSubservice?: InputMaybe<ServicePageHasSubserviceDisconnectFieldInput>;
+};
+
+export type ServicePageEdge = {
+  __typename?: 'ServicePageEdge';
+  cursor: Scalars['String']['output'];
+  node: ServicePage;
+};
+
+export type ServicePageHasSubserviceAggregateInput = {
+  AND?: InputMaybe<Array<ServicePageHasSubserviceAggregateInput>>;
+  NOT?: InputMaybe<ServicePageHasSubserviceAggregateInput>;
+  OR?: InputMaybe<Array<ServicePageHasSubserviceAggregateInput>>;
+  count?: InputMaybe<Scalars['Int']['input']>;
+  count_GT?: InputMaybe<Scalars['Int']['input']>;
+  count_GTE?: InputMaybe<Scalars['Int']['input']>;
+  count_LT?: InputMaybe<Scalars['Int']['input']>;
+  count_LTE?: InputMaybe<Scalars['Int']['input']>;
+  node?: InputMaybe<ServicePageHasSubserviceNodeAggregationWhereInput>;
+};
+
+export type ServicePageHasSubserviceConnectFieldInput = {
+  connect?: InputMaybe<SubserviceConnectInput>;
+  /** Whether or not to overwrite any matching relationship with the new properties. Will default to `false` in 4.0.0. */
+  overwrite?: Scalars['Boolean']['input'];
+  where?: InputMaybe<SubserviceConnectWhere>;
+};
+
+export type ServicePageHasSubserviceConnectOrCreateFieldInput = {
+  onCreate: ServicePageHasSubserviceConnectOrCreateFieldInputOnCreate;
+  where: SubserviceConnectOrCreateWhere;
+};
+
+export type ServicePageHasSubserviceConnectOrCreateFieldInputOnCreate = {
+  node: SubserviceOnCreateInput;
+};
+
+export type ServicePageHasSubserviceConnection = {
+  __typename?: 'ServicePageHasSubserviceConnection';
+  edges: Array<ServicePageHasSubserviceRelationship>;
+  pageInfo: PageInfo;
+  totalCount: Scalars['Int']['output'];
+};
+
+export type ServicePageHasSubserviceConnectionSort = {
+  node?: InputMaybe<SubserviceSort>;
+};
+
+export type ServicePageHasSubserviceConnectionWhere = {
+  AND?: InputMaybe<Array<ServicePageHasSubserviceConnectionWhere>>;
+  NOT?: InputMaybe<ServicePageHasSubserviceConnectionWhere>;
+  OR?: InputMaybe<Array<ServicePageHasSubserviceConnectionWhere>>;
+  node?: InputMaybe<SubserviceWhere>;
+};
+
+export type ServicePageHasSubserviceCreateFieldInput = {
+  node: SubserviceCreateInput;
+};
+
+export type ServicePageHasSubserviceDeleteFieldInput = {
+  delete?: InputMaybe<SubserviceDeleteInput>;
+  where?: InputMaybe<ServicePageHasSubserviceConnectionWhere>;
+};
+
+export type ServicePageHasSubserviceDisconnectFieldInput = {
+  disconnect?: InputMaybe<SubserviceDisconnectInput>;
+  where?: InputMaybe<ServicePageHasSubserviceConnectionWhere>;
+};
+
+export type ServicePageHasSubserviceFieldInput = {
+  connect?: InputMaybe<ServicePageHasSubserviceConnectFieldInput>;
+  connectOrCreate?: InputMaybe<ServicePageHasSubserviceConnectOrCreateFieldInput>;
+  create?: InputMaybe<ServicePageHasSubserviceCreateFieldInput>;
+};
+
+export type ServicePageHasSubserviceNodeAggregationWhereInput = {
+  AND?: InputMaybe<Array<ServicePageHasSubserviceNodeAggregationWhereInput>>;
+  NOT?: InputMaybe<ServicePageHasSubserviceNodeAggregationWhereInput>;
+  OR?: InputMaybe<Array<ServicePageHasSubserviceNodeAggregationWhereInput>>;
+  description_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  description_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  description_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  description_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  description_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  description_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  description_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  description_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  description_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  description_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  description_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  description_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  description_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  description_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  description_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  image_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  image_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  image_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  image_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  image_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  image_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  image_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  image_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  image_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  image_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  image_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  image_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  image_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  image_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  image_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  slug_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  slug_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  slug_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  slug_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  slug_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  slug_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  slug_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  slug_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  slug_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  slug_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  slug_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  slug_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  slug_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  slug_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  slug_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  title_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  title_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  title_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  title_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  title_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  title_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  title_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  title_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  title_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  title_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  title_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  title_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  title_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  title_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  title_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+};
+
+export type ServicePageHasSubserviceRelationship = {
+  __typename?: 'ServicePageHasSubserviceRelationship';
+  cursor: Scalars['String']['output'];
+  node: Subservice;
+};
+
+export type ServicePageHasSubserviceUpdateConnectionInput = {
+  node?: InputMaybe<SubserviceUpdateInput>;
+};
+
+export type ServicePageHasSubserviceUpdateFieldInput = {
+  connect?: InputMaybe<ServicePageHasSubserviceConnectFieldInput>;
+  connectOrCreate?: InputMaybe<ServicePageHasSubserviceConnectOrCreateFieldInput>;
+  create?: InputMaybe<ServicePageHasSubserviceCreateFieldInput>;
+  delete?: InputMaybe<ServicePageHasSubserviceDeleteFieldInput>;
+  disconnect?: InputMaybe<ServicePageHasSubserviceDisconnectFieldInput>;
+  update?: InputMaybe<ServicePageHasSubserviceUpdateConnectionInput>;
+  where?: InputMaybe<ServicePageHasSubserviceConnectionWhere>;
+};
+
+export type ServicePageOnCreateInput = {
+  title?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type ServicePageOptions = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  /** Specify one or more ServicePageSort objects to sort ServicePages by. The sorts will be applied in the order in which they are arranged in the array. */
+  sort?: InputMaybe<Array<ServicePageSort>>;
+};
+
+export type ServicePageRelationInput = {
+  adminCreated?: InputMaybe<ServicePageAdminCreatedCreateFieldInput>;
+  hasSubservice?: InputMaybe<ServicePageHasSubserviceCreateFieldInput>;
+};
+
+/** Fields to sort ServicePages by. The order in which sorts are applied is not guaranteed when specifying many fields in one ServicePageSort object. */
+export type ServicePageSort = {
+  id?: InputMaybe<SortDirection>;
+  title?: InputMaybe<SortDirection>;
+};
+
+export type ServicePageSubserviceHasSubserviceAggregationSelection = {
+  __typename?: 'ServicePageSubserviceHasSubserviceAggregationSelection';
+  count: Scalars['Int']['output'];
+  node?: Maybe<ServicePageSubserviceHasSubserviceNodeAggregateSelection>;
+};
+
+export type ServicePageSubserviceHasSubserviceNodeAggregateSelection = {
+  __typename?: 'ServicePageSubserviceHasSubserviceNodeAggregateSelection';
+  description: StringAggregateSelectionNullable;
+  id: IdAggregateSelectionNonNullable;
+  image: StringAggregateSelectionNullable;
+  slug: StringAggregateSelectionNullable;
+  title: StringAggregateSelectionNullable;
+};
+
+export type ServicePageUniqueWhere = {
+  id?: InputMaybe<Scalars['ID']['input']>;
+};
+
+export type ServicePageUpdateInput = {
+  adminCreated?: InputMaybe<ServicePageAdminCreatedUpdateFieldInput>;
+  hasSubservice?: InputMaybe<ServicePageHasSubserviceUpdateFieldInput>;
+  title?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type ServicePageWhere = {
+  AND?: InputMaybe<Array<ServicePageWhere>>;
+  NOT?: InputMaybe<ServicePageWhere>;
+  OR?: InputMaybe<Array<ServicePageWhere>>;
+  adminCreated?: InputMaybe<AdminWhere>;
+  adminCreatedAggregate?: InputMaybe<ServicePageAdminCreatedAggregateInput>;
+  adminCreatedConnection?: InputMaybe<ServicePageAdminCreatedConnectionWhere>;
+  adminCreatedConnection_NOT?: InputMaybe<ServicePageAdminCreatedConnectionWhere>;
+  adminCreated_NOT?: InputMaybe<AdminWhere>;
+  hasSubservice?: InputMaybe<SubserviceWhere>;
+  hasSubserviceAggregate?: InputMaybe<ServicePageHasSubserviceAggregateInput>;
+  hasSubserviceConnection?: InputMaybe<ServicePageHasSubserviceConnectionWhere>;
+  hasSubserviceConnection_NOT?: InputMaybe<ServicePageHasSubserviceConnectionWhere>;
+  hasSubservice_NOT?: InputMaybe<SubserviceWhere>;
+  id?: InputMaybe<Scalars['ID']['input']>;
+  id_CONTAINS?: InputMaybe<Scalars['ID']['input']>;
+  id_ENDS_WITH?: InputMaybe<Scalars['ID']['input']>;
+  id_IN?: InputMaybe<Array<Scalars['ID']['input']>>;
+  id_STARTS_WITH?: InputMaybe<Scalars['ID']['input']>;
+  title?: InputMaybe<Scalars['String']['input']>;
+  title_CONTAINS?: InputMaybe<Scalars['String']['input']>;
+  title_ENDS_WITH?: InputMaybe<Scalars['String']['input']>;
+  title_IN?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  title_STARTS_WITH?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type ServicePagesConnection = {
+  __typename?: 'ServicePagesConnection';
+  edges: Array<ServicePageEdge>;
+  pageInfo: PageInfo;
+  totalCount: Scalars['Int']['output'];
+};
+
 export type ServiceRelationInput = {
   invoiceHas?: InputMaybe<ServiceInvoiceHasCreateFieldInput>;
 };
@@ -17653,6 +17878,289 @@ export type StringAggregateSelectionNullable = {
   shortest?: Maybe<Scalars['String']['output']>;
 };
 
+export type Subservice = {
+  __typename?: 'Subservice';
+  description?: Maybe<Scalars['String']['output']>;
+  id: Scalars['ID']['output'];
+  image?: Maybe<Scalars['String']['output']>;
+  servicepageHas?: Maybe<ServicePage>;
+  servicepageHasAggregate?: Maybe<SubserviceServicePageServicepageHasAggregationSelection>;
+  servicepageHasConnection: SubserviceServicepageHasConnection;
+  slug?: Maybe<Scalars['String']['output']>;
+  title?: Maybe<Scalars['String']['output']>;
+};
+
+
+export type SubserviceServicepageHasArgs = {
+  directed?: InputMaybe<Scalars['Boolean']['input']>;
+  options?: InputMaybe<ServicePageOptions>;
+  where?: InputMaybe<ServicePageWhere>;
+};
+
+
+export type SubserviceServicepageHasAggregateArgs = {
+  directed?: InputMaybe<Scalars['Boolean']['input']>;
+  where?: InputMaybe<ServicePageWhere>;
+};
+
+
+export type SubserviceServicepageHasConnectionArgs = {
+  after?: InputMaybe<Scalars['String']['input']>;
+  directed?: InputMaybe<Scalars['Boolean']['input']>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  sort?: InputMaybe<Array<SubserviceServicepageHasConnectionSort>>;
+  where?: InputMaybe<SubserviceServicepageHasConnectionWhere>;
+};
+
+export type SubserviceAggregateSelection = {
+  __typename?: 'SubserviceAggregateSelection';
+  count: Scalars['Int']['output'];
+  description: StringAggregateSelectionNullable;
+  id: IdAggregateSelectionNonNullable;
+  image: StringAggregateSelectionNullable;
+  slug: StringAggregateSelectionNullable;
+  title: StringAggregateSelectionNullable;
+};
+
+export type SubserviceConnectInput = {
+  servicepageHas?: InputMaybe<SubserviceServicepageHasConnectFieldInput>;
+};
+
+export type SubserviceConnectOrCreateInput = {
+  servicepageHas?: InputMaybe<SubserviceServicepageHasConnectOrCreateFieldInput>;
+};
+
+export type SubserviceConnectOrCreateWhere = {
+  node: SubserviceUniqueWhere;
+};
+
+export type SubserviceConnectWhere = {
+  node: SubserviceWhere;
+};
+
+export type SubserviceCreateInput = {
+  description?: InputMaybe<Scalars['String']['input']>;
+  image?: InputMaybe<Scalars['String']['input']>;
+  servicepageHas?: InputMaybe<SubserviceServicepageHasFieldInput>;
+  slug?: InputMaybe<Scalars['String']['input']>;
+  title?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type SubserviceDeleteInput = {
+  servicepageHas?: InputMaybe<SubserviceServicepageHasDeleteFieldInput>;
+};
+
+export type SubserviceDisconnectInput = {
+  servicepageHas?: InputMaybe<SubserviceServicepageHasDisconnectFieldInput>;
+};
+
+export type SubserviceEdge = {
+  __typename?: 'SubserviceEdge';
+  cursor: Scalars['String']['output'];
+  node: Subservice;
+};
+
+export type SubserviceOnCreateInput = {
+  description?: InputMaybe<Scalars['String']['input']>;
+  image?: InputMaybe<Scalars['String']['input']>;
+  slug?: InputMaybe<Scalars['String']['input']>;
+  title?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type SubserviceOptions = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  /** Specify one or more SubserviceSort objects to sort Subservices by. The sorts will be applied in the order in which they are arranged in the array. */
+  sort?: InputMaybe<Array<SubserviceSort>>;
+};
+
+export type SubserviceRelationInput = {
+  servicepageHas?: InputMaybe<SubserviceServicepageHasCreateFieldInput>;
+};
+
+export type SubserviceServicePageServicepageHasAggregationSelection = {
+  __typename?: 'SubserviceServicePageServicepageHasAggregationSelection';
+  count: Scalars['Int']['output'];
+  node?: Maybe<SubserviceServicePageServicepageHasNodeAggregateSelection>;
+};
+
+export type SubserviceServicePageServicepageHasNodeAggregateSelection = {
+  __typename?: 'SubserviceServicePageServicepageHasNodeAggregateSelection';
+  id: IdAggregateSelectionNonNullable;
+  title: StringAggregateSelectionNullable;
+};
+
+export type SubserviceServicepageHasAggregateInput = {
+  AND?: InputMaybe<Array<SubserviceServicepageHasAggregateInput>>;
+  NOT?: InputMaybe<SubserviceServicepageHasAggregateInput>;
+  OR?: InputMaybe<Array<SubserviceServicepageHasAggregateInput>>;
+  count?: InputMaybe<Scalars['Int']['input']>;
+  count_GT?: InputMaybe<Scalars['Int']['input']>;
+  count_GTE?: InputMaybe<Scalars['Int']['input']>;
+  count_LT?: InputMaybe<Scalars['Int']['input']>;
+  count_LTE?: InputMaybe<Scalars['Int']['input']>;
+  node?: InputMaybe<SubserviceServicepageHasNodeAggregationWhereInput>;
+};
+
+export type SubserviceServicepageHasConnectFieldInput = {
+  connect?: InputMaybe<ServicePageConnectInput>;
+  /** Whether or not to overwrite any matching relationship with the new properties. Will default to `false` in 4.0.0. */
+  overwrite?: Scalars['Boolean']['input'];
+  where?: InputMaybe<ServicePageConnectWhere>;
+};
+
+export type SubserviceServicepageHasConnectOrCreateFieldInput = {
+  onCreate: SubserviceServicepageHasConnectOrCreateFieldInputOnCreate;
+  where: ServicePageConnectOrCreateWhere;
+};
+
+export type SubserviceServicepageHasConnectOrCreateFieldInputOnCreate = {
+  node: ServicePageOnCreateInput;
+};
+
+export type SubserviceServicepageHasConnection = {
+  __typename?: 'SubserviceServicepageHasConnection';
+  edges: Array<SubserviceServicepageHasRelationship>;
+  pageInfo: PageInfo;
+  totalCount: Scalars['Int']['output'];
+};
+
+export type SubserviceServicepageHasConnectionSort = {
+  node?: InputMaybe<ServicePageSort>;
+};
+
+export type SubserviceServicepageHasConnectionWhere = {
+  AND?: InputMaybe<Array<SubserviceServicepageHasConnectionWhere>>;
+  NOT?: InputMaybe<SubserviceServicepageHasConnectionWhere>;
+  OR?: InputMaybe<Array<SubserviceServicepageHasConnectionWhere>>;
+  node?: InputMaybe<ServicePageWhere>;
+};
+
+export type SubserviceServicepageHasCreateFieldInput = {
+  node: ServicePageCreateInput;
+};
+
+export type SubserviceServicepageHasDeleteFieldInput = {
+  delete?: InputMaybe<ServicePageDeleteInput>;
+  where?: InputMaybe<SubserviceServicepageHasConnectionWhere>;
+};
+
+export type SubserviceServicepageHasDisconnectFieldInput = {
+  disconnect?: InputMaybe<ServicePageDisconnectInput>;
+  where?: InputMaybe<SubserviceServicepageHasConnectionWhere>;
+};
+
+export type SubserviceServicepageHasFieldInput = {
+  connect?: InputMaybe<SubserviceServicepageHasConnectFieldInput>;
+  connectOrCreate?: InputMaybe<SubserviceServicepageHasConnectOrCreateFieldInput>;
+  create?: InputMaybe<SubserviceServicepageHasCreateFieldInput>;
+};
+
+export type SubserviceServicepageHasNodeAggregationWhereInput = {
+  AND?: InputMaybe<Array<SubserviceServicepageHasNodeAggregationWhereInput>>;
+  NOT?: InputMaybe<SubserviceServicepageHasNodeAggregationWhereInput>;
+  OR?: InputMaybe<Array<SubserviceServicepageHasNodeAggregationWhereInput>>;
+  title_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  title_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  title_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  title_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  title_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  title_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  title_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  title_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  title_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  title_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  title_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  title_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  title_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  title_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  title_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+};
+
+export type SubserviceServicepageHasRelationship = {
+  __typename?: 'SubserviceServicepageHasRelationship';
+  cursor: Scalars['String']['output'];
+  node: ServicePage;
+};
+
+export type SubserviceServicepageHasUpdateConnectionInput = {
+  node?: InputMaybe<ServicePageUpdateInput>;
+};
+
+export type SubserviceServicepageHasUpdateFieldInput = {
+  connect?: InputMaybe<SubserviceServicepageHasConnectFieldInput>;
+  connectOrCreate?: InputMaybe<SubserviceServicepageHasConnectOrCreateFieldInput>;
+  create?: InputMaybe<SubserviceServicepageHasCreateFieldInput>;
+  delete?: InputMaybe<SubserviceServicepageHasDeleteFieldInput>;
+  disconnect?: InputMaybe<SubserviceServicepageHasDisconnectFieldInput>;
+  update?: InputMaybe<SubserviceServicepageHasUpdateConnectionInput>;
+  where?: InputMaybe<SubserviceServicepageHasConnectionWhere>;
+};
+
+/** Fields to sort Subservices by. The order in which sorts are applied is not guaranteed when specifying many fields in one SubserviceSort object. */
+export type SubserviceSort = {
+  description?: InputMaybe<SortDirection>;
+  id?: InputMaybe<SortDirection>;
+  image?: InputMaybe<SortDirection>;
+  slug?: InputMaybe<SortDirection>;
+  title?: InputMaybe<SortDirection>;
+};
+
+export type SubserviceUniqueWhere = {
+  id?: InputMaybe<Scalars['ID']['input']>;
+};
+
+export type SubserviceUpdateInput = {
+  description?: InputMaybe<Scalars['String']['input']>;
+  image?: InputMaybe<Scalars['String']['input']>;
+  servicepageHas?: InputMaybe<SubserviceServicepageHasUpdateFieldInput>;
+  slug?: InputMaybe<Scalars['String']['input']>;
+  title?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type SubserviceWhere = {
+  AND?: InputMaybe<Array<SubserviceWhere>>;
+  NOT?: InputMaybe<SubserviceWhere>;
+  OR?: InputMaybe<Array<SubserviceWhere>>;
+  description?: InputMaybe<Scalars['String']['input']>;
+  description_CONTAINS?: InputMaybe<Scalars['String']['input']>;
+  description_ENDS_WITH?: InputMaybe<Scalars['String']['input']>;
+  description_IN?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  description_STARTS_WITH?: InputMaybe<Scalars['String']['input']>;
+  id?: InputMaybe<Scalars['ID']['input']>;
+  id_CONTAINS?: InputMaybe<Scalars['ID']['input']>;
+  id_ENDS_WITH?: InputMaybe<Scalars['ID']['input']>;
+  id_IN?: InputMaybe<Array<Scalars['ID']['input']>>;
+  id_STARTS_WITH?: InputMaybe<Scalars['ID']['input']>;
+  image?: InputMaybe<Scalars['String']['input']>;
+  image_CONTAINS?: InputMaybe<Scalars['String']['input']>;
+  image_ENDS_WITH?: InputMaybe<Scalars['String']['input']>;
+  image_IN?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  image_STARTS_WITH?: InputMaybe<Scalars['String']['input']>;
+  servicepageHas?: InputMaybe<ServicePageWhere>;
+  servicepageHasAggregate?: InputMaybe<SubserviceServicepageHasAggregateInput>;
+  servicepageHasConnection?: InputMaybe<SubserviceServicepageHasConnectionWhere>;
+  servicepageHasConnection_NOT?: InputMaybe<SubserviceServicepageHasConnectionWhere>;
+  servicepageHas_NOT?: InputMaybe<ServicePageWhere>;
+  slug?: InputMaybe<Scalars['String']['input']>;
+  slug_CONTAINS?: InputMaybe<Scalars['String']['input']>;
+  slug_ENDS_WITH?: InputMaybe<Scalars['String']['input']>;
+  slug_IN?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  slug_STARTS_WITH?: InputMaybe<Scalars['String']['input']>;
+  title?: InputMaybe<Scalars['String']['input']>;
+  title_CONTAINS?: InputMaybe<Scalars['String']['input']>;
+  title_ENDS_WITH?: InputMaybe<Scalars['String']['input']>;
+  title_IN?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  title_STARTS_WITH?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type SubservicesConnection = {
+  __typename?: 'SubservicesConnection';
+  edges: Array<SubserviceEdge>;
+  pageInfo: PageInfo;
+  totalCount: Scalars['Int']['output'];
+};
+
 export type SupportTicket = {
   __typename?: 'SupportTicket';
   adminCreated?: Maybe<Admin>;
@@ -17661,6 +18169,7 @@ export type SupportTicket = {
   clientHas?: Maybe<Client>;
   clientHasAggregate?: Maybe<SupportTicketClientClientHasAggregationSelection>;
   clientHasConnection: SupportTicketClientHasConnection;
+  createdAt?: Maybe<Scalars['DateTime']['output']>;
   id: Scalars['ID']['output'];
   ticket: Scalars['String']['output'];
   vendorHas?: Maybe<Vendor>;
@@ -17840,6 +18349,7 @@ export type SupportTicketAdminCreatedUpdateFieldInput = {
 export type SupportTicketAggregateSelection = {
   __typename?: 'SupportTicketAggregateSelection';
   count: Scalars['Int']['output'];
+  createdAt: DateTimeAggregateSelectionNullable;
   id: IdAggregateSelectionNonNullable;
   ticket: StringAggregateSelectionNonNullable;
 };
@@ -17986,6 +18496,7 @@ export type SupportTicketConnectWhere = {
 export type SupportTicketCreateInput = {
   adminCreated?: InputMaybe<SupportTicketAdminCreatedFieldInput>;
   clientHas?: InputMaybe<SupportTicketClientHasFieldInput>;
+  createdAt?: InputMaybe<Scalars['DateTime']['input']>;
   ticket?: Scalars['String']['input'];
   vendorHas?: InputMaybe<SupportTicketVendorHasFieldInput>;
 };
@@ -18009,6 +18520,7 @@ export type SupportTicketEdge = {
 };
 
 export type SupportTicketOnCreateInput = {
+  createdAt?: InputMaybe<Scalars['DateTime']['input']>;
   ticket?: Scalars['String']['input'];
 };
 
@@ -18027,6 +18539,7 @@ export type SupportTicketRelationInput = {
 
 /** Fields to sort SupportTickets by. The order in which sorts are applied is not guaranteed when specifying many fields in one SupportTicketSort object. */
 export type SupportTicketSort = {
+  createdAt?: InputMaybe<SortDirection>;
   id?: InputMaybe<SortDirection>;
   ticket?: InputMaybe<SortDirection>;
 };
@@ -18038,6 +18551,7 @@ export type SupportTicketUniqueWhere = {
 export type SupportTicketUpdateInput = {
   adminCreated?: InputMaybe<SupportTicketAdminCreatedUpdateFieldInput>;
   clientHas?: InputMaybe<SupportTicketClientHasUpdateFieldInput>;
+  createdAt?: InputMaybe<Scalars['DateTime']['input']>;
   ticket?: InputMaybe<Scalars['String']['input']>;
   vendorHas?: InputMaybe<SupportTicketVendorHasUpdateFieldInput>;
 };
@@ -18191,6 +18705,12 @@ export type SupportTicketWhere = {
   clientHasConnection?: InputMaybe<SupportTicketClientHasConnectionWhere>;
   clientHasConnection_NOT?: InputMaybe<SupportTicketClientHasConnectionWhere>;
   clientHas_NOT?: InputMaybe<ClientWhere>;
+  createdAt?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_GT?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_GTE?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_IN?: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
+  createdAt_LT?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_LTE?: InputMaybe<Scalars['DateTime']['input']>;
   id?: InputMaybe<Scalars['ID']['input']>;
   id_CONTAINS?: InputMaybe<Scalars['ID']['input']>;
   id_ENDS_WITH?: InputMaybe<Scalars['ID']['input']>;
@@ -18308,12 +18828,6 @@ export type UpdateNotificationsMutationResponse = {
   notifications: Array<Notification>;
 };
 
-export type UpdatePagesMutationResponse = {
-  __typename?: 'UpdatePagesMutationResponse';
-  info: UpdateInfo;
-  pages: Array<Page>;
-};
-
 export type UpdateProjectTicketsMutationResponse = {
   __typename?: 'UpdateProjectTicketsMutationResponse';
   info: UpdateInfo;
@@ -18338,10 +18852,22 @@ export type UpdateRolesMutationResponse = {
   roles: Array<Role>;
 };
 
+export type UpdateServicePagesMutationResponse = {
+  __typename?: 'UpdateServicePagesMutationResponse';
+  info: UpdateInfo;
+  servicePages: Array<ServicePage>;
+};
+
 export type UpdateServicesMutationResponse = {
   __typename?: 'UpdateServicesMutationResponse';
   info: UpdateInfo;
   services: Array<Service>;
+};
+
+export type UpdateSubservicesMutationResponse = {
+  __typename?: 'UpdateSubservicesMutationResponse';
+  info: UpdateInfo;
+  subservices: Array<Subservice>;
 };
 
 export type UpdateSupportTicketsMutationResponse = {
@@ -18397,6 +18923,7 @@ export type User = {
   isVendorConnection: UserIsVendorConnection;
   name?: Maybe<Scalars['String']['output']>;
   pan?: Maybe<Scalars['String']['output']>;
+  permissions?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   phone?: Maybe<Scalars['String']['output']>;
   state?: Maybe<Scalars['String']['output']>;
   status?: Maybe<Status>;
@@ -18612,6 +19139,7 @@ export type UserConnectInput = {
 };
 
 export type UserConnectOrCreateInput = {
+  hasEmployee?: InputMaybe<UserHasEmployeeConnectOrCreateFieldInput>;
   hasModuleticket?: InputMaybe<UserHasModuleticketConnectOrCreateFieldInput>;
   hasRole?: InputMaybe<UserHasRoleConnectOrCreateFieldInput>;
   isAdmin?: InputMaybe<UserIsAdminConnectOrCreateFieldInput>;
@@ -18646,6 +19174,7 @@ export type UserCreateInput = {
   isVendor?: InputMaybe<UserIsVendorFieldInput>;
   name?: InputMaybe<Scalars['String']['input']>;
   pan?: InputMaybe<Scalars['String']['input']>;
+  permissions?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   phone?: InputMaybe<Scalars['String']['input']>;
   state?: InputMaybe<Scalars['String']['input']>;
   status?: InputMaybe<Status>;
@@ -18699,7 +19228,7 @@ export type UserEmployeeHasEmployeeAggregationSelection = {
 export type UserEmployeeHasEmployeeNodeAggregateSelection = {
   __typename?: 'UserEmployeeHasEmployeeNodeAggregateSelection';
   employerEmail: StringAggregateSelectionNonNullable;
-  id: StringAggregateSelectionNonNullable;
+  id: IdAggregateSelectionNonNullable;
 };
 
 export type UserHasDocumentsAggregateInput = {
@@ -18817,6 +19346,15 @@ export type UserHasEmployeeConnectFieldInput = {
   where?: InputMaybe<EmployeeConnectWhere>;
 };
 
+export type UserHasEmployeeConnectOrCreateFieldInput = {
+  onCreate: UserHasEmployeeConnectOrCreateFieldInputOnCreate;
+  where: EmployeeConnectOrCreateWhere;
+};
+
+export type UserHasEmployeeConnectOrCreateFieldInputOnCreate = {
+  node: EmployeeOnCreateInput;
+};
+
 export type UserHasEmployeeConnection = {
   __typename?: 'UserHasEmployeeConnection';
   edges: Array<UserHasEmployeeRelationship>;
@@ -18851,6 +19389,7 @@ export type UserHasEmployeeDisconnectFieldInput = {
 
 export type UserHasEmployeeFieldInput = {
   connect?: InputMaybe<UserHasEmployeeConnectFieldInput>;
+  connectOrCreate?: InputMaybe<UserHasEmployeeConnectOrCreateFieldInput>;
   create?: InputMaybe<UserHasEmployeeCreateFieldInput>;
 };
 
@@ -18873,21 +19412,6 @@ export type UserHasEmployeeNodeAggregationWhereInput = {
   employerEmail_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
   employerEmail_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
   employerEmail_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  id_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
-  id_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
-  id_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
-  id_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
-  id_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
-  id_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  id_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  id_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  id_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  id_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  id_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  id_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  id_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  id_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  id_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
 };
 
 export type UserHasEmployeeRelationship = {
@@ -18902,6 +19426,7 @@ export type UserHasEmployeeUpdateConnectionInput = {
 
 export type UserHasEmployeeUpdateFieldInput = {
   connect?: InputMaybe<UserHasEmployeeConnectFieldInput>;
+  connectOrCreate?: InputMaybe<UserHasEmployeeConnectOrCreateFieldInput>;
   create?: InputMaybe<UserHasEmployeeCreateFieldInput>;
   delete?: InputMaybe<UserHasEmployeeDeleteFieldInput>;
   disconnect?: InputMaybe<UserHasEmployeeDisconnectFieldInput>;
@@ -19505,6 +20030,7 @@ export type UserOnCreateInput = {
   image?: InputMaybe<Scalars['String']['input']>;
   name?: InputMaybe<Scalars['String']['input']>;
   pan?: InputMaybe<Scalars['String']['input']>;
+  permissions?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   phone?: InputMaybe<Scalars['String']['input']>;
   state?: InputMaybe<Scalars['String']['input']>;
   status?: InputMaybe<Status>;
@@ -19594,6 +20120,9 @@ export type UserUpdateInput = {
   isVendor?: InputMaybe<UserIsVendorUpdateFieldInput>;
   name?: InputMaybe<Scalars['String']['input']>;
   pan?: InputMaybe<Scalars['String']['input']>;
+  permissions?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  permissions_POP?: InputMaybe<Scalars['Int']['input']>;
+  permissions_PUSH?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   phone?: InputMaybe<Scalars['String']['input']>;
   state?: InputMaybe<Scalars['String']['input']>;
   status?: InputMaybe<Status>;
@@ -19714,6 +20243,8 @@ export type UserWhere = {
   pan_ENDS_WITH?: InputMaybe<Scalars['String']['input']>;
   pan_IN?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   pan_STARTS_WITH?: InputMaybe<Scalars['String']['input']>;
+  permissions?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  permissions_INCLUDES?: InputMaybe<Scalars['String']['input']>;
   phone?: InputMaybe<Scalars['String']['input']>;
   phone_CONTAINS?: InputMaybe<Scalars['String']['input']>;
   phone_ENDS_WITH?: InputMaybe<Scalars['String']['input']>;
@@ -20291,6 +20822,7 @@ export type VendorConnectOrCreateInput = {
   communicationticketFor?: InputMaybe<VendorCommunicationticketForConnectOrCreateFieldInput>;
   createdInvoice?: InputMaybe<VendorCreatedInvoiceConnectOrCreateFieldInput>;
   hasLeads?: InputMaybe<VendorHasLeadsConnectOrCreateFieldInput>;
+  hasManagement?: InputMaybe<VendorHasManagementConnectOrCreateFieldInput>;
   hasModuleticket?: InputMaybe<VendorHasModuleticketConnectOrCreateFieldInput>;
   hasNotification?: InputMaybe<VendorHasNotificationConnectOrCreateFieldInput>;
   hasReply?: InputMaybe<VendorHasReplyConnectOrCreateFieldInput>;
@@ -20857,6 +21389,15 @@ export type VendorHasManagementConnectFieldInput = {
   where?: InputMaybe<ManagementConnectWhere>;
 };
 
+export type VendorHasManagementConnectOrCreateFieldInput = {
+  onCreate: VendorHasManagementConnectOrCreateFieldInputOnCreate;
+  where: ManagementConnectOrCreateWhere;
+};
+
+export type VendorHasManagementConnectOrCreateFieldInputOnCreate = {
+  node: ManagementOnCreateInput;
+};
+
 export type VendorHasManagementConnection = {
   __typename?: 'VendorHasManagementConnection';
   edges: Array<VendorHasManagementRelationship>;
@@ -20891,6 +21432,7 @@ export type VendorHasManagementDisconnectFieldInput = {
 
 export type VendorHasManagementFieldInput = {
   connect?: InputMaybe<VendorHasManagementConnectFieldInput>;
+  connectOrCreate?: InputMaybe<VendorHasManagementConnectOrCreateFieldInput>;
   create?: InputMaybe<VendorHasManagementCreateFieldInput>;
 };
 
@@ -20898,21 +21440,6 @@ export type VendorHasManagementNodeAggregationWhereInput = {
   AND?: InputMaybe<Array<VendorHasManagementNodeAggregationWhereInput>>;
   NOT?: InputMaybe<VendorHasManagementNodeAggregationWhereInput>;
   OR?: InputMaybe<Array<VendorHasManagementNodeAggregationWhereInput>>;
-  id_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
-  id_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
-  id_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
-  id_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
-  id_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
-  id_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  id_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  id_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  id_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  id_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  id_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  id_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  id_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  id_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  id_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
   moduelid_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
   moduelid_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
   moduelid_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
@@ -20957,6 +21484,7 @@ export type VendorHasManagementUpdateConnectionInput = {
 
 export type VendorHasManagementUpdateFieldInput = {
   connect?: InputMaybe<VendorHasManagementConnectFieldInput>;
+  connectOrCreate?: InputMaybe<VendorHasManagementConnectOrCreateFieldInput>;
   create?: InputMaybe<VendorHasManagementCreateFieldInput>;
   delete?: InputMaybe<VendorHasManagementDeleteFieldInput>;
   disconnect?: InputMaybe<VendorHasManagementDisconnectFieldInput>;
@@ -21450,6 +21978,16 @@ export type VendorHasSupportticketNodeAggregationWhereInput = {
   AND?: InputMaybe<Array<VendorHasSupportticketNodeAggregationWhereInput>>;
   NOT?: InputMaybe<VendorHasSupportticketNodeAggregationWhereInput>;
   OR?: InputMaybe<Array<VendorHasSupportticketNodeAggregationWhereInput>>;
+  createdAt_MAX_EQUAL?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_MAX_GT?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_MAX_GTE?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_MAX_LT?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_MAX_LTE?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_MIN_EQUAL?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_MIN_GT?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_MIN_GTE?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_MIN_LT?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_MIN_LTE?: InputMaybe<Scalars['DateTime']['input']>;
   ticket_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
   ticket_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
   ticket_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
@@ -21536,7 +22074,7 @@ export type VendorManagementHasManagementAggregationSelection = {
 
 export type VendorManagementHasManagementNodeAggregateSelection = {
   __typename?: 'VendorManagementHasManagementNodeAggregateSelection';
-  id: StringAggregateSelectionNonNullable;
+  id: IdAggregateSelectionNonNullable;
   moduelid: StringAggregateSelectionNonNullable;
   moduleTitle: StringAggregateSelectionNonNullable;
 };
@@ -21625,6 +22163,7 @@ export type VendorSupportTicketHasSupportticketAggregationSelection = {
 
 export type VendorSupportTicketHasSupportticketNodeAggregateSelection = {
   __typename?: 'VendorSupportTicketHasSupportticketNodeAggregateSelection';
+  createdAt: DateTimeAggregateSelectionNullable;
   id: IdAggregateSelectionNonNullable;
   ticket: StringAggregateSelectionNonNullable;
 };

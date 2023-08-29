@@ -39,7 +39,7 @@ example:
   
 
   .scrollbar-w-2::-webkit-scrollbar {
-    width: 0.40rem;
+    width: 0.20rem;
     height: 0.25rem;
   }
   

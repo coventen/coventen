@@ -1,7 +1,7 @@
 import React from 'react';
 interface IHomeCardProps {
     title: string;
-    value: number;
+    value: string;
 }
 
 const HomeCard = ({ title, value }: IHomeCardProps) => {
