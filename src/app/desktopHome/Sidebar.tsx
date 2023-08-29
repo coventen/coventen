@@ -7,6 +7,9 @@ import { HiChevronDoubleLeft, HiChevronDoubleRight } from 'react-icons/hi';
 import Image from "next/image";
 import Link from "next/link";
 import { NavItem, defaultNavItems } from "./NavItem";
+import { LuLogOut } from "react-icons/lu";
+import { useRouter } from "next/navigation";
+import { logout } from "@/firebase/oauth.config";
 
 
 type Props = {
@@ -22,7 +25,11 @@ const Sidebar = ({
     navItems = defaultNavItems,
     setCollapsed,
 }: Props) => {
-    // 👇 use the correct icon depending on the state.
+
+
+    //hooks 
+    const router = useRouter()
+
     const Icon = collapsed ? HiChevronDoubleRight : HiChevronDoubleLeft;
     return (
         <div
@@ -103,29 +110,22 @@ const Sidebar = ({
 
 
                 {/* prifile */}
-                {/* <div
+                <div
+                    onClick={() => {
+                        logout()
+                        router.push('/auth/login')
+                    }}
                     className={classNames({
-                        "grid place-content-stretch p-4": true,
+                        " hover:bg-primary hover:text-white cursor-pointer flex": true, //colors
+                        "transition-colors duration-300": true, //animation
+                        "rounded-md p-2 mx-3 gap-4 ": !collapsed,
+                        "rounded-full p-2 mx-3 w-10 h-10": collapsed,
                     })}
                 >
-                    <Link href="/desktopHome/profile" className="flex gap-4 cursor-pointer items-center h-11 overflow-hidden">
-                        <Image
-                            src={"/assets/no_user.png"}
-                            height={36}
-                            width={36}
-                            alt="profile image"
-                            className="rounded-full"
-                        />
-                        {!collapsed && (
-                            <Link href="/desktopHome/profile" className="flex flex-col">
-                                <span className="text-desktopText my-0">Tom Cook</span>
-                                <span className="text-desktopText text-sm">
-                                    View Profile
-                                </span>
-                            </Link>
-                        )}
-                    </Link>
-                </div> */}
+                    <p className="flex gap-2 items-center justify-center ">
+                        <span className="text-xl">  <LuLogOut /></span> <span className=" font-semibold"> Log Out</span>
+                    </p>
+                </div>
             </div>
         </div>
     );

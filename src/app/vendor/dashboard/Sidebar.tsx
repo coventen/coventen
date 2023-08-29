@@ -6,100 +6,88 @@ import classNames from "classnames";
 import { HiChevronDoubleLeft, HiChevronDoubleRight } from 'react-icons/hi';
 import Image from "next/image";
 import Link from "next/link";
-import { NavItem, defaultNavItems } from './NavItem';
-import { usePathname } from 'next/navigation';
+import { NavItem, controlledNavItems, defaultNavItems, } from "./NavItem";
+import { usePathname, useRouter } from 'next/navigation';
+import RestrictAdminRoute from "@/components/RestrictAdminRoute";
 import { useGqlClient } from "@/hooks/UseGqlClient";
-import { currentUser } from "@/firebase/oauth.config";
-import { useManualQuery } from "graphql-hooks";
+import { currentUser, logout } from "@/firebase/oauth.config";
+import { useQuery } from "graphql-hooks";
 import UnAuthorized from "@/components/UnAuthorized";
-
-
-type Props = {
-    collapsed: boolean;
-    setCollapsed(collapsed: boolean): void;
-};
+import Loading from "@/app/loading";
+import Error from "@/components/Error";
+import { LuLogOut } from "react-icons/lu";
 
 const GET_USER = `
 query Users($where: UserWhere) {
     users(where: $where){
       user_type
-      hasRole {
-        permissions
-      }
     }
   }`
 
 
 
-
-
+type Props = {
+    collapsed: boolean;
+    setCollapsed(collapsed: boolean): void;
+    setShowSidebar(showSidebar: boolean): void;
+    showSidebar: boolean;
+};
 
 // component
 const Sidebar = ({
     collapsed,
     setCollapsed,
+    setShowSidebar,
+    showSidebar
 }: Props) => {
 
-    // states
-    const [data, setData] = React.useState<any>(null)
-    const [loading, setLoading] = React.useState<boolean>(true)
-    const [filteredNavItems, setFilteredNavItems] = React.useState<NavItem[]>(defaultNavItems)
+    //states
+    const [accessibleNavItems, setAccessibleNavItems] = React.useState<any[]>(controlledNavItems)
+    const [isUnAuthorized, setIsUnAuthorized] = React.useState<boolean>(false)
+
 
     // HOOKS
     const client = useGqlClient()
     const user = currentUser();
-    const userEmail = user?.email
     const pathname = usePathname();
+    const router = useRouter()
 
 
-    //query
-    const [getUserFn, getUserState] = useManualQuery(GET_USER, { client })
-
-
+    const { data, loading, error } = useQuery(GET_USER, {
+        client,
+        variables: {
+            where: {
+                id: user?.email
+            }
+        }
+    })
 
 
     useEffect(() => {
-        getUserData()
-        checkUserType()
+        setIsUnAuthorized(false)
+        if (data?.users[0]?.user_type === "LAB_ASSISTANT") {
 
-        console.log('useEffect')
-    }, [userEmail, data?.users?.length])
+            const filteredItems = controlledNavItems.flatMap(section => section.links.filter(item => item.label !== "Approve Projects" && item.label !== "Employees"));
 
-
-
-    // checking user type
-
-    const checkUserType = () => {
-        setLoading(true)
-        if (data?.users?.length) {
-            if (data?.users[0]?.user_type != "SERVICE_PROVIDER" || data?.users[0]?.user_type != "LAB_ASSISTANT") {
-                setLoading(false)
-                return <UnAuthorized />
-            } else if (data?.users[0]?.user_type == "LAB_ASSISTANT") {
-
-                const filtered = defaultNavItems.filter((item) => item.label !== "Employees" && item.label !== "Approve Projects")
-
-            }
+            setAccessibleNavItems(filteredItems)
+        }
+        else if (data?.users[0]?.user_type === "SERVICE_PROVIDER") {
+            setAccessibleNavItems(controlledNavItems)
         } else {
-            setLoading(false)
+            setAccessibleNavItems([])
+            setIsUnAuthorized(true)
         }
-    }
 
-    const getUserData = async () => {
-        const { data } = await getUserFn({
-            variables: {
-                where: {
-                    email: user?.email || 'no email'
-                }
-            }
-        })
+    }, [user?.email])
 
-        if (data?.users?.length) {
-            setData(data)
-        }
-    }
+    console.log(data?.users, 'this i s user data', data?.users[0])
 
+    if (loading) return <Loading />
+    if (error) return <Error />
+    // if (isUnAuthorized) {
 
+    //     return <UnAuthorized />
+    // }
 
 
 
@@ -107,10 +95,9 @@ const Sidebar = ({
     // 👇 use the correct icon depending on the state.
     const Icon = collapsed ? HiChevronDoubleRight : HiChevronDoubleLeft;
     return (
+        // <RestrictAdminRoute setAccessibleNavItems={setAccessibleNavItems} navItems={defaultNavItems} accessibleNavItems={accessibleNavItems}>
         <div
-            className={classNames({
-                "bg-white text-primaryText z-20 border-r ": true,
-            })}
+            className={`bg-white text-primaryText z-[99999999999999565]  border-r  lg:block ${showSidebar ? 'block' : 'hidden'}`}
         >
             <div
                 className={classNames({
@@ -121,91 +108,125 @@ const Sidebar = ({
                 {/* logo and collapse button */}
                 <div
                     className={classNames({
-                        "flex items-center  border-b border-gray-200 dark:border-darkBorder mb-5": true,
-                        "p-4 justify-between": !collapsed,
-                        "py-4 justify-center": collapsed,
+                        "flex items-center  border-b border-gray-200 dark:border-darkBorder mb-5 p-4 justify-between": true,
+
                     })}
                 >
-                    {!collapsed && <span className="whitespace-nowrap  font-bold">Brand Name</span>}
-                    <button
-                        className={classNames({
-                            "grid place-content-center": true,
-                            "hover:bg-gray-200 ": true,
-                            "w-10 h-10 rounded-full": true,
-                        })}
-                        // 👇 set the collapsed state on click
-                        onClick={() => setCollapsed(!collapsed)}
-                    >
-                        <Icon className="w-5 h-5" />
-                    </button>
+                    {!collapsed && <div className="whitespace-nowrap  font-bold w-full ">
+                        <img src="/assets/log.png" className="h-8 " alt="logo" />
+                    </div>}
+
                 </div>
 
                 {/* nav items part */}
 
                 <nav className="flex-grow overflow-y-auto scrollbar-thumb-blue scrollbar-thumb-rounded scrollbar-track-blue-lighter scrollbar-w-2 scrolling-touch">
-                    <ul
-                        className={classNames({
-                            "my-2 flex flex-col gap-2 items-stretch": true,
-                        })}
-                    >
-                        {filteredNavItems.map((item, index) => {
-                            return (
-                                <li
-                                    key={index}
+                    {
+                        defaultNavItems.map((item, index) =>
+
+                            <div key={index}>
+                                <p className={classNames({
+                                    " text-xs font-semibold ": true, //colors
+                                    "transition-colors duration-300": true, //animation
+                                    "rounded-md p-1 mx-3 block ": !collapsed,
+                                    "rounded-full p-1 mx-3 hidden": collapsed,
+                                })}>{item?.section}</p>
+                                <ul
                                     className={classNames({
-                                        "text-primaryText hover:bg-gray-200 cursor-pointer flex": true, //colors
-                                        "transition-colors duration-300": true, //animation
-                                        "rounded-md p-2 mx-3 gap-4 ": !collapsed,
-                                        "rounded-full p-2 mx-3 w-10 h-10": collapsed,
-                                        "bg-primary text-white ": pathname === item.href,
+                                        "my-2 flex flex-col gap-2 items-stretch": true,
                                     })}
                                 >
-                                    <Link href={item.href} className="flex gap-2 items-center justify-center ">
-                                        <span
-                                            className={classNames({
-                                                "text-xl text-primaryText flex items-center justify-center": true, //colors
-                                                "bg-primary text-white ": pathname === item.href,
-                                            })}
-                                        >
-                                            {item.icon}
-                                        </span>
-                                        <span className=" font-semibold">{!collapsed && item.label}</span>
-                                    </Link>
-                                </li>
-                            );
-                        })}
-                    </ul>
+                                    {item.links.map((item, index) => {
+                                        return (
+                                            <Link href={item.href} key={index}>
+                                                <li
+
+                                                    className={classNames({
+                                                        " hover:bg-gray-200  flex": true, //colors
+                                                        "transition-colors duration-300": true, //animation
+                                                        "rounded-md p-2 mx-3 gap-4 ": !collapsed,
+                                                        "rounded-full p-2 mx-3 w-10 h-10": collapsed,
+                                                        "bg-primary text-white hover:bg-primary": pathname === item.href,
+                                                    })}
+                                                >
+                                                    <p className="flex gap-2 items-center justify-center ">
+                                                        <span className="text-xl">  {item.icon}</span> <span className=" font-semibold">{!collapsed && item.label}</span>
+                                                    </p>
+                                                </li>
+                                            </Link>
+                                        );
+                                    })}
+                                </ul>
+                            </div>
+                        )
+
+                    }
+                    {
+                        controlledNavItems.map((item, index) =>
+
+                            <div key={index}>
+                                <p className={classNames({
+                                    " text-xs font-semibold ": true, //colors
+                                    "transition-colors duration-300": true, //animation
+                                    "rounded-md p-1 mx-3 block ": !collapsed,
+                                    "rounded-full p-1 mx-3 hidden": collapsed,
+                                })}>{item?.section}</p>
+                                <ul
+                                    className={classNames({
+                                        "my-2 flex flex-col gap-2 items-stretch": true,
+                                    })}
+                                >
+                                    {item.links.map((item, index) => {
+                                        return (
+                                            <Link href={item.href} key={index}>
+                                                <li
+
+                                                    className={classNames({
+                                                        " hover:bg-gray-200  flex": true, //colors
+                                                        "transition-colors duration-300": true, //animation
+                                                        "rounded-md p-2 mx-3 gap-4 ": !collapsed,
+                                                        "rounded-full p-2 mx-3 w-10 h-10": collapsed,
+                                                        "bg-primary text-white hover:bg-primary": pathname === item.href,
+                                                    })}
+                                                >
+                                                    <p className="flex gap-2 items-center justify-center ">
+                                                        <span className="text-lg">  {item.icon}</span> <span className=" font-semibold">{!collapsed && item.label}</span>
+                                                    </p>
+                                                </li>
+                                            </Link>
+                                        );
+                                    })}
+                                </ul>
+                            </div>
+                        )
+
+                    }
                 </nav>
 
                 {/* profile part ...omitted for brevity */}
 
 
                 {/* prifile */}
-                {/* <div
+                <div
+                    onClick={() => {
+                        logout()
+                        router.push('/auth/login')
+                    }}
                     className={classNames({
-                        "grid place-content-stretch p-4": true,
+                        " hover:bg-primary hover:text-white cursor-pointer flex": true, //colors
+                        "transition-colors duration-300": true, //animation
+                        "rounded-md p-2 mx-3 gap-4 ": !collapsed,
+                        "rounded-full p-2 mx-3 w-10 h-10": collapsed,
                     })}
                 >
-                    <Link href="/desktopHome/profile" className="flex gap-4 cursor-pointer items-center h-11 overflow-hidden">
-                        <Image
-                            src={"/assets/no_user.png"}
-                            height={36}
-                            width={36}
-                            alt="profile image"
-                            className="rounded-full"
-                        />
-                        {!collapsed && (
-                            <Link href="/user/dashboard/profile" className="flex flex-col">
-                                <span className="text-primaryText my-0">Tom Cook</span>
-                                <span className="text-primaryText text-sm">
-                                    View Profile
-                                </span>
-                            </Link>
-                        )}
-                    </Link>
-                </div> */}
+                    <p className="flex gap-2 items-center justify-center ">
+                        <span className="text-xl">  <LuLogOut /></span> <span className=" font-semibold"> Log Out</span>
+                    </p>
+                </div>
+
             </div>
         </div>
+        // </RestrictAdminRoute >
     );
 };
 export default Sidebar;

@@ -5,13 +5,15 @@ import { Dialog, Transition } from '@headlessui/react';
 import { useGqlClient } from '@/hooks/UseGqlClient';
 import { useMutation } from 'graphql-hooks';
 import { toast } from 'react-hot-toast';
+import MultiSelect from '@/components/Multiselect';
+import industries from '@/utlts/InductiresData.json';
 
 
 //props interface
 interface INotificationModal {
     isModalOpen: boolean;
     setIsModalOpen: (value: boolean) => void;
-    addIndustry: (industry: string) => void;
+    addIndustry: (industry: string[]) => void;
 
 }
 
@@ -20,6 +22,8 @@ interface INotificationModal {
 //component
 function IndustryModal({ isModalOpen, setIsModalOpen, addIndustry }: INotificationModal) {
 
+    // states
+    const [selectedIndustries, setSelectedIndustries] = useState<any[]>([]);
 
     //handle close modal
     function closeModal() {
@@ -34,8 +38,8 @@ function IndustryModal({ isModalOpen, setIsModalOpen, addIndustry }: INotificati
     //add new industry
     const handleSubmit = (e: any) => {
         e.preventDefault()
-        const name = e.target.name.value
-        addIndustry(name)
+        const industriesNames: string[] = selectedIndustries.map((item) => item.name)
+        addIndustry(industriesNames)
 
     }
 
@@ -84,12 +88,18 @@ function IndustryModal({ isModalOpen, setIsModalOpen, addIndustry }: INotificati
                         >
 
                             <div className="inline-block  align-bottom bg-white rounded-lg px-4 pt-5 pb-7 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full sm:p-8">
-                                <p className="focus:outline-none pt-4 pb-8 text-base text-center sm:text-lg md:text-xl lg:text-2xl font-bold leading-normal text-gray-800 border-b mb-7">Add New Skills</p>
+                                <p className="focus:outline-none pt-4 pb-8 text-base text-center sm:text-lg md:text-xl lg:text-2xl font-bold leading-normal text-gray-800 border-b mb-7">Add New Industry</p>
                                 <form onSubmit={handleSubmit}>
                                     <div className="flex flex-col space-y-3 w-full">
-                                        <div className="col-span-full sm:col-span-3">
-                                            <label htmlFor="firstname" className="text-sm mb-4">Skill name</label>
-                                            <input required name='name' id="firstname" type="text" placeholder="Skill Name" className="w-full rounded-sm focus:ring ring-primary dark:border-gray-700 dark:text-gray-900" />
+                                        <div>
+
+                                            <label className="font-medium">
+                                                Industries
+                                            </label>
+                                            <div className="relative inline-flex w-full min-w-full ">
+                                                <MultiSelect setSelectedOptions={setSelectedIndustries} selectedOptions={selectedIndustries} options={industries} />
+
+                                            </div>
                                         </div>
 
 

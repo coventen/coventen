@@ -63,9 +63,9 @@ const Main = () => {
 
 
     // fetching data
-    const { data, error, loading } = useQuery(GET_USER, {
+    const { data, error, loading, refetch } = useQuery(GET_USER, {
         client,
-        variables: { where: { email: user?.email, user_type: "SERVICE_PROVIDER" } }
+        variables: { where: { email: user?.email } }
     })
 
     // updating the user node
@@ -149,7 +149,11 @@ const Main = () => {
 
                         </div>
                     </div>
-                    <Industries data={data?.users[0]?.isVendor?.industry} />
+
+                    {
+                        userData?.user_type !== "LAB_ASSISTANT" && <Industries data={data?.users[0]?.isVendor?.industry} refetch={refetch} />
+                    }
+
                 </div>
                 <form className="grid grid-cols-6 gap-4 col-span-full lg:col-span-2">
 
@@ -165,6 +169,7 @@ const Main = () => {
                         <label htmlFor="email" className="text-sm">Email</label>
                         <input
                             value={userInfo.email}
+                            readOnly
                             onChange={(e) => setUserInfo({ ...userInfo, email: e.target.value })}
                             type="email" placeholder="Email" className="w-full rounded-md focus:ring ring-primary dark:border-gray-700 dark:text-gray-900" />
                     </div>

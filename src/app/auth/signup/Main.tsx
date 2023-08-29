@@ -58,7 +58,7 @@ const Main = () => {
             let updateVariables
 
             // updating user variables
-            if (user_type === "SERVICE PROVIDER") {
+            if (user_type === "SERVICE_PROVIDER") {
                 updateVariables = {
                     where: {
                         email

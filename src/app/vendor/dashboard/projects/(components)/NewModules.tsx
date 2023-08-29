@@ -17,6 +17,9 @@ mutation UpdateModuleTickets($where: ModuleTicketWhere, $update: ModuleTicketUpd
       moduleTickets {
         id
       }
+      info {
+        relationshipsDeleted
+      }
     }
   }
   
@@ -61,23 +64,58 @@ const NewModules = () => {
     // update module status
     const updateModule = async (status: string, id: string) => {
 
-        const { data } = await updateModuleStatusFn({
-            variables: {
-                where: {
-                    id: id
-                },
-                update: {
-                    status: status
+        if (status === 'REJECTED') {
+            const { data } = await updateModuleStatusFn({
+                variables: {
+                    where: {
+                        id: id
+                    },
+                    update: {
+                        status: status
+                    },
+                    disconnect: {
+                        vendorHas: {
+                            where: {
+                                node: {
+                                    userIs: {
+                                        email: user?.email
+                                    }
+                                }
+                            }
+                        }
+                    }
                 }
+            })
+            if (data.updateModuleTickets.moduleTickets.length) {
+                console.log('updated')
+                getModulesData()
+                toast.success('Module updated successfully')
             }
-        })
-
-
-        if (data.updateModuleTickets.moduleTickets.length) {
-            console.log('updated')
-            getModulesData()
-            toast.success('Module updated successfully')
         }
+        else {
+            const { data } = await updateModuleStatusFn({
+                variables: {
+                    where: {
+                        id: id
+                    },
+                    update: {
+                        status: status
+                    }
+                }
+            })
+            if (data.updateModuleTickets.moduleTickets.length) {
+                console.log('updated')
+                getModulesData()
+                toast.success('Module updated successfully')
+            }
+        }
+
+
+
+
+
+
+
     }
 
 
@@ -87,7 +125,7 @@ const NewModules = () => {
         const where = {
             vendorHas: {
                 userIs: {
-                    email: user?.email
+                    email: user?.email || 'no email'
                 }
             },
             status: "ASSIGNED"

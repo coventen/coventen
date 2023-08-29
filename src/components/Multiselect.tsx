@@ -39,7 +39,7 @@ function MultiSelect({ selectedOptions, setSelectedOptions, options, loading }: 
     };
 
     return (
-        <div onBlur={() => setIsOpen(false)} className="relative">
+        <div onBlur={() => setIsOpen(false)} className="relative w-full">
 
             <input
                 type="text"

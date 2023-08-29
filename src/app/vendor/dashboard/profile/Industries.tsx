@@ -20,7 +20,9 @@ const UPDATE_USER = `mutation Mutation($where: UserWhere, $update: UserUpdateInp
 
 
 // component
-const Industries = ({ data }: { data: string[] }) => {
+const Industries = ({ data, refetch }: { data: string[], refetch: any }) => {
+
+    console.log(data, 'data')
 
     // states
     const [isModalOpen, setIsModalOpen] = React.useState(false);
@@ -37,6 +39,8 @@ const Industries = ({ data }: { data: string[] }) => {
 
     const deleteIndustry = async (industry: string) => {
         const updatedIndustries = data.filter((item: string) => item !== industry)
+        console.log(data, 'data')
+        console.log(updatedIndustries, 'ddd', industry)
 
 
         const { data: updateDta } = await updateUserFn({
@@ -57,14 +61,20 @@ const Industries = ({ data }: { data: string[] }) => {
         })
         if (updateDta.updateUsers.users[0].id) {
             toast.error('Industry deleted')
+            refetch()
         }
 
     }
 
 
-    const addIndustry = async (industry: string) => {
+    const addIndustry = async (industry: string[]) => {
 
-        console.log(data)
+        const combinedArray = [...data, industry]
+        const uniqueArray = [...new Set(combinedArray)]
+
+        console.log(uniqueArray, 'uniq000000000000000000000000000000')
+
+        console.log(industry, 'industry00000000000000000000000000000000000000000')
 
         const { data: updateDta } = await updateUserFn({
             variables: {
@@ -75,16 +85,20 @@ const Industries = ({ data }: { data: string[] }) => {
                     "isVendor": {
                         "update": {
                             "node": {
-                                "industry": [...data, industry]
+                                "industry": ['Automotive and EV', 'Composite Meteials & Plastics', 'Construction']
                             }
                         }
                     }
                 }
             }
         })
+
+
+        console.log(updateDta, 'updateDta0000000000000000000')
         if (updateDta.updateUsers.users[0].id) {
             toast.success('Industry added')
             setIsModalOpen(false)
+            refetch()
         }
 
     }

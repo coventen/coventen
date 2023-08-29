@@ -91,9 +91,9 @@ const Main = () => {
                 }
             }
         })
-        if (data.moduleTickets.length) {
-            setTotalComplain(data.moduleTickets.length)
-            setTotalPages(Math.ceil(data.moduleTickets.length / pageLimit))
+        if (data?.moduleTickets?.length) {
+            setTotalComplain(data?.moduleTickets?.length)
+            setTotalPages(Math.ceil(data?.moduleTickets?.length / pageLimit))
         }
 
     }
