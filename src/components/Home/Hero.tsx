@@ -29,7 +29,7 @@ export default function Hero() {
 
 
     return (
-        <div className="relative min-h-[110vh]">
+        <div className="relative min-h-[50vh] lg:min-h-[110vh]">
 
             <img className="absolute inset-0 w-full h-full object-cover object-top" src="/assets/home/hero.jpg" width="400" height="500" alt="hero background image" />
             <div aria-hidden="true" className="absolute inset-0 w-full h-full bg-gray-800 bg-opacity-30 backdrop-blur-[8px]"></div>

@@ -19,7 +19,7 @@ import { ChartPieIcon } from '@heroicons/react/24/outline';
 //     title: string
 // }
 
-const features = [
+export const features = [
     {
         name: 'About Us',
         url: '/about_us',

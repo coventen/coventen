@@ -16,20 +16,11 @@ import {
 import Link from 'next/dist/client/link';
 import Dropdown from '@/components/Navbar/Dropdown/Dropdown';
 import Services from '@/components/Navbar/Dropdown/Services';
-import Features from '@/components/Navbar/Features';
+import Features, { features } from '@/components/Navbar/Features';
 
 
 
-const features = [
-    {
-        name: 'About Us',
-        url: '/about_us',
-        description: 'know About Our company',
-        href: '/',
-        icon: ChartPieIcon,
-    },
 
-];
 
 
 const Industries = [
@@ -102,12 +93,12 @@ export default function Navbar({ }) {
                 >
                     <div className="flex lg:flex-1">
                         <Link href="/" className="-m-1.5 p-1.5">
-                            <span className="sr-only">Company name</span>
+                            {/* <span className="sr-only">Company name</span> */}
                             <Image
                                 height={200}
                                 width={200}
                                 className="block  h-8 w-auto rounded-lg"
-                                src="/assets/logo.png"
+                                src="/assets/log.png"
                                 alt="Logo"
                             />
                         </Link>
@@ -123,36 +114,36 @@ export default function Navbar({ }) {
                         </button>
                     </div>
 
+                    <div className="hidden lg:flex lg:flex-1 lg:justify-center">
 
-                    <Link
-                        href="/"
-                        className="text-sm font-semibold leading-6 text-primaryText mr-8"
-                    >
-                        Home
-                    </Link>
-                    <Features />
-                    <Services />
-                    <Link
-                        href="/products"
-                        className="text-sm font-semibold leading-6 text-primaryText mr-8"
-                    >
-                        Products
-                    </Link>
-                    <Dropdown title='Industries' data={Industries} />
-                    <Link
-                        href="/learn"
-                        className="text-sm font-semibold leading-6 text-primaryText mr-8"
-                    >
-                        Learn
-                    </Link>
-                    <Link
-                        href="/events/search"
-                        className="text-sm font-semibold leading-6 text-primaryText mr-8"
-                    >
-                        Events
-                    </Link>
-
-
+                        <Link
+                            href="/"
+                            className="text-sm font-semibold leading-6 text-primaryText mr-8"
+                        >
+                            Home
+                        </Link>
+                        <Features />
+                        <Services />
+                        <Link
+                            href="/products"
+                            className="text-sm font-semibold leading-6 text-primaryText mr-8"
+                        >
+                            Products
+                        </Link>
+                        <Dropdown title='Industries' data={Industries} />
+                        <Link
+                            href="/learn"
+                            className="text-sm font-semibold leading-6 text-primaryText mr-8"
+                        >
+                            Learn
+                        </Link>
+                        <Link
+                            href="/events/search"
+                            className="text-sm font-semibold leading-6 text-primaryText mr-8"
+                        >
+                            Events
+                        </Link>
+                    </div>
                     <div className="hidden lg:flex lg:flex-1 lg:justify-end">
 
                         <Link
@@ -175,12 +166,12 @@ export default function Navbar({ }) {
                     <Dialog.Panel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
                         <div className="flex items-center justify-between">
                             <a href="/" className="-m-1.5 p-1.5">
-                                <span className="sr-only">Typeyournode</span>
+
                                 <Image
                                     height={200}
                                     width={200}
                                     className="block  h-8 w-auto rounded-lg"
-                                    src="/assets/logo.png"
+                                    src="/assets/log.png"
                                     alt="Logo"
                                 />{' '}
                             </a>
@@ -193,22 +184,50 @@ export default function Navbar({ }) {
                                 <XMarkIcon className="h-6 w-6" aria-hidden="true" />
                             </button>
                         </div>
+                        {/* small device */}
                         <div className="mt-6 flow-root">
                             <div className="-my-6 divide-y divide-gray-500/10">
                                 <div className="space-y-2 py-6">
+                                    <Link
+                                        href="/"
+                                        className="text-sm font-semibold leading-6 text-primaryText mr-8"
+                                    >
+                                        Home
+                                    </Link>
                                     <Disclosure as="div" className="-mx-3">
                                         {({ open }) => (
                                             <>
-                                                <Disclosure.Button className="flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold leading-7 hover:bg-gray-50">
+                                                <Disclosure.Button className="flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold leading-7 text-primaryText hover:bg-gray-50">
                                                     Features
                                                     <FaCaretDown
                                                         className="text-sm flex-none text-gray-900"
                                                         aria-hidden="true"
                                                     />
                                                 </Disclosure.Button>
+                                                <Disclosure.Panel className="mt-2 ">
+                                                    <div className='space-y-2'>
+                                                        {
+                                                            features?.map((item: any) =>
+                                                                <Link
+                                                                    href={item?.url}
+                                                                    key={item?.name}
+                                                                    className=' block bg-gray-50 underline text-sm leading-6  p-3'
+                                                                >
+                                                                    {item?.name}
+                                                                </Link>
+                                                            )
+                                                        }
+                                                    </div>
+                                                </Disclosure.Panel>
                                             </>
                                         )}
                                     </Disclosure>
+
+                                    <div className='relative'>
+                                        <Dropdown title='Industries' data={Industries} />
+                                    </div>
+
+
 
 
                                 </div>
