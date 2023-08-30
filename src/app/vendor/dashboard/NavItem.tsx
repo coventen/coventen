@@ -36,21 +36,7 @@ export const defaultNavItems = [
 
 export const controlledNavItems = [
 
-    {
-        section: "Communication",
-        links: [
-            {
-                label: "Internal Email",
-                href: "/vendor/dashboard/internal_email",
-                icon: <LuCopySlash />,
-            },
-            {
-                label: "Ongoing Chats",
-                href: "/vendor/dashboard/ticket_system/messages",
-                icon: <LuMessagesSquare className="" />,
-            },
-        ]
-    },
+
     {
         section: "Services Management",
         links: [
@@ -87,11 +73,31 @@ export const controlledNavItems = [
         ]
     },
     {
+        section: "Communication",
+        links: [
+            {
+                label: "Internal Email",
+                href: "/vendor/dashboard/internal_email",
+                icon: <LuCopySlash />,
+            },
+            {
+                label: "Ongoing Chats",
+                href: "/vendor/dashboard/chats",
+                icon: <LuMessagesSquare className="" />,
+            },
+        ]
+    },
+    {
         section: "Business Management",
         links: [
             {
                 label: "Employees",
                 href: "/vendor/dashboard/employees",
+                icon: <LuSchool2 className="" />,
+            },
+            {
+                label: "Estimations",
+                href: "/vendor/dashboard/invoice",
                 icon: <LuSchool2 className="" />,
             },
         ]

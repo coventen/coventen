@@ -9,6 +9,7 @@ import { db } from '@/firebase/fireabase.config';
 import { currentUser } from '@/firebase/oauth.config';
 import Loading from '@/app/loading';
 import Error from '@/components/Error';
+import { getEmployerEmail } from '@/shared/getEmployerEmail';
 
 
 
@@ -26,8 +27,9 @@ query ModuleTickets($where: ModuleTicketWhere, $options: ModuleTicketOptions) {
 // component
 const Main = () => {
   //states
-  const [currentModule, setCurrentModule] = React.useState<any>('');
+  const [currentModule, setCurrentModule] = React.useState('');
   const [messages, setMessages] = React.useState<any>([]);
+  const [labEmail, setLabEmail] = React.useState('')
 
 
 
@@ -59,7 +61,7 @@ const Main = () => {
   });
 
 
-  console.log(messages)
+
 
 
 
@@ -68,8 +70,9 @@ const Main = () => {
     if (data?.moduleTickets) {
       setCurrentModule(data?.moduleTickets[0]?.ticket)
     }
+    getLabEmail()
 
-  }, [data?.moduleTickets]);
+  }, [data?.moduleTickets, user?.email]);
 
 
   // getting data based on current module
@@ -82,15 +85,25 @@ const Main = () => {
 
 
 
+  // getting lab email if employee is logged in
+  const getLabEmail = async () => {
+    if (user?.email) {
+      const email = await getEmployerEmail(user?.email)
+      setLabEmail(email)
+    }
+
+
+  }
+
 
 
   // creating chat in firebase if not exist
   const getData = async () => {
-    const docRef = doc(db, "chats", currentModule.id);
+    const docRef = doc(db, "chats", currentModule);
     const docSnap = await getDoc(docRef);
 
     if (docSnap.exists()) {
-      const unsubscribe = onSnapshot(doc(db, "chats", currentModule.id), (doc) => {
+      const unsubscribe = onSnapshot(doc(db, "chats", currentModule), (doc) => {
 
         if (doc.exists()) {
           setMessages(doc.data().messages)
@@ -99,7 +112,7 @@ const Main = () => {
         return () => unsubscribe();
       });
     } else {
-      await setDoc(doc(db, "chats", currentModule.id), { messages: [] });
+      await setDoc(doc(db, "chats", currentModule), { messages: [] });
     }
 
   }

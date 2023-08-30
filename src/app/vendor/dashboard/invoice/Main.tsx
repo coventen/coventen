@@ -6,6 +6,8 @@ import React from 'react';
 import InvoiceTable from './InvoiceTable';
 import { toast } from 'react-hot-toast';
 import Pagination from '@/components/Pagination';
+import { getEmployerEmail } from '@/shared/getEmployerEmail';
+import { currentUser } from '@/firebase/oauth.config';
 
 const GET_INVOICES = `
 query Query($where: InvoiceWhere, $options: InvoiceOptions) {
@@ -29,6 +31,7 @@ mutation Mutation($where: InvoiceWhere) {
 const Main = () => {
     // search sates
     const [searchQuery, setSearchQuery] = useState('')
+    const [labEmail, setLabEmail] = useState('')
 
     // pagination states
     const [pageLimit, setPageLimit] = useState(10)
@@ -39,6 +42,7 @@ const Main = () => {
 
     // hooks
     const client = useGqlClient()
+    const user = currentUser()
 
 
     //quires 
@@ -52,12 +56,33 @@ const Main = () => {
     useEffect(() => {
 
         let where = {
-            sentBy_IN: ["VENDOR"]
+            sentBy_IN: ["VENDOR"],
+            vendorCreated: {
+                userIs: {
+                    email: labEmail
+                }
+            }
         }
-
+        getLabEmail()
         getInvoiceData(where)
         getInvoiceCount()
-    }, [currentPage, searchQuery]);
+    }, [currentPage, searchQuery, user?.email, labEmail]);
+
+
+
+
+
+
+    // getting lab email if employee is logged in
+    const getLabEmail = async () => {
+        if (user?.email) {
+            const email = await getEmployerEmail(user?.email)
+            setLabEmail(email)
+        }
+
+
+    }
+
 
 
 
