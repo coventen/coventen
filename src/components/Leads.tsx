@@ -49,21 +49,11 @@ const Leads = () => {
     const [createLead, createState] = useMutation(CREATE_LEAD, { client })
 
 
-    console.log(selectedIndustry, 'kjsdfds')
+
 
     // functions
 
     const createLeads = async () => {
-        console.log(
-            {
-                email: email,
-                phone: phone,
-                industry: selectedIndustry,
-                gstNumber: "",
-                createdAt: new Date().toISOString()
-            }
-        )
-
         const { data } = await createLead({
             variables: {
                 input: [
@@ -80,6 +70,7 @@ const Leads = () => {
 
 
         if (data.createLeads.info.nodesCreated) {
+            setIsLeadFromOpen(false)
             toast.success('Test Requested Successfully')
             setEmail('')
             setPhone('')
@@ -91,6 +82,8 @@ const Leads = () => {
     const handleSubmit = (e: any) => {
         e.preventDefault()
         createLeads()
+        e.target.reset()
+
 
     }
 

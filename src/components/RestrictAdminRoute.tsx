@@ -49,9 +49,9 @@ const RestrictAdminRoute = ({ children, accessibleNavItems, setAccessibleNavItem
     // })
 
     useEffect(() => {
-        getUserData()
-        checkUserType()
-        getAccessibleNavItems()
+        // getUserData()
+        // checkUserType()
+        // getAccessibleNavItems()
         console.log('useEffect')
     }, [userEmail, data?.users?.length])
 

@@ -18,6 +18,7 @@ interface IUserTable {
 const UserTable = ({ data, setIsModalOpen, setCurrentData, loading }: IUserTable) => {
 
 
+    if (loading) return <TableSkeleton />
 
 
     return (
@@ -48,12 +49,7 @@ const UserTable = ({ data, setIsModalOpen, setCurrentData, loading }: IUserTable
                 </tr>
             </thead>
             <tbody>
-                {
-                    loading &&
-                    <tr className='w-full'>
-                        <TableSkeleton />
-                    </tr>
-                }
+
 
                 {
                     data && data.map((user, index) =>

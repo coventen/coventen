@@ -6,6 +6,8 @@ import { useGqlClient } from '@/hooks/UseGqlClient';
 import { useMutation } from 'graphql-hooks';
 import { toast } from 'react-hot-toast';
 import HandleFileUpload from '@/shared/HandleFileUpload';
+import createLog from '@/shared/graphQl/mutations/createLog';
+import { currentUser } from '@/firebase/oauth.config';
 
 //props interface
 interface INotificationModal {
@@ -40,6 +42,7 @@ function NotificationModal({ isOpen, setIsOpen, setNewNotification }: INotificat
     // hooks
     const client = useGqlClient()
     const { uploadFile } = HandleFileUpload()
+    const user = currentUser()
 
 
     // GraphQL Mutations for creating notification
@@ -97,6 +100,10 @@ function NotificationModal({ isOpen, setIsOpen, setNewNotification }: INotificat
         if (data) {
             toast.success('Notification Created Successfully')
             setNewNotification(true)
+            createLog(
+                `Notification`,
+                `Notification Send by ${user?.email}`
+            )
         }
         closeModal();
     }

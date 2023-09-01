@@ -13,6 +13,7 @@ import Loading from '@/app/loading';
 import { useRouter } from 'next/navigation';
 import HandleFileUpload from '@/shared/HandleFileUpload';
 import { v4 as uuidv4 } from 'uuid';
+import createLog from '@/shared/graphQl/mutations/createLog';
 
 
 
@@ -189,6 +190,10 @@ const Main = () => {
         if (data.createProjects.info.nodesCreated) {
             toast.success('Project created successfully')
             router.push('/desktopHome/projects')
+            createLog(
+                `Project Creation`,
+                `Project created with ticket ${projectId} by ${user?.email}`
+            )
         }
 
 

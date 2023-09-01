@@ -10,6 +10,7 @@ import ComplainModal from './ComplainModal';
 import { toast } from 'react-hot-toast';
 import Loading from '@/app/loading';
 import Error from '@/components/Error';
+import createLog from '@/shared/graphQl/mutations/createLog';
 
 
 const GET_INVOICES = `
@@ -84,6 +85,10 @@ const Main = () => {
             setIsOpen(false)
             refetch()
             toast.success('Complain added successfully')
+            createLog(
+                `Invoice Rejected`,
+                `Invoice Rejected with id ${currentInvoiceId} by ${user?.email}`
+            )
         }
     }
 

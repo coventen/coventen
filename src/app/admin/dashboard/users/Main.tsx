@@ -8,6 +8,8 @@ import { toast } from 'react-hot-toast';
 import Pagination from '@/components/Pagination';
 import Error from '@/components/Error';
 import Loading from '@/app/loading';
+import createLog from '@/shared/graphQl/mutations/createLog';
+import { currentUser } from '@/firebase/oauth.config';
 
 
 const GET_USER = `
@@ -70,6 +72,7 @@ const Main = () => {
 
   //HOOKS
   const client = useGqlClient()
+  const user = currentUser()
 
   //quires 
   const [getUserFn, userDataState] = useManualQuery(GET_USER, { client })
@@ -84,7 +87,6 @@ const Main = () => {
 
   // refetching data based on pagination and search query
   useEffect(() => {
-
     // filtering using user type select
     let user_type: string[]
     if (selectedUserType !== 'All') {
@@ -183,6 +185,10 @@ const Main = () => {
       getUserData({ user_type_IN: ["CONSUMER", "SERVICE_PROVIDER"] })
       toast.success('User updated successfully')
       setIsModalOpen(false)
+      createLog(
+        `User Approval`,
+        `User Approved by ${user?.email}`
+      )
 
     }
 

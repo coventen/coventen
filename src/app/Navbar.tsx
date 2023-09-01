@@ -19,8 +19,9 @@ import Dropdown from '@/components/Navbar/Dropdown/Dropdown';
 import Services from '@/components/Navbar/Dropdown/Services';
 import Features, { features } from '@/components/Navbar/Features';
 import { currentUser } from '@/firebase/oauth.config';
-import getUserStatus from '@/shared/queries/getUserStatus';
+
 import { toast } from 'react-hot-toast';
+import getUserStatus from '@/shared/graphQl/queries/getUserStatus';
 
 
 

@@ -1,10 +1,11 @@
 import React from 'react';
 import LogTable from './LogTable';
+import Main from './Main';
 
 const LogPage = () => {
     return (
         <>
-            <div className="w-full  bg-white rounded-lg py-4 md:py-7 px-4 md:px-8 xl:px-10 ">
+            <div className="w-full  bg-white min-h-[70vh] rounded-lg py-4 md:py-7 px-4 md:px-8 xl:px-10 ">
                 <div className=" py-4 md:py-7">
                     <div className="flex items-center justify-between">
                         <p className="focus:outline-none text-base sm:text-lg md:text-xl lg:text-2xl font-bold leading-normal text-gray-800">Logs</p>
@@ -13,16 +14,6 @@ const LogPage = () => {
                 </div>
                 <div className="my-2 flex justify-end sm:flex-row flex-col">
                     <div className="flex flex-row mb-1 sm:mb-0">
-
-                        <div className="relative">
-                            <select
-                                className=" h-full rounded-r border-t sm:rounded-r-none sm:border-r-0 border-r border-b block  w-full bg-white border-gray-300 text-gray-700 py-2 px-4 pr-8 leading-tight focus:outline-none focus:border-l focus:border-r focus:bg-white focus:border-gray-500">
-                                <option>All</option>
-                                <option>Active</option>
-                                <option>Inactive</option>
-                            </select>
-
-                        </div>
                     </div>
                     <div className="block relative">
                         <span className="h-full absolute inset-y-0 left-0 flex items-center pl-2">
@@ -39,7 +30,7 @@ const LogPage = () => {
                 <div className="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
                     <div className="inline-block min-w-full  rounded-sm overflow-hidden">
 
-                        <LogTable />
+                        <Main />
                     </div>
                 </div>
 

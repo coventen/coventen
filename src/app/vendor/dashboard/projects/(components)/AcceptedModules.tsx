@@ -9,6 +9,7 @@ import { useMutation } from 'graphql-hooks';
 import { toast } from 'react-hot-toast';
 import UploadDocModal from './UploadDocModal';
 import Pagination from '@/components/Pagination';
+import deleteImageFromDb from '@/shared/deleteImageFromDb';
 
 
 
@@ -144,6 +145,9 @@ const AcceptedModules = () => {
         }
 
     }
+
+
+    deleteImageFromDb('https://firebasestorage.googleapis.com/v0/b/coventen-9444b.appspot.com/o/ModuleReports%2Freport-0c9bab18-bd90-459d-8434-371410f323db?alt=media&token=bda11059-7d56-427f-94b8-58faf5f0e58e')
 
     console.log(module, 'accepted')
 
