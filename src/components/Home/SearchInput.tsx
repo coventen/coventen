@@ -16,9 +16,11 @@ const SearchInput = () => {
                     </span>
                     <div id="categorieLst" className="absolute transition-all duration-500 ease-in-out translate-y-10 opacity-0 invisible peer-checked:opacity-100 peer-checked:visible peer-checked:translate-y-1 top-full left-0 w-full bg-white  shadow-md rounded-lg py-2">
                         <ul className="flex flex-col w-full">
-                            <li className="cursor-pointer transition hover:bg-gray-100 hover:bg-opacity-80 flex px-5 py-2">FastFood</li>
-                            <li className="cursor-pointer transition hover:bg-gray-100 hover:bg-opacity-80 flex px-5 py-2">Restaurant</li>
-                            <li className="cursor-pointer transition hover:bg-gray-100 hover:bg-opacity-80 flex px-5 py-2">Marketing</li>
+                            <ul className="flex flex-col w-full">
+                                <li className="cursor-default transition hover:bg-gray-100 hover:bg-opacity-80 flex px-5 py-2">Products</li>
+                                <li className="cursor-default transition hover:bg-gray-100 hover:bg-opacity-80 flex px-5 py-2">Labs</li>
+                                <li className="cursor-default transition hover:bg-gray-100 hover:bg-opacity-80 flex px-5 py-2">Marketing</li>
+                            </ul>
                         </ul>
                     </div>
                 </div>
