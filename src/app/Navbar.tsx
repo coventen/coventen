@@ -94,7 +94,7 @@ export default function Navbar({ services }: any) {
 
     const user = auth.currentUser
 
-    console.log(user, 'this is user')
+
 
     useEffect(() => {
         getUserData()
