@@ -8,8 +8,8 @@ import { NavItem } from '@/app/admin/NavItem';
 
 interface IRestrictAdminRouteProps {
     children: any;
-    accessibleNavItems: NavItem[];
-    navItems?: NavItem[];
+    accessibleNavItems: any;
+    navItems?: any;
     setAccessibleNavItems: (accessibleNavItems: any) => void;
 }
 
@@ -39,23 +39,11 @@ const RestrictAdminRoute = ({ children, accessibleNavItems, setAccessibleNavItem
     const [getUserFn, getUserState] = useManualQuery(GET_USER, { client })
 
 
-    const { data, loading, error } = useQuery(GET_USER, {
-        client,
-        variables: {
-            where: {
-                email: user?.email || 'no email'
-            }
-        }
-    })
-
     useEffect(() => {
         getUserData()
         checkUserType()
         getAccessibleNavItems()
-        console.log('useEffect')
     }, [userEmail, data?.users?.length])
-
-
 
 
 
@@ -80,7 +68,7 @@ const RestrictAdminRoute = ({ children, accessibleNavItems, setAccessibleNavItem
             setLoading(true)
             const permissions = data?.users[0]?.hasRole?.permissions
             // filtering nav items
-            const filteredNavItems = navItems?.filter((navItem) => {
+            const filteredNavItems = navItems?.filter((navItem: any) => {
                 return permissions.includes(navItem.label.toLowerCase());
             });
 
@@ -114,7 +102,7 @@ const RestrictAdminRoute = ({ children, accessibleNavItems, setAccessibleNavItem
     if (getUserState.loading || loading) return <Loading />
 
 
-    console.log(userEmail, data, 'fkdjfkds')
+
 
     return (
         <>
