@@ -18,10 +18,12 @@ import Link from 'next/dist/client/link';
 import Dropdown from '@/components/Navbar/Dropdown/Dropdown';
 import Services from '@/components/Navbar/Dropdown/Services';
 import Features, { features } from '@/components/Navbar/Features';
-import { currentUser } from '@/firebase/oauth.config';
+import { auth, authLoading, currentUser, currentUserData } from '@/firebase/oauth.config';
 
 import { toast } from 'react-hot-toast';
 import getUserStatus from '@/shared/graphQl/queries/getUserStatus';
+import Error from '@/components/Error';
+import Loading from './loading';
 
 
 
@@ -90,7 +92,9 @@ export default function Navbar({ services }: any) {
     const [userStatus, setUserStatus] = useState('')
     const [currentUserType, setCurrentUserType] = useState('')
 
-    const user = currentUser()
+    const user = auth.currentUser
+
+    console.log(user, 'this is user')
 
     useEffect(() => {
         getUserData()
@@ -113,8 +117,7 @@ export default function Navbar({ services }: any) {
 
     const handleDifferentUserRouting = (dest: string) => {
         if (userStatus !== 'APPROVED') {
-            toast.error('Please Wait for Admin Approval')
-            return '/'
+            return '/not_approved'
         }
         else if (currentUserType === 'ADMIN' || currentUserType === 'COVENTEN_EMPLOYEE') {
             return `/admin/${dest}`
@@ -203,7 +206,7 @@ export default function Navbar({ services }: any) {
                                         <div>
                                             <Menu.Button className="">
                                                 <div className="w-8 h-8 rounded-full overflow-hidden border-2 dark:border-white border-gray-900">
-                                                    <img src="https://images.unsplash.com/photo-1610397095767-84a5b4736cbd?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80" alt="" className="w-full h-full object-cover" />
+                                                    <img src="/assets/no_user.png" alt="" className="w-full h-full object-cover" />
                                                 </div>
                                             </Menu.Button>
                                         </div>
