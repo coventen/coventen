@@ -1,7 +1,7 @@
 import { CodegenConfig } from '@graphql-codegen/cli'
  
 const config: CodegenConfig = {
-  schema: 'http://localhost:4000',
+  schema: 'https://coventenapp.el.r.appspot.com',
   // documents: ['src/**/*.tsx', 'src/**/*.ts'],
   documents: "src/**/*.tsx",
   ignoreNoDocuments: true, // for better experience with the watcher
