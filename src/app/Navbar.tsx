@@ -18,10 +18,12 @@ import Link from 'next/dist/client/link';
 import Dropdown from '@/components/Navbar/Dropdown/Dropdown';
 import Services from '@/components/Navbar/Dropdown/Services';
 import Features, { features } from '@/components/Navbar/Features';
-import { currentUser } from '@/firebase/oauth.config';
+import { auth, authLoading, currentUser, currentUserData } from '@/firebase/oauth.config';
 
 import { toast } from 'react-hot-toast';
 import getUserStatus from '@/shared/graphQl/queries/getUserStatus';
+import Error from '@/components/Error';
+import Loading from './loading';
 
 
 
@@ -90,7 +92,9 @@ export default function Navbar({ services }: any) {
     const [userStatus, setUserStatus] = useState('')
     const [currentUserType, setCurrentUserType] = useState('')
 
-    const user = currentUser()
+    const user = auth.currentUser
+
+    console.log(user, 'this is user')
 
     useEffect(() => {
         getUserData()
@@ -113,8 +117,7 @@ export default function Navbar({ services }: any) {
 
     const handleDifferentUserRouting = (dest: string) => {
         if (userStatus !== 'APPROVED') {
-            toast.error('Please Wait for Admin Approval')
-            return '/'
+            return '/not_approved'
         }
         else if (currentUserType === 'ADMIN' || currentUserType === 'COVENTEN_EMPLOYEE') {
             return `/admin/${dest}`
