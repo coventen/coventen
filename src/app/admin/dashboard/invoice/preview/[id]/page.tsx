@@ -1,6 +1,7 @@
 
 import { Invoice } from '@/gql/graphql';
-import getInvoiceData from '@/shared/queries/invoiceData';
+import getInvoiceData from '@/shared/graphQl/queries/invoiceData';
+
 import Link from 'next/link';
 import React from 'react';
 import { FaArrowLeft } from 'react-icons/fa';

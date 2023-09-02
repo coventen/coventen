@@ -1,10 +1,11 @@
 'use client'
 import { currentUser } from '@/firebase/oauth.config';
-import GetModules from '@/shared/queries/modules';
+
 import React, { useEffect, useState } from 'react';
 import ViewModal from './ViewModal';
 import Loading from '@/app/loading';
 import Pagination from '@/components/Pagination';
+import GetModules from '@/shared/graphQl/queries/modules';
 
 
 

@@ -6,48 +6,12 @@ import Main from './Main';
 import Link from 'next/link';
 
 const Projects = () => {
-    const cardsData = [
-        {
-            id: 1,
-            title: 'Total tasks',
-            value: 200
-        },
-        {
-            id: 2,
-            title: 'Completed',
-            value: 100
 
-        },
-        {
-            id: 3,
-            title: 'On gonig',
-            value: 100
-        },
-        {
-            id: 4,
-            title: 'Tickets',
-            value: 300
-        },
-        {
-            id: 5,
-            title: 'New',
-            value: 200
-        }
-    ]
 
 
     return (
         <div className='p-4 h-full max-h-screen  flex flex-col space-y-4'>
-            {/* top cards section */}
-            <section className='grid grid-cols-5 gap-4 '>
-                {
-                    cardsData.map((card) =>
-                        <div key={card.id}>
-                            <HomeCard title={card.title} value={card.value} />
-                        </div>
-                    )
-                }
-            </section>
+
             {/* project  sections  */}
             <section>
                 <div className='flex items-center justify-between'>

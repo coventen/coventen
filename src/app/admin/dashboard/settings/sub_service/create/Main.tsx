@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import { useGqlClient } from '@/hooks/UseGqlClient';
 import { useMutation, useQuery } from 'graphql-hooks';
 import { EditorState, convertToRaw } from 'draft-js';
@@ -59,7 +59,7 @@ const Main = () => {
     // mutation query
     const [createCommunicationFn, createState, resetFn] = useMutation(CREATE_NEW_SUB_SERVICE, { client })
 
-    console.log(selectedType)
+
 
     // initializing the  communication creation
     const createCommunication = async () => {
@@ -92,9 +92,11 @@ const Main = () => {
             }
         })
 
-        if (data.createCommunicationTickets.info.nodesCreated) {
-            toast.success("Message sent successfully")
-            router.push('/admin/dashboard/communication/sent')
+        console.log(data.createSubservices, 'dataaaaaaaaaaaa')
+
+        if (data.createSubservices.info.nodesCreated) {
+            toast.success("Sub service created successfully")
+            router.push('/admin/dashboard/settings/sub_service')
         }
 
 
@@ -109,6 +111,14 @@ const Main = () => {
     }
 
 
+
+    useEffect(() => {
+
+        if (data?.servicePages?.length) {
+            setSelectedType(data?.servicePages[0]?.id)
+        }
+
+    }, [data?.servicePages?.length])
 
 
 
@@ -133,6 +143,7 @@ const Main = () => {
                 </label>
                 <div className="relative inline-flex w-full">
                     <select
+                        required
                         value={selectedType}
                         onChange={(e) => setSelectedType(e.target.value)}
                         name='userType'

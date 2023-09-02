@@ -1,6 +1,5 @@
 'use client'
 import { currentUser } from '@/firebase/oauth.config';
-import GetModules from '@/shared/queries/modules';
 import React, { useEffect, useState } from 'react';
 import ViewModal from './ViewModal';
 import Loading from '@/app/loading';
@@ -10,6 +9,7 @@ import { toast } from 'react-hot-toast';
 import ComplainModal from './ComplainModal';
 import Pagination from '@/components/Pagination';
 import Error from '@/components/Error';
+import GetModules from '@/shared/graphQl/queries/modules';
 
 
 

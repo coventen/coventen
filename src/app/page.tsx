@@ -13,7 +13,18 @@ import Products from '@/components/Home/Products'
 import CTA from '@/components/Home/CTA'
 import Leads from '@/components/Leads'
 
-export default function Home() {
+
+
+
+
+
+
+
+
+
+
+
+export default async function Home() {
   return (
     <>
       <Hero />

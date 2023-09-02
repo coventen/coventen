@@ -1,9 +1,10 @@
 'use client'
 
-import GetLeads from '@/shared/queries/leads';
+
 import React, { useState, useEffect } from 'react';
 import LeadsTable from './LeadsTable';
 import Pagination from '@/components/Pagination';
+import GetLeads from '@/shared/queries';
 
 const Main = () => {
     const [leads, setLeads] = useState([]);

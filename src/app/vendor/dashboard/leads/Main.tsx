@@ -1,9 +1,9 @@
 'use client'
 
-import GetLeads from '@/shared/queries/leads';
+
 import React, { useState, useEffect } from 'react';
 import LeadsTable from './LeadsTable';
-import GetCurrentUserDetails from '@/shared/queries/currentUser';
+
 import { Leads, User } from '@/gql/graphql';
 import { useGqlClient } from '@/hooks/UseGqlClient';
 import { useMutation, useQuery } from 'graphql-hooks';
@@ -14,6 +14,8 @@ import Pagination from '@/components/Pagination';
 import { getEmployerEmail } from '@/shared/getEmployerEmail';
 import { currentUser } from '@/firebase/oauth.config';
 import Loading from '@/app/loading';
+import GetLeads from '@/shared/graphQl/queries/leads';
+import GetCurrentUserDetails from '@/shared/graphQl/queries/currentUser';
 
 
 const ACCEPT_LEAD = `

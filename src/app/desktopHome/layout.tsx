@@ -6,9 +6,12 @@ import React, { PropsWithChildren, useState } from "react";
 import { Toaster } from 'react-hot-toast';
 import { FaBars } from 'react-icons/fa';
 import Sidebar from "./Sidebar";
-import CheckPushNotification from "./CheckPushNotification";
+import dynamic from "next/dynamic";
 
-
+const CheckPushNotification = dynamic(
+    () => import("./CheckPushNotification").then((mod) => mod.default),
+    { ssr: false }
+);
 
 
 

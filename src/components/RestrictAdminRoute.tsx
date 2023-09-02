@@ -113,7 +113,7 @@ const RestrictAdminRoute = ({ children, accessibleNavItems, setAccessibleNavItem
 
     if (getUserState.loading || loading) return <Loading />
 
-    console.log(accessibleNavItems, 'accessibleNavItems888888888888888888999999')
+
     console.log(userEmail, data, 'fkdjfkds')
 
     return (

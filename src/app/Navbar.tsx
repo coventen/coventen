@@ -85,7 +85,7 @@ function classNames(...classes: any[]) {
     return classes.filter(Boolean).join(' ');
 }
 
-export default function Navbar({ }) {
+export default function Navbar({ services }: any) {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [userStatus, setUserStatus] = useState('')
     const [currentUserType, setCurrentUserType] = useState('')
@@ -173,7 +173,7 @@ export default function Navbar({ }) {
                             Home
                         </Link>
                         <Features />
-                        <Services />
+                        <Services servicesData={services} />
                         <Link
                             href="/products"
                             className="text-sm font-semibold leading-6 text-primaryText mr-8"

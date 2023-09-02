@@ -5,26 +5,73 @@ import './globals.css'
 import { Inter } from 'next/font/google'
 import { Toaster } from 'react-hot-toast';
 
-
-const inter = Inter({ subsets: ['latin'] })
-
+// meta data api
 export const metadata = {
-  title: 'COVENTEN',
+  title: 'Coventen',
   description: 'We believe in best manufacturing practices will bring out best products',
 }
 
-export default function RootLayout({
+
+const navServices = async () => {
+
+  const res = fetch('http://localhost:4000/', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      query: `query ServicePages {
+              servicePages {
+                id
+                title
+                hasSubservice {
+                  id
+                  title
+                  slug
+                }
+              }
+            }`,
+      next: { revalidate: 3600 * 24 }
+    })
+  })
+  const { data } = await res.then(res => res.json())
+  return data.servicePages
+}
+
+
+
+
+
+
+
+
+
+
+// component
+
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
+
+
+  const services = await navServices()
+
+  // console.log(services?.map(ser => ser?.hasSubservice), 'services fromlayout')
+
+  console.log('from layout')
+
+
+  // render
+
   return (
     <html lang="en">
 
       <body >
 
         <main className='bg-white text-gray-800 dark:bg-darkBg dark:text-white'>
-          <Navbar />
+          <Navbar services={services} />
           {children}
         </main>
         <Footer />
