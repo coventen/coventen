@@ -39,19 +39,19 @@ const RestrictAdminRoute = ({ children, accessibleNavItems, setAccessibleNavItem
     const [getUserFn, getUserState] = useManualQuery(GET_USER, { client })
 
 
-    // const { data, loading, error } = useQuery(GET_USER, {
-    //     client,
-    //     variables: {
-    //         where: {
-    //             email: user?.email || 'no email'
-    //         }
-    //     }
-    // })
+    const { data, loading, error } = useQuery(GET_USER, {
+        client,
+        variables: {
+            where: {
+                email: user?.email || 'no email'
+            }
+        }
+    })
 
     useEffect(() => {
-        // getUserData()
-        // checkUserType()
-        // getAccessibleNavItems()
+        getUserData()
+        checkUserType()
+        getAccessibleNavItems()
         console.log('useEffect')
     }, [userEmail, data?.users?.length])
 
