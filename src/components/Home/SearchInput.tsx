@@ -6,7 +6,7 @@ const SearchInput = () => {
             <div className="relative flex p-1 rounded-full h-20 bg-white dark:bg-gray-800 dark:border-gray-600  shadow-md md:p-2">
                 <div id="categories" className="hidden  rounded-full bg-transparent w-80 relative md:p-4 md:flex justify-between items-center select-none">
 
-                    <input type="text" name="catName" id="catName" value="FastFood" className="pl-3 border-none outline-none w-full bg-white text-base font-medium cursor-pointer dark:bg-transparent dark:text-gray-50" />
+                    <input type="text" name="catName" id="catName" value="Services" className="pl-3 border-none outline-none w-full bg-white text-base font-medium cursor-pointer dark:bg-transparent dark:text-gray-50" />
                     <input type="checkbox" name="toggleLstCat" id="toggleLstCat" className="peer border-none outline-none hidden " />
                     <label role="button" htmlFor="toggleLstCat" className="absolute top-0 left-0 w-full h-full"></label>
                     <span className="min-w-max">
