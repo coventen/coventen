@@ -115,7 +115,7 @@ const Main = () => {
         getUserData()
         getTotalLeadsCount()
 
-    }, [currentPage, searchQuery, , user?.email, labEmail]);
+    }, [currentPage, searchQuery, user?.email, labEmail]);
 
     // getting lab email if employee is logged in
     const getLabEmail = async () => {

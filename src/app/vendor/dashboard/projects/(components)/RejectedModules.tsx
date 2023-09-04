@@ -6,6 +6,7 @@ import ViewModal from './ViewModal';
 import Loading from '@/app/loading';
 import Pagination from '@/components/Pagination';
 import GetModules from '@/shared/graphQl/queries/modules';
+import { getEmployerEmail } from '@/shared/getEmployerEmail';
 
 
 
@@ -14,6 +15,7 @@ const RejectedModules = () => {
     //states
     const [modules, setModules] = useState([])
     const [loading, setLoading] = useState(false)
+    const [labEmail, setLabEmail] = useState('')
     // pagination states
     const [pageLimit, setPageLimit] = useState(10)
     const [currentPage, setCurrentPage] = useState(1)
@@ -21,18 +23,34 @@ const RejectedModules = () => {
     const [totalModules, setTotalModules] = useState(0)
 
     // hooks
-    const { user } = AuthConfig()
+    const { user, authLoading } = AuthConfig()
 
 
 
 
     // getting module data
     useEffect(() => {
+        getLabEmail()
         getModulesData()
         getTotalModulesCount()
     }, [currentPage]);
 
     // functions
+
+
+
+
+
+    // getting lab email if employee is logged in
+    const getLabEmail = async () => {
+        if (user?.email) {
+            const email = await getEmployerEmail(user?.email)
+            setLabEmail(email)
+        }
+
+
+    }
+
 
 
     // get module data
@@ -42,7 +60,7 @@ const RejectedModules = () => {
         const where = {
             vendorHas: {
                 userIs: {
-                    email: user?.email
+                    email: labEmail || "no email"
                 }
             },
             status: "REJECTED"
@@ -68,7 +86,7 @@ const RejectedModules = () => {
         const where = {
             vendorHas: {
                 userIs: {
-                    email: user?.email
+                    email: labEmail || "no email"
                 }
             },
             status: "REJECTED"
@@ -86,7 +104,7 @@ const RejectedModules = () => {
 
 
 
-    if (loading) return <Loading />
+    if (loading || authLoading) return <Loading />
 
     return (
 

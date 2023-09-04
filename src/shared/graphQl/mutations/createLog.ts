@@ -1,9 +1,7 @@
-import { currentUser } from "@/firebase/oauth.config"
+
 import Cookies from "js-cookie";
 
 const createLog = async (title: string,message: string, ) => {
-
-        const { user } = AuthConfig()
 
     const token = Cookies.get('conventenToken');
 

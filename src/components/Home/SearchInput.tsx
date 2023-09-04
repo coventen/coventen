@@ -154,12 +154,16 @@ const SearchInput = () => {
                     <div className="p-4 h-44">
                         <div className="w-full h-44 bg-white shadow-md rounded-md p-7">
                             <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
-                                {searchResult.length && searchResult.map((result: any) => (
-                                    <div key={result?.id} className="text-dimText text-sm underline py-1 px-2">
-                                        {result?.title}
-                                    </div>
-                                ))}
-                                {!searchResult.length && <p className="text-dimText">No result found</p>}
+                                {searchResult?.length ?
+                                    searchResult?.map((result: any) => (
+                                        <div key={result?.id} className="text-dimText text-sm underline py-1 px-2">
+                                            {result?.title}
+                                        </div>
+                                    ))
+                                    :
+                                    <p className="text-dimText">No result found</p>
+                                }
+
                             </div>
                         </div>
                     </div>

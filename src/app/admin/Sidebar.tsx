@@ -63,7 +63,7 @@ const Sidebar = ({
     // 👇 use the correct icon depending on the state.
     const Icon = collapsed ? HiChevronDoubleRight : HiChevronDoubleLeft;
     return (
-        <RestrictAdminRoute setAccessibleNavItems={setAccessibleNavItems} navItems={defaultNavItems} accessibleNavItems={accessibleNavItems}>
+        <RestrictAdminRoute setAccessibleNavItems={setAccessibleNavItems} navItems={controlledNavItems} accessibleNavItems={accessibleNavItems}>
             <div
                 className={`bg-white text-primaryText z-[99999999999999565]  border-r  lg:block ${showSidebar ? 'block' : 'hidden'}`}
             >
@@ -130,7 +130,7 @@ const Sidebar = ({
 
                         }
                         {
-                            controlledNavItems.map((item, index) =>
+                            accessibleNavItems.map((item, index) =>
 
                                 <div key={index}>
                                     <p className={classNames({
@@ -144,7 +144,7 @@ const Sidebar = ({
                                             "my-2 flex flex-col gap-2 items-stretch": true,
                                         })}
                                     >
-                                        {item.links.map((item, index) => {
+                                        {item.links.map((item: any, index: number) => {
                                             return (
                                                 <Link href={item.href} key={index}>
                                                     <li

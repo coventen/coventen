@@ -1,4 +1,5 @@
-import { currentUser } from "@/firebase/oauth.config"
+
+import AuthConfig from "@/firebase/oauth.config";
 import Cookies from "js-cookie";
 
 const GetCurrentUserDetails = async () => {

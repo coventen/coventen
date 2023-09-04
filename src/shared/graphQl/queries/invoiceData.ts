@@ -1,4 +1,4 @@
-import { currentUser } from "@/firebase/oauth.config"
+
 import { ModuleTicketOptions, ModuleTicketWhere } from "@/gql/graphql"
 import Cookies from "js-cookie";
 

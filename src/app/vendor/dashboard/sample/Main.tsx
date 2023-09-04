@@ -47,7 +47,7 @@ const Main = () => {
 
     // HOOKS 
     const client = useGqlClient()
-    const { user } = AuthConfig()
+    const { user, authLoading } = AuthConfig()
 
     // mutations
     const [updateModule, updateState] = useMutation(UPDATE_MODULE, { client })
@@ -89,7 +89,7 @@ const Main = () => {
         getLabEmail()
         getSampleData(where)
         getSampleCount()
-    }, [currentPage, searchQuery, user?.email]);
+    }, [currentPage, searchQuery, user?.email, authLoading]);
 
 
 

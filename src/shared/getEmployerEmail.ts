@@ -1,4 +1,4 @@
-import { currentUser } from "@/firebase/oauth.config";
+
 import Cookies from "js-cookie";
 
 
@@ -50,11 +50,7 @@ const GetUserInfo = async (userEmail: string) => {
                 email: userEmail
             },
           },
-          context: {
-            fetchOptions: {
-              next: { revalidate: 10 },
-            },
-          }
+
     })
 })
 const {data} = await res.then(res => res.json())

@@ -9,6 +9,7 @@ import { useMutation } from 'graphql-hooks';
 import { toast } from 'react-hot-toast';
 import Pagination from '@/components/Pagination';
 import GetModules from '@/shared/graphQl/queries/modules';
+import { getEmployerEmail } from '@/shared/getEmployerEmail';
 
 
 
@@ -39,6 +40,7 @@ const NewModules = () => {
     const [isModalOpen, setIsModalOpen] = useState(false)
     const [currentModuleId, setCurrentModuleId] = useState('')
     const [loading, setLoading] = useState(false)
+    const [labEmail, setLabEmail] = useState('')
     // pagination states
     const [pageLimit, setPageLimit] = useState(10)
     const [currentPage, setCurrentPage] = useState(1)
@@ -47,7 +49,7 @@ const NewModules = () => {
 
 
     // hooks
-    const { user } = AuthConfig()
+    const { user, authLoading } = AuthConfig()
     const client = useGqlClient()
 
     // UPDATING MODULE STATUS
@@ -56,10 +58,23 @@ const NewModules = () => {
 
     // getting module data
     useEffect(() => {
+        getLabEmail()
         getModulesData()
         getTotalModulesCount()
     }, [currentPage]);
 
+
+
+
+    // getting lab email if employee is logged in
+    const getLabEmail = async () => {
+        if (user?.email) {
+            const email = await getEmployerEmail(user?.email)
+            setLabEmail(email)
+        }
+
+
+    }
 
 
     // update module status
@@ -79,7 +94,7 @@ const NewModules = () => {
                             where: {
                                 node: {
                                     userIs: {
-                                        email: user?.email
+                                        email: labEmail || "no email"
                                     }
                                 }
                             }
@@ -126,7 +141,7 @@ const NewModules = () => {
         const where = {
             vendorHas: {
                 userIs: {
-                    email: user?.email || 'no email'
+                    email: labEmail || "no email"
                 }
             },
             status: "ASSIGNED"
@@ -146,7 +161,7 @@ const NewModules = () => {
         const where = {
             vendorHas: {
                 userIs: {
-                    email: user?.email
+                    email: labEmail || "no email"
                 }
             },
             status: "ASSIGNED"
@@ -170,7 +185,7 @@ const NewModules = () => {
 
 
 
-    if (loading || updateStatus.loading) return <Loading />
+    if (loading || updateStatus.loading || authLoading) return <Loading />
 
     return (
         <>
