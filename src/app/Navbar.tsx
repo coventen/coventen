@@ -18,12 +18,13 @@ import Link from 'next/dist/client/link';
 import Dropdown from '@/components/Navbar/Dropdown/Dropdown';
 import Services from '@/components/Navbar/Dropdown/Services';
 import Features, { features } from '@/components/Navbar/Features';
-import { auth, authLoading, currentUser, currentUserData } from '@/firebase/oauth.config';
+
 
 import { toast } from 'react-hot-toast';
 import getUserStatus from '@/shared/graphQl/queries/getUserStatus';
 import Error from '@/components/Error';
 import Loading from './loading';
+import AuthConfig from '@/firebase/oauth.config';
 
 
 
@@ -92,13 +93,13 @@ export default function Navbar({ services }: any) {
     const [userStatus, setUserStatus] = useState('')
     const [currentUserType, setCurrentUserType] = useState('')
 
-    const user = auth.currentUser
+    const { user, logout, authLoading } = AuthConfig()
 
 
 
     useEffect(() => {
         getUserData()
-    }, [user?.email])
+    }, [user?.email, authLoading])
 
 
 
@@ -134,7 +135,7 @@ export default function Navbar({ services }: any) {
     }
 
 
-
+    if (authLoading) return <Loading />
 
 
     return (
@@ -253,6 +254,7 @@ export default function Navbar({ services }: any) {
                                                             {({ active }) => (
                                                                 <button
                                                                     type="submit"
+                                                                    onClick={() => logout()}
                                                                     className={classNames(
                                                                         active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
                                                                         'block w-full px-4 py-2 text-left text-sm'
@@ -361,14 +363,25 @@ export default function Navbar({ services }: any) {
                                 </div>
                                 <div className="py-6">
 
-                                    <Link
-                                        href="/auth/login"
-                                        className="-mx-3 block rounded-lg py-2.5 px-3 text-base font-semibold leading-7 text-primaryText hover:bg-gray-50"
-                                    //  onClick={() => signInWithRedirectGoogle()}
-                                    >
-                                        Log in
-                                        <span aria-hidden="true">&rarr;</span>
-                                    </Link>
+                                    {
+                                        user?.email ?
+                                            <Link
+                                                href="/auth/login"
+                                                className="-mx-3 block rounded-lg py-2.5 px-3 text-base font-semibold leading-7 text-primaryText hover:bg-gray-50"
+                                            >
+                                                Log in
+                                                <span aria-hidden="true">&rarr;</span>
+                                            </Link>
+
+                                            :
+
+                                            <p
+                                                onClick={() => logout()}
+                                                className="text-sm font-semibold leading-6 text-primaryText mr-8"
+                                            >
+                                                SignOut
+                                            </p>
+                                    }
                                 </div>
                             </div>
                         </div>

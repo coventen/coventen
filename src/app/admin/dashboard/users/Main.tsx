@@ -9,7 +9,7 @@ import Pagination from '@/components/Pagination';
 import Error from '@/components/Error';
 import Loading from '@/app/loading';
 import createLog from '@/shared/graphQl/mutations/createLog';
-import { currentUser } from '@/firebase/oauth.config';
+import AuthConfig from '@/firebase/oauth.config';
 
 
 const GET_USER = `
@@ -72,7 +72,7 @@ const Main = () => {
 
   //HOOKS
   const client = useGqlClient()
-  const user = currentUser()
+  const { user } = AuthConfig()
 
   //quires 
   const [getUserFn, userDataState] = useManualQuery(GET_USER, { client })
@@ -144,7 +144,7 @@ const Main = () => {
           offset: (currentPage - 1) * pageLimit,
           sort: [
             {
-              createdAt: "DESC"
+              createdAt: "ASC"
             }
           ]
         }
@@ -160,7 +160,7 @@ const Main = () => {
 
 
 
-
+  console.log(userData, 'user data')
 
 
 

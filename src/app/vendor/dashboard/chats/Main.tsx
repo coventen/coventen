@@ -6,7 +6,7 @@ import Sidebar from './Sidebar';
 import ChatBody from './ChatBody';
 import { addDoc, collection, doc, getDoc, getDocs, onSnapshot, setDoc } from "firebase/firestore";
 import { db } from '@/firebase/fireabase.config';
-import { currentUser } from '@/firebase/oauth.config';
+import AuthConfig from '@/firebase/oauth.config';
 import Loading from '@/app/loading';
 import Error from '@/components/Error';
 import { getEmployerEmail } from '@/shared/getEmployerEmail';
@@ -35,7 +35,7 @@ const Main = () => {
 
   //hooks 
   const client = useGqlClient();
-  const user = currentUser();
+  const { user } = AuthConfig();
 
 
   // fetching data

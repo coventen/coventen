@@ -5,7 +5,7 @@ import ProjectTable from './ProjectTable';
 import Loading from '@/app/loading';
 import Error from '@/components/Error';
 import { useMutation, useQuery } from 'graphql-hooks';
-import { currentUser } from '@/firebase/oauth.config';
+import AuthConfig from '@/firebase/oauth.config';
 import { toast } from 'react-hot-toast';
 
 
@@ -37,7 +37,7 @@ const Main = () => {
 
     //hooks
     const client = useGqlClient()
-    const user = currentUser()
+    const { user } = AuthConfig()
 
     //fetch data
     const { data, loading, refetch, error: fetchError } = useQuery(GET_ALL_PROJECTS_OVERVIEW, {

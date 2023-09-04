@@ -3,7 +3,7 @@ import Cookies from "js-cookie";
 
 const GetCurrentUserDetails = async () => {
 
-    const user = currentUser()
+        const { user } = AuthConfig()
 
     const token = Cookies.get('conventenToken');
 
@@ -47,7 +47,7 @@ const GetCurrentUserDetails = async () => {
     })
 
     const {data} = await res.then(res => res.json())
-    return data.users
+    return data?.users
 }
 
 

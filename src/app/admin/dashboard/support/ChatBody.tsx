@@ -1,6 +1,6 @@
 'use client'
 import { db } from '@/firebase/fireabase.config';
-import { currentUser } from '@/firebase/oauth.config';
+import AuthConfig from '@/firebase/oauth.config';
 import HandleFileUpload from '@/shared/HandleFileUpload';
 import { Timestamp, arrayUnion, doc, updateDoc } from 'firebase/firestore';
 import React, { useEffect, useRef, useState } from 'react';
@@ -30,7 +30,7 @@ const ChatBody = ({ messages, currentSupportTicket }: Props) => {
     const latestMessageRef = useRef(null)
 
     //hooks
-    const user = currentUser()
+    const { user } = AuthConfig()
     const { uploadFile } = HandleFileUpload()
 
 

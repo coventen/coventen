@@ -7,7 +7,7 @@ import Sidebar from './Sidebar';
 import { addDoc, collection, doc, getDoc, getDocs, onSnapshot, setDoc } from "firebase/firestore";
 import { db } from '@/firebase/fireabase.config';
 import { set } from 'react-hook-form';
-import { currentUser } from '@/firebase/oauth.config';
+import AuthConfig from '@/firebase/oauth.config';
 import DocCards from './DocCards';
 
 
@@ -31,7 +31,7 @@ const Main = () => {
   const [messages, setMessages] = React.useState<any>([]);
   //hooks 
   const client = useGqlClient();
-  const user = currentUser()
+  const { user } = AuthConfig()
 
   // fetching data
   const { data, loading, error } = useQuery(GET_MODULE_TICKETS, {

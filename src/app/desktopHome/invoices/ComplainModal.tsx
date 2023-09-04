@@ -11,6 +11,8 @@ interface IComplainModal {
     isOpen: boolean;
     setIsOpen: (value: boolean) => void;
     addComplain: (complain: string, status: string) => void;
+    setCurrentInvoiceId: (value: string) => void;
+    currentInvoiceId: string;
 
 }
 

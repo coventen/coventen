@@ -9,7 +9,7 @@ import Loading from '@/app/loading';
 import { data } from 'autoprefixer';
 import { toast } from 'react-hot-toast';
 import { useRouter } from 'next/navigation';
-import { currentUser } from '@/firebase/oauth.config';
+import AuthConfig from '@/firebase/oauth.config';
 import HandleFileUpload from '@/shared/HandleFileUpload';
 import { HiOutlineTrash } from 'react-icons/hi';
 import FilePreview from '@/app/vendor/dashboard/projects/(components)/FilePreview';
@@ -48,7 +48,7 @@ const Main = () => {
     // hooks
     const client = useGqlClient()
     const router = useRouter()
-    const user = currentUser()
+    const { user } = AuthConfig()
     const { uploadFile } = HandleFileUpload()
 
     // mutation query

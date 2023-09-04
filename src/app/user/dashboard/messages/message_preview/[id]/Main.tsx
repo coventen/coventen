@@ -1,5 +1,5 @@
 'use client'
-import { currentUser } from '@/firebase/oauth.config';
+import AuthConfig from '@/firebase/oauth.config';
 import { useGqlClient } from '@/hooks/UseGqlClient';
 import { useMutation, useQuery } from 'graphql-hooks';
 import React, { useState } from 'react';
@@ -41,7 +41,7 @@ const Main = ({ ticketId }: { ticketId: string }) => {
 
     //hooks
     const client = useGqlClient()
-    const user = currentUser()
+    const { user } = AuthConfig()
 
 
 

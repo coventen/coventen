@@ -62,6 +62,11 @@ export const controlledNavItems = [
                 icon: <LuCalculator className="" />,
             },
             {
+                label: "Estimation Complains",
+                href: "/admin/dashboard/complains",
+                icon: <LuCalculator className="" />,
+            },
+            {
                 label: "Assignments",
                 href: "/admin/dashboard/assignment",
                 icon: <LuReplaceAll className="" />,
@@ -99,6 +104,36 @@ export const controlledNavItems = [
             },
             {
                 label: "Support",
+                href: "/admin/dashboard/support/",
+                icon: <LuHeadphones className="" />,
+            },
+        ]
+    },
+    {
+        section: "Website Management",
+        links: [
+            {
+                label: "Services",
+                href: "/admin/dashboard/settings/services",
+                icon: <LuUser className="" />,
+            },
+            {
+                label: "Sub Services",
+                href: "/admin/dashboard/settings/sub_service",
+                icon: <LuUser className="" />,
+            },
+            {
+                label: "Products",
+                href: "/admin/dashboard/settings/products",
+                icon: <LuSchool2 className="" />,
+            },
+            {
+                label: "Products",
+                href: "/admin/dashboard/roles",
+                icon: <LuShieldCheck className="" />,
+            },
+            {
+                label: "Products",
                 href: "/admin/dashboard/support/",
                 icon: <LuHeadphones className="" />,
             },

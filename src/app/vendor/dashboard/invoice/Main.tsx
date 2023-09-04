@@ -7,7 +7,7 @@ import InvoiceTable from './InvoiceTable';
 import { toast } from 'react-hot-toast';
 import Pagination from '@/components/Pagination';
 import { getEmployerEmail } from '@/shared/getEmployerEmail';
-import { currentUser } from '@/firebase/oauth.config';
+import AuthConfig from '@/firebase/oauth.config';
 
 const GET_INVOICES = `
 query Query($where: InvoiceWhere, $options: InvoiceOptions) {
@@ -42,7 +42,7 @@ const Main = () => {
 
     // hooks
     const client = useGqlClient()
-    const user = currentUser()
+    const { user } = AuthConfig()
 
 
     //quires 

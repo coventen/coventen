@@ -21,6 +21,7 @@ const InvoicePreview = async ({ params, searchParams }: any) => {
 
     const invoiceData: Invoice = await getInvoiceData(params.id)
 
+    console.log(invoiceData, 'invoiceData')
 
 
     return (
@@ -33,13 +34,9 @@ const InvoicePreview = async ({ params, searchParams }: any) => {
                         {/* <!-- Grid --> */}
                         <div className="flex justify-between">
                             <div>
-                                <svg className="w-10 h-10" width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M1 26V13C1 6.37258 6.37258 1 13 1C19.6274 1 25 6.37258 25 13C25 19.6274 19.6274 25 13 25H12" className="stroke-blue-600 dark:stroke-white" stroke="currentColor" strokeWidth="2" />
-                                    <path d="M5 26V13.16C5 8.65336 8.58172 5 13 5C17.4183 5 21 8.65336 21 13.16C21 17.6666 17.4183 21.32 13 21.32H12" className="stroke-blue-600 dark:stroke-white" stroke="currentColor" strokeWidth="2" />
-                                    <circle cx="13" cy="13.0214" r="5" fill="currentColor" className="fill-blue-600 dark:fill-white" />
-                                </svg>
+                                <img src="/assets/log.png" alt="logo" />
 
-                                <h1 className="mt-2 text-lg md:text-xl font-semibold text-blue-600 dark:text-white">Preline Inc.</h1>
+                                <h1 className="mt-2 text-lg md:text-xl font-semibold text-blue-600 dark:text-white"></h1>
                             </div>
                             {/* <!-- Col --> */}
 
@@ -57,10 +54,10 @@ const InvoicePreview = async ({ params, searchParams }: any) => {
                         <div className="mt-8 grid sm:grid-cols-2 gap-3">
                             <div>
                                 <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-200">Client Details:</h3>
-                                <h3 className="text-base  text-gray-600 dark:text-gray-200">{invoiceData.hasClient?.userIs?.companyName}</h3>
+                                <h3 className="text-base  text-gray-600 dark:text-gray-200">{invoiceData?.hasClient?.userIs?.companyName}</h3>
                                 <address className="mt-1 text-sm not-italic text-gray-500">
-                                    {invoiceData.hasClient?.userIs?.companyEmail}<br />
-                                    {invoiceData.hasClient?.userIs?.address}<br />
+                                    {invoiceData?.hasClient?.userIs?.companyEmail}<br />
+                                    {invoiceData?.hasClient?.userIs?.address}<br />
 
                                 </address>
                             </div>
@@ -71,7 +68,7 @@ const InvoicePreview = async ({ params, searchParams }: any) => {
                                 <div className="grid grid-cols-2 sm:grid-cols-1 gap-3 sm:gap-2">
                                     <dl className="grid sm:grid-cols-5 gap-x-3">
                                         <dt className="col-span-3 font-semibold text-gray-800 dark:text-gray-200">Invoice date:</dt>
-                                        <dd className="col-span-2 text-gray-500">{invoiceData.createdAt || 'N/A'}</dd>
+                                        <dd className="col-span-2 text-gray-500">{invoiceData?.createdAt || 'N/A'}</dd>
                                     </dl>
 
                                 </div>
@@ -86,8 +83,8 @@ const InvoicePreview = async ({ params, searchParams }: any) => {
                             <div className="border border-gray-200 p-4 rounded-lg space-y-4 dark:border-gray-700">
                                 <div className="hidden md:flex items-center justify-between">
                                     <div className="sm:col-span-2 text-xs font-medium text-gray-500 uppercase">Service Name</div>
-                                    {/* <div className="text-left text-xs font-medium text-gray-500 uppercase">Qty</div>
-                                    <div className="text-left text-xs font-medium text-gray-500 uppercase">Rate</div> */}
+
+
                                     <div className="text-right text-xs font-medium text-gray-500 uppercase">Amount</div>
                                 </div>
 
@@ -98,14 +95,14 @@ const InvoicePreview = async ({ params, searchParams }: any) => {
 
 
                                     {
-                                        invoiceData.hasService?.map((service) =>
-                                            <div className=" " key={service.id}>
+                                        invoiceData?.hasService?.map((service) =>
+                                            <div className=" " key={service?.id}>
                                                 <div >
-                                                    <p className="font-medium text-xs lg:text-base text-gray-800 dark:text-gray-200">{service.serviceName}</p>
+                                                    <p className="font-medium text-xs lg:text-base text-gray-800 dark:text-gray-200">{service?.serviceName}</p>
                                                 </div>
 
                                                 <div>
-                                                    <p className="sm:text-right text-xs lg:text-base text-gray-800 dark:text-gray-200">${service.price}</p>
+                                                    <p className="sm:text-right text-xs lg:text-base text-gray-800 dark:text-gray-200">${service?.price}</p>
                                                 </div>
                                             </div>
                                             // <div className="sm:hidden border-b border-gray-200 dark:border-gray-700"></div>

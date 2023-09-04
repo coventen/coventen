@@ -1,5 +1,5 @@
 'use client'
-import { currentUser } from '@/firebase/oauth.config';
+import AuthConfig from '@/firebase/oauth.config';
 
 import React, { useEffect, useState } from 'react';
 import ViewModal from './ViewModal';
@@ -45,7 +45,7 @@ const AcceptedModules = () => {
     const [totalModules, setTotalModules] = useState(0)
 
     // hooks
-    const user = currentUser()
+    const { user } = AuthConfig()
     const client = useGqlClient()
 
     // UPDATING MODULE STATUS

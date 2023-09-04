@@ -14,6 +14,42 @@ import CTA from '@/components/Home/CTA'
 import Leads from '@/components/Leads'
 
 
+// fetch data from api
+const homePageData = async () => {
+
+  const res = fetch('http://localhost:4000/', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      query: `query HomePages {
+        homePages {
+          heroText
+          heroImage
+          hasHomeservices {
+            title
+            description
+            id
+          }
+          hasProduct {
+            title
+            shortDescription
+            id
+          }
+          hasHomeclient {
+            id
+            name
+            logo
+          }
+        }
+      }`,
+      next: { revalidate: 30 }
+    })
+  })
+  const { data } = await res.then(res => res.json())
+  return data.homePages[0]
+}
 
 
 
@@ -21,18 +57,24 @@ import Leads from '@/components/Leads'
 
 
 
-
-
+// component
 
 export default async function Home() {
+
+
+  const homeData = await homePageData()
+
+
+
+
   return (
     <>
-      <Hero />
-      <Services />
-      <Products />
+      <Hero text={homeData?.heroText} bg={homeData?.heroImage} />
+      <Services services={homeData?.hasHomeservices} />
+      <Products products={homeData?.hasProduct} />
       <AboutUs />
       {/* <CTA /> */}
-      <Companies />
+      <Companies clients={homeData?.hasHomeclient} />
       <Leads />
 
 

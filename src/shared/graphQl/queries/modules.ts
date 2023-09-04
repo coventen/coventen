@@ -43,7 +43,7 @@ const GetModules = async (where: any={}, options: ModuleTicketOptions={}) => {
 
     console.log(data, 'ddota tdkjdsfkdsjfldjsfkjsdlkfjdskl')
 
-    return data.moduleTickets
+    return data?.moduleTickets
 }
 
 

@@ -6,7 +6,7 @@ import ModuleFrom from './ModuleFrom';
 import { IModuleInput, IProjectInput } from './createProject.interface';
 import { useGqlClient } from '@/hooks/UseGqlClient';
 import { useManualQuery, useMutation, useQuery } from 'graphql-hooks';
-import { currentUser } from '@/firebase/oauth.config';
+import AuthConfig from '@/firebase/oauth.config';
 import { generateUniqueId } from '@/shared/genarateUniqueId';
 import { toast } from 'react-hot-toast';
 import Loading from '@/app/loading';
@@ -76,7 +76,7 @@ const Main = () => {
 
 
     //hooks
-    const user = currentUser()
+    const { user } = AuthConfig()
     const router = useRouter()
     const client = useGqlClient()
     const { uploadFile } = HandleFileUpload()

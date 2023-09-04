@@ -48,7 +48,7 @@ const Sidebar = ({
 
     // HOOKS
     const client = useGqlClient()
-    const user = currentUser();
+    const { user } = AuthConfig();
     const pathname = usePathname();
     const router = useRouter()
 

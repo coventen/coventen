@@ -1,7 +1,7 @@
 'use client'
 import Loading from '@/app/loading';
 import Button from '@/components/Button';
-import { currentUser } from '@/firebase/oauth.config';
+import AuthConfig from '@/firebase/oauth.config';
 import { useGqlClient } from '@/hooks/UseGqlClient';
 import { useMutation, useQuery } from 'graphql-hooks';
 import React, { useEffect } from 'react';
@@ -53,7 +53,7 @@ const Main = () => {
 
     //hooks
     const client = useGqlClient()
-    const user = currentUser()
+    const { user } = AuthConfig()
 
 
     // fetching data

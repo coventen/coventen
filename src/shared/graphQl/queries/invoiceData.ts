@@ -4,7 +4,7 @@ import Cookies from "js-cookie";
 
 const getInvoiceData = async (id: string) => {
 
-  console.log(id, 'id', 'i am called')
+
 
   const token = Cookies.get('conventenToken');
 
@@ -18,6 +18,7 @@ const getInvoiceData = async (id: string) => {
             query: `query Query($where: InvoiceWhere) {
                 invoices(where: $where) {
                   id
+                  createdAt
                   priceWithTax
                   taxRate
                   taxType
@@ -50,9 +51,10 @@ const getInvoiceData = async (id: string) => {
     const { data } = await res.then(res => res.json())
 
 
+console.log(data, 'this is data')
 
+    return data?.invoices[0]
 
-    return data.invoices[0]
 }
 
 

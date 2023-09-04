@@ -1,4 +1,4 @@
-import { currentUser } from '@/firebase/oauth.config';
+import AuthConfig from '@/firebase/oauth.config';
 import { useGqlClient } from '@/hooks/UseGqlClient';
 import { useManualQuery, useQuery } from 'graphql-hooks';
 import React, { useEffect } from 'react';
@@ -33,7 +33,7 @@ const RestrictAdminRoute = ({ children, accessibleNavItems, setAccessibleNavItem
 
     // HOOKS
     const client = useGqlClient()
-    const user = currentUser();
+    const { user } = AuthConfig();
     const userEmail = user?.email
 
     const [getUserFn, getUserState] = useManualQuery(GET_USER, { client })
@@ -41,8 +41,9 @@ const RestrictAdminRoute = ({ children, accessibleNavItems, setAccessibleNavItem
 
     useEffect(() => {
         getUserData()
-        checkUserType()
-        getAccessibleNavItems()
+        setAccessibleNavItems(navItems)
+        // checkUserType()
+        // getAccessibleNavItems()
     }, [userEmail, data?.users?.length])
 
 
@@ -99,7 +100,7 @@ const RestrictAdminRoute = ({ children, accessibleNavItems, setAccessibleNavItem
     }
 
 
-    if (getUserState.loading || loading) return <Loading />
+    // if (getUserState.loading || loading) return <Loading />
 
 
 

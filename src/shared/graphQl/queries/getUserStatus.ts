@@ -28,7 +28,7 @@ const getUserStatus = async (email: string) => {
     })
 
     const {data} = await res.then(res => res.json())
-    return data.users
+    return data?.users
 }
 
 
