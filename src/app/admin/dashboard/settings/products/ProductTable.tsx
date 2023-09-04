@@ -9,6 +9,9 @@ interface IProductTableProps {
 }
 
 const ProductTable = ({ productData, deleteProduct }: IProductTableProps) => {
+
+    console.log(productData, 'productData')
+
     return (
         <table className="w-full leading-normal">
 

@@ -10,7 +10,7 @@ import { useState, useEffect } from "react";
 const AuthConfig = () => {
 
   // states
-  const [authLoading, setAuthLoading] = useState(false);
+  const [authLoading, setAuthLoading] = useState(true);
   const [user, setUser] = useState<any>(null);
 
   const provider = new OAuthProvider('oidc.google');

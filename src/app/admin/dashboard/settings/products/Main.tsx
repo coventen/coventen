@@ -18,6 +18,9 @@ export interface addProductVariables {
     image: string,
     createdAt?: string
     price: number
+    category: string
+    file?: string,
+    video?: string
 }
 
 
@@ -88,7 +91,18 @@ const Main = () => {
                         "others": input.others,
                         "image": input.image,
                         "price": input.price,
-                        createdAt: new Date().toISOString()
+                        video: input.video,
+                        file: input.file,
+                        createdAt: new Date().toISOString(),
+                        "hasSubcategory": {
+                            "connect": {
+                                "where": {
+                                    "node": {
+                                        "id": input.category
+                                    }
+                                }
+                            }
+                        },
                     }
                 ]
             }

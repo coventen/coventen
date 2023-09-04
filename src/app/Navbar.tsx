@@ -1,7 +1,6 @@
 'use client';
 
 import Image from 'next/image';
-
 import { Fragment, useEffect, useState } from 'react';
 import { Dialog, Disclosure, Popover, Transition, Menu } from '@headlessui/react';
 
@@ -25,6 +24,7 @@ import getUserStatus from '@/shared/graphQl/queries/getUserStatus';
 import Error from '@/components/Error';
 import Loading from './loading';
 import AuthConfig from '@/firebase/oauth.config';
+import { useRouter } from 'next/navigation';
 
 
 
@@ -93,11 +93,15 @@ export default function Navbar({ services }: any) {
     const [userStatus, setUserStatus] = useState('')
     const [currentUserType, setCurrentUserType] = useState('')
 
+
+    //hooks
     const { user, logout, authLoading } = AuthConfig()
+    const router = useRouter()
 
 
 
     useEffect(() => {
+
         getUserData()
     }, [user?.email, authLoading])
 

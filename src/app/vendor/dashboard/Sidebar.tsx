@@ -10,12 +10,13 @@ import { NavItem, controlledNavItems, defaultNavItems, } from "./NavItem";
 import { usePathname, useRouter } from 'next/navigation';
 import RestrictAdminRoute from "@/components/RestrictAdminRoute";
 import { useGqlClient } from "@/hooks/UseGqlClient";
-import { currentUser, logout } from "@/firebase/oauth.config";
+
 import { useQuery } from "graphql-hooks";
 import UnAuthorized from "@/components/UnAuthorized";
 import Loading from "@/app/loading";
 import Error from "@/components/Error";
 import { LuLogOut } from "react-icons/lu";
+import AuthConfig from "@/firebase/oauth.config";
 
 const GET_USER = `
 query Users($where: UserWhere) {
@@ -48,7 +49,7 @@ const Sidebar = ({
 
     // HOOKS
     const client = useGqlClient()
-    const { user } = AuthConfig();
+    const { user, logout } = AuthConfig();
     const pathname = usePathname();
     const router = useRouter()
 

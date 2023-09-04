@@ -13,6 +13,7 @@ import Loading from '@/app/loading';
 import { useRouter } from 'next/navigation';
 import HandleFileUpload from '@/shared/HandleFileUpload';
 import { v4 as uuidv4 } from 'uuid';
+import createLog from '@/shared/graphQl/mutations/createLog';
 
 
 
@@ -188,7 +189,11 @@ const Main = () => {
         })
         if (data.createProjects.info.nodesCreated) {
             toast.success('Project created successfully')
-            router.push('/user/dashboard/projects')
+            router.push('/desktopHome/projects')
+            createLog(
+                `Project Creation`,
+                `Project created with ticket ${projectId} by ${user?.email}`
+            )
         }
 
 
@@ -215,7 +220,7 @@ const Main = () => {
 
 
 
-    if (loading) return <div><Loading /></div>
+
 
 
 
@@ -264,6 +269,10 @@ const Main = () => {
         setModuleCount(1)
     }
 
+
+
+    if (loading) return <div><Loading /></div>
+
     //render
     return (
 
@@ -277,50 +286,28 @@ const Main = () => {
 
                             <div className="lg:col-span-2">
                                 <div className="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-5">
-                                    {/* <div className="md:col-span-5">
-                                        <label htmlFor="email">Company Name</label>
-                                        <input type="text" value={userInfo.companyName || ''} className="h-10 border border-gray-300 mt-1 rounded px-4 w-full "
-                                            {...register("email")} />
-                                    </div>
 
-                                    <div className="md:col-span-5">
-                                        <label htmlFor="email">Email Address</label>
-                                        <input type="text" value={user?.email || ''} className="h-10 border border-gray-300 mt-1 rounded px-4 w-full "
-                                            {...register("email")} />
-                                    </div> */}
 
                                     <div className="md:col-span-3">
                                         <label htmlFor="address">Address / Street</label>
-                                        <input value={userInfo.address || ''} type="text" id="address" className="h-10 border border-gray-300 mt-1 rounded px-4 w-full " placeholder=""
+                                        <input defaultValue={userInfo.address || ''} type="text" id="address" className="h-10 border border-gray-300 mt-1 rounded px-4 w-full " placeholder=""
                                             {...register("address")} />
                                     </div>
 
                                     <div className="md:col-span-2">
                                         <label htmlFor="city">City</label>
                                         <input type="text" id="city"
-                                            value={userInfo.city || ''} className="h-10 border border-gray-300 mt-1 rounded px-4 w-full " placeholder=""
+                                            defaultValue={userInfo.city || ''} className="h-10 border border-gray-300 mt-1 rounded px-4 w-full " placeholder=""
                                             {...register("city")} />
                                     </div>
-
-
                                     <div className="md:col-span-2">
-                                        <label htmlFor="state">State / province</label>
-                                        <div className="h-10  flex border  border-gray-300 rounded items-center mt-1">
-                                            <input
-                                                value={userInfo.state || ''}
-                                                id="state" placeholder="State" className="px-4 appearance-none outline-none text-gray-800 w-full bg-transparent"
-                                                {...register("state")} />
-                                            <button className="cursor-pointer outline-none focus:outline-none transition-all text-gray-300 hover:text-red-600">
-                                                <svg className="w-4 h-4 mx-2 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                                                    <line x1="18" y1="6" x2="6" y2="18"></line>
-                                                    <line x1="6" y1="6" x2="18" y2="18"></line>
-                                                </svg>
-                                            </button>
-                                            <button className="cursor-pointer outline-none focus:outline-none border-l border-gray-300 transition-all text-gray-300 hover:text-blue-600">
-                                                <svg className="w-4 h-4 mx-2 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>
-                                            </button>
-                                        </div>
+                                        <label htmlFor="State">State</label>
+                                        <input type="text" id="State"
+                                            defaultValue={userInfo.state || ''} className="h-10 border border-gray-300 mt-1 rounded px-4 w-full " placeholder=""
+                                            {...register("state")} />
                                     </div>
+
+
 
 
                                     {/* project details */}
@@ -352,7 +339,7 @@ const Main = () => {
                                                         <button
                                                             type='button'
                                                             onClick={() => setModuleCount(moduleCount - 1)}
-                                                            className="cursor-pointer outline-none focus:outline-none border-r border-gray-300 transition-all text-gray-500 hover:text-blue-600">
+                                                            className="cursor-pointer outline-none focus:outline-none border-r border-gray-300 transition-all text-gray-500 hover:text-desktopPrimary">
                                                             <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mx-2" viewBox="0 0 20 20" fill="currentColor">
                                                                 <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
                                                             </svg>
@@ -360,9 +347,9 @@ const Main = () => {
                                                         <input name="soda" id="soda" placeholder="0"
                                                             className="px-2 text-center appearance-none outline-none text-gray-800 w-full bg-transparent"
                                                             readOnly
-                                                            value={moduleCount}
+                                                            defaultValue={moduleCount}
                                                         />
-                                                        <button type='button' onClick={() => setModuleCount(moduleCount + 1)} className="cursor-pointer outline-none focus:outline-none border-l border-gray-300 transition-all text-gray-500 hover:text-blue-600">
+                                                        <button type='button' onClick={() => setModuleCount(moduleCount + 1)} className="cursor-pointer outline-none focus:outline-none border-l border-gray-300 transition-all text-gray-500 hover:text-desktopPrimary">
                                                             <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mx-2 fill-current" viewBox="0 0 20 20" fill="currentColor">
                                                                 <path fill-rule="evenodd" d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z" clip-rule="evenodd" />
                                                             </svg>
@@ -389,7 +376,7 @@ const Main = () => {
 
                                     <div className=" mt-8">
                                         <div className="">
-                                            <button type='submit' className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 px-12 text-lg rounded">{state.loading || uploading ? "loading" : 'Submit'}</button>
+                                            <button type='submit' className="bg-desktopPrimary  text-white font-bold py-3 px-12 text-lg rounded">{state.loading || uploading ? "loading" : 'Submit'}</button>
                                         </div>
                                     </div>
 
