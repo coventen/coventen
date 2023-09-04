@@ -15,6 +15,8 @@ import {
 } from 'react-icons/hi2';
 import Link from 'next/link';
 import { TbArrowBarLeft } from "react-icons/tb";
+import { useGqlClient } from '@/hooks/UseGqlClient';
+import { useQuery } from 'graphql-hooks';
 
 type Option = {
     title: string
@@ -24,11 +26,22 @@ type Option = {
 interface Props {
     children: React.ReactNode;
     filters: any[];
-    //   FilterName: string;
-    //   selected: any;
-    //   setSelected: any;
-    //   filterQuery: any;
 }
+
+
+const GET_CATEGORY = `
+query Categories {
+    categories {
+      id
+      name
+      hasSubcategory {
+        id
+        name
+      }
+    }
+  }
+`
+
 
 function classNames(...classes: string[]) {
     return classes.filter(Boolean).join(' ');
@@ -38,13 +51,24 @@ function classNames(...classes: string[]) {
 
 
 
+// component
 export default function Sidebar({
     children,
 }: {
     children: React.ReactNode
 }) {
 
+
+    // STATES
     const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
+
+    //HOOKS
+    const client = useGqlClient()
+
+    // QUERIES
+    const { data, error, loading } = useQuery(GET_CATEGORY, { client })
+
+
 
     const filters = [
         {
@@ -107,11 +131,7 @@ export default function Sidebar({
     ];
 
 
-    const sortOptions = [
-        { name: 'Most Popular', href: '#', current: true },
-        { name: 'Best Rating', href: '#', current: false },
-        { name: 'Newest', href: '#', current: false },
-    ];
+
 
 
     return (
@@ -169,7 +189,7 @@ export default function Sidebar({
 
                                         {/* Filters */}
                                         <form className="mt-4 border-t border-gray-200">
-                                            {filters.map((section) => (
+                                            {data?.categories && data?.categories?.map((section: any) => (
                                                 <Disclosure
                                                     as="div"
                                                     key={section.id}
@@ -200,18 +220,18 @@ export default function Sidebar({
                                                             <Disclosure.Panel className="pt-6">
 
                                                                 <div className="space-y-6">
-                                                                    {section.options.map(
-                                                                        (option: Option, optionIdx: number) => (
+                                                                    {section?.hasSubcategory.map(
+                                                                        (option: any, optionIdx: number) => (
                                                                             <Link
-                                                                                href={option.path}
-                                                                                key={option?.title}
+                                                                                href={`/products?query=${option?.id}`}
+                                                                                key={option?.name}
                                                                                 className="flex items-center"
                                                                             >
                                                                                 <label
                                                                                     htmlFor={`filter-mobile-${section.id}-${optionIdx}`}
                                                                                     className="ml-3 min-w-0 flex-1 text-gray-500"
                                                                                 >
-                                                                                    {option?.title}
+                                                                                    {option?.name}
                                                                                 </label>
                                                                             </Link>
                                                                         )
@@ -238,62 +258,7 @@ export default function Sidebar({
                                     Products
                                 </h1>
 
-                                <div className="flex items-center">
-                                    <Menu as="div" className="relative inline-block text-left">
-                                        <div>
-                                            <Menu.Button className="group inline-flex justify-center text-sm font-medium text-gray-700 hover:text-gray-900">
-                                                Sort
-                                                <HiChevronDown
-                                                    className="-mr-1 ml-1 h-5 w-5 flex-shrink-0 text-gray-400 group-hover:text-gray-500"
-                                                    aria-hidden="true"
-                                                />
-                                            </Menu.Button>
-                                        </div>
 
-                                        <Transition
-                                            as={Fragment}
-                                            enter="transition ease-out duration-100"
-                                            enterFrom="transform opacity-0 scale-95"
-                                            enterTo="transform opacity-100 scale-100"
-                                            leave="transition ease-in duration-75"
-                                            leaveFrom="transform opacity-100 scale-100"
-                                            leaveTo="transform opacity-0 scale-95"
-                                        >
-                                            <Menu.Items className="absolute right-0 z-10 mt-2 w-40 origin-top-right rounded-md bg-white shadow-2xl ring-1 ring-black ring-opacity-5 focus:outline-none">
-                                                <div className="py-1">
-                                                    {sortOptions.map((option) => (
-                                                        <Menu.Item key={option.name}>
-                                                            {({ active }) => (
-                                                                <a
-                                                                    href={option.href}
-                                                                    className={classNames(
-                                                                        option.current
-                                                                            ? 'font-medium text-gray-900'
-                                                                            : 'text-gray-500',
-                                                                        active ? 'bg-gray-100' : '',
-                                                                        'block px-4 py-2 text-sm'
-                                                                    )}
-                                                                >
-                                                                    {option.name}
-                                                                </a>
-                                                            )}
-                                                        </Menu.Item>
-                                                    ))}
-                                                </div>
-                                            </Menu.Items>
-                                        </Transition>
-                                    </Menu>
-
-
-                                    <button
-                                        type="button"
-                                        className="-m-2 ml-4 p-2 text-gray-400 hover:text-gray-500 sm:ml-6 lg:hidden"
-                                        onClick={() => setMobileFiltersOpen(true)}
-                                    >
-                                        <span className="sr-only">Filters</span>
-                                        <HiFunnel className="h-5 w-5" aria-hidden="true" />
-                                    </button>
-                                </div>
                             </div>
 
                         </>
@@ -308,7 +273,7 @@ export default function Sidebar({
                                 <form className="hidden lg:block">
                                     {/* this is filters */}
 
-                                    {filters.map((section) => (
+                                    {data?.categories && data?.categories?.map((section: any) => (
                                         <Disclosure
                                             as="div"
                                             key={section.id}
@@ -339,18 +304,18 @@ export default function Sidebar({
                                                     <Disclosure.Panel className="pt-6">
 
                                                         <div className="space-y-4">
-                                                            {section.options.map(
-                                                                (option: Option, optionIdx: number) => (
+                                                            {section?.hasSubcategory.map(
+                                                                (option: any, optionIdx: number) => (
                                                                     <Link
-                                                                        href={option.path}
-                                                                        key={option.title}
+                                                                        href={`/products?query=${option?.id}`}
+                                                                        key={option.name}
                                                                         className="flex items-center cursor-pointer"
                                                                     >
                                                                         <label
                                                                             htmlFor={`filter-${section.id}-${optionIdx}`}
                                                                             className="ml-3 text-sm text-gray-600"
                                                                         >
-                                                                            {option.title}
+                                                                            {option.name}
                                                                         </label>
                                                                     </Link>
                                                                 )
