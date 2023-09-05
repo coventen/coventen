@@ -1,4 +1,4 @@
-import { currentUser } from '@/firebase/oauth.config';
+import AuthConfig from '@/firebase/oauth.config';
 import { useGqlClient } from '@/hooks/UseGqlClient';
 import { useManualQuery, useQuery } from 'graphql-hooks';
 import React, { useEffect } from 'react';
@@ -33,7 +33,7 @@ const RestrictAdminRoute = ({ children, accessibleNavItems, setAccessibleNavItem
 
     // HOOKS
     const client = useGqlClient()
-    const user = currentUser();
+    const { user, authLoading } = AuthConfig();
     const userEmail = user?.email
 
     const [getUserFn, getUserState] = useManualQuery(GET_USER, { client })
@@ -42,8 +42,9 @@ const RestrictAdminRoute = ({ children, accessibleNavItems, setAccessibleNavItem
     useEffect(() => {
         getUserData()
         checkUserType()
-        getAccessibleNavItems()
-    }, [userEmail, data?.users?.length])
+        setAccessibleNavItems(navItems)
+
+    }, [userEmail, data?.users?.length, authLoading])
 
 
 
@@ -53,7 +54,16 @@ const RestrictAdminRoute = ({ children, accessibleNavItems, setAccessibleNavItem
     const checkUserType = () => {
         setLoading(true)
         if (data?.users?.length) {
-            if (data?.users[0]?.user_type != "ADMIN" || data?.users[0]?.user_type != "COVENTEN_EMPLOYEE") {
+
+            if (data?.users[0]?.user_type === "ADMIN") {
+                setLoading(false)
+                return children
+            }
+            else if (data?.users[0]?.user_type === "COVENTEN_EMPLOYEE") {
+                getAccessibleNavItems()
+            }
+
+            else if (data?.users[0]?.user_type != "ADMIN" || data?.users[0]?.user_type != "COVENTEN_EMPLOYEE") {
                 setLoading(false)
                 return <UnAuthorized />
             }
@@ -71,13 +81,11 @@ const RestrictAdminRoute = ({ children, accessibleNavItems, setAccessibleNavItem
             const filteredNavItems = navItems?.filter((navItem: any) => {
                 return permissions.includes(navItem.label.toLowerCase());
             });
-
-            console.log(filteredNavItems, 'filteredNavItems')
-            console.log(navItems, 'navItems')
             setAccessibleNavItems(filteredNavItems)
             setLoading(false)
 
-        } else {
+        }
+        else {
             setLoading(false)
             setAccessibleNavItems([])
             return <UnAuthorized />
@@ -99,7 +107,7 @@ const RestrictAdminRoute = ({ children, accessibleNavItems, setAccessibleNavItem
     }
 
 
-    if (getUserState.loading || loading) return <Loading />
+    if (getUserState.loading || loading || authLoading) return <Loading />
 
 
 

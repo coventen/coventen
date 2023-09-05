@@ -4,10 +4,10 @@ import { useGqlClient } from '@/hooks/UseGqlClient';
 import { useMutation, useQuery } from 'graphql-hooks';
 import { Invoice, Service } from '@/gql/graphql';
 import InvoiceForm from './InvoiceForm';
-import { currentUser } from '@/firebase/oauth.config';
 import { parse } from 'path';
 import { toast } from 'react-hot-toast';
 import { useParams, useRouter } from 'next/navigation';
+import AuthConfig from '@/firebase/oauth.config';
 
 const UPDATE_INVOICE = `
 mutation UpdateInvoices($where: InvoiceWhere, $update: InvoiceUpdateInput) {
@@ -42,7 +42,7 @@ const Main = () => {
 
     // hooks
     const client = useGqlClient()
-    const user = currentUser()
+    const { user } = AuthConfig()
     const router = useRouter()
     const params = useParams()
 
@@ -93,6 +93,7 @@ const Main = () => {
                     "taxRate": taxRate,
                     "totalPrice": totalPrice,
                     "priceWithTax": totalPriceWithTax,
+                    "status": "SENT",
                     "hasService": invoiceData.hasService.map((item: Service) => {
                         return {
                             "update": {

@@ -1,4 +1,4 @@
-import { currentUser } from "@/firebase/oauth.config"
+
 import { ModuleTicketOptions, ModuleTicketWhere } from "@/gql/graphql"
 import Cookies from "js-cookie";
 
@@ -43,7 +43,7 @@ const GetModules = async (where: any={}, options: ModuleTicketOptions={}) => {
 
     console.log(data, 'ddota tdkjdsfkdsjfldjsfkjsdlkfjdskl')
 
-    return data.moduleTickets
+    return data?.moduleTickets
 }
 
 

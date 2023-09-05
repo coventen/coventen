@@ -12,7 +12,7 @@ import LeadsModal from './leadModal';
 import { toast } from 'react-hot-toast';
 import Pagination from '@/components/Pagination';
 import { getEmployerEmail } from '@/shared/getEmployerEmail';
-import { currentUser } from '@/firebase/oauth.config';
+import AuthConfig from '@/firebase/oauth.config';
 import Loading from '@/app/loading';
 import GetLeads from '@/shared/graphQl/queries/leads';
 import GetCurrentUserDetails from '@/shared/graphQl/queries/currentUser';
@@ -57,7 +57,7 @@ const Main = () => {
 
     // hooks 
     const client = useGqlClient();
-    const user = currentUser()
+    const { user } = AuthConfig()
 
     //queries
     const { data: industries, loading: industryLoading } = useQuery(GET_INDUSTRIES, {
@@ -115,7 +115,7 @@ const Main = () => {
         getUserData()
         getTotalLeadsCount()
 
-    }, [currentPage, searchQuery, , user?.email, labEmail]);
+    }, [currentPage, searchQuery, user?.email, labEmail]);
 
     // getting lab email if employee is logged in
     const getLabEmail = async () => {

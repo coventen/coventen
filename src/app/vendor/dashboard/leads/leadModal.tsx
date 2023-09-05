@@ -11,7 +11,7 @@ import { User } from '@/gql/graphql';
 import { data } from 'autoprefixer';
 import { HiOutlineDocumentDownload } from 'react-icons/hi';
 import { IUserModalProps } from './interface';
-import { currentUser } from '@/firebase/oauth.config';
+import AuthConfig from '@/firebase/oauth.config';
 
 
 

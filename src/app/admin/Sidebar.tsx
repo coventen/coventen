@@ -10,9 +10,10 @@ import { NavItem, controlledNavItems, defaultNavItems, } from "./NavItem";
 import { usePathname, useRouter } from 'next/navigation';
 import RestrictAdminRoute from "@/components/RestrictAdminRoute";
 import { useGqlClient } from "@/hooks/UseGqlClient";
-import { currentUser, logout } from "@/firebase/oauth.config";
+
 import { useQuery } from "graphql-hooks";
 import { LuLogOut } from "react-icons/lu";
+import AuthConfig from "@/firebase/oauth.config";
 
 const GET_USER = `
 query Users($where: UserWhere) {
@@ -52,7 +53,7 @@ const Sidebar = ({
 
     // HOOKS
     const client = useGqlClient()
-    const user = currentUser();
+    const { user, logout } = AuthConfig();
     const pathname = usePathname();
     const router = useRouter()
 
@@ -62,7 +63,7 @@ const Sidebar = ({
     // 👇 use the correct icon depending on the state.
     const Icon = collapsed ? HiChevronDoubleRight : HiChevronDoubleLeft;
     return (
-        <RestrictAdminRoute setAccessibleNavItems={setAccessibleNavItems} navItems={defaultNavItems} accessibleNavItems={accessibleNavItems}>
+        <RestrictAdminRoute setAccessibleNavItems={setAccessibleNavItems} navItems={controlledNavItems} accessibleNavItems={accessibleNavItems}>
             <div
                 className={`bg-white text-primaryText z-[99999999999999565]  border-r  lg:block ${showSidebar ? 'block' : 'hidden'}`}
             >
@@ -117,7 +118,7 @@ const Sidebar = ({
                                                         })}
                                                     >
                                                         <p className="flex gap-2 items-center justify-center ">
-                                                            <span className="text-xl">  {item.icon}</span> <span className=" font-semibold">{!collapsed && item.label}</span>
+                                                            <span className="text-xl">  {item.icon}</span> <span className=" font-semibold text-sm">{!collapsed && item.label}</span>
                                                         </p>
                                                     </li>
                                                 </Link>
@@ -129,7 +130,7 @@ const Sidebar = ({
 
                         }
                         {
-                            controlledNavItems.map((item, index) =>
+                            accessibleNavItems.map((item, index) =>
 
                                 <div key={index}>
                                     <p className={classNames({
@@ -143,7 +144,7 @@ const Sidebar = ({
                                             "my-2 flex flex-col gap-2 items-stretch": true,
                                         })}
                                     >
-                                        {item.links.map((item, index) => {
+                                        {item.links.map((item: any, index: number) => {
                                             return (
                                                 <Link href={item.href} key={index}>
                                                     <li
@@ -157,7 +158,7 @@ const Sidebar = ({
                                                         })}
                                                     >
                                                         <p className="flex gap-2 items-center justify-center ">
-                                                            <span className="text-lg">  {item.icon}</span> <span className=" font-semibold">{!collapsed && item.label}</span>
+                                                            <span className="text-lg">  {item.icon}</span> <span className=" font-semibold text-sm">{!collapsed && item.label}</span>
                                                         </p>
                                                     </li>
                                                 </Link>

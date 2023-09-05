@@ -1,5 +1,5 @@
 'use client'
-import { currentUser } from '@/firebase/oauth.config';
+import AuthConfig from '@/firebase/oauth.config';
 import React, { useEffect, useState } from 'react';
 import ViewModal from './ViewModal';
 import Loading from '@/app/loading';
@@ -43,7 +43,7 @@ const Main = () => {
 
     // hooks
 
-    const user = currentUser()
+    const { user } = AuthConfig()
     const client = useGqlClient()
 
     // mutations

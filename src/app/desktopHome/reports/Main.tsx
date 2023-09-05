@@ -4,7 +4,7 @@ import { useMutation, useQuery } from 'graphql-hooks';
 import React, { useEffect } from 'react';
 import Sidebar from './Sidebar';
 
-import { currentUser } from '@/firebase/oauth.config';
+import AuthConfig from '@/firebase/oauth.config';
 import DocCards from './DocCards';
 import Loading from '@/app/loading';
 import ComplainModal from './ComplainModal';
@@ -41,7 +41,7 @@ const Main = () => {
   const [isOpen, setIsOpen] = React.useState(false);
   //hooks 
   const client = useGqlClient();
-  const user = currentUser()
+  const { user } = AuthConfig()
 
   // fetching data
   const { data, loading, error } = useQuery(GET_MODULE_TICKETS, {

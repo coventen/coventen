@@ -1,7 +1,7 @@
 'use client'
 import Loading from '@/app/loading';
 import Error from '@/components/Error';
-import { currentUser } from '@/firebase/oauth.config';
+import AuthConfig from '@/firebase/oauth.config';
 import { useGqlClient } from '@/hooks/UseGqlClient';
 import { useManualQuery, useMutation, useQuery } from 'graphql-hooks';
 import Link from 'next/link';
@@ -37,7 +37,7 @@ const Main = () => {
 
     // hooks
     const client = useGqlClient()
-    const user = currentUser()
+    const { user } = AuthConfig()
 
     console.log(user?.email, 'email')
 

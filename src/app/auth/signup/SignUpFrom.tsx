@@ -1,10 +1,10 @@
 'use client'
-import { signUpWithEmailAndPassword } from '@/firebase/oauth.config';
 import React, { useState } from 'react';
 import { useForm, SubmitHandler, set } from "react-hook-form"
 import industries from '@/utlts/InductiresData.json';
 import MultiSelect from '@/components/Multiselect';
 import AutoSelectVendor from '@/components/AutoSelectVendor';
+import AuthConfig from '@/firebase/oauth.config';
 
 
 
@@ -57,6 +57,8 @@ const SignUpFrom = ({ createUser, setLoading, setError, loading, error }: ISignU
         watch,
         formState: { errors },
     } = useForm<IFormInput>()
+
+    const { signUpWithEmailAndPassword } = AuthConfig()
 
 
 

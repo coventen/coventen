@@ -1,17 +1,18 @@
 'use client'
-import React, { Suspense } from 'react';
+import React, { Suspense, useState, useEffect } from 'react';
 import { useGqlClient } from '@/hooks/UseGqlClient';
-import ProjectTable from './ProjectTable';
 import Loading from '@/app/loading';
 import Error from '@/components/Error';
-import { useMutation, useQuery } from 'graphql-hooks';
-import { currentUser } from '@/firebase/oauth.config';
+import { useManualQuery, useMutation, useQuery } from 'graphql-hooks';
+import AuthConfig from '@/firebase/oauth.config';
 import { toast } from 'react-hot-toast';
+import ProjectCard from './ProjectCard';
+import Pagination from '@/components/Pagination';
 
 
 const GET_ALL_PROJECTS_OVERVIEW = `
-query Query($where: ProjectWhere) {
-    projects(where: $where) {
+query Query($where: ProjectWhere, $options: ProjectOptions) {
+    projects(where: $where, options: $options) {
         id
         title
         description
@@ -20,7 +21,18 @@ query Query($where: ProjectWhere) {
         projectticketFor {
          projectTicket
     }
-   }
+      hasModule {
+        id
+        title
+        description
+        hasDocuments {
+          id
+          hasFiles {
+            links
+          }
+        }
+      }
+    }
  }
 `
 const DELETE_PROJECT = `
@@ -33,32 +45,84 @@ mutation Mutation($where: ProjectWhere) {
 
 //component
 const Main = () => {
+    //states
+    const [pageLimit, setPageLimit] = useState(10)
+    const [currentPage, setCurrentPage] = useState(1)
+    const [totalPages, setTotalPages] = useState(0)
+    const [totalProject, setTotalProject] = useState(0)
+    const [ProjectData, setProjectData] = useState<any>([])
 
 
     //hooks
     const client = useGqlClient()
-    const user = currentUser()
+    const { user } = AuthConfig()
 
-    //fetch data
-    const { data, loading, refetch, error: fetchError } = useQuery(GET_ALL_PROJECTS_OVERVIEW, {
-        client, variables: {
+    //quires 
+    const [getProjectFn, ProjectDataState] = useManualQuery(GET_ALL_PROJECTS_OVERVIEW, { client })
+    // mutation
+    const [deleteProjectFn, state, resetFn] = useMutation(DELETE_PROJECT, { client });
 
-            where: {
-                clientOrdered: {
-                    userIs: {
-                        email: user?.email || 'no email'
+
+    // refetching data based on pagination 
+    useEffect(() => {
+        getProjectData()
+        getProjectCount()
+    }, [currentPage]);
+
+
+
+    // initializing query and mutations
+
+    const getProjectCount = async () => {
+        const { data } = await getProjectFn({
+            variables: {
+                where: {
+                    clientOrdered: {
+                        userIs: {
+                            email: user?.email || 'no email'
+                        }
                     }
                 }
             }
-
+        })
+        if (data.projects.length) {
+            setTotalProject(data.projects.length)
+            setTotalPages(Math.ceil(data.projects.length / pageLimit))
         }
-    });
+
+    }
+
+    const getProjectData = async () => {
+        const { data } = await getProjectFn({
+            variables: {
+                where: {
+                    clientOrdered: {
+                        userIs: {
+                            email: user?.email || 'no email'
+                        }
+                    }
+                },
+                options: {
+                    limit: pageLimit,
+                    offset: (currentPage - 1) * pageLimit,
+                    sort: [
+                        {
+                            createdAt: "DESC"
+                        }
+                    ]
+                }
+            }
+        })
 
 
-    console.log(data, user?.email, 'dklkkkkkkkkkkkkkkkkkkkkk')
 
-    //deleting project 
-    const [deleteProjectFn, state, resetFn] = useMutation(DELETE_PROJECT, { client });
+        if (data.projects.length) {
+            setProjectData(data?.projects)
+        }
+    }
+
+
+
 
 
     // initializing project delete function
@@ -71,24 +135,30 @@ const Main = () => {
             }
         })
         if (data.deleteProjects.nodesDeleted) {
-            refetch()
-            toast.success('Project Deleted Successfully')
-            alert('Project Deleted Successfully')
+            getProjectData()
+            toast.error('Project Deleted ')
         }
     }
 
 
     //error handling
-    if (fetchError || state.error) return <Error message={'Sorry Something Went Wrong'} />
+    if (ProjectDataState.error || state.error) return <Error message={'Sorry Something Went Wrong'} />
 
 
-    if (loading) return <Loading />
+    if (ProjectDataState.loading || state.loading) return <Loading />
 
     return (
         <section >
             <Suspense fallback={<Loading />}>
-                <ProjectTable data={data?.projects} deleteProjectById={deleteProjectById} />
+                <ProjectCard data={ProjectData} deleteProjectById={deleteProjectById} />
+                <div className='w-full flex items-center justify-center'>
+                    {totalProject > pageLimit &&
+                        <Pagination currentPage={currentPage} setCurrentPage={setCurrentPage} totalPages={totalPages} />
+                    }
+
+                </div>
             </Suspense>
+
         </section>
     );
 };

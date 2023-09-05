@@ -32,7 +32,7 @@ const GetLeads = async (where:any = {}, options: any = {})=> {
     })
 
     const {data} = await res.then(res => res.json())
-    return data.leads
+    return data?.leads
 
 
 

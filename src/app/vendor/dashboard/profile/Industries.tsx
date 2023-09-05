@@ -5,7 +5,7 @@ import { MdDelete } from 'react-icons/md';
 import IndustryModal from './IndustryModal';
 import { useGqlClient } from '@/hooks/UseGqlClient';
 import { useMutation } from 'graphql-hooks';
-import { currentUser } from '@/firebase/oauth.config';
+import AuthConfig from '@/firebase/oauth.config';
 import { toast } from 'react-hot-toast';
 
 
@@ -29,7 +29,7 @@ const Industries = ({ data, refetch }: { data: string[], refetch: any }) => {
 
     // hooks
     const client = useGqlClient()
-    const user = currentUser()
+    const { user } = AuthConfig()
 
     // updating the user node
     const [updateUserFn, updateUserState] = useMutation(UPDATE_USER, { client })

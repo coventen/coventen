@@ -2,7 +2,7 @@
 
 import React from 'react';
 import HomeCard from '../HomeCard';
-import { currentUser } from '@/firebase/oauth.config';
+import AuthConfig from '@/firebase/oauth.config';
 import { useGqlClient } from '@/hooks/UseGqlClient';
 import { useMutation, useQuery } from 'graphql-hooks';
 import Link from 'next/link';
@@ -46,7 +46,7 @@ const Main = () => {
 
     //hooks
     const client = useGqlClient()
-    const user = currentUser()
+    const { user } = AuthConfig()
 
     // queries
     const { data, loading, error, refetch } = useQuery(GET_INVOICES, {
@@ -55,10 +55,9 @@ const Main = () => {
             where: {
                 hasClient: {
                     userIs: {
-                        email: user?.email
+                        email: user?.email || 'np email'
                     }
                 },
-                status: "SENT"
             }
         }
 
@@ -81,7 +80,7 @@ const Main = () => {
                 }
             }
         })
-        if (data.updateInvoices.invoices[0].id) {
+        if (data?.updateInvoices?.invoices[0]?.id) {
             setIsOpen(false)
             refetch()
             toast.success('Complain added successfully')
@@ -91,6 +90,8 @@ const Main = () => {
             )
         }
     }
+
+
 
 
     if (loading || state.loading) return <Loading />
@@ -111,16 +112,33 @@ const Main = () => {
                 }
                 {
                     data?.invoices && data?.invoices?.map((invoice: any, i: number) =>
-                        <div key={i} className='bg-white  border-b px-4 py-5 text-sm border-gray-200  text-desktopPrimary grid grid-cols-6'>
+                        <div key={i} className='bg-white  border-b px-4 py-5 text-sm border-gray-200  text-desktopPrimary grid grid-cols-7'>
                             <p>{i + 1}</p>
                             <p className='col-span-2'>{invoice?.id}</p>
                             <p>{invoice.priceWithTax}</p>
-                            <p>{invoice.createdAt || "N/A"}</p>
-                            <div className='space-x-3'>
+                            <p>{invoice?.status === "SENT" ? "PENDING" : invoice?.status === "COMPLAINED" ? "COMMENTED" : invoice?.status || 'N/A'}</p>
+                            <div className='space-x-3 col-span-2 flex items-center justify-center'>
 
                                 <Link href={`/desktopHome/invoices/preview/${invoice.id}`} className='font-semibold border border-desktopPrimary px-3  py-1.5 rounded'>View</Link>
-                                <button onClick={() => setIsOpen(true)} className='font-semibold border border-desktopPrimary px-3  py-1.5 rounded'>Complain</button>
-                                <button onClick={() => updateInvoice('', "CONFIRMED")} className='font-semibold border border-desktopPrimary px-3  py-1.5 rounded'>Complain</button>
+
+                                {
+                                    invoice?.status === "SENT" && (
+                                        <>
+                                            <button onClick={() => {
+                                                setIsOpen(true)
+                                                setCurrentInvoiceId(invoice?.id)
+                                            }} className='font-semibold border border-desktopPrimary px-3  py-1.5 rounded'>Comment</button>
+                                            <button onClick={() => {
+                                                updateInvoice('', "CONFIRMED")
+                                                setCurrentInvoiceId(invoice?.id)
+                                            }} className='font-semibold border border-desktopPrimary px-3  py-1.5 rounded'>Confirm</button>
+
+
+                                        </>
+
+                                    )
+                                }
+
                             </div>
                         </div>
 
@@ -128,7 +146,7 @@ const Main = () => {
 
                 }
             </div>
-            <ComplainModal isOpen={isOpen} setIsOpen={setIsOpen} addComplain={updateInvoice} />
+            <ComplainModal isOpen={isOpen} setIsOpen={setIsOpen} addComplain={updateInvoice} currentInvoiceId={currentInvoiceId} setCurrentInvoiceId={setCurrentInvoiceId} />
         </>
     );
 };

@@ -4,7 +4,7 @@ import { useGqlClient } from '@/hooks/UseGqlClient';
 import Loading from '@/app/loading';
 import Error from '@/components/Error';
 import { useManualQuery, useMutation, useQuery } from 'graphql-hooks';
-import { currentUser } from '@/firebase/oauth.config';
+import AuthConfig from '@/firebase/oauth.config';
 import { toast } from 'react-hot-toast';
 import ProjectCard from './ProjectCard';
 import Pagination from '@/components/Pagination';
@@ -55,7 +55,7 @@ const Main = () => {
 
     //hooks
     const client = useGqlClient()
-    const user = currentUser()
+    const { user } = AuthConfig()
 
     //quires 
     const [getProjectFn, ProjectDataState] = useManualQuery(GET_ALL_PROJECTS_OVERVIEW, { client })

@@ -1,4 +1,4 @@
-import { currentUser } from "@/firebase/oauth.config"
+
 import Cookies from "js-cookie";
 
 const getUserStatus = async (email: string) => {
@@ -28,7 +28,7 @@ const getUserStatus = async (email: string) => {
     })
 
     const {data} = await res.then(res => res.json())
-    return data.users
+    return data?.users
 }
 
 

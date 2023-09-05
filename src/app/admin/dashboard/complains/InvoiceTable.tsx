@@ -28,6 +28,16 @@ const InvoiceTable = ({ data, deleteInvoice, setIsOpen, setCurrentComplain }: IT
                 </tr>
             </thead>
             <tbody className="text-gray-600 divide-y">
+
+                {
+                    !data?.length && <>
+                        <tr>
+                            <td className="py-3 pr-6">No Complain Found</td>
+                        </tr>
+
+                    </>
+                }
+
                 {
                     data && data.map((item, idx) => (
                         <tr key={item?.id} className=''>
@@ -44,13 +54,13 @@ const InvoiceTable = ({ data, deleteInvoice, setIsOpen, setCurrentComplain }: IT
                                 <button onClick={() => {
                                     setIsOpen(true)
                                     setCurrentComplain(item?.complain)
-                                }} className="py-1.5 px-3 text-gray-600 hover:text-gray-500 duration-150 hover:bg-gray-50 border rounded-lg">
+                                }} className="py-1.5 px-3   bg-blue-200 text-blue-700 ">
                                     View Complain
                                 </button>
-                                <Link href={`/admin/dashboard/complains/preview/${item?.id}`} className="py-1.5 px-3 text-gray-600 hover:text-gray-500 duration-150 hover:bg-gray-50 border rounded-lg">
+                                <Link href={`/admin/dashboard/complains/${item?.id}`} className="py-1.5 px-3 bg-green-200 text-green-700  ">
                                     Edit
                                 </Link>
-                                <button onClick={() => deleteInvoice(item?.id)} className="py-1.5 px-3 text-gray-600 hover:text-gray-500 duration-150 hover:bg-gray-50 border rounded-lg">
+                                <button onClick={() => deleteInvoice(item?.id)} className="py-1.5 px-3 bg-red-200 text-red-700">
                                     Delete
                                 </button>
                             </td>

@@ -1,5 +1,5 @@
 'use client'
-import { logInWithEmailAndPassword } from '@/firebase/oauth.config';
+
 import { useGqlClient } from '@/hooks/UseGqlClient';
 import { useMutation } from 'graphql-hooks';
 import { useRouter } from 'next/navigation';
@@ -7,6 +7,7 @@ import React, { useState } from 'react';
 import { useForm, SubmitHandler } from "react-hook-form"
 import { toast } from 'react-hot-toast';
 import Cookies from 'js-cookie';
+import AuthConfig from '@/firebase/oauth.config';
 
 
 
@@ -32,6 +33,7 @@ const LoginFrom = () => {
     // hooks
     const router = useRouter()
     const client = useGqlClient()
+    const { logInWithEmailAndPassword } = AuthConfig()
     const {
         register,
         handleSubmit,

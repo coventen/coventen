@@ -1,12 +1,11 @@
 import React from 'react';
-import Hero from './Hero';
-import Features from './Features';
+
+import Main from './Main';
 
 const ProductDetails = () => {
     return (
         <section>
-            <Hero />
-            <Features />
+            <Main />
         </section>
     );
 };

@@ -1,7 +1,7 @@
 'use client'
 
 import AnimatedButton from '@/components/AnimatedButton';
-import { currentUser } from '@/firebase/oauth.config';
+import AuthConfig from '@/firebase/oauth.config';
 import { useGqlClient } from '@/hooks/UseGqlClient';
 import HandleFileUpload from '@/shared/HandleFileUpload';
 import { useMutation } from 'graphql-hooks';
@@ -48,7 +48,7 @@ const Main = () => {
     } = useForm<any>()
 
     const client = useGqlClient()
-    const user = currentUser()
+    const { user } = AuthConfig()
     const router = useRouter()
     const { uploadFile } = HandleFileUpload()
 

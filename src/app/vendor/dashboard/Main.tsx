@@ -5,7 +5,7 @@ import { useManualQuery, useQuery } from 'graphql-hooks';
 import React, { useEffect } from 'react';
 import { FaArrowUp } from 'react-icons/fa';
 import { Notification } from '@/gql/graphql';
-import { currentUser } from '@/firebase/oauth.config';
+import AuthConfig from '@/firebase/oauth.config';
 import NotificationCard from '@/components/NotificationCard';
 
 import InfoCards from '@/components/InfoCards';
@@ -48,7 +48,7 @@ const Main = () => {
 
     // HOOKS 
     const client = useGqlClient()
-    const user = currentUser()
+    const { user } = AuthConfig()
 
 
     // getting data based on user

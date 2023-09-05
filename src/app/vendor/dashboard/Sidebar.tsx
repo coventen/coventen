@@ -10,12 +10,13 @@ import { NavItem, controlledNavItems, defaultNavItems, } from "./NavItem";
 import { usePathname, useRouter } from 'next/navigation';
 import RestrictAdminRoute from "@/components/RestrictAdminRoute";
 import { useGqlClient } from "@/hooks/UseGqlClient";
-import { currentUser, logout } from "@/firebase/oauth.config";
+
 import { useQuery } from "graphql-hooks";
 import UnAuthorized from "@/components/UnAuthorized";
 import Loading from "@/app/loading";
 import Error from "@/components/Error";
 import { LuLogOut } from "react-icons/lu";
+import AuthConfig from "@/firebase/oauth.config";
 
 const GET_USER = `
 query Users($where: UserWhere) {
@@ -48,7 +49,7 @@ const Sidebar = ({
 
     // HOOKS
     const client = useGqlClient()
-    const user = currentUser();
+    const { user, logout, authLoading } = AuthConfig();
     const pathname = usePathname();
     const router = useRouter()
 
@@ -78,16 +79,17 @@ const Sidebar = ({
             setIsUnAuthorized(true)
         }
 
-    }, [user?.email])
+    }, [user?.email, authLoading])
 
-    console.log(data?.users, 'this i s user data', data?.users[0])
 
     if (loading) return <Loading />
     if (error) return <Error />
-    // if (isUnAuthorized) {
 
-    //     return <UnAuthorized />
-    // }
+
+
+    if (!authLoading && isUnAuthorized) {
+        return <UnAuthorized />
+    }
 
 
 
@@ -162,7 +164,7 @@ const Sidebar = ({
 
                     }
                     {
-                        controlledNavItems.map((item, index) =>
+                        accessibleNavItems.map((item, index) =>
 
                             <div key={index}>
                                 <p className={classNames({
@@ -176,7 +178,7 @@ const Sidebar = ({
                                         "my-2 flex flex-col gap-2 items-stretch": true,
                                     })}
                                 >
-                                    {item.links.map((item, index) => {
+                                    {item.links.map((item: any, index: number) => {
                                         return (
                                             <Link href={item.href} key={index}>
                                                 <li

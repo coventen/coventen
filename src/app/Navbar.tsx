@@ -1,7 +1,6 @@
 'use client';
 
 import Image from 'next/image';
-
 import { Fragment, useEffect, useState } from 'react';
 import { Dialog, Disclosure, Popover, Transition, Menu } from '@headlessui/react';
 
@@ -18,90 +17,48 @@ import Link from 'next/dist/client/link';
 import Dropdown from '@/components/Navbar/Dropdown/Dropdown';
 import Services from '@/components/Navbar/Dropdown/Services';
 import Features, { features } from '@/components/Navbar/Features';
-import { auth, authLoading, currentUser, currentUserData } from '@/firebase/oauth.config';
+
 
 import { toast } from 'react-hot-toast';
 import getUserStatus from '@/shared/graphQl/queries/getUserStatus';
 import Error from '@/components/Error';
 import Loading from './loading';
+import AuthConfig from '@/firebase/oauth.config';
+import { useRouter } from 'next/navigation';
+import DropdownIndustry from '@/components/Navbar/Dropdown/DropdownIndusty';
 
 
 
 
 
 
-const Industries = [
-    {
-        name: 'Automobiles & EV',
-        url: '/industries/automotive_and_ev',
-        description: 'Get college based on Entrance exams',
-        href: '/',
-        icon: ChartPieIcon,
-    },
-    {
-        name: 'Composite Materials',
-        url: '/industries/composite_meteials_and_plastics',
-        description: 'Get college based on Entrance exams',
-        href: '/',
-        icon: ChartPieIcon,
-    },
-    {
-        name: 'Conbstruction',
-        url: '/industries/construction',
-        description: 'Get college based on Entrance exams',
-        href: '/',
-        icon: ChartPieIcon,
-    },
-    {
-        name: 'Electronics & Electricals',
-        url: '/industries/electronics_and_electrical',
-        description: 'Get college based on Entrance exams',
-        href: '/',
-        icon: ChartPieIcon,
-    },
-    {
-        name: 'Food',
-        url: '/industries/food',
-        description: 'Get college based on Entrance exams',
-        href: '/',
-        icon: ChartPieIcon,
-    },
-    {
-        name: 'Medical & Mines',
-        url: '/industries/metal_and_mining',
-        description: 'Get college based on Entrance exams',
-        href: '/',
-        icon: ChartPieIcon,
-    },
-    {
-        name: 'Oil & Gas',
-        url: '/industries/oil_and_gas',
-        description: 'Get college based on Entrance exams',
-        href: '/',
-        icon: ChartPieIcon,
-    },
 
-];
+
+
 
 function classNames(...classes: any[]) {
     return classes.filter(Boolean).join(' ');
 }
 
-export default function Navbar({ services }: any) {
+export default function Navbar({ services, industries }: any) {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [userStatus, setUserStatus] = useState('')
     const [currentUserType, setCurrentUserType] = useState('')
 
-    const user = auth.currentUser
+
+    //hooks
+    const { user, logout, authLoading } = AuthConfig()
+    const router = useRouter()
 
 
 
     useEffect(() => {
+
         getUserData()
-    }, [user?.email])
+    }, [user?.email, authLoading])
 
 
-
+    console.log(industries, 'from navbar')
 
 
 
@@ -134,7 +91,7 @@ export default function Navbar({ services }: any) {
     }
 
 
-
+    if (authLoading) return <Loading />
 
 
     return (
@@ -183,7 +140,7 @@ export default function Navbar({ services }: any) {
                         >
                             Products
                         </Link>
-                        <Dropdown title='Industries' data={Industries} />
+                        <DropdownIndustry data={industries} />
                         <Link
                             href="/learn"
                             className="text-sm font-semibold leading-6 text-primaryText mr-8"
@@ -238,7 +195,7 @@ export default function Navbar({ services }: any) {
                                                     <Menu.Item>
                                                         {({ active }) => (
                                                             <Link
-                                                                href={handleDifferentUserRouting("profile")}
+                                                                href={handleDifferentUserRouting("dashboard/profile")}
                                                                 className={classNames(
                                                                     active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
                                                                     'block px-4 py-2 text-sm'
@@ -253,6 +210,7 @@ export default function Navbar({ services }: any) {
                                                             {({ active }) => (
                                                                 <button
                                                                     type="submit"
+                                                                    onClick={() => logout()}
                                                                     className={classNames(
                                                                         active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
                                                                         'block w-full px-4 py-2 text-left text-sm'
@@ -352,7 +310,7 @@ export default function Navbar({ services }: any) {
                                     </Disclosure>
 
                                     <div className='relative'>
-                                        <Dropdown title='Industries' data={Industries} />
+                                        <DropdownIndustry data={industries} />
                                     </div>
 
 
@@ -361,14 +319,25 @@ export default function Navbar({ services }: any) {
                                 </div>
                                 <div className="py-6">
 
-                                    <Link
-                                        href="/auth/login"
-                                        className="-mx-3 block rounded-lg py-2.5 px-3 text-base font-semibold leading-7 text-primaryText hover:bg-gray-50"
-                                    //  onClick={() => signInWithRedirectGoogle()}
-                                    >
-                                        Log in
-                                        <span aria-hidden="true">&rarr;</span>
-                                    </Link>
+                                    {
+                                        user?.email ?
+                                            <Link
+                                                href="/auth/login"
+                                                className="-mx-3 block rounded-lg py-2.5 px-3 text-base font-semibold leading-7 text-primaryText hover:bg-gray-50"
+                                            >
+                                                Log in
+                                                <span aria-hidden="true">&rarr;</span>
+                                            </Link>
+
+                                            :
+
+                                            <p
+                                                onClick={() => logout()}
+                                                className="text-sm font-semibold leading-6 text-primaryText mr-8"
+                                            >
+                                                SignOut
+                                            </p>
+                                    }
                                 </div>
                             </div>
                         </div>

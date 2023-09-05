@@ -1,5 +1,5 @@
 'use client'
-import { currentUser } from '@/firebase/oauth.config';
+import AuthConfig from '@/firebase/oauth.config';
 import { useGqlClient } from '@/hooks/UseGqlClient';
 import { useManualQuery, useMutation, useQuery } from 'graphql-hooks';
 import React, { useEffect, useState } from 'react';
@@ -47,7 +47,7 @@ const Main = () => {
 
     // HOOKS 
     const client = useGqlClient()
-    const user = currentUser()
+    const { user, authLoading } = AuthConfig()
 
     // mutations
     const [updateModule, updateState] = useMutation(UPDATE_MODULE, { client })
@@ -89,7 +89,7 @@ const Main = () => {
         getLabEmail()
         getSampleData(where)
         getSampleCount()
-    }, [currentPage, searchQuery, user?.email]);
+    }, [currentPage, searchQuery, user?.email, authLoading]);
 
 
 

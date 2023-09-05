@@ -1,8 +1,10 @@
 'use client'
 
 import React, { useState } from 'react';
+import ModuleCards from './ModuleCards';
+import { Project } from '@/gql/graphql';
 
-const ProjectCard = () => {
+const ProjectCard = ({ data, deleteProjectById }: { data: Project[], deleteProjectById: (id: string) => void }) => {
 
     //states
     const [expandedIndex, setExpandedIndex] = useState(null);
@@ -17,73 +19,32 @@ const ProjectCard = () => {
 
 
 
-    const assignmentDAta = [
-        {
-            id: 1,
-            name: "User name",
-            company: "Aurigene",
-            email: "example@gmail.com",
-            title: "Aurigene Pharmaceutical Pvt Ltd",
-            description: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quia quas laudantium ullam magnam atque quibusdam nam molestias error harum est ",
-            location: "Pune Maharashtra",
-            phone: "1-770-736-8031 x56442",
-            website: "aurigene.org",
-            modules: [
-                {
-                    id: 1,
-                    title: 'lorem',
-                    description: "lorem description"
-                },
-                {
-                    id: 2,
-                    title: "problem 2",
-                    description: "problem 2"
-                },
-                {
-                    id: 3,
-                    title: "problem 3",
-                    description: "problem 3"
-                },
-                {
-                    id: 4,
-                    title: "problem 4",
-                    description: "problem 4"
-                },
-            ]
-
-        },
-
-
-    ]
 
 
 
     return (
         <div>
             {
-                assignmentDAta.map((assing, index) =>
+                data && data.map((project, index) =>
                     <>
                         <div className="transition-all duration-500 my-2 hover:bg-white border text-gray-600 border-gray-200 rounded-md">
                             <>
 
                                 <div
-                                    key={index}
+                                    key={project?.id}
 
                                     className={`accordion-header    cursor-pointer transition flex space-x-5 px-2 xl:px-3 items-center h-auto ${expandedIndex === index ? "bg-white" : ""
                                         }`}
                                     onClick={() => handleAccordionClick(index)}
                                 >
                                     <i className={`fas ${expandedIndex === index ? "fa-minus" : "fa-plus"}`}></i>
-                                    <div className="flex items-center justify-between   p-3 ">
+                                    <div className="flex items-center justify-between w-full  p-3 ">
                                         <div className='flex  flex-col space-y-3 w-80% xl:w-[70%]'>
-                                            <p className='text-desktopText font-semibold text-[10px] xl:text-sm'>
-                                                Username:  XYZAdmin
-                                            </p>
                                             <p className="text-sm lg:text-2xl text-desktopPrimary font-bold xl:font-semibold ">
-                                                {assing?.title}
+                                                {project?.title?.slice(0, 50)}
                                             </p>
-                                            <p className='text-xs xl:text-sm text-desktopTextLight'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eveniet facere cum esse consequatur, maxime, deleniti provident explicabo voluptate beatae nisi accusantium adipisci asperiores delectus totam quae? </p>
-                                            <p className='text-primary text-[10px] xl:text-sm    '>Created: July 5, 2023 | Last Updated: July 20, 2023</p>
+                                            <p className='text-xs xl:text-sm text-desktopTextLight'>{project?.description?.slice(0, 300)}</p>
+                                            <p className='text-primary text-[10px] xl:text-sm    '>Created: {project.createdAt.slice(0, 10)}</p>
                                         </div>
 
 
@@ -107,30 +68,34 @@ const ProjectCard = () => {
                                 >
                                     <div className='py-8 my-5 px-2 lg:px-12 border border-gray-200 rounded-lg'>
 
-
+                                        {/* modules section */}
                                         <div className="">
                                             <div className="pb-10 relative">
-                                                <h5 className="text-desktopPrimary font-bold text-2xl  mb-3">
-                                                    Ticket Id: #456389
+                                                <h5 className="text-desktopPrimary font-bold text-lg  mb-3">
+                                                    Ticket Id: #{project?.projectticketFor?.projectTicket}
                                                 </h5>
-                                                <h5 className="text-desktopText mt-5 font-semibold text-xl  mb-3">
-                                                    User name: John Doe
-                                                </h5>
-                                                <h5 className="text-desktopText font-semibold text-xl  mb-3">
-                                                    Company name: Aurigene Pharmaceutical Pvt Ltd
-                                                </h5>
-                                                <h5 className="text-desktopText font-semibold text-xl  mb-3">
-                                                    Project name: Aurigene Pharmaceutical Pvt Ltd
+                                                <h5 className="text-desktopText font-semibold text-md  mb-3">
+                                                    Project name: {project?.title}
                                                 </h5>
                                                 <p className='text-desktopTextLight text-sm'>
-                                                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eligendi nihil aliquid possimus a quasi rerum doloremque autem inventore distinctio ipsa, dicta obcaecati laudantium error nam eum minima, architecto ad corporis fuga ex quod eos. Vero commodi at sunt vel culpa?
+                                                    {project?.description}
                                                 </p>
 
+                                                <ModuleCards data={project?.hasModule} />
 
-                                                {/* <button onClick={() => setIsOpen(true)} className='absolute -top-1 right-2 py-[3px] px-3 lg:px-4 lg:py-2 bg-green-600 text-white rounded-lg text-xs'>Start</button> */}
+
+
                                             </div>
 
                                         </div>
+
+                                        {/*  delete button */}
+                                        <div className='w-full flex items-center justify-end'>
+                                            <button
+                                                onClick={() => deleteProjectById(project?.id)}
+                                                className='bg-red-200 text-red-600 font-semibold text-xs px-3 py-1 rounded text-right'>Delete Project</button>
+                                        </div>
+
 
                                     </div>
                                 </div>

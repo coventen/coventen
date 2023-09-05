@@ -5,7 +5,7 @@ import React, { useEffect, useState } from 'react';
 import Loading from '@/app/loading';
 import { toast } from 'react-hot-toast';
 import EmployeeTable from './EmplyeeTable';
-import { currentUser } from '@/firebase/oauth.config';
+import AuthConfig from '@/firebase/oauth.config';
 import { getEmployerEmail } from '@/shared/getEmployerEmail';
 import Error from '@/components/Error';
 
@@ -51,7 +51,7 @@ const Main = () => {
 
     // hooks
     const client = useGqlClient()
-    const user = currentUser()
+    const { user } = AuthConfig()
 
     //quires 
     const [getEmployeeFn, EmployeeDataState] = useManualQuery(GET_EMPLOYEES, { client })

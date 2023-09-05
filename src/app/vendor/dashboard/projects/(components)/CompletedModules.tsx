@@ -1,11 +1,12 @@
 'use client'
-import { currentUser } from '@/firebase/oauth.config';
+import AuthConfig from '@/firebase/oauth.config';
 
 import React, { useEffect, useState } from 'react';
 import ViewModal from './ViewModal';
 import Loading from '@/app/loading';
 import Pagination from '@/components/Pagination';
 import GetModules from '@/shared/graphQl/queries/modules';
+import { getEmployerEmail } from '@/shared/getEmployerEmail';
 
 
 
@@ -17,6 +18,7 @@ const CompletedModules = () => {
     const [currentModuleId, setCurrentModuleId] = useState('')
     const [moduleStatus, setModuleStatus] = useState('')
     const [loading, setLoading] = useState(false)
+    const [labEmail, setLabEmail] = useState('')
     // pagination states
     const [pageLimit, setPageLimit] = useState(10)
     const [currentPage, setCurrentPage] = useState(1)
@@ -24,12 +26,13 @@ const CompletedModules = () => {
     const [totalModules, setTotalModules] = useState(0)
 
     // hooks
-    const user = currentUser()
+    const { user } = AuthConfig()
 
 
 
     // getting module data
     useEffect(() => {
+        getLabEmail()
         getModulesData()
         getTotalModulesCount()
     }, [currentPage]);
@@ -44,7 +47,7 @@ const CompletedModules = () => {
         const where = {
             vendorHas: {
                 userIs: {
-                    email: user?.email
+                    email: labEmail || "no email"
                 }
             },
             status: "COMPLETED"
@@ -70,7 +73,7 @@ const CompletedModules = () => {
         const where = {
             vendorHas: {
                 userIs: {
-                    email: user?.email
+                    email: labEmail || "no email"
                 }
             },
             status: "COMPLETED"
@@ -83,6 +86,15 @@ const CompletedModules = () => {
 
     }
 
+    // getting lab email if employee is logged in
+    const getLabEmail = async () => {
+        if (user?.email) {
+            const email = await getEmployerEmail(user?.email)
+            setLabEmail(email)
+        }
+
+
+    }
 
 
 

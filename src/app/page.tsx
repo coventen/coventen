@@ -14,25 +14,84 @@ import CTA from '@/components/Home/CTA'
 import Leads from '@/components/Leads'
 
 
+// fetch data from api
+const homePageData = async () => {
+
+  const res = fetch('http://localhost:4000/', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      query: `query HomePages {
+        homePages {
+          heroText
+          heroImage
+          hasHomeservices {
+            title
+            description
+            id
+          }
+          hasProduct {
+            title
+            shortDescription
+            id
+          }
+        }
+      }`,
+      next: { revalidate: 3600 * 24 }
+    })
+  })
+  const { data } = await res.then(res => res.json())
+  return data.homePages[0]
+}
+
+const homeClient = async () => {
+  const res = fetch('http://localhost:4000/', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      query: `query HomeClients {
+        homeClients {
+          id
+          name
+          logo
+        }
+      }`,
+      next: { revalidate: 3600 * 24 }
+    })
+  })
+  const { data } = await res.then(res => res.json())
+  return data.homeClients
+}
 
 
 
 
 
 
-
-
-
+// component
 
 export default async function Home() {
+
+
+  const homeDataPromise = homePageData()
+  const homeClientDataPromise = await homeClient()
+
+  const [homeData, clientData] = await Promise.all([homeDataPromise, homeClientDataPromise])
+
+
+
   return (
     <>
-      <Hero />
-      <Services />
-      <Products />
+      <Hero text={homeData?.heroText} bg={homeData?.heroImage} />
+      <Services services={homeData?.hasHomeservices} />
+      <Products products={homeData?.hasProduct} />
       <AboutUs />
       {/* <CTA /> */}
-      <Companies />
+      <Companies clients={clientData} />
       <Leads />
 
 

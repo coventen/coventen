@@ -56,8 +56,8 @@ const CheckPushNotification = () => {
             }
 
         },
-        revalidateOnMount: 3600,
-        revalidateOnReconnect: 3600,
+        // revalidateOnMount: 3600 * 3,
+        // revalidateOnReconnect: 3600 * 3,
         // revalidateOnFocus: true,
     });
 

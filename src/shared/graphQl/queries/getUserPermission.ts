@@ -1,4 +1,4 @@
-import { currentUser } from "@/firebase/oauth.config"
+
 import Cookies from "js-cookie";
 
 const getUserPermission = async (email: string) => {

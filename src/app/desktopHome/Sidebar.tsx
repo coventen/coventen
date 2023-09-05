@@ -9,7 +9,8 @@ import Link from "next/link";
 import { NavItem, defaultNavItems } from "./NavItem";
 import { LuLogOut } from "react-icons/lu";
 import { useRouter } from "next/navigation";
-import { logout } from "@/firebase/oauth.config";
+import AuthConfig from "@/firebase/oauth.config";
+
 
 
 type Props = {
@@ -29,6 +30,7 @@ const Sidebar = ({
 
     //hooks 
     const router = useRouter()
+    const { logout } = AuthConfig()
 
     const Icon = collapsed ? HiChevronDoubleRight : HiChevronDoubleLeft;
     return (

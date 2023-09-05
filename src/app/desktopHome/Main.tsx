@@ -6,7 +6,7 @@ import React, { useEffect } from 'react';
 import NotificationCard from './NotificationCard';
 import { FaArrowUp } from 'react-icons/fa';
 import { Notification } from '@/gql/graphql';
-import { currentUser } from '@/firebase/oauth.config';
+import AuthConfig from '@/firebase/oauth.config';
 import HomeCard from './HomeCard';
 
 const GET_NOTIFICATIONS = `
@@ -48,7 +48,7 @@ const Main = () => {
 
     // HOOKS 
     const client = useGqlClient()
-    const user = currentUser()
+    const { user } = AuthConfig()
 
 
     // getting data based on user

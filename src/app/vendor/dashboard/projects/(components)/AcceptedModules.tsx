@@ -1,5 +1,5 @@
 'use client'
-import { currentUser } from '@/firebase/oauth.config';
+import AuthConfig from '@/firebase/oauth.config';
 
 import React, { useEffect, useState } from 'react';
 import ViewModal from './ViewModal';
@@ -10,6 +10,7 @@ import { toast } from 'react-hot-toast';
 import UploadDocModal from './UploadDocModal';
 import Pagination from '@/components/Pagination';
 import GetModules from '@/shared/graphQl/queries/modules';
+import { getEmployerEmail } from '@/shared/getEmployerEmail';
 
 
 
@@ -38,6 +39,7 @@ const AcceptedModules = () => {
     const [currentModuleId, setCurrentModuleId] = useState('')
     const [reset, setReset] = useState(false)
     const [loading, setLoading] = useState(false)
+    const [labEmail, setLabEmail] = useState('')
     // pagination states
     const [pageLimit, setPageLimit] = useState(10)
     const [currentPage, setCurrentPage] = useState(1)
@@ -45,7 +47,7 @@ const AcceptedModules = () => {
     const [totalModules, setTotalModules] = useState(0)
 
     // hooks
-    const user = currentUser()
+    const { user, authLoading } = AuthConfig()
     const client = useGqlClient()
 
     // UPDATING MODULE STATUS
@@ -56,12 +58,12 @@ const AcceptedModules = () => {
 
     // getting module data
     useEffect(() => {
+        getLabEmail()
         getModulesData()
         getTotalModulesCount()
-    }, [currentPage, user?.email]);
+    }, [currentPage, user?.email, authLoading]);
 
 
-    console.log(user?.email, 'user email')
 
     // get module data
     const getModulesData = async () => {
@@ -70,7 +72,7 @@ const AcceptedModules = () => {
         const where = {
             vendorHas: {
                 userIs: {
-                    email: user?.email
+                    email: labEmail || "no email"
                 }
             },
             status_IN: ["UNDER_REVIEW", "ACCEPTED"]
@@ -84,7 +86,6 @@ const AcceptedModules = () => {
 
 
         const modules = await GetModules(where, options)
-        console.log(modules, 'modules000000000000')
         if (modules) {
             setLoading(false)
             setModules(modules)
@@ -99,7 +100,7 @@ const AcceptedModules = () => {
         const where = {
             vendorHas: {
                 userIs: {
-                    email: user?.email
+                    email: labEmail || "no email"
                 }
             },
             status_IN: ["UNDER_REVIEW", "ACCEPTED"]
@@ -115,8 +116,6 @@ const AcceptedModules = () => {
 
     // update module status after uploading doc
     const updateModule = async (status: string, id: string) => {
-
-        console.log(status, id, 'i am inside')
         const { data } = await updateModuleStatusFn({
             variables: {
                 where: {
@@ -146,12 +145,20 @@ const AcceptedModules = () => {
 
     }
 
+    // getting lab email if employee is logged in
+    const getLabEmail = async () => {
+        if (user?.email) {
+            const email = await getEmployerEmail(user?.email)
+            setLabEmail(email)
+        }
+
+
+    }
 
 
 
 
-
-    if (loading || updateStatus.loading) return <Loading />
+    if (loading || updateStatus.loading || authLoading) return <Loading />
 
     return (
         <>
