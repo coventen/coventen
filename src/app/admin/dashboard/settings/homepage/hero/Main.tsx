@@ -62,13 +62,10 @@ const Main = () => {
   const updateHomePage = async () => {
 
     if (image) {
-
       const imageLink = await uploadFile(image, `heroImage-${uuid()}`, 'homeImages')
-
       if (imageLink) {
-
         if (data?.homePages[0]?.heroImage) {
-          const deletePreviousImage = await deleteImage(data?.homePages[0]?.heroImage)
+          deleteImage(data?.homePages[0]?.heroImage)
         }
 
         const { data: updateData } = await updateHomePageFn({
@@ -83,12 +80,27 @@ const Main = () => {
           }
         })
 
-        console.log(updateData)
         if (updateData?.updateHomePages?.homePages[0]?.id) {
           toast.success('Updated Successfully')
         }
       }
 
+    } else {
+      const { data: updateData } = await updateHomePageFn({
+        variables: {
+          where: {
+            id: data?.homePages[0]?.id
+          },
+          update: {
+            heroText: title,
+            heroImage: data?.homePages[0]?.heroImage
+          }
+        }
+      })
+
+      if (updateData?.updateHomePages?.homePages[0]?.id) {
+        toast.success('Updated Successfully')
+      }
     }
 
 

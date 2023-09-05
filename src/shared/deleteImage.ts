@@ -11,13 +11,13 @@ import { toast } from "react-hot-toast";
 async function deleteImage(downloadURL: string) {
     const storage = getStorage(app);
 
-    const pathArray = downloadURL.split('/');
-    const filePath = 'homeImages/heroImage-cf13f2a8-0005-4128-aff3-d5e71261ce1f'; 
-    const desertRef = ref(storage, filePath);
-
+    // const pathArray = downloadURL.split('/');
+    // const filePath = 'homeImages/heroImage-cf13f2a8-0005-4128-aff3-d5e71261ce1f'; 
+    // const desertRef = ref(storage, filePath);
+    const fileRef = ref(storage, downloadURL);
 
   // Delete the file
-deleteObject(desertRef).then(() => {
+deleteObject(fileRef).then(() => {
     console.log('Image deleted successfully');
   }).catch((error) => {
     console.log(error);

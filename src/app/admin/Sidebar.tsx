@@ -118,7 +118,7 @@ const Sidebar = ({
                                                         })}
                                                     >
                                                         <p className="flex gap-2 items-center justify-center ">
-                                                            <span className="text-xl">  {item.icon}</span> <span className=" font-semibold">{!collapsed && item.label}</span>
+                                                            <span className="text-xl">  {item.icon}</span> <span className=" font-semibold text-sm">{!collapsed && item.label}</span>
                                                         </p>
                                                     </li>
                                                 </Link>
@@ -158,7 +158,7 @@ const Sidebar = ({
                                                         })}
                                                     >
                                                         <p className="flex gap-2 items-center justify-center ">
-                                                            <span className="text-lg">  {item.icon}</span> <span className=" font-semibold">{!collapsed && item.label}</span>
+                                                            <span className="text-lg">  {item.icon}</span> <span className=" font-semibold text-sm">{!collapsed && item.label}</span>
                                                         </p>
                                                     </li>
                                                 </Link>

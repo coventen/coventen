@@ -4,6 +4,8 @@ import { FaFirefox } from "react-icons/fa";
 
 
 export default function Companies({ clients }: { clients: any[] }) {
+
+
     return (
         <div className="py-14 bg-bgLight">
             <div className="max-w-screen-2xl mx-auto px-2 lg:px-12">
@@ -18,8 +20,8 @@ export default function Companies({ clients }: { clients: any[] }) {
                                 clients && clients.map((item, idx) =>
                                     <div key={item.id} className="w-full md:w-1/2 lg:w-1/4 p-3">
                                         <div className="flex items-center justify-center py-8 px-9 h-full bg-white rounded-3xl">
-                                            <div className="flex items-center space-x-1 font-bold">
-                                                <img src={item?.logo} alt="" />
+                                            <div className="flex items-center space-x-3 font-bold">
+                                                <img src={item?.logo} className="h-10 w-10 rounded-full" alt="client image" />
                                                 <span>{item?.name}</span>
                                             </div>
                                         </div>

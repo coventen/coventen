@@ -12,6 +12,7 @@ export const metadata = {
 }
 
 
+// getting nav services
 const navServices = async () => {
 
   const res = fetch('https://coventenapp.el.r.appspot.com/', {
@@ -35,7 +36,28 @@ const navServices = async () => {
     })
   })
   const { data } = await res.then(res => res.json())
-  return data.servicePages
+  return data?.servicePages
+}
+// getting nav Industries
+const navIndustries = async () => {
+
+  const res = fetch('http://localhost:4000/', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      query: `query IndustryPages {
+        industryPages {
+          id
+          title
+        }
+      }`,
+      next: { revalidate: 36 }
+    })
+  })
+  const { data } = await res.then(res => res.json())
+  return data?.industryPages
 }
 
 
@@ -56,11 +78,13 @@ export default async function RootLayout({
 }) {
 
 
-  const services = await navServices()
+  const servicesPromise = navServices()
+  const industriesPromise = navIndustries()
 
-  // console.log(services?.map(ser => ser?.hasSubservice), 'services fromlayout')
+  const [services, industries] = await Promise.all([servicesPromise, industriesPromise])
 
-  console.log('from layout')
+
+  console.log(industries, 'from layout')
 
 
   // render
@@ -71,7 +95,7 @@ export default async function RootLayout({
       <body >
 
         <main className='bg-white text-gray-800 dark:bg-darkBg dark:text-white'>
-          <Navbar services={services} />
+          <Navbar services={services} industries={industries} />
           {children}
         </main>
         <Footer />

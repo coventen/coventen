@@ -37,20 +37,35 @@ const homePageData = async () => {
             shortDescription
             id
           }
-          hasHomeclient {
-            id
-            name
-            logo
-          }
         }
       }`,
-      next: { revalidate: 30 }
+      next: { revalidate: 3600 * 24 }
     })
   })
   const { data } = await res.then(res => res.json())
   return data.homePages[0]
 }
 
+const homeClient = async () => {
+  const res = fetch('http://localhost:4000/', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      query: `query HomeClients {
+        homeClients {
+          id
+          name
+          logo
+        }
+      }`,
+      next: { revalidate: 3600 * 24 }
+    })
+  })
+  const { data } = await res.then(res => res.json())
+  return data.homeClients
+}
 
 
 
@@ -62,8 +77,10 @@ const homePageData = async () => {
 export default async function Home() {
 
 
-  const homeData = await homePageData()
+  const homeDataPromise = homePageData()
+  const homeClientDataPromise = await homeClient()
 
+  const [homeData, clientData] = await Promise.all([homeDataPromise, homeClientDataPromise])
 
 
 
@@ -74,7 +91,7 @@ export default async function Home() {
       <Products products={homeData?.hasProduct} />
       <AboutUs />
       {/* <CTA /> */}
-      <Companies clients={homeData?.hasHomeclient} />
+      <Companies clients={clientData} />
       <Leads />
 
 

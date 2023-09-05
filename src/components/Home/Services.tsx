@@ -31,10 +31,10 @@ export default function Services({ services }: { services: any[] }) {
                                         </svg>
                                     </div>
                                     <h4 className="text-lg  font-semibold">
-                                        {item.title}
+                                        {item?.title}
                                     </h4>
                                     <p className="text-dimText dark:text-darkDimText lowercase">
-                                        {item.shortDescription || 'N/A'
+                                        {item?.description || 'N/A'
                                         }
                                     </p>
                                 </li>

@@ -1,7 +1,7 @@
 // components/defaultNavItems.tsx
 import React from "react";
 
-import { LuAppWindow, LuCalculator, LuBellRing, LuUser, LuShieldCheck, LuReplaceAll, LuSchool2, LuQrCode, LuHeadphones, LuMessagesSquare, LuBookKey, LuCopySlash } from "react-icons/lu";
+import { LuAppWindow, LuCalculator, LuBellRing, LuUser, LuFlaskConical, LuFolderSymlink, LuFolderPlus, LuShieldCheck, LuReplaceAll, LuSchool2, LuQrCode, LuHeadphones, LuMessagesSquare, LuBookKey, LuCopySlash, LuServer, LuSquareEqual, LuStore, LuTouchpad, LuTrello, LuWallet, LuTable } from "react-icons/lu";
 // define a NavItem prop
 
 export type NavItem = {
@@ -110,32 +110,62 @@ export const controlledNavItems = [
         ]
     },
     {
+        section: "Business Management",
+        links: [
+            {
+                label: "Add product",
+                href: "/admin/dashboard/settings/products",
+                icon: <LuFlaskConical className="" />,
+            },
+            {
+                label: "Add category",
+                href: "/admin/dashboard/settings/products/category",
+                icon: <LuFolderPlus className="" />,
+            },
+            {
+                label: "Add sub category",
+                href: "/admin/dashboard/settings/products/sub_category",
+                icon: <LuFolderPlus className="" />,
+            }
+        ]
+    },
+    {
         section: "Website Management",
         links: [
             {
-                label: "Services",
-                href: "/admin/dashboard/settings/services",
-                icon: <LuUser className="" />,
+                label: "Homepage Hero",
+                href: "/admin/dashboard/settings/homepage/hero",
+                icon: <LuTouchpad className="" />,
             },
             {
-                label: "Sub Services",
-                href: "/admin/dashboard/settings/sub_service",
-                icon: <LuUser className="" />,
+                label: "Homepage Services",
+                href: "/admin/dashboard/settings/homepage/services",
+                icon: <LuTrello className="" />,
             },
             {
-                label: "Products",
-                href: "/admin/dashboard/settings/products",
-                icon: <LuSchool2 className="" />,
+                label: "Homepage Products",
+                href: "/admin/dashboard/settings/homepage/top_products",
+                icon: <LuWallet className="" />,
             },
             {
-                label: "Products",
-                href: "/admin/dashboard/roles",
-                icon: <LuShieldCheck className="" />,
+                label: "Homepage Clients",
+                href: "/admin/dashboard/settings/homepage/clients",
+                icon: <LuTable className="" />,
             },
             {
-                label: "Products",
-                href: "/admin/dashboard/support/",
-                icon: <LuHeadphones className="" />,
+                label: "Add New Service",
+                href: "/admin/dashboard/settings/service_page/services",
+                icon: <LuServer className="" />,
+            },
+            {
+                label: "Add Sub Service",
+                href: "/admin/dashboard/settings/service_page/sub_service",
+                icon: <LuSquareEqual className="" />,
+            },
+            {
+                label: "Add Industry",
+                href: "/admin/dashboard/settings/industry",
+                icon: <LuStore className="" />,
             },
         ]
     },
