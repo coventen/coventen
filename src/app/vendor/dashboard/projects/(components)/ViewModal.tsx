@@ -22,11 +22,7 @@ query Modules($where: ModuleWhere) {
     modules(where: $where) {
       title
       description
-      hasDocuments {
-        hasFiles {
-          links
-        }
-      }
+      files
     }
   }
 
@@ -134,14 +130,14 @@ function ViewModal({ setIsModalOpen, isModalOpen, currentModuleId }: IUserModalP
 
                                             <div className='mt-3 grid grid-cols-3 lg:grid-cols-6 gap-2 lg:gap-6'>
                                                 {
-                                                    data?.hasDocuments?.hasFiles?.links ?
-                                                        data?.hasDocuments?.hasFiles?.links?.map((item: string, index: number) =>
-                                                            <div key={index} className=' h-14 w-full bg-gray-200 rounded-md lg:h-20 lg:w-full '>
+                                                    data?.modules[0]?.files ?
+                                                        data?.modules[0]?.files?.map((item: string, index: number) =>
+                                                            <Link href={item} key={index} className=' h-14 w-full bg-gray-200 rounded-md lg:h-20 lg:w-full '>
                                                                 <div className='flex items-center text-xl  justify-center space-x-2'>
-                                                                    <Link href={item} className='mt-5'><HiOutlineDocumentDownload /></Link>
+                                                                    <p className='mt-5'><HiOutlineDocumentDownload /></p>
 
                                                                 </div>
-                                                            </div>
+                                                            </Link>
 
                                                         )
                                                         :

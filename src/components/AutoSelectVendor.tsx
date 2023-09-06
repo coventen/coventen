@@ -1,22 +1,19 @@
 'use client'
-import { Fragment, useState } from 'react'
+import { Fragment, useEffect, useState } from 'react'
 import { Combobox, Transition } from '@headlessui/react'
 import { CheckIcon, ChevronUpDownIcon } from '@heroicons/react/20/solid'
 import { useGqlClient } from '@/hooks/UseGqlClient'
-import { useQuery } from 'graphql-hooks'
+import { useManualQuery, useQuery } from 'graphql-hooks'
 
 
 
 const GET_VENDORS = `
-query Vendors( $userIsWhere2: UserWhere) {
-    vendors {
-      id
-      userIs(where: $userIsWhere2) {
-        id
-        companyName
-        status
-        email
-      }
+query Users($where: UserWhere, $options: UserOptions) {
+    users(where: $where, options: $options){
+     id
+          companyName
+          status
+          email  
     }
   }
 `
@@ -26,28 +23,60 @@ query Vendors( $userIsWhere2: UserWhere) {
 const AutoSelectVendor = ({ selected, setSelected }: any) => {
 
     const [query, setQuery] = useState('')
+    const [vendorData, setVendorData] = useState<any>([])
 
     //hooks
     const client = useGqlClient();
-    const { data: vendorData, loading } = useQuery(GET_VENDORS, {
-        client,
-        variables: {
-            userIsWhere2: {
-                status: "APPROVED"
+
+    // query
+    const [getVendorFn, state] = useManualQuery(GET_VENDORS, { client })
+
+
+
+
+
+
+    // refetching data based on  query
+
+    useEffect(() => {
+        getVendorData(query)
+    }, [query])
+
+
+
+    // const { data: vendorData, loading } = useQuery(GET_VENDORS, {
+    //     client,
+    //     variables: {
+    //         userIsWhere2: {
+    //             status: "APPROVED",
+    //             "companyName_CONTAINS": null
+    //         }
+    //     }
+    // })
+
+
+
+    const getVendorData = async (query = '') => {
+        const { data } = await getVendorFn({
+            variables: {
+                "where": {
+                    "companyName_CONTAINS": query,
+                    "status": "APPROVED"
+                },
+                "options": {
+                    "limit": 3
+                }
             }
+        })
+
+        if (data.users.length) {
+            console.log(data.users, 'this is vendor data')
+            setVendorData(data.users?.map((item: any) => item))
         }
-    })
+    }
 
-    const data = vendorData?.vendors?.map((item: any) => item?.userIs)
 
-    const filtereData =
-        query === ''
-            ? data
-            : data?.filter((vendor: any) =>
-                vendor.companyName
-            )
 
-    console.log(selected, 'auto select vendor')
 
     return (
         <div className="absolute top-0 w-full">
@@ -75,7 +104,7 @@ const AutoSelectVendor = ({ selected, setSelected }: any) => {
                     >
                         <Combobox.Options className="absolute mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
                             {
-                                loading && (
+                                state.loading && (
                                     <div className="relative cursor-default select-none py-2 px-4 text-gray-700">
                                         Loading...
                                     </div>
@@ -83,14 +112,14 @@ const AutoSelectVendor = ({ selected, setSelected }: any) => {
                             }
 
 
-                            {filtereData?.length === 0 && query !== '' ? (
+                            {vendorData?.length === 0 && query !== '' ? (
                                 <div className="relative cursor-default select-none py-2 px-4 text-gray-700">
                                     Nothing found.
                                 </div>
                             ) : (
-                                filtereData?.map((vendor: any) => (
+                                vendorData?.map((vendor: any, i: number) => (
                                     <Combobox.Option
-                                        key={vendor?.id || "1"}
+                                        key={vendor?.id || i}
                                         className={({ active }) =>
                                             `relative cursor-default  select-none py-2 pl-10 pr-4 ${active ? 'bg-teal-600 text-white' : 'text-gray-900'
                                             }`

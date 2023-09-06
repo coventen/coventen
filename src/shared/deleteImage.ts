@@ -9,6 +9,8 @@ import { toast } from "react-hot-toast";
 
 // Function to delete an image using its download URL
 async function deleteImage(downloadURL: string) {
+
+  console.log(downloadURL, 'this is the download url');
     const storage = getStorage(app);
 
     // const pathArray = downloadURL.split('/');

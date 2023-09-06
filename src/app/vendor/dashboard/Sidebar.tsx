@@ -11,7 +11,7 @@ import { usePathname, useRouter } from 'next/navigation';
 import RestrictAdminRoute from "@/components/RestrictAdminRoute";
 import { useGqlClient } from "@/hooks/UseGqlClient";
 
-import { useQuery } from "graphql-hooks";
+import { useManualQuery, useQuery } from "graphql-hooks";
 import UnAuthorized from "@/components/UnAuthorized";
 import Loading from "@/app/loading";
 import Error from "@/components/Error";
@@ -53,19 +53,40 @@ const Sidebar = ({
     const pathname = usePathname();
     const router = useRouter()
 
+    // query
+    const [getDataFn, { data, loading, error }] = useManualQuery(GET_USER, { client })
 
-    const { data, loading, error } = useQuery(GET_USER, {
-        client,
-        variables: {
-            where: {
-                id: user?.email
-            }
-        }
-    })
+
+    // const { data, loading, error } = useQuery(GET_USER, {
+    //     client,
+    //     variables: {
+    //         where: {
+    //             id: user?.email || 'no email'
+    //         }
+    //     }
+    // })
 
 
     useEffect(() => {
-        setIsUnAuthorized(false)
+        if (user?.email) {
+            getUserAndAuthenticate(user?.email)
+        }
+
+    }, [user?.email, authLoading])
+
+
+
+
+    const getUserAndAuthenticate = async (email: string) => {
+        console.log(email, ' this is email')
+        const { data, error } = await getDataFn({
+            variables: {
+                where: {
+                    email: email
+                }
+            }
+        })
+        console.log(data, 'this i sdata')
         if (data?.users[0]?.user_type === "LAB_ASSISTANT") {
 
             const filteredItems = controlledNavItems.flatMap(section => section.links.filter(item => item.label !== "Approve Projects" && item.label !== "Employees"));
@@ -78,13 +99,14 @@ const Sidebar = ({
             setAccessibleNavItems([])
             setIsUnAuthorized(true)
         }
+    }
 
-    }, [user?.email, authLoading])
+
+
 
 
     if (loading) return <Loading />
     if (error) return <Error />
-
 
 
     if (!authLoading && isUnAuthorized) {

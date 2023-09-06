@@ -35,7 +35,7 @@ const CompletedModules = () => {
         getLabEmail()
         getModulesData()
         getTotalModulesCount()
-    }, [currentPage]);
+    }, [currentPage, labEmail, user?.email]);
 
     // functions
 

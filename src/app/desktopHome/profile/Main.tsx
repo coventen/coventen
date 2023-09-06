@@ -141,7 +141,7 @@ const Main = () => {
             </label>
             <label className="block">
                 <span className="mb-1">Email address</span>
-                <input value={userInfo.email} type="text" placeholder="leroy@jenkins.com" className="block w-full rounded-md shadow-sm focus:ring focus:ri focus:ri dark:bg-gray-800 py-4" />
+                <input readOnly value={userInfo.email} type="text" placeholder="leroy@jenkins.com" className="block w-full rounded-md shadow-sm focus:ring focus:ri focus:ri dark:bg-gray-800 py-4" />
             </label>
             <label className="block lg:col-span-2">
                 <span className="mb-1">Company name</span>

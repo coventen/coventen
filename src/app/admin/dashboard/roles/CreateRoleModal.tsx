@@ -23,9 +23,11 @@ interface Option {
 const fieldsOptions: Option[] = controlledNavItems.flatMap(section => section.links.map((item, index) => {
     return {
         id: item.label,
-        name: item.label
+        name: item.label.toLowerCase(),
     }
 }));
+
+console.log(fieldsOptions)
 
 // component
 const CreateRoleModal: React.FC<ModalProps> = ({ openModal, setOpenModal, createRole }) => {
@@ -37,14 +39,14 @@ const CreateRoleModal: React.FC<ModalProps> = ({ openModal, setOpenModal, create
 
 
 
-    console.log('fieldsOptions', fieldsOptions)
+
 
     const handleClose = () => {
         setOpenModal(false);
     };
 
 
-    console.log('selectedOptions', selectedOptions.map((item) => item.name))
+
 
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {

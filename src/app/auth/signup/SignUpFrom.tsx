@@ -27,15 +27,12 @@ interface ISignUpProps {
 
 
 
-
-
 const UserType = [
     'SERVICE_PROVIDER',
     'CONSUMER',
     "COVENTEN_EMPLOYEE",
     "LAB_ASSISTANT"
 ]
-
 
 
 

@@ -40,7 +40,7 @@ const ProjectCard = ({ data, deleteProjectById }: { data: Project[], deleteProje
                                     <i className={`fas ${expandedIndex === index ? "fa-minus" : "fa-plus"}`}></i>
                                     <div className="flex items-center justify-between w-full  p-3 ">
                                         <div className='flex  flex-col space-y-3 w-80% xl:w-[70%]'>
-                                            <p className="text-sm lg:text-2xl text-desktopPrimary font-bold xl:font-semibold ">
+                                            <p className="text-sm lg:text-2xl text-gray-700 font-bold xl:font-semibold ">
                                                 {project?.title?.slice(0, 50)}
                                             </p>
                                             <p className='text-xs xl:text-sm text-desktopTextLight'>{project?.description?.slice(0, 300)}</p>
@@ -50,7 +50,7 @@ const ProjectCard = ({ data, deleteProjectById }: { data: Project[], deleteProje
 
                                         <div className='flex items-center justify-center ml-3'>
                                             <button
-                                                className=" bg-white border-2 border-desktopPrimary text-desktopPrimary font-bold text-sm xl:text-base rounded-lg px-4 xl:px-6 py-2 xl:py-3"
+                                                className=" bg-white border-2 border-gray-700 text-gray-700 font-bold text-sm xl:text-base rounded-lg px-4 xl:px-6 py-2 xl:py-3"
                                             // onClick={() => handleOpen(1)}
                                             >
                                                 {expandedIndex === index ? 'Hide Details' : 'View'}
@@ -71,7 +71,7 @@ const ProjectCard = ({ data, deleteProjectById }: { data: Project[], deleteProje
                                         {/* modules section */}
                                         <div className="">
                                             <div className="pb-10 relative">
-                                                <h5 className="text-desktopPrimary font-bold text-lg  mb-3">
+                                                <h5 className="text-gray-700 font-bold text-lg  mb-3">
                                                     Ticket Id: #{project?.projectticketFor?.projectTicket}
                                                 </h5>
                                                 <h5 className="text-desktopText font-semibold text-md  mb-3">

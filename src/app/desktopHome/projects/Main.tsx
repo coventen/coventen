@@ -25,12 +25,7 @@ query Query($where: ProjectWhere, $options: ProjectOptions) {
         id
         title
         description
-        hasDocuments {
-          id
-          hasFiles {
-            links
-          }
-        }
+        files
       }
     }
  }
@@ -53,6 +48,8 @@ const Main = () => {
     const [ProjectData, setProjectData] = useState<any>([])
 
 
+
+
     //hooks
     const client = useGqlClient()
     const { user } = AuthConfig()
@@ -67,9 +64,10 @@ const Main = () => {
     useEffect(() => {
         getProjectData()
         getProjectCount()
-    }, [currentPage]);
+    }, [currentPage, user?.email]);
 
-
+    console.log(ProjectData, 'this is project data')
+    console.log(user?.email, 'this is user email')
 
     // initializing query and mutations
 

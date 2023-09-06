@@ -1,7 +1,7 @@
 'use client'
 
 // components/Sidebar.tsx
-import React from "react";
+import React, { useEffect } from "react";
 import classNames from "classnames";
 import { HiChevronDoubleLeft, HiChevronDoubleRight } from 'react-icons/hi';
 import Image from "next/image";
@@ -15,15 +15,7 @@ import { useQuery } from "graphql-hooks";
 import { LuLogOut } from "react-icons/lu";
 import AuthConfig from "@/firebase/oauth.config";
 
-const GET_USER = `
-query Users($where: UserWhere) {
-    users(where: $where){
-      user_type
-      hasRole {
-        permissions
-      }
-    }
-  }`
+
 
 
 
@@ -48,8 +40,8 @@ const Sidebar = ({
 
 
 
-
-
+    useEffect(() => { }, [accessibleNavItems])
+    console.log(accessibleNavItems, 'accessable item')
 
     // HOOKS
     const client = useGqlClient()
@@ -104,9 +96,9 @@ const Sidebar = ({
                                             "my-2 flex flex-col gap-2 items-stretch": true,
                                         })}
                                     >
-                                        {item.links.map((item, index) => {
+                                        {item?.links?.map((item, index) => {
                                             return (
-                                                <Link href={item.href} key={index}>
+                                                <Link href={item?.href} key={index}>
                                                     <li
 
                                                         className={classNames({
@@ -130,7 +122,7 @@ const Sidebar = ({
 
                         }
                         {
-                            accessibleNavItems.map((item, index) =>
+                            accessibleNavItems && accessibleNavItems.map((item, index) =>
 
                                 <div key={index}>
                                     <p className={classNames({
@@ -144,7 +136,7 @@ const Sidebar = ({
                                             "my-2 flex flex-col gap-2 items-stretch": true,
                                         })}
                                     >
-                                        {item.links.map((item: any, index: number) => {
+                                        {item?.links?.map((item: any, index: number) => {
                                             return (
                                                 <Link href={item.href} key={index}>
                                                     <li
@@ -175,22 +167,7 @@ const Sidebar = ({
 
 
                     {/* log out */}
-                    <div
-                        onClick={() => {
-                            logout()
-                            router.push('/auth/login')
-                        }}
-                        className={classNames({
-                            " hover:bg-primary hover:text-white cursor-pointer flex": true, //colors
-                            "transition-colors duration-300": true, //animation
-                            "rounded-md p-2 mx-3 gap-4 ": !collapsed,
-                            "rounded-full p-2 mx-3 w-10 h-10": collapsed,
-                        })}
-                    >
-                        <p className="flex gap-2 items-center justify-center ">
-                            <span className="text-xl">  <LuLogOut /></span> <span className=" font-semibold"> Log Out</span>
-                        </p>
-                    </div>
+
                 </div>
             </div>
         </RestrictAdminRoute >

@@ -70,6 +70,8 @@ function AssignmentModal({ isOpen, setIsOpen, currentProject, refetchProjects }:
     const [selected, setSelected] = useState<any>({});
 
 
+    console.log(selected, 'selected')
+
     //hooks
     const client = useGqlClient();
 
@@ -92,7 +94,7 @@ function AssignmentModal({ isOpen, setIsOpen, currentProject, refetchProjects }:
     const [updateCounterFn, updateState] = useMutation(UPDATE_COUNTER, { client })
 
 
-
+    console.log(selected?.email, 'selected000')
 
     // initializing  assign module
 
@@ -109,8 +111,8 @@ function AssignmentModal({ isOpen, setIsOpen, currentProject, refetchProjects }:
                                 where: {
                                     node: {
                                         userIs: {
-                                            companyName: selected?.companyName,
-                                            // id: null
+                                            email: selected?.email,
+
                                         }
                                     }
                                 }

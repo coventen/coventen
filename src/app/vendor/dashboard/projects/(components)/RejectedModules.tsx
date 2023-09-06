@@ -33,7 +33,7 @@ const RejectedModules = () => {
         getLabEmail()
         getModulesData()
         getTotalModulesCount()
-    }, [currentPage]);
+    }, [currentPage, labEmail, user?.email]);
 
     // functions
 

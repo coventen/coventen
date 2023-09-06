@@ -25,12 +25,7 @@ query Query($where: ProjectWhere, $options: ProjectOptions) {
         id
         title
         description
-        hasDocuments {
-          id
-          hasFiles {
-            links
-          }
-        }
+        files
       }
     }
  }
@@ -67,7 +62,7 @@ const Main = () => {
     useEffect(() => {
         getProjectData()
         getProjectCount()
-    }, [currentPage]);
+    }, [currentPage, user?.email]);
 
 
 
