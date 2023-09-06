@@ -96,7 +96,7 @@ const Main = () => {
 
         if (data.createSubservices.info.nodesCreated) {
             toast.success("Sub service created successfully")
-            router.push('/admin/dashboard/settings/sub_service')
+            router.push('/admin/dashboard/settings/service_page/sub_service')
         }
 
 

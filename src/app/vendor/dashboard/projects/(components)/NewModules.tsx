@@ -14,8 +14,8 @@ import { getEmployerEmail } from '@/shared/getEmployerEmail';
 
 
 const UPDATE_MODULE_STATUS = `
-mutation UpdateModuleTickets($where: ModuleTicketWhere, $update: ModuleTicketUpdateInput) {
-    updateModuleTickets(where: $where, update: $update) {
+mutation UpdateModuleTickets($where: ModuleTicketWhere, $update: ModuleTicketUpdateInput, $disconnect: ModuleTicketDisconnectInput) {
+    updateModuleTickets(where: $where, update: $update, disconnect: $disconnect) {
       moduleTickets {
         id
       }
@@ -61,7 +61,7 @@ const NewModules = () => {
         getLabEmail()
         getModulesData()
         getTotalModulesCount()
-    }, [currentPage]);
+    }, [currentPage, labEmail, user?.email]);
 
 
 
@@ -73,7 +73,6 @@ const NewModules = () => {
             setLabEmail(email)
         }
 
-
     }
 
 
@@ -81,6 +80,7 @@ const NewModules = () => {
     const updateModule = async (status: string, id: string) => {
 
         if (status === 'REJECTED') {
+            console.log('rejected 22222222222222222')
             const { data } = await updateModuleStatusFn({
                 variables: {
                     where: {
@@ -138,6 +138,8 @@ const NewModules = () => {
     //getting total modules
 
     const getTotalModulesCount = async () => {
+
+
         const where = {
             vendorHas: {
                 userIs: {
@@ -157,7 +159,7 @@ const NewModules = () => {
     // get module data
     const getModulesData = async () => {
         setLoading(true)
-
+        console.log(labEmail, 'lab email 55555555555')
         const where = {
             vendorHas: {
                 userIs: {
@@ -183,6 +185,8 @@ const NewModules = () => {
         }
     }
 
+
+    console.log(modules, 'modules', labEmail)
 
 
     if (loading || updateStatus.loading || authLoading) return <Loading />

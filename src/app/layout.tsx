@@ -41,7 +41,7 @@ const navServices = async () => {
 // getting nav Industries
 const navIndustries = async () => {
 
-  const res = fetch('http://localhost:4000/', {
+  const res = fetch('https://coventenapp.el.r.appspot.com/', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -84,7 +84,7 @@ export default async function RootLayout({
   const [services, industries] = await Promise.all([servicesPromise, industriesPromise])
 
 
-  console.log(industries, 'from layout')
+
 
 
   // render

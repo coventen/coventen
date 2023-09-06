@@ -1,11 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans&display=swap');
 
 
 html {
   scroll-behavior: smooth;
+  /* font-family: 'Poppins', sans-serif; */
+  /* font-family: 'Nunito Sans', sans-serif; */
 }
 
 

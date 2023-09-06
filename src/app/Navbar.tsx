@@ -276,43 +276,60 @@ export default function Navbar({ services, industries }: any) {
                                 <div className="space-y-2 py-6">
                                     <Link
                                         href="/"
-                                        className="text-sm font-semibold leading-6 text-primaryText mr-8"
+                                        className="text-md font-semibold leading-6 text-primaryText mr-8"
                                     >
                                         Home
                                     </Link>
-                                    <Disclosure as="div" className="-mx-3">
-                                        {({ open }) => (
-                                            <>
-                                                <Disclosure.Button className="flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold leading-7 text-primaryText hover:bg-gray-50">
-                                                    Features
-                                                    <FaCaretDown
-                                                        className="text-sm flex-none text-gray-900"
-                                                        aria-hidden="true"
-                                                    />
-                                                </Disclosure.Button>
-                                                <Disclosure.Panel className="mt-2 ">
-                                                    <div className='space-y-2'>
-                                                        {
-                                                            features?.map((item: any) =>
-                                                                <Link
-                                                                    href={item?.url}
-                                                                    key={item?.name}
-                                                                    className=' block bg-gray-50 underline text-sm leading-6  p-3'
-                                                                >
-                                                                    {item?.name}
-                                                                </Link>
-                                                            )
-                                                        }
-                                                    </div>
-                                                </Disclosure.Panel>
-                                            </>
-                                        )}
-                                    </Disclosure>
-
-                                    <div className='relative'>
-                                        <DropdownIndustry data={industries} />
+                                    <div>
+                                        <Disclosure as="div" className="-mx-3">
+                                            {({ open }) => (
+                                                <>
+                                                    <Disclosure.Button className="flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold leading-7 text-primaryText hover:bg-gray-50">
+                                                        Features
+                                                        <FaCaretDown
+                                                            className="text-sm flex-none text-gray-900"
+                                                            aria-hidden="true"
+                                                        />
+                                                    </Disclosure.Button>
+                                                    <Disclosure.Panel className="mt-2 ">
+                                                        <div className='space-y-2'>
+                                                            {
+                                                                features?.map((item: any) =>
+                                                                    <Link
+                                                                        href={item?.url}
+                                                                        key={item?.name}
+                                                                        className=' block bg-gray-50 underline text-sm leading-6  p-3'
+                                                                    >
+                                                                        {item?.name}
+                                                                    </Link>
+                                                                )
+                                                            }
+                                                        </div>
+                                                    </Disclosure.Panel>
+                                                </>
+                                            )}
+                                        </Disclosure>
                                     </div>
-
+                                    <div>
+                                        <Link
+                                            href="/products"
+                                            className="text-md block pb-3 font-semibold leading-6 text-primaryText mr-8"
+                                        >
+                                            Products
+                                        </Link>
+                                        <Link
+                                            href="/learn"
+                                            className="text-md  block pb-3 font-semibold leading-6 text-primaryText mr-8"
+                                        >
+                                            Learn
+                                        </Link>
+                                        <Link
+                                            href="/events"
+                                            className="text-md block pb-3 font-semibold leading-6 text-primaryText mr-8"
+                                        >
+                                            Events
+                                        </Link>
+                                    </div>
 
 
 

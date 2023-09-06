@@ -61,7 +61,7 @@ const AcceptedModules = () => {
         getLabEmail()
         getModulesData()
         getTotalModulesCount()
-    }, [currentPage, user?.email, authLoading]);
+    }, [currentPage, user?.email, authLoading, labEmail]);
 
 
 

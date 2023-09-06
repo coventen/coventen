@@ -21,11 +21,6 @@ export const defaultNavItems = [
                 icon: <LuAppWindow className="" />,
             },
             {
-                label: "Profile",
-                href: "/desktopHome/profile",
-                icon: <LuUser />,
-            },
-            {
                 label: "Notifications",
                 href: "/admin/dashboard/notification",
                 icon: <LuBellRing className="" />,

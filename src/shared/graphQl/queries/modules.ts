@@ -23,6 +23,7 @@ const GetModules = async (where: any={}, options: ModuleTicketOptions={}) => {
                 forModule {
                   id
                   title
+                  files
                 } 
               }
             }
@@ -31,11 +32,7 @@ const GetModules = async (where: any={}, options: ModuleTicketOptions={}) => {
                 where: where,
                 options: options
               },
-              context: {
-                fetchOptions: {
-                  next: { revalidate: 10 },
-                },
-              }
+
         })
     })
 

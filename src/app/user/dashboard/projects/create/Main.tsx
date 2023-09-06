@@ -131,19 +131,8 @@ const Main = () => {
                 node: {
                     title: title,
                     description: description,
-                    hasDocuments: {
-                        create: {
-                            node: {
-                                hasFiles: {
-                                    create: {
-                                        node: {
-                                            links: await uploadFiles(documents.files)
-                                        }
-                                    }
-                                },
-                            }
-                        }
-                    }
+                    files: await uploadFiles(documents.files)
+
                 }
             }
         })
@@ -189,7 +178,7 @@ const Main = () => {
         })
         if (data.createProjects.info.nodesCreated) {
             toast.success('Project created successfully')
-            router.push('/desktopHome/projects')
+            router.push('/user/dashboard/projects')
             createLog(
                 `Project Creation`,
                 `Project created with ticket ${projectId} by ${user?.email}`
@@ -341,7 +330,7 @@ const Main = () => {
                                                             onClick={() => setModuleCount(moduleCount - 1)}
                                                             className="cursor-pointer outline-none focus:outline-none border-r border-gray-300 transition-all text-gray-500 hover:text-desktopPrimary">
                                                             <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mx-2" viewBox="0 0 20 20" fill="currentColor">
-                                                                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                                                <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
                                                             </svg>
                                                         </button>
                                                         <input name="soda" id="soda" placeholder="0"
@@ -351,7 +340,7 @@ const Main = () => {
                                                         />
                                                         <button type='button' onClick={() => setModuleCount(moduleCount + 1)} className="cursor-pointer outline-none focus:outline-none border-l border-gray-300 transition-all text-gray-500 hover:text-desktopPrimary">
                                                             <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mx-2 fill-current" viewBox="0 0 20 20" fill="currentColor">
-                                                                <path fill-rule="evenodd" d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z" clip-rule="evenodd" />
+                                                                <path fillRule="evenodd" d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z" clipRule="evenodd" />
                                                             </svg>
                                                         </button>
                                                     </div>

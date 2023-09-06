@@ -42,7 +42,7 @@ const RestrictAdminRoute = ({ children, accessibleNavItems, setAccessibleNavItem
     useEffect(() => {
         getUserData()
         checkUserType()
-        setAccessibleNavItems(navItems)
+
 
     }, [userEmail, data?.users?.length, authLoading])
 
@@ -57,6 +57,7 @@ const RestrictAdminRoute = ({ children, accessibleNavItems, setAccessibleNavItem
 
             if (data?.users[0]?.user_type === "ADMIN") {
                 setLoading(false)
+                setAccessibleNavItems(navItems)
                 return children
             }
             else if (data?.users[0]?.user_type === "COVENTEN_EMPLOYEE") {
@@ -77,11 +78,38 @@ const RestrictAdminRoute = ({ children, accessibleNavItems, setAccessibleNavItem
         if (data?.users[0]?.user_type === "COVENTEN_EMPLOYEE" && data?.users[0]?.hasRole?.permissions?.length) {
             setLoading(true)
             const permissions = data?.users[0]?.hasRole?.permissions
+            const lowerCasePermissions = permissions.map((item: any) => item.toLowerCase())
+
+
+            const fieldsOptions = navItems.flatMap((section: any) => section.links.map((item: any) => {
+                return item.label.toLowerCase()
+            }));
+
+            console.log(fieldsOptions)
+
             // filtering nav items
-            const filteredNavItems = navItems?.filter((navItem: any) => {
-                return permissions.includes(navItem.label.toLowerCase());
+            const filteredNavItems = fieldsOptions?.filter((navItem: any) => {
+                return lowerCasePermissions.includes(navItem);
             });
-            setAccessibleNavItems(filteredNavItems)
+
+
+            // filtering nav items with links and section
+            const filteredItems = navItems.reduce((acc: any, section: any) => {
+                const filteredLinks = section.links.filter((link: any) =>
+                    filteredNavItems.includes(link.label.toLowerCase())
+                );
+
+                if (filteredLinks.length > 0) {
+                    acc.push({
+                        ...section,
+                        links: filteredLinks,
+                    });
+                }
+
+                return acc;
+            }, []);
+
+            setAccessibleNavItems(filteredItems)
             setLoading(false)
 
         }

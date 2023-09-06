@@ -155,6 +155,7 @@ const Main = () => {
                     <div className="col-span-full sm:col-span-3">
                         <label htmlFor="email" className="text-sm">Email</label>
                         <input
+                            readOnly
                             value={userInfo.email}
                             onChange={(e) => setUserInfo({ ...userInfo, email: e.target.value })}
                             type="email" placeholder="Email" className="w-full rounded-md focus:ring ring-primary dark:border-gray-700 dark:text-gray-900" />

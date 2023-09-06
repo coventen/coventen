@@ -15,6 +15,8 @@ import { MdDelete } from 'react-icons/md';
 
 import HandleFileUpload from '@/shared/HandleFileUpload';
 import FilePreview from '../projects/(components)/FilePreview';
+import { toast } from 'react-hot-toast';
+import deleteImage from '@/shared/deleteImage';
 
 //props interface
 interface IUserModalProps {
@@ -24,6 +26,14 @@ interface IUserModalProps {
     updateModule?: any
 }
 
+
+const GET_PREVIOUS_MODULE_REPORT = `
+query ModuleTickets {
+    moduleTickets {
+      reports
+    }
+  }
+`
 
 
 const UPDATE_MODULE_REPORT = `
@@ -53,7 +63,18 @@ function UploadDocModal({ setIsDocModalOpen, isDocModalOpen, currentModuleId, up
     const { uploadFile } = HandleFileUpload()
 
 
-    // fetching data
+
+    // QUERIES
+    const { data: previousData, loading, error } = useQuery(GET_PREVIOUS_MODULE_REPORT, {
+        client,
+        variables: {
+            "where": {
+                "id": currentModuleId
+            }
+        }
+    })
+
+    // MUTATIONS
     const [updateModuleReportFn, updateStatus] = useMutation(UPDATE_MODULE_REPORT, { client })
 
 
@@ -88,25 +109,57 @@ function UploadDocModal({ setIsDocModalOpen, isDocModalOpen, currentModuleId, up
         });
 
         try {
-            const uploadedFilesData = await Promise.all(uploadPromises);
-            if (uploadedFilesData) {
-                setUploading(false)
-                const { data } = await updateModuleReportFn({
-                    variables: {
-                        where: {
-                            id: currentModuleId
-                        },
-                        update: {
-                            reports: uploadedFilesData,
-                            status: "UNDER_REVIEW"
-                        }
-                    },
+
+            const previousFiles = previousData?.moduleTickets[0]?.reports
+            if (!previousFiles?.length) {
+                toast.error('Something went wrong, please try again later')
+            }
+            else {
+                setUploading(true)
+
+                // delete previous files
+                previousFiles?.map((item: string) => {
+                    deleteImage(item)
                 })
 
-                if (data.updateModuleTickets.moduleTickets.length) {
-                    closeModal()
+                const uploadedFilesData = await Promise.all(uploadPromises);
+
+                if (uploadedFilesData) {
+
+                    setUploading(false)
+                    const { data } = await updateModuleReportFn({
+                        variables: {
+                            where: {
+                                id: currentModuleId
+                            },
+                            update: {
+                                reports: uploadedFilesData,
+                                status: "UNDER_REVIEW"
+                            }
+                        },
+                    })
+
+                    if (data.updateModuleTickets.moduleTickets.length) {
+                        closeModal()
+                    }
+                } else {
+                    toast.error('Something went wrong, please try again later')
                 }
+
+
+
             }
+
+
+
+
+
+
+
+
+
+
+
 
         } catch (error) {
             console.error("Error uploading files:", error);
@@ -116,7 +169,7 @@ function UploadDocModal({ setIsDocModalOpen, isDocModalOpen, currentModuleId, up
 
 
 
-
+    if (loading) return <Loading />
 
     //render
     return (
