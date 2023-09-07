@@ -23,11 +23,8 @@ type Option = {
 
 interface Props {
     children: React.ReactNode;
-    filters: any[];
-    //   FilterName: string;
-    //   selected: any;
-    //   setSelected: any;
-    //   filterQuery: any;
+    setSearchFilter: any;
+
 }
 
 function classNames(...classes: string[]) {
@@ -38,11 +35,7 @@ function classNames(...classes: string[]) {
 
 
 
-export default function SideBarFilter({
-    children,
-}: {
-    children: React.ReactNode
-}) {
+export default function SideBarFilter({ children, setSearchFilter }: Props) {
 
     const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
 
@@ -66,39 +59,11 @@ export default function SideBarFilter({
 
             ],
         },
-        {
-            id: 2,
-            name: 'Category',
-            options: [
-                {
-                    title: 'Search Field',
-                    path: '/admin/facilities'
-                },
-                {
-                    title: 'Search Field',
-                    path: '/'
-                },
-                {
-                    title: 'Search Field',
-                    path: '/'
-                },
-                {
-                    title: 'Search Field',
-                    path: '/'
-                },
-            ],
-        },
-
-
 
     ];
 
 
-    const sortOptions = [
-        { name: 'Most Popular', href: '#', current: true },
-        { name: 'Best Rating', href: '#', current: false },
-        { name: 'Newest', href: '#', current: false },
-    ];
+
 
 
     return (
@@ -189,8 +154,8 @@ export default function SideBarFilter({
                                                                 <div className="space-y-6">
                                                                     {section.options.map(
                                                                         (option: Option, optionIdx: number) => (
-                                                                            <Link
-                                                                                href={option.path}
+                                                                            <button
+                                                                                onClick={() => setSearchFilter(option?.title)}
                                                                                 key={option?.title}
                                                                                 className="flex items-center"
                                                                             >
@@ -200,7 +165,7 @@ export default function SideBarFilter({
                                                                                 >
                                                                                     {option?.title}
                                                                                 </label>
-                                                                            </Link>
+                                                                            </button>
                                                                         )
                                                                     )}
                                                                 </div>
@@ -225,62 +190,7 @@ export default function SideBarFilter({
                                     Events
                                 </h1>
 
-                                <div className="flex items-center">
-                                    <Menu as="div" className="relative inline-block text-left">
-                                        <div>
-                                            <Menu.Button className="group inline-flex justify-center text-sm font-medium text-gray-700 hover:text-gray-900">
-                                                Sort
-                                                <HiChevronDown
-                                                    className="-mr-1 ml-1 h-5 w-5 flex-shrink-0 text-gray-400 group-hover:text-gray-500"
-                                                    aria-hidden="true"
-                                                />
-                                            </Menu.Button>
-                                        </div>
 
-                                        <Transition
-                                            as={Fragment}
-                                            enter="transition ease-out duration-100"
-                                            enterFrom="transform opacity-0 scale-95"
-                                            enterTo="transform opacity-100 scale-100"
-                                            leave="transition ease-in duration-75"
-                                            leaveFrom="transform opacity-100 scale-100"
-                                            leaveTo="transform opacity-0 scale-95"
-                                        >
-                                            <Menu.Items className="absolute right-0 z-10 mt-2 w-40 origin-top-right rounded-md bg-white shadow-2xl ring-1 ring-black ring-opacity-5 focus:outline-none">
-                                                <div className="py-1">
-                                                    {sortOptions.map((option) => (
-                                                        <Menu.Item key={option.name}>
-                                                            {({ active }) => (
-                                                                <a
-                                                                    href={option.href}
-                                                                    className={classNames(
-                                                                        option.current
-                                                                            ? 'font-medium text-gray-900'
-                                                                            : 'text-gray-500',
-                                                                        active ? 'bg-gray-100' : '',
-                                                                        'block px-4 py-2 text-sm'
-                                                                    )}
-                                                                >
-                                                                    {option.name}
-                                                                </a>
-                                                            )}
-                                                        </Menu.Item>
-                                                    ))}
-                                                </div>
-                                            </Menu.Items>
-                                        </Transition>
-                                    </Menu>
-
-
-                                    <button
-                                        type="button"
-                                        className="-m-2 ml-4 p-2 text-gray-400 hover:text-gray-500 sm:ml-6 lg:hidden"
-                                        onClick={() => setMobileFiltersOpen(true)}
-                                    >
-                                        <span className="sr-only">Filters</span>
-                                        <HiFunnel className="h-5 w-5" aria-hidden="true" />
-                                    </button>
-                                </div>
                             </div>
 
                         </>
@@ -328,18 +238,18 @@ export default function SideBarFilter({
                                                         <div className="space-y-4">
                                                             {section.options.map(
                                                                 (option: Option, optionIdx: number) => (
-                                                                    <Link
-                                                                        href={option.path}
-                                                                        key={option.title}
-                                                                        className="flex items-center cursor-pointer"
+                                                                    <button
+                                                                        onClick={() => setSearchFilter(option?.title)}
+                                                                        key={option?.title}
+                                                                        className="flex items-center"
                                                                     >
                                                                         <label
-                                                                            htmlFor={`filter-${section.id}-${optionIdx}`}
-                                                                            className="ml-3 text-sm text-gray-600"
+                                                                            htmlFor={`filter-mobile-${section.id}-${optionIdx}`}
+                                                                            className="ml-3 min-w-0 flex-1 text-gray-500"
                                                                         >
-                                                                            {option.title}
+                                                                            {option?.title}
                                                                         </label>
-                                                                    </Link>
+                                                                    </button>
                                                                 )
                                                             )}
                                                         </div>

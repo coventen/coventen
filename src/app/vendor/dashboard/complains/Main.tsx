@@ -19,11 +19,13 @@ query ModuleTickets($options: ModuleTicketOptions, $where: ModuleTicketWhere) {
       id
       ticket
       complain
+      reports
       clientHas {
         userIs {
           email
         }
       }
+      
     }
   }
 

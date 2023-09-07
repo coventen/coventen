@@ -111,9 +111,9 @@ const SearchInput = () => {
 
     return (
         <div className="max-w-3xl mx-auto relative">
-            <div className="relative flex p-1 rounded-full h-20 bg-white shadow-md md:p-2">
+            <div className="relative flex p-1 rounded-full h-14 lg:h-20 bg-white shadow-md md:p-2">
                 <select
-                    className="w-32 bg-transparent text-xs lg:text-base pl-5 py-2 border-none focus:ring-0 font-semibold rounded-l-md focus:outline-none focus:border-none"
+                    className="w-24 lg:w-32 bg-transparent text-[10px] lg:text-base pl-5 py-2 border-none focus:ring-0 font-semibold rounded-l-md focus:outline-none focus:border-none"
                     value={selectedValue}
                     onChange={(e) => setSelectedValue(e.target.value)}
                 >
@@ -126,7 +126,7 @@ const SearchInput = () => {
                     value={searchText}
                     onChange={(e) => setSearchText(e.target.value)}
                     placeholder="Search"
-                    className="w-full p-4 border-none outline-none rounded-full bg-transparent dark:text-white dark:placeholder-gray-300 focus:ring-0"
+                    className="w-full text-xs lg:text-base p-4 border-none outline-none rounded-full bg-transparent dark:text-white dark:placeholder-gray-300 focus:ring-0"
                     type="text"
                 />
 

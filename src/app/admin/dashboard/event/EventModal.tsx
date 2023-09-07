@@ -3,6 +3,8 @@ import React, { Fragment, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import Image from 'next/image';
 import { MdDelete } from 'react-icons/md';
+import HandleFileUpload from '@/shared/HandleFileUpload';
+import { toast } from 'react-hot-toast';
 
 
 interface Props {
@@ -19,7 +21,8 @@ const EventModal: React.FC<Props> = ({
     loading
 }) => {
 
-    // const { image, setImage, uploadImage, uploading, currentImageRef, deleteImage } = useUploadImage()
+    const { uploadFile } = HandleFileUpload()
+
 
     function closeModal() {
         setOpenModal(false);
@@ -29,7 +32,7 @@ const EventModal: React.FC<Props> = ({
 
 
 
-    const handleSubmit = (e: any) => {
+    const handleSubmit = async (e: any) => {
         e.preventDefault();
 
         const name = e.target.name.value;
@@ -37,18 +40,29 @@ const EventModal: React.FC<Props> = ({
         const endAt = e.target.endAt.value;
         const description = e.target.description.value;
         const location = e.target.location.value;
-        const image = e.target.image.f;
-        console.log(e.target.image, 'images')
-        const input = {
-            name,
-            startAt,
-            endAt,
-            description,
-            location,
-            image: ""
+        const image = e.target.image.files[0]
 
+        const uploadedImageLink = await uploadFile(image, `events-${uuidv4()}`, 'event_images')
+
+        if (!uploadedImageLink) {
+            toast.error('Error uploading image')
+            return
         }
-        console.log(input, 'input', image)
+        else {
+            const input = {
+                name,
+                startAt,
+                endAt,
+                description,
+                location,
+                image: uploadedImageLink
+
+            }
+            createEventFn(input)
+        }
+
+
+
 
     };
 
@@ -135,7 +149,7 @@ const EventModal: React.FC<Props> = ({
                                                 <label className="block text-sm text-gray-500 dark:text-gray-300"> Image</label>
                                                 <input
                                                     type="file"
-                                                    name="location"
+                                                    name="image"
                                                     placeholder="image"
                                                     className="mt-2 w-full block  placeholder-gray-400/70 rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-gray-700 focus:primary focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:primary/10"
                                                 />
@@ -145,7 +159,7 @@ const EventModal: React.FC<Props> = ({
                                                 <textarea
                                                     name="description"
                                                     rows={4}
-                                                    placeholder="decription"
+                                                    placeholder="description"
                                                     className="mt-2 w-full block  placeholder-gray-400/70 rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-gray-700 focus:primary focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:primary/10"
                                                 />
                                             </div>
@@ -153,11 +167,26 @@ const EventModal: React.FC<Props> = ({
 
 
                                         </div>
-                                        <button className="btn-primary mx-auto block mt-8">
-                                            {
-                                                loading ? 'Loading...' : 'Add Event'
-                                            }
-                                        </button>
+
+                                        <div className="px-6 py-4 mt-16 space-x-4">
+                                            <button
+
+                                                type="submit"
+                                                className="inline-flex justify-center ml-3 px-4 py-2 text-sm font-medium text-white bg-primary border border-transparent rounded-md focus:ring-primary"
+                                            >
+                                                {
+                                                    loading ? 'Loading...' : 'Add Event'
+                                                }
+                                            </button>
+                                            <button
+                                                onClick={closeModal}
+                                                type="button"
+                                                className="inline-flex justify-center px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
+                                            >
+                                                Cancel
+                                            </button>
+
+                                        </div>
                                     </form>
                                 </Dialog.Panel>
                             </Transition.Child>

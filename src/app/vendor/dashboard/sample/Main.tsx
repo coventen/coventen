@@ -8,6 +8,7 @@ import { toast } from 'react-hot-toast';
 import Loading from '@/app/loading';
 import { getEmployerEmail } from '@/shared/getEmployerEmail';
 import Pagination from '@/components/Pagination';
+import createLog from '@/shared/graphQl/mutations/createLog';
 
 const GET_MODULES = `
 query Modules($where: ModuleWhere, $options: ModuleOptions) {
@@ -171,7 +172,9 @@ const Main = () => {
         if (data.updateModules?.modules?.length) {
             console.log('updated')
             toast.success('Updated')
-
+            createLog(
+                `Sample`,
+                `Sample status updated to ${status} by ${user?.email}`)
             // refetching data
             getSampleData({
                 "moduleticketFor": {

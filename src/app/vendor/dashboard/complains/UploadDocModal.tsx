@@ -96,7 +96,8 @@ function UploadDocModal({ setIsDocModalOpen, isDocModalOpen, currentModuleId, up
         });
     }, [setFiles]);
 
-
+    const previousFiles = previousData?.moduleTickets[0]?.reports
+    console.log(previousFiles, 'previousFiles')
 
 
 

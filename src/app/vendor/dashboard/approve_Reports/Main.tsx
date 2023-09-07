@@ -10,6 +10,7 @@ import ComplainModal from './ComplainModal';
 import Pagination from '@/components/Pagination';
 import Error from '@/components/Error';
 import GetModules from '@/shared/graphQl/queries/modules';
+import createLog from '@/shared/graphQl/mutations/createLog';
 
 
 
@@ -128,6 +129,7 @@ const Main = () => {
             getModulesData()
             setIsOpen(false)
             toast.success('Module updated successfully')
+
         }
     }
 

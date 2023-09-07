@@ -9,6 +9,7 @@ import DocCards from './DocCards';
 import Loading from '@/app/loading';
 import ComplainModal from './ComplainModal';
 import { toast } from 'react-hot-toast';
+import createLog from '@/shared/graphQl/mutations/createLog';
 
 
 const GET_MODULE_TICKETS = `
@@ -85,6 +86,10 @@ const Main = () => {
       resetFn()
       console.log('updated')
       toast.success('Complain Added Successfully')
+      createLog(
+        `Module Report`,
+        `Report added to ${data?.updateModuleTickets?.moduleTickets[0]?.forModule?.title} module`
+      )
     }
 
   }
@@ -105,6 +110,10 @@ const Main = () => {
       resetFn()
       console.log('updated')
       toast.success('Complain Added Successfully')
+      createLog(
+        `Module Report`,
+        `Report added to ${data?.updateModuleTickets?.moduleTickets[0]?.forModule?.title} module`
+      )
     }
 
   }

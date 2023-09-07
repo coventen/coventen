@@ -80,7 +80,6 @@ const NewModules = () => {
     const updateModule = async (status: string, id: string) => {
 
         if (status === 'REJECTED') {
-            console.log('rejected 22222222222222222')
             const { data } = await updateModuleStatusFn({
                 variables: {
                     where: {

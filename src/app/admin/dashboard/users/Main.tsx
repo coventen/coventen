@@ -144,7 +144,7 @@ const Main = () => {
           offset: (currentPage - 1) * pageLimit,
           sort: [
             {
-              createdAt: "ASC"
+              createdAt: "DESC"
             }
           ]
         }
@@ -160,7 +160,6 @@ const Main = () => {
 
 
 
-  console.log(userData, 'user data')
 
 
 
