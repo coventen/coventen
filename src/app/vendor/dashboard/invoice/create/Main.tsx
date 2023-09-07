@@ -9,6 +9,7 @@ import { parse } from 'path';
 import { toast } from 'react-hot-toast';
 import { useRouter } from 'next/navigation';
 import { getEmployerEmail } from '@/shared/getEmployerEmail';
+import createLog from '@/shared/graphQl/mutations/createLog';
 
 const CREATE_INVOICE = `
 mutation CreateInvoices($input: [InvoiceCreateInput!]!) {
@@ -127,6 +128,9 @@ const Main = () => {
         if (data.createInvoices.info.nodesCreated) {
             toast.success('Invoice created successfully')
             router.push('/vendor/dashboard/invoice')
+            createLog(
+                `Invoice`,
+                `Invoice created by ${labEmail} For Admin`)
         }
     }
 

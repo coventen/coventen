@@ -60,6 +60,7 @@ const Main = () => {
     }, [user?.email])
 
 
+    console.log(pendingTickets)
 
 
 
@@ -92,7 +93,9 @@ const Main = () => {
         variables: {
             "where": {
                 "clientOrdered": {
-                    "userIs": user?.email || 'no email'
+                    "userIs": {
+                        "email": user?.email || 'no email'
+                    }
                 }
             }
 
@@ -122,7 +125,7 @@ const Main = () => {
         const { data } = await moduleTicketDataFn({
             variables: {
                 "where": {
-                    "status": "PENDING",
+                    "status_IN": ["PENDING", "ACCEPTED", "UNDER_REVIEW"],
                     "clientHas": {
                         "userIs": {
                             "email": user?.email || 'no email'

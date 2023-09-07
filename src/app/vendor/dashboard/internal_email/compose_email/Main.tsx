@@ -16,6 +16,7 @@ import FilePreview from '@/app/vendor/dashboard/projects/(components)/FilePrevie
 import Dropzone from 'react-dropzone';
 import { v4 as uuidv4 } from 'uuid';
 import { getEmployerEmail } from '@/shared/getEmployerEmail';
+import createLog from '@/shared/graphQl/mutations/createLog';
 
 
 
@@ -92,6 +93,9 @@ const Main = () => {
         if (data.createCommunicationTickets.info.nodesCreated) {
             toast.success("Message sent successfully")
             router.push('/vendor/dashboard/internal_email/sent')
+            createLog(
+                `Internal Email`,
+                `Email sent Vendor with email: ${labEmail}`)
         }
 
 

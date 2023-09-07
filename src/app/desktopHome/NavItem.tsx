@@ -73,7 +73,7 @@ export const defaultNavItems = [
                 icon: <LuClipboardCheck className="w-6 h-6" />,
             },
             {
-                label: "Invoices",
+                label: "Estimation",
                 href: "/desktopHome/invoices",
                 icon: <LuCalculator className="w-6 h-6" />,
             },

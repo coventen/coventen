@@ -9,6 +9,7 @@ import UpdateModal from './UpdateModal';
 import PreviewModal from './PreviewModal';
 import { useGqlClient } from '@/hooks/UseGqlClient';
 import Loading from '@/app/loading';
+import HandleFileUpload from '@/shared/HandleFileUpload';
 
 
 const CREATE_EVENT = `
@@ -21,14 +22,13 @@ mutation CreateEvents($input: [EventCreateInput!]!) {
   }`;
 
 const GET_EVENT = `
-query Query {
+query Events {
     events {
-      id
-      description
+        id
+      name
       location
-      image
-      endAt
       startAt
+      endAt
     }
   }
 `;
@@ -37,7 +37,7 @@ mutation DeleteEvents($where: EventWhere) {
     deleteEvents(where: $where) {
       nodesDeleted
     }
-  } 
+  }
 `;
 
 
@@ -52,6 +52,7 @@ const Main = () => {
 
     // HOOKS
     const client = useGqlClient()
+
 
     // QUERY
     const { data: eventData, loading, error, refetch } = useQuery(GET_EVENT, { client })
@@ -71,7 +72,7 @@ const Main = () => {
                 "input": [
                     {
                         name: input.name,
-                        "image": '',
+                        "image": input.image,
                         "description": input.description,
                         "location": input.location,
                         "endAt": input.endAt,
@@ -81,28 +82,29 @@ const Main = () => {
             }
         })
 
-        if (data.createevents.info.nodesCreated) {
+        if (data.createEvents.info.nodesCreated) {
             toast.success('event added successfully')
+            setOpenModal(false)
             refetch()
         }
     }
 
-    // const deleteevent = async (id: string) => {
-    //     const { data } = await deleteeventFn({
-    //         variables: {
-    //             where: {
-    //                 id
-    //             }
-    //         }
-    //     })
+    const deleteEvent = async (id: string) => {
+        const { data } = await deleteEventFn({
+            variables: {
+                where: {
+                    id
+                }
+            }
+        })
 
-    //     if (data.deleteevents.nodesDeleted) {
-    //         toast.error('event deleted successfully')
-    //         refetch()
-    //     }
-    // }
+        if (data.deleteEvents.nodesDeleted) {
+            toast.error('event deleted successfully')
+            refetch()
+        }
+    }
 
-    console.log(eventData);
+
 
 
 
@@ -114,13 +116,11 @@ const Main = () => {
 
     return (
         <>
-            <div className="w-full overflow-hidden">
+            <div className="w-full overflow-hidden bg-white p-4 min-h-[70vh] lg:p-8">
                 <div className="flex items-center justify-between">
                     <div className="mb-3">
-                        <h4 className="text-primary font-bold text-xl">Events</h4>
-                        <p className="text-gray-500 font-normal mt-2">
-                            Lorem ipsum dolor sit amet, consectetur.
-                        </p>
+                        <h4 className="text-primaryText font-bold text-xl">Events</h4>
+
                     </div>
                     <p
                         onClick={() => setOpenModal(true)}
@@ -146,7 +146,7 @@ const Main = () => {
                     </p>
                 </div>
 
-                <div className="w-full bg-white rounded-lg mt-5 py-3 shadow-md">
+                <div className="w-full bg-white rounded-lg mt-5 py-3 ">
                     <EventTable
                         data={eventData?.events}
                         loading={loading}
@@ -154,6 +154,7 @@ const Main = () => {
                         setOpenUpdateModal={setOpenUpdateModal}
                         setOpenPreviewModal={setOpenPreviewModal}
                         setDeleteId={setDeleteId}
+                        deleteEvent={deleteEvent}
                     />
                 </div>
             </div>

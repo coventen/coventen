@@ -7,6 +7,8 @@ import InvoiceTable from './InvoiceTable';
 import { toast } from 'react-hot-toast';
 import Pagination from '@/components/Pagination';
 import ViewModal from './ViewModal';
+import AuthConfig from '@/firebase/oauth.config';
+import createLog from '@/shared/graphQl/mutations/createLog';
 
 const GET_INVOICES = `
 query Query($where: InvoiceWhere, $options: InvoiceOptions) {
@@ -41,6 +43,7 @@ const Main = () => {
 
   // hooks
   const client = useGqlClient()
+  const { user } = AuthConfig()
 
 
   //quires 
@@ -118,6 +121,10 @@ const Main = () => {
     if (data?.deleteInvoices?.nodesDeleted > 0) {
       toast.success('Invoice deleted successfully')
       getInvoiceData({ status: "COMPLAINED" })
+      createLog(
+        `Estimation `,
+        `Estimation deleted by ${user?.email} `,
+      )
     }
   }
 

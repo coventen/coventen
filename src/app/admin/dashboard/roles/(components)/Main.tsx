@@ -5,6 +5,8 @@ import React from 'react';
 import Tabs from './Tabs';
 import Loading from '@/app/loading';
 import { toast } from 'react-hot-toast';
+import createLog from '@/shared/graphQl/mutations/createLog';
+import AuthConfig from '@/firebase/oauth.config';
 
 const GET_EMPLOYEES = `
 query Users($where: UserWhere) {
@@ -66,6 +68,7 @@ const Main = () => {
 
     // hooks
     const client = useGqlClient()
+    const { user } = AuthConfig()
 
 
     //getting all employees
@@ -78,7 +81,7 @@ const Main = () => {
             "options": {
                 "sort": [
                     {
-                        "createdAt": "ASC"
+                        "createdAt": "DESC"
                     }
                 ]
             }
@@ -121,6 +124,10 @@ const Main = () => {
             toast.success("Employee status updated successfully")
             setOpenCreateRoleModal(false)
             refetch()
+            createLog(
+                `Employee `,
+                `Employee status updated by ${user?.name}`,
+            )
         }
     }
 
@@ -145,6 +152,10 @@ const Main = () => {
             toast.success("Role created successfully")
             setOpenCreateRoleModal(false)
             refetchRoles()
+            createLog(
+                `Roles`,
+                `new role created by ${user?.name}`,
+            )
         }
     }
 
@@ -160,6 +171,10 @@ const Main = () => {
         if (data.deleteRoles.nodesDeleted) {
             toast.success("Role deleted successfully")
             refetchRoles()
+            createLog(
+                `Roles`,
+                `role deleted by ${user?.name}`,
+            )
         }
     }
 

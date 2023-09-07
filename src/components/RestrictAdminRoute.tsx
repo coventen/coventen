@@ -53,7 +53,12 @@ const RestrictAdminRoute = ({ children, accessibleNavItems, setAccessibleNavItem
 
     const checkUserType = () => {
         setLoading(true)
-        if (data?.users?.length) {
+        if (!user?.email && !authLoading) {
+            setLoading(false)
+            return <UnAuthorized />
+        }
+
+        else if (data?.users?.length) {
 
             if (data?.users[0]?.user_type === "ADMIN") {
                 setLoading(false)

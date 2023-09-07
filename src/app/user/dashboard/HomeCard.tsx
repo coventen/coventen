@@ -1,24 +1,14 @@
 import React from 'react';
 interface IHomeCardProps {
     title: string;
-    value: number;
+    value: string;
 }
 
 const HomeCard = ({ title, value }: IHomeCardProps) => {
     return (
-        <div className="flex items-center p-4 bg-white  border rounded dark:bg-darkBgLight dark:text-white">
-            <div className="flex flex-shrink-0 items-center justify-center bg-primary/10 h-16 w-16 rounded">
-                <svg className="w-6 h-6 fill-current text-primary" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                    <path fillRule="evenodd" d="M3.293 9.707a1 1 0 010-1.414l6-6a1 1 0 011.414 0l6 6a1 1 0 01-1.414 1.414L11 5.414V17a1 1 0 11-2 0V5.414L4.707 9.707a1 1 0 01-1.414 0z" clipRule="evenodd" />
-                </svg>
-            </div>
-            <div className="flex-grow flex flex-col ml-4">
-                <span className="text-xl font-bold">{value}</span>
-                <div className="flex items-center justify-between">
-                    <span className="text-dimText dark:text-darkDimText">{title}</span>
-
-                </div>
-            </div>
+        <div className='lg:min-h-[100px] xl:min-h-[120px] h-full p-5 border border-desktopPrimaryLight'>
+            <p className='text-desktopTextLight font-semibold text-sm md:text-sm  lg:text-sm xl:text-lg'>{title}</p>
+            <h1 className='text-lg md:text-xl lg:text-3xl  xl:text-5xl   font-extrabold text-desktopPrimary'>{value}</h1>
         </div>
     );
 };

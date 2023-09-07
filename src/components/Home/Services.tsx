@@ -10,7 +10,7 @@ export default function Services({ services }: { services: any[] }) {
             <div className="max-w-screen-2xl mx-auto px-2 lg:px-12  md:px-8">
                 <div className="relative max-w-2xl mx-auto sm:text-center">
                     <div className="relative z-10 mt-16">
-                        <h3 className=" text-3xl font-semibold sm:text-4xl mb-3">
+                        <h3 className=" text-3xl font-semibold text-center  sm:text-4xl mb-3">
                             Popular Services
                         </h3>
 

@@ -36,7 +36,7 @@ const InvoicePreview = async ({ params, searchParams }: any) => {
                             <div>
                                 <img src="/assets/log.png" alt="logo" />
 
-                                <h1 className="mt-2 text-lg md:text-xl font-semibold text-blue-600 dark:text-white"></h1>
+
                             </div>
                             {/* <!-- Col --> */}
 

@@ -8,6 +8,8 @@ import { useManualQuery, useMutation, useQuery } from 'graphql-hooks';
 import { toast } from 'react-hot-toast';
 import { generateUniqueId } from '@/shared/genarateUniqueId';
 import AutoSelectVendor from '@/components/AutoSelectVendor';
+import createLog from '@/shared/graphQl/mutations/createLog';
+import AuthConfig from '@/firebase/oauth.config';
 
 
 
@@ -70,10 +72,10 @@ function AssignmentModal({ isOpen, setIsOpen, currentProject, refetchProjects }:
     const [selected, setSelected] = useState<any>({});
 
 
-    console.log(selected, 'selected')
 
     //hooks
     const client = useGqlClient();
+    const { user } = AuthConfig()
 
 
     // Fetch data from graphql
@@ -93,8 +95,6 @@ function AssignmentModal({ isOpen, setIsOpen, currentProject, refetchProjects }:
     const [assignModuleFn, state] = useMutation(ASSIGN_MODULE, { client });
     const [updateCounterFn, updateState] = useMutation(UPDATE_COUNTER, { client })
 
-
-    console.log(selected?.email, 'selected000')
 
     // initializing  assign module
 
@@ -158,8 +158,12 @@ function AssignmentModal({ isOpen, setIsOpen, currentProject, refetchProjects }:
         if (data.createModuleTickets.info.nodesCreated) {
             setIsOpen(false);
             toast.success('Module assigned successfully');
-            console.log('success')
             refetchProjects()
+            createLog(
+                `Module Assignment`,
+                ` Module assigned to ${selected.companyName} by ${user?.email} `
+            )
+
         }
     }
 

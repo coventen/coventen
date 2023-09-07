@@ -14,6 +14,7 @@ import Dropzone from 'react-dropzone';
 import FilePreview from '@/app/vendor/dashboard/projects/(components)/FilePreview';
 import { HiOutlineTrash } from 'react-icons/hi';
 import UserSelect from './UserSelect';
+import createLog from '@/shared/graphQl/mutations/createLog';
 
 
 
@@ -99,6 +100,10 @@ const Main = () => {
             if (data?.createCommunicationTickets?.info?.nodesCreated) {
                 toast.success("Message sent successfully")
                 router.push('/admin/dashboard/internal_email/sent')
+                createLog(
+                    `Internal Email`,
+                    `New Email Sent to ${selectedUsers.map(user => user.email).join(', ')}`,
+                )
             }
 
         }

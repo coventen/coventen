@@ -14,7 +14,7 @@ const RolesPeopleTable = ({ employeeList, updateEmployeeStatus }: IRolesPeopleTa
         await updateEmployeeStatus(id, "APPROVED")
     }
 
-    console.log(employeeList, 'employeeList ghjk')
+
 
 
 

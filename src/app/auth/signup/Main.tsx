@@ -7,6 +7,7 @@ import { toast } from 'react-hot-toast';
 import SignUpFrom from './SignUpFrom';
 import { useRouter } from 'next/navigation';
 import Cookies from 'js-cookie';
+import createLog from '@/shared/graphQl/mutations/createLog';
 
 const CREATE_USER = `
 mutation Mutation($email: String!, $name: String!, $userType: String!) {
@@ -109,6 +110,10 @@ const Main = () => {
                 setLoading(false)
                 toast.success('Account created successfully')
                 router.push('/')
+                createLog(
+                    `New User Joined`,
+                    `New User with email ${email} joined as ${user_type}`
+                )
             }
 
             // updating user
