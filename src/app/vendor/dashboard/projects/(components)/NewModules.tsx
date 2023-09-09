@@ -158,7 +158,6 @@ const NewModules = () => {
     // get module data
     const getModulesData = async () => {
         setLoading(true)
-        console.log(labEmail, 'lab email 55555555555')
         const where = {
             vendorHas: {
                 userIs: {
@@ -168,6 +167,11 @@ const NewModules = () => {
             status: "ASSIGNED"
         }
         const options = {
+            sort: [
+                {
+                    createdAt: "DESC"
+                }
+            ],
             limit: pageLimit,
             offset: (currentPage - 1) * pageLimit
 
@@ -203,43 +207,52 @@ const NewModules = () => {
                 </thead>
                 <tbody className="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800 ">
 
-                    {modules && modules?.map((module: any, index: number) =>
+                    {modules?.length ?
+                        (modules?.map((module: any, index: number) =>
 
-                        <tr key={module?.id} className="bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-900 text-gray-700 dark:text-gray-400">
+                            <tr key={module?.id} className="bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-900 text-gray-700 dark:text-gray-400">
 
-                            <td className="px-4 py-3 text-sm">{index + 1}</td>
-                            <td className="px-4 py-3 text-sm">{module?.ticket}</td>
-                            <td className="px-4 py-3 text-sm">{module?.forModule
-                                ?.title || 'N/A'}</td>
-                            <td className="px-4 py-3 text-sm space-x-2 text-center">
-                                <button
-                                    onClick={() => {
-                                        setIsModalOpen(true)
-                                        setCurrentModuleId(module?.forModule?.id)
-                                    }}
-                                    className='px-3 py-1 bg-primary text-white rounded'>
-                                    View
-                                </button>
-                                <button
-                                    onClick={() => {
-                                        updateModule('ACCEPTED', module?.id)
-                                    }}
-                                    className='px-3 py-1 bg-green-600 text-white rounded'>
-                                    Accept
-                                </button>
-                                <button
-                                    onClick={() => {
-                                        updateModule('REJECTED', module?.id)
-                                    }}
-                                    className='px-3 py-1 bg-red-600 text-white rounded'>
-                                    Reject
-                                </button>
+                                <td className="px-4 py-3 text-sm">{index + 1}</td>
+                                <td className="px-4 py-3 text-sm">{module?.ticket}</td>
+                                <td className="px-4 py-3 text-sm">{module?.forModule
+                                    ?.title || 'N/A'}</td>
+                                <td className="px-4 py-3 text-sm space-x-2 text-center">
+                                    <button
+                                        onClick={() => {
+                                            setIsModalOpen(true)
+                                            setCurrentModuleId(module?.forModule?.id)
+                                        }}
+                                        className='px-3 py-1 bg-primary text-white rounded'>
+                                        View
+                                    </button>
+                                    <button
+                                        onClick={() => {
+                                            updateModule('ACCEPTED', module?.id)
+                                        }}
+                                        className='px-3 py-1 bg-green-600 text-white rounded'>
+                                        Accept
+                                    </button>
+                                    <button
+                                        onClick={() => {
+                                            updateModule('REJECTED', module?.id)
+                                        }}
+                                        className='px-3 py-1 bg-red-600 text-white rounded'>
+                                        Reject
+                                    </button>
 
-                            </td>
+                                </td>
 
-                        </tr>
+                            </tr>
 
-                    )
+                        ))
+
+
+                        :
+                        (
+                            <tr className="bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-900 text-gray-700 dark:text-gray-400">
+                                <td className="px-4 py-3 text-sm" colSpan={4}>No modules found</td>
+                            </tr>
+                        )
                     }
                 </tbody>
                 <ViewModal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} currentModuleId={currentModuleId} />

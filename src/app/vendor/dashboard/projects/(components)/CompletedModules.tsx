@@ -53,6 +53,11 @@ const CompletedModules = () => {
             status: "COMPLETED"
         }
         const options = {
+            sort: [
+                {
+                    createdAt: "DESC"
+                }
+            ],
             limit: pageLimit,
             offset: (currentPage - 1) * pageLimit
 
@@ -115,7 +120,7 @@ const CompletedModules = () => {
                 </thead>
                 <tbody className="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
 
-                    {modules && modules?.map((module: any, index: number) =>
+                    {modules.length ? modules?.map((module: any, index: number) =>
 
                         <tr key={module?.id} className="bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-900 text-gray-700 dark:text-gray-400">
 
@@ -129,6 +134,10 @@ const CompletedModules = () => {
                         </tr>
 
                     )
+                        :
+                        <tr className="bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-900 text-gray-700 dark:text-gray-400">
+                            <td colSpan={4} className="px-4 py-3 text-sm ">No modules found</td>
+                        </tr>
                     }
                 </tbody>
                 <ViewModal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} currentModuleId={currentModuleId} />

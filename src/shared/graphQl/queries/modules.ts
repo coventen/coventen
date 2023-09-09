@@ -2,9 +2,9 @@
 import { ModuleTicketOptions, ModuleTicketWhere } from "@/gql/graphql"
 import Cookies from "js-cookie";
 
-const GetModules = async (where: any={}, options: ModuleTicketOptions={}) => {
+const GetModules = async (where: any={}, options: any={}) => {
 
-  console.log(where, 'where')
+
 
   const token = Cookies.get('conventenToken');
 

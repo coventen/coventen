@@ -116,7 +116,7 @@ const ChatBody = ({ messages, currentModule }: Props) => {
             >
                 <div onClick={() => setOnClose(true)} className='bg-white shadow-sm px-4 py-5 rounded-lg flex items-center'>
                     <p className='bg-green-500 w-3 h-3 rounded-full mr-2'></p>
-                    <p className='font-bold'> User</p>
+                    <p className='font-bold'> #{currentModule}</p>
 
                 </div>
                 {/* <Scrollbars style={{ width: 500, height: 300 }}>
@@ -135,7 +135,8 @@ const ChatBody = ({ messages, currentModule }: Props) => {
                                     <div key={message?.id} className="col-start-6 col-end-13 p-3 rounded-lg">
                                         <div className="flex items-center justify-start flex-row-reverse">
                                             <div
-                                                className="flex items-center justify-center h-10 w-10 rounded-full bg-primary text-white font-bold flex-shrink-0"
+                                                className={`${message.senderId === user?.email ? 'bg-primary' : 'bg-desktopPrimary-500'}
+                                                flex items-center justify-center h-10 w-10 rounded-full  text-white font-bold flex-shrink-0`}
                                             >
                                                 {user?.email?.slice(0, 1).toUpperCase()}
                                             </div>

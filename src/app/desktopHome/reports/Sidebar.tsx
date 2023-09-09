@@ -38,7 +38,7 @@ const Sidebar = ({ data, setCurrentModule }: ISidebar) => {
 
                                         <div className=" ">
                                             <div>
-                                                <span className='text-sm font-semibold text-left'> {item.forModule?.title?.slice(0, 40)}...</span>
+                                                <span className='text-sm font-semibold text-left'> {item.forModule?.title?.slice(0, 20)}...</span>
 
                                             </div>
 

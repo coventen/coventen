@@ -1,5 +1,5 @@
 
-import { OAuthProvider, signOut, getAuth, signInWithRedirect,createUserWithEmailAndPassword,signInWithEmailAndPassword, getRedirectResult, onAuthStateChanged } from "firebase/auth";
+import { OAuthProvider, signOut, getAuth, signInWithRedirect,createUserWithEmailAndPassword,signInWithEmailAndPassword, getRedirectResult, onAuthStateChanged, sendPasswordResetEmail } from "firebase/auth";
 import { app } from "./fireabase.config";
 import { useState, useEffect } from "react";
 
@@ -35,7 +35,6 @@ const AuthConfig = () => {
       setAuthLoading(true)
         const userCredential = await createUserWithEmailAndPassword(auth, email, password);
         const user = userCredential.user;
-        console.log("User created:", user.uid);
         return user;
     } catch (error: any) {
         console.error("Error creating user:", error.message);
@@ -59,6 +58,23 @@ const AuthConfig = () => {
       setAuthLoading(false)
     }
   }
+ async function resetPassword(email: string) {
+    try {
+      setAuthLoading(true)
+    const result = await  sendPasswordResetEmail(auth, email)
+      return result;
+
+    } catch (error: any) {
+        console.error("Error signing in:", error.message);
+        throw error;
+    } finally {
+      setAuthLoading(false)
+    }
+  }
+
+
+
+
   
  async function syncUser() {
     try {
@@ -108,7 +124,7 @@ const AuthConfig = () => {
   }, []);
 
 
-  return { signInWithRedirectGoogle, signUpWithEmailAndPassword, logInWithEmailAndPassword, currentUserData, logout, user, authLoading }
+  return { signInWithRedirectGoogle, resetPassword, signUpWithEmailAndPassword, logInWithEmailAndPassword, currentUserData, logout, user, authLoading }
   
 
 };

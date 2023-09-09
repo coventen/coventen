@@ -2,7 +2,8 @@
 import { NotificationOptions, NotificationWhere } from "@/gql/graphql";
 import Cookies from "js-cookie";
 
-const getNotifications = async (where:NotificationWhere, options:any ) => {
+const getNotifications = async (variables: any) => {
+
 
   const token = Cookies.get('conventenToken');
 
@@ -15,20 +16,19 @@ const getNotifications = async (where:NotificationWhere, options:any ) => {
         body: JSON.stringify({
             query: `query Notifications($where: NotificationWhere, $options: NotificationOptions) {
                 notifications(where: $where, options: $options) {
+                  id
                   title
                   description
                   createdAt
                 }
               }`,
-              variables: {
-                where:where,
-                options:options
-              },
-        })
+              variables: variables,
+        }),
+        next: { revalidate: 300 } 
     })
 
     const {data} = await res.then(res => res.json())
-    return data?.users[0]
+    return data?.notifications[0]
 }
 
 

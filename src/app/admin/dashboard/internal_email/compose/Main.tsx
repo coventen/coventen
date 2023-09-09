@@ -67,10 +67,8 @@ const Main = () => {
         const contentString = JSON.stringify(contentJson)
         const fileLinks = await handleUpload()
 
-        console.log(fileLinks, 'file links')
 
         if (selectedUserType === "CONSUMER") {
-            console.log('consumer')
             let { data } = await createCommunicationFn({
                 variables: {
                     input: [
@@ -108,7 +106,6 @@ const Main = () => {
 
         }
         else if (selectedUserType === "SERVICE_PROVIDER") {
-            console.log('vendor')
             let { data } = await createCommunicationFn({
                 variables: {
                     input: [

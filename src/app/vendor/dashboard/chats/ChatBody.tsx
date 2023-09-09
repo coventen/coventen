@@ -116,7 +116,7 @@ const ChatBody = ({ messages, currentModule }: Props) => {
             >
                 <div onClick={() => setOnClose(true)} className='bg-white shadow-sm px-4 py-5 rounded-lg flex items-center'>
                     <p className='bg-green-500 w-3 h-3 rounded-full mr-2'></p>
-                    <p className='font-bold'> User</p>
+                    <p className='font-bold'> #{currentModule}</p>
 
                 </div>
                 {/* <Scrollbars style={{ width: 500, height: 300 }}>

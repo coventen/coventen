@@ -69,6 +69,7 @@ const page = async ({ params, searchParams }: any) => {
                     <MessageContent content={details?.message} />
                 </div>
                 <div className='grid grid-cols-1 lg:grid-cols-4 gap-2'>
+                    <p className='text-sm text-gray-600 mb-7'>Attachments: </p>
                     {
                         details?.files?.map((fileLink: any, i: number) =>
                             <Link href={fileLink} key={i}>

@@ -8,6 +8,7 @@ import Loading from '@/app/loading';
 import Error from '@/components/Error';
 import Pagination from '@/components/Pagination';
 import TableSkeleton from '@/components/TableSkeleton';
+import ModuleCards from './ModuleCards';
 
 interface ICurrentProject {
     clientEmail: string;
@@ -33,6 +34,7 @@ query Projects($where: ProjectWhere, $options: ProjectOptions) {
       hasModule {
         title
         description
+        files
         id
         moduleticketFor {
             ticket
@@ -53,7 +55,7 @@ const Main = () => {
     const [searchQuery, setSearchQuery] = useState('')
 
     // pagination states
-    const [pageLimit, setPageLimit] = useState(10)
+    const [pageLimit, setPageLimit] = useState(5)
     const [currentPage, setCurrentPage] = useState(1)
     const [totalPages, setTotalPages] = useState(0)
     const [projectsCount, setProjectsCount] = useState(0)
@@ -142,6 +144,8 @@ const Main = () => {
     }
 
 
+    console.log(ProjectData, 'this is project data')
+
 
 
     //handle accordion click
@@ -178,182 +182,103 @@ const Main = () => {
             <div className="bg-white py-7 lg:px-4 w-full  ">
 
                 {
-                    ProjectDataState.loading && <TableSkeleton />
-                }
+                    ProjectDataState.loading ? <TableSkeleton />
+                        :
+                        ProjectData && ProjectData.map((project: any, index: number) =>
+                            <>
+                                <div className="transition-all duration-500 my-2 hover:bg-white  text-gray-600 ">
+                                    <>
+                                        <div className="transition-all duration-500 my-2 hover:bg-white border text-gray-600 border-gray-200 rounded-md">
+                                            <>
 
+                                                <div
+                                                    key={project?.id}
 
-                {
-                    ProjectData && ProjectData.map((assing: any, index: number) =>
-                        <>
-                            <div className="transition-all duration-500 my-2 hover:bg-white border text-gray-600 border-gray-200 rounded-md">
-                                <>
-
-                                    <div
-                                        key={index}
-
-                                        className={`accordion-header    cursor-pointer transition flex space-x-5 px-3 items-center h-16 ${expandedIndex === index ? "bg-white" : ""
-                                            }`}
-                                        onClick={() => handleAccordionClick(index)}
-                                    >
-                                        <i className={`fas ${expandedIndex === index ? "fa-minus" : "fa-plus"}`}></i>
-                                        <div className="grid grid-cols-2 lg:grid-cols-4  gap-3 w-full ">
-                                            <div className='flex items-center justify-start'>
-                                                <p className="text-xs lg:text-sm  font-semibold ">
-                                                    {assing?.title}
-                                                </p>
-                                            </div>
-                                            <div className='lg:flex flex-col items-center justify-center hidden md:block'>
-                                                <p className="text-xs lg:text-sm font-semibold text-gray-600">
-                                                    Contact Person
-                                                </p>
-                                                <p className="text-xs lg:text-sm   font-normal">{assing?.email}</p>
-                                            </div>
-                                            <div className="hidden md:block">
-                                                <p className="text-xs lg:text-sm font-semibold text-center text-gray-600">
-                                                    Date
-                                                </p>
-                                                <p className="text-xs text-center lg:text-sm  text-gray-600 font-semibold ">{assing?.createdAt.slice(0, 10)}</p>
-                                            </div>
-
-                                            <div className='flex items-center justify-center'>
-                                                <button
-                                                    className="p-1 lg:p-3 bg-primary text-white rounded-lg text-xs"
-                                                // onClick={() => handleOpen(1)}
+                                                    className={`accordion-header    cursor-pointer transition flex space-x-5 px-2 xl:px-3 items-center h-auto ${expandedIndex === index ? "bg-white" : ""
+                                                        }`}
+                                                    onClick={() => handleAccordionClick(index)}
                                                 >
-                                                    {expandedIndex === index ? 'Hide Details' : 'Show Details'}
-                                                </button>
-                                            </div>
+                                                    <i className={`fas ${expandedIndex === index ? "fa-minus" : "fa-plus"}`}></i>
+                                                    <div className="flex items-center justify-between w-full  p-3 ">
+                                                        <div className='flex  flex-col space-y-3 w-80% xl:w-[70%]'>
+                                                            <p className="text-base lg:text-lg text-gray-700 font-bold xl:font-semibold ">
+                                                                {project?.title?.slice(0, 50)}
+                                                            </p>
+
+                                                            <p className='text-dimText text-sm   '>Created: {project.createdAt.slice(0, 10)}</p>
+                                                        </div>
+
+
+                                                        <div className='flex items-center justify-center ml-3'>
+                                                            <button
+                                                                className=" bg-white border-2 border-gray-700 text-gray-700 font-bold text-sm  rounded-lg px-6 py-1.5"
+                                                            // onClick={() => handleOpen(1)}
+                                                            >
+                                                                {expandedIndex === index ? 'Hide Details' : 'View'}
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                {/* Content - body*/}
+                                                <div
+                                                    className={`accordion-content px-2 lg:px-5 pt-0 overflow-hidden ${expandedIndex === index ? "max-h-content" : "max-h-0"
+                                                        }`}
+                                                    style={{
+                                                        transition: "all 3s ease-out",
+                                                    }}
+                                                >
+                                                    <div className='py-8 my-5 px-2 lg:px-12 border border-gray-200 rounded-lg'>
+
+                                                        {/* modules section */}
+                                                        <div className="">
+                                                            <div className="pb-10 relative">
+
+                                                                <h5 className="text-desktopText font-semibold text-md lg:text-lg mb-1">
+                                                                    Client: {project?.companyName}
+                                                                </h5>
+                                                                <h5 className="text-desktopText font-semibold text-sm mb-3">
+                                                                    email: {project?.email}
+                                                                </h5>
+                                                                <h5 className="text-desktopText font-semibold text-md lg:text-lg mb-1">
+                                                                    Project name: {project?.title}
+                                                                </h5>
+                                                                <h5 className="text-desktopText font-bold text-md lg:text-base  mb-3">
+                                                                    Ticket Id: #{project?.projectticketFor?.projectTicket}
+                                                                </h5>
+                                                                <p className='text-desktopTextLight text-xs lg:text-sm'>
+                                                                    {project?.description}
+                                                                </p>
+
+                                                                <ModuleCards data={project?.hasModule} setCurrentProject={setCurrentProject}
+                                                                    projectTicket={project?.projectticketFor?.projectTicket}
+                                                                    clientEmail={project?.email}
+                                                                    setIsOpen={setIsOpen}
+                                                                />
+
+
+
+                                                            </div>
+
+                                                        </div>
+
+
+
+
+                                                    </div>
+                                                </div>
+                                            </>
                                         </div>
-                                    </div>
-                                    {/* Content - body*/}
-                                    <div
-                                        className={`accordion-content px-2 lg:px-5 pt-0 overflow-hidden ${expandedIndex === index ? "max-h-content" : "max-h-0"
-                                            }`}
-                                        style={{
-                                            transition: "all 3s ease-out",
-                                        }}
-                                    >
-                                        <div className='py-8 my-5 px-2 lg:px-12 border border-gray-200 rounded-lg'>
+
+                                    </>
+                                </div>
 
 
-                                            <div className="">
-                                                <div className="pb-10 relative">
-                                                    <h5 className="text-gray-600 font-bold text-xs lg:text-base mb-3">
-                                                        Description
-                                                    </h5>
-                                                    <p className="text-xs lg:text-sm ">{assing?.description}</p>
-
-                                                    {/* <button onClick={() => setIsOpen(true)} className='absolute -top-1 right-2 py-[3px] px-3 lg:px-4 lg:py-2 bg-green-600 text-white rounded-lg text-xs'>Start</button> */}
-                                                </div>
-                                                <div className="grid grid-cols-1 lg:grid-cols-3">
-                                                    <div>
-                                                        <ul className="list-none">
-                                                            <li>
-                                                                <p className="text-xs lg:text-sm font-bold text-gray-600">
-                                                                    Contact
-                                                                </p>
-                                                                <p className="text-xs lg:text-sm ">{assing?.email}</p>
-                                                            </li>
-                                                            <li>
-                                                                <p className="text-xs lg:text-sm font-bold text-gray-600">
-                                                                    company
-                                                                </p>
-                                                                <p className="text-xs lg:text-sm ">{assing?.companyName}</p>
-                                                            </li>
-                                                            <li>
-                                                                <p className="text-xs lg:text-sm font-bold text-gray-600">
-                                                                    Email
-                                                                </p>
-                                                                <p className="text-xs lg:text-sm ">{assing?.email}</p>
-                                                            </li>
-                                                            <li>
-                                                                <p className="text-xs lg:text-sm font-bold text-gray-600">
-                                                                    GST No.
-                                                                </p>
-                                                                <p className="text-xs lg:text-sm ">{assing?.gst}</p>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                    <div className="col-span-2">
-                                                        <ul className="list-none ">
-                                                            {
-                                                                assing?.hasModule?.map((item: any, i: number) =>
-                                                                    <li key={item?.id} className='py-1 w-full'>
-                                                                        <div className='flex items-center justify-between'>
-                                                                            <p className="text-xs lg:text-sm font-semibold text-gray-600">
-                                                                                Module-{i + 1} :  {item?.title}
-                                                                            </p>
-
-                                                                            <button
-                                                                                disabled={item.moduleticketFor?.ticket ? true : false}
-                                                                                onClick={() => {
-                                                                                    setIsOpen(true)
-                                                                                    setCurrentProject({
-                                                                                        clientEmail: assing?.email,
-                                                                                        moduleId: item?.id,
-                                                                                        projectTicket: assing?.projectticketFor.projectTicket,
-                                                                                    })
-                                                                                }}
-                                                                                className={`
-                                                                            ${item.moduleticketFor?.ticket ? "bg-gray-400 text-primaryText" : "bg-green-600 text-white "}
-                                                                             py-[2px] px-3 lg:px-4 lg:py-1 rounded text-xs`}>
-
-                                                                                {item.moduleticketFor?.ticket ? "Assigned" : "Assign"}
-
-                                                                            </button>
-                                                                        </div>
-                                                                        <p className="text-xs lg:text-sm ">
-                                                                            Description:  {item?.description}
-                                                                        </p>
-                                                                    </li>
-
-                                                                )
-                                                            }
-
-
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            {/* <div className='mt-5'>
-                                            <p className='text-xs lg:text-sm font-bold text-gray-700'>Documents</p>
-                                            <PhotoProvider>
-                                                <div className='mt-3 grid grid-cols-3 lg:grid-cols-6 gap-2 lg:gap-6'>
-                                                    <div className=' h-14 w-full lg:h-20 lg:w-full '>
-                                                        <PhotoView src="/assets/home/lab1.jpg">
-                                                            <Image height={500} width={500} src="/assets/home/lab1.jpg" alt="" className='w-full h-full object-cover' />
-                                                        </PhotoView>
-                                                    </div>
-                                                    <div className=' h-14 w-full lg:h-20 lg:w-full '>
-                                                        <PhotoView src="/assets/home/lab2.jpg">
-                                                            <Image height={500} width={500} src="/assets/home/lab2.jpg" alt="" className='w-full h-full object-cover' />
-                                                        </PhotoView>
-                                                    </div>
-                                                    <div className=' h-14 w-full lg:h-20 lg:w-full '>
-                                                        <PhotoView src="/assets/home/lab3.jpg">
-                                                            <Image height={500} width={500} src="/assets/home/lab3.jpg" alt="" className='w-full h-full object-cover' />
-                                                        </PhotoView>
-                                                    </div>
-                                                    <div className=' h-14 w-full lg:h-20 lg:w-full '>
-                                                        <PhotoView src="/assets/home/lab4.jpg">
-                                                            <Image height={500} width={500} src="/assets/home/lab4.jpg" alt="" className='w-full h-full object-cover' />
-                                                        </PhotoView>
-                                                    </div>
-
-                                                </div>
-
-                                            </PhotoProvider>
-
-                                        </div> */}
-                                        </div>
-                                    </div>
-                                </>
-                            </div>
-
-
-                        </>
-                    )
+                            </>
+                        )
                 }
+
+
+
 
 
                 <AssignmentModal setIsOpen={setIsOpen} isOpen={isOpen} currentProject={currentProject} refetchProjects={getProjectData} />

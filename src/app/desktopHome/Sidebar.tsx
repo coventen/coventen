@@ -115,7 +115,7 @@ const Sidebar = ({
                 <div
                     onClick={() => {
                         logout()
-                        router.push('/auth/login')
+                        router.push('/desktopHome/auth/login')
                     }}
                     className={classNames({
                         " hover:bg-primary hover:text-white cursor-pointer flex": true, //colors

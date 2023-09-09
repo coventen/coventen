@@ -64,6 +64,7 @@ const Main = () => {
         // text editor's content
         const contentJson = convertToRaw(editorState.getCurrentContent());
         const contentString = JSON.stringify(contentJson)
+        const fileLinks = await handleUpload()
 
         let { data } = await createCommunicationFn({
             variables: {
@@ -72,6 +73,7 @@ const Main = () => {
                         sub: subject,
                         message: contentString,
                         date: dateTime,
+                        files: fileLinks,
                         sender: "SERVICE_PROVIDER",
                         forVendor: {
                             connect: [
@@ -151,12 +153,13 @@ const Main = () => {
     const handleUpload = async () => {
         setUploading(true)
         const uploadPromises = files.map(async (file) => {
-            const data = await uploadFile(file, `${file.name}-${uuidv4()}`, "ModuleReports");
+            const data = await uploadFile(file, `${file.name}-${uuidv4()}`, "internal emails");
             return data;
         });
 
         const allFileLinks = await Promise.all(uploadPromises);
-        setFileLinks(allFileLinks);
+
+        return allFileLinks
 
     };
 

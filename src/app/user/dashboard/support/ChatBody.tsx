@@ -119,7 +119,7 @@ const ChatBody = ({ messages, supportTicket, handleSupportTicket }: Props) => {
             >
                 <div className='bg-desktopBgLight px-5 shadow-sm  py-5  flex items-center'>
                     <p className='bg-green-500 w-3 h-3 rounded-full mr-2'></p>
-                    <p className='font-bold text-desktopPrimary'> {user?.email}</p>
+                    <p className='font-bold text-primary'> {user?.email}</p>
 
                 </div>
 
@@ -136,7 +136,9 @@ const ChatBody = ({ messages, supportTicket, handleSupportTicket }: Props) => {
                                     <div key={message?.id} className="col-start-6 col-end-13 p-3 rounded-lg">
                                         <div className="flex items-center justify-start flex-row-reverse">
                                             <div
-                                                className="flex items-center justify-center h-10 w-10 rounded-full bg-desktopPrimary text-white font-bold flex-shrink-0"
+                                                className={`
+                                                ${message?.senderId === user?.email ? 'bg-primary' : 'bg-gray-800'}
+                                                flex items-center justify-center h-10 w-10 rounded-full  text-white font-bold flex-shrink-0`}
                                             >
                                                 {message?.senderId?.slice(0, 1).toUpperCase()}
                                             </div>
@@ -208,7 +210,7 @@ const ChatBody = ({ messages, supportTicket, handleSupportTicket }: Props) => {
 
                 </div>
                 {/* send button input */}
-                <form onSubmit={handleSubmit} className=" h-16  sm:mb-0 px-5">
+                <form onSubmit={handleSubmit} className=" h-16 mx-6  sm:mb-0 ">
                     <div className="relative flex border-none h-full">
 
                         <input onChange={(e) => setText(e.target.value)} type="text" placeholder="Write your message!" className="w-full outline-none focus:outline-none focus:border-none focus:ring-0 text-gray-600 placeholder-gray-600 pl-12 bg-primary/20 border-none shadow-md rounded-md py-3" />

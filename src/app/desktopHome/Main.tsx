@@ -8,6 +8,9 @@ import { FaArrowUp } from 'react-icons/fa';
 import { Notification } from '@/gql/graphql';
 import AuthConfig from '@/firebase/oauth.config';
 import HomeCard from './HomeCard';
+import { useRouter } from 'next/navigation';
+import { toast } from 'react-hot-toast';
+import Loading from '../loading';
 
 const GET_NOTIFICATIONS = `
 query Notifications($where: NotificationWhere, $options: NotificationOptions) {
@@ -36,6 +39,14 @@ query ModuleTickets($where: ModuleTicketWhere, $options: ModuleTicketOptions) {
   }
 `
 
+const GET_USER = `
+query Users($where: UserWhere) {
+    users(where: $where){
+      user_type
+    }
+  }`
+
+
 
 
 const Main = () => {
@@ -46,13 +57,17 @@ const Main = () => {
     const [completedTickets, setCompletedTickets] = React.useState<any>(0)
     const [latestTickets, setLatestTickets] = React.useState<any>('')
 
+
     // HOOKS 
     const client = useGqlClient()
-    const { user } = AuthConfig()
+    const router = useRouter()
+    const { user, authLoading } = AuthConfig();
+
 
 
     // getting data based on user
     useEffect(() => {
+        getUserAndAuthenticate(user?.email)
         getModuleTicketCount()
         getPendingTicket()
         getCompletedTicket()
@@ -60,11 +75,12 @@ const Main = () => {
     }, [user?.email])
 
 
-    console.log(pendingTickets)
+
 
 
 
     // queries
+    const [getDataFn, { data, loading, error }] = useManualQuery(GET_USER, { client })
     const [moduleTicketDataFn, state] = useManualQuery(GET_MODULE_TICKET, { client })
     const { data: notificationsData, error: notificationError, loading: notificationLoading } = useQuery(GET_NOTIFICATIONS, {
         client,
@@ -176,6 +192,36 @@ const Main = () => {
         data.moduleTickets.length && setLatestTickets(data?.moduleTickets)
     }
 
+
+    const getUserAndAuthenticate = async (email: string) => {
+        const { data, error, loading } = await getDataFn({
+            variables: {
+                where: {
+                    email: email || 'no email'
+                }
+            }
+        })
+
+        console.log(data?.users[0].user_type, 'this is test')
+
+        if (!user?.email && !authLoading) {
+            console.log('i am inside')
+            router.push('/desktopHome/auth/login')
+            toast.error('You are not authorized to access this page')
+        } else {
+            if (data?.users[0].user_type !== 'CONSUMER' && !loading) {
+                console.log('i am inside tooo')
+                console.log(data?.users[0].user_type, 'this is test 0000000000')
+                router.push('/desktopHome/auth/login')
+                toast.error('You are not authorized to access this page')
+
+            }
+        }
+    }
+
+    console.log(user?.email, authLoading, 'this is test')
+
+    if (authLoading || loading) return <Loading />
 
 
     //render
