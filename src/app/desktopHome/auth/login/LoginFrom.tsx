@@ -65,7 +65,7 @@ const LoginFrom = () => {
                     Cookies.set('conventenToken', tokenData.signIn)
                     setLoading(false)
                     toast.success('Login Successful')
-                    router.push('/')
+                    router.push('/desktopHome')
                 } else {
                     setError('User Not Found')
                     setLoading(false)
@@ -107,7 +107,7 @@ const LoginFrom = () => {
                         type="email"
                         required
                         {...register("email")}
-                        className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-primary shadow-sm rounded-lg"
+                        className="block w-full rounded-md shadow-sm focus:ring focus:ri focus:ri dark:bg-gray-800 py-4"
                     />
                 </div>
                 {/* ------- */}
@@ -119,19 +119,19 @@ const LoginFrom = () => {
                         type="password"
                         required
                         {...register("password")}
-                        className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-primary shadow-sm rounded-lg"
+                        className="block w-full rounded-md shadow-sm focus:ring focus:ri focus:ri dark:bg-gray-800 py-4"
                     />
                 </div>
                 {/* <Link href='/auth/verify '> */}
                 <button
                     type='submit'
-                    className="w-full px-4 mt-8 py-2 text-white font-medium bg-primary hover:bg-primary active:bg-primary rounded-lg duration-150"
+                    className="w-full px-4 mt-10 py-4 text-white font-medium bg-desktopPrimary hover:bg-desktopPrimary active:bg-desktopPrimary rounded-lg duration-150"
                 >
                     {loading ? 'Loading...' : 'Login'}
                 </button>
                 {/* </Link> */}
 
-                <p onClick={() => setIsModalOpen(true)} className='text-primary text-sm cursor-pointer hover:underline'>Forgot Password</p>
+                {/* <p onClick={() => setIsModalOpen(true)} className='text-desktopDESKbg-desktopPrimary text-sm cursor-pointer hover:underline'>Forgot Password</p> */}
             </form>
             <ForgotPassModal isOpen={isModalOpen} setIsOpen={setIsModalOpen} />
         </>

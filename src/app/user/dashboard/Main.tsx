@@ -9,7 +9,9 @@ import NotificationCard from '@/components/NotificationCard';
 import NotificationBlock from '../../../components/NotificationBlock';
 import InfoCards from '@/components/InfoCards';
 import AuthConfig from '@/firebase/oauth.config';
-
+import Loading from '@/app/loading';
+import { toast } from 'react-hot-toast';
+import { useRouter } from 'next/navigation';
 
 
 const GET_NOTIFICATIONS = `
@@ -39,6 +41,14 @@ query ModuleTickets($where: ModuleTicketWhere, $options: ModuleTicketOptions) {
   }
 `
 
+const GET_USER = `
+query Users($where: UserWhere) {
+    users(where: $where){
+      user_type
+    }
+  }`
+
+
 
 
 const Main = () => {
@@ -51,11 +61,14 @@ const Main = () => {
 
     // HOOKS 
     const client = useGqlClient()
-    const { user } = AuthConfig()
+    const router = useRouter()
+    const { user, authLoading } = AuthConfig();
+
 
 
     // getting data based on user
     useEffect(() => {
+        getUserAndAuthenticate(user?.email)
         getModuleTicketCount()
         getPendingTicket()
         getCompletedTicket()
@@ -63,11 +76,12 @@ const Main = () => {
     }, [user?.email])
 
 
-    console.log(pendingTickets)
+
 
 
 
     // queries
+    const [getDataFn, { data, loading, error }] = useManualQuery(GET_USER, { client })
     const [moduleTicketDataFn, state] = useManualQuery(GET_MODULE_TICKET, { client })
     const { data: notificationsData, error: notificationError, loading: notificationLoading } = useQuery(GET_NOTIFICATIONS, {
         client,
@@ -179,6 +193,31 @@ const Main = () => {
         data.moduleTickets.length && setLatestTickets(data?.moduleTickets)
     }
 
+
+    const getUserAndAuthenticate = async (email: string) => {
+        const { data, error, loading } = await getDataFn({
+            variables: {
+                where: {
+                    email: email || 'no email'
+                }
+            }
+        })
+
+        if (!user?.email && !authLoading) {
+            router.push('/auth/login')
+            toast.error('You are not authorized to access this page')
+        } else {
+            if (data?.users[0].user_type !== 'CONSUMER' && !loading) {
+
+                router.push('/auth/login')
+                toast.error('You are not authorized to access this page')
+
+            }
+        }
+    }
+
+
+    if (authLoading || loading) return <Loading />
 
 
     //render

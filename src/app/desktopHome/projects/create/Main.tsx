@@ -146,7 +146,7 @@ const Main = () => {
                         title: projectName,
                         description: projectDescription,
                         email: user?.email,
-                        companyName: selectedCompany,
+                        companyName: userInfo.companyName,
                         country: country,
                         city: city,
                         address: address,

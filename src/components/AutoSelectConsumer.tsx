@@ -1,26 +1,70 @@
-import { Fragment, useState } from 'react'
+'use client'
+import { Fragment, useEffect, useState } from 'react'
 import { Combobox, Transition } from '@headlessui/react'
 import { CheckIcon, ChevronUpDownIcon } from '@heroicons/react/20/solid'
+import { useGqlClient } from '@/hooks/UseGqlClient'
+import { useManualQuery, useQuery } from 'graphql-hooks'
 
 
 
+const GET_VENDORS = `
+query Users($where: UserWhere, $options: UserOptions) {
+    users(where: $where, options: $options){
+     id
+          companyName
+          status
+          email  
+    }
+  }
+`
 
 
 
-
-const AutoSelect = ({ selected, setSelected, data, loading }: any) => {
+const AutoSelectConsumer = ({ selected, setSelected }: any) => {
 
     const [query, setQuery] = useState('')
+    const [vendorData, setVendorData] = useState<any>([])
 
-    const filtereData =
-        query === ''
-            ? data
-            : data?.filter((person: any) =>
-                person?.companyName
-                    ?.toLowerCase()
-                    .replace(/\s+/g, '')
-                    .includes(query.toLowerCase().replace(/\s+/g, ''))
-            )
+    //hooks
+    const client = useGqlClient();
+
+    // query
+    const [getVendorFn, state] = useManualQuery(GET_VENDORS, { client })
+
+
+
+
+
+
+    // refetching data based on  query
+
+    useEffect(() => {
+        getVendorData(query)
+    }, [query])
+
+
+
+    const getVendorData = async (query = '') => {
+        const { data } = await getVendorFn({
+            variables: {
+                "where": {
+                    "companyName_CONTAINS": query,
+                    "status": "APPROVED",
+                    "user_type": "CONSUMER"
+                },
+                "options": {
+                    "limit": 3
+                }
+            }
+        })
+
+        if (data?.users?.length) {
+            setVendorData(data.users?.map((item: any) => item))
+        }
+    }
+
+
+
 
     return (
         <div className="absolute top-0 w-full">
@@ -29,7 +73,7 @@ const AutoSelect = ({ selected, setSelected, data, loading }: any) => {
                     <div className="relative w-full cursor-default overflow-hidden rounded bg-white text-left border border-gray-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-teal-300 sm:text-sm">
                         <Combobox.Input
                             className="w-full border-none py-2 pl-3 pr-10 text-sm leading-5 text-gray-900 focus:ring-0"
-                            displayValue={(person: any) => person?.companyName}
+                            displayValue={(vendor: any) => vendor?.companyName}
                             onChange={(event) => setQuery(event.target.value)}
                         />
                         <Combobox.Button className="absolute inset-y-0 right-0 flex items-center pr-2">
@@ -48,7 +92,7 @@ const AutoSelect = ({ selected, setSelected, data, loading }: any) => {
                     >
                         <Combobox.Options className="absolute mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
                             {
-                                loading && (
+                                state.loading && (
                                     <div className="relative cursor-default select-none py-2 px-4 text-gray-700">
                                         Loading...
                                     </div>
@@ -56,19 +100,19 @@ const AutoSelect = ({ selected, setSelected, data, loading }: any) => {
                             }
 
 
-                            {filtereData?.length === 0 && query !== '' ? (
+                            {vendorData?.length === 0 ? (
                                 <div className="relative cursor-default select-none py-2 px-4 text-gray-700">
                                     Nothing found.
                                 </div>
                             ) : (
-                                filtereData?.map((person: any) => (
+                                vendorData?.map((vendor: any, i: number) => (
                                     <Combobox.Option
-                                        key={person?.id || "1"}
+                                        key={vendor?.id || i}
                                         className={({ active }) =>
                                             `relative cursor-default  select-none py-2 pl-10 pr-4 ${active ? 'bg-teal-600 text-white' : 'text-gray-900'
                                             }`
                                         }
-                                        value={person}
+                                        value={vendor}
                                     >
                                         {({ selected, active }) => (
                                             <>
@@ -76,7 +120,7 @@ const AutoSelect = ({ selected, setSelected, data, loading }: any) => {
                                                     className={`block truncate ${selected ? 'font-medium' : 'font-normal'
                                                         }`}
                                                 >
-                                                    {person?.companyName}
+                                                    {vendor?.companyName || 'N/A'}
                                                 </span>
                                                 {selected ? (
                                                     <span
@@ -99,4 +143,4 @@ const AutoSelect = ({ selected, setSelected, data, loading }: any) => {
     )
 }
 
-export default AutoSelect;
+export default AutoSelectConsumer;

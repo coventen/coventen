@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
+import LoginFrom from './LoginFrom';
 
 const page = () => {
     return (
@@ -17,26 +18,7 @@ const page = () => {
 
                         </div>
                         <div className='w-full lg:px-10'>
-                            <form className="flex flex-col py-6 space-y-6 md:py-0 md:px-6 f-full">
-                                <label className="block">
-                                    <span className="mb-1">Full name</span>
-                                    <input type="text" placeholder="Leroy Jenkins" className="block w-full rounded-md shadow-sm focus:ring focus:ri focus:ri dark:bg-gray-800 py-4" />
-                                </label>
-                                <label className="block">
-                                    <span className="mb-1">Email address</span>
-                                    <input type="email" placeholder="leroy@jenkins.com" className="block w-full rounded-md shadow-sm focus:ring focus:ri focus:ri dark:bg-gray-800 py-4" />
-                                </label>
-                                <label className="block">
-                                    <span className="mb-1">Password</span>
-                                    <input type="email" placeholder="**********" className="block w-full rounded-md shadow-sm focus:ring focus:ri focus:ri dark:bg-gray-800 py-4" />
-                                </label>
-
-                                <div className="flex  w-full mt-8">
-                                    <div className="w-full px-3 mb-5 mt-6">
-                                        <Link href='/desktopHome' className="block text-xl w-full  bg-desktopPrimary/80 hover:bg-desktopPrimary focus:bg-desktopPrimary text-white text-center rounded-lg px-3 py-4 font-semibold">Log in now</Link>
-                                    </div>
-                                </div>
-                            </form>
+                            <LoginFrom />
 
                         </div>
                     </div>

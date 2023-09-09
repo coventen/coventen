@@ -54,9 +54,9 @@ const InvoicePreview = async ({ params, searchParams }: any) => {
                             <div className="sm:text-right space-y-2">
                                 {/* <!-- Grid --> */}
                                 <div className="grid grid-cols-2 sm:grid-cols-1 gap-3 sm:gap-2">
-                                    <dl className="grid sm:grid-cols-5 gap-x-3">
-                                        <dt className="col-span-3 font-semibold text-gray-800 dark:text-gray-200">Invoice date:</dt>
-                                        <dd className="col-span-2 text-gray-500">{invoiceData.createdAt || 'N/A'}</dd>
+                                    <dl className="grid sm:grid-cols-3 gap-x-3">
+                                        <dt className="col-span-2 font-semibold text-gray-800 dark:text-gray-200">Invoice date:</dt>
+                                        <dd className="col-span-1 text-gray-500">{invoiceData.createdAt.slice(0, 10) || 'N/A'}</dd>
                                     </dl>
 
                                 </div>

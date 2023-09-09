@@ -66,6 +66,11 @@ const RejectedModules = () => {
             status: "REJECTED"
         }
         const options = {
+            sort: [
+                {
+                    createdAt: "DESC"
+                }
+            ],
             limit: pageLimit,
             offset: (currentPage - 1) * pageLimit
 
@@ -120,20 +125,27 @@ const RejectedModules = () => {
                 </thead>
                 <tbody className="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
 
-                    {modules && modules?.map((module: any, index: number) =>
+                    {modules.length ?
 
-                        <tr key={module?.id} className="bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-900 text-gray-700 dark:text-gray-400">
+                        modules?.map((module: any, index: number) =>
 
-                            <td className="px-4 py-3 text-sm">{index + 1}</td>
-                            <td className="px-4 py-3 text-sm">{module?.ticket}</td>
-                            <td className="px-4 py-3 text-sm">{module?.forModule
-                                ?.title || 'N/A'}</td>
-                            <td className="px-4 py-3 text-sm text-center text-red-600">{module?.status}</td>
+                            <tr key={module?.id} className="bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-900 text-gray-700 dark:text-gray-400">
+
+                                <td className="px-4 py-3 text-sm">{index + 1}</td>
+                                <td className="px-4 py-3 text-sm">{module?.ticket}</td>
+                                <td className="px-4 py-3 text-sm">{module?.forModule
+                                    ?.title || 'N/A'}</td>
+                                <td className="px-4 py-3 text-sm text-center text-red-600">{module?.status}</td>
 
 
+                            </tr>
+
+                        )
+
+                        :
+                        <tr className="bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-900 text-gray-700 dark:text-gray-400">
+                            <td className="px-4 py-3 text-sm " colSpan={4}>No Data Found</td>
                         </tr>
-
-                    )
                     }
                 </tbody>
 

@@ -14,14 +14,7 @@ interface IInvoiceForm {
     invoiceData?: Invoice
 }
 
-const GET_VENDORS = `
-query Users($where: UserWhere) {
-    users(where: $where) {
-      companyName
-      id
-    }
-  }
-`
+
 
 const InvoiceForm = ({ updateInvoice, invoiceData }: IInvoiceForm) => {
 
@@ -31,6 +24,7 @@ const InvoiceForm = ({ updateInvoice, invoiceData }: IInvoiceForm) => {
         taxRate: '',
         hasService: []
     })
+    const [serviceCount, setServiceCount] = React.useState(0)
 
 
 
@@ -42,6 +36,7 @@ const InvoiceForm = ({ updateInvoice, invoiceData }: IInvoiceForm) => {
                 taxRate: invoiceData?.taxRate,
                 hasService: invoiceData?.hasService
             })
+            setServiceCount(invoiceData?.hasService?.length)
         }
 
     }, [invoiceData])
@@ -50,12 +45,14 @@ const InvoiceForm = ({ updateInvoice, invoiceData }: IInvoiceForm) => {
 
 
 
-    console.log("previousData", previousData)
+
 
     const handleSubmit = (e: any) => {
         e.preventDefault()
         updateInvoice(previousData)
     }
+
+    console.log(previousData, 'previousData?.hasService')
 
 
 

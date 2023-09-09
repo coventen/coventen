@@ -78,7 +78,6 @@ const Sidebar = ({
 
 
     const getUserAndAuthenticate = async (email: string) => {
-        console.log(email, ' this is email')
         const { data, error } = await getDataFn({
             variables: {
                 where: {
@@ -86,7 +85,6 @@ const Sidebar = ({
                 }
             }
         })
-        console.log(data, 'this i sdata')
         if (data?.users[0]?.user_type === "LAB_ASSISTANT") {
 
             const filteredItems = controlledNavItems.flatMap(section => section.links.filter(item => item.label !== "Approve Projects" && item.label !== "Employees"));

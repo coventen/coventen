@@ -11,9 +11,9 @@ const GET_VENDORS = `
 query Users($where: UserWhere, $options: UserOptions) {
     users(where: $where, options: $options){
      id
-          companyName
-          status
-          email  
+     companyName
+     status
+     email  
     }
   }
 `
@@ -44,24 +44,13 @@ const AutoSelectVendor = ({ selected, setSelected }: any) => {
 
 
 
-    // const { data: vendorData, loading } = useQuery(GET_VENDORS, {
-    //     client,
-    //     variables: {
-    //         userIsWhere2: {
-    //             status: "APPROVED",
-    //             "companyName_CONTAINS": null
-    //         }
-    //     }
-    // })
-
-
-
     const getVendorData = async (query = '') => {
         const { data } = await getVendorFn({
             variables: {
                 "where": {
                     "companyName_CONTAINS": query,
-                    "status": "APPROVED"
+                    "status": "APPROVED",
+                    "user_type": "SERVICE_PROVIDER"
                 },
                 "options": {
                     "limit": 3
@@ -69,7 +58,7 @@ const AutoSelectVendor = ({ selected, setSelected }: any) => {
             }
         })
 
-        if (data.users.length) {
+        if (data?.users?.length) {
             console.log(data.users, 'this is vendor data')
             setVendorData(data.users?.map((item: any) => item))
         }

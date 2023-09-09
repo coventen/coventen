@@ -41,7 +41,7 @@ const Layout = (props: PropsWithChildren) => {
             <Toaster
                 position="bottom-right"
             />
-            {/* <CheckPushNotification /> */}
+            <CheckPushNotification />
         </div>
     );
 };

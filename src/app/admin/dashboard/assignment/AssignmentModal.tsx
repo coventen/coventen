@@ -153,9 +153,8 @@ function AssignmentModal({ isOpen, setIsOpen, currentProject, refetchProjects }:
             }
         })
 
-        console.log(data, 'klkjfkldsf')
 
-        if (data.createModuleTickets.info.nodesCreated) {
+        if (data?.createModuleTickets?.info?.nodesCreated) {
             setIsOpen(false);
             toast.success('Module assigned successfully');
             refetchProjects()
@@ -248,10 +247,7 @@ function AssignmentModal({ isOpen, setIsOpen, currentProject, refetchProjects }:
                                 <p className="focus:outline-none pt-4 pb-8 text-base text-center sm:text-lg md:text-xl lg:text-2xl font-bold leading-normal text-gray-800">Assing Tasks</p>
                                 <div className='p-8'>
                                     <div className='grid grid-cols-1 gap-6 mb-12'>
-                                        <div>
-                                            <p className="text-xs lg:text-sm ">Module : Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                                            <p className="text-xs lg:text-sm ">Description : Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                                        </div>
+
                                         <div>
                                             <p className="text-xs lg:text-sm font-semibold mb-1  text-gray-700">
                                                 Select Vendor

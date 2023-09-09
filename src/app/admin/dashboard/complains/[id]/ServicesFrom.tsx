@@ -17,6 +17,8 @@ const ServicesFrom = ({ data, setPreviousData, previousData }: IServiceFrom) => 
 
     const handleServiceChange = (e: any) => {
         const filteredData = previousData.hasService.filter((service: any) => service.serviceName !== data.serviceName)
+
+        console.log(filteredData, 'filteredData 00000000000000')
         setPreviousData({
             ...previousData,
             hasService: [...filteredData, serviceData]

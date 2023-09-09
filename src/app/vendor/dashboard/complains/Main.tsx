@@ -87,7 +87,7 @@ const Main = () => {
                     status: "COMPLAINED",
                     vendorHas: {
                         userIs: {
-                            email: labEmail
+                            email: labEmail || "no email"
                         }
                     }
                 }

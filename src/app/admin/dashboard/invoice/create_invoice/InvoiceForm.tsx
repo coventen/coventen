@@ -8,19 +8,13 @@ import { BsPercent } from 'react-icons/bs';
 import AutoSelect from '@/components/AutoSelect';
 import { useGqlClient } from '@/hooks/UseGqlClient';
 import { useQuery } from 'graphql-hooks';
+import AutoSelectConsumer from '@/components/AutoSelectConsumer';
 
 interface IInvoiceForm {
     createInvoice: (invoiceData: Invoice, services: Service[], company: string) => void
 }
 
-const GET_VENDORS = `
-query Users($where: UserWhere) {
-    users(where: $where) {
-      companyName
-      id
-    }
-  }
-`
+
 
 const InvoiceForm = ({ createInvoice }: IInvoiceForm) => {
 
@@ -43,16 +37,7 @@ const InvoiceForm = ({ createInvoice }: IInvoiceForm) => {
         formState: { errors },
     } = useForm<any>()
 
-    const client = useGqlClient();
-    const { data: vendors, loading } = useQuery(GET_VENDORS, {
-        client,
-        variables: {
-            where: {
-                user_type: "CONSUMER",
-                status: "APPROVED"
-            }
-        }
-    })
+
 
 
     // handle creating invoice
@@ -79,17 +64,16 @@ const InvoiceForm = ({ createInvoice }: IInvoiceForm) => {
 
 
                             <div className="lg:col-span-2">
-                                <form onSubmit={handleSubmit(handleCreating)} className="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-5">
+                                <form onSubmit={handleSubmit(handleCreating)} className=" md:grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-5">
                                     <div className="md:col-span-5 mb-10">
                                         <label htmlFor="full_name">Company Name</label>
-                                        <div className='relative'>
+                                        <div className='relative z-[50000]'>
 
-                                            <AutoSelect setSelected={setSelected} selected={selected} data={vendors?.users} />
+                                            <AutoSelectConsumer setSelected={setSelected} selected={selected} />
                                         </div>
                                         {/* <input type="text" name="full_name" id="full_name" className="h-10 border border-gray-300 mt-1 rounded px-4 w-full "  /> */}
                                     </div>
-
-                                    <div className='col-span-2'>
+                                    <div className='col-span-2 '>
                                         <p >Tax</p>
 
                                         <div className="flex  sm:flex-row  ">
@@ -116,8 +100,11 @@ const InvoiceForm = ({ createInvoice }: IInvoiceForm) => {
                                         </div>
                                     </div>
 
+
                                     {/* services */}
                                     <div className="md:col-span-5 mt-8">
+
+
                                         <div>
                                             {/* service title */}
                                             <div className='flex  justify-between'>

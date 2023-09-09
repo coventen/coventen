@@ -6,6 +6,7 @@ import React, { useEffect } from 'react';
 import SampleTable from './SampleTable';
 import { toast } from 'react-hot-toast';
 import Loading from '@/app/loading';
+import createLog from '@/shared/graphQl/mutations/createLog';
 
 const GET_MODULES = `
 query Modules($where: ModuleWhere) {
@@ -77,9 +78,12 @@ const Main = () => {
 
         console.log(data)
         if (data.updateModules?.modules?.length) {
-            console.log('updated')
             toast.success('Updated')
             refetch()
+            createLog(
+                `Module Sample`,
+                `Module sample sent updated by ${user?.email}`
+            )
 
         }
     }

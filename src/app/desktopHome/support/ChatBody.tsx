@@ -136,7 +136,9 @@ const ChatBody = ({ messages, supportTicket, handleSupportTicket }: Props) => {
                                     <div key={message?.id} className="col-start-6 col-end-13 p-3 rounded-lg">
                                         <div className="flex items-center justify-start flex-row-reverse">
                                             <div
-                                                className="flex items-center justify-center h-10 w-10 rounded-full bg-desktopPrimary text-white font-bold flex-shrink-0"
+                                                className={`
+                                                ${message?.senderId === user?.email ? 'bg-desktopPrimary' : 'bg-gray-800'}
+                                                flex items-center justify-center h-10 w-10 rounded-full  text-white font-bold flex-shrink-0`}
                                             >
                                                 {message?.senderId?.slice(0, 1).toUpperCase()}
                                             </div>

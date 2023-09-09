@@ -4,8 +4,9 @@
 
 // Import required modules and components
 import { useGqlClient } from '@/hooks/UseGqlClient';
+import getNotifications from '@/shared/graphQl/queries/getNotifications';
 import { useQuery } from 'graphql-hooks';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 interface Props {
     setSlideOverOpen: (value: boolean) => void;
@@ -29,22 +30,30 @@ query Notifications($where: NotificationWhere, $options: NotificationOptions) {
 
 //component
 const CheckPushNotification = () => {
+
+    const [data, setData] = useState<any>([])
+
+
+
     // Access Electron APIs and custom functions exposed by the preload script
     // const electron = (window as any).electron;
     const ipcRenderer = (window as any).ipcRenderer;
     const localDataStorage = (window as any).localDataStorage;
 
-    // Create GraphQL client using custom hook
-    const client = useGqlClient();
 
-    // Perform the GraphQL query to fetch notifications
-    const { data, loading, error } = useQuery(GET_NOTIFICATION, {
-        client,
-        variables: {
+
+
+    useEffect(() => {
+        getClinetNotification()
+    }, [])
+
+
+    const getClinetNotification = async () => {
+        const variables = {
 
             "where": {
                 "type_IN": ["CLIENT", "GENERAL"],
-                "createdAt_GTE": tenDaysAgo()
+                "createdAt_GTE": fiveDaysAgo()
             },
             "options": {
                 limit: 5,
@@ -54,12 +63,12 @@ const CheckPushNotification = () => {
                     }
                 ]
             }
+        }
 
-        },
-        // revalidateOnMount: 3600 * 3,
-        // revalidateOnReconnect: 3600 * 3,
-        // revalidateOnFocus: true,
-    });
+        const data = await getNotifications(variables)
+        setData(data)
+    }
+
 
 
 
@@ -93,11 +102,8 @@ const CheckPushNotification = () => {
         if (!localDataStorage) return;
         // Retrieve viewed notification IDs from local storage
         const viewedNotification = localDataStorage.getSavedData('viewedNotification');
-
-        console.log(viewedNotification, 'view notificatoi')
-
-        if (data?.notifications?.length) {
-            data?.notifications?.forEach((item: any) => {
+        if (data?.length) {
+            data?.forEach((item: any) => {
                 if (viewedNotification?.includes(item?.id)) {
                     return;
                 }
@@ -106,16 +112,16 @@ const CheckPushNotification = () => {
                 handleNotificationView(item?.id);
             });
         }
-    }, [data?.notifications?.length]); //eslint-disable-line
+    }, [data?.length]); //eslint-disable-line
 
 
 
     // Calculate the date that is five days before the current date
 
-    function tenDaysAgo() {
+    function fiveDaysAgo() {
         const currentDate = new Date();
         const tenDaysAgo = new Date(currentDate);
-        tenDaysAgo.setDate(currentDate.getDate() - 10);
+        tenDaysAgo.setDate(currentDate.getDate() - 5);
         return tenDaysAgo.toISOString();
     }
 

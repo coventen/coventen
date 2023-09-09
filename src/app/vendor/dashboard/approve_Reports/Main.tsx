@@ -78,6 +78,11 @@ const Main = () => {
         }
 
         const options = {
+            sort: [
+                {
+                    createdAt: "DESC"
+                }
+            ],
             limit: pageLimit,
             offset: (currentPage - 1) * pageLimit
         }
