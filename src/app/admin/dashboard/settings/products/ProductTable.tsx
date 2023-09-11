@@ -1,4 +1,5 @@
 import { Product } from '@/gql/graphql';
+import deleteImage from '@/shared/deleteImage';
 import Link from 'next/link';
 import React from 'react';
 import { AiFillEye, AiTwotoneDelete } from 'react-icons/ai';
@@ -59,7 +60,7 @@ const ProductTable = ({ productData, deleteProduct }: IProductTableProps) => {
 
                                     <div className="">
                                         <p className="text-gray-700 font-bold  whitespace-nowrap ">
-                                            {item?.title}
+                                            {item?.title?.slice(0, 40)}
                                         </p>
                                     </div>
                                 </div>
@@ -81,7 +82,11 @@ const ProductTable = ({ productData, deleteProduct }: IProductTableProps) => {
                                 <div className="relative flex items-center justify-center  space-x-4 px-8 ">
 
                                     <Link href={`/admin/dashboard/products/details/${item?.id}`} className="focus:ring-2 focus:ring-offset-2  text-sm leading-none text-green-600 py-2 px-2 bg-gray-100 rounded hover:bg-gray-200 focus:outline-none"><AiFillEye /></Link>
-                                    <button onClick={() => deleteProduct(item.id)} className="focus:ring-2 focus:ring-offset-2  text-sm leading-none text-red-600 py-2 px-2 bg-gray-100 rounded hover:bg-gray-200 focus:outline-none"><AiTwotoneDelete /></button>
+                                    <button onClick={() => {
+                                        deleteProduct(item.id)
+                                        deleteImage(item?.image as string)
+
+                                    }} className="focus:ring-2 focus:ring-offset-2  text-sm leading-none text-red-600 py-2 px-2 bg-gray-100 rounded hover:bg-gray-200 focus:outline-none"><AiTwotoneDelete /></button>
                                 </div>
                             </td>
                         </tr>)

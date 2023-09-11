@@ -89,8 +89,12 @@ const Leads = () => {
 
     // render   
     return (
-        <div className="fixed top-52 right-0  hidden lg:block z-[999999999999999999999999999] overflow-hidden">
-            <div className={`transition-all duration-500 transform ${isLeadFromOpen ? 'translate-x-0' : 'translate-x-[93%]'
+        <div
+            className={
+                `fixed top-52 right-0 h-auto w-auto hidden transition-all duration-500  lg:block overflow-hidden z-[999999999999999999999999999]
+            ${isLeadFromOpen ? '' : 'h-36 w-14  '}`
+            }>
+            <div className={`transition-all duration-500 transform ${isLeadFromOpen ? 'translate-x-0' : 'translate-x-[92%]'
                 } `}>
                 <div className="flex  ">
                     <button onClick={() => setIsLeadFromOpen(!isLeadFromOpen)} className="bg-primary text-white text-4xl rounded-sm hidden lg:block h-28 ">

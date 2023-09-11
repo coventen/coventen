@@ -30,6 +30,8 @@ query Products($where: ProductWhere) {
       others
       features
       image
+      file
+      video
     }
   }
 
@@ -51,6 +53,8 @@ const Main = () => {
         shortDescription: '',
         image: '',
         price: '',
+        video: '',
+        file: '',
 
     })
 
@@ -75,14 +79,16 @@ const Main = () => {
     // // action on change
     useEffect(() => {
         if (previousProductData?.products?.length) {
-            const { title, shortDescription, features, others, image, price } = previousProductData.products[0]
+            const { title, shortDescription, features, others, image, price, video, file } = previousProductData.products[0]
             setFeatureEditorState(convertRawToEditorState(features) || EditorState.createEmpty())
             setOthersEditorState(convertRawToEditorState(others) || EditorState.createEmpty())
             setProductData({
                 title,
                 shortDescription,
                 image,
-                price
+                price,
+                file,
+                video
             })
         }
 
@@ -118,6 +124,8 @@ const Main = () => {
                     others: input.others,
                     image: input.image || previousProductData?.products[0].image,
                     price: input.price,
+                    video: input.video,
+                    file: input.file,
                     createdAt: new Date().toISOString()
                 }
             }

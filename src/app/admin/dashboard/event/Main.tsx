@@ -10,6 +10,7 @@ import PreviewModal from './PreviewModal';
 import { useGqlClient } from '@/hooks/UseGqlClient';
 import Loading from '@/app/loading';
 import HandleFileUpload from '@/shared/HandleFileUpload';
+import slugify from 'slugify';
 
 
 const CREATE_EVENT = `
@@ -76,6 +77,7 @@ const Main = () => {
                         "description": input.description,
                         "location": input.location,
                         "endAt": input.endAt,
+                        slug: slugify(input.name, { replacement: '_', remove: /[*+~.()'"!:@]/g }),
                         "startAt": input.startAt,
                     }
                 ]

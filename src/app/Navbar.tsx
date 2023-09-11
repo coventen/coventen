@@ -16,7 +16,7 @@ import {
 import Link from 'next/dist/client/link';
 import Dropdown from '@/components/Navbar/Dropdown/Dropdown';
 import Services from '@/components/Navbar/Dropdown/Services';
-import Features, { features } from '@/components/Navbar/Features';
+import Features from '@/components/Navbar/Features';
 
 
 import { toast } from 'react-hot-toast';
@@ -26,6 +26,7 @@ import Loading from './loading';
 import AuthConfig from '@/firebase/oauth.config';
 import { useRouter } from 'next/navigation';
 import DropdownIndustry from '@/components/Navbar/Dropdown/DropdownIndusty';
+import Solution from '@/components/Navbar/Dropdown/Solution';
 
 
 
@@ -40,7 +41,7 @@ function classNames(...classes: any[]) {
     return classes.filter(Boolean).join(' ');
 }
 
-export default function Navbar({ services, industries }: any) {
+export default function Navbar({ services, industries, solutions, features }: any) {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [userStatus, setUserStatus] = useState('')
     const [currentUserType, setCurrentUserType] = useState('')
@@ -132,7 +133,8 @@ export default function Navbar({ services, industries }: any) {
                         >
                             Home
                         </Link>
-                        <Features />
+                        <Features features={features} />
+                        <DropdownIndustry data={industries} />
                         <Services servicesData={services} />
                         <Link
                             href="/products"
@@ -140,7 +142,8 @@ export default function Navbar({ services, industries }: any) {
                         >
                             Products
                         </Link>
-                        <DropdownIndustry data={industries} />
+                        <Solution solutionData={solutions} />
+
                         <Link
                             href="/learn"
                             className="text-sm font-semibold leading-6 text-primaryText mr-8"

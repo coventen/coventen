@@ -15,7 +15,7 @@ export const metadata = {
 // getting nav services
 const navServices = async () => {
 
-  const res = fetch('https://coventenapp.el.r.appspot.com/', {
+  const res = fetch('http://localhost:4000/', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -32,16 +32,44 @@ const navServices = async () => {
                 }
               }
             }`,
-      next: { revalidate: 3600 * 24 }
+
     })
   })
   const { data } = await res.then(res => res.json())
   return data?.servicePages
 }
+
+
+// getting nav services
+const navSolution = async () => {
+
+  const res = fetch('http://localhost:4000/', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      query: `query SolutionPages {
+        solutionPages {
+                id
+                title
+                hasSubsolution {
+                  id
+                  title
+                  slug
+                }
+              }
+            }`,
+      next: { revalidate: 36 }
+    })
+  })
+  const { data } = await res.then(res => res.json())
+  return data?.solutionPages
+}
 // getting nav Industries
 const navIndustries = async () => {
 
-  const res = fetch('https://coventenapp.el.r.appspot.com/', {
+  const res = fetch('http://localhost:4000/', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -53,11 +81,34 @@ const navIndustries = async () => {
           title
         }
       }`,
-      next: { revalidate: 36 }
     })
   })
   const { data } = await res.then(res => res.json())
   return data?.industryPages
+}
+
+
+// getting nav Industries
+const navFeatures = async () => {
+
+  const res = fetch('http://localhost:4000/', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      query: `query FeaturesPages($where: FeaturesPageWhere) {
+        featuresPages(where: $where) {
+          title
+          id
+          description
+        }
+      }`,
+      next: { revalidate: 36 }
+    })
+  })
+  const { data } = await res.then(res => res.json())
+  return data?.featuresPages
 }
 
 
@@ -80,9 +131,10 @@ export default async function RootLayout({
 
   const servicesPromise = navServices()
   const industriesPromise = navIndustries()
+  const solutionPromise = navSolution()
+  const featuresPromise = navFeatures()
 
-  const [services, industries] = await Promise.all([servicesPromise, industriesPromise])
-
+  const [services, industries, solutions, features] = await Promise.all([servicesPromise, industriesPromise, solutionPromise, featuresPromise])
 
 
 
@@ -95,7 +147,7 @@ export default async function RootLayout({
       <body >
 
         <main className='bg-white text-gray-800 dark:bg-darkBg dark:text-white'>
-          <Navbar services={services} industries={industries} />
+          <Navbar services={services} industries={industries} solutions={solutions} features={features} />
           {children}
         </main>
         <Footer />

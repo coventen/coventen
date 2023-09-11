@@ -17,6 +17,262 @@ export type Scalars = {
   DateTime: { input: any; output: any; }
 };
 
+export type AboutPage = {
+  __typename?: 'AboutPage';
+  adminHas?: Maybe<Admin>;
+  adminHasAggregate?: Maybe<AboutPageAdminAdminHasAggregationSelection>;
+  adminHasConnection: AboutPageAdminHasConnection;
+  description?: Maybe<Scalars['String']['output']>;
+  id: Scalars['ID']['output'];
+  image?: Maybe<Scalars['String']['output']>;
+  title?: Maybe<Scalars['String']['output']>;
+};
+
+
+export type AboutPageAdminHasArgs = {
+  directed?: InputMaybe<Scalars['Boolean']['input']>;
+  options?: InputMaybe<AdminOptions>;
+  where?: InputMaybe<AdminWhere>;
+};
+
+
+export type AboutPageAdminHasAggregateArgs = {
+  directed?: InputMaybe<Scalars['Boolean']['input']>;
+  where?: InputMaybe<AdminWhere>;
+};
+
+
+export type AboutPageAdminHasConnectionArgs = {
+  after?: InputMaybe<Scalars['String']['input']>;
+  directed?: InputMaybe<Scalars['Boolean']['input']>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  sort?: InputMaybe<Array<AboutPageAdminHasConnectionSort>>;
+  where?: InputMaybe<AboutPageAdminHasConnectionWhere>;
+};
+
+export type AboutPageAdminAdminHasAggregationSelection = {
+  __typename?: 'AboutPageAdminAdminHasAggregationSelection';
+  count: Scalars['Int']['output'];
+  node?: Maybe<AboutPageAdminAdminHasNodeAggregateSelection>;
+};
+
+export type AboutPageAdminAdminHasNodeAggregateSelection = {
+  __typename?: 'AboutPageAdminAdminHasNodeAggregateSelection';
+  id: IdAggregateSelectionNonNullable;
+};
+
+export type AboutPageAdminHasAggregateInput = {
+  AND?: InputMaybe<Array<AboutPageAdminHasAggregateInput>>;
+  NOT?: InputMaybe<AboutPageAdminHasAggregateInput>;
+  OR?: InputMaybe<Array<AboutPageAdminHasAggregateInput>>;
+  count?: InputMaybe<Scalars['Int']['input']>;
+  count_GT?: InputMaybe<Scalars['Int']['input']>;
+  count_GTE?: InputMaybe<Scalars['Int']['input']>;
+  count_LT?: InputMaybe<Scalars['Int']['input']>;
+  count_LTE?: InputMaybe<Scalars['Int']['input']>;
+  node?: InputMaybe<AboutPageAdminHasNodeAggregationWhereInput>;
+};
+
+export type AboutPageAdminHasConnectFieldInput = {
+  connect?: InputMaybe<AdminConnectInput>;
+  /** Whether or not to overwrite any matching relationship with the new properties. Will default to `false` in 4.0.0. */
+  overwrite?: Scalars['Boolean']['input'];
+  where?: InputMaybe<AdminConnectWhere>;
+};
+
+export type AboutPageAdminHasConnectOrCreateFieldInput = {
+  onCreate: AboutPageAdminHasConnectOrCreateFieldInputOnCreate;
+  where: AdminConnectOrCreateWhere;
+};
+
+export type AboutPageAdminHasConnectOrCreateFieldInputOnCreate = {
+  node: AdminOnCreateInput;
+};
+
+export type AboutPageAdminHasConnection = {
+  __typename?: 'AboutPageAdminHasConnection';
+  edges: Array<AboutPageAdminHasRelationship>;
+  pageInfo: PageInfo;
+  totalCount: Scalars['Int']['output'];
+};
+
+export type AboutPageAdminHasConnectionSort = {
+  node?: InputMaybe<AdminSort>;
+};
+
+export type AboutPageAdminHasConnectionWhere = {
+  AND?: InputMaybe<Array<AboutPageAdminHasConnectionWhere>>;
+  NOT?: InputMaybe<AboutPageAdminHasConnectionWhere>;
+  OR?: InputMaybe<Array<AboutPageAdminHasConnectionWhere>>;
+  node?: InputMaybe<AdminWhere>;
+};
+
+export type AboutPageAdminHasCreateFieldInput = {
+  node: AdminCreateInput;
+};
+
+export type AboutPageAdminHasDeleteFieldInput = {
+  delete?: InputMaybe<AdminDeleteInput>;
+  where?: InputMaybe<AboutPageAdminHasConnectionWhere>;
+};
+
+export type AboutPageAdminHasDisconnectFieldInput = {
+  disconnect?: InputMaybe<AdminDisconnectInput>;
+  where?: InputMaybe<AboutPageAdminHasConnectionWhere>;
+};
+
+export type AboutPageAdminHasFieldInput = {
+  connect?: InputMaybe<AboutPageAdminHasConnectFieldInput>;
+  connectOrCreate?: InputMaybe<AboutPageAdminHasConnectOrCreateFieldInput>;
+  create?: InputMaybe<AboutPageAdminHasCreateFieldInput>;
+};
+
+export type AboutPageAdminHasNodeAggregationWhereInput = {
+  AND?: InputMaybe<Array<AboutPageAdminHasNodeAggregationWhereInput>>;
+  NOT?: InputMaybe<AboutPageAdminHasNodeAggregationWhereInput>;
+  OR?: InputMaybe<Array<AboutPageAdminHasNodeAggregationWhereInput>>;
+};
+
+export type AboutPageAdminHasRelationship = {
+  __typename?: 'AboutPageAdminHasRelationship';
+  cursor: Scalars['String']['output'];
+  node: Admin;
+};
+
+export type AboutPageAdminHasUpdateConnectionInput = {
+  node?: InputMaybe<AdminUpdateInput>;
+};
+
+export type AboutPageAdminHasUpdateFieldInput = {
+  connect?: InputMaybe<AboutPageAdminHasConnectFieldInput>;
+  connectOrCreate?: InputMaybe<AboutPageAdminHasConnectOrCreateFieldInput>;
+  create?: InputMaybe<AboutPageAdminHasCreateFieldInput>;
+  delete?: InputMaybe<AboutPageAdminHasDeleteFieldInput>;
+  disconnect?: InputMaybe<AboutPageAdminHasDisconnectFieldInput>;
+  update?: InputMaybe<AboutPageAdminHasUpdateConnectionInput>;
+  where?: InputMaybe<AboutPageAdminHasConnectionWhere>;
+};
+
+export type AboutPageAggregateSelection = {
+  __typename?: 'AboutPageAggregateSelection';
+  count: Scalars['Int']['output'];
+  description: StringAggregateSelectionNullable;
+  id: IdAggregateSelectionNonNullable;
+  image: StringAggregateSelectionNullable;
+  title: StringAggregateSelectionNullable;
+};
+
+export type AboutPageConnectInput = {
+  adminHas?: InputMaybe<AboutPageAdminHasConnectFieldInput>;
+};
+
+export type AboutPageConnectOrCreateInput = {
+  adminHas?: InputMaybe<AboutPageAdminHasConnectOrCreateFieldInput>;
+};
+
+export type AboutPageConnectOrCreateWhere = {
+  node: AboutPageUniqueWhere;
+};
+
+export type AboutPageConnectWhere = {
+  node: AboutPageWhere;
+};
+
+export type AboutPageCreateInput = {
+  adminHas?: InputMaybe<AboutPageAdminHasFieldInput>;
+  description?: InputMaybe<Scalars['String']['input']>;
+  image?: InputMaybe<Scalars['String']['input']>;
+  title?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type AboutPageDeleteInput = {
+  adminHas?: InputMaybe<AboutPageAdminHasDeleteFieldInput>;
+};
+
+export type AboutPageDisconnectInput = {
+  adminHas?: InputMaybe<AboutPageAdminHasDisconnectFieldInput>;
+};
+
+export type AboutPageEdge = {
+  __typename?: 'AboutPageEdge';
+  cursor: Scalars['String']['output'];
+  node: AboutPage;
+};
+
+export type AboutPageOnCreateInput = {
+  description?: InputMaybe<Scalars['String']['input']>;
+  image?: InputMaybe<Scalars['String']['input']>;
+  title?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type AboutPageOptions = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  /** Specify one or more AboutPageSort objects to sort AboutPages by. The sorts will be applied in the order in which they are arranged in the array. */
+  sort?: InputMaybe<Array<AboutPageSort>>;
+};
+
+export type AboutPageRelationInput = {
+  adminHas?: InputMaybe<AboutPageAdminHasCreateFieldInput>;
+};
+
+/** Fields to sort AboutPages by. The order in which sorts are applied is not guaranteed when specifying many fields in one AboutPageSort object. */
+export type AboutPageSort = {
+  description?: InputMaybe<SortDirection>;
+  id?: InputMaybe<SortDirection>;
+  image?: InputMaybe<SortDirection>;
+  title?: InputMaybe<SortDirection>;
+};
+
+export type AboutPageUniqueWhere = {
+  id?: InputMaybe<Scalars['ID']['input']>;
+};
+
+export type AboutPageUpdateInput = {
+  adminHas?: InputMaybe<AboutPageAdminHasUpdateFieldInput>;
+  description?: InputMaybe<Scalars['String']['input']>;
+  image?: InputMaybe<Scalars['String']['input']>;
+  title?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type AboutPageWhere = {
+  AND?: InputMaybe<Array<AboutPageWhere>>;
+  NOT?: InputMaybe<AboutPageWhere>;
+  OR?: InputMaybe<Array<AboutPageWhere>>;
+  adminHas?: InputMaybe<AdminWhere>;
+  adminHasAggregate?: InputMaybe<AboutPageAdminHasAggregateInput>;
+  adminHasConnection?: InputMaybe<AboutPageAdminHasConnectionWhere>;
+  adminHasConnection_NOT?: InputMaybe<AboutPageAdminHasConnectionWhere>;
+  adminHas_NOT?: InputMaybe<AdminWhere>;
+  description?: InputMaybe<Scalars['String']['input']>;
+  description_CONTAINS?: InputMaybe<Scalars['String']['input']>;
+  description_ENDS_WITH?: InputMaybe<Scalars['String']['input']>;
+  description_IN?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  description_STARTS_WITH?: InputMaybe<Scalars['String']['input']>;
+  id?: InputMaybe<Scalars['ID']['input']>;
+  id_CONTAINS?: InputMaybe<Scalars['ID']['input']>;
+  id_ENDS_WITH?: InputMaybe<Scalars['ID']['input']>;
+  id_IN?: InputMaybe<Array<Scalars['ID']['input']>>;
+  id_STARTS_WITH?: InputMaybe<Scalars['ID']['input']>;
+  image?: InputMaybe<Scalars['String']['input']>;
+  image_CONTAINS?: InputMaybe<Scalars['String']['input']>;
+  image_ENDS_WITH?: InputMaybe<Scalars['String']['input']>;
+  image_IN?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  image_STARTS_WITH?: InputMaybe<Scalars['String']['input']>;
+  title?: InputMaybe<Scalars['String']['input']>;
+  title_CONTAINS?: InputMaybe<Scalars['String']['input']>;
+  title_ENDS_WITH?: InputMaybe<Scalars['String']['input']>;
+  title_IN?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  title_STARTS_WITH?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type AboutPagesConnection = {
+  __typename?: 'AboutPagesConnection';
+  edges: Array<AboutPageEdge>;
+  pageInfo: PageInfo;
+  totalCount: Scalars['Int']['output'];
+};
+
 export type Admin = {
   __typename?: 'Admin';
   approvedClient?: Maybe<Client>;
@@ -43,9 +299,21 @@ export type Admin = {
   createdServicepage?: Maybe<ServicePage>;
   createdServicepageAggregate?: Maybe<AdminServicePageCreatedServicepageAggregationSelection>;
   createdServicepageConnection: AdminCreatedServicepageConnection;
+  createdSolutionpage?: Maybe<SolutionPage>;
+  createdSolutionpageAggregate?: Maybe<AdminSolutionPageCreatedSolutionpageAggregationSelection>;
+  createdSolutionpageConnection: AdminCreatedSolutionpageConnection;
   createdSupportticket?: Maybe<SupportTicket>;
   createdSupportticketAggregate?: Maybe<AdminSupportTicketCreatedSupportticketAggregationSelection>;
   createdSupportticketConnection: AdminCreatedSupportticketConnection;
+  hasCategory?: Maybe<Category>;
+  hasCategoryAggregate?: Maybe<AdminCategoryHasCategoryAggregationSelection>;
+  hasCategoryConnection: AdminHasCategoryConnection;
+  hasEvent: Array<Event>;
+  hasEventAggregate?: Maybe<AdminEventHasEventAggregationSelection>;
+  hasEventConnection: AdminHasEventConnection;
+  hasIndustrypage: Array<IndustryPage>;
+  hasIndustrypageAggregate?: Maybe<AdminIndustryPageHasIndustrypageAggregationSelection>;
+  hasIndustrypageConnection: AdminHasIndustrypageConnection;
   hasLeads?: Maybe<Leads>;
   hasLeadsAggregate?: Maybe<AdminLeadsHasLeadsAggregationSelection>;
   hasLeadsConnection: AdminHasLeadsConnection;
@@ -58,6 +326,9 @@ export type Admin = {
   hasProject?: Maybe<Project>;
   hasProjectAggregate?: Maybe<AdminProjectHasProjectAggregationSelection>;
   hasProjectConnection: AdminHasProjectConnection;
+  hasTermspage?: Maybe<TermsPage>;
+  hasTermspageAggregate?: Maybe<AdminTermsPageHasTermspageAggregationSelection>;
+  hasTermspageConnection: AdminHasTermspageConnection;
   id: Scalars['ID']['output'];
   invoiceHas?: Maybe<Invoice>;
   invoiceHasAggregate?: Maybe<AdminInvoiceInvoiceHasAggregationSelection>;
@@ -244,6 +515,28 @@ export type AdminCreatedServicepageConnectionArgs = {
 };
 
 
+export type AdminCreatedSolutionpageArgs = {
+  directed?: InputMaybe<Scalars['Boolean']['input']>;
+  options?: InputMaybe<SolutionPageOptions>;
+  where?: InputMaybe<SolutionPageWhere>;
+};
+
+
+export type AdminCreatedSolutionpageAggregateArgs = {
+  directed?: InputMaybe<Scalars['Boolean']['input']>;
+  where?: InputMaybe<SolutionPageWhere>;
+};
+
+
+export type AdminCreatedSolutionpageConnectionArgs = {
+  after?: InputMaybe<Scalars['String']['input']>;
+  directed?: InputMaybe<Scalars['Boolean']['input']>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  sort?: InputMaybe<Array<AdminCreatedSolutionpageConnectionSort>>;
+  where?: InputMaybe<AdminCreatedSolutionpageConnectionWhere>;
+};
+
+
 export type AdminCreatedSupportticketArgs = {
   directed?: InputMaybe<Scalars['Boolean']['input']>;
   options?: InputMaybe<SupportTicketOptions>;
@@ -263,6 +556,72 @@ export type AdminCreatedSupportticketConnectionArgs = {
   first?: InputMaybe<Scalars['Int']['input']>;
   sort?: InputMaybe<Array<AdminCreatedSupportticketConnectionSort>>;
   where?: InputMaybe<AdminCreatedSupportticketConnectionWhere>;
+};
+
+
+export type AdminHasCategoryArgs = {
+  directed?: InputMaybe<Scalars['Boolean']['input']>;
+  options?: InputMaybe<CategoryOptions>;
+  where?: InputMaybe<CategoryWhere>;
+};
+
+
+export type AdminHasCategoryAggregateArgs = {
+  directed?: InputMaybe<Scalars['Boolean']['input']>;
+  where?: InputMaybe<CategoryWhere>;
+};
+
+
+export type AdminHasCategoryConnectionArgs = {
+  after?: InputMaybe<Scalars['String']['input']>;
+  directed?: InputMaybe<Scalars['Boolean']['input']>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  sort?: InputMaybe<Array<AdminHasCategoryConnectionSort>>;
+  where?: InputMaybe<AdminHasCategoryConnectionWhere>;
+};
+
+
+export type AdminHasEventArgs = {
+  directed?: InputMaybe<Scalars['Boolean']['input']>;
+  options?: InputMaybe<EventOptions>;
+  where?: InputMaybe<EventWhere>;
+};
+
+
+export type AdminHasEventAggregateArgs = {
+  directed?: InputMaybe<Scalars['Boolean']['input']>;
+  where?: InputMaybe<EventWhere>;
+};
+
+
+export type AdminHasEventConnectionArgs = {
+  after?: InputMaybe<Scalars['String']['input']>;
+  directed?: InputMaybe<Scalars['Boolean']['input']>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  sort?: InputMaybe<Array<AdminHasEventConnectionSort>>;
+  where?: InputMaybe<AdminHasEventConnectionWhere>;
+};
+
+
+export type AdminHasIndustrypageArgs = {
+  directed?: InputMaybe<Scalars['Boolean']['input']>;
+  options?: InputMaybe<IndustryPageOptions>;
+  where?: InputMaybe<IndustryPageWhere>;
+};
+
+
+export type AdminHasIndustrypageAggregateArgs = {
+  directed?: InputMaybe<Scalars['Boolean']['input']>;
+  where?: InputMaybe<IndustryPageWhere>;
+};
+
+
+export type AdminHasIndustrypageConnectionArgs = {
+  after?: InputMaybe<Scalars['String']['input']>;
+  directed?: InputMaybe<Scalars['Boolean']['input']>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  sort?: InputMaybe<Array<AdminHasIndustrypageConnectionSort>>;
+  where?: InputMaybe<AdminHasIndustrypageConnectionWhere>;
 };
 
 
@@ -351,6 +710,28 @@ export type AdminHasProjectConnectionArgs = {
   first?: InputMaybe<Scalars['Int']['input']>;
   sort?: InputMaybe<Array<AdminHasProjectConnectionSort>>;
   where?: InputMaybe<AdminHasProjectConnectionWhere>;
+};
+
+
+export type AdminHasTermspageArgs = {
+  directed?: InputMaybe<Scalars['Boolean']['input']>;
+  options?: InputMaybe<TermsPageOptions>;
+  where?: InputMaybe<TermsPageWhere>;
+};
+
+
+export type AdminHasTermspageAggregateArgs = {
+  directed?: InputMaybe<Scalars['Boolean']['input']>;
+  where?: InputMaybe<TermsPageWhere>;
+};
+
+
+export type AdminHasTermspageConnectionArgs = {
+  after?: InputMaybe<Scalars['String']['input']>;
+  directed?: InputMaybe<Scalars['Boolean']['input']>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  sort?: InputMaybe<Array<AdminHasTermspageConnectionSort>>;
+  where?: InputMaybe<AdminHasTermspageConnectionWhere>;
 };
 
 
@@ -632,6 +1013,19 @@ export type AdminApprovedVendorUpdateFieldInput = {
   where?: InputMaybe<AdminApprovedVendorConnectionWhere>;
 };
 
+export type AdminCategoryHasCategoryAggregationSelection = {
+  __typename?: 'AdminCategoryHasCategoryAggregationSelection';
+  count: Scalars['Int']['output'];
+  node?: Maybe<AdminCategoryHasCategoryNodeAggregateSelection>;
+};
+
+export type AdminCategoryHasCategoryNodeAggregateSelection = {
+  __typename?: 'AdminCategoryHasCategoryNodeAggregateSelection';
+  createdAt: DateTimeAggregateSelectionNullable;
+  id: IdAggregateSelectionNonNullable;
+  name: StringAggregateSelectionNullable;
+};
+
 export type AdminClientApprovedClientAggregationSelection = {
   __typename?: 'AdminClientApprovedClientAggregationSelection';
   count: Scalars['Int']['output'];
@@ -667,11 +1061,16 @@ export type AdminConnectInput = {
   createdProjectticket?: InputMaybe<AdminCreatedProjectticketConnectFieldInput>;
   createdRole?: InputMaybe<AdminCreatedRoleConnectFieldInput>;
   createdServicepage?: InputMaybe<AdminCreatedServicepageConnectFieldInput>;
+  createdSolutionpage?: InputMaybe<AdminCreatedSolutionpageConnectFieldInput>;
   createdSupportticket?: InputMaybe<AdminCreatedSupportticketConnectFieldInput>;
+  hasCategory?: InputMaybe<AdminHasCategoryConnectFieldInput>;
+  hasEvent?: InputMaybe<Array<AdminHasEventConnectFieldInput>>;
+  hasIndustrypage?: InputMaybe<Array<AdminHasIndustrypageConnectFieldInput>>;
   hasLeads?: InputMaybe<AdminHasLeadsConnectFieldInput>;
   hasLog?: InputMaybe<AdminHasLogConnectFieldInput>;
   hasProduct?: InputMaybe<AdminHasProductConnectFieldInput>;
   hasProject?: InputMaybe<AdminHasProjectConnectFieldInput>;
+  hasTermspage?: InputMaybe<AdminHasTermspageConnectFieldInput>;
   invoiceHas?: InputMaybe<AdminInvoiceHasConnectFieldInput>;
   userIs?: InputMaybe<AdminUserIsConnectFieldInput>;
 };
@@ -682,13 +1081,19 @@ export type AdminConnectOrCreateInput = {
   createdCommunicationticket?: InputMaybe<AdminCreatedCommunicationticketConnectOrCreateFieldInput>;
   createdInvoice?: InputMaybe<AdminCreatedInvoiceConnectOrCreateFieldInput>;
   createdNotification?: InputMaybe<AdminCreatedNotificationConnectOrCreateFieldInput>;
+  createdProjectticket?: InputMaybe<AdminCreatedProjectticketConnectOrCreateFieldInput>;
   createdRole?: InputMaybe<AdminCreatedRoleConnectOrCreateFieldInput>;
   createdServicepage?: InputMaybe<AdminCreatedServicepageConnectOrCreateFieldInput>;
+  createdSolutionpage?: InputMaybe<AdminCreatedSolutionpageConnectOrCreateFieldInput>;
   createdSupportticket?: InputMaybe<AdminCreatedSupportticketConnectOrCreateFieldInput>;
+  hasCategory?: InputMaybe<AdminHasCategoryConnectOrCreateFieldInput>;
+  hasEvent?: InputMaybe<Array<AdminHasEventConnectOrCreateFieldInput>>;
+  hasIndustrypage?: InputMaybe<Array<AdminHasIndustrypageConnectOrCreateFieldInput>>;
   hasLeads?: InputMaybe<AdminHasLeadsConnectOrCreateFieldInput>;
   hasLog?: InputMaybe<AdminHasLogConnectOrCreateFieldInput>;
   hasProduct?: InputMaybe<AdminHasProductConnectOrCreateFieldInput>;
   hasProject?: InputMaybe<AdminHasProjectConnectOrCreateFieldInput>;
+  hasTermspage?: InputMaybe<AdminHasTermspageConnectOrCreateFieldInput>;
   invoiceHas?: InputMaybe<AdminInvoiceHasConnectOrCreateFieldInput>;
   userIs?: InputMaybe<AdminUserIsConnectOrCreateFieldInput>;
 };
@@ -710,11 +1115,16 @@ export type AdminCreateInput = {
   createdProjectticket?: InputMaybe<AdminCreatedProjectticketFieldInput>;
   createdRole?: InputMaybe<AdminCreatedRoleFieldInput>;
   createdServicepage?: InputMaybe<AdminCreatedServicepageFieldInput>;
+  createdSolutionpage?: InputMaybe<AdminCreatedSolutionpageFieldInput>;
   createdSupportticket?: InputMaybe<AdminCreatedSupportticketFieldInput>;
+  hasCategory?: InputMaybe<AdminHasCategoryFieldInput>;
+  hasEvent?: InputMaybe<AdminHasEventFieldInput>;
+  hasIndustrypage?: InputMaybe<AdminHasIndustrypageFieldInput>;
   hasLeads?: InputMaybe<AdminHasLeadsFieldInput>;
   hasLog?: InputMaybe<AdminHasLogFieldInput>;
   hasProduct?: InputMaybe<AdminHasProductFieldInput>;
   hasProject?: InputMaybe<AdminHasProjectFieldInput>;
+  hasTermspage?: InputMaybe<AdminHasTermspageFieldInput>;
   invoiceHas?: InputMaybe<AdminInvoiceHasFieldInput>;
   userIs?: InputMaybe<AdminUserIsFieldInput>;
 };
@@ -1269,6 +1679,15 @@ export type AdminCreatedProjectticketConnectFieldInput = {
   where?: InputMaybe<ProjectTicketConnectWhere>;
 };
 
+export type AdminCreatedProjectticketConnectOrCreateFieldInput = {
+  onCreate: AdminCreatedProjectticketConnectOrCreateFieldInputOnCreate;
+  where: ProjectTicketConnectOrCreateWhere;
+};
+
+export type AdminCreatedProjectticketConnectOrCreateFieldInputOnCreate = {
+  node: ProjectTicketOnCreateInput;
+};
+
 export type AdminCreatedProjectticketConnection = {
   __typename?: 'AdminCreatedProjectticketConnection';
   edges: Array<AdminCreatedProjectticketRelationship>;
@@ -1303,6 +1722,7 @@ export type AdminCreatedProjectticketDisconnectFieldInput = {
 
 export type AdminCreatedProjectticketFieldInput = {
   connect?: InputMaybe<AdminCreatedProjectticketConnectFieldInput>;
+  connectOrCreate?: InputMaybe<AdminCreatedProjectticketConnectOrCreateFieldInput>;
   create?: InputMaybe<AdminCreatedProjectticketCreateFieldInput>;
 };
 
@@ -1339,6 +1759,7 @@ export type AdminCreatedProjectticketUpdateConnectionInput = {
 
 export type AdminCreatedProjectticketUpdateFieldInput = {
   connect?: InputMaybe<AdminCreatedProjectticketConnectFieldInput>;
+  connectOrCreate?: InputMaybe<AdminCreatedProjectticketConnectOrCreateFieldInput>;
   create?: InputMaybe<AdminCreatedProjectticketCreateFieldInput>;
   delete?: InputMaybe<AdminCreatedProjectticketDeleteFieldInput>;
   disconnect?: InputMaybe<AdminCreatedProjectticketDisconnectFieldInput>;
@@ -1570,6 +1991,113 @@ export type AdminCreatedServicepageUpdateFieldInput = {
   where?: InputMaybe<AdminCreatedServicepageConnectionWhere>;
 };
 
+export type AdminCreatedSolutionpageAggregateInput = {
+  AND?: InputMaybe<Array<AdminCreatedSolutionpageAggregateInput>>;
+  NOT?: InputMaybe<AdminCreatedSolutionpageAggregateInput>;
+  OR?: InputMaybe<Array<AdminCreatedSolutionpageAggregateInput>>;
+  count?: InputMaybe<Scalars['Int']['input']>;
+  count_GT?: InputMaybe<Scalars['Int']['input']>;
+  count_GTE?: InputMaybe<Scalars['Int']['input']>;
+  count_LT?: InputMaybe<Scalars['Int']['input']>;
+  count_LTE?: InputMaybe<Scalars['Int']['input']>;
+  node?: InputMaybe<AdminCreatedSolutionpageNodeAggregationWhereInput>;
+};
+
+export type AdminCreatedSolutionpageConnectFieldInput = {
+  connect?: InputMaybe<SolutionPageConnectInput>;
+  /** Whether or not to overwrite any matching relationship with the new properties. Will default to `false` in 4.0.0. */
+  overwrite?: Scalars['Boolean']['input'];
+  where?: InputMaybe<SolutionPageConnectWhere>;
+};
+
+export type AdminCreatedSolutionpageConnectOrCreateFieldInput = {
+  onCreate: AdminCreatedSolutionpageConnectOrCreateFieldInputOnCreate;
+  where: SolutionPageConnectOrCreateWhere;
+};
+
+export type AdminCreatedSolutionpageConnectOrCreateFieldInputOnCreate = {
+  node: SolutionPageOnCreateInput;
+};
+
+export type AdminCreatedSolutionpageConnection = {
+  __typename?: 'AdminCreatedSolutionpageConnection';
+  edges: Array<AdminCreatedSolutionpageRelationship>;
+  pageInfo: PageInfo;
+  totalCount: Scalars['Int']['output'];
+};
+
+export type AdminCreatedSolutionpageConnectionSort = {
+  node?: InputMaybe<SolutionPageSort>;
+};
+
+export type AdminCreatedSolutionpageConnectionWhere = {
+  AND?: InputMaybe<Array<AdminCreatedSolutionpageConnectionWhere>>;
+  NOT?: InputMaybe<AdminCreatedSolutionpageConnectionWhere>;
+  OR?: InputMaybe<Array<AdminCreatedSolutionpageConnectionWhere>>;
+  node?: InputMaybe<SolutionPageWhere>;
+};
+
+export type AdminCreatedSolutionpageCreateFieldInput = {
+  node: SolutionPageCreateInput;
+};
+
+export type AdminCreatedSolutionpageDeleteFieldInput = {
+  delete?: InputMaybe<SolutionPageDeleteInput>;
+  where?: InputMaybe<AdminCreatedSolutionpageConnectionWhere>;
+};
+
+export type AdminCreatedSolutionpageDisconnectFieldInput = {
+  disconnect?: InputMaybe<SolutionPageDisconnectInput>;
+  where?: InputMaybe<AdminCreatedSolutionpageConnectionWhere>;
+};
+
+export type AdminCreatedSolutionpageFieldInput = {
+  connect?: InputMaybe<AdminCreatedSolutionpageConnectFieldInput>;
+  connectOrCreate?: InputMaybe<AdminCreatedSolutionpageConnectOrCreateFieldInput>;
+  create?: InputMaybe<AdminCreatedSolutionpageCreateFieldInput>;
+};
+
+export type AdminCreatedSolutionpageNodeAggregationWhereInput = {
+  AND?: InputMaybe<Array<AdminCreatedSolutionpageNodeAggregationWhereInput>>;
+  NOT?: InputMaybe<AdminCreatedSolutionpageNodeAggregationWhereInput>;
+  OR?: InputMaybe<Array<AdminCreatedSolutionpageNodeAggregationWhereInput>>;
+  title_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  title_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  title_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  title_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  title_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  title_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  title_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  title_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  title_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  title_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  title_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  title_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  title_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  title_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  title_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+};
+
+export type AdminCreatedSolutionpageRelationship = {
+  __typename?: 'AdminCreatedSolutionpageRelationship';
+  cursor: Scalars['String']['output'];
+  node: SolutionPage;
+};
+
+export type AdminCreatedSolutionpageUpdateConnectionInput = {
+  node?: InputMaybe<SolutionPageUpdateInput>;
+};
+
+export type AdminCreatedSolutionpageUpdateFieldInput = {
+  connect?: InputMaybe<AdminCreatedSolutionpageConnectFieldInput>;
+  connectOrCreate?: InputMaybe<AdminCreatedSolutionpageConnectOrCreateFieldInput>;
+  create?: InputMaybe<AdminCreatedSolutionpageCreateFieldInput>;
+  delete?: InputMaybe<AdminCreatedSolutionpageDeleteFieldInput>;
+  disconnect?: InputMaybe<AdminCreatedSolutionpageDisconnectFieldInput>;
+  update?: InputMaybe<AdminCreatedSolutionpageUpdateConnectionInput>;
+  where?: InputMaybe<AdminCreatedSolutionpageConnectionWhere>;
+};
+
 export type AdminCreatedSupportticketAggregateInput = {
   AND?: InputMaybe<Array<AdminCreatedSupportticketAggregateInput>>;
   NOT?: InputMaybe<AdminCreatedSupportticketAggregateInput>;
@@ -1696,11 +2224,16 @@ export type AdminDeleteInput = {
   createdProjectticket?: InputMaybe<AdminCreatedProjectticketDeleteFieldInput>;
   createdRole?: InputMaybe<AdminCreatedRoleDeleteFieldInput>;
   createdServicepage?: InputMaybe<AdminCreatedServicepageDeleteFieldInput>;
+  createdSolutionpage?: InputMaybe<AdminCreatedSolutionpageDeleteFieldInput>;
   createdSupportticket?: InputMaybe<AdminCreatedSupportticketDeleteFieldInput>;
+  hasCategory?: InputMaybe<AdminHasCategoryDeleteFieldInput>;
+  hasEvent?: InputMaybe<Array<AdminHasEventDeleteFieldInput>>;
+  hasIndustrypage?: InputMaybe<Array<AdminHasIndustrypageDeleteFieldInput>>;
   hasLeads?: InputMaybe<AdminHasLeadsDeleteFieldInput>;
   hasLog?: InputMaybe<AdminHasLogDeleteFieldInput>;
   hasProduct?: InputMaybe<AdminHasProductDeleteFieldInput>;
   hasProject?: InputMaybe<AdminHasProjectDeleteFieldInput>;
+  hasTermspage?: InputMaybe<AdminHasTermspageDeleteFieldInput>;
   invoiceHas?: InputMaybe<AdminInvoiceHasDeleteFieldInput>;
   userIs?: InputMaybe<AdminUserIsDeleteFieldInput>;
 };
@@ -1714,11 +2247,16 @@ export type AdminDisconnectInput = {
   createdProjectticket?: InputMaybe<AdminCreatedProjectticketDisconnectFieldInput>;
   createdRole?: InputMaybe<AdminCreatedRoleDisconnectFieldInput>;
   createdServicepage?: InputMaybe<AdminCreatedServicepageDisconnectFieldInput>;
+  createdSolutionpage?: InputMaybe<AdminCreatedSolutionpageDisconnectFieldInput>;
   createdSupportticket?: InputMaybe<AdminCreatedSupportticketDisconnectFieldInput>;
+  hasCategory?: InputMaybe<AdminHasCategoryDisconnectFieldInput>;
+  hasEvent?: InputMaybe<Array<AdminHasEventDisconnectFieldInput>>;
+  hasIndustrypage?: InputMaybe<Array<AdminHasIndustrypageDisconnectFieldInput>>;
   hasLeads?: InputMaybe<AdminHasLeadsDisconnectFieldInput>;
   hasLog?: InputMaybe<AdminHasLogDisconnectFieldInput>;
   hasProduct?: InputMaybe<AdminHasProductDisconnectFieldInput>;
   hasProject?: InputMaybe<AdminHasProjectDisconnectFieldInput>;
+  hasTermspage?: InputMaybe<AdminHasTermspageDisconnectFieldInput>;
   invoiceHas?: InputMaybe<AdminInvoiceHasDisconnectFieldInput>;
   userIs?: InputMaybe<AdminUserIsDisconnectFieldInput>;
 };
@@ -1727,6 +2265,449 @@ export type AdminEdge = {
   __typename?: 'AdminEdge';
   cursor: Scalars['String']['output'];
   node: Admin;
+};
+
+export type AdminEventHasEventAggregationSelection = {
+  __typename?: 'AdminEventHasEventAggregationSelection';
+  count: Scalars['Int']['output'];
+  node?: Maybe<AdminEventHasEventNodeAggregateSelection>;
+};
+
+export type AdminEventHasEventNodeAggregateSelection = {
+  __typename?: 'AdminEventHasEventNodeAggregateSelection';
+  description: StringAggregateSelectionNullable;
+  endAt: DateTimeAggregateSelectionNullable;
+  id: IdAggregateSelectionNonNullable;
+  image: StringAggregateSelectionNullable;
+  location: StringAggregateSelectionNullable;
+  name: StringAggregateSelectionNullable;
+  startAt: DateTimeAggregateSelectionNullable;
+};
+
+export type AdminHasCategoryAggregateInput = {
+  AND?: InputMaybe<Array<AdminHasCategoryAggregateInput>>;
+  NOT?: InputMaybe<AdminHasCategoryAggregateInput>;
+  OR?: InputMaybe<Array<AdminHasCategoryAggregateInput>>;
+  count?: InputMaybe<Scalars['Int']['input']>;
+  count_GT?: InputMaybe<Scalars['Int']['input']>;
+  count_GTE?: InputMaybe<Scalars['Int']['input']>;
+  count_LT?: InputMaybe<Scalars['Int']['input']>;
+  count_LTE?: InputMaybe<Scalars['Int']['input']>;
+  node?: InputMaybe<AdminHasCategoryNodeAggregationWhereInput>;
+};
+
+export type AdminHasCategoryConnectFieldInput = {
+  connect?: InputMaybe<CategoryConnectInput>;
+  /** Whether or not to overwrite any matching relationship with the new properties. Will default to `false` in 4.0.0. */
+  overwrite?: Scalars['Boolean']['input'];
+  where?: InputMaybe<CategoryConnectWhere>;
+};
+
+export type AdminHasCategoryConnectOrCreateFieldInput = {
+  onCreate: AdminHasCategoryConnectOrCreateFieldInputOnCreate;
+  where: CategoryConnectOrCreateWhere;
+};
+
+export type AdminHasCategoryConnectOrCreateFieldInputOnCreate = {
+  node: CategoryOnCreateInput;
+};
+
+export type AdminHasCategoryConnection = {
+  __typename?: 'AdminHasCategoryConnection';
+  edges: Array<AdminHasCategoryRelationship>;
+  pageInfo: PageInfo;
+  totalCount: Scalars['Int']['output'];
+};
+
+export type AdminHasCategoryConnectionSort = {
+  node?: InputMaybe<CategorySort>;
+};
+
+export type AdminHasCategoryConnectionWhere = {
+  AND?: InputMaybe<Array<AdminHasCategoryConnectionWhere>>;
+  NOT?: InputMaybe<AdminHasCategoryConnectionWhere>;
+  OR?: InputMaybe<Array<AdminHasCategoryConnectionWhere>>;
+  node?: InputMaybe<CategoryWhere>;
+};
+
+export type AdminHasCategoryCreateFieldInput = {
+  node: CategoryCreateInput;
+};
+
+export type AdminHasCategoryDeleteFieldInput = {
+  delete?: InputMaybe<CategoryDeleteInput>;
+  where?: InputMaybe<AdminHasCategoryConnectionWhere>;
+};
+
+export type AdminHasCategoryDisconnectFieldInput = {
+  disconnect?: InputMaybe<CategoryDisconnectInput>;
+  where?: InputMaybe<AdminHasCategoryConnectionWhere>;
+};
+
+export type AdminHasCategoryFieldInput = {
+  connect?: InputMaybe<AdminHasCategoryConnectFieldInput>;
+  connectOrCreate?: InputMaybe<AdminHasCategoryConnectOrCreateFieldInput>;
+  create?: InputMaybe<AdminHasCategoryCreateFieldInput>;
+};
+
+export type AdminHasCategoryNodeAggregationWhereInput = {
+  AND?: InputMaybe<Array<AdminHasCategoryNodeAggregationWhereInput>>;
+  NOT?: InputMaybe<AdminHasCategoryNodeAggregationWhereInput>;
+  OR?: InputMaybe<Array<AdminHasCategoryNodeAggregationWhereInput>>;
+  createdAt_MAX_EQUAL?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_MAX_GT?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_MAX_GTE?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_MAX_LT?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_MAX_LTE?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_MIN_EQUAL?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_MIN_GT?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_MIN_GTE?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_MIN_LT?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_MIN_LTE?: InputMaybe<Scalars['DateTime']['input']>;
+  name_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  name_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  name_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  name_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  name_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  name_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  name_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  name_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  name_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  name_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  name_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  name_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  name_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  name_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  name_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+};
+
+export type AdminHasCategoryRelationship = {
+  __typename?: 'AdminHasCategoryRelationship';
+  cursor: Scalars['String']['output'];
+  node: Category;
+};
+
+export type AdminHasCategoryUpdateConnectionInput = {
+  node?: InputMaybe<CategoryUpdateInput>;
+};
+
+export type AdminHasCategoryUpdateFieldInput = {
+  connect?: InputMaybe<AdminHasCategoryConnectFieldInput>;
+  connectOrCreate?: InputMaybe<AdminHasCategoryConnectOrCreateFieldInput>;
+  create?: InputMaybe<AdminHasCategoryCreateFieldInput>;
+  delete?: InputMaybe<AdminHasCategoryDeleteFieldInput>;
+  disconnect?: InputMaybe<AdminHasCategoryDisconnectFieldInput>;
+  update?: InputMaybe<AdminHasCategoryUpdateConnectionInput>;
+  where?: InputMaybe<AdminHasCategoryConnectionWhere>;
+};
+
+export type AdminHasEventAggregateInput = {
+  AND?: InputMaybe<Array<AdminHasEventAggregateInput>>;
+  NOT?: InputMaybe<AdminHasEventAggregateInput>;
+  OR?: InputMaybe<Array<AdminHasEventAggregateInput>>;
+  count?: InputMaybe<Scalars['Int']['input']>;
+  count_GT?: InputMaybe<Scalars['Int']['input']>;
+  count_GTE?: InputMaybe<Scalars['Int']['input']>;
+  count_LT?: InputMaybe<Scalars['Int']['input']>;
+  count_LTE?: InputMaybe<Scalars['Int']['input']>;
+  node?: InputMaybe<AdminHasEventNodeAggregationWhereInput>;
+};
+
+export type AdminHasEventConnectFieldInput = {
+  connect?: InputMaybe<Array<EventConnectInput>>;
+  /** Whether or not to overwrite any matching relationship with the new properties. Will default to `false` in 4.0.0. */
+  overwrite?: Scalars['Boolean']['input'];
+  where?: InputMaybe<EventConnectWhere>;
+};
+
+export type AdminHasEventConnectOrCreateFieldInput = {
+  onCreate: AdminHasEventConnectOrCreateFieldInputOnCreate;
+  where: EventConnectOrCreateWhere;
+};
+
+export type AdminHasEventConnectOrCreateFieldInputOnCreate = {
+  node: EventOnCreateInput;
+};
+
+export type AdminHasEventConnection = {
+  __typename?: 'AdminHasEventConnection';
+  edges: Array<AdminHasEventRelationship>;
+  pageInfo: PageInfo;
+  totalCount: Scalars['Int']['output'];
+};
+
+export type AdminHasEventConnectionSort = {
+  node?: InputMaybe<EventSort>;
+};
+
+export type AdminHasEventConnectionWhere = {
+  AND?: InputMaybe<Array<AdminHasEventConnectionWhere>>;
+  NOT?: InputMaybe<AdminHasEventConnectionWhere>;
+  OR?: InputMaybe<Array<AdminHasEventConnectionWhere>>;
+  node?: InputMaybe<EventWhere>;
+};
+
+export type AdminHasEventCreateFieldInput = {
+  node: EventCreateInput;
+};
+
+export type AdminHasEventDeleteFieldInput = {
+  delete?: InputMaybe<EventDeleteInput>;
+  where?: InputMaybe<AdminHasEventConnectionWhere>;
+};
+
+export type AdminHasEventDisconnectFieldInput = {
+  disconnect?: InputMaybe<EventDisconnectInput>;
+  where?: InputMaybe<AdminHasEventConnectionWhere>;
+};
+
+export type AdminHasEventFieldInput = {
+  connect?: InputMaybe<Array<AdminHasEventConnectFieldInput>>;
+  connectOrCreate?: InputMaybe<Array<AdminHasEventConnectOrCreateFieldInput>>;
+  create?: InputMaybe<Array<AdminHasEventCreateFieldInput>>;
+};
+
+export type AdminHasEventNodeAggregationWhereInput = {
+  AND?: InputMaybe<Array<AdminHasEventNodeAggregationWhereInput>>;
+  NOT?: InputMaybe<AdminHasEventNodeAggregationWhereInput>;
+  OR?: InputMaybe<Array<AdminHasEventNodeAggregationWhereInput>>;
+  description_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  description_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  description_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  description_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  description_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  description_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  description_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  description_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  description_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  description_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  description_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  description_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  description_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  description_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  description_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  endAt_MAX_EQUAL?: InputMaybe<Scalars['DateTime']['input']>;
+  endAt_MAX_GT?: InputMaybe<Scalars['DateTime']['input']>;
+  endAt_MAX_GTE?: InputMaybe<Scalars['DateTime']['input']>;
+  endAt_MAX_LT?: InputMaybe<Scalars['DateTime']['input']>;
+  endAt_MAX_LTE?: InputMaybe<Scalars['DateTime']['input']>;
+  endAt_MIN_EQUAL?: InputMaybe<Scalars['DateTime']['input']>;
+  endAt_MIN_GT?: InputMaybe<Scalars['DateTime']['input']>;
+  endAt_MIN_GTE?: InputMaybe<Scalars['DateTime']['input']>;
+  endAt_MIN_LT?: InputMaybe<Scalars['DateTime']['input']>;
+  endAt_MIN_LTE?: InputMaybe<Scalars['DateTime']['input']>;
+  image_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  image_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  image_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  image_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  image_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  image_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  image_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  image_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  image_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  image_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  image_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  image_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  image_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  image_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  image_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  location_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  location_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  location_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  location_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  location_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  location_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  location_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  location_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  location_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  location_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  location_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  location_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  location_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  location_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  location_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  name_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  name_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  name_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  name_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  name_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  name_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  name_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  name_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  name_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  name_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  name_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  name_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  name_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  name_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  name_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  startAt_MAX_EQUAL?: InputMaybe<Scalars['DateTime']['input']>;
+  startAt_MAX_GT?: InputMaybe<Scalars['DateTime']['input']>;
+  startAt_MAX_GTE?: InputMaybe<Scalars['DateTime']['input']>;
+  startAt_MAX_LT?: InputMaybe<Scalars['DateTime']['input']>;
+  startAt_MAX_LTE?: InputMaybe<Scalars['DateTime']['input']>;
+  startAt_MIN_EQUAL?: InputMaybe<Scalars['DateTime']['input']>;
+  startAt_MIN_GT?: InputMaybe<Scalars['DateTime']['input']>;
+  startAt_MIN_GTE?: InputMaybe<Scalars['DateTime']['input']>;
+  startAt_MIN_LT?: InputMaybe<Scalars['DateTime']['input']>;
+  startAt_MIN_LTE?: InputMaybe<Scalars['DateTime']['input']>;
+};
+
+export type AdminHasEventRelationship = {
+  __typename?: 'AdminHasEventRelationship';
+  cursor: Scalars['String']['output'];
+  node: Event;
+};
+
+export type AdminHasEventUpdateConnectionInput = {
+  node?: InputMaybe<EventUpdateInput>;
+};
+
+export type AdminHasEventUpdateFieldInput = {
+  connect?: InputMaybe<Array<AdminHasEventConnectFieldInput>>;
+  connectOrCreate?: InputMaybe<Array<AdminHasEventConnectOrCreateFieldInput>>;
+  create?: InputMaybe<Array<AdminHasEventCreateFieldInput>>;
+  delete?: InputMaybe<Array<AdminHasEventDeleteFieldInput>>;
+  disconnect?: InputMaybe<Array<AdminHasEventDisconnectFieldInput>>;
+  update?: InputMaybe<AdminHasEventUpdateConnectionInput>;
+  where?: InputMaybe<AdminHasEventConnectionWhere>;
+};
+
+export type AdminHasIndustrypageAggregateInput = {
+  AND?: InputMaybe<Array<AdminHasIndustrypageAggregateInput>>;
+  NOT?: InputMaybe<AdminHasIndustrypageAggregateInput>;
+  OR?: InputMaybe<Array<AdminHasIndustrypageAggregateInput>>;
+  count?: InputMaybe<Scalars['Int']['input']>;
+  count_GT?: InputMaybe<Scalars['Int']['input']>;
+  count_GTE?: InputMaybe<Scalars['Int']['input']>;
+  count_LT?: InputMaybe<Scalars['Int']['input']>;
+  count_LTE?: InputMaybe<Scalars['Int']['input']>;
+  node?: InputMaybe<AdminHasIndustrypageNodeAggregationWhereInput>;
+};
+
+export type AdminHasIndustrypageConnectFieldInput = {
+  connect?: InputMaybe<Array<IndustryPageConnectInput>>;
+  /** Whether or not to overwrite any matching relationship with the new properties. Will default to `false` in 4.0.0. */
+  overwrite?: Scalars['Boolean']['input'];
+  where?: InputMaybe<IndustryPageConnectWhere>;
+};
+
+export type AdminHasIndustrypageConnectOrCreateFieldInput = {
+  onCreate: AdminHasIndustrypageConnectOrCreateFieldInputOnCreate;
+  where: IndustryPageConnectOrCreateWhere;
+};
+
+export type AdminHasIndustrypageConnectOrCreateFieldInputOnCreate = {
+  node: IndustryPageOnCreateInput;
+};
+
+export type AdminHasIndustrypageConnection = {
+  __typename?: 'AdminHasIndustrypageConnection';
+  edges: Array<AdminHasIndustrypageRelationship>;
+  pageInfo: PageInfo;
+  totalCount: Scalars['Int']['output'];
+};
+
+export type AdminHasIndustrypageConnectionSort = {
+  node?: InputMaybe<IndustryPageSort>;
+};
+
+export type AdminHasIndustrypageConnectionWhere = {
+  AND?: InputMaybe<Array<AdminHasIndustrypageConnectionWhere>>;
+  NOT?: InputMaybe<AdminHasIndustrypageConnectionWhere>;
+  OR?: InputMaybe<Array<AdminHasIndustrypageConnectionWhere>>;
+  node?: InputMaybe<IndustryPageWhere>;
+};
+
+export type AdminHasIndustrypageCreateFieldInput = {
+  node: IndustryPageCreateInput;
+};
+
+export type AdminHasIndustrypageDeleteFieldInput = {
+  delete?: InputMaybe<IndustryPageDeleteInput>;
+  where?: InputMaybe<AdminHasIndustrypageConnectionWhere>;
+};
+
+export type AdminHasIndustrypageDisconnectFieldInput = {
+  disconnect?: InputMaybe<IndustryPageDisconnectInput>;
+  where?: InputMaybe<AdminHasIndustrypageConnectionWhere>;
+};
+
+export type AdminHasIndustrypageFieldInput = {
+  connect?: InputMaybe<Array<AdminHasIndustrypageConnectFieldInput>>;
+  connectOrCreate?: InputMaybe<Array<AdminHasIndustrypageConnectOrCreateFieldInput>>;
+  create?: InputMaybe<Array<AdminHasIndustrypageCreateFieldInput>>;
+};
+
+export type AdminHasIndustrypageNodeAggregationWhereInput = {
+  AND?: InputMaybe<Array<AdminHasIndustrypageNodeAggregationWhereInput>>;
+  NOT?: InputMaybe<AdminHasIndustrypageNodeAggregationWhereInput>;
+  OR?: InputMaybe<Array<AdminHasIndustrypageNodeAggregationWhereInput>>;
+  description_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  description_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  description_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  description_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  description_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  description_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  description_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  description_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  description_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  description_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  description_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  description_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  description_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  description_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  description_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  image_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  image_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  image_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  image_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  image_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  image_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  image_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  image_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  image_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  image_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  image_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  image_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  image_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  image_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  image_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  title_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  title_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  title_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  title_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  title_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  title_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  title_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  title_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  title_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  title_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  title_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  title_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  title_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  title_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  title_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+};
+
+export type AdminHasIndustrypageRelationship = {
+  __typename?: 'AdminHasIndustrypageRelationship';
+  cursor: Scalars['String']['output'];
+  node: IndustryPage;
+};
+
+export type AdminHasIndustrypageUpdateConnectionInput = {
+  node?: InputMaybe<IndustryPageUpdateInput>;
+};
+
+export type AdminHasIndustrypageUpdateFieldInput = {
+  connect?: InputMaybe<Array<AdminHasIndustrypageConnectFieldInput>>;
+  connectOrCreate?: InputMaybe<Array<AdminHasIndustrypageConnectOrCreateFieldInput>>;
+  create?: InputMaybe<Array<AdminHasIndustrypageCreateFieldInput>>;
+  delete?: InputMaybe<Array<AdminHasIndustrypageDeleteFieldInput>>;
+  disconnect?: InputMaybe<Array<AdminHasIndustrypageDisconnectFieldInput>>;
+  update?: InputMaybe<AdminHasIndustrypageUpdateConnectionInput>;
+  where?: InputMaybe<AdminHasIndustrypageConnectionWhere>;
 };
 
 export type AdminHasLeadsAggregateInput = {
@@ -2203,6 +3184,21 @@ export type AdminHasProductNodeAggregationWhereInput = {
   features_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
   features_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
   features_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  file_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  file_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  file_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  file_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  file_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  file_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  file_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  file_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  file_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  file_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  file_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  file_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  file_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  file_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  file_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
   image_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
   image_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
   image_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
@@ -2283,6 +3279,21 @@ export type AdminHasProductNodeAggregationWhereInput = {
   title_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
   title_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
   title_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  video_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  video_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  video_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  video_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  video_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  video_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  video_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  video_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  video_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  video_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  video_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  video_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  video_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  video_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  video_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
 };
 
 export type AdminHasProductRelationship = {
@@ -2525,6 +3536,157 @@ export type AdminHasProjectUpdateFieldInput = {
   disconnect?: InputMaybe<AdminHasProjectDisconnectFieldInput>;
   update?: InputMaybe<AdminHasProjectUpdateConnectionInput>;
   where?: InputMaybe<AdminHasProjectConnectionWhere>;
+};
+
+export type AdminHasTermspageAggregateInput = {
+  AND?: InputMaybe<Array<AdminHasTermspageAggregateInput>>;
+  NOT?: InputMaybe<AdminHasTermspageAggregateInput>;
+  OR?: InputMaybe<Array<AdminHasTermspageAggregateInput>>;
+  count?: InputMaybe<Scalars['Int']['input']>;
+  count_GT?: InputMaybe<Scalars['Int']['input']>;
+  count_GTE?: InputMaybe<Scalars['Int']['input']>;
+  count_LT?: InputMaybe<Scalars['Int']['input']>;
+  count_LTE?: InputMaybe<Scalars['Int']['input']>;
+  node?: InputMaybe<AdminHasTermspageNodeAggregationWhereInput>;
+};
+
+export type AdminHasTermspageConnectFieldInput = {
+  connect?: InputMaybe<TermsPageConnectInput>;
+  /** Whether or not to overwrite any matching relationship with the new properties. Will default to `false` in 4.0.0. */
+  overwrite?: Scalars['Boolean']['input'];
+  where?: InputMaybe<TermsPageConnectWhere>;
+};
+
+export type AdminHasTermspageConnectOrCreateFieldInput = {
+  onCreate: AdminHasTermspageConnectOrCreateFieldInputOnCreate;
+  where: TermsPageConnectOrCreateWhere;
+};
+
+export type AdminHasTermspageConnectOrCreateFieldInputOnCreate = {
+  node: TermsPageOnCreateInput;
+};
+
+export type AdminHasTermspageConnection = {
+  __typename?: 'AdminHasTermspageConnection';
+  edges: Array<AdminHasTermspageRelationship>;
+  pageInfo: PageInfo;
+  totalCount: Scalars['Int']['output'];
+};
+
+export type AdminHasTermspageConnectionSort = {
+  node?: InputMaybe<TermsPageSort>;
+};
+
+export type AdminHasTermspageConnectionWhere = {
+  AND?: InputMaybe<Array<AdminHasTermspageConnectionWhere>>;
+  NOT?: InputMaybe<AdminHasTermspageConnectionWhere>;
+  OR?: InputMaybe<Array<AdminHasTermspageConnectionWhere>>;
+  node?: InputMaybe<TermsPageWhere>;
+};
+
+export type AdminHasTermspageCreateFieldInput = {
+  node: TermsPageCreateInput;
+};
+
+export type AdminHasTermspageDeleteFieldInput = {
+  delete?: InputMaybe<TermsPageDeleteInput>;
+  where?: InputMaybe<AdminHasTermspageConnectionWhere>;
+};
+
+export type AdminHasTermspageDisconnectFieldInput = {
+  disconnect?: InputMaybe<TermsPageDisconnectInput>;
+  where?: InputMaybe<AdminHasTermspageConnectionWhere>;
+};
+
+export type AdminHasTermspageFieldInput = {
+  connect?: InputMaybe<AdminHasTermspageConnectFieldInput>;
+  connectOrCreate?: InputMaybe<AdminHasTermspageConnectOrCreateFieldInput>;
+  create?: InputMaybe<AdminHasTermspageCreateFieldInput>;
+};
+
+export type AdminHasTermspageNodeAggregationWhereInput = {
+  AND?: InputMaybe<Array<AdminHasTermspageNodeAggregationWhereInput>>;
+  NOT?: InputMaybe<AdminHasTermspageNodeAggregationWhereInput>;
+  OR?: InputMaybe<Array<AdminHasTermspageNodeAggregationWhereInput>>;
+  content_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  content_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  content_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  content_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  content_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  content_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  content_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  content_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  content_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  content_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  content_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  content_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  content_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  content_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  content_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  slug_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  slug_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  slug_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  slug_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  slug_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  slug_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  slug_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  slug_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  slug_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  slug_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  slug_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  slug_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  slug_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  slug_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  slug_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  title_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  title_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  title_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  title_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  title_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  title_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  title_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  title_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  title_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  title_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  title_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  title_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  title_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  title_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  title_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+};
+
+export type AdminHasTermspageRelationship = {
+  __typename?: 'AdminHasTermspageRelationship';
+  cursor: Scalars['String']['output'];
+  node: TermsPage;
+};
+
+export type AdminHasTermspageUpdateConnectionInput = {
+  node?: InputMaybe<TermsPageUpdateInput>;
+};
+
+export type AdminHasTermspageUpdateFieldInput = {
+  connect?: InputMaybe<AdminHasTermspageConnectFieldInput>;
+  connectOrCreate?: InputMaybe<AdminHasTermspageConnectOrCreateFieldInput>;
+  create?: InputMaybe<AdminHasTermspageCreateFieldInput>;
+  delete?: InputMaybe<AdminHasTermspageDeleteFieldInput>;
+  disconnect?: InputMaybe<AdminHasTermspageDisconnectFieldInput>;
+  update?: InputMaybe<AdminHasTermspageUpdateConnectionInput>;
+  where?: InputMaybe<AdminHasTermspageConnectionWhere>;
+};
+
+export type AdminIndustryPageHasIndustrypageAggregationSelection = {
+  __typename?: 'AdminIndustryPageHasIndustrypageAggregationSelection';
+  count: Scalars['Int']['output'];
+  node?: Maybe<AdminIndustryPageHasIndustrypageNodeAggregateSelection>;
+};
+
+export type AdminIndustryPageHasIndustrypageNodeAggregateSelection = {
+  __typename?: 'AdminIndustryPageHasIndustrypageNodeAggregateSelection';
+  description: StringAggregateSelectionNullable;
+  id: IdAggregateSelectionNonNullable;
+  image: StringAggregateSelectionNullable;
+  title: StringAggregateSelectionNullable;
 };
 
 export type AdminInvoiceCreatedInvoiceAggregationSelection = {
@@ -2877,12 +4039,14 @@ export type AdminProductHasProductNodeAggregateSelection = {
   __typename?: 'AdminProductHasProductNodeAggregateSelection';
   createdAt: DateTimeAggregateSelectionNullable;
   features: StringAggregateSelectionNullable;
+  file: StringAggregateSelectionNullable;
   id: IdAggregateSelectionNonNullable;
   image: StringAggregateSelectionNullable;
   others: StringAggregateSelectionNullable;
   price: IntAggregateSelectionNullable;
   shortDescription: StringAggregateSelectionNullable;
   title: StringAggregateSelectionNullable;
+  video: StringAggregateSelectionNullable;
 };
 
 export type AdminProjectHasProjectAggregationSelection = {
@@ -2913,6 +4077,7 @@ export type AdminProjectTicketCreatedProjectticketAggregationSelection = {
 
 export type AdminProjectTicketCreatedProjectticketNodeAggregateSelection = {
   __typename?: 'AdminProjectTicketCreatedProjectticketNodeAggregateSelection';
+  id: IdAggregateSelectionNonNullable;
   projectTicket: StringAggregateSelectionNullable;
 };
 
@@ -2925,11 +4090,16 @@ export type AdminRelationInput = {
   createdProjectticket?: InputMaybe<AdminCreatedProjectticketCreateFieldInput>;
   createdRole?: InputMaybe<AdminCreatedRoleCreateFieldInput>;
   createdServicepage?: InputMaybe<AdminCreatedServicepageCreateFieldInput>;
+  createdSolutionpage?: InputMaybe<AdminCreatedSolutionpageCreateFieldInput>;
   createdSupportticket?: InputMaybe<AdminCreatedSupportticketCreateFieldInput>;
+  hasCategory?: InputMaybe<AdminHasCategoryCreateFieldInput>;
+  hasEvent?: InputMaybe<Array<AdminHasEventCreateFieldInput>>;
+  hasIndustrypage?: InputMaybe<Array<AdminHasIndustrypageCreateFieldInput>>;
   hasLeads?: InputMaybe<AdminHasLeadsCreateFieldInput>;
   hasLog?: InputMaybe<AdminHasLogCreateFieldInput>;
   hasProduct?: InputMaybe<AdminHasProductCreateFieldInput>;
   hasProject?: InputMaybe<AdminHasProjectCreateFieldInput>;
+  hasTermspage?: InputMaybe<AdminHasTermspageCreateFieldInput>;
   invoiceHas?: InputMaybe<AdminInvoiceHasCreateFieldInput>;
   userIs?: InputMaybe<AdminUserIsCreateFieldInput>;
 };
@@ -2959,6 +4129,18 @@ export type AdminServicePageCreatedServicepageNodeAggregateSelection = {
   title: StringAggregateSelectionNullable;
 };
 
+export type AdminSolutionPageCreatedSolutionpageAggregationSelection = {
+  __typename?: 'AdminSolutionPageCreatedSolutionpageAggregationSelection';
+  count: Scalars['Int']['output'];
+  node?: Maybe<AdminSolutionPageCreatedSolutionpageNodeAggregateSelection>;
+};
+
+export type AdminSolutionPageCreatedSolutionpageNodeAggregateSelection = {
+  __typename?: 'AdminSolutionPageCreatedSolutionpageNodeAggregateSelection';
+  id: IdAggregateSelectionNonNullable;
+  title: StringAggregateSelectionNullable;
+};
+
 /** Fields to sort Admins by. The order in which sorts are applied is not guaranteed when specifying many fields in one AdminSort object. */
 export type AdminSort = {
   id?: InputMaybe<SortDirection>;
@@ -2977,6 +4159,20 @@ export type AdminSupportTicketCreatedSupportticketNodeAggregateSelection = {
   ticket: StringAggregateSelectionNonNullable;
 };
 
+export type AdminTermsPageHasTermspageAggregationSelection = {
+  __typename?: 'AdminTermsPageHasTermspageAggregationSelection';
+  count: Scalars['Int']['output'];
+  node?: Maybe<AdminTermsPageHasTermspageNodeAggregateSelection>;
+};
+
+export type AdminTermsPageHasTermspageNodeAggregateSelection = {
+  __typename?: 'AdminTermsPageHasTermspageNodeAggregateSelection';
+  content: StringAggregateSelectionNullable;
+  id: IdAggregateSelectionNonNullable;
+  slug: StringAggregateSelectionNullable;
+  title: StringAggregateSelectionNullable;
+};
+
 export type AdminUniqueWhere = {
   id?: InputMaybe<Scalars['ID']['input']>;
 };
@@ -2990,11 +4186,16 @@ export type AdminUpdateInput = {
   createdProjectticket?: InputMaybe<AdminCreatedProjectticketUpdateFieldInput>;
   createdRole?: InputMaybe<AdminCreatedRoleUpdateFieldInput>;
   createdServicepage?: InputMaybe<AdminCreatedServicepageUpdateFieldInput>;
+  createdSolutionpage?: InputMaybe<AdminCreatedSolutionpageUpdateFieldInput>;
   createdSupportticket?: InputMaybe<AdminCreatedSupportticketUpdateFieldInput>;
+  hasCategory?: InputMaybe<AdminHasCategoryUpdateFieldInput>;
+  hasEvent?: InputMaybe<Array<AdminHasEventUpdateFieldInput>>;
+  hasIndustrypage?: InputMaybe<Array<AdminHasIndustrypageUpdateFieldInput>>;
   hasLeads?: InputMaybe<AdminHasLeadsUpdateFieldInput>;
   hasLog?: InputMaybe<AdminHasLogUpdateFieldInput>;
   hasProduct?: InputMaybe<AdminHasProductUpdateFieldInput>;
   hasProject?: InputMaybe<AdminHasProjectUpdateFieldInput>;
+  hasTermspage?: InputMaybe<AdminHasTermspageUpdateFieldInput>;
   invoiceHas?: InputMaybe<AdminInvoiceHasUpdateFieldInput>;
   userIs?: InputMaybe<AdminUserIsUpdateFieldInput>;
 };
@@ -3378,11 +4579,55 @@ export type AdminWhere = {
   createdServicepageConnection?: InputMaybe<AdminCreatedServicepageConnectionWhere>;
   createdServicepageConnection_NOT?: InputMaybe<AdminCreatedServicepageConnectionWhere>;
   createdServicepage_NOT?: InputMaybe<ServicePageWhere>;
+  createdSolutionpage?: InputMaybe<SolutionPageWhere>;
+  createdSolutionpageAggregate?: InputMaybe<AdminCreatedSolutionpageAggregateInput>;
+  createdSolutionpageConnection?: InputMaybe<AdminCreatedSolutionpageConnectionWhere>;
+  createdSolutionpageConnection_NOT?: InputMaybe<AdminCreatedSolutionpageConnectionWhere>;
+  createdSolutionpage_NOT?: InputMaybe<SolutionPageWhere>;
   createdSupportticket?: InputMaybe<SupportTicketWhere>;
   createdSupportticketAggregate?: InputMaybe<AdminCreatedSupportticketAggregateInput>;
   createdSupportticketConnection?: InputMaybe<AdminCreatedSupportticketConnectionWhere>;
   createdSupportticketConnection_NOT?: InputMaybe<AdminCreatedSupportticketConnectionWhere>;
   createdSupportticket_NOT?: InputMaybe<SupportTicketWhere>;
+  hasCategory?: InputMaybe<CategoryWhere>;
+  hasCategoryAggregate?: InputMaybe<AdminHasCategoryAggregateInput>;
+  hasCategoryConnection?: InputMaybe<AdminHasCategoryConnectionWhere>;
+  hasCategoryConnection_NOT?: InputMaybe<AdminHasCategoryConnectionWhere>;
+  hasCategory_NOT?: InputMaybe<CategoryWhere>;
+  hasEventAggregate?: InputMaybe<AdminHasEventAggregateInput>;
+  /** Return Admins where all of the related AdminHasEventConnections match this filter */
+  hasEventConnection_ALL?: InputMaybe<AdminHasEventConnectionWhere>;
+  /** Return Admins where none of the related AdminHasEventConnections match this filter */
+  hasEventConnection_NONE?: InputMaybe<AdminHasEventConnectionWhere>;
+  /** Return Admins where one of the related AdminHasEventConnections match this filter */
+  hasEventConnection_SINGLE?: InputMaybe<AdminHasEventConnectionWhere>;
+  /** Return Admins where some of the related AdminHasEventConnections match this filter */
+  hasEventConnection_SOME?: InputMaybe<AdminHasEventConnectionWhere>;
+  /** Return Admins where all of the related Events match this filter */
+  hasEvent_ALL?: InputMaybe<EventWhere>;
+  /** Return Admins where none of the related Events match this filter */
+  hasEvent_NONE?: InputMaybe<EventWhere>;
+  /** Return Admins where one of the related Events match this filter */
+  hasEvent_SINGLE?: InputMaybe<EventWhere>;
+  /** Return Admins where some of the related Events match this filter */
+  hasEvent_SOME?: InputMaybe<EventWhere>;
+  hasIndustrypageAggregate?: InputMaybe<AdminHasIndustrypageAggregateInput>;
+  /** Return Admins where all of the related AdminHasIndustrypageConnections match this filter */
+  hasIndustrypageConnection_ALL?: InputMaybe<AdminHasIndustrypageConnectionWhere>;
+  /** Return Admins where none of the related AdminHasIndustrypageConnections match this filter */
+  hasIndustrypageConnection_NONE?: InputMaybe<AdminHasIndustrypageConnectionWhere>;
+  /** Return Admins where one of the related AdminHasIndustrypageConnections match this filter */
+  hasIndustrypageConnection_SINGLE?: InputMaybe<AdminHasIndustrypageConnectionWhere>;
+  /** Return Admins where some of the related AdminHasIndustrypageConnections match this filter */
+  hasIndustrypageConnection_SOME?: InputMaybe<AdminHasIndustrypageConnectionWhere>;
+  /** Return Admins where all of the related IndustryPages match this filter */
+  hasIndustrypage_ALL?: InputMaybe<IndustryPageWhere>;
+  /** Return Admins where none of the related IndustryPages match this filter */
+  hasIndustrypage_NONE?: InputMaybe<IndustryPageWhere>;
+  /** Return Admins where one of the related IndustryPages match this filter */
+  hasIndustrypage_SINGLE?: InputMaybe<IndustryPageWhere>;
+  /** Return Admins where some of the related IndustryPages match this filter */
+  hasIndustrypage_SOME?: InputMaybe<IndustryPageWhere>;
   hasLeads?: InputMaybe<LeadsWhere>;
   hasLeadsAggregate?: InputMaybe<AdminHasLeadsAggregateInput>;
   hasLeadsConnection?: InputMaybe<AdminHasLeadsConnectionWhere>;
@@ -3403,6 +4648,11 @@ export type AdminWhere = {
   hasProjectConnection?: InputMaybe<AdminHasProjectConnectionWhere>;
   hasProjectConnection_NOT?: InputMaybe<AdminHasProjectConnectionWhere>;
   hasProject_NOT?: InputMaybe<ProjectWhere>;
+  hasTermspage?: InputMaybe<TermsPageWhere>;
+  hasTermspageAggregate?: InputMaybe<AdminHasTermspageAggregateInput>;
+  hasTermspageConnection?: InputMaybe<AdminHasTermspageConnectionWhere>;
+  hasTermspageConnection_NOT?: InputMaybe<AdminHasTermspageConnectionWhere>;
+  hasTermspage_NOT?: InputMaybe<TermsPageWhere>;
   id?: InputMaybe<Scalars['ID']['input']>;
   id_CONTAINS?: InputMaybe<Scalars['ID']['input']>;
   id_ENDS_WITH?: InputMaybe<Scalars['ID']['input']>;
@@ -3425,6 +4675,639 @@ export type AdminsConnection = {
   edges: Array<AdminEdge>;
   pageInfo: PageInfo;
   totalCount: Scalars['Int']['output'];
+};
+
+export type Calibration = {
+  __typename?: 'Calibration';
+  adminHas?: Maybe<Admin>;
+  adminHasAggregate?: Maybe<CalibrationAdminAdminHasAggregationSelection>;
+  adminHasConnection: CalibrationAdminHasConnection;
+  id: Scalars['ID']['output'];
+};
+
+
+export type CalibrationAdminHasArgs = {
+  directed?: InputMaybe<Scalars['Boolean']['input']>;
+  options?: InputMaybe<AdminOptions>;
+  where?: InputMaybe<AdminWhere>;
+};
+
+
+export type CalibrationAdminHasAggregateArgs = {
+  directed?: InputMaybe<Scalars['Boolean']['input']>;
+  where?: InputMaybe<AdminWhere>;
+};
+
+
+export type CalibrationAdminHasConnectionArgs = {
+  after?: InputMaybe<Scalars['String']['input']>;
+  directed?: InputMaybe<Scalars['Boolean']['input']>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  sort?: InputMaybe<Array<CalibrationAdminHasConnectionSort>>;
+  where?: InputMaybe<CalibrationAdminHasConnectionWhere>;
+};
+
+export type CalibrationAdminAdminHasAggregationSelection = {
+  __typename?: 'CalibrationAdminAdminHasAggregationSelection';
+  count: Scalars['Int']['output'];
+  node?: Maybe<CalibrationAdminAdminHasNodeAggregateSelection>;
+};
+
+export type CalibrationAdminAdminHasNodeAggregateSelection = {
+  __typename?: 'CalibrationAdminAdminHasNodeAggregateSelection';
+  id: IdAggregateSelectionNonNullable;
+};
+
+export type CalibrationAdminHasAggregateInput = {
+  AND?: InputMaybe<Array<CalibrationAdminHasAggregateInput>>;
+  NOT?: InputMaybe<CalibrationAdminHasAggregateInput>;
+  OR?: InputMaybe<Array<CalibrationAdminHasAggregateInput>>;
+  count?: InputMaybe<Scalars['Int']['input']>;
+  count_GT?: InputMaybe<Scalars['Int']['input']>;
+  count_GTE?: InputMaybe<Scalars['Int']['input']>;
+  count_LT?: InputMaybe<Scalars['Int']['input']>;
+  count_LTE?: InputMaybe<Scalars['Int']['input']>;
+  node?: InputMaybe<CalibrationAdminHasNodeAggregationWhereInput>;
+};
+
+export type CalibrationAdminHasConnectFieldInput = {
+  connect?: InputMaybe<AdminConnectInput>;
+  /** Whether or not to overwrite any matching relationship with the new properties. Will default to `false` in 4.0.0. */
+  overwrite?: Scalars['Boolean']['input'];
+  where?: InputMaybe<AdminConnectWhere>;
+};
+
+export type CalibrationAdminHasConnectOrCreateFieldInput = {
+  onCreate: CalibrationAdminHasConnectOrCreateFieldInputOnCreate;
+  where: AdminConnectOrCreateWhere;
+};
+
+export type CalibrationAdminHasConnectOrCreateFieldInputOnCreate = {
+  node: AdminOnCreateInput;
+};
+
+export type CalibrationAdminHasConnection = {
+  __typename?: 'CalibrationAdminHasConnection';
+  edges: Array<CalibrationAdminHasRelationship>;
+  pageInfo: PageInfo;
+  totalCount: Scalars['Int']['output'];
+};
+
+export type CalibrationAdminHasConnectionSort = {
+  node?: InputMaybe<AdminSort>;
+};
+
+export type CalibrationAdminHasConnectionWhere = {
+  AND?: InputMaybe<Array<CalibrationAdminHasConnectionWhere>>;
+  NOT?: InputMaybe<CalibrationAdminHasConnectionWhere>;
+  OR?: InputMaybe<Array<CalibrationAdminHasConnectionWhere>>;
+  node?: InputMaybe<AdminWhere>;
+};
+
+export type CalibrationAdminHasCreateFieldInput = {
+  node: AdminCreateInput;
+};
+
+export type CalibrationAdminHasDeleteFieldInput = {
+  delete?: InputMaybe<AdminDeleteInput>;
+  where?: InputMaybe<CalibrationAdminHasConnectionWhere>;
+};
+
+export type CalibrationAdminHasDisconnectFieldInput = {
+  disconnect?: InputMaybe<AdminDisconnectInput>;
+  where?: InputMaybe<CalibrationAdminHasConnectionWhere>;
+};
+
+export type CalibrationAdminHasFieldInput = {
+  connect?: InputMaybe<CalibrationAdminHasConnectFieldInput>;
+  connectOrCreate?: InputMaybe<CalibrationAdminHasConnectOrCreateFieldInput>;
+  create?: InputMaybe<CalibrationAdminHasCreateFieldInput>;
+};
+
+export type CalibrationAdminHasNodeAggregationWhereInput = {
+  AND?: InputMaybe<Array<CalibrationAdminHasNodeAggregationWhereInput>>;
+  NOT?: InputMaybe<CalibrationAdminHasNodeAggregationWhereInput>;
+  OR?: InputMaybe<Array<CalibrationAdminHasNodeAggregationWhereInput>>;
+};
+
+export type CalibrationAdminHasRelationship = {
+  __typename?: 'CalibrationAdminHasRelationship';
+  cursor: Scalars['String']['output'];
+  node: Admin;
+};
+
+export type CalibrationAdminHasUpdateConnectionInput = {
+  node?: InputMaybe<AdminUpdateInput>;
+};
+
+export type CalibrationAdminHasUpdateFieldInput = {
+  connect?: InputMaybe<CalibrationAdminHasConnectFieldInput>;
+  connectOrCreate?: InputMaybe<CalibrationAdminHasConnectOrCreateFieldInput>;
+  create?: InputMaybe<CalibrationAdminHasCreateFieldInput>;
+  delete?: InputMaybe<CalibrationAdminHasDeleteFieldInput>;
+  disconnect?: InputMaybe<CalibrationAdminHasDisconnectFieldInput>;
+  update?: InputMaybe<CalibrationAdminHasUpdateConnectionInput>;
+  where?: InputMaybe<CalibrationAdminHasConnectionWhere>;
+};
+
+export type CalibrationAggregateSelection = {
+  __typename?: 'CalibrationAggregateSelection';
+  count: Scalars['Int']['output'];
+  id: IdAggregateSelectionNonNullable;
+};
+
+export type CalibrationConnectInput = {
+  adminHas?: InputMaybe<CalibrationAdminHasConnectFieldInput>;
+};
+
+export type CalibrationConnectOrCreateInput = {
+  adminHas?: InputMaybe<CalibrationAdminHasConnectOrCreateFieldInput>;
+};
+
+export type CalibrationCreateInput = {
+  adminHas?: InputMaybe<CalibrationAdminHasFieldInput>;
+};
+
+export type CalibrationDeleteInput = {
+  adminHas?: InputMaybe<CalibrationAdminHasDeleteFieldInput>;
+};
+
+export type CalibrationDisconnectInput = {
+  adminHas?: InputMaybe<CalibrationAdminHasDisconnectFieldInput>;
+};
+
+export type CalibrationEdge = {
+  __typename?: 'CalibrationEdge';
+  cursor: Scalars['String']['output'];
+  node: Calibration;
+};
+
+export type CalibrationOptions = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  /** Specify one or more CalibrationSort objects to sort Calibrations by. The sorts will be applied in the order in which they are arranged in the array. */
+  sort?: InputMaybe<Array<CalibrationSort>>;
+};
+
+export type CalibrationRelationInput = {
+  adminHas?: InputMaybe<CalibrationAdminHasCreateFieldInput>;
+};
+
+/** Fields to sort Calibrations by. The order in which sorts are applied is not guaranteed when specifying many fields in one CalibrationSort object. */
+export type CalibrationSort = {
+  id?: InputMaybe<SortDirection>;
+};
+
+export type CalibrationUpdateInput = {
+  adminHas?: InputMaybe<CalibrationAdminHasUpdateFieldInput>;
+};
+
+export type CalibrationWhere = {
+  AND?: InputMaybe<Array<CalibrationWhere>>;
+  NOT?: InputMaybe<CalibrationWhere>;
+  OR?: InputMaybe<Array<CalibrationWhere>>;
+  adminHas?: InputMaybe<AdminWhere>;
+  adminHasAggregate?: InputMaybe<CalibrationAdminHasAggregateInput>;
+  adminHasConnection?: InputMaybe<CalibrationAdminHasConnectionWhere>;
+  adminHasConnection_NOT?: InputMaybe<CalibrationAdminHasConnectionWhere>;
+  adminHas_NOT?: InputMaybe<AdminWhere>;
+  id?: InputMaybe<Scalars['ID']['input']>;
+  id_CONTAINS?: InputMaybe<Scalars['ID']['input']>;
+  id_ENDS_WITH?: InputMaybe<Scalars['ID']['input']>;
+  id_IN?: InputMaybe<Array<Scalars['ID']['input']>>;
+  id_STARTS_WITH?: InputMaybe<Scalars['ID']['input']>;
+};
+
+export type CalibrationsConnection = {
+  __typename?: 'CalibrationsConnection';
+  edges: Array<CalibrationEdge>;
+  pageInfo: PageInfo;
+  totalCount: Scalars['Int']['output'];
+};
+
+export type CategoriesConnection = {
+  __typename?: 'CategoriesConnection';
+  edges: Array<CategoryEdge>;
+  pageInfo: PageInfo;
+  totalCount: Scalars['Int']['output'];
+};
+
+export type Category = {
+  __typename?: 'Category';
+  adminHas?: Maybe<Admin>;
+  adminHasAggregate?: Maybe<CategoryAdminAdminHasAggregationSelection>;
+  adminHasConnection: CategoryAdminHasConnection;
+  createdAt?: Maybe<Scalars['DateTime']['output']>;
+  hasSubcategory: Array<SubCategory>;
+  hasSubcategoryAggregate?: Maybe<CategorySubCategoryHasSubcategoryAggregationSelection>;
+  hasSubcategoryConnection: CategoryHasSubcategoryConnection;
+  id: Scalars['ID']['output'];
+  name?: Maybe<Scalars['String']['output']>;
+};
+
+
+export type CategoryAdminHasArgs = {
+  directed?: InputMaybe<Scalars['Boolean']['input']>;
+  options?: InputMaybe<AdminOptions>;
+  where?: InputMaybe<AdminWhere>;
+};
+
+
+export type CategoryAdminHasAggregateArgs = {
+  directed?: InputMaybe<Scalars['Boolean']['input']>;
+  where?: InputMaybe<AdminWhere>;
+};
+
+
+export type CategoryAdminHasConnectionArgs = {
+  after?: InputMaybe<Scalars['String']['input']>;
+  directed?: InputMaybe<Scalars['Boolean']['input']>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  sort?: InputMaybe<Array<CategoryAdminHasConnectionSort>>;
+  where?: InputMaybe<CategoryAdminHasConnectionWhere>;
+};
+
+
+export type CategoryHasSubcategoryArgs = {
+  directed?: InputMaybe<Scalars['Boolean']['input']>;
+  options?: InputMaybe<SubCategoryOptions>;
+  where?: InputMaybe<SubCategoryWhere>;
+};
+
+
+export type CategoryHasSubcategoryAggregateArgs = {
+  directed?: InputMaybe<Scalars['Boolean']['input']>;
+  where?: InputMaybe<SubCategoryWhere>;
+};
+
+
+export type CategoryHasSubcategoryConnectionArgs = {
+  after?: InputMaybe<Scalars['String']['input']>;
+  directed?: InputMaybe<Scalars['Boolean']['input']>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  sort?: InputMaybe<Array<CategoryHasSubcategoryConnectionSort>>;
+  where?: InputMaybe<CategoryHasSubcategoryConnectionWhere>;
+};
+
+export type CategoryAdminAdminHasAggregationSelection = {
+  __typename?: 'CategoryAdminAdminHasAggregationSelection';
+  count: Scalars['Int']['output'];
+  node?: Maybe<CategoryAdminAdminHasNodeAggregateSelection>;
+};
+
+export type CategoryAdminAdminHasNodeAggregateSelection = {
+  __typename?: 'CategoryAdminAdminHasNodeAggregateSelection';
+  id: IdAggregateSelectionNonNullable;
+};
+
+export type CategoryAdminHasAggregateInput = {
+  AND?: InputMaybe<Array<CategoryAdminHasAggregateInput>>;
+  NOT?: InputMaybe<CategoryAdminHasAggregateInput>;
+  OR?: InputMaybe<Array<CategoryAdminHasAggregateInput>>;
+  count?: InputMaybe<Scalars['Int']['input']>;
+  count_GT?: InputMaybe<Scalars['Int']['input']>;
+  count_GTE?: InputMaybe<Scalars['Int']['input']>;
+  count_LT?: InputMaybe<Scalars['Int']['input']>;
+  count_LTE?: InputMaybe<Scalars['Int']['input']>;
+  node?: InputMaybe<CategoryAdminHasNodeAggregationWhereInput>;
+};
+
+export type CategoryAdminHasConnectFieldInput = {
+  connect?: InputMaybe<AdminConnectInput>;
+  /** Whether or not to overwrite any matching relationship with the new properties. Will default to `false` in 4.0.0. */
+  overwrite?: Scalars['Boolean']['input'];
+  where?: InputMaybe<AdminConnectWhere>;
+};
+
+export type CategoryAdminHasConnectOrCreateFieldInput = {
+  onCreate: CategoryAdminHasConnectOrCreateFieldInputOnCreate;
+  where: AdminConnectOrCreateWhere;
+};
+
+export type CategoryAdminHasConnectOrCreateFieldInputOnCreate = {
+  node: AdminOnCreateInput;
+};
+
+export type CategoryAdminHasConnection = {
+  __typename?: 'CategoryAdminHasConnection';
+  edges: Array<CategoryAdminHasRelationship>;
+  pageInfo: PageInfo;
+  totalCount: Scalars['Int']['output'];
+};
+
+export type CategoryAdminHasConnectionSort = {
+  node?: InputMaybe<AdminSort>;
+};
+
+export type CategoryAdminHasConnectionWhere = {
+  AND?: InputMaybe<Array<CategoryAdminHasConnectionWhere>>;
+  NOT?: InputMaybe<CategoryAdminHasConnectionWhere>;
+  OR?: InputMaybe<Array<CategoryAdminHasConnectionWhere>>;
+  node?: InputMaybe<AdminWhere>;
+};
+
+export type CategoryAdminHasCreateFieldInput = {
+  node: AdminCreateInput;
+};
+
+export type CategoryAdminHasDeleteFieldInput = {
+  delete?: InputMaybe<AdminDeleteInput>;
+  where?: InputMaybe<CategoryAdminHasConnectionWhere>;
+};
+
+export type CategoryAdminHasDisconnectFieldInput = {
+  disconnect?: InputMaybe<AdminDisconnectInput>;
+  where?: InputMaybe<CategoryAdminHasConnectionWhere>;
+};
+
+export type CategoryAdminHasFieldInput = {
+  connect?: InputMaybe<CategoryAdminHasConnectFieldInput>;
+  connectOrCreate?: InputMaybe<CategoryAdminHasConnectOrCreateFieldInput>;
+  create?: InputMaybe<CategoryAdminHasCreateFieldInput>;
+};
+
+export type CategoryAdminHasNodeAggregationWhereInput = {
+  AND?: InputMaybe<Array<CategoryAdminHasNodeAggregationWhereInput>>;
+  NOT?: InputMaybe<CategoryAdminHasNodeAggregationWhereInput>;
+  OR?: InputMaybe<Array<CategoryAdminHasNodeAggregationWhereInput>>;
+};
+
+export type CategoryAdminHasRelationship = {
+  __typename?: 'CategoryAdminHasRelationship';
+  cursor: Scalars['String']['output'];
+  node: Admin;
+};
+
+export type CategoryAdminHasUpdateConnectionInput = {
+  node?: InputMaybe<AdminUpdateInput>;
+};
+
+export type CategoryAdminHasUpdateFieldInput = {
+  connect?: InputMaybe<CategoryAdminHasConnectFieldInput>;
+  connectOrCreate?: InputMaybe<CategoryAdminHasConnectOrCreateFieldInput>;
+  create?: InputMaybe<CategoryAdminHasCreateFieldInput>;
+  delete?: InputMaybe<CategoryAdminHasDeleteFieldInput>;
+  disconnect?: InputMaybe<CategoryAdminHasDisconnectFieldInput>;
+  update?: InputMaybe<CategoryAdminHasUpdateConnectionInput>;
+  where?: InputMaybe<CategoryAdminHasConnectionWhere>;
+};
+
+export type CategoryAggregateSelection = {
+  __typename?: 'CategoryAggregateSelection';
+  count: Scalars['Int']['output'];
+  createdAt: DateTimeAggregateSelectionNullable;
+  id: IdAggregateSelectionNonNullable;
+  name: StringAggregateSelectionNullable;
+};
+
+export type CategoryConnectInput = {
+  adminHas?: InputMaybe<CategoryAdminHasConnectFieldInput>;
+  hasSubcategory?: InputMaybe<Array<CategoryHasSubcategoryConnectFieldInput>>;
+};
+
+export type CategoryConnectOrCreateInput = {
+  adminHas?: InputMaybe<CategoryAdminHasConnectOrCreateFieldInput>;
+  hasSubcategory?: InputMaybe<Array<CategoryHasSubcategoryConnectOrCreateFieldInput>>;
+};
+
+export type CategoryConnectOrCreateWhere = {
+  node: CategoryUniqueWhere;
+};
+
+export type CategoryConnectWhere = {
+  node: CategoryWhere;
+};
+
+export type CategoryCreateInput = {
+  adminHas?: InputMaybe<CategoryAdminHasFieldInput>;
+  createdAt?: InputMaybe<Scalars['DateTime']['input']>;
+  hasSubcategory?: InputMaybe<CategoryHasSubcategoryFieldInput>;
+  name?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type CategoryDeleteInput = {
+  adminHas?: InputMaybe<CategoryAdminHasDeleteFieldInput>;
+  hasSubcategory?: InputMaybe<Array<CategoryHasSubcategoryDeleteFieldInput>>;
+};
+
+export type CategoryDisconnectInput = {
+  adminHas?: InputMaybe<CategoryAdminHasDisconnectFieldInput>;
+  hasSubcategory?: InputMaybe<Array<CategoryHasSubcategoryDisconnectFieldInput>>;
+};
+
+export type CategoryEdge = {
+  __typename?: 'CategoryEdge';
+  cursor: Scalars['String']['output'];
+  node: Category;
+};
+
+export type CategoryHasSubcategoryAggregateInput = {
+  AND?: InputMaybe<Array<CategoryHasSubcategoryAggregateInput>>;
+  NOT?: InputMaybe<CategoryHasSubcategoryAggregateInput>;
+  OR?: InputMaybe<Array<CategoryHasSubcategoryAggregateInput>>;
+  count?: InputMaybe<Scalars['Int']['input']>;
+  count_GT?: InputMaybe<Scalars['Int']['input']>;
+  count_GTE?: InputMaybe<Scalars['Int']['input']>;
+  count_LT?: InputMaybe<Scalars['Int']['input']>;
+  count_LTE?: InputMaybe<Scalars['Int']['input']>;
+  node?: InputMaybe<CategoryHasSubcategoryNodeAggregationWhereInput>;
+};
+
+export type CategoryHasSubcategoryConnectFieldInput = {
+  connect?: InputMaybe<Array<SubCategoryConnectInput>>;
+  /** Whether or not to overwrite any matching relationship with the new properties. Will default to `false` in 4.0.0. */
+  overwrite?: Scalars['Boolean']['input'];
+  where?: InputMaybe<SubCategoryConnectWhere>;
+};
+
+export type CategoryHasSubcategoryConnectOrCreateFieldInput = {
+  onCreate: CategoryHasSubcategoryConnectOrCreateFieldInputOnCreate;
+  where: SubCategoryConnectOrCreateWhere;
+};
+
+export type CategoryHasSubcategoryConnectOrCreateFieldInputOnCreate = {
+  node: SubCategoryOnCreateInput;
+};
+
+export type CategoryHasSubcategoryConnection = {
+  __typename?: 'CategoryHasSubcategoryConnection';
+  edges: Array<CategoryHasSubcategoryRelationship>;
+  pageInfo: PageInfo;
+  totalCount: Scalars['Int']['output'];
+};
+
+export type CategoryHasSubcategoryConnectionSort = {
+  node?: InputMaybe<SubCategorySort>;
+};
+
+export type CategoryHasSubcategoryConnectionWhere = {
+  AND?: InputMaybe<Array<CategoryHasSubcategoryConnectionWhere>>;
+  NOT?: InputMaybe<CategoryHasSubcategoryConnectionWhere>;
+  OR?: InputMaybe<Array<CategoryHasSubcategoryConnectionWhere>>;
+  node?: InputMaybe<SubCategoryWhere>;
+};
+
+export type CategoryHasSubcategoryCreateFieldInput = {
+  node: SubCategoryCreateInput;
+};
+
+export type CategoryHasSubcategoryDeleteFieldInput = {
+  delete?: InputMaybe<SubCategoryDeleteInput>;
+  where?: InputMaybe<CategoryHasSubcategoryConnectionWhere>;
+};
+
+export type CategoryHasSubcategoryDisconnectFieldInput = {
+  disconnect?: InputMaybe<SubCategoryDisconnectInput>;
+  where?: InputMaybe<CategoryHasSubcategoryConnectionWhere>;
+};
+
+export type CategoryHasSubcategoryFieldInput = {
+  connect?: InputMaybe<Array<CategoryHasSubcategoryConnectFieldInput>>;
+  connectOrCreate?: InputMaybe<Array<CategoryHasSubcategoryConnectOrCreateFieldInput>>;
+  create?: InputMaybe<Array<CategoryHasSubcategoryCreateFieldInput>>;
+};
+
+export type CategoryHasSubcategoryNodeAggregationWhereInput = {
+  AND?: InputMaybe<Array<CategoryHasSubcategoryNodeAggregationWhereInput>>;
+  NOT?: InputMaybe<CategoryHasSubcategoryNodeAggregationWhereInput>;
+  OR?: InputMaybe<Array<CategoryHasSubcategoryNodeAggregationWhereInput>>;
+  createdAt_MAX_EQUAL?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_MAX_GT?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_MAX_GTE?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_MAX_LT?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_MAX_LTE?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_MIN_EQUAL?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_MIN_GT?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_MIN_GTE?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_MIN_LT?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_MIN_LTE?: InputMaybe<Scalars['DateTime']['input']>;
+  name_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  name_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  name_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  name_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  name_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  name_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  name_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  name_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  name_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  name_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  name_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  name_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  name_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  name_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  name_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+};
+
+export type CategoryHasSubcategoryRelationship = {
+  __typename?: 'CategoryHasSubcategoryRelationship';
+  cursor: Scalars['String']['output'];
+  node: SubCategory;
+};
+
+export type CategoryHasSubcategoryUpdateConnectionInput = {
+  node?: InputMaybe<SubCategoryUpdateInput>;
+};
+
+export type CategoryHasSubcategoryUpdateFieldInput = {
+  connect?: InputMaybe<Array<CategoryHasSubcategoryConnectFieldInput>>;
+  connectOrCreate?: InputMaybe<Array<CategoryHasSubcategoryConnectOrCreateFieldInput>>;
+  create?: InputMaybe<Array<CategoryHasSubcategoryCreateFieldInput>>;
+  delete?: InputMaybe<Array<CategoryHasSubcategoryDeleteFieldInput>>;
+  disconnect?: InputMaybe<Array<CategoryHasSubcategoryDisconnectFieldInput>>;
+  update?: InputMaybe<CategoryHasSubcategoryUpdateConnectionInput>;
+  where?: InputMaybe<CategoryHasSubcategoryConnectionWhere>;
+};
+
+export type CategoryOnCreateInput = {
+  createdAt?: InputMaybe<Scalars['DateTime']['input']>;
+  name?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type CategoryOptions = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  /** Specify one or more CategorySort objects to sort Categories by. The sorts will be applied in the order in which they are arranged in the array. */
+  sort?: InputMaybe<Array<CategorySort>>;
+};
+
+export type CategoryRelationInput = {
+  adminHas?: InputMaybe<CategoryAdminHasCreateFieldInput>;
+  hasSubcategory?: InputMaybe<Array<CategoryHasSubcategoryCreateFieldInput>>;
+};
+
+/** Fields to sort Categories by. The order in which sorts are applied is not guaranteed when specifying many fields in one CategorySort object. */
+export type CategorySort = {
+  createdAt?: InputMaybe<SortDirection>;
+  id?: InputMaybe<SortDirection>;
+  name?: InputMaybe<SortDirection>;
+};
+
+export type CategorySubCategoryHasSubcategoryAggregationSelection = {
+  __typename?: 'CategorySubCategoryHasSubcategoryAggregationSelection';
+  count: Scalars['Int']['output'];
+  node?: Maybe<CategorySubCategoryHasSubcategoryNodeAggregateSelection>;
+};
+
+export type CategorySubCategoryHasSubcategoryNodeAggregateSelection = {
+  __typename?: 'CategorySubCategoryHasSubcategoryNodeAggregateSelection';
+  createdAt: DateTimeAggregateSelectionNullable;
+  id: IdAggregateSelectionNonNullable;
+  name: StringAggregateSelectionNullable;
+};
+
+export type CategoryUniqueWhere = {
+  id?: InputMaybe<Scalars['ID']['input']>;
+};
+
+export type CategoryUpdateInput = {
+  adminHas?: InputMaybe<CategoryAdminHasUpdateFieldInput>;
+  createdAt?: InputMaybe<Scalars['DateTime']['input']>;
+  hasSubcategory?: InputMaybe<Array<CategoryHasSubcategoryUpdateFieldInput>>;
+  name?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type CategoryWhere = {
+  AND?: InputMaybe<Array<CategoryWhere>>;
+  NOT?: InputMaybe<CategoryWhere>;
+  OR?: InputMaybe<Array<CategoryWhere>>;
+  adminHas?: InputMaybe<AdminWhere>;
+  adminHasAggregate?: InputMaybe<CategoryAdminHasAggregateInput>;
+  adminHasConnection?: InputMaybe<CategoryAdminHasConnectionWhere>;
+  adminHasConnection_NOT?: InputMaybe<CategoryAdminHasConnectionWhere>;
+  adminHas_NOT?: InputMaybe<AdminWhere>;
+  createdAt?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_GT?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_GTE?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_IN?: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
+  createdAt_LT?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_LTE?: InputMaybe<Scalars['DateTime']['input']>;
+  hasSubcategoryAggregate?: InputMaybe<CategoryHasSubcategoryAggregateInput>;
+  /** Return Categories where all of the related CategoryHasSubcategoryConnections match this filter */
+  hasSubcategoryConnection_ALL?: InputMaybe<CategoryHasSubcategoryConnectionWhere>;
+  /** Return Categories where none of the related CategoryHasSubcategoryConnections match this filter */
+  hasSubcategoryConnection_NONE?: InputMaybe<CategoryHasSubcategoryConnectionWhere>;
+  /** Return Categories where one of the related CategoryHasSubcategoryConnections match this filter */
+  hasSubcategoryConnection_SINGLE?: InputMaybe<CategoryHasSubcategoryConnectionWhere>;
+  /** Return Categories where some of the related CategoryHasSubcategoryConnections match this filter */
+  hasSubcategoryConnection_SOME?: InputMaybe<CategoryHasSubcategoryConnectionWhere>;
+  /** Return Categories where all of the related SubCategories match this filter */
+  hasSubcategory_ALL?: InputMaybe<SubCategoryWhere>;
+  /** Return Categories where none of the related SubCategories match this filter */
+  hasSubcategory_NONE?: InputMaybe<SubCategoryWhere>;
+  /** Return Categories where one of the related SubCategories match this filter */
+  hasSubcategory_SINGLE?: InputMaybe<SubCategoryWhere>;
+  /** Return Categories where some of the related SubCategories match this filter */
+  hasSubcategory_SOME?: InputMaybe<SubCategoryWhere>;
+  id?: InputMaybe<Scalars['ID']['input']>;
+  id_CONTAINS?: InputMaybe<Scalars['ID']['input']>;
+  id_ENDS_WITH?: InputMaybe<Scalars['ID']['input']>;
+  id_IN?: InputMaybe<Array<Scalars['ID']['input']>>;
+  id_STARTS_WITH?: InputMaybe<Scalars['ID']['input']>;
+  name?: InputMaybe<Scalars['String']['input']>;
+  name_CONTAINS?: InputMaybe<Scalars['String']['input']>;
+  name_ENDS_WITH?: InputMaybe<Scalars['String']['input']>;
+  name_IN?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  name_STARTS_WITH?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type Client = {
@@ -6710,9 +8593,27 @@ export type CountersConnection = {
   totalCount: Scalars['Int']['output'];
 };
 
+export type CreateAboutPagesMutationResponse = {
+  __typename?: 'CreateAboutPagesMutationResponse';
+  aboutPages: Array<AboutPage>;
+  info: CreateInfo;
+};
+
 export type CreateAdminsMutationResponse = {
   __typename?: 'CreateAdminsMutationResponse';
   admins: Array<Admin>;
+  info: CreateInfo;
+};
+
+export type CreateCalibrationsMutationResponse = {
+  __typename?: 'CreateCalibrationsMutationResponse';
+  calibrations: Array<Calibration>;
+  info: CreateInfo;
+};
+
+export type CreateCategoriesMutationResponse = {
+  __typename?: 'CreateCategoriesMutationResponse';
+  categories: Array<Category>;
   info: CreateInfo;
 };
 
@@ -6746,15 +8647,51 @@ export type CreateEmployeesMutationResponse = {
   info: CreateInfo;
 };
 
+export type CreateEventsMutationResponse = {
+  __typename?: 'CreateEventsMutationResponse';
+  events: Array<Event>;
+  info: CreateInfo;
+};
+
+export type CreateFeaturesPagesMutationResponse = {
+  __typename?: 'CreateFeaturesPagesMutationResponse';
+  featuresPages: Array<FeaturesPage>;
+  info: CreateInfo;
+};
+
 export type CreateFilesMutationResponse = {
   __typename?: 'CreateFilesMutationResponse';
   files: Array<Files>;
   info: CreateInfo;
 };
 
+export type CreateHomeClientsMutationResponse = {
+  __typename?: 'CreateHomeClientsMutationResponse';
+  homeClients: Array<HomeClient>;
+  info: CreateInfo;
+};
+
+export type CreateHomePagesMutationResponse = {
+  __typename?: 'CreateHomePagesMutationResponse';
+  homePages: Array<HomePage>;
+  info: CreateInfo;
+};
+
+export type CreateHomeServicesMutationResponse = {
+  __typename?: 'CreateHomeServicesMutationResponse';
+  homeServices: Array<HomeServices>;
+  info: CreateInfo;
+};
+
 export type CreateImagesMutationResponse = {
   __typename?: 'CreateImagesMutationResponse';
   images: Array<Images>;
+  info: CreateInfo;
+};
+
+export type CreateIndustryPagesMutationResponse = {
+  __typename?: 'CreateIndustryPagesMutationResponse';
+  industryPages: Array<IndustryPage>;
   info: CreateInfo;
 };
 
@@ -6849,6 +8786,24 @@ export type CreateServicesMutationResponse = {
   services: Array<Service>;
 };
 
+export type CreateSolutionPagesMutationResponse = {
+  __typename?: 'CreateSolutionPagesMutationResponse';
+  info: CreateInfo;
+  solutionPages: Array<SolutionPage>;
+};
+
+export type CreateSubCategoriesMutationResponse = {
+  __typename?: 'CreateSubCategoriesMutationResponse';
+  info: CreateInfo;
+  subCategories: Array<SubCategory>;
+};
+
+export type CreateSubSolutionsMutationResponse = {
+  __typename?: 'CreateSubSolutionsMutationResponse';
+  info: CreateInfo;
+  subSolutions: Array<SubSolution>;
+};
+
 export type CreateSubservicesMutationResponse = {
   __typename?: 'CreateSubservicesMutationResponse';
   info: CreateInfo;
@@ -6859,6 +8814,18 @@ export type CreateSupportTicketsMutationResponse = {
   __typename?: 'CreateSupportTicketsMutationResponse';
   info: CreateInfo;
   supportTickets: Array<SupportTicket>;
+};
+
+export type CreateTermsPagesMutationResponse = {
+  __typename?: 'CreateTermsPagesMutationResponse';
+  info: CreateInfo;
+  termsPages: Array<TermsPage>;
+};
+
+export type CreateTestingsMutationResponse = {
+  __typename?: 'CreateTestingsMutationResponse';
+  info: CreateInfo;
+  testings: Array<Testing>;
 };
 
 export type CreateUsersMutationResponse = {
@@ -6900,7 +8867,7 @@ export type Documents = {
   hasImages?: Maybe<Images>;
   hasImagesAggregate?: Maybe<DocumentsImagesHasImagesAggregationSelection>;
   hasImagesConnection: DocumentsHasImagesConnection;
-  id?: Maybe<Scalars['String']['output']>;
+  id: Scalars['ID']['output'];
   moduleHas?: Maybe<Module>;
   moduleHasAggregate?: Maybe<DocumentsModuleModuleHasAggregationSelection>;
   moduleHasConnection: DocumentsModuleHasConnection;
@@ -7000,7 +8967,7 @@ export type DocumentsUserHasConnectionArgs = {
 export type DocumentsAggregateSelection = {
   __typename?: 'DocumentsAggregateSelection';
   count: Scalars['Int']['output'];
-  id: StringAggregateSelectionNullable;
+  id: IdAggregateSelectionNonNullable;
 };
 
 export type DocumentsConnectInput = {
@@ -7017,6 +8984,10 @@ export type DocumentsConnectOrCreateInput = {
   userHas?: InputMaybe<DocumentsUserHasConnectOrCreateFieldInput>;
 };
 
+export type DocumentsConnectOrCreateWhere = {
+  node: DocumentsUniqueWhere;
+};
+
 export type DocumentsConnectWhere = {
   node: DocumentsWhere;
 };
@@ -7031,7 +9002,6 @@ export type DocumentsConnection = {
 export type DocumentsCreateInput = {
   hasFiles?: InputMaybe<DocumentsHasFilesFieldInput>;
   hasImages?: InputMaybe<DocumentsHasImagesFieldInput>;
-  id?: InputMaybe<Scalars['String']['input']>;
   moduleHas?: InputMaybe<DocumentsModuleHasFieldInput>;
   userHas?: InputMaybe<DocumentsUserHasFieldInput>;
 };
@@ -7408,6 +9378,11 @@ export type DocumentsModuleModuleHasNodeAggregateSelection = {
   title: StringAggregateSelectionNullable;
 };
 
+export type DocumentsOnCreateInput = {
+  /** Appears because this input type would be empty otherwise because this type is composed of just generated and/or relationship properties. See https://neo4j.com/docs/graphql-manual/current/troubleshooting/faqs/ */
+  _emptyInput?: InputMaybe<Scalars['Boolean']['input']>;
+};
+
 export type DocumentsOptions = {
   limit?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -7427,10 +9402,13 @@ export type DocumentsSort = {
   id?: InputMaybe<SortDirection>;
 };
 
+export type DocumentsUniqueWhere = {
+  id?: InputMaybe<Scalars['ID']['input']>;
+};
+
 export type DocumentsUpdateInput = {
   hasFiles?: InputMaybe<DocumentsHasFilesUpdateFieldInput>;
   hasImages?: InputMaybe<DocumentsHasImagesUpdateFieldInput>;
-  id?: InputMaybe<Scalars['String']['input']>;
   moduleHas?: InputMaybe<DocumentsModuleHasUpdateFieldInput>;
   userHas?: InputMaybe<DocumentsUserHasUpdateFieldInput>;
 };
@@ -7771,11 +9749,11 @@ export type DocumentsWhere = {
   hasImagesConnection?: InputMaybe<DocumentsHasImagesConnectionWhere>;
   hasImagesConnection_NOT?: InputMaybe<DocumentsHasImagesConnectionWhere>;
   hasImages_NOT?: InputMaybe<ImagesWhere>;
-  id?: InputMaybe<Scalars['String']['input']>;
-  id_CONTAINS?: InputMaybe<Scalars['String']['input']>;
-  id_ENDS_WITH?: InputMaybe<Scalars['String']['input']>;
-  id_IN?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  id_STARTS_WITH?: InputMaybe<Scalars['String']['input']>;
+  id?: InputMaybe<Scalars['ID']['input']>;
+  id_CONTAINS?: InputMaybe<Scalars['ID']['input']>;
+  id_ENDS_WITH?: InputMaybe<Scalars['ID']['input']>;
+  id_IN?: InputMaybe<Array<Scalars['ID']['input']>>;
+  id_STARTS_WITH?: InputMaybe<Scalars['ID']['input']>;
   moduleHas?: InputMaybe<ModuleWhere>;
   moduleHasAggregate?: InputMaybe<DocumentsModuleHasAggregateInput>;
   moduleHasConnection?: InputMaybe<DocumentsModuleHasConnectionWhere>;
@@ -8241,6 +10219,553 @@ export type EmployeesConnection = {
   totalCount: Scalars['Int']['output'];
 };
 
+export type Event = {
+  __typename?: 'Event';
+  adminHas?: Maybe<Admin>;
+  adminHasAggregate?: Maybe<EventAdminAdminHasAggregationSelection>;
+  adminHasConnection: EventAdminHasConnection;
+  description?: Maybe<Scalars['String']['output']>;
+  endAt?: Maybe<Scalars['DateTime']['output']>;
+  id: Scalars['ID']['output'];
+  image?: Maybe<Scalars['String']['output']>;
+  location?: Maybe<Scalars['String']['output']>;
+  name?: Maybe<Scalars['String']['output']>;
+  startAt?: Maybe<Scalars['DateTime']['output']>;
+};
+
+
+export type EventAdminHasArgs = {
+  directed?: InputMaybe<Scalars['Boolean']['input']>;
+  options?: InputMaybe<AdminOptions>;
+  where?: InputMaybe<AdminWhere>;
+};
+
+
+export type EventAdminHasAggregateArgs = {
+  directed?: InputMaybe<Scalars['Boolean']['input']>;
+  where?: InputMaybe<AdminWhere>;
+};
+
+
+export type EventAdminHasConnectionArgs = {
+  after?: InputMaybe<Scalars['String']['input']>;
+  directed?: InputMaybe<Scalars['Boolean']['input']>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  sort?: InputMaybe<Array<EventAdminHasConnectionSort>>;
+  where?: InputMaybe<EventAdminHasConnectionWhere>;
+};
+
+export type EventAdminAdminHasAggregationSelection = {
+  __typename?: 'EventAdminAdminHasAggregationSelection';
+  count: Scalars['Int']['output'];
+  node?: Maybe<EventAdminAdminHasNodeAggregateSelection>;
+};
+
+export type EventAdminAdminHasNodeAggregateSelection = {
+  __typename?: 'EventAdminAdminHasNodeAggregateSelection';
+  id: IdAggregateSelectionNonNullable;
+};
+
+export type EventAdminHasAggregateInput = {
+  AND?: InputMaybe<Array<EventAdminHasAggregateInput>>;
+  NOT?: InputMaybe<EventAdminHasAggregateInput>;
+  OR?: InputMaybe<Array<EventAdminHasAggregateInput>>;
+  count?: InputMaybe<Scalars['Int']['input']>;
+  count_GT?: InputMaybe<Scalars['Int']['input']>;
+  count_GTE?: InputMaybe<Scalars['Int']['input']>;
+  count_LT?: InputMaybe<Scalars['Int']['input']>;
+  count_LTE?: InputMaybe<Scalars['Int']['input']>;
+  node?: InputMaybe<EventAdminHasNodeAggregationWhereInput>;
+};
+
+export type EventAdminHasConnectFieldInput = {
+  connect?: InputMaybe<AdminConnectInput>;
+  /** Whether or not to overwrite any matching relationship with the new properties. Will default to `false` in 4.0.0. */
+  overwrite?: Scalars['Boolean']['input'];
+  where?: InputMaybe<AdminConnectWhere>;
+};
+
+export type EventAdminHasConnectOrCreateFieldInput = {
+  onCreate: EventAdminHasConnectOrCreateFieldInputOnCreate;
+  where: AdminConnectOrCreateWhere;
+};
+
+export type EventAdminHasConnectOrCreateFieldInputOnCreate = {
+  node: AdminOnCreateInput;
+};
+
+export type EventAdminHasConnection = {
+  __typename?: 'EventAdminHasConnection';
+  edges: Array<EventAdminHasRelationship>;
+  pageInfo: PageInfo;
+  totalCount: Scalars['Int']['output'];
+};
+
+export type EventAdminHasConnectionSort = {
+  node?: InputMaybe<AdminSort>;
+};
+
+export type EventAdminHasConnectionWhere = {
+  AND?: InputMaybe<Array<EventAdminHasConnectionWhere>>;
+  NOT?: InputMaybe<EventAdminHasConnectionWhere>;
+  OR?: InputMaybe<Array<EventAdminHasConnectionWhere>>;
+  node?: InputMaybe<AdminWhere>;
+};
+
+export type EventAdminHasCreateFieldInput = {
+  node: AdminCreateInput;
+};
+
+export type EventAdminHasDeleteFieldInput = {
+  delete?: InputMaybe<AdminDeleteInput>;
+  where?: InputMaybe<EventAdminHasConnectionWhere>;
+};
+
+export type EventAdminHasDisconnectFieldInput = {
+  disconnect?: InputMaybe<AdminDisconnectInput>;
+  where?: InputMaybe<EventAdminHasConnectionWhere>;
+};
+
+export type EventAdminHasFieldInput = {
+  connect?: InputMaybe<EventAdminHasConnectFieldInput>;
+  connectOrCreate?: InputMaybe<EventAdminHasConnectOrCreateFieldInput>;
+  create?: InputMaybe<EventAdminHasCreateFieldInput>;
+};
+
+export type EventAdminHasNodeAggregationWhereInput = {
+  AND?: InputMaybe<Array<EventAdminHasNodeAggregationWhereInput>>;
+  NOT?: InputMaybe<EventAdminHasNodeAggregationWhereInput>;
+  OR?: InputMaybe<Array<EventAdminHasNodeAggregationWhereInput>>;
+};
+
+export type EventAdminHasRelationship = {
+  __typename?: 'EventAdminHasRelationship';
+  cursor: Scalars['String']['output'];
+  node: Admin;
+};
+
+export type EventAdminHasUpdateConnectionInput = {
+  node?: InputMaybe<AdminUpdateInput>;
+};
+
+export type EventAdminHasUpdateFieldInput = {
+  connect?: InputMaybe<EventAdminHasConnectFieldInput>;
+  connectOrCreate?: InputMaybe<EventAdminHasConnectOrCreateFieldInput>;
+  create?: InputMaybe<EventAdminHasCreateFieldInput>;
+  delete?: InputMaybe<EventAdminHasDeleteFieldInput>;
+  disconnect?: InputMaybe<EventAdminHasDisconnectFieldInput>;
+  update?: InputMaybe<EventAdminHasUpdateConnectionInput>;
+  where?: InputMaybe<EventAdminHasConnectionWhere>;
+};
+
+export type EventAggregateSelection = {
+  __typename?: 'EventAggregateSelection';
+  count: Scalars['Int']['output'];
+  description: StringAggregateSelectionNullable;
+  endAt: DateTimeAggregateSelectionNullable;
+  id: IdAggregateSelectionNonNullable;
+  image: StringAggregateSelectionNullable;
+  location: StringAggregateSelectionNullable;
+  name: StringAggregateSelectionNullable;
+  startAt: DateTimeAggregateSelectionNullable;
+};
+
+export type EventConnectInput = {
+  adminHas?: InputMaybe<EventAdminHasConnectFieldInput>;
+};
+
+export type EventConnectOrCreateInput = {
+  adminHas?: InputMaybe<EventAdminHasConnectOrCreateFieldInput>;
+};
+
+export type EventConnectOrCreateWhere = {
+  node: EventUniqueWhere;
+};
+
+export type EventConnectWhere = {
+  node: EventWhere;
+};
+
+export type EventCreateInput = {
+  adminHas?: InputMaybe<EventAdminHasFieldInput>;
+  description?: InputMaybe<Scalars['String']['input']>;
+  endAt?: InputMaybe<Scalars['DateTime']['input']>;
+  image?: InputMaybe<Scalars['String']['input']>;
+  location?: InputMaybe<Scalars['String']['input']>;
+  name?: InputMaybe<Scalars['String']['input']>;
+  startAt?: InputMaybe<Scalars['DateTime']['input']>;
+};
+
+export type EventDeleteInput = {
+  adminHas?: InputMaybe<EventAdminHasDeleteFieldInput>;
+};
+
+export type EventDisconnectInput = {
+  adminHas?: InputMaybe<EventAdminHasDisconnectFieldInput>;
+};
+
+export type EventEdge = {
+  __typename?: 'EventEdge';
+  cursor: Scalars['String']['output'];
+  node: Event;
+};
+
+export type EventOnCreateInput = {
+  description?: InputMaybe<Scalars['String']['input']>;
+  endAt?: InputMaybe<Scalars['DateTime']['input']>;
+  image?: InputMaybe<Scalars['String']['input']>;
+  location?: InputMaybe<Scalars['String']['input']>;
+  name?: InputMaybe<Scalars['String']['input']>;
+  startAt?: InputMaybe<Scalars['DateTime']['input']>;
+};
+
+export type EventOptions = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  /** Specify one or more EventSort objects to sort Events by. The sorts will be applied in the order in which they are arranged in the array. */
+  sort?: InputMaybe<Array<EventSort>>;
+};
+
+export type EventRelationInput = {
+  adminHas?: InputMaybe<EventAdminHasCreateFieldInput>;
+};
+
+/** Fields to sort Events by. The order in which sorts are applied is not guaranteed when specifying many fields in one EventSort object. */
+export type EventSort = {
+  description?: InputMaybe<SortDirection>;
+  endAt?: InputMaybe<SortDirection>;
+  id?: InputMaybe<SortDirection>;
+  image?: InputMaybe<SortDirection>;
+  location?: InputMaybe<SortDirection>;
+  name?: InputMaybe<SortDirection>;
+  startAt?: InputMaybe<SortDirection>;
+};
+
+export type EventUniqueWhere = {
+  id?: InputMaybe<Scalars['ID']['input']>;
+};
+
+export type EventUpdateInput = {
+  adminHas?: InputMaybe<EventAdminHasUpdateFieldInput>;
+  description?: InputMaybe<Scalars['String']['input']>;
+  endAt?: InputMaybe<Scalars['DateTime']['input']>;
+  image?: InputMaybe<Scalars['String']['input']>;
+  location?: InputMaybe<Scalars['String']['input']>;
+  name?: InputMaybe<Scalars['String']['input']>;
+  startAt?: InputMaybe<Scalars['DateTime']['input']>;
+};
+
+export type EventWhere = {
+  AND?: InputMaybe<Array<EventWhere>>;
+  NOT?: InputMaybe<EventWhere>;
+  OR?: InputMaybe<Array<EventWhere>>;
+  adminHas?: InputMaybe<AdminWhere>;
+  adminHasAggregate?: InputMaybe<EventAdminHasAggregateInput>;
+  adminHasConnection?: InputMaybe<EventAdminHasConnectionWhere>;
+  adminHasConnection_NOT?: InputMaybe<EventAdminHasConnectionWhere>;
+  adminHas_NOT?: InputMaybe<AdminWhere>;
+  description?: InputMaybe<Scalars['String']['input']>;
+  description_CONTAINS?: InputMaybe<Scalars['String']['input']>;
+  description_ENDS_WITH?: InputMaybe<Scalars['String']['input']>;
+  description_IN?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  description_STARTS_WITH?: InputMaybe<Scalars['String']['input']>;
+  endAt?: InputMaybe<Scalars['DateTime']['input']>;
+  endAt_GT?: InputMaybe<Scalars['DateTime']['input']>;
+  endAt_GTE?: InputMaybe<Scalars['DateTime']['input']>;
+  endAt_IN?: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
+  endAt_LT?: InputMaybe<Scalars['DateTime']['input']>;
+  endAt_LTE?: InputMaybe<Scalars['DateTime']['input']>;
+  id?: InputMaybe<Scalars['ID']['input']>;
+  id_CONTAINS?: InputMaybe<Scalars['ID']['input']>;
+  id_ENDS_WITH?: InputMaybe<Scalars['ID']['input']>;
+  id_IN?: InputMaybe<Array<Scalars['ID']['input']>>;
+  id_STARTS_WITH?: InputMaybe<Scalars['ID']['input']>;
+  image?: InputMaybe<Scalars['String']['input']>;
+  image_CONTAINS?: InputMaybe<Scalars['String']['input']>;
+  image_ENDS_WITH?: InputMaybe<Scalars['String']['input']>;
+  image_IN?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  image_STARTS_WITH?: InputMaybe<Scalars['String']['input']>;
+  location?: InputMaybe<Scalars['String']['input']>;
+  location_CONTAINS?: InputMaybe<Scalars['String']['input']>;
+  location_ENDS_WITH?: InputMaybe<Scalars['String']['input']>;
+  location_IN?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  location_STARTS_WITH?: InputMaybe<Scalars['String']['input']>;
+  name?: InputMaybe<Scalars['String']['input']>;
+  name_CONTAINS?: InputMaybe<Scalars['String']['input']>;
+  name_ENDS_WITH?: InputMaybe<Scalars['String']['input']>;
+  name_IN?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  name_STARTS_WITH?: InputMaybe<Scalars['String']['input']>;
+  startAt?: InputMaybe<Scalars['DateTime']['input']>;
+  startAt_GT?: InputMaybe<Scalars['DateTime']['input']>;
+  startAt_GTE?: InputMaybe<Scalars['DateTime']['input']>;
+  startAt_IN?: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
+  startAt_LT?: InputMaybe<Scalars['DateTime']['input']>;
+  startAt_LTE?: InputMaybe<Scalars['DateTime']['input']>;
+};
+
+export type EventsConnection = {
+  __typename?: 'EventsConnection';
+  edges: Array<EventEdge>;
+  pageInfo: PageInfo;
+  totalCount: Scalars['Int']['output'];
+};
+
+export type FeaturesPage = {
+  __typename?: 'FeaturesPage';
+  adminHas?: Maybe<Admin>;
+  adminHasAggregate?: Maybe<FeaturesPageAdminAdminHasAggregationSelection>;
+  adminHasConnection: FeaturesPageAdminHasConnection;
+  description?: Maybe<Scalars['String']['output']>;
+  id: Scalars['ID']['output'];
+  image?: Maybe<Scalars['String']['output']>;
+  title?: Maybe<Scalars['String']['output']>;
+};
+
+
+export type FeaturesPageAdminHasArgs = {
+  directed?: InputMaybe<Scalars['Boolean']['input']>;
+  options?: InputMaybe<AdminOptions>;
+  where?: InputMaybe<AdminWhere>;
+};
+
+
+export type FeaturesPageAdminHasAggregateArgs = {
+  directed?: InputMaybe<Scalars['Boolean']['input']>;
+  where?: InputMaybe<AdminWhere>;
+};
+
+
+export type FeaturesPageAdminHasConnectionArgs = {
+  after?: InputMaybe<Scalars['String']['input']>;
+  directed?: InputMaybe<Scalars['Boolean']['input']>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  sort?: InputMaybe<Array<FeaturesPageAdminHasConnectionSort>>;
+  where?: InputMaybe<FeaturesPageAdminHasConnectionWhere>;
+};
+
+export type FeaturesPageAdminAdminHasAggregationSelection = {
+  __typename?: 'FeaturesPageAdminAdminHasAggregationSelection';
+  count: Scalars['Int']['output'];
+  node?: Maybe<FeaturesPageAdminAdminHasNodeAggregateSelection>;
+};
+
+export type FeaturesPageAdminAdminHasNodeAggregateSelection = {
+  __typename?: 'FeaturesPageAdminAdminHasNodeAggregateSelection';
+  id: IdAggregateSelectionNonNullable;
+};
+
+export type FeaturesPageAdminHasAggregateInput = {
+  AND?: InputMaybe<Array<FeaturesPageAdminHasAggregateInput>>;
+  NOT?: InputMaybe<FeaturesPageAdminHasAggregateInput>;
+  OR?: InputMaybe<Array<FeaturesPageAdminHasAggregateInput>>;
+  count?: InputMaybe<Scalars['Int']['input']>;
+  count_GT?: InputMaybe<Scalars['Int']['input']>;
+  count_GTE?: InputMaybe<Scalars['Int']['input']>;
+  count_LT?: InputMaybe<Scalars['Int']['input']>;
+  count_LTE?: InputMaybe<Scalars['Int']['input']>;
+  node?: InputMaybe<FeaturesPageAdminHasNodeAggregationWhereInput>;
+};
+
+export type FeaturesPageAdminHasConnectFieldInput = {
+  connect?: InputMaybe<AdminConnectInput>;
+  /** Whether or not to overwrite any matching relationship with the new properties. Will default to `false` in 4.0.0. */
+  overwrite?: Scalars['Boolean']['input'];
+  where?: InputMaybe<AdminConnectWhere>;
+};
+
+export type FeaturesPageAdminHasConnectOrCreateFieldInput = {
+  onCreate: FeaturesPageAdminHasConnectOrCreateFieldInputOnCreate;
+  where: AdminConnectOrCreateWhere;
+};
+
+export type FeaturesPageAdminHasConnectOrCreateFieldInputOnCreate = {
+  node: AdminOnCreateInput;
+};
+
+export type FeaturesPageAdminHasConnection = {
+  __typename?: 'FeaturesPageAdminHasConnection';
+  edges: Array<FeaturesPageAdminHasRelationship>;
+  pageInfo: PageInfo;
+  totalCount: Scalars['Int']['output'];
+};
+
+export type FeaturesPageAdminHasConnectionSort = {
+  node?: InputMaybe<AdminSort>;
+};
+
+export type FeaturesPageAdminHasConnectionWhere = {
+  AND?: InputMaybe<Array<FeaturesPageAdminHasConnectionWhere>>;
+  NOT?: InputMaybe<FeaturesPageAdminHasConnectionWhere>;
+  OR?: InputMaybe<Array<FeaturesPageAdminHasConnectionWhere>>;
+  node?: InputMaybe<AdminWhere>;
+};
+
+export type FeaturesPageAdminHasCreateFieldInput = {
+  node: AdminCreateInput;
+};
+
+export type FeaturesPageAdminHasDeleteFieldInput = {
+  delete?: InputMaybe<AdminDeleteInput>;
+  where?: InputMaybe<FeaturesPageAdminHasConnectionWhere>;
+};
+
+export type FeaturesPageAdminHasDisconnectFieldInput = {
+  disconnect?: InputMaybe<AdminDisconnectInput>;
+  where?: InputMaybe<FeaturesPageAdminHasConnectionWhere>;
+};
+
+export type FeaturesPageAdminHasFieldInput = {
+  connect?: InputMaybe<FeaturesPageAdminHasConnectFieldInput>;
+  connectOrCreate?: InputMaybe<FeaturesPageAdminHasConnectOrCreateFieldInput>;
+  create?: InputMaybe<FeaturesPageAdminHasCreateFieldInput>;
+};
+
+export type FeaturesPageAdminHasNodeAggregationWhereInput = {
+  AND?: InputMaybe<Array<FeaturesPageAdminHasNodeAggregationWhereInput>>;
+  NOT?: InputMaybe<FeaturesPageAdminHasNodeAggregationWhereInput>;
+  OR?: InputMaybe<Array<FeaturesPageAdminHasNodeAggregationWhereInput>>;
+};
+
+export type FeaturesPageAdminHasRelationship = {
+  __typename?: 'FeaturesPageAdminHasRelationship';
+  cursor: Scalars['String']['output'];
+  node: Admin;
+};
+
+export type FeaturesPageAdminHasUpdateConnectionInput = {
+  node?: InputMaybe<AdminUpdateInput>;
+};
+
+export type FeaturesPageAdminHasUpdateFieldInput = {
+  connect?: InputMaybe<FeaturesPageAdminHasConnectFieldInput>;
+  connectOrCreate?: InputMaybe<FeaturesPageAdminHasConnectOrCreateFieldInput>;
+  create?: InputMaybe<FeaturesPageAdminHasCreateFieldInput>;
+  delete?: InputMaybe<FeaturesPageAdminHasDeleteFieldInput>;
+  disconnect?: InputMaybe<FeaturesPageAdminHasDisconnectFieldInput>;
+  update?: InputMaybe<FeaturesPageAdminHasUpdateConnectionInput>;
+  where?: InputMaybe<FeaturesPageAdminHasConnectionWhere>;
+};
+
+export type FeaturesPageAggregateSelection = {
+  __typename?: 'FeaturesPageAggregateSelection';
+  count: Scalars['Int']['output'];
+  description: StringAggregateSelectionNullable;
+  id: IdAggregateSelectionNonNullable;
+  image: StringAggregateSelectionNullable;
+  title: StringAggregateSelectionNullable;
+};
+
+export type FeaturesPageConnectInput = {
+  adminHas?: InputMaybe<FeaturesPageAdminHasConnectFieldInput>;
+};
+
+export type FeaturesPageConnectOrCreateInput = {
+  adminHas?: InputMaybe<FeaturesPageAdminHasConnectOrCreateFieldInput>;
+};
+
+export type FeaturesPageConnectOrCreateWhere = {
+  node: FeaturesPageUniqueWhere;
+};
+
+export type FeaturesPageConnectWhere = {
+  node: FeaturesPageWhere;
+};
+
+export type FeaturesPageCreateInput = {
+  adminHas?: InputMaybe<FeaturesPageAdminHasFieldInput>;
+  description?: InputMaybe<Scalars['String']['input']>;
+  image?: InputMaybe<Scalars['String']['input']>;
+  title?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type FeaturesPageDeleteInput = {
+  adminHas?: InputMaybe<FeaturesPageAdminHasDeleteFieldInput>;
+};
+
+export type FeaturesPageDisconnectInput = {
+  adminHas?: InputMaybe<FeaturesPageAdminHasDisconnectFieldInput>;
+};
+
+export type FeaturesPageEdge = {
+  __typename?: 'FeaturesPageEdge';
+  cursor: Scalars['String']['output'];
+  node: FeaturesPage;
+};
+
+export type FeaturesPageOnCreateInput = {
+  description?: InputMaybe<Scalars['String']['input']>;
+  image?: InputMaybe<Scalars['String']['input']>;
+  title?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type FeaturesPageOptions = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  /** Specify one or more FeaturesPageSort objects to sort FeaturesPages by. The sorts will be applied in the order in which they are arranged in the array. */
+  sort?: InputMaybe<Array<FeaturesPageSort>>;
+};
+
+export type FeaturesPageRelationInput = {
+  adminHas?: InputMaybe<FeaturesPageAdminHasCreateFieldInput>;
+};
+
+/** Fields to sort FeaturesPages by. The order in which sorts are applied is not guaranteed when specifying many fields in one FeaturesPageSort object. */
+export type FeaturesPageSort = {
+  description?: InputMaybe<SortDirection>;
+  id?: InputMaybe<SortDirection>;
+  image?: InputMaybe<SortDirection>;
+  title?: InputMaybe<SortDirection>;
+};
+
+export type FeaturesPageUniqueWhere = {
+  id?: InputMaybe<Scalars['ID']['input']>;
+};
+
+export type FeaturesPageUpdateInput = {
+  adminHas?: InputMaybe<FeaturesPageAdminHasUpdateFieldInput>;
+  description?: InputMaybe<Scalars['String']['input']>;
+  image?: InputMaybe<Scalars['String']['input']>;
+  title?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type FeaturesPageWhere = {
+  AND?: InputMaybe<Array<FeaturesPageWhere>>;
+  NOT?: InputMaybe<FeaturesPageWhere>;
+  OR?: InputMaybe<Array<FeaturesPageWhere>>;
+  adminHas?: InputMaybe<AdminWhere>;
+  adminHasAggregate?: InputMaybe<FeaturesPageAdminHasAggregateInput>;
+  adminHasConnection?: InputMaybe<FeaturesPageAdminHasConnectionWhere>;
+  adminHasConnection_NOT?: InputMaybe<FeaturesPageAdminHasConnectionWhere>;
+  adminHas_NOT?: InputMaybe<AdminWhere>;
+  description?: InputMaybe<Scalars['String']['input']>;
+  description_CONTAINS?: InputMaybe<Scalars['String']['input']>;
+  description_ENDS_WITH?: InputMaybe<Scalars['String']['input']>;
+  description_IN?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  description_STARTS_WITH?: InputMaybe<Scalars['String']['input']>;
+  id?: InputMaybe<Scalars['ID']['input']>;
+  id_CONTAINS?: InputMaybe<Scalars['ID']['input']>;
+  id_ENDS_WITH?: InputMaybe<Scalars['ID']['input']>;
+  id_IN?: InputMaybe<Array<Scalars['ID']['input']>>;
+  id_STARTS_WITH?: InputMaybe<Scalars['ID']['input']>;
+  image?: InputMaybe<Scalars['String']['input']>;
+  image_CONTAINS?: InputMaybe<Scalars['String']['input']>;
+  image_ENDS_WITH?: InputMaybe<Scalars['String']['input']>;
+  image_IN?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  image_STARTS_WITH?: InputMaybe<Scalars['String']['input']>;
+  title?: InputMaybe<Scalars['String']['input']>;
+  title_CONTAINS?: InputMaybe<Scalars['String']['input']>;
+  title_ENDS_WITH?: InputMaybe<Scalars['String']['input']>;
+  title_IN?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  title_STARTS_WITH?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type FeaturesPagesConnection = {
+  __typename?: 'FeaturesPagesConnection';
+  edges: Array<FeaturesPageEdge>;
+  pageInfo: PageInfo;
+  totalCount: Scalars['Int']['output'];
+};
+
 export type Files = {
   __typename?: 'Files';
   documentsHas?: Maybe<Documents>;
@@ -8282,6 +10807,10 @@ export type FilesConnectInput = {
   documentsHas?: InputMaybe<FilesDocumentsHasConnectFieldInput>;
 };
 
+export type FilesConnectOrCreateInput = {
+  documentsHas?: InputMaybe<FilesDocumentsHasConnectOrCreateFieldInput>;
+};
+
 export type FilesConnectOrCreateWhere = {
   node: FilesUniqueWhere;
 };
@@ -8318,7 +10847,7 @@ export type FilesDocumentsDocumentsHasAggregationSelection = {
 
 export type FilesDocumentsDocumentsHasNodeAggregateSelection = {
   __typename?: 'FilesDocumentsDocumentsHasNodeAggregateSelection';
-  id: StringAggregateSelectionNullable;
+  id: IdAggregateSelectionNonNullable;
 };
 
 export type FilesDocumentsHasAggregateInput = {
@@ -8338,6 +10867,15 @@ export type FilesDocumentsHasConnectFieldInput = {
   /** Whether or not to overwrite any matching relationship with the new properties. Will default to `false` in 4.0.0. */
   overwrite?: Scalars['Boolean']['input'];
   where?: InputMaybe<DocumentsConnectWhere>;
+};
+
+export type FilesDocumentsHasConnectOrCreateFieldInput = {
+  onCreate: FilesDocumentsHasConnectOrCreateFieldInputOnCreate;
+  where: DocumentsConnectOrCreateWhere;
+};
+
+export type FilesDocumentsHasConnectOrCreateFieldInputOnCreate = {
+  node: DocumentsOnCreateInput;
 };
 
 export type FilesDocumentsHasConnection = {
@@ -8374,6 +10912,7 @@ export type FilesDocumentsHasDisconnectFieldInput = {
 
 export type FilesDocumentsHasFieldInput = {
   connect?: InputMaybe<FilesDocumentsHasConnectFieldInput>;
+  connectOrCreate?: InputMaybe<FilesDocumentsHasConnectOrCreateFieldInput>;
   create?: InputMaybe<FilesDocumentsHasCreateFieldInput>;
 };
 
@@ -8381,21 +10920,6 @@ export type FilesDocumentsHasNodeAggregationWhereInput = {
   AND?: InputMaybe<Array<FilesDocumentsHasNodeAggregationWhereInput>>;
   NOT?: InputMaybe<FilesDocumentsHasNodeAggregationWhereInput>;
   OR?: InputMaybe<Array<FilesDocumentsHasNodeAggregationWhereInput>>;
-  id_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
-  id_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
-  id_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
-  id_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
-  id_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
-  id_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  id_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  id_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  id_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  id_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  id_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  id_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  id_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  id_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  id_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
 };
 
 export type FilesDocumentsHasRelationship = {
@@ -8410,6 +10934,7 @@ export type FilesDocumentsHasUpdateConnectionInput = {
 
 export type FilesDocumentsHasUpdateFieldInput = {
   connect?: InputMaybe<FilesDocumentsHasConnectFieldInput>;
+  connectOrCreate?: InputMaybe<FilesDocumentsHasConnectOrCreateFieldInput>;
   create?: InputMaybe<FilesDocumentsHasCreateFieldInput>;
   delete?: InputMaybe<FilesDocumentsHasDeleteFieldInput>;
   disconnect?: InputMaybe<FilesDocumentsHasDisconnectFieldInput>;
@@ -8472,6 +10997,1329 @@ export type FilesWhere = {
   links_INCLUDES?: InputMaybe<Scalars['String']['input']>;
 };
 
+export type HomeClient = {
+  __typename?: 'HomeClient';
+  homepageHas?: Maybe<HomePage>;
+  homepageHasAggregate?: Maybe<HomeClientHomePageHomepageHasAggregationSelection>;
+  homepageHasConnection: HomeClientHomepageHasConnection;
+  id: Scalars['ID']['output'];
+  logo?: Maybe<Scalars['String']['output']>;
+  name?: Maybe<Scalars['String']['output']>;
+};
+
+
+export type HomeClientHomepageHasArgs = {
+  directed?: InputMaybe<Scalars['Boolean']['input']>;
+  options?: InputMaybe<HomePageOptions>;
+  where?: InputMaybe<HomePageWhere>;
+};
+
+
+export type HomeClientHomepageHasAggregateArgs = {
+  directed?: InputMaybe<Scalars['Boolean']['input']>;
+  where?: InputMaybe<HomePageWhere>;
+};
+
+
+export type HomeClientHomepageHasConnectionArgs = {
+  after?: InputMaybe<Scalars['String']['input']>;
+  directed?: InputMaybe<Scalars['Boolean']['input']>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  sort?: InputMaybe<Array<HomeClientHomepageHasConnectionSort>>;
+  where?: InputMaybe<HomeClientHomepageHasConnectionWhere>;
+};
+
+export type HomeClientAggregateSelection = {
+  __typename?: 'HomeClientAggregateSelection';
+  count: Scalars['Int']['output'];
+  id: IdAggregateSelectionNonNullable;
+  logo: StringAggregateSelectionNullable;
+  name: StringAggregateSelectionNullable;
+};
+
+export type HomeClientConnectInput = {
+  homepageHas?: InputMaybe<HomeClientHomepageHasConnectFieldInput>;
+};
+
+export type HomeClientConnectOrCreateInput = {
+  homepageHas?: InputMaybe<HomeClientHomepageHasConnectOrCreateFieldInput>;
+};
+
+export type HomeClientConnectOrCreateWhere = {
+  node: HomeClientUniqueWhere;
+};
+
+export type HomeClientConnectWhere = {
+  node: HomeClientWhere;
+};
+
+export type HomeClientCreateInput = {
+  homepageHas?: InputMaybe<HomeClientHomepageHasFieldInput>;
+  logo?: InputMaybe<Scalars['String']['input']>;
+  name?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type HomeClientDeleteInput = {
+  homepageHas?: InputMaybe<HomeClientHomepageHasDeleteFieldInput>;
+};
+
+export type HomeClientDisconnectInput = {
+  homepageHas?: InputMaybe<HomeClientHomepageHasDisconnectFieldInput>;
+};
+
+export type HomeClientEdge = {
+  __typename?: 'HomeClientEdge';
+  cursor: Scalars['String']['output'];
+  node: HomeClient;
+};
+
+export type HomeClientHomePageHomepageHasAggregationSelection = {
+  __typename?: 'HomeClientHomePageHomepageHasAggregationSelection';
+  count: Scalars['Int']['output'];
+  node?: Maybe<HomeClientHomePageHomepageHasNodeAggregateSelection>;
+};
+
+export type HomeClientHomePageHomepageHasNodeAggregateSelection = {
+  __typename?: 'HomeClientHomePageHomepageHasNodeAggregateSelection';
+  heroImage: StringAggregateSelectionNullable;
+  heroText: StringAggregateSelectionNullable;
+  id: IdAggregateSelectionNonNullable;
+};
+
+export type HomeClientHomepageHasAggregateInput = {
+  AND?: InputMaybe<Array<HomeClientHomepageHasAggregateInput>>;
+  NOT?: InputMaybe<HomeClientHomepageHasAggregateInput>;
+  OR?: InputMaybe<Array<HomeClientHomepageHasAggregateInput>>;
+  count?: InputMaybe<Scalars['Int']['input']>;
+  count_GT?: InputMaybe<Scalars['Int']['input']>;
+  count_GTE?: InputMaybe<Scalars['Int']['input']>;
+  count_LT?: InputMaybe<Scalars['Int']['input']>;
+  count_LTE?: InputMaybe<Scalars['Int']['input']>;
+  node?: InputMaybe<HomeClientHomepageHasNodeAggregationWhereInput>;
+};
+
+export type HomeClientHomepageHasConnectFieldInput = {
+  connect?: InputMaybe<HomePageConnectInput>;
+  /** Whether or not to overwrite any matching relationship with the new properties. Will default to `false` in 4.0.0. */
+  overwrite?: Scalars['Boolean']['input'];
+  where?: InputMaybe<HomePageConnectWhere>;
+};
+
+export type HomeClientHomepageHasConnectOrCreateFieldInput = {
+  onCreate: HomeClientHomepageHasConnectOrCreateFieldInputOnCreate;
+  where: HomePageConnectOrCreateWhere;
+};
+
+export type HomeClientHomepageHasConnectOrCreateFieldInputOnCreate = {
+  node: HomePageOnCreateInput;
+};
+
+export type HomeClientHomepageHasConnection = {
+  __typename?: 'HomeClientHomepageHasConnection';
+  edges: Array<HomeClientHomepageHasRelationship>;
+  pageInfo: PageInfo;
+  totalCount: Scalars['Int']['output'];
+};
+
+export type HomeClientHomepageHasConnectionSort = {
+  node?: InputMaybe<HomePageSort>;
+};
+
+export type HomeClientHomepageHasConnectionWhere = {
+  AND?: InputMaybe<Array<HomeClientHomepageHasConnectionWhere>>;
+  NOT?: InputMaybe<HomeClientHomepageHasConnectionWhere>;
+  OR?: InputMaybe<Array<HomeClientHomepageHasConnectionWhere>>;
+  node?: InputMaybe<HomePageWhere>;
+};
+
+export type HomeClientHomepageHasCreateFieldInput = {
+  node: HomePageCreateInput;
+};
+
+export type HomeClientHomepageHasDeleteFieldInput = {
+  delete?: InputMaybe<HomePageDeleteInput>;
+  where?: InputMaybe<HomeClientHomepageHasConnectionWhere>;
+};
+
+export type HomeClientHomepageHasDisconnectFieldInput = {
+  disconnect?: InputMaybe<HomePageDisconnectInput>;
+  where?: InputMaybe<HomeClientHomepageHasConnectionWhere>;
+};
+
+export type HomeClientHomepageHasFieldInput = {
+  connect?: InputMaybe<HomeClientHomepageHasConnectFieldInput>;
+  connectOrCreate?: InputMaybe<HomeClientHomepageHasConnectOrCreateFieldInput>;
+  create?: InputMaybe<HomeClientHomepageHasCreateFieldInput>;
+};
+
+export type HomeClientHomepageHasNodeAggregationWhereInput = {
+  AND?: InputMaybe<Array<HomeClientHomepageHasNodeAggregationWhereInput>>;
+  NOT?: InputMaybe<HomeClientHomepageHasNodeAggregationWhereInput>;
+  OR?: InputMaybe<Array<HomeClientHomepageHasNodeAggregationWhereInput>>;
+  heroImage_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  heroImage_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  heroImage_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  heroImage_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  heroImage_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  heroImage_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  heroImage_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  heroImage_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  heroImage_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  heroImage_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  heroImage_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  heroImage_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  heroImage_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  heroImage_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  heroImage_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  heroText_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  heroText_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  heroText_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  heroText_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  heroText_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  heroText_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  heroText_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  heroText_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  heroText_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  heroText_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  heroText_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  heroText_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  heroText_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  heroText_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  heroText_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+};
+
+export type HomeClientHomepageHasRelationship = {
+  __typename?: 'HomeClientHomepageHasRelationship';
+  cursor: Scalars['String']['output'];
+  node: HomePage;
+};
+
+export type HomeClientHomepageHasUpdateConnectionInput = {
+  node?: InputMaybe<HomePageUpdateInput>;
+};
+
+export type HomeClientHomepageHasUpdateFieldInput = {
+  connect?: InputMaybe<HomeClientHomepageHasConnectFieldInput>;
+  connectOrCreate?: InputMaybe<HomeClientHomepageHasConnectOrCreateFieldInput>;
+  create?: InputMaybe<HomeClientHomepageHasCreateFieldInput>;
+  delete?: InputMaybe<HomeClientHomepageHasDeleteFieldInput>;
+  disconnect?: InputMaybe<HomeClientHomepageHasDisconnectFieldInput>;
+  update?: InputMaybe<HomeClientHomepageHasUpdateConnectionInput>;
+  where?: InputMaybe<HomeClientHomepageHasConnectionWhere>;
+};
+
+export type HomeClientOnCreateInput = {
+  logo?: InputMaybe<Scalars['String']['input']>;
+  name?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type HomeClientOptions = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  /** Specify one or more HomeClientSort objects to sort HomeClients by. The sorts will be applied in the order in which they are arranged in the array. */
+  sort?: InputMaybe<Array<HomeClientSort>>;
+};
+
+export type HomeClientRelationInput = {
+  homepageHas?: InputMaybe<HomeClientHomepageHasCreateFieldInput>;
+};
+
+/** Fields to sort HomeClients by. The order in which sorts are applied is not guaranteed when specifying many fields in one HomeClientSort object. */
+export type HomeClientSort = {
+  id?: InputMaybe<SortDirection>;
+  logo?: InputMaybe<SortDirection>;
+  name?: InputMaybe<SortDirection>;
+};
+
+export type HomeClientUniqueWhere = {
+  id?: InputMaybe<Scalars['ID']['input']>;
+};
+
+export type HomeClientUpdateInput = {
+  homepageHas?: InputMaybe<HomeClientHomepageHasUpdateFieldInput>;
+  logo?: InputMaybe<Scalars['String']['input']>;
+  name?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type HomeClientWhere = {
+  AND?: InputMaybe<Array<HomeClientWhere>>;
+  NOT?: InputMaybe<HomeClientWhere>;
+  OR?: InputMaybe<Array<HomeClientWhere>>;
+  homepageHas?: InputMaybe<HomePageWhere>;
+  homepageHasAggregate?: InputMaybe<HomeClientHomepageHasAggregateInput>;
+  homepageHasConnection?: InputMaybe<HomeClientHomepageHasConnectionWhere>;
+  homepageHasConnection_NOT?: InputMaybe<HomeClientHomepageHasConnectionWhere>;
+  homepageHas_NOT?: InputMaybe<HomePageWhere>;
+  id?: InputMaybe<Scalars['ID']['input']>;
+  id_CONTAINS?: InputMaybe<Scalars['ID']['input']>;
+  id_ENDS_WITH?: InputMaybe<Scalars['ID']['input']>;
+  id_IN?: InputMaybe<Array<Scalars['ID']['input']>>;
+  id_STARTS_WITH?: InputMaybe<Scalars['ID']['input']>;
+  logo?: InputMaybe<Scalars['String']['input']>;
+  logo_CONTAINS?: InputMaybe<Scalars['String']['input']>;
+  logo_ENDS_WITH?: InputMaybe<Scalars['String']['input']>;
+  logo_IN?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  logo_STARTS_WITH?: InputMaybe<Scalars['String']['input']>;
+  name?: InputMaybe<Scalars['String']['input']>;
+  name_CONTAINS?: InputMaybe<Scalars['String']['input']>;
+  name_ENDS_WITH?: InputMaybe<Scalars['String']['input']>;
+  name_IN?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  name_STARTS_WITH?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type HomeClientsConnection = {
+  __typename?: 'HomeClientsConnection';
+  edges: Array<HomeClientEdge>;
+  pageInfo: PageInfo;
+  totalCount: Scalars['Int']['output'];
+};
+
+export type HomePage = {
+  __typename?: 'HomePage';
+  hasHomeclient: Array<HomeClient>;
+  hasHomeclientAggregate?: Maybe<HomePageHomeClientHasHomeclientAggregationSelection>;
+  hasHomeclientConnection: HomePageHasHomeclientConnection;
+  hasHomeservices: Array<HomeServices>;
+  hasHomeservicesAggregate?: Maybe<HomePageHomeServicesHasHomeservicesAggregationSelection>;
+  hasHomeservicesConnection: HomePageHasHomeservicesConnection;
+  hasProduct: Array<Product>;
+  hasProductAggregate?: Maybe<HomePageProductHasProductAggregationSelection>;
+  hasProductConnection: HomePageHasProductConnection;
+  heroImage?: Maybe<Scalars['String']['output']>;
+  heroText?: Maybe<Scalars['String']['output']>;
+  id: Scalars['ID']['output'];
+};
+
+
+export type HomePageHasHomeclientArgs = {
+  directed?: InputMaybe<Scalars['Boolean']['input']>;
+  options?: InputMaybe<HomeClientOptions>;
+  where?: InputMaybe<HomeClientWhere>;
+};
+
+
+export type HomePageHasHomeclientAggregateArgs = {
+  directed?: InputMaybe<Scalars['Boolean']['input']>;
+  where?: InputMaybe<HomeClientWhere>;
+};
+
+
+export type HomePageHasHomeclientConnectionArgs = {
+  after?: InputMaybe<Scalars['String']['input']>;
+  directed?: InputMaybe<Scalars['Boolean']['input']>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  sort?: InputMaybe<Array<HomePageHasHomeclientConnectionSort>>;
+  where?: InputMaybe<HomePageHasHomeclientConnectionWhere>;
+};
+
+
+export type HomePageHasHomeservicesArgs = {
+  directed?: InputMaybe<Scalars['Boolean']['input']>;
+  options?: InputMaybe<HomeServicesOptions>;
+  where?: InputMaybe<HomeServicesWhere>;
+};
+
+
+export type HomePageHasHomeservicesAggregateArgs = {
+  directed?: InputMaybe<Scalars['Boolean']['input']>;
+  where?: InputMaybe<HomeServicesWhere>;
+};
+
+
+export type HomePageHasHomeservicesConnectionArgs = {
+  after?: InputMaybe<Scalars['String']['input']>;
+  directed?: InputMaybe<Scalars['Boolean']['input']>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  sort?: InputMaybe<Array<HomePageHasHomeservicesConnectionSort>>;
+  where?: InputMaybe<HomePageHasHomeservicesConnectionWhere>;
+};
+
+
+export type HomePageHasProductArgs = {
+  directed?: InputMaybe<Scalars['Boolean']['input']>;
+  options?: InputMaybe<ProductOptions>;
+  where?: InputMaybe<ProductWhere>;
+};
+
+
+export type HomePageHasProductAggregateArgs = {
+  directed?: InputMaybe<Scalars['Boolean']['input']>;
+  where?: InputMaybe<ProductWhere>;
+};
+
+
+export type HomePageHasProductConnectionArgs = {
+  after?: InputMaybe<Scalars['String']['input']>;
+  directed?: InputMaybe<Scalars['Boolean']['input']>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  sort?: InputMaybe<Array<HomePageHasProductConnectionSort>>;
+  where?: InputMaybe<HomePageHasProductConnectionWhere>;
+};
+
+export type HomePageAggregateSelection = {
+  __typename?: 'HomePageAggregateSelection';
+  count: Scalars['Int']['output'];
+  heroImage: StringAggregateSelectionNullable;
+  heroText: StringAggregateSelectionNullable;
+  id: IdAggregateSelectionNonNullable;
+};
+
+export type HomePageConnectInput = {
+  hasHomeclient?: InputMaybe<Array<HomePageHasHomeclientConnectFieldInput>>;
+  hasHomeservices?: InputMaybe<Array<HomePageHasHomeservicesConnectFieldInput>>;
+  hasProduct?: InputMaybe<Array<HomePageHasProductConnectFieldInput>>;
+};
+
+export type HomePageConnectOrCreateInput = {
+  hasHomeclient?: InputMaybe<Array<HomePageHasHomeclientConnectOrCreateFieldInput>>;
+  hasHomeservices?: InputMaybe<Array<HomePageHasHomeservicesConnectOrCreateFieldInput>>;
+  hasProduct?: InputMaybe<Array<HomePageHasProductConnectOrCreateFieldInput>>;
+};
+
+export type HomePageConnectOrCreateWhere = {
+  node: HomePageUniqueWhere;
+};
+
+export type HomePageConnectWhere = {
+  node: HomePageWhere;
+};
+
+export type HomePageCreateInput = {
+  hasHomeclient?: InputMaybe<HomePageHasHomeclientFieldInput>;
+  hasHomeservices?: InputMaybe<HomePageHasHomeservicesFieldInput>;
+  hasProduct?: InputMaybe<HomePageHasProductFieldInput>;
+  heroImage?: InputMaybe<Scalars['String']['input']>;
+  heroText?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type HomePageDeleteInput = {
+  hasHomeclient?: InputMaybe<Array<HomePageHasHomeclientDeleteFieldInput>>;
+  hasHomeservices?: InputMaybe<Array<HomePageHasHomeservicesDeleteFieldInput>>;
+  hasProduct?: InputMaybe<Array<HomePageHasProductDeleteFieldInput>>;
+};
+
+export type HomePageDisconnectInput = {
+  hasHomeclient?: InputMaybe<Array<HomePageHasHomeclientDisconnectFieldInput>>;
+  hasHomeservices?: InputMaybe<Array<HomePageHasHomeservicesDisconnectFieldInput>>;
+  hasProduct?: InputMaybe<Array<HomePageHasProductDisconnectFieldInput>>;
+};
+
+export type HomePageEdge = {
+  __typename?: 'HomePageEdge';
+  cursor: Scalars['String']['output'];
+  node: HomePage;
+};
+
+export type HomePageHasHomeclientAggregateInput = {
+  AND?: InputMaybe<Array<HomePageHasHomeclientAggregateInput>>;
+  NOT?: InputMaybe<HomePageHasHomeclientAggregateInput>;
+  OR?: InputMaybe<Array<HomePageHasHomeclientAggregateInput>>;
+  count?: InputMaybe<Scalars['Int']['input']>;
+  count_GT?: InputMaybe<Scalars['Int']['input']>;
+  count_GTE?: InputMaybe<Scalars['Int']['input']>;
+  count_LT?: InputMaybe<Scalars['Int']['input']>;
+  count_LTE?: InputMaybe<Scalars['Int']['input']>;
+  node?: InputMaybe<HomePageHasHomeclientNodeAggregationWhereInput>;
+};
+
+export type HomePageHasHomeclientConnectFieldInput = {
+  connect?: InputMaybe<Array<HomeClientConnectInput>>;
+  /** Whether or not to overwrite any matching relationship with the new properties. Will default to `false` in 4.0.0. */
+  overwrite?: Scalars['Boolean']['input'];
+  where?: InputMaybe<HomeClientConnectWhere>;
+};
+
+export type HomePageHasHomeclientConnectOrCreateFieldInput = {
+  onCreate: HomePageHasHomeclientConnectOrCreateFieldInputOnCreate;
+  where: HomeClientConnectOrCreateWhere;
+};
+
+export type HomePageHasHomeclientConnectOrCreateFieldInputOnCreate = {
+  node: HomeClientOnCreateInput;
+};
+
+export type HomePageHasHomeclientConnection = {
+  __typename?: 'HomePageHasHomeclientConnection';
+  edges: Array<HomePageHasHomeclientRelationship>;
+  pageInfo: PageInfo;
+  totalCount: Scalars['Int']['output'];
+};
+
+export type HomePageHasHomeclientConnectionSort = {
+  node?: InputMaybe<HomeClientSort>;
+};
+
+export type HomePageHasHomeclientConnectionWhere = {
+  AND?: InputMaybe<Array<HomePageHasHomeclientConnectionWhere>>;
+  NOT?: InputMaybe<HomePageHasHomeclientConnectionWhere>;
+  OR?: InputMaybe<Array<HomePageHasHomeclientConnectionWhere>>;
+  node?: InputMaybe<HomeClientWhere>;
+};
+
+export type HomePageHasHomeclientCreateFieldInput = {
+  node: HomeClientCreateInput;
+};
+
+export type HomePageHasHomeclientDeleteFieldInput = {
+  delete?: InputMaybe<HomeClientDeleteInput>;
+  where?: InputMaybe<HomePageHasHomeclientConnectionWhere>;
+};
+
+export type HomePageHasHomeclientDisconnectFieldInput = {
+  disconnect?: InputMaybe<HomeClientDisconnectInput>;
+  where?: InputMaybe<HomePageHasHomeclientConnectionWhere>;
+};
+
+export type HomePageHasHomeclientFieldInput = {
+  connect?: InputMaybe<Array<HomePageHasHomeclientConnectFieldInput>>;
+  connectOrCreate?: InputMaybe<Array<HomePageHasHomeclientConnectOrCreateFieldInput>>;
+  create?: InputMaybe<Array<HomePageHasHomeclientCreateFieldInput>>;
+};
+
+export type HomePageHasHomeclientNodeAggregationWhereInput = {
+  AND?: InputMaybe<Array<HomePageHasHomeclientNodeAggregationWhereInput>>;
+  NOT?: InputMaybe<HomePageHasHomeclientNodeAggregationWhereInput>;
+  OR?: InputMaybe<Array<HomePageHasHomeclientNodeAggregationWhereInput>>;
+  logo_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  logo_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  logo_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  logo_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  logo_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  logo_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  logo_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  logo_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  logo_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  logo_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  logo_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  logo_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  logo_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  logo_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  logo_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  name_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  name_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  name_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  name_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  name_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  name_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  name_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  name_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  name_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  name_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  name_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  name_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  name_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  name_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  name_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+};
+
+export type HomePageHasHomeclientRelationship = {
+  __typename?: 'HomePageHasHomeclientRelationship';
+  cursor: Scalars['String']['output'];
+  node: HomeClient;
+};
+
+export type HomePageHasHomeclientUpdateConnectionInput = {
+  node?: InputMaybe<HomeClientUpdateInput>;
+};
+
+export type HomePageHasHomeclientUpdateFieldInput = {
+  connect?: InputMaybe<Array<HomePageHasHomeclientConnectFieldInput>>;
+  connectOrCreate?: InputMaybe<Array<HomePageHasHomeclientConnectOrCreateFieldInput>>;
+  create?: InputMaybe<Array<HomePageHasHomeclientCreateFieldInput>>;
+  delete?: InputMaybe<Array<HomePageHasHomeclientDeleteFieldInput>>;
+  disconnect?: InputMaybe<Array<HomePageHasHomeclientDisconnectFieldInput>>;
+  update?: InputMaybe<HomePageHasHomeclientUpdateConnectionInput>;
+  where?: InputMaybe<HomePageHasHomeclientConnectionWhere>;
+};
+
+export type HomePageHasHomeservicesAggregateInput = {
+  AND?: InputMaybe<Array<HomePageHasHomeservicesAggregateInput>>;
+  NOT?: InputMaybe<HomePageHasHomeservicesAggregateInput>;
+  OR?: InputMaybe<Array<HomePageHasHomeservicesAggregateInput>>;
+  count?: InputMaybe<Scalars['Int']['input']>;
+  count_GT?: InputMaybe<Scalars['Int']['input']>;
+  count_GTE?: InputMaybe<Scalars['Int']['input']>;
+  count_LT?: InputMaybe<Scalars['Int']['input']>;
+  count_LTE?: InputMaybe<Scalars['Int']['input']>;
+  node?: InputMaybe<HomePageHasHomeservicesNodeAggregationWhereInput>;
+};
+
+export type HomePageHasHomeservicesConnectFieldInput = {
+  connect?: InputMaybe<Array<HomeServicesConnectInput>>;
+  /** Whether or not to overwrite any matching relationship with the new properties. Will default to `false` in 4.0.0. */
+  overwrite?: Scalars['Boolean']['input'];
+  where?: InputMaybe<HomeServicesConnectWhere>;
+};
+
+export type HomePageHasHomeservicesConnectOrCreateFieldInput = {
+  onCreate: HomePageHasHomeservicesConnectOrCreateFieldInputOnCreate;
+  where: HomeServicesConnectOrCreateWhere;
+};
+
+export type HomePageHasHomeservicesConnectOrCreateFieldInputOnCreate = {
+  node: HomeServicesOnCreateInput;
+};
+
+export type HomePageHasHomeservicesConnection = {
+  __typename?: 'HomePageHasHomeservicesConnection';
+  edges: Array<HomePageHasHomeservicesRelationship>;
+  pageInfo: PageInfo;
+  totalCount: Scalars['Int']['output'];
+};
+
+export type HomePageHasHomeservicesConnectionSort = {
+  node?: InputMaybe<HomeServicesSort>;
+};
+
+export type HomePageHasHomeservicesConnectionWhere = {
+  AND?: InputMaybe<Array<HomePageHasHomeservicesConnectionWhere>>;
+  NOT?: InputMaybe<HomePageHasHomeservicesConnectionWhere>;
+  OR?: InputMaybe<Array<HomePageHasHomeservicesConnectionWhere>>;
+  node?: InputMaybe<HomeServicesWhere>;
+};
+
+export type HomePageHasHomeservicesCreateFieldInput = {
+  node: HomeServicesCreateInput;
+};
+
+export type HomePageHasHomeservicesDeleteFieldInput = {
+  delete?: InputMaybe<HomeServicesDeleteInput>;
+  where?: InputMaybe<HomePageHasHomeservicesConnectionWhere>;
+};
+
+export type HomePageHasHomeservicesDisconnectFieldInput = {
+  disconnect?: InputMaybe<HomeServicesDisconnectInput>;
+  where?: InputMaybe<HomePageHasHomeservicesConnectionWhere>;
+};
+
+export type HomePageHasHomeservicesFieldInput = {
+  connect?: InputMaybe<Array<HomePageHasHomeservicesConnectFieldInput>>;
+  connectOrCreate?: InputMaybe<Array<HomePageHasHomeservicesConnectOrCreateFieldInput>>;
+  create?: InputMaybe<Array<HomePageHasHomeservicesCreateFieldInput>>;
+};
+
+export type HomePageHasHomeservicesNodeAggregationWhereInput = {
+  AND?: InputMaybe<Array<HomePageHasHomeservicesNodeAggregationWhereInput>>;
+  NOT?: InputMaybe<HomePageHasHomeservicesNodeAggregationWhereInput>;
+  OR?: InputMaybe<Array<HomePageHasHomeservicesNodeAggregationWhereInput>>;
+  description_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  description_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  description_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  description_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  description_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  description_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  description_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  description_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  description_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  description_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  description_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  description_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  description_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  description_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  description_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  title_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  title_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  title_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  title_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  title_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  title_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  title_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  title_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  title_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  title_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  title_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  title_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  title_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  title_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  title_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+};
+
+export type HomePageHasHomeservicesRelationship = {
+  __typename?: 'HomePageHasHomeservicesRelationship';
+  cursor: Scalars['String']['output'];
+  node: HomeServices;
+};
+
+export type HomePageHasHomeservicesUpdateConnectionInput = {
+  node?: InputMaybe<HomeServicesUpdateInput>;
+};
+
+export type HomePageHasHomeservicesUpdateFieldInput = {
+  connect?: InputMaybe<Array<HomePageHasHomeservicesConnectFieldInput>>;
+  connectOrCreate?: InputMaybe<Array<HomePageHasHomeservicesConnectOrCreateFieldInput>>;
+  create?: InputMaybe<Array<HomePageHasHomeservicesCreateFieldInput>>;
+  delete?: InputMaybe<Array<HomePageHasHomeservicesDeleteFieldInput>>;
+  disconnect?: InputMaybe<Array<HomePageHasHomeservicesDisconnectFieldInput>>;
+  update?: InputMaybe<HomePageHasHomeservicesUpdateConnectionInput>;
+  where?: InputMaybe<HomePageHasHomeservicesConnectionWhere>;
+};
+
+export type HomePageHasProductAggregateInput = {
+  AND?: InputMaybe<Array<HomePageHasProductAggregateInput>>;
+  NOT?: InputMaybe<HomePageHasProductAggregateInput>;
+  OR?: InputMaybe<Array<HomePageHasProductAggregateInput>>;
+  count?: InputMaybe<Scalars['Int']['input']>;
+  count_GT?: InputMaybe<Scalars['Int']['input']>;
+  count_GTE?: InputMaybe<Scalars['Int']['input']>;
+  count_LT?: InputMaybe<Scalars['Int']['input']>;
+  count_LTE?: InputMaybe<Scalars['Int']['input']>;
+  node?: InputMaybe<HomePageHasProductNodeAggregationWhereInput>;
+};
+
+export type HomePageHasProductConnectFieldInput = {
+  connect?: InputMaybe<Array<ProductConnectInput>>;
+  /** Whether or not to overwrite any matching relationship with the new properties. Will default to `false` in 4.0.0. */
+  overwrite?: Scalars['Boolean']['input'];
+  where?: InputMaybe<ProductConnectWhere>;
+};
+
+export type HomePageHasProductConnectOrCreateFieldInput = {
+  onCreate: HomePageHasProductConnectOrCreateFieldInputOnCreate;
+  where: ProductConnectOrCreateWhere;
+};
+
+export type HomePageHasProductConnectOrCreateFieldInputOnCreate = {
+  node: ProductOnCreateInput;
+};
+
+export type HomePageHasProductConnection = {
+  __typename?: 'HomePageHasProductConnection';
+  edges: Array<HomePageHasProductRelationship>;
+  pageInfo: PageInfo;
+  totalCount: Scalars['Int']['output'];
+};
+
+export type HomePageHasProductConnectionSort = {
+  node?: InputMaybe<ProductSort>;
+};
+
+export type HomePageHasProductConnectionWhere = {
+  AND?: InputMaybe<Array<HomePageHasProductConnectionWhere>>;
+  NOT?: InputMaybe<HomePageHasProductConnectionWhere>;
+  OR?: InputMaybe<Array<HomePageHasProductConnectionWhere>>;
+  node?: InputMaybe<ProductWhere>;
+};
+
+export type HomePageHasProductCreateFieldInput = {
+  node: ProductCreateInput;
+};
+
+export type HomePageHasProductDeleteFieldInput = {
+  delete?: InputMaybe<ProductDeleteInput>;
+  where?: InputMaybe<HomePageHasProductConnectionWhere>;
+};
+
+export type HomePageHasProductDisconnectFieldInput = {
+  disconnect?: InputMaybe<ProductDisconnectInput>;
+  where?: InputMaybe<HomePageHasProductConnectionWhere>;
+};
+
+export type HomePageHasProductFieldInput = {
+  connect?: InputMaybe<Array<HomePageHasProductConnectFieldInput>>;
+  connectOrCreate?: InputMaybe<Array<HomePageHasProductConnectOrCreateFieldInput>>;
+  create?: InputMaybe<Array<HomePageHasProductCreateFieldInput>>;
+};
+
+export type HomePageHasProductNodeAggregationWhereInput = {
+  AND?: InputMaybe<Array<HomePageHasProductNodeAggregationWhereInput>>;
+  NOT?: InputMaybe<HomePageHasProductNodeAggregationWhereInput>;
+  OR?: InputMaybe<Array<HomePageHasProductNodeAggregationWhereInput>>;
+  createdAt_MAX_EQUAL?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_MAX_GT?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_MAX_GTE?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_MAX_LT?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_MAX_LTE?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_MIN_EQUAL?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_MIN_GT?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_MIN_GTE?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_MIN_LT?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_MIN_LTE?: InputMaybe<Scalars['DateTime']['input']>;
+  features_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  features_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  features_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  features_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  features_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  features_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  features_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  features_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  features_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  features_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  features_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  features_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  features_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  features_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  features_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  file_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  file_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  file_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  file_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  file_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  file_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  file_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  file_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  file_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  file_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  file_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  file_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  file_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  file_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  file_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  image_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  image_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  image_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  image_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  image_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  image_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  image_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  image_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  image_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  image_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  image_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  image_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  image_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  image_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  image_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  others_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  others_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  others_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  others_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  others_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  others_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  others_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  others_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  others_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  others_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  others_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  others_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  others_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  others_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  others_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  price_AVERAGE_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  price_AVERAGE_GT?: InputMaybe<Scalars['Float']['input']>;
+  price_AVERAGE_GTE?: InputMaybe<Scalars['Float']['input']>;
+  price_AVERAGE_LT?: InputMaybe<Scalars['Float']['input']>;
+  price_AVERAGE_LTE?: InputMaybe<Scalars['Float']['input']>;
+  price_MAX_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  price_MAX_GT?: InputMaybe<Scalars['Int']['input']>;
+  price_MAX_GTE?: InputMaybe<Scalars['Int']['input']>;
+  price_MAX_LT?: InputMaybe<Scalars['Int']['input']>;
+  price_MAX_LTE?: InputMaybe<Scalars['Int']['input']>;
+  price_MIN_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  price_MIN_GT?: InputMaybe<Scalars['Int']['input']>;
+  price_MIN_GTE?: InputMaybe<Scalars['Int']['input']>;
+  price_MIN_LT?: InputMaybe<Scalars['Int']['input']>;
+  price_MIN_LTE?: InputMaybe<Scalars['Int']['input']>;
+  price_SUM_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  price_SUM_GT?: InputMaybe<Scalars['Int']['input']>;
+  price_SUM_GTE?: InputMaybe<Scalars['Int']['input']>;
+  price_SUM_LT?: InputMaybe<Scalars['Int']['input']>;
+  price_SUM_LTE?: InputMaybe<Scalars['Int']['input']>;
+  shortDescription_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  shortDescription_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  shortDescription_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  shortDescription_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  shortDescription_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  shortDescription_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  shortDescription_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  shortDescription_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  shortDescription_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  shortDescription_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  shortDescription_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  shortDescription_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  shortDescription_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  shortDescription_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  shortDescription_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  title_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  title_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  title_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  title_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  title_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  title_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  title_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  title_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  title_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  title_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  title_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  title_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  title_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  title_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  title_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  video_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  video_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  video_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  video_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  video_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  video_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  video_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  video_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  video_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  video_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  video_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  video_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  video_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  video_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  video_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+};
+
+export type HomePageHasProductRelationship = {
+  __typename?: 'HomePageHasProductRelationship';
+  cursor: Scalars['String']['output'];
+  node: Product;
+};
+
+export type HomePageHasProductUpdateConnectionInput = {
+  node?: InputMaybe<ProductUpdateInput>;
+};
+
+export type HomePageHasProductUpdateFieldInput = {
+  connect?: InputMaybe<Array<HomePageHasProductConnectFieldInput>>;
+  connectOrCreate?: InputMaybe<Array<HomePageHasProductConnectOrCreateFieldInput>>;
+  create?: InputMaybe<Array<HomePageHasProductCreateFieldInput>>;
+  delete?: InputMaybe<Array<HomePageHasProductDeleteFieldInput>>;
+  disconnect?: InputMaybe<Array<HomePageHasProductDisconnectFieldInput>>;
+  update?: InputMaybe<HomePageHasProductUpdateConnectionInput>;
+  where?: InputMaybe<HomePageHasProductConnectionWhere>;
+};
+
+export type HomePageHomeClientHasHomeclientAggregationSelection = {
+  __typename?: 'HomePageHomeClientHasHomeclientAggregationSelection';
+  count: Scalars['Int']['output'];
+  node?: Maybe<HomePageHomeClientHasHomeclientNodeAggregateSelection>;
+};
+
+export type HomePageHomeClientHasHomeclientNodeAggregateSelection = {
+  __typename?: 'HomePageHomeClientHasHomeclientNodeAggregateSelection';
+  id: IdAggregateSelectionNonNullable;
+  logo: StringAggregateSelectionNullable;
+  name: StringAggregateSelectionNullable;
+};
+
+export type HomePageHomeServicesHasHomeservicesAggregationSelection = {
+  __typename?: 'HomePageHomeServicesHasHomeservicesAggregationSelection';
+  count: Scalars['Int']['output'];
+  node?: Maybe<HomePageHomeServicesHasHomeservicesNodeAggregateSelection>;
+};
+
+export type HomePageHomeServicesHasHomeservicesNodeAggregateSelection = {
+  __typename?: 'HomePageHomeServicesHasHomeservicesNodeAggregateSelection';
+  description: StringAggregateSelectionNullable;
+  id: IdAggregateSelectionNonNullable;
+  title: StringAggregateSelectionNullable;
+};
+
+export type HomePageOnCreateInput = {
+  heroImage?: InputMaybe<Scalars['String']['input']>;
+  heroText?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type HomePageOptions = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  /** Specify one or more HomePageSort objects to sort HomePages by. The sorts will be applied in the order in which they are arranged in the array. */
+  sort?: InputMaybe<Array<HomePageSort>>;
+};
+
+export type HomePageProductHasProductAggregationSelection = {
+  __typename?: 'HomePageProductHasProductAggregationSelection';
+  count: Scalars['Int']['output'];
+  node?: Maybe<HomePageProductHasProductNodeAggregateSelection>;
+};
+
+export type HomePageProductHasProductNodeAggregateSelection = {
+  __typename?: 'HomePageProductHasProductNodeAggregateSelection';
+  createdAt: DateTimeAggregateSelectionNullable;
+  features: StringAggregateSelectionNullable;
+  file: StringAggregateSelectionNullable;
+  id: IdAggregateSelectionNonNullable;
+  image: StringAggregateSelectionNullable;
+  others: StringAggregateSelectionNullable;
+  price: IntAggregateSelectionNullable;
+  shortDescription: StringAggregateSelectionNullable;
+  title: StringAggregateSelectionNullable;
+  video: StringAggregateSelectionNullable;
+};
+
+export type HomePageRelationInput = {
+  hasHomeclient?: InputMaybe<Array<HomePageHasHomeclientCreateFieldInput>>;
+  hasHomeservices?: InputMaybe<Array<HomePageHasHomeservicesCreateFieldInput>>;
+  hasProduct?: InputMaybe<Array<HomePageHasProductCreateFieldInput>>;
+};
+
+/** Fields to sort HomePages by. The order in which sorts are applied is not guaranteed when specifying many fields in one HomePageSort object. */
+export type HomePageSort = {
+  heroImage?: InputMaybe<SortDirection>;
+  heroText?: InputMaybe<SortDirection>;
+  id?: InputMaybe<SortDirection>;
+};
+
+export type HomePageUniqueWhere = {
+  id?: InputMaybe<Scalars['ID']['input']>;
+};
+
+export type HomePageUpdateInput = {
+  hasHomeclient?: InputMaybe<Array<HomePageHasHomeclientUpdateFieldInput>>;
+  hasHomeservices?: InputMaybe<Array<HomePageHasHomeservicesUpdateFieldInput>>;
+  hasProduct?: InputMaybe<Array<HomePageHasProductUpdateFieldInput>>;
+  heroImage?: InputMaybe<Scalars['String']['input']>;
+  heroText?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type HomePageWhere = {
+  AND?: InputMaybe<Array<HomePageWhere>>;
+  NOT?: InputMaybe<HomePageWhere>;
+  OR?: InputMaybe<Array<HomePageWhere>>;
+  hasHomeclientAggregate?: InputMaybe<HomePageHasHomeclientAggregateInput>;
+  /** Return HomePages where all of the related HomePageHasHomeclientConnections match this filter */
+  hasHomeclientConnection_ALL?: InputMaybe<HomePageHasHomeclientConnectionWhere>;
+  /** Return HomePages where none of the related HomePageHasHomeclientConnections match this filter */
+  hasHomeclientConnection_NONE?: InputMaybe<HomePageHasHomeclientConnectionWhere>;
+  /** Return HomePages where one of the related HomePageHasHomeclientConnections match this filter */
+  hasHomeclientConnection_SINGLE?: InputMaybe<HomePageHasHomeclientConnectionWhere>;
+  /** Return HomePages where some of the related HomePageHasHomeclientConnections match this filter */
+  hasHomeclientConnection_SOME?: InputMaybe<HomePageHasHomeclientConnectionWhere>;
+  /** Return HomePages where all of the related HomeClients match this filter */
+  hasHomeclient_ALL?: InputMaybe<HomeClientWhere>;
+  /** Return HomePages where none of the related HomeClients match this filter */
+  hasHomeclient_NONE?: InputMaybe<HomeClientWhere>;
+  /** Return HomePages where one of the related HomeClients match this filter */
+  hasHomeclient_SINGLE?: InputMaybe<HomeClientWhere>;
+  /** Return HomePages where some of the related HomeClients match this filter */
+  hasHomeclient_SOME?: InputMaybe<HomeClientWhere>;
+  hasHomeservicesAggregate?: InputMaybe<HomePageHasHomeservicesAggregateInput>;
+  /** Return HomePages where all of the related HomePageHasHomeservicesConnections match this filter */
+  hasHomeservicesConnection_ALL?: InputMaybe<HomePageHasHomeservicesConnectionWhere>;
+  /** Return HomePages where none of the related HomePageHasHomeservicesConnections match this filter */
+  hasHomeservicesConnection_NONE?: InputMaybe<HomePageHasHomeservicesConnectionWhere>;
+  /** Return HomePages where one of the related HomePageHasHomeservicesConnections match this filter */
+  hasHomeservicesConnection_SINGLE?: InputMaybe<HomePageHasHomeservicesConnectionWhere>;
+  /** Return HomePages where some of the related HomePageHasHomeservicesConnections match this filter */
+  hasHomeservicesConnection_SOME?: InputMaybe<HomePageHasHomeservicesConnectionWhere>;
+  /** Return HomePages where all of the related HomeServices match this filter */
+  hasHomeservices_ALL?: InputMaybe<HomeServicesWhere>;
+  /** Return HomePages where none of the related HomeServices match this filter */
+  hasHomeservices_NONE?: InputMaybe<HomeServicesWhere>;
+  /** Return HomePages where one of the related HomeServices match this filter */
+  hasHomeservices_SINGLE?: InputMaybe<HomeServicesWhere>;
+  /** Return HomePages where some of the related HomeServices match this filter */
+  hasHomeservices_SOME?: InputMaybe<HomeServicesWhere>;
+  hasProductAggregate?: InputMaybe<HomePageHasProductAggregateInput>;
+  /** Return HomePages where all of the related HomePageHasProductConnections match this filter */
+  hasProductConnection_ALL?: InputMaybe<HomePageHasProductConnectionWhere>;
+  /** Return HomePages where none of the related HomePageHasProductConnections match this filter */
+  hasProductConnection_NONE?: InputMaybe<HomePageHasProductConnectionWhere>;
+  /** Return HomePages where one of the related HomePageHasProductConnections match this filter */
+  hasProductConnection_SINGLE?: InputMaybe<HomePageHasProductConnectionWhere>;
+  /** Return HomePages where some of the related HomePageHasProductConnections match this filter */
+  hasProductConnection_SOME?: InputMaybe<HomePageHasProductConnectionWhere>;
+  /** Return HomePages where all of the related Products match this filter */
+  hasProduct_ALL?: InputMaybe<ProductWhere>;
+  /** Return HomePages where none of the related Products match this filter */
+  hasProduct_NONE?: InputMaybe<ProductWhere>;
+  /** Return HomePages where one of the related Products match this filter */
+  hasProduct_SINGLE?: InputMaybe<ProductWhere>;
+  /** Return HomePages where some of the related Products match this filter */
+  hasProduct_SOME?: InputMaybe<ProductWhere>;
+  heroImage?: InputMaybe<Scalars['String']['input']>;
+  heroImage_CONTAINS?: InputMaybe<Scalars['String']['input']>;
+  heroImage_ENDS_WITH?: InputMaybe<Scalars['String']['input']>;
+  heroImage_IN?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  heroImage_STARTS_WITH?: InputMaybe<Scalars['String']['input']>;
+  heroText?: InputMaybe<Scalars['String']['input']>;
+  heroText_CONTAINS?: InputMaybe<Scalars['String']['input']>;
+  heroText_ENDS_WITH?: InputMaybe<Scalars['String']['input']>;
+  heroText_IN?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  heroText_STARTS_WITH?: InputMaybe<Scalars['String']['input']>;
+  id?: InputMaybe<Scalars['ID']['input']>;
+  id_CONTAINS?: InputMaybe<Scalars['ID']['input']>;
+  id_ENDS_WITH?: InputMaybe<Scalars['ID']['input']>;
+  id_IN?: InputMaybe<Array<Scalars['ID']['input']>>;
+  id_STARTS_WITH?: InputMaybe<Scalars['ID']['input']>;
+};
+
+export type HomePagesConnection = {
+  __typename?: 'HomePagesConnection';
+  edges: Array<HomePageEdge>;
+  pageInfo: PageInfo;
+  totalCount: Scalars['Int']['output'];
+};
+
+export type HomeServices = {
+  __typename?: 'HomeServices';
+  description?: Maybe<Scalars['String']['output']>;
+  homepageHas?: Maybe<HomePage>;
+  homepageHasAggregate?: Maybe<HomeServicesHomePageHomepageHasAggregationSelection>;
+  homepageHasConnection: HomeServicesHomepageHasConnection;
+  id: Scalars['ID']['output'];
+  title?: Maybe<Scalars['String']['output']>;
+};
+
+
+export type HomeServicesHomepageHasArgs = {
+  directed?: InputMaybe<Scalars['Boolean']['input']>;
+  options?: InputMaybe<HomePageOptions>;
+  where?: InputMaybe<HomePageWhere>;
+};
+
+
+export type HomeServicesHomepageHasAggregateArgs = {
+  directed?: InputMaybe<Scalars['Boolean']['input']>;
+  where?: InputMaybe<HomePageWhere>;
+};
+
+
+export type HomeServicesHomepageHasConnectionArgs = {
+  after?: InputMaybe<Scalars['String']['input']>;
+  directed?: InputMaybe<Scalars['Boolean']['input']>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  sort?: InputMaybe<Array<HomeServicesHomepageHasConnectionSort>>;
+  where?: InputMaybe<HomeServicesHomepageHasConnectionWhere>;
+};
+
+export type HomeServicesAggregateSelection = {
+  __typename?: 'HomeServicesAggregateSelection';
+  count: Scalars['Int']['output'];
+  description: StringAggregateSelectionNullable;
+  id: IdAggregateSelectionNonNullable;
+  title: StringAggregateSelectionNullable;
+};
+
+export type HomeServicesConnectInput = {
+  homepageHas?: InputMaybe<HomeServicesHomepageHasConnectFieldInput>;
+};
+
+export type HomeServicesConnectOrCreateInput = {
+  homepageHas?: InputMaybe<HomeServicesHomepageHasConnectOrCreateFieldInput>;
+};
+
+export type HomeServicesConnectOrCreateWhere = {
+  node: HomeServicesUniqueWhere;
+};
+
+export type HomeServicesConnectWhere = {
+  node: HomeServicesWhere;
+};
+
+export type HomeServicesConnection = {
+  __typename?: 'HomeServicesConnection';
+  edges: Array<HomeServicesEdge>;
+  pageInfo: PageInfo;
+  totalCount: Scalars['Int']['output'];
+};
+
+export type HomeServicesCreateInput = {
+  description?: InputMaybe<Scalars['String']['input']>;
+  homepageHas?: InputMaybe<HomeServicesHomepageHasFieldInput>;
+  title?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type HomeServicesDeleteInput = {
+  homepageHas?: InputMaybe<HomeServicesHomepageHasDeleteFieldInput>;
+};
+
+export type HomeServicesDisconnectInput = {
+  homepageHas?: InputMaybe<HomeServicesHomepageHasDisconnectFieldInput>;
+};
+
+export type HomeServicesEdge = {
+  __typename?: 'HomeServicesEdge';
+  cursor: Scalars['String']['output'];
+  node: HomeServices;
+};
+
+export type HomeServicesHomePageHomepageHasAggregationSelection = {
+  __typename?: 'HomeServicesHomePageHomepageHasAggregationSelection';
+  count: Scalars['Int']['output'];
+  node?: Maybe<HomeServicesHomePageHomepageHasNodeAggregateSelection>;
+};
+
+export type HomeServicesHomePageHomepageHasNodeAggregateSelection = {
+  __typename?: 'HomeServicesHomePageHomepageHasNodeAggregateSelection';
+  heroImage: StringAggregateSelectionNullable;
+  heroText: StringAggregateSelectionNullable;
+  id: IdAggregateSelectionNonNullable;
+};
+
+export type HomeServicesHomepageHasAggregateInput = {
+  AND?: InputMaybe<Array<HomeServicesHomepageHasAggregateInput>>;
+  NOT?: InputMaybe<HomeServicesHomepageHasAggregateInput>;
+  OR?: InputMaybe<Array<HomeServicesHomepageHasAggregateInput>>;
+  count?: InputMaybe<Scalars['Int']['input']>;
+  count_GT?: InputMaybe<Scalars['Int']['input']>;
+  count_GTE?: InputMaybe<Scalars['Int']['input']>;
+  count_LT?: InputMaybe<Scalars['Int']['input']>;
+  count_LTE?: InputMaybe<Scalars['Int']['input']>;
+  node?: InputMaybe<HomeServicesHomepageHasNodeAggregationWhereInput>;
+};
+
+export type HomeServicesHomepageHasConnectFieldInput = {
+  connect?: InputMaybe<HomePageConnectInput>;
+  /** Whether or not to overwrite any matching relationship with the new properties. Will default to `false` in 4.0.0. */
+  overwrite?: Scalars['Boolean']['input'];
+  where?: InputMaybe<HomePageConnectWhere>;
+};
+
+export type HomeServicesHomepageHasConnectOrCreateFieldInput = {
+  onCreate: HomeServicesHomepageHasConnectOrCreateFieldInputOnCreate;
+  where: HomePageConnectOrCreateWhere;
+};
+
+export type HomeServicesHomepageHasConnectOrCreateFieldInputOnCreate = {
+  node: HomePageOnCreateInput;
+};
+
+export type HomeServicesHomepageHasConnection = {
+  __typename?: 'HomeServicesHomepageHasConnection';
+  edges: Array<HomeServicesHomepageHasRelationship>;
+  pageInfo: PageInfo;
+  totalCount: Scalars['Int']['output'];
+};
+
+export type HomeServicesHomepageHasConnectionSort = {
+  node?: InputMaybe<HomePageSort>;
+};
+
+export type HomeServicesHomepageHasConnectionWhere = {
+  AND?: InputMaybe<Array<HomeServicesHomepageHasConnectionWhere>>;
+  NOT?: InputMaybe<HomeServicesHomepageHasConnectionWhere>;
+  OR?: InputMaybe<Array<HomeServicesHomepageHasConnectionWhere>>;
+  node?: InputMaybe<HomePageWhere>;
+};
+
+export type HomeServicesHomepageHasCreateFieldInput = {
+  node: HomePageCreateInput;
+};
+
+export type HomeServicesHomepageHasDeleteFieldInput = {
+  delete?: InputMaybe<HomePageDeleteInput>;
+  where?: InputMaybe<HomeServicesHomepageHasConnectionWhere>;
+};
+
+export type HomeServicesHomepageHasDisconnectFieldInput = {
+  disconnect?: InputMaybe<HomePageDisconnectInput>;
+  where?: InputMaybe<HomeServicesHomepageHasConnectionWhere>;
+};
+
+export type HomeServicesHomepageHasFieldInput = {
+  connect?: InputMaybe<HomeServicesHomepageHasConnectFieldInput>;
+  connectOrCreate?: InputMaybe<HomeServicesHomepageHasConnectOrCreateFieldInput>;
+  create?: InputMaybe<HomeServicesHomepageHasCreateFieldInput>;
+};
+
+export type HomeServicesHomepageHasNodeAggregationWhereInput = {
+  AND?: InputMaybe<Array<HomeServicesHomepageHasNodeAggregationWhereInput>>;
+  NOT?: InputMaybe<HomeServicesHomepageHasNodeAggregationWhereInput>;
+  OR?: InputMaybe<Array<HomeServicesHomepageHasNodeAggregationWhereInput>>;
+  heroImage_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  heroImage_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  heroImage_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  heroImage_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  heroImage_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  heroImage_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  heroImage_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  heroImage_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  heroImage_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  heroImage_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  heroImage_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  heroImage_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  heroImage_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  heroImage_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  heroImage_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  heroText_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  heroText_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  heroText_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  heroText_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  heroText_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  heroText_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  heroText_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  heroText_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  heroText_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  heroText_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  heroText_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  heroText_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  heroText_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  heroText_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  heroText_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+};
+
+export type HomeServicesHomepageHasRelationship = {
+  __typename?: 'HomeServicesHomepageHasRelationship';
+  cursor: Scalars['String']['output'];
+  node: HomePage;
+};
+
+export type HomeServicesHomepageHasUpdateConnectionInput = {
+  node?: InputMaybe<HomePageUpdateInput>;
+};
+
+export type HomeServicesHomepageHasUpdateFieldInput = {
+  connect?: InputMaybe<HomeServicesHomepageHasConnectFieldInput>;
+  connectOrCreate?: InputMaybe<HomeServicesHomepageHasConnectOrCreateFieldInput>;
+  create?: InputMaybe<HomeServicesHomepageHasCreateFieldInput>;
+  delete?: InputMaybe<HomeServicesHomepageHasDeleteFieldInput>;
+  disconnect?: InputMaybe<HomeServicesHomepageHasDisconnectFieldInput>;
+  update?: InputMaybe<HomeServicesHomepageHasUpdateConnectionInput>;
+  where?: InputMaybe<HomeServicesHomepageHasConnectionWhere>;
+};
+
+export type HomeServicesOnCreateInput = {
+  description?: InputMaybe<Scalars['String']['input']>;
+  title?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type HomeServicesOptions = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  /** Specify one or more HomeServicesSort objects to sort HomeServices by. The sorts will be applied in the order in which they are arranged in the array. */
+  sort?: InputMaybe<Array<HomeServicesSort>>;
+};
+
+export type HomeServicesRelationInput = {
+  homepageHas?: InputMaybe<HomeServicesHomepageHasCreateFieldInput>;
+};
+
+/** Fields to sort HomeServices by. The order in which sorts are applied is not guaranteed when specifying many fields in one HomeServicesSort object. */
+export type HomeServicesSort = {
+  description?: InputMaybe<SortDirection>;
+  id?: InputMaybe<SortDirection>;
+  title?: InputMaybe<SortDirection>;
+};
+
+export type HomeServicesUniqueWhere = {
+  id?: InputMaybe<Scalars['ID']['input']>;
+};
+
+export type HomeServicesUpdateInput = {
+  description?: InputMaybe<Scalars['String']['input']>;
+  homepageHas?: InputMaybe<HomeServicesHomepageHasUpdateFieldInput>;
+  title?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type HomeServicesWhere = {
+  AND?: InputMaybe<Array<HomeServicesWhere>>;
+  NOT?: InputMaybe<HomeServicesWhere>;
+  OR?: InputMaybe<Array<HomeServicesWhere>>;
+  description?: InputMaybe<Scalars['String']['input']>;
+  description_CONTAINS?: InputMaybe<Scalars['String']['input']>;
+  description_ENDS_WITH?: InputMaybe<Scalars['String']['input']>;
+  description_IN?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  description_STARTS_WITH?: InputMaybe<Scalars['String']['input']>;
+  homepageHas?: InputMaybe<HomePageWhere>;
+  homepageHasAggregate?: InputMaybe<HomeServicesHomepageHasAggregateInput>;
+  homepageHasConnection?: InputMaybe<HomeServicesHomepageHasConnectionWhere>;
+  homepageHasConnection_NOT?: InputMaybe<HomeServicesHomepageHasConnectionWhere>;
+  homepageHas_NOT?: InputMaybe<HomePageWhere>;
+  id?: InputMaybe<Scalars['ID']['input']>;
+  id_CONTAINS?: InputMaybe<Scalars['ID']['input']>;
+  id_ENDS_WITH?: InputMaybe<Scalars['ID']['input']>;
+  id_IN?: InputMaybe<Array<Scalars['ID']['input']>>;
+  id_STARTS_WITH?: InputMaybe<Scalars['ID']['input']>;
+  title?: InputMaybe<Scalars['String']['input']>;
+  title_CONTAINS?: InputMaybe<Scalars['String']['input']>;
+  title_ENDS_WITH?: InputMaybe<Scalars['String']['input']>;
+  title_IN?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  title_STARTS_WITH?: InputMaybe<Scalars['String']['input']>;
+};
+
 export type IdAggregateSelectionNonNullable = {
   __typename?: 'IDAggregateSelectionNonNullable';
   longest: Scalars['ID']['output'];
@@ -8525,6 +12373,10 @@ export type ImagesConnectInput = {
   documentsHas?: InputMaybe<ImagesDocumentsHasConnectFieldInput>;
 };
 
+export type ImagesConnectOrCreateInput = {
+  documentsHas?: InputMaybe<ImagesDocumentsHasConnectOrCreateFieldInput>;
+};
+
 export type ImagesConnectOrCreateWhere = {
   node: ImagesUniqueWhere;
 };
@@ -8561,7 +12413,7 @@ export type ImagesDocumentsDocumentsHasAggregationSelection = {
 
 export type ImagesDocumentsDocumentsHasNodeAggregateSelection = {
   __typename?: 'ImagesDocumentsDocumentsHasNodeAggregateSelection';
-  id: StringAggregateSelectionNullable;
+  id: IdAggregateSelectionNonNullable;
 };
 
 export type ImagesDocumentsHasAggregateInput = {
@@ -8581,6 +12433,15 @@ export type ImagesDocumentsHasConnectFieldInput = {
   /** Whether or not to overwrite any matching relationship with the new properties. Will default to `false` in 4.0.0. */
   overwrite?: Scalars['Boolean']['input'];
   where?: InputMaybe<DocumentsConnectWhere>;
+};
+
+export type ImagesDocumentsHasConnectOrCreateFieldInput = {
+  onCreate: ImagesDocumentsHasConnectOrCreateFieldInputOnCreate;
+  where: DocumentsConnectOrCreateWhere;
+};
+
+export type ImagesDocumentsHasConnectOrCreateFieldInputOnCreate = {
+  node: DocumentsOnCreateInput;
 };
 
 export type ImagesDocumentsHasConnection = {
@@ -8617,6 +12478,7 @@ export type ImagesDocumentsHasDisconnectFieldInput = {
 
 export type ImagesDocumentsHasFieldInput = {
   connect?: InputMaybe<ImagesDocumentsHasConnectFieldInput>;
+  connectOrCreate?: InputMaybe<ImagesDocumentsHasConnectOrCreateFieldInput>;
   create?: InputMaybe<ImagesDocumentsHasCreateFieldInput>;
 };
 
@@ -8624,21 +12486,6 @@ export type ImagesDocumentsHasNodeAggregationWhereInput = {
   AND?: InputMaybe<Array<ImagesDocumentsHasNodeAggregationWhereInput>>;
   NOT?: InputMaybe<ImagesDocumentsHasNodeAggregationWhereInput>;
   OR?: InputMaybe<Array<ImagesDocumentsHasNodeAggregationWhereInput>>;
-  id_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
-  id_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
-  id_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
-  id_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
-  id_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
-  id_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  id_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  id_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  id_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  id_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  id_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  id_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  id_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  id_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  id_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
 };
 
 export type ImagesDocumentsHasRelationship = {
@@ -8653,6 +12500,7 @@ export type ImagesDocumentsHasUpdateConnectionInput = {
 
 export type ImagesDocumentsHasUpdateFieldInput = {
   connect?: InputMaybe<ImagesDocumentsHasConnectFieldInput>;
+  connectOrCreate?: InputMaybe<ImagesDocumentsHasConnectOrCreateFieldInput>;
   create?: InputMaybe<ImagesDocumentsHasCreateFieldInput>;
   delete?: InputMaybe<ImagesDocumentsHasDeleteFieldInput>;
   disconnect?: InputMaybe<ImagesDocumentsHasDisconnectFieldInput>;
@@ -8713,6 +12561,262 @@ export type ImagesWhere = {
   id_STARTS_WITH?: InputMaybe<Scalars['ID']['input']>;
   links?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   links_INCLUDES?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type IndustryPage = {
+  __typename?: 'IndustryPage';
+  adminHas?: Maybe<Admin>;
+  adminHasAggregate?: Maybe<IndustryPageAdminAdminHasAggregationSelection>;
+  adminHasConnection: IndustryPageAdminHasConnection;
+  description?: Maybe<Scalars['String']['output']>;
+  id: Scalars['ID']['output'];
+  image?: Maybe<Scalars['String']['output']>;
+  title?: Maybe<Scalars['String']['output']>;
+};
+
+
+export type IndustryPageAdminHasArgs = {
+  directed?: InputMaybe<Scalars['Boolean']['input']>;
+  options?: InputMaybe<AdminOptions>;
+  where?: InputMaybe<AdminWhere>;
+};
+
+
+export type IndustryPageAdminHasAggregateArgs = {
+  directed?: InputMaybe<Scalars['Boolean']['input']>;
+  where?: InputMaybe<AdminWhere>;
+};
+
+
+export type IndustryPageAdminHasConnectionArgs = {
+  after?: InputMaybe<Scalars['String']['input']>;
+  directed?: InputMaybe<Scalars['Boolean']['input']>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  sort?: InputMaybe<Array<IndustryPageAdminHasConnectionSort>>;
+  where?: InputMaybe<IndustryPageAdminHasConnectionWhere>;
+};
+
+export type IndustryPageAdminAdminHasAggregationSelection = {
+  __typename?: 'IndustryPageAdminAdminHasAggregationSelection';
+  count: Scalars['Int']['output'];
+  node?: Maybe<IndustryPageAdminAdminHasNodeAggregateSelection>;
+};
+
+export type IndustryPageAdminAdminHasNodeAggregateSelection = {
+  __typename?: 'IndustryPageAdminAdminHasNodeAggregateSelection';
+  id: IdAggregateSelectionNonNullable;
+};
+
+export type IndustryPageAdminHasAggregateInput = {
+  AND?: InputMaybe<Array<IndustryPageAdminHasAggregateInput>>;
+  NOT?: InputMaybe<IndustryPageAdminHasAggregateInput>;
+  OR?: InputMaybe<Array<IndustryPageAdminHasAggregateInput>>;
+  count?: InputMaybe<Scalars['Int']['input']>;
+  count_GT?: InputMaybe<Scalars['Int']['input']>;
+  count_GTE?: InputMaybe<Scalars['Int']['input']>;
+  count_LT?: InputMaybe<Scalars['Int']['input']>;
+  count_LTE?: InputMaybe<Scalars['Int']['input']>;
+  node?: InputMaybe<IndustryPageAdminHasNodeAggregationWhereInput>;
+};
+
+export type IndustryPageAdminHasConnectFieldInput = {
+  connect?: InputMaybe<AdminConnectInput>;
+  /** Whether or not to overwrite any matching relationship with the new properties. Will default to `false` in 4.0.0. */
+  overwrite?: Scalars['Boolean']['input'];
+  where?: InputMaybe<AdminConnectWhere>;
+};
+
+export type IndustryPageAdminHasConnectOrCreateFieldInput = {
+  onCreate: IndustryPageAdminHasConnectOrCreateFieldInputOnCreate;
+  where: AdminConnectOrCreateWhere;
+};
+
+export type IndustryPageAdminHasConnectOrCreateFieldInputOnCreate = {
+  node: AdminOnCreateInput;
+};
+
+export type IndustryPageAdminHasConnection = {
+  __typename?: 'IndustryPageAdminHasConnection';
+  edges: Array<IndustryPageAdminHasRelationship>;
+  pageInfo: PageInfo;
+  totalCount: Scalars['Int']['output'];
+};
+
+export type IndustryPageAdminHasConnectionSort = {
+  node?: InputMaybe<AdminSort>;
+};
+
+export type IndustryPageAdminHasConnectionWhere = {
+  AND?: InputMaybe<Array<IndustryPageAdminHasConnectionWhere>>;
+  NOT?: InputMaybe<IndustryPageAdminHasConnectionWhere>;
+  OR?: InputMaybe<Array<IndustryPageAdminHasConnectionWhere>>;
+  node?: InputMaybe<AdminWhere>;
+};
+
+export type IndustryPageAdminHasCreateFieldInput = {
+  node: AdminCreateInput;
+};
+
+export type IndustryPageAdminHasDeleteFieldInput = {
+  delete?: InputMaybe<AdminDeleteInput>;
+  where?: InputMaybe<IndustryPageAdminHasConnectionWhere>;
+};
+
+export type IndustryPageAdminHasDisconnectFieldInput = {
+  disconnect?: InputMaybe<AdminDisconnectInput>;
+  where?: InputMaybe<IndustryPageAdminHasConnectionWhere>;
+};
+
+export type IndustryPageAdminHasFieldInput = {
+  connect?: InputMaybe<IndustryPageAdminHasConnectFieldInput>;
+  connectOrCreate?: InputMaybe<IndustryPageAdminHasConnectOrCreateFieldInput>;
+  create?: InputMaybe<IndustryPageAdminHasCreateFieldInput>;
+};
+
+export type IndustryPageAdminHasNodeAggregationWhereInput = {
+  AND?: InputMaybe<Array<IndustryPageAdminHasNodeAggregationWhereInput>>;
+  NOT?: InputMaybe<IndustryPageAdminHasNodeAggregationWhereInput>;
+  OR?: InputMaybe<Array<IndustryPageAdminHasNodeAggregationWhereInput>>;
+};
+
+export type IndustryPageAdminHasRelationship = {
+  __typename?: 'IndustryPageAdminHasRelationship';
+  cursor: Scalars['String']['output'];
+  node: Admin;
+};
+
+export type IndustryPageAdminHasUpdateConnectionInput = {
+  node?: InputMaybe<AdminUpdateInput>;
+};
+
+export type IndustryPageAdminHasUpdateFieldInput = {
+  connect?: InputMaybe<IndustryPageAdminHasConnectFieldInput>;
+  connectOrCreate?: InputMaybe<IndustryPageAdminHasConnectOrCreateFieldInput>;
+  create?: InputMaybe<IndustryPageAdminHasCreateFieldInput>;
+  delete?: InputMaybe<IndustryPageAdminHasDeleteFieldInput>;
+  disconnect?: InputMaybe<IndustryPageAdminHasDisconnectFieldInput>;
+  update?: InputMaybe<IndustryPageAdminHasUpdateConnectionInput>;
+  where?: InputMaybe<IndustryPageAdminHasConnectionWhere>;
+};
+
+export type IndustryPageAggregateSelection = {
+  __typename?: 'IndustryPageAggregateSelection';
+  count: Scalars['Int']['output'];
+  description: StringAggregateSelectionNullable;
+  id: IdAggregateSelectionNonNullable;
+  image: StringAggregateSelectionNullable;
+  title: StringAggregateSelectionNullable;
+};
+
+export type IndustryPageConnectInput = {
+  adminHas?: InputMaybe<IndustryPageAdminHasConnectFieldInput>;
+};
+
+export type IndustryPageConnectOrCreateInput = {
+  adminHas?: InputMaybe<IndustryPageAdminHasConnectOrCreateFieldInput>;
+};
+
+export type IndustryPageConnectOrCreateWhere = {
+  node: IndustryPageUniqueWhere;
+};
+
+export type IndustryPageConnectWhere = {
+  node: IndustryPageWhere;
+};
+
+export type IndustryPageCreateInput = {
+  adminHas?: InputMaybe<IndustryPageAdminHasFieldInput>;
+  description?: InputMaybe<Scalars['String']['input']>;
+  image?: InputMaybe<Scalars['String']['input']>;
+  title?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type IndustryPageDeleteInput = {
+  adminHas?: InputMaybe<IndustryPageAdminHasDeleteFieldInput>;
+};
+
+export type IndustryPageDisconnectInput = {
+  adminHas?: InputMaybe<IndustryPageAdminHasDisconnectFieldInput>;
+};
+
+export type IndustryPageEdge = {
+  __typename?: 'IndustryPageEdge';
+  cursor: Scalars['String']['output'];
+  node: IndustryPage;
+};
+
+export type IndustryPageOnCreateInput = {
+  description?: InputMaybe<Scalars['String']['input']>;
+  image?: InputMaybe<Scalars['String']['input']>;
+  title?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type IndustryPageOptions = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  /** Specify one or more IndustryPageSort objects to sort IndustryPages by. The sorts will be applied in the order in which they are arranged in the array. */
+  sort?: InputMaybe<Array<IndustryPageSort>>;
+};
+
+export type IndustryPageRelationInput = {
+  adminHas?: InputMaybe<IndustryPageAdminHasCreateFieldInput>;
+};
+
+/** Fields to sort IndustryPages by. The order in which sorts are applied is not guaranteed when specifying many fields in one IndustryPageSort object. */
+export type IndustryPageSort = {
+  description?: InputMaybe<SortDirection>;
+  id?: InputMaybe<SortDirection>;
+  image?: InputMaybe<SortDirection>;
+  title?: InputMaybe<SortDirection>;
+};
+
+export type IndustryPageUniqueWhere = {
+  id?: InputMaybe<Scalars['ID']['input']>;
+};
+
+export type IndustryPageUpdateInput = {
+  adminHas?: InputMaybe<IndustryPageAdminHasUpdateFieldInput>;
+  description?: InputMaybe<Scalars['String']['input']>;
+  image?: InputMaybe<Scalars['String']['input']>;
+  title?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type IndustryPageWhere = {
+  AND?: InputMaybe<Array<IndustryPageWhere>>;
+  NOT?: InputMaybe<IndustryPageWhere>;
+  OR?: InputMaybe<Array<IndustryPageWhere>>;
+  adminHas?: InputMaybe<AdminWhere>;
+  adminHasAggregate?: InputMaybe<IndustryPageAdminHasAggregateInput>;
+  adminHasConnection?: InputMaybe<IndustryPageAdminHasConnectionWhere>;
+  adminHasConnection_NOT?: InputMaybe<IndustryPageAdminHasConnectionWhere>;
+  adminHas_NOT?: InputMaybe<AdminWhere>;
+  description?: InputMaybe<Scalars['String']['input']>;
+  description_CONTAINS?: InputMaybe<Scalars['String']['input']>;
+  description_ENDS_WITH?: InputMaybe<Scalars['String']['input']>;
+  description_IN?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  description_STARTS_WITH?: InputMaybe<Scalars['String']['input']>;
+  id?: InputMaybe<Scalars['ID']['input']>;
+  id_CONTAINS?: InputMaybe<Scalars['ID']['input']>;
+  id_ENDS_WITH?: InputMaybe<Scalars['ID']['input']>;
+  id_IN?: InputMaybe<Array<Scalars['ID']['input']>>;
+  id_STARTS_WITH?: InputMaybe<Scalars['ID']['input']>;
+  image?: InputMaybe<Scalars['String']['input']>;
+  image_CONTAINS?: InputMaybe<Scalars['String']['input']>;
+  image_ENDS_WITH?: InputMaybe<Scalars['String']['input']>;
+  image_IN?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  image_STARTS_WITH?: InputMaybe<Scalars['String']['input']>;
+  title?: InputMaybe<Scalars['String']['input']>;
+  title_CONTAINS?: InputMaybe<Scalars['String']['input']>;
+  title_ENDS_WITH?: InputMaybe<Scalars['String']['input']>;
+  title_IN?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  title_STARTS_WITH?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type IndustryPagesConnection = {
+  __typename?: 'IndustryPagesConnection';
+  edges: Array<IndustryPageEdge>;
+  pageInfo: PageInfo;
+  totalCount: Scalars['Int']['output'];
 };
 
 export type IntAggregateSelectionNullable = {
@@ -11229,6 +15333,7 @@ export type ModuleConnectInput = {
 };
 
 export type ModuleConnectOrCreateInput = {
+  hasDocuments?: InputMaybe<ModuleHasDocumentsConnectOrCreateFieldInput>;
   moduleticketFor?: InputMaybe<ModuleModuleticketForConnectOrCreateFieldInput>;
   projectHas?: InputMaybe<ModuleProjectHasConnectOrCreateFieldInput>;
 };
@@ -11272,7 +15377,7 @@ export type ModuleDocumentsHasDocumentsAggregationSelection = {
 
 export type ModuleDocumentsHasDocumentsNodeAggregateSelection = {
   __typename?: 'ModuleDocumentsHasDocumentsNodeAggregateSelection';
-  id: StringAggregateSelectionNullable;
+  id: IdAggregateSelectionNonNullable;
 };
 
 export type ModuleEdge = {
@@ -11298,6 +15403,15 @@ export type ModuleHasDocumentsConnectFieldInput = {
   /** Whether or not to overwrite any matching relationship with the new properties. Will default to `false` in 4.0.0. */
   overwrite?: Scalars['Boolean']['input'];
   where?: InputMaybe<DocumentsConnectWhere>;
+};
+
+export type ModuleHasDocumentsConnectOrCreateFieldInput = {
+  onCreate: ModuleHasDocumentsConnectOrCreateFieldInputOnCreate;
+  where: DocumentsConnectOrCreateWhere;
+};
+
+export type ModuleHasDocumentsConnectOrCreateFieldInputOnCreate = {
+  node: DocumentsOnCreateInput;
 };
 
 export type ModuleHasDocumentsConnection = {
@@ -11334,6 +15448,7 @@ export type ModuleHasDocumentsDisconnectFieldInput = {
 
 export type ModuleHasDocumentsFieldInput = {
   connect?: InputMaybe<ModuleHasDocumentsConnectFieldInput>;
+  connectOrCreate?: InputMaybe<ModuleHasDocumentsConnectOrCreateFieldInput>;
   create?: InputMaybe<ModuleHasDocumentsCreateFieldInput>;
 };
 
@@ -11341,21 +15456,6 @@ export type ModuleHasDocumentsNodeAggregationWhereInput = {
   AND?: InputMaybe<Array<ModuleHasDocumentsNodeAggregationWhereInput>>;
   NOT?: InputMaybe<ModuleHasDocumentsNodeAggregationWhereInput>;
   OR?: InputMaybe<Array<ModuleHasDocumentsNodeAggregationWhereInput>>;
-  id_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
-  id_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
-  id_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
-  id_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
-  id_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
-  id_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  id_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  id_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  id_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  id_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  id_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  id_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  id_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  id_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  id_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
 };
 
 export type ModuleHasDocumentsRelationship = {
@@ -11370,6 +15470,7 @@ export type ModuleHasDocumentsUpdateConnectionInput = {
 
 export type ModuleHasDocumentsUpdateFieldInput = {
   connect?: InputMaybe<ModuleHasDocumentsConnectFieldInput>;
+  connectOrCreate?: InputMaybe<ModuleHasDocumentsConnectOrCreateFieldInput>;
   create?: InputMaybe<ModuleHasDocumentsCreateFieldInput>;
   delete?: InputMaybe<ModuleHasDocumentsDeleteFieldInput>;
   disconnect?: InputMaybe<ModuleHasDocumentsDisconnectFieldInput>;
@@ -12096,6 +16197,7 @@ export type ModuleTicketConnectOrCreateInput = {
   clientHas?: InputMaybe<ModuleTicketClientHasConnectOrCreateFieldInput>;
   forModule?: InputMaybe<ModuleTicketForModuleConnectOrCreateFieldInput>;
   managementSentReports?: InputMaybe<ModuleTicketManagementSentReportsConnectOrCreateFieldInput>;
+  projectticketHas?: InputMaybe<ModuleTicketProjectticketHasConnectOrCreateFieldInput>;
   userHas?: InputMaybe<ModuleTicketUserHasConnectOrCreateFieldInput>;
   vendorHas?: InputMaybe<ModuleTicketVendorHasConnectOrCreateFieldInput>;
 };
@@ -12450,6 +16552,7 @@ export type ModuleTicketProjectTicketProjectticketHasAggregationSelection = {
 
 export type ModuleTicketProjectTicketProjectticketHasNodeAggregateSelection = {
   __typename?: 'ModuleTicketProjectTicketProjectticketHasNodeAggregateSelection';
+  id: IdAggregateSelectionNonNullable;
   projectTicket: StringAggregateSelectionNullable;
 };
 
@@ -12470,6 +16573,15 @@ export type ModuleTicketProjectticketHasConnectFieldInput = {
   /** Whether or not to overwrite any matching relationship with the new properties. Will default to `false` in 4.0.0. */
   overwrite?: Scalars['Boolean']['input'];
   where?: InputMaybe<ProjectTicketConnectWhere>;
+};
+
+export type ModuleTicketProjectticketHasConnectOrCreateFieldInput = {
+  onCreate: ModuleTicketProjectticketHasConnectOrCreateFieldInputOnCreate;
+  where: ProjectTicketConnectOrCreateWhere;
+};
+
+export type ModuleTicketProjectticketHasConnectOrCreateFieldInputOnCreate = {
+  node: ProjectTicketOnCreateInput;
 };
 
 export type ModuleTicketProjectticketHasConnection = {
@@ -12506,6 +16618,7 @@ export type ModuleTicketProjectticketHasDisconnectFieldInput = {
 
 export type ModuleTicketProjectticketHasFieldInput = {
   connect?: InputMaybe<ModuleTicketProjectticketHasConnectFieldInput>;
+  connectOrCreate?: InputMaybe<ModuleTicketProjectticketHasConnectOrCreateFieldInput>;
   create?: InputMaybe<ModuleTicketProjectticketHasCreateFieldInput>;
 };
 
@@ -12542,6 +16655,7 @@ export type ModuleTicketProjectticketHasUpdateConnectionInput = {
 
 export type ModuleTicketProjectticketHasUpdateFieldInput = {
   connect?: InputMaybe<ModuleTicketProjectticketHasConnectFieldInput>;
+  connectOrCreate?: InputMaybe<ModuleTicketProjectticketHasConnectOrCreateFieldInput>;
   create?: InputMaybe<ModuleTicketProjectticketHasCreateFieldInput>;
   delete?: InputMaybe<ModuleTicketProjectticketHasDeleteFieldInput>;
   disconnect?: InputMaybe<ModuleTicketProjectticketHasDisconnectFieldInput>;
@@ -13184,14 +17298,23 @@ export type ModulesConnection = {
 
 export type Mutation = {
   __typename?: 'Mutation';
+  createAboutPages: CreateAboutPagesMutationResponse;
   createAdmins: CreateAdminsMutationResponse;
+  createCalibrations: CreateCalibrationsMutationResponse;
+  createCategories: CreateCategoriesMutationResponse;
   createClients: CreateClientsMutationResponse;
   createCommunicationTickets: CreateCommunicationTicketsMutationResponse;
   createCounters: CreateCountersMutationResponse;
   createDocuments: CreateDocumentsMutationResponse;
   createEmployees: CreateEmployeesMutationResponse;
+  createEvents: CreateEventsMutationResponse;
+  createFeaturesPages: CreateFeaturesPagesMutationResponse;
   createFiles: CreateFilesMutationResponse;
+  createHomeClients: CreateHomeClientsMutationResponse;
+  createHomePages: CreateHomePagesMutationResponse;
+  createHomeServices: CreateHomeServicesMutationResponse;
   createImages: CreateImagesMutationResponse;
+  createIndustryPages: CreateIndustryPagesMutationResponse;
   createInvoices: CreateInvoicesMutationResponse;
   createLeads: CreateLeadsMutationResponse;
   createLogs: CreateLogsMutationResponse;
@@ -13206,18 +17329,32 @@ export type Mutation = {
   createRoles: CreateRolesMutationResponse;
   createServicePages: CreateServicePagesMutationResponse;
   createServices: CreateServicesMutationResponse;
+  createSolutionPages: CreateSolutionPagesMutationResponse;
+  createSubCategories: CreateSubCategoriesMutationResponse;
+  createSubSolutions: CreateSubSolutionsMutationResponse;
   createSubservices: CreateSubservicesMutationResponse;
   createSupportTickets: CreateSupportTicketsMutationResponse;
+  createTermsPages: CreateTermsPagesMutationResponse;
+  createTestings: CreateTestingsMutationResponse;
   createUsers: CreateUsersMutationResponse;
   createVendors: CreateVendorsMutationResponse;
+  deleteAboutPages: DeleteInfo;
   deleteAdmins: DeleteInfo;
+  deleteCalibrations: DeleteInfo;
+  deleteCategories: DeleteInfo;
   deleteClients: DeleteInfo;
   deleteCommunicationTickets: DeleteInfo;
   deleteCounters: DeleteInfo;
   deleteDocuments: DeleteInfo;
   deleteEmployees: DeleteInfo;
+  deleteEvents: DeleteInfo;
+  deleteFeaturesPages: DeleteInfo;
   deleteFiles: DeleteInfo;
+  deleteHomeClients: DeleteInfo;
+  deleteHomePages: DeleteInfo;
+  deleteHomeServices: DeleteInfo;
   deleteImages: DeleteInfo;
+  deleteIndustryPages: DeleteInfo;
   deleteInvoices: DeleteInfo;
   deleteLeads: DeleteInfo;
   deleteLogs: DeleteInfo;
@@ -13232,20 +17369,34 @@ export type Mutation = {
   deleteRoles: DeleteInfo;
   deleteServicePages: DeleteInfo;
   deleteServices: DeleteInfo;
+  deleteSolutionPages: DeleteInfo;
+  deleteSubCategories: DeleteInfo;
+  deleteSubSolutions: DeleteInfo;
   deleteSubservices: DeleteInfo;
   deleteSupportTickets: DeleteInfo;
+  deleteTermsPages: DeleteInfo;
+  deleteTestings: DeleteInfo;
   deleteUsers: DeleteInfo;
   deleteVendors: DeleteInfo;
   signIn: Scalars['String']['output'];
   signUp: Scalars['String']['output'];
+  updateAboutPages: UpdateAboutPagesMutationResponse;
   updateAdmins: UpdateAdminsMutationResponse;
+  updateCalibrations: UpdateCalibrationsMutationResponse;
+  updateCategories: UpdateCategoriesMutationResponse;
   updateClients: UpdateClientsMutationResponse;
   updateCommunicationTickets: UpdateCommunicationTicketsMutationResponse;
   updateCounters: UpdateCountersMutationResponse;
   updateDocuments: UpdateDocumentsMutationResponse;
   updateEmployees: UpdateEmployeesMutationResponse;
+  updateEvents: UpdateEventsMutationResponse;
+  updateFeaturesPages: UpdateFeaturesPagesMutationResponse;
   updateFiles: UpdateFilesMutationResponse;
+  updateHomeClients: UpdateHomeClientsMutationResponse;
+  updateHomePages: UpdateHomePagesMutationResponse;
+  updateHomeServices: UpdateHomeServicesMutationResponse;
   updateImages: UpdateImagesMutationResponse;
+  updateIndustryPages: UpdateIndustryPagesMutationResponse;
   updateInvoices: UpdateInvoicesMutationResponse;
   updateLeads: UpdateLeadsMutationResponse;
   updateLogs: UpdateLogsMutationResponse;
@@ -13260,15 +17411,35 @@ export type Mutation = {
   updateRoles: UpdateRolesMutationResponse;
   updateServicePages: UpdateServicePagesMutationResponse;
   updateServices: UpdateServicesMutationResponse;
+  updateSolutionPages: UpdateSolutionPagesMutationResponse;
+  updateSubCategories: UpdateSubCategoriesMutationResponse;
+  updateSubSolutions: UpdateSubSolutionsMutationResponse;
   updateSubservices: UpdateSubservicesMutationResponse;
   updateSupportTickets: UpdateSupportTicketsMutationResponse;
+  updateTermsPages: UpdateTermsPagesMutationResponse;
+  updateTestings: UpdateTestingsMutationResponse;
   updateUsers: UpdateUsersMutationResponse;
   updateVendors: UpdateVendorsMutationResponse;
 };
 
 
+export type MutationCreateAboutPagesArgs = {
+  input: Array<AboutPageCreateInput>;
+};
+
+
 export type MutationCreateAdminsArgs = {
   input: Array<AdminCreateInput>;
+};
+
+
+export type MutationCreateCalibrationsArgs = {
+  input: Array<CalibrationCreateInput>;
+};
+
+
+export type MutationCreateCategoriesArgs = {
+  input: Array<CategoryCreateInput>;
 };
 
 
@@ -13297,13 +17468,43 @@ export type MutationCreateEmployeesArgs = {
 };
 
 
+export type MutationCreateEventsArgs = {
+  input: Array<EventCreateInput>;
+};
+
+
+export type MutationCreateFeaturesPagesArgs = {
+  input: Array<FeaturesPageCreateInput>;
+};
+
+
 export type MutationCreateFilesArgs = {
   input: Array<FilesCreateInput>;
 };
 
 
+export type MutationCreateHomeClientsArgs = {
+  input: Array<HomeClientCreateInput>;
+};
+
+
+export type MutationCreateHomePagesArgs = {
+  input: Array<HomePageCreateInput>;
+};
+
+
+export type MutationCreateHomeServicesArgs = {
+  input: Array<HomeServicesCreateInput>;
+};
+
+
 export type MutationCreateImagesArgs = {
   input: Array<ImagesCreateInput>;
+};
+
+
+export type MutationCreateIndustryPagesArgs = {
+  input: Array<IndustryPageCreateInput>;
 };
 
 
@@ -13377,6 +17578,21 @@ export type MutationCreateServicesArgs = {
 };
 
 
+export type MutationCreateSolutionPagesArgs = {
+  input: Array<SolutionPageCreateInput>;
+};
+
+
+export type MutationCreateSubCategoriesArgs = {
+  input: Array<SubCategoryCreateInput>;
+};
+
+
+export type MutationCreateSubSolutionsArgs = {
+  input: Array<SubSolutionCreateInput>;
+};
+
+
 export type MutationCreateSubservicesArgs = {
   input: Array<SubserviceCreateInput>;
 };
@@ -13384,6 +17600,16 @@ export type MutationCreateSubservicesArgs = {
 
 export type MutationCreateSupportTicketsArgs = {
   input: Array<SupportTicketCreateInput>;
+};
+
+
+export type MutationCreateTermsPagesArgs = {
+  input: Array<TermsPageCreateInput>;
+};
+
+
+export type MutationCreateTestingsArgs = {
+  input: Array<TestingCreateInput>;
 };
 
 
@@ -13397,9 +17623,27 @@ export type MutationCreateVendorsArgs = {
 };
 
 
+export type MutationDeleteAboutPagesArgs = {
+  delete?: InputMaybe<AboutPageDeleteInput>;
+  where?: InputMaybe<AboutPageWhere>;
+};
+
+
 export type MutationDeleteAdminsArgs = {
   delete?: InputMaybe<AdminDeleteInput>;
   where?: InputMaybe<AdminWhere>;
+};
+
+
+export type MutationDeleteCalibrationsArgs = {
+  delete?: InputMaybe<CalibrationDeleteInput>;
+  where?: InputMaybe<CalibrationWhere>;
+};
+
+
+export type MutationDeleteCategoriesArgs = {
+  delete?: InputMaybe<CategoryDeleteInput>;
+  where?: InputMaybe<CategoryWhere>;
 };
 
 
@@ -13432,15 +17676,51 @@ export type MutationDeleteEmployeesArgs = {
 };
 
 
+export type MutationDeleteEventsArgs = {
+  delete?: InputMaybe<EventDeleteInput>;
+  where?: InputMaybe<EventWhere>;
+};
+
+
+export type MutationDeleteFeaturesPagesArgs = {
+  delete?: InputMaybe<FeaturesPageDeleteInput>;
+  where?: InputMaybe<FeaturesPageWhere>;
+};
+
+
 export type MutationDeleteFilesArgs = {
   delete?: InputMaybe<FilesDeleteInput>;
   where?: InputMaybe<FilesWhere>;
 };
 
 
+export type MutationDeleteHomeClientsArgs = {
+  delete?: InputMaybe<HomeClientDeleteInput>;
+  where?: InputMaybe<HomeClientWhere>;
+};
+
+
+export type MutationDeleteHomePagesArgs = {
+  delete?: InputMaybe<HomePageDeleteInput>;
+  where?: InputMaybe<HomePageWhere>;
+};
+
+
+export type MutationDeleteHomeServicesArgs = {
+  delete?: InputMaybe<HomeServicesDeleteInput>;
+  where?: InputMaybe<HomeServicesWhere>;
+};
+
+
 export type MutationDeleteImagesArgs = {
   delete?: InputMaybe<ImagesDeleteInput>;
   where?: InputMaybe<ImagesWhere>;
+};
+
+
+export type MutationDeleteIndustryPagesArgs = {
+  delete?: InputMaybe<IndustryPageDeleteInput>;
+  where?: InputMaybe<IndustryPageWhere>;
 };
 
 
@@ -13528,6 +17808,24 @@ export type MutationDeleteServicesArgs = {
 };
 
 
+export type MutationDeleteSolutionPagesArgs = {
+  delete?: InputMaybe<SolutionPageDeleteInput>;
+  where?: InputMaybe<SolutionPageWhere>;
+};
+
+
+export type MutationDeleteSubCategoriesArgs = {
+  delete?: InputMaybe<SubCategoryDeleteInput>;
+  where?: InputMaybe<SubCategoryWhere>;
+};
+
+
+export type MutationDeleteSubSolutionsArgs = {
+  delete?: InputMaybe<SubSolutionDeleteInput>;
+  where?: InputMaybe<SubSolutionWhere>;
+};
+
+
 export type MutationDeleteSubservicesArgs = {
   delete?: InputMaybe<SubserviceDeleteInput>;
   where?: InputMaybe<SubserviceWhere>;
@@ -13537,6 +17835,18 @@ export type MutationDeleteSubservicesArgs = {
 export type MutationDeleteSupportTicketsArgs = {
   delete?: InputMaybe<SupportTicketDeleteInput>;
   where?: InputMaybe<SupportTicketWhere>;
+};
+
+
+export type MutationDeleteTermsPagesArgs = {
+  delete?: InputMaybe<TermsPageDeleteInput>;
+  where?: InputMaybe<TermsPageWhere>;
+};
+
+
+export type MutationDeleteTestingsArgs = {
+  delete?: InputMaybe<TestingDeleteInput>;
+  where?: InputMaybe<TestingWhere>;
 };
 
 
@@ -13564,6 +17874,17 @@ export type MutationSignUpArgs = {
 };
 
 
+export type MutationUpdateAboutPagesArgs = {
+  connect?: InputMaybe<AboutPageConnectInput>;
+  connectOrCreate?: InputMaybe<AboutPageConnectOrCreateInput>;
+  create?: InputMaybe<AboutPageRelationInput>;
+  delete?: InputMaybe<AboutPageDeleteInput>;
+  disconnect?: InputMaybe<AboutPageDisconnectInput>;
+  update?: InputMaybe<AboutPageUpdateInput>;
+  where?: InputMaybe<AboutPageWhere>;
+};
+
+
 export type MutationUpdateAdminsArgs = {
   connect?: InputMaybe<AdminConnectInput>;
   connectOrCreate?: InputMaybe<AdminConnectOrCreateInput>;
@@ -13572,6 +17893,28 @@ export type MutationUpdateAdminsArgs = {
   disconnect?: InputMaybe<AdminDisconnectInput>;
   update?: InputMaybe<AdminUpdateInput>;
   where?: InputMaybe<AdminWhere>;
+};
+
+
+export type MutationUpdateCalibrationsArgs = {
+  connect?: InputMaybe<CalibrationConnectInput>;
+  connectOrCreate?: InputMaybe<CalibrationConnectOrCreateInput>;
+  create?: InputMaybe<CalibrationRelationInput>;
+  delete?: InputMaybe<CalibrationDeleteInput>;
+  disconnect?: InputMaybe<CalibrationDisconnectInput>;
+  update?: InputMaybe<CalibrationUpdateInput>;
+  where?: InputMaybe<CalibrationWhere>;
+};
+
+
+export type MutationUpdateCategoriesArgs = {
+  connect?: InputMaybe<CategoryConnectInput>;
+  connectOrCreate?: InputMaybe<CategoryConnectOrCreateInput>;
+  create?: InputMaybe<CategoryRelationInput>;
+  delete?: InputMaybe<CategoryDeleteInput>;
+  disconnect?: InputMaybe<CategoryDisconnectInput>;
+  update?: InputMaybe<CategoryUpdateInput>;
+  where?: InputMaybe<CategoryWhere>;
 };
 
 
@@ -13625,8 +17968,31 @@ export type MutationUpdateEmployeesArgs = {
 };
 
 
+export type MutationUpdateEventsArgs = {
+  connect?: InputMaybe<EventConnectInput>;
+  connectOrCreate?: InputMaybe<EventConnectOrCreateInput>;
+  create?: InputMaybe<EventRelationInput>;
+  delete?: InputMaybe<EventDeleteInput>;
+  disconnect?: InputMaybe<EventDisconnectInput>;
+  update?: InputMaybe<EventUpdateInput>;
+  where?: InputMaybe<EventWhere>;
+};
+
+
+export type MutationUpdateFeaturesPagesArgs = {
+  connect?: InputMaybe<FeaturesPageConnectInput>;
+  connectOrCreate?: InputMaybe<FeaturesPageConnectOrCreateInput>;
+  create?: InputMaybe<FeaturesPageRelationInput>;
+  delete?: InputMaybe<FeaturesPageDeleteInput>;
+  disconnect?: InputMaybe<FeaturesPageDisconnectInput>;
+  update?: InputMaybe<FeaturesPageUpdateInput>;
+  where?: InputMaybe<FeaturesPageWhere>;
+};
+
+
 export type MutationUpdateFilesArgs = {
   connect?: InputMaybe<FilesConnectInput>;
+  connectOrCreate?: InputMaybe<FilesConnectOrCreateInput>;
   create?: InputMaybe<FilesRelationInput>;
   delete?: InputMaybe<FilesDeleteInput>;
   disconnect?: InputMaybe<FilesDisconnectInput>;
@@ -13635,13 +18001,58 @@ export type MutationUpdateFilesArgs = {
 };
 
 
+export type MutationUpdateHomeClientsArgs = {
+  connect?: InputMaybe<HomeClientConnectInput>;
+  connectOrCreate?: InputMaybe<HomeClientConnectOrCreateInput>;
+  create?: InputMaybe<HomeClientRelationInput>;
+  delete?: InputMaybe<HomeClientDeleteInput>;
+  disconnect?: InputMaybe<HomeClientDisconnectInput>;
+  update?: InputMaybe<HomeClientUpdateInput>;
+  where?: InputMaybe<HomeClientWhere>;
+};
+
+
+export type MutationUpdateHomePagesArgs = {
+  connect?: InputMaybe<HomePageConnectInput>;
+  connectOrCreate?: InputMaybe<HomePageConnectOrCreateInput>;
+  create?: InputMaybe<HomePageRelationInput>;
+  delete?: InputMaybe<HomePageDeleteInput>;
+  disconnect?: InputMaybe<HomePageDisconnectInput>;
+  update?: InputMaybe<HomePageUpdateInput>;
+  where?: InputMaybe<HomePageWhere>;
+};
+
+
+export type MutationUpdateHomeServicesArgs = {
+  connect?: InputMaybe<HomeServicesConnectInput>;
+  connectOrCreate?: InputMaybe<HomeServicesConnectOrCreateInput>;
+  create?: InputMaybe<HomeServicesRelationInput>;
+  delete?: InputMaybe<HomeServicesDeleteInput>;
+  disconnect?: InputMaybe<HomeServicesDisconnectInput>;
+  update?: InputMaybe<HomeServicesUpdateInput>;
+  where?: InputMaybe<HomeServicesWhere>;
+};
+
+
 export type MutationUpdateImagesArgs = {
   connect?: InputMaybe<ImagesConnectInput>;
+  connectOrCreate?: InputMaybe<ImagesConnectOrCreateInput>;
   create?: InputMaybe<ImagesRelationInput>;
   delete?: InputMaybe<ImagesDeleteInput>;
   disconnect?: InputMaybe<ImagesDisconnectInput>;
   update?: InputMaybe<ImagesUpdateInput>;
   where?: InputMaybe<ImagesWhere>;
+};
+
+
+export type MutationUpdateIndustryPagesArgs = {
+  connect?: InputMaybe<IndustryPageConnectInput>;
+  connectOrCreate?: InputMaybe<IndustryPageConnectOrCreateInput>;
+  create?: InputMaybe<IndustryPageRelationInput>;
+  delete?: InputMaybe<IndustryPageDeleteInput>;
+  disconnect?: InputMaybe<IndustryPageDisconnectInput>;
+  update?: InputMaybe<IndustryPageUpdateInput>;
+  where?: InputMaybe<IndustryPageWhere>;
 };
 
 
@@ -13799,6 +18210,39 @@ export type MutationUpdateServicesArgs = {
 };
 
 
+export type MutationUpdateSolutionPagesArgs = {
+  connect?: InputMaybe<SolutionPageConnectInput>;
+  connectOrCreate?: InputMaybe<SolutionPageConnectOrCreateInput>;
+  create?: InputMaybe<SolutionPageRelationInput>;
+  delete?: InputMaybe<SolutionPageDeleteInput>;
+  disconnect?: InputMaybe<SolutionPageDisconnectInput>;
+  update?: InputMaybe<SolutionPageUpdateInput>;
+  where?: InputMaybe<SolutionPageWhere>;
+};
+
+
+export type MutationUpdateSubCategoriesArgs = {
+  connect?: InputMaybe<SubCategoryConnectInput>;
+  connectOrCreate?: InputMaybe<SubCategoryConnectOrCreateInput>;
+  create?: InputMaybe<SubCategoryRelationInput>;
+  delete?: InputMaybe<SubCategoryDeleteInput>;
+  disconnect?: InputMaybe<SubCategoryDisconnectInput>;
+  update?: InputMaybe<SubCategoryUpdateInput>;
+  where?: InputMaybe<SubCategoryWhere>;
+};
+
+
+export type MutationUpdateSubSolutionsArgs = {
+  connect?: InputMaybe<SubSolutionConnectInput>;
+  connectOrCreate?: InputMaybe<SubSolutionConnectOrCreateInput>;
+  create?: InputMaybe<SubSolutionRelationInput>;
+  delete?: InputMaybe<SubSolutionDeleteInput>;
+  disconnect?: InputMaybe<SubSolutionDisconnectInput>;
+  update?: InputMaybe<SubSolutionUpdateInput>;
+  where?: InputMaybe<SubSolutionWhere>;
+};
+
+
 export type MutationUpdateSubservicesArgs = {
   connect?: InputMaybe<SubserviceConnectInput>;
   connectOrCreate?: InputMaybe<SubserviceConnectOrCreateInput>;
@@ -13818,6 +18262,28 @@ export type MutationUpdateSupportTicketsArgs = {
   disconnect?: InputMaybe<SupportTicketDisconnectInput>;
   update?: InputMaybe<SupportTicketUpdateInput>;
   where?: InputMaybe<SupportTicketWhere>;
+};
+
+
+export type MutationUpdateTermsPagesArgs = {
+  connect?: InputMaybe<TermsPageConnectInput>;
+  connectOrCreate?: InputMaybe<TermsPageConnectOrCreateInput>;
+  create?: InputMaybe<TermsPageRelationInput>;
+  delete?: InputMaybe<TermsPageDeleteInput>;
+  disconnect?: InputMaybe<TermsPageDisconnectInput>;
+  update?: InputMaybe<TermsPageUpdateInput>;
+  where?: InputMaybe<TermsPageWhere>;
+};
+
+
+export type MutationUpdateTestingsArgs = {
+  connect?: InputMaybe<TestingConnectInput>;
+  connectOrCreate?: InputMaybe<TestingConnectOrCreateInput>;
+  create?: InputMaybe<TestingRelationInput>;
+  delete?: InputMaybe<TestingDeleteInput>;
+  disconnect?: InputMaybe<TestingDisconnectInput>;
+  update?: InputMaybe<TestingUpdateInput>;
+  where?: InputMaybe<TestingWhere>;
 };
 
 
@@ -14465,12 +18931,20 @@ export type Product = {
   adminHasConnection: ProductAdminHasConnection;
   createdAt?: Maybe<Scalars['DateTime']['output']>;
   features?: Maybe<Scalars['String']['output']>;
+  file?: Maybe<Scalars['String']['output']>;
+  hasSubcategory?: Maybe<SubCategory>;
+  hasSubcategoryAggregate?: Maybe<ProductSubCategoryHasSubcategoryAggregationSelection>;
+  hasSubcategoryConnection: ProductHasSubcategoryConnection;
+  homepageHas?: Maybe<HomePage>;
+  homepageHasAggregate?: Maybe<ProductHomePageHomepageHasAggregationSelection>;
+  homepageHasConnection: ProductHomepageHasConnection;
   id: Scalars['ID']['output'];
   image?: Maybe<Scalars['String']['output']>;
   others?: Maybe<Scalars['String']['output']>;
   price?: Maybe<Scalars['Int']['output']>;
   shortDescription?: Maybe<Scalars['String']['output']>;
   title?: Maybe<Scalars['String']['output']>;
+  video?: Maybe<Scalars['String']['output']>;
 };
 
 
@@ -14493,6 +18967,50 @@ export type ProductAdminHasConnectionArgs = {
   first?: InputMaybe<Scalars['Int']['input']>;
   sort?: InputMaybe<Array<ProductAdminHasConnectionSort>>;
   where?: InputMaybe<ProductAdminHasConnectionWhere>;
+};
+
+
+export type ProductHasSubcategoryArgs = {
+  directed?: InputMaybe<Scalars['Boolean']['input']>;
+  options?: InputMaybe<SubCategoryOptions>;
+  where?: InputMaybe<SubCategoryWhere>;
+};
+
+
+export type ProductHasSubcategoryAggregateArgs = {
+  directed?: InputMaybe<Scalars['Boolean']['input']>;
+  where?: InputMaybe<SubCategoryWhere>;
+};
+
+
+export type ProductHasSubcategoryConnectionArgs = {
+  after?: InputMaybe<Scalars['String']['input']>;
+  directed?: InputMaybe<Scalars['Boolean']['input']>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  sort?: InputMaybe<Array<ProductHasSubcategoryConnectionSort>>;
+  where?: InputMaybe<ProductHasSubcategoryConnectionWhere>;
+};
+
+
+export type ProductHomepageHasArgs = {
+  directed?: InputMaybe<Scalars['Boolean']['input']>;
+  options?: InputMaybe<HomePageOptions>;
+  where?: InputMaybe<HomePageWhere>;
+};
+
+
+export type ProductHomepageHasAggregateArgs = {
+  directed?: InputMaybe<Scalars['Boolean']['input']>;
+  where?: InputMaybe<HomePageWhere>;
+};
+
+
+export type ProductHomepageHasConnectionArgs = {
+  after?: InputMaybe<Scalars['String']['input']>;
+  directed?: InputMaybe<Scalars['Boolean']['input']>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  sort?: InputMaybe<Array<ProductHomepageHasConnectionSort>>;
+  where?: InputMaybe<ProductHomepageHasConnectionWhere>;
 };
 
 export type ProductAdminAdminHasAggregationSelection = {
@@ -14603,20 +19121,26 @@ export type ProductAggregateSelection = {
   count: Scalars['Int']['output'];
   createdAt: DateTimeAggregateSelectionNullable;
   features: StringAggregateSelectionNullable;
+  file: StringAggregateSelectionNullable;
   id: IdAggregateSelectionNonNullable;
   image: StringAggregateSelectionNullable;
   others: StringAggregateSelectionNullable;
   price: IntAggregateSelectionNullable;
   shortDescription: StringAggregateSelectionNullable;
   title: StringAggregateSelectionNullable;
+  video: StringAggregateSelectionNullable;
 };
 
 export type ProductConnectInput = {
   adminHas?: InputMaybe<ProductAdminHasConnectFieldInput>;
+  hasSubcategory?: InputMaybe<ProductHasSubcategoryConnectFieldInput>;
+  homepageHas?: InputMaybe<ProductHomepageHasConnectFieldInput>;
 };
 
 export type ProductConnectOrCreateInput = {
   adminHas?: InputMaybe<ProductAdminHasConnectOrCreateFieldInput>;
+  hasSubcategory?: InputMaybe<ProductHasSubcategoryConnectOrCreateFieldInput>;
+  homepageHas?: InputMaybe<ProductHomepageHasConnectOrCreateFieldInput>;
 };
 
 export type ProductConnectOrCreateWhere = {
@@ -14631,19 +19155,27 @@ export type ProductCreateInput = {
   adminHas?: InputMaybe<ProductAdminHasFieldInput>;
   createdAt?: InputMaybe<Scalars['DateTime']['input']>;
   features?: InputMaybe<Scalars['String']['input']>;
+  file?: InputMaybe<Scalars['String']['input']>;
+  hasSubcategory?: InputMaybe<ProductHasSubcategoryFieldInput>;
+  homepageHas?: InputMaybe<ProductHomepageHasFieldInput>;
   image?: InputMaybe<Scalars['String']['input']>;
   others?: InputMaybe<Scalars['String']['input']>;
   price?: InputMaybe<Scalars['Int']['input']>;
   shortDescription?: InputMaybe<Scalars['String']['input']>;
   title?: InputMaybe<Scalars['String']['input']>;
+  video?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type ProductDeleteInput = {
   adminHas?: InputMaybe<ProductAdminHasDeleteFieldInput>;
+  hasSubcategory?: InputMaybe<ProductHasSubcategoryDeleteFieldInput>;
+  homepageHas?: InputMaybe<ProductHomepageHasDeleteFieldInput>;
 };
 
 export type ProductDisconnectInput = {
   adminHas?: InputMaybe<ProductAdminHasDisconnectFieldInput>;
+  hasSubcategory?: InputMaybe<ProductHasSubcategoryDisconnectFieldInput>;
+  homepageHas?: InputMaybe<ProductHomepageHasDisconnectFieldInput>;
 };
 
 export type ProductEdge = {
@@ -14652,14 +19184,268 @@ export type ProductEdge = {
   node: Product;
 };
 
+export type ProductHasSubcategoryAggregateInput = {
+  AND?: InputMaybe<Array<ProductHasSubcategoryAggregateInput>>;
+  NOT?: InputMaybe<ProductHasSubcategoryAggregateInput>;
+  OR?: InputMaybe<Array<ProductHasSubcategoryAggregateInput>>;
+  count?: InputMaybe<Scalars['Int']['input']>;
+  count_GT?: InputMaybe<Scalars['Int']['input']>;
+  count_GTE?: InputMaybe<Scalars['Int']['input']>;
+  count_LT?: InputMaybe<Scalars['Int']['input']>;
+  count_LTE?: InputMaybe<Scalars['Int']['input']>;
+  node?: InputMaybe<ProductHasSubcategoryNodeAggregationWhereInput>;
+};
+
+export type ProductHasSubcategoryConnectFieldInput = {
+  connect?: InputMaybe<SubCategoryConnectInput>;
+  /** Whether or not to overwrite any matching relationship with the new properties. Will default to `false` in 4.0.0. */
+  overwrite?: Scalars['Boolean']['input'];
+  where?: InputMaybe<SubCategoryConnectWhere>;
+};
+
+export type ProductHasSubcategoryConnectOrCreateFieldInput = {
+  onCreate: ProductHasSubcategoryConnectOrCreateFieldInputOnCreate;
+  where: SubCategoryConnectOrCreateWhere;
+};
+
+export type ProductHasSubcategoryConnectOrCreateFieldInputOnCreate = {
+  node: SubCategoryOnCreateInput;
+};
+
+export type ProductHasSubcategoryConnection = {
+  __typename?: 'ProductHasSubcategoryConnection';
+  edges: Array<ProductHasSubcategoryRelationship>;
+  pageInfo: PageInfo;
+  totalCount: Scalars['Int']['output'];
+};
+
+export type ProductHasSubcategoryConnectionSort = {
+  node?: InputMaybe<SubCategorySort>;
+};
+
+export type ProductHasSubcategoryConnectionWhere = {
+  AND?: InputMaybe<Array<ProductHasSubcategoryConnectionWhere>>;
+  NOT?: InputMaybe<ProductHasSubcategoryConnectionWhere>;
+  OR?: InputMaybe<Array<ProductHasSubcategoryConnectionWhere>>;
+  node?: InputMaybe<SubCategoryWhere>;
+};
+
+export type ProductHasSubcategoryCreateFieldInput = {
+  node: SubCategoryCreateInput;
+};
+
+export type ProductHasSubcategoryDeleteFieldInput = {
+  delete?: InputMaybe<SubCategoryDeleteInput>;
+  where?: InputMaybe<ProductHasSubcategoryConnectionWhere>;
+};
+
+export type ProductHasSubcategoryDisconnectFieldInput = {
+  disconnect?: InputMaybe<SubCategoryDisconnectInput>;
+  where?: InputMaybe<ProductHasSubcategoryConnectionWhere>;
+};
+
+export type ProductHasSubcategoryFieldInput = {
+  connect?: InputMaybe<ProductHasSubcategoryConnectFieldInput>;
+  connectOrCreate?: InputMaybe<ProductHasSubcategoryConnectOrCreateFieldInput>;
+  create?: InputMaybe<ProductHasSubcategoryCreateFieldInput>;
+};
+
+export type ProductHasSubcategoryNodeAggregationWhereInput = {
+  AND?: InputMaybe<Array<ProductHasSubcategoryNodeAggregationWhereInput>>;
+  NOT?: InputMaybe<ProductHasSubcategoryNodeAggregationWhereInput>;
+  OR?: InputMaybe<Array<ProductHasSubcategoryNodeAggregationWhereInput>>;
+  createdAt_MAX_EQUAL?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_MAX_GT?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_MAX_GTE?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_MAX_LT?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_MAX_LTE?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_MIN_EQUAL?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_MIN_GT?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_MIN_GTE?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_MIN_LT?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_MIN_LTE?: InputMaybe<Scalars['DateTime']['input']>;
+  name_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  name_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  name_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  name_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  name_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  name_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  name_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  name_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  name_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  name_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  name_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  name_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  name_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  name_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  name_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+};
+
+export type ProductHasSubcategoryRelationship = {
+  __typename?: 'ProductHasSubcategoryRelationship';
+  cursor: Scalars['String']['output'];
+  node: SubCategory;
+};
+
+export type ProductHasSubcategoryUpdateConnectionInput = {
+  node?: InputMaybe<SubCategoryUpdateInput>;
+};
+
+export type ProductHasSubcategoryUpdateFieldInput = {
+  connect?: InputMaybe<ProductHasSubcategoryConnectFieldInput>;
+  connectOrCreate?: InputMaybe<ProductHasSubcategoryConnectOrCreateFieldInput>;
+  create?: InputMaybe<ProductHasSubcategoryCreateFieldInput>;
+  delete?: InputMaybe<ProductHasSubcategoryDeleteFieldInput>;
+  disconnect?: InputMaybe<ProductHasSubcategoryDisconnectFieldInput>;
+  update?: InputMaybe<ProductHasSubcategoryUpdateConnectionInput>;
+  where?: InputMaybe<ProductHasSubcategoryConnectionWhere>;
+};
+
+export type ProductHomePageHomepageHasAggregationSelection = {
+  __typename?: 'ProductHomePageHomepageHasAggregationSelection';
+  count: Scalars['Int']['output'];
+  node?: Maybe<ProductHomePageHomepageHasNodeAggregateSelection>;
+};
+
+export type ProductHomePageHomepageHasNodeAggregateSelection = {
+  __typename?: 'ProductHomePageHomepageHasNodeAggregateSelection';
+  heroImage: StringAggregateSelectionNullable;
+  heroText: StringAggregateSelectionNullable;
+  id: IdAggregateSelectionNonNullable;
+};
+
+export type ProductHomepageHasAggregateInput = {
+  AND?: InputMaybe<Array<ProductHomepageHasAggregateInput>>;
+  NOT?: InputMaybe<ProductHomepageHasAggregateInput>;
+  OR?: InputMaybe<Array<ProductHomepageHasAggregateInput>>;
+  count?: InputMaybe<Scalars['Int']['input']>;
+  count_GT?: InputMaybe<Scalars['Int']['input']>;
+  count_GTE?: InputMaybe<Scalars['Int']['input']>;
+  count_LT?: InputMaybe<Scalars['Int']['input']>;
+  count_LTE?: InputMaybe<Scalars['Int']['input']>;
+  node?: InputMaybe<ProductHomepageHasNodeAggregationWhereInput>;
+};
+
+export type ProductHomepageHasConnectFieldInput = {
+  connect?: InputMaybe<HomePageConnectInput>;
+  /** Whether or not to overwrite any matching relationship with the new properties. Will default to `false` in 4.0.0. */
+  overwrite?: Scalars['Boolean']['input'];
+  where?: InputMaybe<HomePageConnectWhere>;
+};
+
+export type ProductHomepageHasConnectOrCreateFieldInput = {
+  onCreate: ProductHomepageHasConnectOrCreateFieldInputOnCreate;
+  where: HomePageConnectOrCreateWhere;
+};
+
+export type ProductHomepageHasConnectOrCreateFieldInputOnCreate = {
+  node: HomePageOnCreateInput;
+};
+
+export type ProductHomepageHasConnection = {
+  __typename?: 'ProductHomepageHasConnection';
+  edges: Array<ProductHomepageHasRelationship>;
+  pageInfo: PageInfo;
+  totalCount: Scalars['Int']['output'];
+};
+
+export type ProductHomepageHasConnectionSort = {
+  node?: InputMaybe<HomePageSort>;
+};
+
+export type ProductHomepageHasConnectionWhere = {
+  AND?: InputMaybe<Array<ProductHomepageHasConnectionWhere>>;
+  NOT?: InputMaybe<ProductHomepageHasConnectionWhere>;
+  OR?: InputMaybe<Array<ProductHomepageHasConnectionWhere>>;
+  node?: InputMaybe<HomePageWhere>;
+};
+
+export type ProductHomepageHasCreateFieldInput = {
+  node: HomePageCreateInput;
+};
+
+export type ProductHomepageHasDeleteFieldInput = {
+  delete?: InputMaybe<HomePageDeleteInput>;
+  where?: InputMaybe<ProductHomepageHasConnectionWhere>;
+};
+
+export type ProductHomepageHasDisconnectFieldInput = {
+  disconnect?: InputMaybe<HomePageDisconnectInput>;
+  where?: InputMaybe<ProductHomepageHasConnectionWhere>;
+};
+
+export type ProductHomepageHasFieldInput = {
+  connect?: InputMaybe<ProductHomepageHasConnectFieldInput>;
+  connectOrCreate?: InputMaybe<ProductHomepageHasConnectOrCreateFieldInput>;
+  create?: InputMaybe<ProductHomepageHasCreateFieldInput>;
+};
+
+export type ProductHomepageHasNodeAggregationWhereInput = {
+  AND?: InputMaybe<Array<ProductHomepageHasNodeAggregationWhereInput>>;
+  NOT?: InputMaybe<ProductHomepageHasNodeAggregationWhereInput>;
+  OR?: InputMaybe<Array<ProductHomepageHasNodeAggregationWhereInput>>;
+  heroImage_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  heroImage_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  heroImage_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  heroImage_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  heroImage_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  heroImage_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  heroImage_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  heroImage_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  heroImage_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  heroImage_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  heroImage_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  heroImage_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  heroImage_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  heroImage_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  heroImage_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  heroText_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  heroText_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  heroText_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  heroText_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  heroText_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  heroText_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  heroText_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  heroText_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  heroText_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  heroText_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  heroText_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  heroText_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  heroText_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  heroText_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  heroText_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+};
+
+export type ProductHomepageHasRelationship = {
+  __typename?: 'ProductHomepageHasRelationship';
+  cursor: Scalars['String']['output'];
+  node: HomePage;
+};
+
+export type ProductHomepageHasUpdateConnectionInput = {
+  node?: InputMaybe<HomePageUpdateInput>;
+};
+
+export type ProductHomepageHasUpdateFieldInput = {
+  connect?: InputMaybe<ProductHomepageHasConnectFieldInput>;
+  connectOrCreate?: InputMaybe<ProductHomepageHasConnectOrCreateFieldInput>;
+  create?: InputMaybe<ProductHomepageHasCreateFieldInput>;
+  delete?: InputMaybe<ProductHomepageHasDeleteFieldInput>;
+  disconnect?: InputMaybe<ProductHomepageHasDisconnectFieldInput>;
+  update?: InputMaybe<ProductHomepageHasUpdateConnectionInput>;
+  where?: InputMaybe<ProductHomepageHasConnectionWhere>;
+};
+
 export type ProductOnCreateInput = {
   createdAt?: InputMaybe<Scalars['DateTime']['input']>;
   features?: InputMaybe<Scalars['String']['input']>;
+  file?: InputMaybe<Scalars['String']['input']>;
   image?: InputMaybe<Scalars['String']['input']>;
   others?: InputMaybe<Scalars['String']['input']>;
   price?: InputMaybe<Scalars['Int']['input']>;
   shortDescription?: InputMaybe<Scalars['String']['input']>;
   title?: InputMaybe<Scalars['String']['input']>;
+  video?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type ProductOptions = {
@@ -14671,18 +19457,35 @@ export type ProductOptions = {
 
 export type ProductRelationInput = {
   adminHas?: InputMaybe<ProductAdminHasCreateFieldInput>;
+  hasSubcategory?: InputMaybe<ProductHasSubcategoryCreateFieldInput>;
+  homepageHas?: InputMaybe<ProductHomepageHasCreateFieldInput>;
 };
 
 /** Fields to sort Products by. The order in which sorts are applied is not guaranteed when specifying many fields in one ProductSort object. */
 export type ProductSort = {
   createdAt?: InputMaybe<SortDirection>;
   features?: InputMaybe<SortDirection>;
+  file?: InputMaybe<SortDirection>;
   id?: InputMaybe<SortDirection>;
   image?: InputMaybe<SortDirection>;
   others?: InputMaybe<SortDirection>;
   price?: InputMaybe<SortDirection>;
   shortDescription?: InputMaybe<SortDirection>;
   title?: InputMaybe<SortDirection>;
+  video?: InputMaybe<SortDirection>;
+};
+
+export type ProductSubCategoryHasSubcategoryAggregationSelection = {
+  __typename?: 'ProductSubCategoryHasSubcategoryAggregationSelection';
+  count: Scalars['Int']['output'];
+  node?: Maybe<ProductSubCategoryHasSubcategoryNodeAggregateSelection>;
+};
+
+export type ProductSubCategoryHasSubcategoryNodeAggregateSelection = {
+  __typename?: 'ProductSubCategoryHasSubcategoryNodeAggregateSelection';
+  createdAt: DateTimeAggregateSelectionNullable;
+  id: IdAggregateSelectionNonNullable;
+  name: StringAggregateSelectionNullable;
 };
 
 export type ProductUniqueWhere = {
@@ -14693,6 +19496,9 @@ export type ProductUpdateInput = {
   adminHas?: InputMaybe<ProductAdminHasUpdateFieldInput>;
   createdAt?: InputMaybe<Scalars['DateTime']['input']>;
   features?: InputMaybe<Scalars['String']['input']>;
+  file?: InputMaybe<Scalars['String']['input']>;
+  hasSubcategory?: InputMaybe<ProductHasSubcategoryUpdateFieldInput>;
+  homepageHas?: InputMaybe<ProductHomepageHasUpdateFieldInput>;
   image?: InputMaybe<Scalars['String']['input']>;
   others?: InputMaybe<Scalars['String']['input']>;
   price?: InputMaybe<Scalars['Int']['input']>;
@@ -14700,6 +19506,7 @@ export type ProductUpdateInput = {
   price_INCREMENT?: InputMaybe<Scalars['Int']['input']>;
   shortDescription?: InputMaybe<Scalars['String']['input']>;
   title?: InputMaybe<Scalars['String']['input']>;
+  video?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type ProductWhere = {
@@ -14722,6 +19529,21 @@ export type ProductWhere = {
   features_ENDS_WITH?: InputMaybe<Scalars['String']['input']>;
   features_IN?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   features_STARTS_WITH?: InputMaybe<Scalars['String']['input']>;
+  file?: InputMaybe<Scalars['String']['input']>;
+  file_CONTAINS?: InputMaybe<Scalars['String']['input']>;
+  file_ENDS_WITH?: InputMaybe<Scalars['String']['input']>;
+  file_IN?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  file_STARTS_WITH?: InputMaybe<Scalars['String']['input']>;
+  hasSubcategory?: InputMaybe<SubCategoryWhere>;
+  hasSubcategoryAggregate?: InputMaybe<ProductHasSubcategoryAggregateInput>;
+  hasSubcategoryConnection?: InputMaybe<ProductHasSubcategoryConnectionWhere>;
+  hasSubcategoryConnection_NOT?: InputMaybe<ProductHasSubcategoryConnectionWhere>;
+  hasSubcategory_NOT?: InputMaybe<SubCategoryWhere>;
+  homepageHas?: InputMaybe<HomePageWhere>;
+  homepageHasAggregate?: InputMaybe<ProductHomepageHasAggregateInput>;
+  homepageHasConnection?: InputMaybe<ProductHomepageHasConnectionWhere>;
+  homepageHasConnection_NOT?: InputMaybe<ProductHomepageHasConnectionWhere>;
+  homepageHas_NOT?: InputMaybe<HomePageWhere>;
   id?: InputMaybe<Scalars['ID']['input']>;
   id_CONTAINS?: InputMaybe<Scalars['ID']['input']>;
   id_ENDS_WITH?: InputMaybe<Scalars['ID']['input']>;
@@ -14753,6 +19575,11 @@ export type ProductWhere = {
   title_ENDS_WITH?: InputMaybe<Scalars['String']['input']>;
   title_IN?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   title_STARTS_WITH?: InputMaybe<Scalars['String']['input']>;
+  video?: InputMaybe<Scalars['String']['input']>;
+  video_CONTAINS?: InputMaybe<Scalars['String']['input']>;
+  video_ENDS_WITH?: InputMaybe<Scalars['String']['input']>;
+  video_IN?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  video_STARTS_WITH?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type ProductsConnection = {
@@ -15125,6 +19952,7 @@ export type ProjectConnectOrCreateInput = {
   adminHas?: InputMaybe<ProjectAdminHasConnectOrCreateFieldInput>;
   clientOrdered?: InputMaybe<ProjectClientOrderedConnectOrCreateFieldInput>;
   hasModule?: InputMaybe<Array<ProjectHasModuleConnectOrCreateFieldInput>>;
+  projectticketFor?: InputMaybe<ProjectProjectticketForConnectOrCreateFieldInput>;
 };
 
 export type ProjectConnectOrCreateWhere = {
@@ -15346,6 +20174,7 @@ export type ProjectProjectTicketProjectticketForAggregationSelection = {
 
 export type ProjectProjectTicketProjectticketForNodeAggregateSelection = {
   __typename?: 'ProjectProjectTicketProjectticketForNodeAggregateSelection';
+  id: IdAggregateSelectionNonNullable;
   projectTicket: StringAggregateSelectionNullable;
 };
 
@@ -15366,6 +20195,15 @@ export type ProjectProjectticketForConnectFieldInput = {
   /** Whether or not to overwrite any matching relationship with the new properties. Will default to `false` in 4.0.0. */
   overwrite?: Scalars['Boolean']['input'];
   where?: InputMaybe<ProjectTicketConnectWhere>;
+};
+
+export type ProjectProjectticketForConnectOrCreateFieldInput = {
+  onCreate: ProjectProjectticketForConnectOrCreateFieldInputOnCreate;
+  where: ProjectTicketConnectOrCreateWhere;
+};
+
+export type ProjectProjectticketForConnectOrCreateFieldInputOnCreate = {
+  node: ProjectTicketOnCreateInput;
 };
 
 export type ProjectProjectticketForConnection = {
@@ -15402,6 +20240,7 @@ export type ProjectProjectticketForDisconnectFieldInput = {
 
 export type ProjectProjectticketForFieldInput = {
   connect?: InputMaybe<ProjectProjectticketForConnectFieldInput>;
+  connectOrCreate?: InputMaybe<ProjectProjectticketForConnectOrCreateFieldInput>;
   create?: InputMaybe<ProjectProjectticketForCreateFieldInput>;
 };
 
@@ -15438,6 +20277,7 @@ export type ProjectProjectticketForUpdateConnectionInput = {
 
 export type ProjectProjectticketForUpdateFieldInput = {
   connect?: InputMaybe<ProjectProjectticketForConnectFieldInput>;
+  connectOrCreate?: InputMaybe<ProjectProjectticketForConnectOrCreateFieldInput>;
   create?: InputMaybe<ProjectProjectticketForCreateFieldInput>;
   delete?: InputMaybe<ProjectProjectticketForDeleteFieldInput>;
   disconnect?: InputMaybe<ProjectProjectticketForDisconnectFieldInput>;
@@ -15478,6 +20318,7 @@ export type ProjectTicket = {
   hasModuleticket?: Maybe<ModuleTicket>;
   hasModuleticketAggregate?: Maybe<ProjectTicketModuleTicketHasModuleticketAggregationSelection>;
   hasModuleticketConnection: ProjectTicketHasModuleticketConnection;
+  id: Scalars['ID']['output'];
   projectTicket?: Maybe<Scalars['String']['output']>;
 };
 
@@ -15653,6 +20494,7 @@ export type ProjectTicketAdminCreatedUpdateFieldInput = {
 export type ProjectTicketAggregateSelection = {
   __typename?: 'ProjectTicketAggregateSelection';
   count: Scalars['Int']['output'];
+  id: IdAggregateSelectionNonNullable;
   projectTicket: StringAggregateSelectionNullable;
 };
 
@@ -15666,6 +20508,10 @@ export type ProjectTicketConnectOrCreateInput = {
   adminCreated?: InputMaybe<ProjectTicketAdminCreatedConnectOrCreateFieldInput>;
   forProject?: InputMaybe<ProjectTicketForProjectConnectOrCreateFieldInput>;
   hasModuleticket?: InputMaybe<ProjectTicketHasModuleticketConnectOrCreateFieldInput>;
+};
+
+export type ProjectTicketConnectOrCreateWhere = {
+  node: ProjectTicketUniqueWhere;
 };
 
 export type ProjectTicketConnectWhere = {
@@ -16065,6 +20911,10 @@ export type ProjectTicketModuleTicketHasModuleticketNodeAggregateSelection = {
   ticket: StringAggregateSelectionNonNullable;
 };
 
+export type ProjectTicketOnCreateInput = {
+  projectTicket?: InputMaybe<Scalars['String']['input']>;
+};
+
 export type ProjectTicketOptions = {
   limit?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -16100,7 +20950,12 @@ export type ProjectTicketRelationInput = {
 
 /** Fields to sort ProjectTickets by. The order in which sorts are applied is not guaranteed when specifying many fields in one ProjectTicketSort object. */
 export type ProjectTicketSort = {
+  id?: InputMaybe<SortDirection>;
   projectTicket?: InputMaybe<SortDirection>;
+};
+
+export type ProjectTicketUniqueWhere = {
+  id?: InputMaybe<Scalars['ID']['input']>;
 };
 
 export type ProjectTicketUpdateInput = {
@@ -16129,6 +20984,11 @@ export type ProjectTicketWhere = {
   hasModuleticketConnection?: InputMaybe<ProjectTicketHasModuleticketConnectionWhere>;
   hasModuleticketConnection_NOT?: InputMaybe<ProjectTicketHasModuleticketConnectionWhere>;
   hasModuleticket_NOT?: InputMaybe<ModuleTicketWhere>;
+  id?: InputMaybe<Scalars['ID']['input']>;
+  id_CONTAINS?: InputMaybe<Scalars['ID']['input']>;
+  id_ENDS_WITH?: InputMaybe<Scalars['ID']['input']>;
+  id_IN?: InputMaybe<Array<Scalars['ID']['input']>>;
+  id_STARTS_WITH?: InputMaybe<Scalars['ID']['input']>;
   projectTicket?: InputMaybe<Scalars['String']['input']>;
   projectTicket_CONTAINS?: InputMaybe<Scalars['String']['input']>;
   projectTicket_ENDS_WITH?: InputMaybe<Scalars['String']['input']>;
@@ -16264,9 +21124,18 @@ export type ProjectsConnection = {
 
 export type Query = {
   __typename?: 'Query';
+  aboutPages: Array<AboutPage>;
+  aboutPagesAggregate: AboutPageAggregateSelection;
+  aboutPagesConnection: AboutPagesConnection;
   admins: Array<Admin>;
   adminsAggregate: AdminAggregateSelection;
   adminsConnection: AdminsConnection;
+  calibrations: Array<Calibration>;
+  calibrationsAggregate: CalibrationAggregateSelection;
+  calibrationsConnection: CalibrationsConnection;
+  categories: Array<Category>;
+  categoriesAggregate: CategoryAggregateSelection;
+  categoriesConnection: CategoriesConnection;
   clients: Array<Client>;
   clientsAggregate: ClientAggregateSelection;
   clientsConnection: ClientsConnection;
@@ -16282,12 +21151,30 @@ export type Query = {
   employees: Array<Employee>;
   employeesAggregate: EmployeeAggregateSelection;
   employeesConnection: EmployeesConnection;
+  events: Array<Event>;
+  eventsAggregate: EventAggregateSelection;
+  eventsConnection: EventsConnection;
+  featuresPages: Array<FeaturesPage>;
+  featuresPagesAggregate: FeaturesPageAggregateSelection;
+  featuresPagesConnection: FeaturesPagesConnection;
   files: Array<Files>;
   filesAggregate: FilesAggregateSelection;
   filesConnection: FilesConnection;
+  homeClients: Array<HomeClient>;
+  homeClientsAggregate: HomeClientAggregateSelection;
+  homeClientsConnection: HomeClientsConnection;
+  homePages: Array<HomePage>;
+  homePagesAggregate: HomePageAggregateSelection;
+  homePagesConnection: HomePagesConnection;
+  homeServices: Array<HomeServices>;
+  homeServicesAggregate: HomeServicesAggregateSelection;
+  homeServicesConnection: HomeServicesConnection;
   images: Array<Images>;
   imagesAggregate: ImagesAggregateSelection;
   imagesConnection: ImagesConnection;
+  industryPages: Array<IndustryPage>;
+  industryPagesAggregate: IndustryPageAggregateSelection;
+  industryPagesConnection: IndustryPagesConnection;
   invoices: Array<Invoice>;
   invoicesAggregate: InvoiceAggregateSelection;
   invoicesConnection: InvoicesConnection;
@@ -16330,18 +21217,52 @@ export type Query = {
   services: Array<Service>;
   servicesAggregate: ServiceAggregateSelection;
   servicesConnection: ServicesConnection;
+  solutionPages: Array<SolutionPage>;
+  solutionPagesAggregate: SolutionPageAggregateSelection;
+  solutionPagesConnection: SolutionPagesConnection;
+  subCategories: Array<SubCategory>;
+  subCategoriesAggregate: SubCategoryAggregateSelection;
+  subCategoriesConnection: SubCategoriesConnection;
+  subSolutions: Array<SubSolution>;
+  subSolutionsAggregate: SubSolutionAggregateSelection;
+  subSolutionsConnection: SubSolutionsConnection;
   subservices: Array<Subservice>;
   subservicesAggregate: SubserviceAggregateSelection;
   subservicesConnection: SubservicesConnection;
   supportTickets: Array<SupportTicket>;
   supportTicketsAggregate: SupportTicketAggregateSelection;
   supportTicketsConnection: SupportTicketsConnection;
+  termsPages: Array<TermsPage>;
+  termsPagesAggregate: TermsPageAggregateSelection;
+  termsPagesConnection: TermsPagesConnection;
+  testings: Array<Testing>;
+  testingsAggregate: TestingAggregateSelection;
+  testingsConnection: TestingsConnection;
   users: Array<User>;
   usersAggregate: UserAggregateSelection;
   usersConnection: UsersConnection;
   vendors: Array<Vendor>;
   vendorsAggregate: VendorAggregateSelection;
   vendorsConnection: VendorsConnection;
+};
+
+
+export type QueryAboutPagesArgs = {
+  options?: InputMaybe<AboutPageOptions>;
+  where?: InputMaybe<AboutPageWhere>;
+};
+
+
+export type QueryAboutPagesAggregateArgs = {
+  where?: InputMaybe<AboutPageWhere>;
+};
+
+
+export type QueryAboutPagesConnectionArgs = {
+  after?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  sort?: InputMaybe<Array<InputMaybe<AboutPageSort>>>;
+  where?: InputMaybe<AboutPageWhere>;
 };
 
 
@@ -16361,6 +21282,44 @@ export type QueryAdminsConnectionArgs = {
   first?: InputMaybe<Scalars['Int']['input']>;
   sort?: InputMaybe<Array<InputMaybe<AdminSort>>>;
   where?: InputMaybe<AdminWhere>;
+};
+
+
+export type QueryCalibrationsArgs = {
+  options?: InputMaybe<CalibrationOptions>;
+  where?: InputMaybe<CalibrationWhere>;
+};
+
+
+export type QueryCalibrationsAggregateArgs = {
+  where?: InputMaybe<CalibrationWhere>;
+};
+
+
+export type QueryCalibrationsConnectionArgs = {
+  after?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  sort?: InputMaybe<Array<InputMaybe<CalibrationSort>>>;
+  where?: InputMaybe<CalibrationWhere>;
+};
+
+
+export type QueryCategoriesArgs = {
+  options?: InputMaybe<CategoryOptions>;
+  where?: InputMaybe<CategoryWhere>;
+};
+
+
+export type QueryCategoriesAggregateArgs = {
+  where?: InputMaybe<CategoryWhere>;
+};
+
+
+export type QueryCategoriesConnectionArgs = {
+  after?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  sort?: InputMaybe<Array<InputMaybe<CategorySort>>>;
+  where?: InputMaybe<CategoryWhere>;
 };
 
 
@@ -16459,6 +21418,44 @@ export type QueryEmployeesConnectionArgs = {
 };
 
 
+export type QueryEventsArgs = {
+  options?: InputMaybe<EventOptions>;
+  where?: InputMaybe<EventWhere>;
+};
+
+
+export type QueryEventsAggregateArgs = {
+  where?: InputMaybe<EventWhere>;
+};
+
+
+export type QueryEventsConnectionArgs = {
+  after?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  sort?: InputMaybe<Array<InputMaybe<EventSort>>>;
+  where?: InputMaybe<EventWhere>;
+};
+
+
+export type QueryFeaturesPagesArgs = {
+  options?: InputMaybe<FeaturesPageOptions>;
+  where?: InputMaybe<FeaturesPageWhere>;
+};
+
+
+export type QueryFeaturesPagesAggregateArgs = {
+  where?: InputMaybe<FeaturesPageWhere>;
+};
+
+
+export type QueryFeaturesPagesConnectionArgs = {
+  after?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  sort?: InputMaybe<Array<InputMaybe<FeaturesPageSort>>>;
+  where?: InputMaybe<FeaturesPageWhere>;
+};
+
+
 export type QueryFilesArgs = {
   options?: InputMaybe<FilesOptions>;
   where?: InputMaybe<FilesWhere>;
@@ -16478,6 +21475,63 @@ export type QueryFilesConnectionArgs = {
 };
 
 
+export type QueryHomeClientsArgs = {
+  options?: InputMaybe<HomeClientOptions>;
+  where?: InputMaybe<HomeClientWhere>;
+};
+
+
+export type QueryHomeClientsAggregateArgs = {
+  where?: InputMaybe<HomeClientWhere>;
+};
+
+
+export type QueryHomeClientsConnectionArgs = {
+  after?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  sort?: InputMaybe<Array<InputMaybe<HomeClientSort>>>;
+  where?: InputMaybe<HomeClientWhere>;
+};
+
+
+export type QueryHomePagesArgs = {
+  options?: InputMaybe<HomePageOptions>;
+  where?: InputMaybe<HomePageWhere>;
+};
+
+
+export type QueryHomePagesAggregateArgs = {
+  where?: InputMaybe<HomePageWhere>;
+};
+
+
+export type QueryHomePagesConnectionArgs = {
+  after?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  sort?: InputMaybe<Array<InputMaybe<HomePageSort>>>;
+  where?: InputMaybe<HomePageWhere>;
+};
+
+
+export type QueryHomeServicesArgs = {
+  options?: InputMaybe<HomeServicesOptions>;
+  where?: InputMaybe<HomeServicesWhere>;
+};
+
+
+export type QueryHomeServicesAggregateArgs = {
+  where?: InputMaybe<HomeServicesWhere>;
+};
+
+
+export type QueryHomeServicesConnectionArgs = {
+  after?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  sort?: InputMaybe<Array<InputMaybe<HomeServicesSort>>>;
+  where?: InputMaybe<HomeServicesWhere>;
+};
+
+
 export type QueryImagesArgs = {
   options?: InputMaybe<ImagesOptions>;
   where?: InputMaybe<ImagesWhere>;
@@ -16494,6 +21548,25 @@ export type QueryImagesConnectionArgs = {
   first?: InputMaybe<Scalars['Int']['input']>;
   sort?: InputMaybe<Array<InputMaybe<ImagesSort>>>;
   where?: InputMaybe<ImagesWhere>;
+};
+
+
+export type QueryIndustryPagesArgs = {
+  options?: InputMaybe<IndustryPageOptions>;
+  where?: InputMaybe<IndustryPageWhere>;
+};
+
+
+export type QueryIndustryPagesAggregateArgs = {
+  where?: InputMaybe<IndustryPageWhere>;
+};
+
+
+export type QueryIndustryPagesConnectionArgs = {
+  after?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  sort?: InputMaybe<Array<InputMaybe<IndustryPageSort>>>;
+  where?: InputMaybe<IndustryPageWhere>;
 };
 
 
@@ -16763,6 +21836,63 @@ export type QueryServicesConnectionArgs = {
 };
 
 
+export type QuerySolutionPagesArgs = {
+  options?: InputMaybe<SolutionPageOptions>;
+  where?: InputMaybe<SolutionPageWhere>;
+};
+
+
+export type QuerySolutionPagesAggregateArgs = {
+  where?: InputMaybe<SolutionPageWhere>;
+};
+
+
+export type QuerySolutionPagesConnectionArgs = {
+  after?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  sort?: InputMaybe<Array<InputMaybe<SolutionPageSort>>>;
+  where?: InputMaybe<SolutionPageWhere>;
+};
+
+
+export type QuerySubCategoriesArgs = {
+  options?: InputMaybe<SubCategoryOptions>;
+  where?: InputMaybe<SubCategoryWhere>;
+};
+
+
+export type QuerySubCategoriesAggregateArgs = {
+  where?: InputMaybe<SubCategoryWhere>;
+};
+
+
+export type QuerySubCategoriesConnectionArgs = {
+  after?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  sort?: InputMaybe<Array<InputMaybe<SubCategorySort>>>;
+  where?: InputMaybe<SubCategoryWhere>;
+};
+
+
+export type QuerySubSolutionsArgs = {
+  options?: InputMaybe<SubSolutionOptions>;
+  where?: InputMaybe<SubSolutionWhere>;
+};
+
+
+export type QuerySubSolutionsAggregateArgs = {
+  where?: InputMaybe<SubSolutionWhere>;
+};
+
+
+export type QuerySubSolutionsConnectionArgs = {
+  after?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  sort?: InputMaybe<Array<InputMaybe<SubSolutionSort>>>;
+  where?: InputMaybe<SubSolutionWhere>;
+};
+
+
 export type QuerySubservicesArgs = {
   options?: InputMaybe<SubserviceOptions>;
   where?: InputMaybe<SubserviceWhere>;
@@ -16798,6 +21928,44 @@ export type QuerySupportTicketsConnectionArgs = {
   first?: InputMaybe<Scalars['Int']['input']>;
   sort?: InputMaybe<Array<InputMaybe<SupportTicketSort>>>;
   where?: InputMaybe<SupportTicketWhere>;
+};
+
+
+export type QueryTermsPagesArgs = {
+  options?: InputMaybe<TermsPageOptions>;
+  where?: InputMaybe<TermsPageWhere>;
+};
+
+
+export type QueryTermsPagesAggregateArgs = {
+  where?: InputMaybe<TermsPageWhere>;
+};
+
+
+export type QueryTermsPagesConnectionArgs = {
+  after?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  sort?: InputMaybe<Array<InputMaybe<TermsPageSort>>>;
+  where?: InputMaybe<TermsPageWhere>;
+};
+
+
+export type QueryTestingsArgs = {
+  options?: InputMaybe<TestingOptions>;
+  where?: InputMaybe<TestingWhere>;
+};
+
+
+export type QueryTestingsAggregateArgs = {
+  where?: InputMaybe<TestingWhere>;
+};
+
+
+export type QueryTestingsConnectionArgs = {
+  after?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  sort?: InputMaybe<Array<InputMaybe<TestingSort>>>;
+  where?: InputMaybe<TestingWhere>;
 };
 
 
@@ -18428,7 +23596,7 @@ export type ServicePage = {
   adminCreated?: Maybe<Admin>;
   adminCreatedAggregate?: Maybe<ServicePageAdminAdminCreatedAggregationSelection>;
   adminCreatedConnection: ServicePageAdminCreatedConnection;
-  hasSubservice?: Maybe<Subservice>;
+  hasSubservice: Array<Subservice>;
   hasSubserviceAggregate?: Maybe<ServicePageSubserviceHasSubserviceAggregationSelection>;
   hasSubserviceConnection: ServicePageHasSubserviceConnection;
   id: Scalars['ID']['output'];
@@ -18591,12 +23759,12 @@ export type ServicePageAggregateSelection = {
 
 export type ServicePageConnectInput = {
   adminCreated?: InputMaybe<ServicePageAdminCreatedConnectFieldInput>;
-  hasSubservice?: InputMaybe<ServicePageHasSubserviceConnectFieldInput>;
+  hasSubservice?: InputMaybe<Array<ServicePageHasSubserviceConnectFieldInput>>;
 };
 
 export type ServicePageConnectOrCreateInput = {
   adminCreated?: InputMaybe<ServicePageAdminCreatedConnectOrCreateFieldInput>;
-  hasSubservice?: InputMaybe<ServicePageHasSubserviceConnectOrCreateFieldInput>;
+  hasSubservice?: InputMaybe<Array<ServicePageHasSubserviceConnectOrCreateFieldInput>>;
 };
 
 export type ServicePageConnectOrCreateWhere = {
@@ -18615,12 +23783,12 @@ export type ServicePageCreateInput = {
 
 export type ServicePageDeleteInput = {
   adminCreated?: InputMaybe<ServicePageAdminCreatedDeleteFieldInput>;
-  hasSubservice?: InputMaybe<ServicePageHasSubserviceDeleteFieldInput>;
+  hasSubservice?: InputMaybe<Array<ServicePageHasSubserviceDeleteFieldInput>>;
 };
 
 export type ServicePageDisconnectInput = {
   adminCreated?: InputMaybe<ServicePageAdminCreatedDisconnectFieldInput>;
-  hasSubservice?: InputMaybe<ServicePageHasSubserviceDisconnectFieldInput>;
+  hasSubservice?: InputMaybe<Array<ServicePageHasSubserviceDisconnectFieldInput>>;
 };
 
 export type ServicePageEdge = {
@@ -18642,7 +23810,7 @@ export type ServicePageHasSubserviceAggregateInput = {
 };
 
 export type ServicePageHasSubserviceConnectFieldInput = {
-  connect?: InputMaybe<SubserviceConnectInput>;
+  connect?: InputMaybe<Array<SubserviceConnectInput>>;
   /** Whether or not to overwrite any matching relationship with the new properties. Will default to `false` in 4.0.0. */
   overwrite?: Scalars['Boolean']['input'];
   where?: InputMaybe<SubserviceConnectWhere>;
@@ -18690,9 +23858,9 @@ export type ServicePageHasSubserviceDisconnectFieldInput = {
 };
 
 export type ServicePageHasSubserviceFieldInput = {
-  connect?: InputMaybe<ServicePageHasSubserviceConnectFieldInput>;
-  connectOrCreate?: InputMaybe<ServicePageHasSubserviceConnectOrCreateFieldInput>;
-  create?: InputMaybe<ServicePageHasSubserviceCreateFieldInput>;
+  connect?: InputMaybe<Array<ServicePageHasSubserviceConnectFieldInput>>;
+  connectOrCreate?: InputMaybe<Array<ServicePageHasSubserviceConnectOrCreateFieldInput>>;
+  create?: InputMaybe<Array<ServicePageHasSubserviceCreateFieldInput>>;
 };
 
 export type ServicePageHasSubserviceNodeAggregationWhereInput = {
@@ -18772,11 +23940,11 @@ export type ServicePageHasSubserviceUpdateConnectionInput = {
 };
 
 export type ServicePageHasSubserviceUpdateFieldInput = {
-  connect?: InputMaybe<ServicePageHasSubserviceConnectFieldInput>;
-  connectOrCreate?: InputMaybe<ServicePageHasSubserviceConnectOrCreateFieldInput>;
-  create?: InputMaybe<ServicePageHasSubserviceCreateFieldInput>;
-  delete?: InputMaybe<ServicePageHasSubserviceDeleteFieldInput>;
-  disconnect?: InputMaybe<ServicePageHasSubserviceDisconnectFieldInput>;
+  connect?: InputMaybe<Array<ServicePageHasSubserviceConnectFieldInput>>;
+  connectOrCreate?: InputMaybe<Array<ServicePageHasSubserviceConnectOrCreateFieldInput>>;
+  create?: InputMaybe<Array<ServicePageHasSubserviceCreateFieldInput>>;
+  delete?: InputMaybe<Array<ServicePageHasSubserviceDeleteFieldInput>>;
+  disconnect?: InputMaybe<Array<ServicePageHasSubserviceDisconnectFieldInput>>;
   update?: InputMaybe<ServicePageHasSubserviceUpdateConnectionInput>;
   where?: InputMaybe<ServicePageHasSubserviceConnectionWhere>;
 };
@@ -18794,7 +23962,7 @@ export type ServicePageOptions = {
 
 export type ServicePageRelationInput = {
   adminCreated?: InputMaybe<ServicePageAdminCreatedCreateFieldInput>;
-  hasSubservice?: InputMaybe<ServicePageHasSubserviceCreateFieldInput>;
+  hasSubservice?: InputMaybe<Array<ServicePageHasSubserviceCreateFieldInput>>;
 };
 
 /** Fields to sort ServicePages by. The order in which sorts are applied is not guaranteed when specifying many fields in one ServicePageSort object. */
@@ -18824,7 +23992,7 @@ export type ServicePageUniqueWhere = {
 
 export type ServicePageUpdateInput = {
   adminCreated?: InputMaybe<ServicePageAdminCreatedUpdateFieldInput>;
-  hasSubservice?: InputMaybe<ServicePageHasSubserviceUpdateFieldInput>;
+  hasSubservice?: InputMaybe<Array<ServicePageHasSubserviceUpdateFieldInput>>;
   title?: InputMaybe<Scalars['String']['input']>;
 };
 
@@ -18837,11 +24005,23 @@ export type ServicePageWhere = {
   adminCreatedConnection?: InputMaybe<ServicePageAdminCreatedConnectionWhere>;
   adminCreatedConnection_NOT?: InputMaybe<ServicePageAdminCreatedConnectionWhere>;
   adminCreated_NOT?: InputMaybe<AdminWhere>;
-  hasSubservice?: InputMaybe<SubserviceWhere>;
   hasSubserviceAggregate?: InputMaybe<ServicePageHasSubserviceAggregateInput>;
-  hasSubserviceConnection?: InputMaybe<ServicePageHasSubserviceConnectionWhere>;
-  hasSubserviceConnection_NOT?: InputMaybe<ServicePageHasSubserviceConnectionWhere>;
-  hasSubservice_NOT?: InputMaybe<SubserviceWhere>;
+  /** Return ServicePages where all of the related ServicePageHasSubserviceConnections match this filter */
+  hasSubserviceConnection_ALL?: InputMaybe<ServicePageHasSubserviceConnectionWhere>;
+  /** Return ServicePages where none of the related ServicePageHasSubserviceConnections match this filter */
+  hasSubserviceConnection_NONE?: InputMaybe<ServicePageHasSubserviceConnectionWhere>;
+  /** Return ServicePages where one of the related ServicePageHasSubserviceConnections match this filter */
+  hasSubserviceConnection_SINGLE?: InputMaybe<ServicePageHasSubserviceConnectionWhere>;
+  /** Return ServicePages where some of the related ServicePageHasSubserviceConnections match this filter */
+  hasSubserviceConnection_SOME?: InputMaybe<ServicePageHasSubserviceConnectionWhere>;
+  /** Return ServicePages where all of the related Subservices match this filter */
+  hasSubservice_ALL?: InputMaybe<SubserviceWhere>;
+  /** Return ServicePages where none of the related Subservices match this filter */
+  hasSubservice_NONE?: InputMaybe<SubserviceWhere>;
+  /** Return ServicePages where one of the related Subservices match this filter */
+  hasSubservice_SINGLE?: InputMaybe<SubserviceWhere>;
+  /** Return ServicePages where some of the related Subservices match this filter */
+  hasSubservice_SOME?: InputMaybe<SubserviceWhere>;
   id?: InputMaybe<Scalars['ID']['input']>;
   id_CONTAINS?: InputMaybe<Scalars['ID']['input']>;
   id_ENDS_WITH?: InputMaybe<Scalars['ID']['input']>;
@@ -18918,6 +24098,460 @@ export type ServicesConnection = {
   totalCount: Scalars['Int']['output'];
 };
 
+export type SolutionPage = {
+  __typename?: 'SolutionPage';
+  adminCreated?: Maybe<Admin>;
+  adminCreatedAggregate?: Maybe<SolutionPageAdminAdminCreatedAggregationSelection>;
+  adminCreatedConnection: SolutionPageAdminCreatedConnection;
+  hasSubsolution?: Maybe<SubSolution>;
+  hasSubsolutionAggregate?: Maybe<SolutionPageSubSolutionHasSubsolutionAggregationSelection>;
+  hasSubsolutionConnection: SolutionPageHasSubsolutionConnection;
+  id: Scalars['ID']['output'];
+  title?: Maybe<Scalars['String']['output']>;
+};
+
+
+export type SolutionPageAdminCreatedArgs = {
+  directed?: InputMaybe<Scalars['Boolean']['input']>;
+  options?: InputMaybe<AdminOptions>;
+  where?: InputMaybe<AdminWhere>;
+};
+
+
+export type SolutionPageAdminCreatedAggregateArgs = {
+  directed?: InputMaybe<Scalars['Boolean']['input']>;
+  where?: InputMaybe<AdminWhere>;
+};
+
+
+export type SolutionPageAdminCreatedConnectionArgs = {
+  after?: InputMaybe<Scalars['String']['input']>;
+  directed?: InputMaybe<Scalars['Boolean']['input']>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  sort?: InputMaybe<Array<SolutionPageAdminCreatedConnectionSort>>;
+  where?: InputMaybe<SolutionPageAdminCreatedConnectionWhere>;
+};
+
+
+export type SolutionPageHasSubsolutionArgs = {
+  directed?: InputMaybe<Scalars['Boolean']['input']>;
+  options?: InputMaybe<SubSolutionOptions>;
+  where?: InputMaybe<SubSolutionWhere>;
+};
+
+
+export type SolutionPageHasSubsolutionAggregateArgs = {
+  directed?: InputMaybe<Scalars['Boolean']['input']>;
+  where?: InputMaybe<SubSolutionWhere>;
+};
+
+
+export type SolutionPageHasSubsolutionConnectionArgs = {
+  after?: InputMaybe<Scalars['String']['input']>;
+  directed?: InputMaybe<Scalars['Boolean']['input']>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  sort?: InputMaybe<Array<SolutionPageHasSubsolutionConnectionSort>>;
+  where?: InputMaybe<SolutionPageHasSubsolutionConnectionWhere>;
+};
+
+export type SolutionPageAdminAdminCreatedAggregationSelection = {
+  __typename?: 'SolutionPageAdminAdminCreatedAggregationSelection';
+  count: Scalars['Int']['output'];
+  node?: Maybe<SolutionPageAdminAdminCreatedNodeAggregateSelection>;
+};
+
+export type SolutionPageAdminAdminCreatedNodeAggregateSelection = {
+  __typename?: 'SolutionPageAdminAdminCreatedNodeAggregateSelection';
+  id: IdAggregateSelectionNonNullable;
+};
+
+export type SolutionPageAdminCreatedAggregateInput = {
+  AND?: InputMaybe<Array<SolutionPageAdminCreatedAggregateInput>>;
+  NOT?: InputMaybe<SolutionPageAdminCreatedAggregateInput>;
+  OR?: InputMaybe<Array<SolutionPageAdminCreatedAggregateInput>>;
+  count?: InputMaybe<Scalars['Int']['input']>;
+  count_GT?: InputMaybe<Scalars['Int']['input']>;
+  count_GTE?: InputMaybe<Scalars['Int']['input']>;
+  count_LT?: InputMaybe<Scalars['Int']['input']>;
+  count_LTE?: InputMaybe<Scalars['Int']['input']>;
+  node?: InputMaybe<SolutionPageAdminCreatedNodeAggregationWhereInput>;
+};
+
+export type SolutionPageAdminCreatedConnectFieldInput = {
+  connect?: InputMaybe<AdminConnectInput>;
+  /** Whether or not to overwrite any matching relationship with the new properties. Will default to `false` in 4.0.0. */
+  overwrite?: Scalars['Boolean']['input'];
+  where?: InputMaybe<AdminConnectWhere>;
+};
+
+export type SolutionPageAdminCreatedConnectOrCreateFieldInput = {
+  onCreate: SolutionPageAdminCreatedConnectOrCreateFieldInputOnCreate;
+  where: AdminConnectOrCreateWhere;
+};
+
+export type SolutionPageAdminCreatedConnectOrCreateFieldInputOnCreate = {
+  node: AdminOnCreateInput;
+};
+
+export type SolutionPageAdminCreatedConnection = {
+  __typename?: 'SolutionPageAdminCreatedConnection';
+  edges: Array<SolutionPageAdminCreatedRelationship>;
+  pageInfo: PageInfo;
+  totalCount: Scalars['Int']['output'];
+};
+
+export type SolutionPageAdminCreatedConnectionSort = {
+  node?: InputMaybe<AdminSort>;
+};
+
+export type SolutionPageAdminCreatedConnectionWhere = {
+  AND?: InputMaybe<Array<SolutionPageAdminCreatedConnectionWhere>>;
+  NOT?: InputMaybe<SolutionPageAdminCreatedConnectionWhere>;
+  OR?: InputMaybe<Array<SolutionPageAdminCreatedConnectionWhere>>;
+  node?: InputMaybe<AdminWhere>;
+};
+
+export type SolutionPageAdminCreatedCreateFieldInput = {
+  node: AdminCreateInput;
+};
+
+export type SolutionPageAdminCreatedDeleteFieldInput = {
+  delete?: InputMaybe<AdminDeleteInput>;
+  where?: InputMaybe<SolutionPageAdminCreatedConnectionWhere>;
+};
+
+export type SolutionPageAdminCreatedDisconnectFieldInput = {
+  disconnect?: InputMaybe<AdminDisconnectInput>;
+  where?: InputMaybe<SolutionPageAdminCreatedConnectionWhere>;
+};
+
+export type SolutionPageAdminCreatedFieldInput = {
+  connect?: InputMaybe<SolutionPageAdminCreatedConnectFieldInput>;
+  connectOrCreate?: InputMaybe<SolutionPageAdminCreatedConnectOrCreateFieldInput>;
+  create?: InputMaybe<SolutionPageAdminCreatedCreateFieldInput>;
+};
+
+export type SolutionPageAdminCreatedNodeAggregationWhereInput = {
+  AND?: InputMaybe<Array<SolutionPageAdminCreatedNodeAggregationWhereInput>>;
+  NOT?: InputMaybe<SolutionPageAdminCreatedNodeAggregationWhereInput>;
+  OR?: InputMaybe<Array<SolutionPageAdminCreatedNodeAggregationWhereInput>>;
+};
+
+export type SolutionPageAdminCreatedRelationship = {
+  __typename?: 'SolutionPageAdminCreatedRelationship';
+  cursor: Scalars['String']['output'];
+  node: Admin;
+};
+
+export type SolutionPageAdminCreatedUpdateConnectionInput = {
+  node?: InputMaybe<AdminUpdateInput>;
+};
+
+export type SolutionPageAdminCreatedUpdateFieldInput = {
+  connect?: InputMaybe<SolutionPageAdminCreatedConnectFieldInput>;
+  connectOrCreate?: InputMaybe<SolutionPageAdminCreatedConnectOrCreateFieldInput>;
+  create?: InputMaybe<SolutionPageAdminCreatedCreateFieldInput>;
+  delete?: InputMaybe<SolutionPageAdminCreatedDeleteFieldInput>;
+  disconnect?: InputMaybe<SolutionPageAdminCreatedDisconnectFieldInput>;
+  update?: InputMaybe<SolutionPageAdminCreatedUpdateConnectionInput>;
+  where?: InputMaybe<SolutionPageAdminCreatedConnectionWhere>;
+};
+
+export type SolutionPageAggregateSelection = {
+  __typename?: 'SolutionPageAggregateSelection';
+  count: Scalars['Int']['output'];
+  id: IdAggregateSelectionNonNullable;
+  title: StringAggregateSelectionNullable;
+};
+
+export type SolutionPageConnectInput = {
+  adminCreated?: InputMaybe<SolutionPageAdminCreatedConnectFieldInput>;
+  hasSubsolution?: InputMaybe<SolutionPageHasSubsolutionConnectFieldInput>;
+};
+
+export type SolutionPageConnectOrCreateInput = {
+  adminCreated?: InputMaybe<SolutionPageAdminCreatedConnectOrCreateFieldInput>;
+  hasSubsolution?: InputMaybe<SolutionPageHasSubsolutionConnectOrCreateFieldInput>;
+};
+
+export type SolutionPageConnectOrCreateWhere = {
+  node: SolutionPageUniqueWhere;
+};
+
+export type SolutionPageConnectWhere = {
+  node: SolutionPageWhere;
+};
+
+export type SolutionPageCreateInput = {
+  adminCreated?: InputMaybe<SolutionPageAdminCreatedFieldInput>;
+  hasSubsolution?: InputMaybe<SolutionPageHasSubsolutionFieldInput>;
+  title?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type SolutionPageDeleteInput = {
+  adminCreated?: InputMaybe<SolutionPageAdminCreatedDeleteFieldInput>;
+  hasSubsolution?: InputMaybe<SolutionPageHasSubsolutionDeleteFieldInput>;
+};
+
+export type SolutionPageDisconnectInput = {
+  adminCreated?: InputMaybe<SolutionPageAdminCreatedDisconnectFieldInput>;
+  hasSubsolution?: InputMaybe<SolutionPageHasSubsolutionDisconnectFieldInput>;
+};
+
+export type SolutionPageEdge = {
+  __typename?: 'SolutionPageEdge';
+  cursor: Scalars['String']['output'];
+  node: SolutionPage;
+};
+
+export type SolutionPageHasSubsolutionAggregateInput = {
+  AND?: InputMaybe<Array<SolutionPageHasSubsolutionAggregateInput>>;
+  NOT?: InputMaybe<SolutionPageHasSubsolutionAggregateInput>;
+  OR?: InputMaybe<Array<SolutionPageHasSubsolutionAggregateInput>>;
+  count?: InputMaybe<Scalars['Int']['input']>;
+  count_GT?: InputMaybe<Scalars['Int']['input']>;
+  count_GTE?: InputMaybe<Scalars['Int']['input']>;
+  count_LT?: InputMaybe<Scalars['Int']['input']>;
+  count_LTE?: InputMaybe<Scalars['Int']['input']>;
+  node?: InputMaybe<SolutionPageHasSubsolutionNodeAggregationWhereInput>;
+};
+
+export type SolutionPageHasSubsolutionConnectFieldInput = {
+  connect?: InputMaybe<SubSolutionConnectInput>;
+  /** Whether or not to overwrite any matching relationship with the new properties. Will default to `false` in 4.0.0. */
+  overwrite?: Scalars['Boolean']['input'];
+  where?: InputMaybe<SubSolutionConnectWhere>;
+};
+
+export type SolutionPageHasSubsolutionConnectOrCreateFieldInput = {
+  onCreate: SolutionPageHasSubsolutionConnectOrCreateFieldInputOnCreate;
+  where: SubSolutionConnectOrCreateWhere;
+};
+
+export type SolutionPageHasSubsolutionConnectOrCreateFieldInputOnCreate = {
+  node: SubSolutionOnCreateInput;
+};
+
+export type SolutionPageHasSubsolutionConnection = {
+  __typename?: 'SolutionPageHasSubsolutionConnection';
+  edges: Array<SolutionPageHasSubsolutionRelationship>;
+  pageInfo: PageInfo;
+  totalCount: Scalars['Int']['output'];
+};
+
+export type SolutionPageHasSubsolutionConnectionSort = {
+  node?: InputMaybe<SubSolutionSort>;
+};
+
+export type SolutionPageHasSubsolutionConnectionWhere = {
+  AND?: InputMaybe<Array<SolutionPageHasSubsolutionConnectionWhere>>;
+  NOT?: InputMaybe<SolutionPageHasSubsolutionConnectionWhere>;
+  OR?: InputMaybe<Array<SolutionPageHasSubsolutionConnectionWhere>>;
+  node?: InputMaybe<SubSolutionWhere>;
+};
+
+export type SolutionPageHasSubsolutionCreateFieldInput = {
+  node: SubSolutionCreateInput;
+};
+
+export type SolutionPageHasSubsolutionDeleteFieldInput = {
+  delete?: InputMaybe<SubSolutionDeleteInput>;
+  where?: InputMaybe<SolutionPageHasSubsolutionConnectionWhere>;
+};
+
+export type SolutionPageHasSubsolutionDisconnectFieldInput = {
+  disconnect?: InputMaybe<SubSolutionDisconnectInput>;
+  where?: InputMaybe<SolutionPageHasSubsolutionConnectionWhere>;
+};
+
+export type SolutionPageHasSubsolutionFieldInput = {
+  connect?: InputMaybe<SolutionPageHasSubsolutionConnectFieldInput>;
+  connectOrCreate?: InputMaybe<SolutionPageHasSubsolutionConnectOrCreateFieldInput>;
+  create?: InputMaybe<SolutionPageHasSubsolutionCreateFieldInput>;
+};
+
+export type SolutionPageHasSubsolutionNodeAggregationWhereInput = {
+  AND?: InputMaybe<Array<SolutionPageHasSubsolutionNodeAggregationWhereInput>>;
+  NOT?: InputMaybe<SolutionPageHasSubsolutionNodeAggregationWhereInput>;
+  OR?: InputMaybe<Array<SolutionPageHasSubsolutionNodeAggregationWhereInput>>;
+  description_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  description_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  description_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  description_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  description_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  description_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  description_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  description_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  description_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  description_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  description_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  description_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  description_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  description_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  description_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  image_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  image_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  image_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  image_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  image_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  image_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  image_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  image_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  image_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  image_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  image_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  image_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  image_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  image_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  image_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  slug_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  slug_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  slug_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  slug_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  slug_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  slug_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  slug_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  slug_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  slug_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  slug_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  slug_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  slug_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  slug_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  slug_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  slug_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  subtitle_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  subtitle_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  subtitle_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  subtitle_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  subtitle_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  subtitle_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  subtitle_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  subtitle_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  subtitle_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  subtitle_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  subtitle_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  subtitle_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  subtitle_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  subtitle_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  subtitle_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  title_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  title_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  title_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  title_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  title_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  title_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  title_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  title_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  title_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  title_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  title_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  title_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  title_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  title_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  title_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+};
+
+export type SolutionPageHasSubsolutionRelationship = {
+  __typename?: 'SolutionPageHasSubsolutionRelationship';
+  cursor: Scalars['String']['output'];
+  node: SubSolution;
+};
+
+export type SolutionPageHasSubsolutionUpdateConnectionInput = {
+  node?: InputMaybe<SubSolutionUpdateInput>;
+};
+
+export type SolutionPageHasSubsolutionUpdateFieldInput = {
+  connect?: InputMaybe<SolutionPageHasSubsolutionConnectFieldInput>;
+  connectOrCreate?: InputMaybe<SolutionPageHasSubsolutionConnectOrCreateFieldInput>;
+  create?: InputMaybe<SolutionPageHasSubsolutionCreateFieldInput>;
+  delete?: InputMaybe<SolutionPageHasSubsolutionDeleteFieldInput>;
+  disconnect?: InputMaybe<SolutionPageHasSubsolutionDisconnectFieldInput>;
+  update?: InputMaybe<SolutionPageHasSubsolutionUpdateConnectionInput>;
+  where?: InputMaybe<SolutionPageHasSubsolutionConnectionWhere>;
+};
+
+export type SolutionPageOnCreateInput = {
+  title?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type SolutionPageOptions = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  /** Specify one or more SolutionPageSort objects to sort SolutionPages by. The sorts will be applied in the order in which they are arranged in the array. */
+  sort?: InputMaybe<Array<SolutionPageSort>>;
+};
+
+export type SolutionPageRelationInput = {
+  adminCreated?: InputMaybe<SolutionPageAdminCreatedCreateFieldInput>;
+  hasSubsolution?: InputMaybe<SolutionPageHasSubsolutionCreateFieldInput>;
+};
+
+/** Fields to sort SolutionPages by. The order in which sorts are applied is not guaranteed when specifying many fields in one SolutionPageSort object. */
+export type SolutionPageSort = {
+  id?: InputMaybe<SortDirection>;
+  title?: InputMaybe<SortDirection>;
+};
+
+export type SolutionPageSubSolutionHasSubsolutionAggregationSelection = {
+  __typename?: 'SolutionPageSubSolutionHasSubsolutionAggregationSelection';
+  count: Scalars['Int']['output'];
+  node?: Maybe<SolutionPageSubSolutionHasSubsolutionNodeAggregateSelection>;
+};
+
+export type SolutionPageSubSolutionHasSubsolutionNodeAggregateSelection = {
+  __typename?: 'SolutionPageSubSolutionHasSubsolutionNodeAggregateSelection';
+  description: StringAggregateSelectionNullable;
+  id: IdAggregateSelectionNonNullable;
+  image: StringAggregateSelectionNullable;
+  slug: StringAggregateSelectionNullable;
+  subtitle: StringAggregateSelectionNullable;
+  title: StringAggregateSelectionNullable;
+};
+
+export type SolutionPageUniqueWhere = {
+  id?: InputMaybe<Scalars['ID']['input']>;
+};
+
+export type SolutionPageUpdateInput = {
+  adminCreated?: InputMaybe<SolutionPageAdminCreatedUpdateFieldInput>;
+  hasSubsolution?: InputMaybe<SolutionPageHasSubsolutionUpdateFieldInput>;
+  title?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type SolutionPageWhere = {
+  AND?: InputMaybe<Array<SolutionPageWhere>>;
+  NOT?: InputMaybe<SolutionPageWhere>;
+  OR?: InputMaybe<Array<SolutionPageWhere>>;
+  adminCreated?: InputMaybe<AdminWhere>;
+  adminCreatedAggregate?: InputMaybe<SolutionPageAdminCreatedAggregateInput>;
+  adminCreatedConnection?: InputMaybe<SolutionPageAdminCreatedConnectionWhere>;
+  adminCreatedConnection_NOT?: InputMaybe<SolutionPageAdminCreatedConnectionWhere>;
+  adminCreated_NOT?: InputMaybe<AdminWhere>;
+  hasSubsolution?: InputMaybe<SubSolutionWhere>;
+  hasSubsolutionAggregate?: InputMaybe<SolutionPageHasSubsolutionAggregateInput>;
+  hasSubsolutionConnection?: InputMaybe<SolutionPageHasSubsolutionConnectionWhere>;
+  hasSubsolutionConnection_NOT?: InputMaybe<SolutionPageHasSubsolutionConnectionWhere>;
+  hasSubsolution_NOT?: InputMaybe<SubSolutionWhere>;
+  id?: InputMaybe<Scalars['ID']['input']>;
+  id_CONTAINS?: InputMaybe<Scalars['ID']['input']>;
+  id_ENDS_WITH?: InputMaybe<Scalars['ID']['input']>;
+  id_IN?: InputMaybe<Array<Scalars['ID']['input']>>;
+  id_STARTS_WITH?: InputMaybe<Scalars['ID']['input']>;
+  title?: InputMaybe<Scalars['String']['input']>;
+  title_CONTAINS?: InputMaybe<Scalars['String']['input']>;
+  title_ENDS_WITH?: InputMaybe<Scalars['String']['input']>;
+  title_IN?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  title_STARTS_WITH?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type SolutionPagesConnection = {
+  __typename?: 'SolutionPagesConnection';
+  edges: Array<SolutionPageEdge>;
+  pageInfo: PageInfo;
+  totalCount: Scalars['Int']['output'];
+};
+
 export enum SortDirection {
   /** Sort by field values in ascending order. */
   Asc = 'ASC',
@@ -18948,6 +24582,869 @@ export type StringAggregateSelectionNullable = {
   __typename?: 'StringAggregateSelectionNullable';
   longest?: Maybe<Scalars['String']['output']>;
   shortest?: Maybe<Scalars['String']['output']>;
+};
+
+export type SubCategoriesConnection = {
+  __typename?: 'SubCategoriesConnection';
+  edges: Array<SubCategoryEdge>;
+  pageInfo: PageInfo;
+  totalCount: Scalars['Int']['output'];
+};
+
+export type SubCategory = {
+  __typename?: 'SubCategory';
+  categoryHas?: Maybe<Category>;
+  categoryHasAggregate?: Maybe<SubCategoryCategoryCategoryHasAggregationSelection>;
+  categoryHasConnection: SubCategoryCategoryHasConnection;
+  createdAt?: Maybe<Scalars['DateTime']['output']>;
+  id: Scalars['ID']['output'];
+  name?: Maybe<Scalars['String']['output']>;
+  productHas: Array<Product>;
+  productHasAggregate?: Maybe<SubCategoryProductProductHasAggregationSelection>;
+  productHasConnection: SubCategoryProductHasConnection;
+};
+
+
+export type SubCategoryCategoryHasArgs = {
+  directed?: InputMaybe<Scalars['Boolean']['input']>;
+  options?: InputMaybe<CategoryOptions>;
+  where?: InputMaybe<CategoryWhere>;
+};
+
+
+export type SubCategoryCategoryHasAggregateArgs = {
+  directed?: InputMaybe<Scalars['Boolean']['input']>;
+  where?: InputMaybe<CategoryWhere>;
+};
+
+
+export type SubCategoryCategoryHasConnectionArgs = {
+  after?: InputMaybe<Scalars['String']['input']>;
+  directed?: InputMaybe<Scalars['Boolean']['input']>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  sort?: InputMaybe<Array<SubCategoryCategoryHasConnectionSort>>;
+  where?: InputMaybe<SubCategoryCategoryHasConnectionWhere>;
+};
+
+
+export type SubCategoryProductHasArgs = {
+  directed?: InputMaybe<Scalars['Boolean']['input']>;
+  options?: InputMaybe<ProductOptions>;
+  where?: InputMaybe<ProductWhere>;
+};
+
+
+export type SubCategoryProductHasAggregateArgs = {
+  directed?: InputMaybe<Scalars['Boolean']['input']>;
+  where?: InputMaybe<ProductWhere>;
+};
+
+
+export type SubCategoryProductHasConnectionArgs = {
+  after?: InputMaybe<Scalars['String']['input']>;
+  directed?: InputMaybe<Scalars['Boolean']['input']>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  sort?: InputMaybe<Array<SubCategoryProductHasConnectionSort>>;
+  where?: InputMaybe<SubCategoryProductHasConnectionWhere>;
+};
+
+export type SubCategoryAggregateSelection = {
+  __typename?: 'SubCategoryAggregateSelection';
+  count: Scalars['Int']['output'];
+  createdAt: DateTimeAggregateSelectionNullable;
+  id: IdAggregateSelectionNonNullable;
+  name: StringAggregateSelectionNullable;
+};
+
+export type SubCategoryCategoryCategoryHasAggregationSelection = {
+  __typename?: 'SubCategoryCategoryCategoryHasAggregationSelection';
+  count: Scalars['Int']['output'];
+  node?: Maybe<SubCategoryCategoryCategoryHasNodeAggregateSelection>;
+};
+
+export type SubCategoryCategoryCategoryHasNodeAggregateSelection = {
+  __typename?: 'SubCategoryCategoryCategoryHasNodeAggregateSelection';
+  createdAt: DateTimeAggregateSelectionNullable;
+  id: IdAggregateSelectionNonNullable;
+  name: StringAggregateSelectionNullable;
+};
+
+export type SubCategoryCategoryHasAggregateInput = {
+  AND?: InputMaybe<Array<SubCategoryCategoryHasAggregateInput>>;
+  NOT?: InputMaybe<SubCategoryCategoryHasAggregateInput>;
+  OR?: InputMaybe<Array<SubCategoryCategoryHasAggregateInput>>;
+  count?: InputMaybe<Scalars['Int']['input']>;
+  count_GT?: InputMaybe<Scalars['Int']['input']>;
+  count_GTE?: InputMaybe<Scalars['Int']['input']>;
+  count_LT?: InputMaybe<Scalars['Int']['input']>;
+  count_LTE?: InputMaybe<Scalars['Int']['input']>;
+  node?: InputMaybe<SubCategoryCategoryHasNodeAggregationWhereInput>;
+};
+
+export type SubCategoryCategoryHasConnectFieldInput = {
+  connect?: InputMaybe<CategoryConnectInput>;
+  /** Whether or not to overwrite any matching relationship with the new properties. Will default to `false` in 4.0.0. */
+  overwrite?: Scalars['Boolean']['input'];
+  where?: InputMaybe<CategoryConnectWhere>;
+};
+
+export type SubCategoryCategoryHasConnectOrCreateFieldInput = {
+  onCreate: SubCategoryCategoryHasConnectOrCreateFieldInputOnCreate;
+  where: CategoryConnectOrCreateWhere;
+};
+
+export type SubCategoryCategoryHasConnectOrCreateFieldInputOnCreate = {
+  node: CategoryOnCreateInput;
+};
+
+export type SubCategoryCategoryHasConnection = {
+  __typename?: 'SubCategoryCategoryHasConnection';
+  edges: Array<SubCategoryCategoryHasRelationship>;
+  pageInfo: PageInfo;
+  totalCount: Scalars['Int']['output'];
+};
+
+export type SubCategoryCategoryHasConnectionSort = {
+  node?: InputMaybe<CategorySort>;
+};
+
+export type SubCategoryCategoryHasConnectionWhere = {
+  AND?: InputMaybe<Array<SubCategoryCategoryHasConnectionWhere>>;
+  NOT?: InputMaybe<SubCategoryCategoryHasConnectionWhere>;
+  OR?: InputMaybe<Array<SubCategoryCategoryHasConnectionWhere>>;
+  node?: InputMaybe<CategoryWhere>;
+};
+
+export type SubCategoryCategoryHasCreateFieldInput = {
+  node: CategoryCreateInput;
+};
+
+export type SubCategoryCategoryHasDeleteFieldInput = {
+  delete?: InputMaybe<CategoryDeleteInput>;
+  where?: InputMaybe<SubCategoryCategoryHasConnectionWhere>;
+};
+
+export type SubCategoryCategoryHasDisconnectFieldInput = {
+  disconnect?: InputMaybe<CategoryDisconnectInput>;
+  where?: InputMaybe<SubCategoryCategoryHasConnectionWhere>;
+};
+
+export type SubCategoryCategoryHasFieldInput = {
+  connect?: InputMaybe<SubCategoryCategoryHasConnectFieldInput>;
+  connectOrCreate?: InputMaybe<SubCategoryCategoryHasConnectOrCreateFieldInput>;
+  create?: InputMaybe<SubCategoryCategoryHasCreateFieldInput>;
+};
+
+export type SubCategoryCategoryHasNodeAggregationWhereInput = {
+  AND?: InputMaybe<Array<SubCategoryCategoryHasNodeAggregationWhereInput>>;
+  NOT?: InputMaybe<SubCategoryCategoryHasNodeAggregationWhereInput>;
+  OR?: InputMaybe<Array<SubCategoryCategoryHasNodeAggregationWhereInput>>;
+  createdAt_MAX_EQUAL?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_MAX_GT?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_MAX_GTE?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_MAX_LT?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_MAX_LTE?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_MIN_EQUAL?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_MIN_GT?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_MIN_GTE?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_MIN_LT?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_MIN_LTE?: InputMaybe<Scalars['DateTime']['input']>;
+  name_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  name_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  name_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  name_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  name_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  name_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  name_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  name_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  name_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  name_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  name_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  name_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  name_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  name_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  name_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+};
+
+export type SubCategoryCategoryHasRelationship = {
+  __typename?: 'SubCategoryCategoryHasRelationship';
+  cursor: Scalars['String']['output'];
+  node: Category;
+};
+
+export type SubCategoryCategoryHasUpdateConnectionInput = {
+  node?: InputMaybe<CategoryUpdateInput>;
+};
+
+export type SubCategoryCategoryHasUpdateFieldInput = {
+  connect?: InputMaybe<SubCategoryCategoryHasConnectFieldInput>;
+  connectOrCreate?: InputMaybe<SubCategoryCategoryHasConnectOrCreateFieldInput>;
+  create?: InputMaybe<SubCategoryCategoryHasCreateFieldInput>;
+  delete?: InputMaybe<SubCategoryCategoryHasDeleteFieldInput>;
+  disconnect?: InputMaybe<SubCategoryCategoryHasDisconnectFieldInput>;
+  update?: InputMaybe<SubCategoryCategoryHasUpdateConnectionInput>;
+  where?: InputMaybe<SubCategoryCategoryHasConnectionWhere>;
+};
+
+export type SubCategoryConnectInput = {
+  categoryHas?: InputMaybe<SubCategoryCategoryHasConnectFieldInput>;
+  productHas?: InputMaybe<Array<SubCategoryProductHasConnectFieldInput>>;
+};
+
+export type SubCategoryConnectOrCreateInput = {
+  categoryHas?: InputMaybe<SubCategoryCategoryHasConnectOrCreateFieldInput>;
+  productHas?: InputMaybe<Array<SubCategoryProductHasConnectOrCreateFieldInput>>;
+};
+
+export type SubCategoryConnectOrCreateWhere = {
+  node: SubCategoryUniqueWhere;
+};
+
+export type SubCategoryConnectWhere = {
+  node: SubCategoryWhere;
+};
+
+export type SubCategoryCreateInput = {
+  categoryHas?: InputMaybe<SubCategoryCategoryHasFieldInput>;
+  createdAt?: InputMaybe<Scalars['DateTime']['input']>;
+  name?: InputMaybe<Scalars['String']['input']>;
+  productHas?: InputMaybe<SubCategoryProductHasFieldInput>;
+};
+
+export type SubCategoryDeleteInput = {
+  categoryHas?: InputMaybe<SubCategoryCategoryHasDeleteFieldInput>;
+  productHas?: InputMaybe<Array<SubCategoryProductHasDeleteFieldInput>>;
+};
+
+export type SubCategoryDisconnectInput = {
+  categoryHas?: InputMaybe<SubCategoryCategoryHasDisconnectFieldInput>;
+  productHas?: InputMaybe<Array<SubCategoryProductHasDisconnectFieldInput>>;
+};
+
+export type SubCategoryEdge = {
+  __typename?: 'SubCategoryEdge';
+  cursor: Scalars['String']['output'];
+  node: SubCategory;
+};
+
+export type SubCategoryOnCreateInput = {
+  createdAt?: InputMaybe<Scalars['DateTime']['input']>;
+  name?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type SubCategoryOptions = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  /** Specify one or more SubCategorySort objects to sort SubCategories by. The sorts will be applied in the order in which they are arranged in the array. */
+  sort?: InputMaybe<Array<SubCategorySort>>;
+};
+
+export type SubCategoryProductHasAggregateInput = {
+  AND?: InputMaybe<Array<SubCategoryProductHasAggregateInput>>;
+  NOT?: InputMaybe<SubCategoryProductHasAggregateInput>;
+  OR?: InputMaybe<Array<SubCategoryProductHasAggregateInput>>;
+  count?: InputMaybe<Scalars['Int']['input']>;
+  count_GT?: InputMaybe<Scalars['Int']['input']>;
+  count_GTE?: InputMaybe<Scalars['Int']['input']>;
+  count_LT?: InputMaybe<Scalars['Int']['input']>;
+  count_LTE?: InputMaybe<Scalars['Int']['input']>;
+  node?: InputMaybe<SubCategoryProductHasNodeAggregationWhereInput>;
+};
+
+export type SubCategoryProductHasConnectFieldInput = {
+  connect?: InputMaybe<Array<ProductConnectInput>>;
+  /** Whether or not to overwrite any matching relationship with the new properties. Will default to `false` in 4.0.0. */
+  overwrite?: Scalars['Boolean']['input'];
+  where?: InputMaybe<ProductConnectWhere>;
+};
+
+export type SubCategoryProductHasConnectOrCreateFieldInput = {
+  onCreate: SubCategoryProductHasConnectOrCreateFieldInputOnCreate;
+  where: ProductConnectOrCreateWhere;
+};
+
+export type SubCategoryProductHasConnectOrCreateFieldInputOnCreate = {
+  node: ProductOnCreateInput;
+};
+
+export type SubCategoryProductHasConnection = {
+  __typename?: 'SubCategoryProductHasConnection';
+  edges: Array<SubCategoryProductHasRelationship>;
+  pageInfo: PageInfo;
+  totalCount: Scalars['Int']['output'];
+};
+
+export type SubCategoryProductHasConnectionSort = {
+  node?: InputMaybe<ProductSort>;
+};
+
+export type SubCategoryProductHasConnectionWhere = {
+  AND?: InputMaybe<Array<SubCategoryProductHasConnectionWhere>>;
+  NOT?: InputMaybe<SubCategoryProductHasConnectionWhere>;
+  OR?: InputMaybe<Array<SubCategoryProductHasConnectionWhere>>;
+  node?: InputMaybe<ProductWhere>;
+};
+
+export type SubCategoryProductHasCreateFieldInput = {
+  node: ProductCreateInput;
+};
+
+export type SubCategoryProductHasDeleteFieldInput = {
+  delete?: InputMaybe<ProductDeleteInput>;
+  where?: InputMaybe<SubCategoryProductHasConnectionWhere>;
+};
+
+export type SubCategoryProductHasDisconnectFieldInput = {
+  disconnect?: InputMaybe<ProductDisconnectInput>;
+  where?: InputMaybe<SubCategoryProductHasConnectionWhere>;
+};
+
+export type SubCategoryProductHasFieldInput = {
+  connect?: InputMaybe<Array<SubCategoryProductHasConnectFieldInput>>;
+  connectOrCreate?: InputMaybe<Array<SubCategoryProductHasConnectOrCreateFieldInput>>;
+  create?: InputMaybe<Array<SubCategoryProductHasCreateFieldInput>>;
+};
+
+export type SubCategoryProductHasNodeAggregationWhereInput = {
+  AND?: InputMaybe<Array<SubCategoryProductHasNodeAggregationWhereInput>>;
+  NOT?: InputMaybe<SubCategoryProductHasNodeAggregationWhereInput>;
+  OR?: InputMaybe<Array<SubCategoryProductHasNodeAggregationWhereInput>>;
+  createdAt_MAX_EQUAL?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_MAX_GT?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_MAX_GTE?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_MAX_LT?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_MAX_LTE?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_MIN_EQUAL?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_MIN_GT?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_MIN_GTE?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_MIN_LT?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_MIN_LTE?: InputMaybe<Scalars['DateTime']['input']>;
+  features_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  features_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  features_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  features_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  features_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  features_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  features_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  features_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  features_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  features_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  features_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  features_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  features_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  features_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  features_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  file_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  file_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  file_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  file_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  file_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  file_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  file_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  file_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  file_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  file_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  file_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  file_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  file_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  file_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  file_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  image_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  image_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  image_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  image_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  image_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  image_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  image_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  image_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  image_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  image_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  image_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  image_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  image_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  image_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  image_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  others_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  others_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  others_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  others_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  others_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  others_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  others_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  others_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  others_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  others_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  others_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  others_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  others_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  others_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  others_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  price_AVERAGE_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  price_AVERAGE_GT?: InputMaybe<Scalars['Float']['input']>;
+  price_AVERAGE_GTE?: InputMaybe<Scalars['Float']['input']>;
+  price_AVERAGE_LT?: InputMaybe<Scalars['Float']['input']>;
+  price_AVERAGE_LTE?: InputMaybe<Scalars['Float']['input']>;
+  price_MAX_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  price_MAX_GT?: InputMaybe<Scalars['Int']['input']>;
+  price_MAX_GTE?: InputMaybe<Scalars['Int']['input']>;
+  price_MAX_LT?: InputMaybe<Scalars['Int']['input']>;
+  price_MAX_LTE?: InputMaybe<Scalars['Int']['input']>;
+  price_MIN_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  price_MIN_GT?: InputMaybe<Scalars['Int']['input']>;
+  price_MIN_GTE?: InputMaybe<Scalars['Int']['input']>;
+  price_MIN_LT?: InputMaybe<Scalars['Int']['input']>;
+  price_MIN_LTE?: InputMaybe<Scalars['Int']['input']>;
+  price_SUM_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  price_SUM_GT?: InputMaybe<Scalars['Int']['input']>;
+  price_SUM_GTE?: InputMaybe<Scalars['Int']['input']>;
+  price_SUM_LT?: InputMaybe<Scalars['Int']['input']>;
+  price_SUM_LTE?: InputMaybe<Scalars['Int']['input']>;
+  shortDescription_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  shortDescription_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  shortDescription_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  shortDescription_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  shortDescription_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  shortDescription_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  shortDescription_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  shortDescription_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  shortDescription_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  shortDescription_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  shortDescription_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  shortDescription_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  shortDescription_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  shortDescription_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  shortDescription_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  title_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  title_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  title_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  title_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  title_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  title_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  title_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  title_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  title_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  title_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  title_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  title_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  title_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  title_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  title_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  video_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  video_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  video_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  video_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  video_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  video_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  video_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  video_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  video_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  video_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  video_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  video_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  video_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  video_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  video_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+};
+
+export type SubCategoryProductHasRelationship = {
+  __typename?: 'SubCategoryProductHasRelationship';
+  cursor: Scalars['String']['output'];
+  node: Product;
+};
+
+export type SubCategoryProductHasUpdateConnectionInput = {
+  node?: InputMaybe<ProductUpdateInput>;
+};
+
+export type SubCategoryProductHasUpdateFieldInput = {
+  connect?: InputMaybe<Array<SubCategoryProductHasConnectFieldInput>>;
+  connectOrCreate?: InputMaybe<Array<SubCategoryProductHasConnectOrCreateFieldInput>>;
+  create?: InputMaybe<Array<SubCategoryProductHasCreateFieldInput>>;
+  delete?: InputMaybe<Array<SubCategoryProductHasDeleteFieldInput>>;
+  disconnect?: InputMaybe<Array<SubCategoryProductHasDisconnectFieldInput>>;
+  update?: InputMaybe<SubCategoryProductHasUpdateConnectionInput>;
+  where?: InputMaybe<SubCategoryProductHasConnectionWhere>;
+};
+
+export type SubCategoryProductProductHasAggregationSelection = {
+  __typename?: 'SubCategoryProductProductHasAggregationSelection';
+  count: Scalars['Int']['output'];
+  node?: Maybe<SubCategoryProductProductHasNodeAggregateSelection>;
+};
+
+export type SubCategoryProductProductHasNodeAggregateSelection = {
+  __typename?: 'SubCategoryProductProductHasNodeAggregateSelection';
+  createdAt: DateTimeAggregateSelectionNullable;
+  features: StringAggregateSelectionNullable;
+  file: StringAggregateSelectionNullable;
+  id: IdAggregateSelectionNonNullable;
+  image: StringAggregateSelectionNullable;
+  others: StringAggregateSelectionNullable;
+  price: IntAggregateSelectionNullable;
+  shortDescription: StringAggregateSelectionNullable;
+  title: StringAggregateSelectionNullable;
+  video: StringAggregateSelectionNullable;
+};
+
+export type SubCategoryRelationInput = {
+  categoryHas?: InputMaybe<SubCategoryCategoryHasCreateFieldInput>;
+  productHas?: InputMaybe<Array<SubCategoryProductHasCreateFieldInput>>;
+};
+
+/** Fields to sort SubCategories by. The order in which sorts are applied is not guaranteed when specifying many fields in one SubCategorySort object. */
+export type SubCategorySort = {
+  createdAt?: InputMaybe<SortDirection>;
+  id?: InputMaybe<SortDirection>;
+  name?: InputMaybe<SortDirection>;
+};
+
+export type SubCategoryUniqueWhere = {
+  id?: InputMaybe<Scalars['ID']['input']>;
+};
+
+export type SubCategoryUpdateInput = {
+  categoryHas?: InputMaybe<SubCategoryCategoryHasUpdateFieldInput>;
+  createdAt?: InputMaybe<Scalars['DateTime']['input']>;
+  name?: InputMaybe<Scalars['String']['input']>;
+  productHas?: InputMaybe<Array<SubCategoryProductHasUpdateFieldInput>>;
+};
+
+export type SubCategoryWhere = {
+  AND?: InputMaybe<Array<SubCategoryWhere>>;
+  NOT?: InputMaybe<SubCategoryWhere>;
+  OR?: InputMaybe<Array<SubCategoryWhere>>;
+  categoryHas?: InputMaybe<CategoryWhere>;
+  categoryHasAggregate?: InputMaybe<SubCategoryCategoryHasAggregateInput>;
+  categoryHasConnection?: InputMaybe<SubCategoryCategoryHasConnectionWhere>;
+  categoryHasConnection_NOT?: InputMaybe<SubCategoryCategoryHasConnectionWhere>;
+  categoryHas_NOT?: InputMaybe<CategoryWhere>;
+  createdAt?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_GT?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_GTE?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_IN?: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
+  createdAt_LT?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_LTE?: InputMaybe<Scalars['DateTime']['input']>;
+  id?: InputMaybe<Scalars['ID']['input']>;
+  id_CONTAINS?: InputMaybe<Scalars['ID']['input']>;
+  id_ENDS_WITH?: InputMaybe<Scalars['ID']['input']>;
+  id_IN?: InputMaybe<Array<Scalars['ID']['input']>>;
+  id_STARTS_WITH?: InputMaybe<Scalars['ID']['input']>;
+  name?: InputMaybe<Scalars['String']['input']>;
+  name_CONTAINS?: InputMaybe<Scalars['String']['input']>;
+  name_ENDS_WITH?: InputMaybe<Scalars['String']['input']>;
+  name_IN?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  name_STARTS_WITH?: InputMaybe<Scalars['String']['input']>;
+  productHasAggregate?: InputMaybe<SubCategoryProductHasAggregateInput>;
+  /** Return SubCategories where all of the related SubCategoryProductHasConnections match this filter */
+  productHasConnection_ALL?: InputMaybe<SubCategoryProductHasConnectionWhere>;
+  /** Return SubCategories where none of the related SubCategoryProductHasConnections match this filter */
+  productHasConnection_NONE?: InputMaybe<SubCategoryProductHasConnectionWhere>;
+  /** Return SubCategories where one of the related SubCategoryProductHasConnections match this filter */
+  productHasConnection_SINGLE?: InputMaybe<SubCategoryProductHasConnectionWhere>;
+  /** Return SubCategories where some of the related SubCategoryProductHasConnections match this filter */
+  productHasConnection_SOME?: InputMaybe<SubCategoryProductHasConnectionWhere>;
+  /** Return SubCategories where all of the related Products match this filter */
+  productHas_ALL?: InputMaybe<ProductWhere>;
+  /** Return SubCategories where none of the related Products match this filter */
+  productHas_NONE?: InputMaybe<ProductWhere>;
+  /** Return SubCategories where one of the related Products match this filter */
+  productHas_SINGLE?: InputMaybe<ProductWhere>;
+  /** Return SubCategories where some of the related Products match this filter */
+  productHas_SOME?: InputMaybe<ProductWhere>;
+};
+
+export type SubSolution = {
+  __typename?: 'SubSolution';
+  description?: Maybe<Scalars['String']['output']>;
+  id: Scalars['ID']['output'];
+  image?: Maybe<Scalars['String']['output']>;
+  slug?: Maybe<Scalars['String']['output']>;
+  solutionpageHas?: Maybe<SolutionPage>;
+  solutionpageHasAggregate?: Maybe<SubSolutionSolutionPageSolutionpageHasAggregationSelection>;
+  solutionpageHasConnection: SubSolutionSolutionpageHasConnection;
+  subtitle?: Maybe<Scalars['String']['output']>;
+  title?: Maybe<Scalars['String']['output']>;
+};
+
+
+export type SubSolutionSolutionpageHasArgs = {
+  directed?: InputMaybe<Scalars['Boolean']['input']>;
+  options?: InputMaybe<SolutionPageOptions>;
+  where?: InputMaybe<SolutionPageWhere>;
+};
+
+
+export type SubSolutionSolutionpageHasAggregateArgs = {
+  directed?: InputMaybe<Scalars['Boolean']['input']>;
+  where?: InputMaybe<SolutionPageWhere>;
+};
+
+
+export type SubSolutionSolutionpageHasConnectionArgs = {
+  after?: InputMaybe<Scalars['String']['input']>;
+  directed?: InputMaybe<Scalars['Boolean']['input']>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  sort?: InputMaybe<Array<SubSolutionSolutionpageHasConnectionSort>>;
+  where?: InputMaybe<SubSolutionSolutionpageHasConnectionWhere>;
+};
+
+export type SubSolutionAggregateSelection = {
+  __typename?: 'SubSolutionAggregateSelection';
+  count: Scalars['Int']['output'];
+  description: StringAggregateSelectionNullable;
+  id: IdAggregateSelectionNonNullable;
+  image: StringAggregateSelectionNullable;
+  slug: StringAggregateSelectionNullable;
+  subtitle: StringAggregateSelectionNullable;
+  title: StringAggregateSelectionNullable;
+};
+
+export type SubSolutionConnectInput = {
+  solutionpageHas?: InputMaybe<SubSolutionSolutionpageHasConnectFieldInput>;
+};
+
+export type SubSolutionConnectOrCreateInput = {
+  solutionpageHas?: InputMaybe<SubSolutionSolutionpageHasConnectOrCreateFieldInput>;
+};
+
+export type SubSolutionConnectOrCreateWhere = {
+  node: SubSolutionUniqueWhere;
+};
+
+export type SubSolutionConnectWhere = {
+  node: SubSolutionWhere;
+};
+
+export type SubSolutionCreateInput = {
+  description?: InputMaybe<Scalars['String']['input']>;
+  image?: InputMaybe<Scalars['String']['input']>;
+  slug?: InputMaybe<Scalars['String']['input']>;
+  solutionpageHas?: InputMaybe<SubSolutionSolutionpageHasFieldInput>;
+  subtitle?: InputMaybe<Scalars['String']['input']>;
+  title?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type SubSolutionDeleteInput = {
+  solutionpageHas?: InputMaybe<SubSolutionSolutionpageHasDeleteFieldInput>;
+};
+
+export type SubSolutionDisconnectInput = {
+  solutionpageHas?: InputMaybe<SubSolutionSolutionpageHasDisconnectFieldInput>;
+};
+
+export type SubSolutionEdge = {
+  __typename?: 'SubSolutionEdge';
+  cursor: Scalars['String']['output'];
+  node: SubSolution;
+};
+
+export type SubSolutionOnCreateInput = {
+  description?: InputMaybe<Scalars['String']['input']>;
+  image?: InputMaybe<Scalars['String']['input']>;
+  slug?: InputMaybe<Scalars['String']['input']>;
+  subtitle?: InputMaybe<Scalars['String']['input']>;
+  title?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type SubSolutionOptions = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  /** Specify one or more SubSolutionSort objects to sort SubSolutions by. The sorts will be applied in the order in which they are arranged in the array. */
+  sort?: InputMaybe<Array<SubSolutionSort>>;
+};
+
+export type SubSolutionRelationInput = {
+  solutionpageHas?: InputMaybe<SubSolutionSolutionpageHasCreateFieldInput>;
+};
+
+export type SubSolutionSolutionPageSolutionpageHasAggregationSelection = {
+  __typename?: 'SubSolutionSolutionPageSolutionpageHasAggregationSelection';
+  count: Scalars['Int']['output'];
+  node?: Maybe<SubSolutionSolutionPageSolutionpageHasNodeAggregateSelection>;
+};
+
+export type SubSolutionSolutionPageSolutionpageHasNodeAggregateSelection = {
+  __typename?: 'SubSolutionSolutionPageSolutionpageHasNodeAggregateSelection';
+  id: IdAggregateSelectionNonNullable;
+  title: StringAggregateSelectionNullable;
+};
+
+export type SubSolutionSolutionpageHasAggregateInput = {
+  AND?: InputMaybe<Array<SubSolutionSolutionpageHasAggregateInput>>;
+  NOT?: InputMaybe<SubSolutionSolutionpageHasAggregateInput>;
+  OR?: InputMaybe<Array<SubSolutionSolutionpageHasAggregateInput>>;
+  count?: InputMaybe<Scalars['Int']['input']>;
+  count_GT?: InputMaybe<Scalars['Int']['input']>;
+  count_GTE?: InputMaybe<Scalars['Int']['input']>;
+  count_LT?: InputMaybe<Scalars['Int']['input']>;
+  count_LTE?: InputMaybe<Scalars['Int']['input']>;
+  node?: InputMaybe<SubSolutionSolutionpageHasNodeAggregationWhereInput>;
+};
+
+export type SubSolutionSolutionpageHasConnectFieldInput = {
+  connect?: InputMaybe<SolutionPageConnectInput>;
+  /** Whether or not to overwrite any matching relationship with the new properties. Will default to `false` in 4.0.0. */
+  overwrite?: Scalars['Boolean']['input'];
+  where?: InputMaybe<SolutionPageConnectWhere>;
+};
+
+export type SubSolutionSolutionpageHasConnectOrCreateFieldInput = {
+  onCreate: SubSolutionSolutionpageHasConnectOrCreateFieldInputOnCreate;
+  where: SolutionPageConnectOrCreateWhere;
+};
+
+export type SubSolutionSolutionpageHasConnectOrCreateFieldInputOnCreate = {
+  node: SolutionPageOnCreateInput;
+};
+
+export type SubSolutionSolutionpageHasConnection = {
+  __typename?: 'SubSolutionSolutionpageHasConnection';
+  edges: Array<SubSolutionSolutionpageHasRelationship>;
+  pageInfo: PageInfo;
+  totalCount: Scalars['Int']['output'];
+};
+
+export type SubSolutionSolutionpageHasConnectionSort = {
+  node?: InputMaybe<SolutionPageSort>;
+};
+
+export type SubSolutionSolutionpageHasConnectionWhere = {
+  AND?: InputMaybe<Array<SubSolutionSolutionpageHasConnectionWhere>>;
+  NOT?: InputMaybe<SubSolutionSolutionpageHasConnectionWhere>;
+  OR?: InputMaybe<Array<SubSolutionSolutionpageHasConnectionWhere>>;
+  node?: InputMaybe<SolutionPageWhere>;
+};
+
+export type SubSolutionSolutionpageHasCreateFieldInput = {
+  node: SolutionPageCreateInput;
+};
+
+export type SubSolutionSolutionpageHasDeleteFieldInput = {
+  delete?: InputMaybe<SolutionPageDeleteInput>;
+  where?: InputMaybe<SubSolutionSolutionpageHasConnectionWhere>;
+};
+
+export type SubSolutionSolutionpageHasDisconnectFieldInput = {
+  disconnect?: InputMaybe<SolutionPageDisconnectInput>;
+  where?: InputMaybe<SubSolutionSolutionpageHasConnectionWhere>;
+};
+
+export type SubSolutionSolutionpageHasFieldInput = {
+  connect?: InputMaybe<SubSolutionSolutionpageHasConnectFieldInput>;
+  connectOrCreate?: InputMaybe<SubSolutionSolutionpageHasConnectOrCreateFieldInput>;
+  create?: InputMaybe<SubSolutionSolutionpageHasCreateFieldInput>;
+};
+
+export type SubSolutionSolutionpageHasNodeAggregationWhereInput = {
+  AND?: InputMaybe<Array<SubSolutionSolutionpageHasNodeAggregationWhereInput>>;
+  NOT?: InputMaybe<SubSolutionSolutionpageHasNodeAggregationWhereInput>;
+  OR?: InputMaybe<Array<SubSolutionSolutionpageHasNodeAggregationWhereInput>>;
+  title_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  title_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  title_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  title_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  title_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  title_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  title_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  title_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  title_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  title_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  title_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  title_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  title_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  title_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  title_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+};
+
+export type SubSolutionSolutionpageHasRelationship = {
+  __typename?: 'SubSolutionSolutionpageHasRelationship';
+  cursor: Scalars['String']['output'];
+  node: SolutionPage;
+};
+
+export type SubSolutionSolutionpageHasUpdateConnectionInput = {
+  node?: InputMaybe<SolutionPageUpdateInput>;
+};
+
+export type SubSolutionSolutionpageHasUpdateFieldInput = {
+  connect?: InputMaybe<SubSolutionSolutionpageHasConnectFieldInput>;
+  connectOrCreate?: InputMaybe<SubSolutionSolutionpageHasConnectOrCreateFieldInput>;
+  create?: InputMaybe<SubSolutionSolutionpageHasCreateFieldInput>;
+  delete?: InputMaybe<SubSolutionSolutionpageHasDeleteFieldInput>;
+  disconnect?: InputMaybe<SubSolutionSolutionpageHasDisconnectFieldInput>;
+  update?: InputMaybe<SubSolutionSolutionpageHasUpdateConnectionInput>;
+  where?: InputMaybe<SubSolutionSolutionpageHasConnectionWhere>;
+};
+
+/** Fields to sort SubSolutions by. The order in which sorts are applied is not guaranteed when specifying many fields in one SubSolutionSort object. */
+export type SubSolutionSort = {
+  description?: InputMaybe<SortDirection>;
+  id?: InputMaybe<SortDirection>;
+  image?: InputMaybe<SortDirection>;
+  slug?: InputMaybe<SortDirection>;
+  subtitle?: InputMaybe<SortDirection>;
+  title?: InputMaybe<SortDirection>;
+};
+
+export type SubSolutionUniqueWhere = {
+  id?: InputMaybe<Scalars['ID']['input']>;
+};
+
+export type SubSolutionUpdateInput = {
+  description?: InputMaybe<Scalars['String']['input']>;
+  image?: InputMaybe<Scalars['String']['input']>;
+  slug?: InputMaybe<Scalars['String']['input']>;
+  solutionpageHas?: InputMaybe<SubSolutionSolutionpageHasUpdateFieldInput>;
+  subtitle?: InputMaybe<Scalars['String']['input']>;
+  title?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type SubSolutionWhere = {
+  AND?: InputMaybe<Array<SubSolutionWhere>>;
+  NOT?: InputMaybe<SubSolutionWhere>;
+  OR?: InputMaybe<Array<SubSolutionWhere>>;
+  description?: InputMaybe<Scalars['String']['input']>;
+  description_CONTAINS?: InputMaybe<Scalars['String']['input']>;
+  description_ENDS_WITH?: InputMaybe<Scalars['String']['input']>;
+  description_IN?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  description_STARTS_WITH?: InputMaybe<Scalars['String']['input']>;
+  id?: InputMaybe<Scalars['ID']['input']>;
+  id_CONTAINS?: InputMaybe<Scalars['ID']['input']>;
+  id_ENDS_WITH?: InputMaybe<Scalars['ID']['input']>;
+  id_IN?: InputMaybe<Array<Scalars['ID']['input']>>;
+  id_STARTS_WITH?: InputMaybe<Scalars['ID']['input']>;
+  image?: InputMaybe<Scalars['String']['input']>;
+  image_CONTAINS?: InputMaybe<Scalars['String']['input']>;
+  image_ENDS_WITH?: InputMaybe<Scalars['String']['input']>;
+  image_IN?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  image_STARTS_WITH?: InputMaybe<Scalars['String']['input']>;
+  slug?: InputMaybe<Scalars['String']['input']>;
+  slug_CONTAINS?: InputMaybe<Scalars['String']['input']>;
+  slug_ENDS_WITH?: InputMaybe<Scalars['String']['input']>;
+  slug_IN?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  slug_STARTS_WITH?: InputMaybe<Scalars['String']['input']>;
+  solutionpageHas?: InputMaybe<SolutionPageWhere>;
+  solutionpageHasAggregate?: InputMaybe<SubSolutionSolutionpageHasAggregateInput>;
+  solutionpageHasConnection?: InputMaybe<SubSolutionSolutionpageHasConnectionWhere>;
+  solutionpageHasConnection_NOT?: InputMaybe<SubSolutionSolutionpageHasConnectionWhere>;
+  solutionpageHas_NOT?: InputMaybe<SolutionPageWhere>;
+  subtitle?: InputMaybe<Scalars['String']['input']>;
+  subtitle_CONTAINS?: InputMaybe<Scalars['String']['input']>;
+  subtitle_ENDS_WITH?: InputMaybe<Scalars['String']['input']>;
+  subtitle_IN?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  subtitle_STARTS_WITH?: InputMaybe<Scalars['String']['input']>;
+  title?: InputMaybe<Scalars['String']['input']>;
+  title_CONTAINS?: InputMaybe<Scalars['String']['input']>;
+  title_ENDS_WITH?: InputMaybe<Scalars['String']['input']>;
+  title_IN?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  title_STARTS_WITH?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type SubSolutionsConnection = {
+  __typename?: 'SubSolutionsConnection';
+  edges: Array<SubSolutionEdge>;
+  pageInfo: PageInfo;
+  totalCount: Scalars['Int']['output'];
 };
 
 export type Subservice = {
@@ -19807,9 +26304,491 @@ export type SupportTicketsConnection = {
   totalCount: Scalars['Int']['output'];
 };
 
+export type TermsPage = {
+  __typename?: 'TermsPage';
+  adminHas?: Maybe<Admin>;
+  adminHasAggregate?: Maybe<TermsPageAdminAdminHasAggregationSelection>;
+  adminHasConnection: TermsPageAdminHasConnection;
+  content?: Maybe<Scalars['String']['output']>;
+  id: Scalars['ID']['output'];
+  slug?: Maybe<Scalars['String']['output']>;
+  title?: Maybe<Scalars['String']['output']>;
+};
+
+
+export type TermsPageAdminHasArgs = {
+  directed?: InputMaybe<Scalars['Boolean']['input']>;
+  options?: InputMaybe<AdminOptions>;
+  where?: InputMaybe<AdminWhere>;
+};
+
+
+export type TermsPageAdminHasAggregateArgs = {
+  directed?: InputMaybe<Scalars['Boolean']['input']>;
+  where?: InputMaybe<AdminWhere>;
+};
+
+
+export type TermsPageAdminHasConnectionArgs = {
+  after?: InputMaybe<Scalars['String']['input']>;
+  directed?: InputMaybe<Scalars['Boolean']['input']>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  sort?: InputMaybe<Array<TermsPageAdminHasConnectionSort>>;
+  where?: InputMaybe<TermsPageAdminHasConnectionWhere>;
+};
+
+export type TermsPageAdminAdminHasAggregationSelection = {
+  __typename?: 'TermsPageAdminAdminHasAggregationSelection';
+  count: Scalars['Int']['output'];
+  node?: Maybe<TermsPageAdminAdminHasNodeAggregateSelection>;
+};
+
+export type TermsPageAdminAdminHasNodeAggregateSelection = {
+  __typename?: 'TermsPageAdminAdminHasNodeAggregateSelection';
+  id: IdAggregateSelectionNonNullable;
+};
+
+export type TermsPageAdminHasAggregateInput = {
+  AND?: InputMaybe<Array<TermsPageAdminHasAggregateInput>>;
+  NOT?: InputMaybe<TermsPageAdminHasAggregateInput>;
+  OR?: InputMaybe<Array<TermsPageAdminHasAggregateInput>>;
+  count?: InputMaybe<Scalars['Int']['input']>;
+  count_GT?: InputMaybe<Scalars['Int']['input']>;
+  count_GTE?: InputMaybe<Scalars['Int']['input']>;
+  count_LT?: InputMaybe<Scalars['Int']['input']>;
+  count_LTE?: InputMaybe<Scalars['Int']['input']>;
+  node?: InputMaybe<TermsPageAdminHasNodeAggregationWhereInput>;
+};
+
+export type TermsPageAdminHasConnectFieldInput = {
+  connect?: InputMaybe<AdminConnectInput>;
+  /** Whether or not to overwrite any matching relationship with the new properties. Will default to `false` in 4.0.0. */
+  overwrite?: Scalars['Boolean']['input'];
+  where?: InputMaybe<AdminConnectWhere>;
+};
+
+export type TermsPageAdminHasConnectOrCreateFieldInput = {
+  onCreate: TermsPageAdminHasConnectOrCreateFieldInputOnCreate;
+  where: AdminConnectOrCreateWhere;
+};
+
+export type TermsPageAdminHasConnectOrCreateFieldInputOnCreate = {
+  node: AdminOnCreateInput;
+};
+
+export type TermsPageAdminHasConnection = {
+  __typename?: 'TermsPageAdminHasConnection';
+  edges: Array<TermsPageAdminHasRelationship>;
+  pageInfo: PageInfo;
+  totalCount: Scalars['Int']['output'];
+};
+
+export type TermsPageAdminHasConnectionSort = {
+  node?: InputMaybe<AdminSort>;
+};
+
+export type TermsPageAdminHasConnectionWhere = {
+  AND?: InputMaybe<Array<TermsPageAdminHasConnectionWhere>>;
+  NOT?: InputMaybe<TermsPageAdminHasConnectionWhere>;
+  OR?: InputMaybe<Array<TermsPageAdminHasConnectionWhere>>;
+  node?: InputMaybe<AdminWhere>;
+};
+
+export type TermsPageAdminHasCreateFieldInput = {
+  node: AdminCreateInput;
+};
+
+export type TermsPageAdminHasDeleteFieldInput = {
+  delete?: InputMaybe<AdminDeleteInput>;
+  where?: InputMaybe<TermsPageAdminHasConnectionWhere>;
+};
+
+export type TermsPageAdminHasDisconnectFieldInput = {
+  disconnect?: InputMaybe<AdminDisconnectInput>;
+  where?: InputMaybe<TermsPageAdminHasConnectionWhere>;
+};
+
+export type TermsPageAdminHasFieldInput = {
+  connect?: InputMaybe<TermsPageAdminHasConnectFieldInput>;
+  connectOrCreate?: InputMaybe<TermsPageAdminHasConnectOrCreateFieldInput>;
+  create?: InputMaybe<TermsPageAdminHasCreateFieldInput>;
+};
+
+export type TermsPageAdminHasNodeAggregationWhereInput = {
+  AND?: InputMaybe<Array<TermsPageAdminHasNodeAggregationWhereInput>>;
+  NOT?: InputMaybe<TermsPageAdminHasNodeAggregationWhereInput>;
+  OR?: InputMaybe<Array<TermsPageAdminHasNodeAggregationWhereInput>>;
+};
+
+export type TermsPageAdminHasRelationship = {
+  __typename?: 'TermsPageAdminHasRelationship';
+  cursor: Scalars['String']['output'];
+  node: Admin;
+};
+
+export type TermsPageAdminHasUpdateConnectionInput = {
+  node?: InputMaybe<AdminUpdateInput>;
+};
+
+export type TermsPageAdminHasUpdateFieldInput = {
+  connect?: InputMaybe<TermsPageAdminHasConnectFieldInput>;
+  connectOrCreate?: InputMaybe<TermsPageAdminHasConnectOrCreateFieldInput>;
+  create?: InputMaybe<TermsPageAdminHasCreateFieldInput>;
+  delete?: InputMaybe<TermsPageAdminHasDeleteFieldInput>;
+  disconnect?: InputMaybe<TermsPageAdminHasDisconnectFieldInput>;
+  update?: InputMaybe<TermsPageAdminHasUpdateConnectionInput>;
+  where?: InputMaybe<TermsPageAdminHasConnectionWhere>;
+};
+
+export type TermsPageAggregateSelection = {
+  __typename?: 'TermsPageAggregateSelection';
+  content: StringAggregateSelectionNullable;
+  count: Scalars['Int']['output'];
+  id: IdAggregateSelectionNonNullable;
+  slug: StringAggregateSelectionNullable;
+  title: StringAggregateSelectionNullable;
+};
+
+export type TermsPageConnectInput = {
+  adminHas?: InputMaybe<TermsPageAdminHasConnectFieldInput>;
+};
+
+export type TermsPageConnectOrCreateInput = {
+  adminHas?: InputMaybe<TermsPageAdminHasConnectOrCreateFieldInput>;
+};
+
+export type TermsPageConnectOrCreateWhere = {
+  node: TermsPageUniqueWhere;
+};
+
+export type TermsPageConnectWhere = {
+  node: TermsPageWhere;
+};
+
+export type TermsPageCreateInput = {
+  adminHas?: InputMaybe<TermsPageAdminHasFieldInput>;
+  content?: InputMaybe<Scalars['String']['input']>;
+  slug?: InputMaybe<Scalars['String']['input']>;
+  title?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type TermsPageDeleteInput = {
+  adminHas?: InputMaybe<TermsPageAdminHasDeleteFieldInput>;
+};
+
+export type TermsPageDisconnectInput = {
+  adminHas?: InputMaybe<TermsPageAdminHasDisconnectFieldInput>;
+};
+
+export type TermsPageEdge = {
+  __typename?: 'TermsPageEdge';
+  cursor: Scalars['String']['output'];
+  node: TermsPage;
+};
+
+export type TermsPageOnCreateInput = {
+  content?: InputMaybe<Scalars['String']['input']>;
+  slug?: InputMaybe<Scalars['String']['input']>;
+  title?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type TermsPageOptions = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  /** Specify one or more TermsPageSort objects to sort TermsPages by. The sorts will be applied in the order in which they are arranged in the array. */
+  sort?: InputMaybe<Array<TermsPageSort>>;
+};
+
+export type TermsPageRelationInput = {
+  adminHas?: InputMaybe<TermsPageAdminHasCreateFieldInput>;
+};
+
+/** Fields to sort TermsPages by. The order in which sorts are applied is not guaranteed when specifying many fields in one TermsPageSort object. */
+export type TermsPageSort = {
+  content?: InputMaybe<SortDirection>;
+  id?: InputMaybe<SortDirection>;
+  slug?: InputMaybe<SortDirection>;
+  title?: InputMaybe<SortDirection>;
+};
+
+export type TermsPageUniqueWhere = {
+  id?: InputMaybe<Scalars['ID']['input']>;
+};
+
+export type TermsPageUpdateInput = {
+  adminHas?: InputMaybe<TermsPageAdminHasUpdateFieldInput>;
+  content?: InputMaybe<Scalars['String']['input']>;
+  slug?: InputMaybe<Scalars['String']['input']>;
+  title?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type TermsPageWhere = {
+  AND?: InputMaybe<Array<TermsPageWhere>>;
+  NOT?: InputMaybe<TermsPageWhere>;
+  OR?: InputMaybe<Array<TermsPageWhere>>;
+  adminHas?: InputMaybe<AdminWhere>;
+  adminHasAggregate?: InputMaybe<TermsPageAdminHasAggregateInput>;
+  adminHasConnection?: InputMaybe<TermsPageAdminHasConnectionWhere>;
+  adminHasConnection_NOT?: InputMaybe<TermsPageAdminHasConnectionWhere>;
+  adminHas_NOT?: InputMaybe<AdminWhere>;
+  content?: InputMaybe<Scalars['String']['input']>;
+  content_CONTAINS?: InputMaybe<Scalars['String']['input']>;
+  content_ENDS_WITH?: InputMaybe<Scalars['String']['input']>;
+  content_IN?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  content_STARTS_WITH?: InputMaybe<Scalars['String']['input']>;
+  id?: InputMaybe<Scalars['ID']['input']>;
+  id_CONTAINS?: InputMaybe<Scalars['ID']['input']>;
+  id_ENDS_WITH?: InputMaybe<Scalars['ID']['input']>;
+  id_IN?: InputMaybe<Array<Scalars['ID']['input']>>;
+  id_STARTS_WITH?: InputMaybe<Scalars['ID']['input']>;
+  slug?: InputMaybe<Scalars['String']['input']>;
+  slug_CONTAINS?: InputMaybe<Scalars['String']['input']>;
+  slug_ENDS_WITH?: InputMaybe<Scalars['String']['input']>;
+  slug_IN?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  slug_STARTS_WITH?: InputMaybe<Scalars['String']['input']>;
+  title?: InputMaybe<Scalars['String']['input']>;
+  title_CONTAINS?: InputMaybe<Scalars['String']['input']>;
+  title_ENDS_WITH?: InputMaybe<Scalars['String']['input']>;
+  title_IN?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  title_STARTS_WITH?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type TermsPagesConnection = {
+  __typename?: 'TermsPagesConnection';
+  edges: Array<TermsPageEdge>;
+  pageInfo: PageInfo;
+  totalCount: Scalars['Int']['output'];
+};
+
+export type Testing = {
+  __typename?: 'Testing';
+  adminHas?: Maybe<Admin>;
+  adminHasAggregate?: Maybe<TestingAdminAdminHasAggregationSelection>;
+  adminHasConnection: TestingAdminHasConnection;
+  id: Scalars['ID']['output'];
+};
+
+
+export type TestingAdminHasArgs = {
+  directed?: InputMaybe<Scalars['Boolean']['input']>;
+  options?: InputMaybe<AdminOptions>;
+  where?: InputMaybe<AdminWhere>;
+};
+
+
+export type TestingAdminHasAggregateArgs = {
+  directed?: InputMaybe<Scalars['Boolean']['input']>;
+  where?: InputMaybe<AdminWhere>;
+};
+
+
+export type TestingAdminHasConnectionArgs = {
+  after?: InputMaybe<Scalars['String']['input']>;
+  directed?: InputMaybe<Scalars['Boolean']['input']>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  sort?: InputMaybe<Array<TestingAdminHasConnectionSort>>;
+  where?: InputMaybe<TestingAdminHasConnectionWhere>;
+};
+
+export type TestingAdminAdminHasAggregationSelection = {
+  __typename?: 'TestingAdminAdminHasAggregationSelection';
+  count: Scalars['Int']['output'];
+  node?: Maybe<TestingAdminAdminHasNodeAggregateSelection>;
+};
+
+export type TestingAdminAdminHasNodeAggregateSelection = {
+  __typename?: 'TestingAdminAdminHasNodeAggregateSelection';
+  id: IdAggregateSelectionNonNullable;
+};
+
+export type TestingAdminHasAggregateInput = {
+  AND?: InputMaybe<Array<TestingAdminHasAggregateInput>>;
+  NOT?: InputMaybe<TestingAdminHasAggregateInput>;
+  OR?: InputMaybe<Array<TestingAdminHasAggregateInput>>;
+  count?: InputMaybe<Scalars['Int']['input']>;
+  count_GT?: InputMaybe<Scalars['Int']['input']>;
+  count_GTE?: InputMaybe<Scalars['Int']['input']>;
+  count_LT?: InputMaybe<Scalars['Int']['input']>;
+  count_LTE?: InputMaybe<Scalars['Int']['input']>;
+  node?: InputMaybe<TestingAdminHasNodeAggregationWhereInput>;
+};
+
+export type TestingAdminHasConnectFieldInput = {
+  connect?: InputMaybe<AdminConnectInput>;
+  /** Whether or not to overwrite any matching relationship with the new properties. Will default to `false` in 4.0.0. */
+  overwrite?: Scalars['Boolean']['input'];
+  where?: InputMaybe<AdminConnectWhere>;
+};
+
+export type TestingAdminHasConnectOrCreateFieldInput = {
+  onCreate: TestingAdminHasConnectOrCreateFieldInputOnCreate;
+  where: AdminConnectOrCreateWhere;
+};
+
+export type TestingAdminHasConnectOrCreateFieldInputOnCreate = {
+  node: AdminOnCreateInput;
+};
+
+export type TestingAdminHasConnection = {
+  __typename?: 'TestingAdminHasConnection';
+  edges: Array<TestingAdminHasRelationship>;
+  pageInfo: PageInfo;
+  totalCount: Scalars['Int']['output'];
+};
+
+export type TestingAdminHasConnectionSort = {
+  node?: InputMaybe<AdminSort>;
+};
+
+export type TestingAdminHasConnectionWhere = {
+  AND?: InputMaybe<Array<TestingAdminHasConnectionWhere>>;
+  NOT?: InputMaybe<TestingAdminHasConnectionWhere>;
+  OR?: InputMaybe<Array<TestingAdminHasConnectionWhere>>;
+  node?: InputMaybe<AdminWhere>;
+};
+
+export type TestingAdminHasCreateFieldInput = {
+  node: AdminCreateInput;
+};
+
+export type TestingAdminHasDeleteFieldInput = {
+  delete?: InputMaybe<AdminDeleteInput>;
+  where?: InputMaybe<TestingAdminHasConnectionWhere>;
+};
+
+export type TestingAdminHasDisconnectFieldInput = {
+  disconnect?: InputMaybe<AdminDisconnectInput>;
+  where?: InputMaybe<TestingAdminHasConnectionWhere>;
+};
+
+export type TestingAdminHasFieldInput = {
+  connect?: InputMaybe<TestingAdminHasConnectFieldInput>;
+  connectOrCreate?: InputMaybe<TestingAdminHasConnectOrCreateFieldInput>;
+  create?: InputMaybe<TestingAdminHasCreateFieldInput>;
+};
+
+export type TestingAdminHasNodeAggregationWhereInput = {
+  AND?: InputMaybe<Array<TestingAdminHasNodeAggregationWhereInput>>;
+  NOT?: InputMaybe<TestingAdminHasNodeAggregationWhereInput>;
+  OR?: InputMaybe<Array<TestingAdminHasNodeAggregationWhereInput>>;
+};
+
+export type TestingAdminHasRelationship = {
+  __typename?: 'TestingAdminHasRelationship';
+  cursor: Scalars['String']['output'];
+  node: Admin;
+};
+
+export type TestingAdminHasUpdateConnectionInput = {
+  node?: InputMaybe<AdminUpdateInput>;
+};
+
+export type TestingAdminHasUpdateFieldInput = {
+  connect?: InputMaybe<TestingAdminHasConnectFieldInput>;
+  connectOrCreate?: InputMaybe<TestingAdminHasConnectOrCreateFieldInput>;
+  create?: InputMaybe<TestingAdminHasCreateFieldInput>;
+  delete?: InputMaybe<TestingAdminHasDeleteFieldInput>;
+  disconnect?: InputMaybe<TestingAdminHasDisconnectFieldInput>;
+  update?: InputMaybe<TestingAdminHasUpdateConnectionInput>;
+  where?: InputMaybe<TestingAdminHasConnectionWhere>;
+};
+
+export type TestingAggregateSelection = {
+  __typename?: 'TestingAggregateSelection';
+  count: Scalars['Int']['output'];
+  id: IdAggregateSelectionNonNullable;
+};
+
+export type TestingConnectInput = {
+  adminHas?: InputMaybe<TestingAdminHasConnectFieldInput>;
+};
+
+export type TestingConnectOrCreateInput = {
+  adminHas?: InputMaybe<TestingAdminHasConnectOrCreateFieldInput>;
+};
+
+export type TestingCreateInput = {
+  adminHas?: InputMaybe<TestingAdminHasFieldInput>;
+};
+
+export type TestingDeleteInput = {
+  adminHas?: InputMaybe<TestingAdminHasDeleteFieldInput>;
+};
+
+export type TestingDisconnectInput = {
+  adminHas?: InputMaybe<TestingAdminHasDisconnectFieldInput>;
+};
+
+export type TestingEdge = {
+  __typename?: 'TestingEdge';
+  cursor: Scalars['String']['output'];
+  node: Testing;
+};
+
+export type TestingOptions = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  /** Specify one or more TestingSort objects to sort Testings by. The sorts will be applied in the order in which they are arranged in the array. */
+  sort?: InputMaybe<Array<TestingSort>>;
+};
+
+export type TestingRelationInput = {
+  adminHas?: InputMaybe<TestingAdminHasCreateFieldInput>;
+};
+
+/** Fields to sort Testings by. The order in which sorts are applied is not guaranteed when specifying many fields in one TestingSort object. */
+export type TestingSort = {
+  id?: InputMaybe<SortDirection>;
+};
+
+export type TestingUpdateInput = {
+  adminHas?: InputMaybe<TestingAdminHasUpdateFieldInput>;
+};
+
+export type TestingWhere = {
+  AND?: InputMaybe<Array<TestingWhere>>;
+  NOT?: InputMaybe<TestingWhere>;
+  OR?: InputMaybe<Array<TestingWhere>>;
+  adminHas?: InputMaybe<AdminWhere>;
+  adminHasAggregate?: InputMaybe<TestingAdminHasAggregateInput>;
+  adminHasConnection?: InputMaybe<TestingAdminHasConnectionWhere>;
+  adminHasConnection_NOT?: InputMaybe<TestingAdminHasConnectionWhere>;
+  adminHas_NOT?: InputMaybe<AdminWhere>;
+  id?: InputMaybe<Scalars['ID']['input']>;
+  id_CONTAINS?: InputMaybe<Scalars['ID']['input']>;
+  id_ENDS_WITH?: InputMaybe<Scalars['ID']['input']>;
+  id_IN?: InputMaybe<Array<Scalars['ID']['input']>>;
+  id_STARTS_WITH?: InputMaybe<Scalars['ID']['input']>;
+};
+
+export type TestingsConnection = {
+  __typename?: 'TestingsConnection';
+  edges: Array<TestingEdge>;
+  pageInfo: PageInfo;
+  totalCount: Scalars['Int']['output'];
+};
+
+export type UpdateAboutPagesMutationResponse = {
+  __typename?: 'UpdateAboutPagesMutationResponse';
+  aboutPages: Array<AboutPage>;
+  info: UpdateInfo;
+};
+
 export type UpdateAdminsMutationResponse = {
   __typename?: 'UpdateAdminsMutationResponse';
   admins: Array<Admin>;
+  info: UpdateInfo;
+};
+
+export type UpdateCalibrationsMutationResponse = {
+  __typename?: 'UpdateCalibrationsMutationResponse';
+  calibrations: Array<Calibration>;
+  info: UpdateInfo;
+};
+
+export type UpdateCategoriesMutationResponse = {
+  __typename?: 'UpdateCategoriesMutationResponse';
+  categories: Array<Category>;
   info: UpdateInfo;
 };
 
@@ -19843,15 +26822,51 @@ export type UpdateEmployeesMutationResponse = {
   info: UpdateInfo;
 };
 
+export type UpdateEventsMutationResponse = {
+  __typename?: 'UpdateEventsMutationResponse';
+  events: Array<Event>;
+  info: UpdateInfo;
+};
+
+export type UpdateFeaturesPagesMutationResponse = {
+  __typename?: 'UpdateFeaturesPagesMutationResponse';
+  featuresPages: Array<FeaturesPage>;
+  info: UpdateInfo;
+};
+
 export type UpdateFilesMutationResponse = {
   __typename?: 'UpdateFilesMutationResponse';
   files: Array<Files>;
   info: UpdateInfo;
 };
 
+export type UpdateHomeClientsMutationResponse = {
+  __typename?: 'UpdateHomeClientsMutationResponse';
+  homeClients: Array<HomeClient>;
+  info: UpdateInfo;
+};
+
+export type UpdateHomePagesMutationResponse = {
+  __typename?: 'UpdateHomePagesMutationResponse';
+  homePages: Array<HomePage>;
+  info: UpdateInfo;
+};
+
+export type UpdateHomeServicesMutationResponse = {
+  __typename?: 'UpdateHomeServicesMutationResponse';
+  homeServices: Array<HomeServices>;
+  info: UpdateInfo;
+};
+
 export type UpdateImagesMutationResponse = {
   __typename?: 'UpdateImagesMutationResponse';
   images: Array<Images>;
+  info: UpdateInfo;
+};
+
+export type UpdateIndustryPagesMutationResponse = {
+  __typename?: 'UpdateIndustryPagesMutationResponse';
+  industryPages: Array<IndustryPage>;
   info: UpdateInfo;
 };
 
@@ -19948,6 +26963,24 @@ export type UpdateServicesMutationResponse = {
   services: Array<Service>;
 };
 
+export type UpdateSolutionPagesMutationResponse = {
+  __typename?: 'UpdateSolutionPagesMutationResponse';
+  info: UpdateInfo;
+  solutionPages: Array<SolutionPage>;
+};
+
+export type UpdateSubCategoriesMutationResponse = {
+  __typename?: 'UpdateSubCategoriesMutationResponse';
+  info: UpdateInfo;
+  subCategories: Array<SubCategory>;
+};
+
+export type UpdateSubSolutionsMutationResponse = {
+  __typename?: 'UpdateSubSolutionsMutationResponse';
+  info: UpdateInfo;
+  subSolutions: Array<SubSolution>;
+};
+
 export type UpdateSubservicesMutationResponse = {
   __typename?: 'UpdateSubservicesMutationResponse';
   info: UpdateInfo;
@@ -19958,6 +26991,18 @@ export type UpdateSupportTicketsMutationResponse = {
   __typename?: 'UpdateSupportTicketsMutationResponse';
   info: UpdateInfo;
   supportTickets: Array<SupportTicket>;
+};
+
+export type UpdateTermsPagesMutationResponse = {
+  __typename?: 'UpdateTermsPagesMutationResponse';
+  info: UpdateInfo;
+  termsPages: Array<TermsPage>;
+};
+
+export type UpdateTestingsMutationResponse = {
+  __typename?: 'UpdateTestingsMutationResponse';
+  info: UpdateInfo;
+  testings: Array<Testing>;
 };
 
 export type UpdateUsersMutationResponse = {
@@ -19988,9 +27033,6 @@ export type User = {
   hasEmployee?: Maybe<Employee>;
   hasEmployeeAggregate?: Maybe<UserEmployeeHasEmployeeAggregationSelection>;
   hasEmployeeConnection: UserHasEmployeeConnection;
-  hasModuleticket?: Maybe<ModuleTicket>;
-  hasModuleticketAggregate?: Maybe<UserModuleTicketHasModuleticketAggregationSelection>;
-  hasModuleticketConnection: UserHasModuleticketConnection;
   hasRole?: Maybe<Role>;
   hasRoleAggregate?: Maybe<UserRoleHasRoleAggregationSelection>;
   hasRoleConnection: UserHasRoleConnection;
@@ -20057,28 +27099,6 @@ export type UserHasEmployeeConnectionArgs = {
   first?: InputMaybe<Scalars['Int']['input']>;
   sort?: InputMaybe<Array<UserHasEmployeeConnectionSort>>;
   where?: InputMaybe<UserHasEmployeeConnectionWhere>;
-};
-
-
-export type UserHasModuleticketArgs = {
-  directed?: InputMaybe<Scalars['Boolean']['input']>;
-  options?: InputMaybe<ModuleTicketOptions>;
-  where?: InputMaybe<ModuleTicketWhere>;
-};
-
-
-export type UserHasModuleticketAggregateArgs = {
-  directed?: InputMaybe<Scalars['Boolean']['input']>;
-  where?: InputMaybe<ModuleTicketWhere>;
-};
-
-
-export type UserHasModuleticketConnectionArgs = {
-  after?: InputMaybe<Scalars['String']['input']>;
-  directed?: InputMaybe<Scalars['Boolean']['input']>;
-  first?: InputMaybe<Scalars['Int']['input']>;
-  sort?: InputMaybe<Array<UserHasModuleticketConnectionSort>>;
-  where?: InputMaybe<UserHasModuleticketConnectionWhere>;
 };
 
 
@@ -20215,7 +27235,6 @@ export type UserClientIsClientNodeAggregateSelection = {
 export type UserConnectInput = {
   hasDocuments?: InputMaybe<UserHasDocumentsConnectFieldInput>;
   hasEmployee?: InputMaybe<UserHasEmployeeConnectFieldInput>;
-  hasModuleticket?: InputMaybe<UserHasModuleticketConnectFieldInput>;
   hasRole?: InputMaybe<UserHasRoleConnectFieldInput>;
   isAdmin?: InputMaybe<UserIsAdminConnectFieldInput>;
   isClient?: InputMaybe<UserIsClientConnectFieldInput>;
@@ -20223,8 +27242,8 @@ export type UserConnectInput = {
 };
 
 export type UserConnectOrCreateInput = {
+  hasDocuments?: InputMaybe<UserHasDocumentsConnectOrCreateFieldInput>;
   hasEmployee?: InputMaybe<UserHasEmployeeConnectOrCreateFieldInput>;
-  hasModuleticket?: InputMaybe<UserHasModuleticketConnectOrCreateFieldInput>;
   hasRole?: InputMaybe<UserHasRoleConnectOrCreateFieldInput>;
   isAdmin?: InputMaybe<UserIsAdminConnectOrCreateFieldInput>;
   isClient?: InputMaybe<UserIsClientConnectOrCreateFieldInput>;
@@ -20250,7 +27269,6 @@ export type UserCreateInput = {
   gstNumber?: InputMaybe<Scalars['String']['input']>;
   hasDocuments?: InputMaybe<UserHasDocumentsFieldInput>;
   hasEmployee?: InputMaybe<UserHasEmployeeFieldInput>;
-  hasModuleticket?: InputMaybe<UserHasModuleticketFieldInput>;
   hasRole?: InputMaybe<UserHasRoleFieldInput>;
   image?: InputMaybe<Scalars['String']['input']>;
   isAdmin?: InputMaybe<UserIsAdminFieldInput>;
@@ -20269,7 +27287,6 @@ export type UserCreateInput = {
 export type UserDeleteInput = {
   hasDocuments?: InputMaybe<UserHasDocumentsDeleteFieldInput>;
   hasEmployee?: InputMaybe<UserHasEmployeeDeleteFieldInput>;
-  hasModuleticket?: InputMaybe<UserHasModuleticketDeleteFieldInput>;
   hasRole?: InputMaybe<UserHasRoleDeleteFieldInput>;
   isAdmin?: InputMaybe<UserIsAdminDeleteFieldInput>;
   isClient?: InputMaybe<UserIsClientDeleteFieldInput>;
@@ -20279,7 +27296,6 @@ export type UserDeleteInput = {
 export type UserDisconnectInput = {
   hasDocuments?: InputMaybe<UserHasDocumentsDisconnectFieldInput>;
   hasEmployee?: InputMaybe<UserHasEmployeeDisconnectFieldInput>;
-  hasModuleticket?: InputMaybe<UserHasModuleticketDisconnectFieldInput>;
   hasRole?: InputMaybe<UserHasRoleDisconnectFieldInput>;
   isAdmin?: InputMaybe<UserIsAdminDisconnectFieldInput>;
   isClient?: InputMaybe<UserIsClientDisconnectFieldInput>;
@@ -20294,7 +27310,7 @@ export type UserDocumentsHasDocumentsAggregationSelection = {
 
 export type UserDocumentsHasDocumentsNodeAggregateSelection = {
   __typename?: 'UserDocumentsHasDocumentsNodeAggregateSelection';
-  id: StringAggregateSelectionNullable;
+  id: IdAggregateSelectionNonNullable;
 };
 
 export type UserEdge = {
@@ -20334,6 +27350,15 @@ export type UserHasDocumentsConnectFieldInput = {
   where?: InputMaybe<DocumentsConnectWhere>;
 };
 
+export type UserHasDocumentsConnectOrCreateFieldInput = {
+  onCreate: UserHasDocumentsConnectOrCreateFieldInputOnCreate;
+  where: DocumentsConnectOrCreateWhere;
+};
+
+export type UserHasDocumentsConnectOrCreateFieldInputOnCreate = {
+  node: DocumentsOnCreateInput;
+};
+
 export type UserHasDocumentsConnection = {
   __typename?: 'UserHasDocumentsConnection';
   edges: Array<UserHasDocumentsRelationship>;
@@ -20368,6 +27393,7 @@ export type UserHasDocumentsDisconnectFieldInput = {
 
 export type UserHasDocumentsFieldInput = {
   connect?: InputMaybe<UserHasDocumentsConnectFieldInput>;
+  connectOrCreate?: InputMaybe<UserHasDocumentsConnectOrCreateFieldInput>;
   create?: InputMaybe<UserHasDocumentsCreateFieldInput>;
 };
 
@@ -20375,21 +27401,6 @@ export type UserHasDocumentsNodeAggregationWhereInput = {
   AND?: InputMaybe<Array<UserHasDocumentsNodeAggregationWhereInput>>;
   NOT?: InputMaybe<UserHasDocumentsNodeAggregationWhereInput>;
   OR?: InputMaybe<Array<UserHasDocumentsNodeAggregationWhereInput>>;
-  id_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
-  id_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
-  id_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
-  id_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
-  id_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
-  id_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  id_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  id_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  id_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  id_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  id_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  id_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  id_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  id_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  id_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
 };
 
 export type UserHasDocumentsRelationship = {
@@ -20404,6 +27415,7 @@ export type UserHasDocumentsUpdateConnectionInput = {
 
 export type UserHasDocumentsUpdateFieldInput = {
   connect?: InputMaybe<UserHasDocumentsConnectFieldInput>;
+  connectOrCreate?: InputMaybe<UserHasDocumentsConnectOrCreateFieldInput>;
   create?: InputMaybe<UserHasDocumentsCreateFieldInput>;
   delete?: InputMaybe<UserHasDocumentsDeleteFieldInput>;
   disconnect?: InputMaybe<UserHasDocumentsDisconnectFieldInput>;
@@ -20516,138 +27528,6 @@ export type UserHasEmployeeUpdateFieldInput = {
   disconnect?: InputMaybe<UserHasEmployeeDisconnectFieldInput>;
   update?: InputMaybe<UserHasEmployeeUpdateConnectionInput>;
   where?: InputMaybe<UserHasEmployeeConnectionWhere>;
-};
-
-export type UserHasModuleticketAggregateInput = {
-  AND?: InputMaybe<Array<UserHasModuleticketAggregateInput>>;
-  NOT?: InputMaybe<UserHasModuleticketAggregateInput>;
-  OR?: InputMaybe<Array<UserHasModuleticketAggregateInput>>;
-  count?: InputMaybe<Scalars['Int']['input']>;
-  count_GT?: InputMaybe<Scalars['Int']['input']>;
-  count_GTE?: InputMaybe<Scalars['Int']['input']>;
-  count_LT?: InputMaybe<Scalars['Int']['input']>;
-  count_LTE?: InputMaybe<Scalars['Int']['input']>;
-  node?: InputMaybe<UserHasModuleticketNodeAggregationWhereInput>;
-};
-
-export type UserHasModuleticketConnectFieldInput = {
-  connect?: InputMaybe<ModuleTicketConnectInput>;
-  /** Whether or not to overwrite any matching relationship with the new properties. Will default to `false` in 4.0.0. */
-  overwrite?: Scalars['Boolean']['input'];
-  where?: InputMaybe<ModuleTicketConnectWhere>;
-};
-
-export type UserHasModuleticketConnectOrCreateFieldInput = {
-  onCreate: UserHasModuleticketConnectOrCreateFieldInputOnCreate;
-  where: ModuleTicketConnectOrCreateWhere;
-};
-
-export type UserHasModuleticketConnectOrCreateFieldInputOnCreate = {
-  node: ModuleTicketOnCreateInput;
-};
-
-export type UserHasModuleticketConnection = {
-  __typename?: 'UserHasModuleticketConnection';
-  edges: Array<UserHasModuleticketRelationship>;
-  pageInfo: PageInfo;
-  totalCount: Scalars['Int']['output'];
-};
-
-export type UserHasModuleticketConnectionSort = {
-  node?: InputMaybe<ModuleTicketSort>;
-};
-
-export type UserHasModuleticketConnectionWhere = {
-  AND?: InputMaybe<Array<UserHasModuleticketConnectionWhere>>;
-  NOT?: InputMaybe<UserHasModuleticketConnectionWhere>;
-  OR?: InputMaybe<Array<UserHasModuleticketConnectionWhere>>;
-  node?: InputMaybe<ModuleTicketWhere>;
-};
-
-export type UserHasModuleticketCreateFieldInput = {
-  node: ModuleTicketCreateInput;
-};
-
-export type UserHasModuleticketDeleteFieldInput = {
-  delete?: InputMaybe<ModuleTicketDeleteInput>;
-  where?: InputMaybe<UserHasModuleticketConnectionWhere>;
-};
-
-export type UserHasModuleticketDisconnectFieldInput = {
-  disconnect?: InputMaybe<ModuleTicketDisconnectInput>;
-  where?: InputMaybe<UserHasModuleticketConnectionWhere>;
-};
-
-export type UserHasModuleticketFieldInput = {
-  connect?: InputMaybe<UserHasModuleticketConnectFieldInput>;
-  connectOrCreate?: InputMaybe<UserHasModuleticketConnectOrCreateFieldInput>;
-  create?: InputMaybe<UserHasModuleticketCreateFieldInput>;
-};
-
-export type UserHasModuleticketNodeAggregationWhereInput = {
-  AND?: InputMaybe<Array<UserHasModuleticketNodeAggregationWhereInput>>;
-  NOT?: InputMaybe<UserHasModuleticketNodeAggregationWhereInput>;
-  OR?: InputMaybe<Array<UserHasModuleticketNodeAggregationWhereInput>>;
-  complain_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
-  complain_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
-  complain_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
-  complain_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
-  complain_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
-  complain_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  complain_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  complain_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  complain_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  complain_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  complain_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  complain_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  complain_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  complain_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  complain_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  createdAt_MAX_EQUAL?: InputMaybe<Scalars['DateTime']['input']>;
-  createdAt_MAX_GT?: InputMaybe<Scalars['DateTime']['input']>;
-  createdAt_MAX_GTE?: InputMaybe<Scalars['DateTime']['input']>;
-  createdAt_MAX_LT?: InputMaybe<Scalars['DateTime']['input']>;
-  createdAt_MAX_LTE?: InputMaybe<Scalars['DateTime']['input']>;
-  createdAt_MIN_EQUAL?: InputMaybe<Scalars['DateTime']['input']>;
-  createdAt_MIN_GT?: InputMaybe<Scalars['DateTime']['input']>;
-  createdAt_MIN_GTE?: InputMaybe<Scalars['DateTime']['input']>;
-  createdAt_MIN_LT?: InputMaybe<Scalars['DateTime']['input']>;
-  createdAt_MIN_LTE?: InputMaybe<Scalars['DateTime']['input']>;
-  ticket_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
-  ticket_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
-  ticket_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
-  ticket_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
-  ticket_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
-  ticket_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  ticket_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  ticket_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  ticket_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  ticket_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  ticket_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  ticket_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  ticket_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  ticket_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  ticket_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-};
-
-export type UserHasModuleticketRelationship = {
-  __typename?: 'UserHasModuleticketRelationship';
-  cursor: Scalars['String']['output'];
-  node: ModuleTicket;
-};
-
-export type UserHasModuleticketUpdateConnectionInput = {
-  node?: InputMaybe<ModuleTicketUpdateInput>;
-};
-
-export type UserHasModuleticketUpdateFieldInput = {
-  connect?: InputMaybe<UserHasModuleticketConnectFieldInput>;
-  connectOrCreate?: InputMaybe<UserHasModuleticketConnectOrCreateFieldInput>;
-  create?: InputMaybe<UserHasModuleticketCreateFieldInput>;
-  delete?: InputMaybe<UserHasModuleticketDeleteFieldInput>;
-  disconnect?: InputMaybe<UserHasModuleticketDisconnectFieldInput>;
-  update?: InputMaybe<UserHasModuleticketUpdateConnectionInput>;
-  where?: InputMaybe<UserHasModuleticketConnectionWhere>;
 };
 
 export type UserHasRoleAggregateInput = {
@@ -21088,20 +27968,6 @@ export type UserIsVendorUpdateFieldInput = {
   where?: InputMaybe<UserIsVendorConnectionWhere>;
 };
 
-export type UserModuleTicketHasModuleticketAggregationSelection = {
-  __typename?: 'UserModuleTicketHasModuleticketAggregationSelection';
-  count: Scalars['Int']['output'];
-  node?: Maybe<UserModuleTicketHasModuleticketNodeAggregateSelection>;
-};
-
-export type UserModuleTicketHasModuleticketNodeAggregateSelection = {
-  __typename?: 'UserModuleTicketHasModuleticketNodeAggregateSelection';
-  complain: StringAggregateSelectionNullable;
-  createdAt: DateTimeAggregateSelectionNullable;
-  id: IdAggregateSelectionNonNullable;
-  ticket: StringAggregateSelectionNonNullable;
-};
-
 export type UserOnCreateInput = {
   address?: InputMaybe<Scalars['String']['input']>;
   bio?: InputMaybe<Scalars['String']['input']>;
@@ -21132,7 +27998,6 @@ export type UserOptions = {
 export type UserRelationInput = {
   hasDocuments?: InputMaybe<UserHasDocumentsCreateFieldInput>;
   hasEmployee?: InputMaybe<UserHasEmployeeCreateFieldInput>;
-  hasModuleticket?: InputMaybe<UserHasModuleticketCreateFieldInput>;
   hasRole?: InputMaybe<UserHasRoleCreateFieldInput>;
   isAdmin?: InputMaybe<UserIsAdminCreateFieldInput>;
   isClient?: InputMaybe<UserIsClientCreateFieldInput>;
@@ -21177,6 +28042,7 @@ export enum UserType {
   Admin = 'ADMIN',
   Consumer = 'CONSUMER',
   CoventenEmployee = 'COVENTEN_EMPLOYEE',
+  Employee = 'EMPLOYEE',
   LabAssistant = 'LAB_ASSISTANT',
   ServiceProvider = 'SERVICE_PROVIDER'
 }
@@ -21196,7 +28062,6 @@ export type UserUpdateInput = {
   gstNumber?: InputMaybe<Scalars['String']['input']>;
   hasDocuments?: InputMaybe<UserHasDocumentsUpdateFieldInput>;
   hasEmployee?: InputMaybe<UserHasEmployeeUpdateFieldInput>;
-  hasModuleticket?: InputMaybe<UserHasModuleticketUpdateFieldInput>;
   hasRole?: InputMaybe<UserHasRoleUpdateFieldInput>;
   image?: InputMaybe<Scalars['String']['input']>;
   isAdmin?: InputMaybe<UserIsAdminUpdateFieldInput>;
@@ -21282,11 +28147,6 @@ export type UserWhere = {
   hasEmployeeConnection?: InputMaybe<UserHasEmployeeConnectionWhere>;
   hasEmployeeConnection_NOT?: InputMaybe<UserHasEmployeeConnectionWhere>;
   hasEmployee_NOT?: InputMaybe<EmployeeWhere>;
-  hasModuleticket?: InputMaybe<ModuleTicketWhere>;
-  hasModuleticketAggregate?: InputMaybe<UserHasModuleticketAggregateInput>;
-  hasModuleticketConnection?: InputMaybe<UserHasModuleticketConnectionWhere>;
-  hasModuleticketConnection_NOT?: InputMaybe<UserHasModuleticketConnectionWhere>;
-  hasModuleticket_NOT?: InputMaybe<ModuleTicketWhere>;
   hasRole?: InputMaybe<RoleWhere>;
   hasRoleAggregate?: InputMaybe<UserHasRoleAggregateInput>;
   hasRoleConnection?: InputMaybe<UserHasRoleConnectionWhere>;
@@ -21368,6 +28228,12 @@ export type Vendor = {
   createdInvoice?: Maybe<Invoice>;
   createdInvoiceAggregate?: Maybe<VendorInvoiceCreatedInvoiceAggregationSelection>;
   createdInvoiceConnection: VendorCreatedInvoiceConnection;
+  hasAboutpage?: Maybe<AboutPage>;
+  hasAboutpageAggregate?: Maybe<VendorAboutPageHasAboutpageAggregationSelection>;
+  hasAboutpageConnection: VendorHasAboutpageConnection;
+  hasFeaturespage?: Maybe<FeaturesPage>;
+  hasFeaturespageAggregate?: Maybe<VendorFeaturesPageHasFeaturespageAggregationSelection>;
+  hasFeaturespageConnection: VendorHasFeaturespageConnection;
   hasLeads?: Maybe<Leads>;
   hasLeadsAggregate?: Maybe<VendorLeadsHasLeadsAggregationSelection>;
   hasLeadsConnection: VendorHasLeadsConnection;
@@ -21459,6 +28325,50 @@ export type VendorCreatedInvoiceConnectionArgs = {
   first?: InputMaybe<Scalars['Int']['input']>;
   sort?: InputMaybe<Array<VendorCreatedInvoiceConnectionSort>>;
   where?: InputMaybe<VendorCreatedInvoiceConnectionWhere>;
+};
+
+
+export type VendorHasAboutpageArgs = {
+  directed?: InputMaybe<Scalars['Boolean']['input']>;
+  options?: InputMaybe<AboutPageOptions>;
+  where?: InputMaybe<AboutPageWhere>;
+};
+
+
+export type VendorHasAboutpageAggregateArgs = {
+  directed?: InputMaybe<Scalars['Boolean']['input']>;
+  where?: InputMaybe<AboutPageWhere>;
+};
+
+
+export type VendorHasAboutpageConnectionArgs = {
+  after?: InputMaybe<Scalars['String']['input']>;
+  directed?: InputMaybe<Scalars['Boolean']['input']>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  sort?: InputMaybe<Array<VendorHasAboutpageConnectionSort>>;
+  where?: InputMaybe<VendorHasAboutpageConnectionWhere>;
+};
+
+
+export type VendorHasFeaturespageArgs = {
+  directed?: InputMaybe<Scalars['Boolean']['input']>;
+  options?: InputMaybe<FeaturesPageOptions>;
+  where?: InputMaybe<FeaturesPageWhere>;
+};
+
+
+export type VendorHasFeaturespageAggregateArgs = {
+  directed?: InputMaybe<Scalars['Boolean']['input']>;
+  where?: InputMaybe<FeaturesPageWhere>;
+};
+
+
+export type VendorHasFeaturespageConnectionArgs = {
+  after?: InputMaybe<Scalars['String']['input']>;
+  directed?: InputMaybe<Scalars['Boolean']['input']>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  sort?: InputMaybe<Array<VendorHasFeaturespageConnectionSort>>;
+  where?: InputMaybe<VendorHasFeaturespageConnectionWhere>;
 };
 
 
@@ -21613,6 +28523,20 @@ export type VendorUserIsConnectionArgs = {
   first?: InputMaybe<Scalars['Int']['input']>;
   sort?: InputMaybe<Array<VendorUserIsConnectionSort>>;
   where?: InputMaybe<VendorUserIsConnectionWhere>;
+};
+
+export type VendorAboutPageHasAboutpageAggregationSelection = {
+  __typename?: 'VendorAboutPageHasAboutpageAggregationSelection';
+  count: Scalars['Int']['output'];
+  node?: Maybe<VendorAboutPageHasAboutpageNodeAggregateSelection>;
+};
+
+export type VendorAboutPageHasAboutpageNodeAggregateSelection = {
+  __typename?: 'VendorAboutPageHasAboutpageNodeAggregateSelection';
+  description: StringAggregateSelectionNullable;
+  id: IdAggregateSelectionNonNullable;
+  image: StringAggregateSelectionNullable;
+  title: StringAggregateSelectionNullable;
 };
 
 export type VendorAdminAdminApprovedAggregationSelection = {
@@ -21876,6 +28800,8 @@ export type VendorConnectInput = {
   adminApproved?: InputMaybe<VendorAdminApprovedConnectFieldInput>;
   communicationticketFor?: InputMaybe<VendorCommunicationticketForConnectFieldInput>;
   createdInvoice?: InputMaybe<VendorCreatedInvoiceConnectFieldInput>;
+  hasAboutpage?: InputMaybe<VendorHasAboutpageConnectFieldInput>;
+  hasFeaturespage?: InputMaybe<VendorHasFeaturespageConnectFieldInput>;
   hasLeads?: InputMaybe<VendorHasLeadsConnectFieldInput>;
   hasManagement?: InputMaybe<VendorHasManagementConnectFieldInput>;
   hasModuleticket?: InputMaybe<VendorHasModuleticketConnectFieldInput>;
@@ -21889,6 +28815,8 @@ export type VendorConnectOrCreateInput = {
   adminApproved?: InputMaybe<VendorAdminApprovedConnectOrCreateFieldInput>;
   communicationticketFor?: InputMaybe<VendorCommunicationticketForConnectOrCreateFieldInput>;
   createdInvoice?: InputMaybe<VendorCreatedInvoiceConnectOrCreateFieldInput>;
+  hasAboutpage?: InputMaybe<VendorHasAboutpageConnectOrCreateFieldInput>;
+  hasFeaturespage?: InputMaybe<VendorHasFeaturespageConnectOrCreateFieldInput>;
   hasLeads?: InputMaybe<VendorHasLeadsConnectOrCreateFieldInput>;
   hasManagement?: InputMaybe<VendorHasManagementConnectOrCreateFieldInput>;
   hasModuleticket?: InputMaybe<VendorHasModuleticketConnectOrCreateFieldInput>;
@@ -21910,6 +28838,8 @@ export type VendorCreateInput = {
   adminApproved?: InputMaybe<VendorAdminApprovedFieldInput>;
   communicationticketFor?: InputMaybe<VendorCommunicationticketForFieldInput>;
   createdInvoice?: InputMaybe<VendorCreatedInvoiceFieldInput>;
+  hasAboutpage?: InputMaybe<VendorHasAboutpageFieldInput>;
+  hasFeaturespage?: InputMaybe<VendorHasFeaturespageFieldInput>;
   hasLeads?: InputMaybe<VendorHasLeadsFieldInput>;
   hasManagement?: InputMaybe<VendorHasManagementFieldInput>;
   hasModuleticket?: InputMaybe<VendorHasModuleticketFieldInput>;
@@ -22163,6 +29093,8 @@ export type VendorDeleteInput = {
   adminApproved?: InputMaybe<VendorAdminApprovedDeleteFieldInput>;
   communicationticketFor?: InputMaybe<VendorCommunicationticketForDeleteFieldInput>;
   createdInvoice?: InputMaybe<VendorCreatedInvoiceDeleteFieldInput>;
+  hasAboutpage?: InputMaybe<VendorHasAboutpageDeleteFieldInput>;
+  hasFeaturespage?: InputMaybe<VendorHasFeaturespageDeleteFieldInput>;
   hasLeads?: InputMaybe<VendorHasLeadsDeleteFieldInput>;
   hasManagement?: InputMaybe<VendorHasManagementDeleteFieldInput>;
   hasModuleticket?: InputMaybe<VendorHasModuleticketDeleteFieldInput>;
@@ -22176,6 +29108,8 @@ export type VendorDisconnectInput = {
   adminApproved?: InputMaybe<VendorAdminApprovedDisconnectFieldInput>;
   communicationticketFor?: InputMaybe<VendorCommunicationticketForDisconnectFieldInput>;
   createdInvoice?: InputMaybe<VendorCreatedInvoiceDisconnectFieldInput>;
+  hasAboutpage?: InputMaybe<VendorHasAboutpageDisconnectFieldInput>;
+  hasFeaturespage?: InputMaybe<VendorHasFeaturespageDisconnectFieldInput>;
   hasLeads?: InputMaybe<VendorHasLeadsDisconnectFieldInput>;
   hasManagement?: InputMaybe<VendorHasManagementDisconnectFieldInput>;
   hasModuleticket?: InputMaybe<VendorHasModuleticketDisconnectFieldInput>;
@@ -22189,6 +29123,294 @@ export type VendorEdge = {
   __typename?: 'VendorEdge';
   cursor: Scalars['String']['output'];
   node: Vendor;
+};
+
+export type VendorFeaturesPageHasFeaturespageAggregationSelection = {
+  __typename?: 'VendorFeaturesPageHasFeaturespageAggregationSelection';
+  count: Scalars['Int']['output'];
+  node?: Maybe<VendorFeaturesPageHasFeaturespageNodeAggregateSelection>;
+};
+
+export type VendorFeaturesPageHasFeaturespageNodeAggregateSelection = {
+  __typename?: 'VendorFeaturesPageHasFeaturespageNodeAggregateSelection';
+  description: StringAggregateSelectionNullable;
+  id: IdAggregateSelectionNonNullable;
+  image: StringAggregateSelectionNullable;
+  title: StringAggregateSelectionNullable;
+};
+
+export type VendorHasAboutpageAggregateInput = {
+  AND?: InputMaybe<Array<VendorHasAboutpageAggregateInput>>;
+  NOT?: InputMaybe<VendorHasAboutpageAggregateInput>;
+  OR?: InputMaybe<Array<VendorHasAboutpageAggregateInput>>;
+  count?: InputMaybe<Scalars['Int']['input']>;
+  count_GT?: InputMaybe<Scalars['Int']['input']>;
+  count_GTE?: InputMaybe<Scalars['Int']['input']>;
+  count_LT?: InputMaybe<Scalars['Int']['input']>;
+  count_LTE?: InputMaybe<Scalars['Int']['input']>;
+  node?: InputMaybe<VendorHasAboutpageNodeAggregationWhereInput>;
+};
+
+export type VendorHasAboutpageConnectFieldInput = {
+  connect?: InputMaybe<AboutPageConnectInput>;
+  /** Whether or not to overwrite any matching relationship with the new properties. Will default to `false` in 4.0.0. */
+  overwrite?: Scalars['Boolean']['input'];
+  where?: InputMaybe<AboutPageConnectWhere>;
+};
+
+export type VendorHasAboutpageConnectOrCreateFieldInput = {
+  onCreate: VendorHasAboutpageConnectOrCreateFieldInputOnCreate;
+  where: AboutPageConnectOrCreateWhere;
+};
+
+export type VendorHasAboutpageConnectOrCreateFieldInputOnCreate = {
+  node: AboutPageOnCreateInput;
+};
+
+export type VendorHasAboutpageConnection = {
+  __typename?: 'VendorHasAboutpageConnection';
+  edges: Array<VendorHasAboutpageRelationship>;
+  pageInfo: PageInfo;
+  totalCount: Scalars['Int']['output'];
+};
+
+export type VendorHasAboutpageConnectionSort = {
+  node?: InputMaybe<AboutPageSort>;
+};
+
+export type VendorHasAboutpageConnectionWhere = {
+  AND?: InputMaybe<Array<VendorHasAboutpageConnectionWhere>>;
+  NOT?: InputMaybe<VendorHasAboutpageConnectionWhere>;
+  OR?: InputMaybe<Array<VendorHasAboutpageConnectionWhere>>;
+  node?: InputMaybe<AboutPageWhere>;
+};
+
+export type VendorHasAboutpageCreateFieldInput = {
+  node: AboutPageCreateInput;
+};
+
+export type VendorHasAboutpageDeleteFieldInput = {
+  delete?: InputMaybe<AboutPageDeleteInput>;
+  where?: InputMaybe<VendorHasAboutpageConnectionWhere>;
+};
+
+export type VendorHasAboutpageDisconnectFieldInput = {
+  disconnect?: InputMaybe<AboutPageDisconnectInput>;
+  where?: InputMaybe<VendorHasAboutpageConnectionWhere>;
+};
+
+export type VendorHasAboutpageFieldInput = {
+  connect?: InputMaybe<VendorHasAboutpageConnectFieldInput>;
+  connectOrCreate?: InputMaybe<VendorHasAboutpageConnectOrCreateFieldInput>;
+  create?: InputMaybe<VendorHasAboutpageCreateFieldInput>;
+};
+
+export type VendorHasAboutpageNodeAggregationWhereInput = {
+  AND?: InputMaybe<Array<VendorHasAboutpageNodeAggregationWhereInput>>;
+  NOT?: InputMaybe<VendorHasAboutpageNodeAggregationWhereInput>;
+  OR?: InputMaybe<Array<VendorHasAboutpageNodeAggregationWhereInput>>;
+  description_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  description_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  description_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  description_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  description_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  description_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  description_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  description_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  description_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  description_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  description_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  description_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  description_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  description_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  description_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  image_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  image_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  image_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  image_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  image_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  image_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  image_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  image_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  image_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  image_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  image_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  image_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  image_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  image_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  image_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  title_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  title_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  title_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  title_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  title_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  title_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  title_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  title_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  title_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  title_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  title_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  title_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  title_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  title_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  title_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+};
+
+export type VendorHasAboutpageRelationship = {
+  __typename?: 'VendorHasAboutpageRelationship';
+  cursor: Scalars['String']['output'];
+  node: AboutPage;
+};
+
+export type VendorHasAboutpageUpdateConnectionInput = {
+  node?: InputMaybe<AboutPageUpdateInput>;
+};
+
+export type VendorHasAboutpageUpdateFieldInput = {
+  connect?: InputMaybe<VendorHasAboutpageConnectFieldInput>;
+  connectOrCreate?: InputMaybe<VendorHasAboutpageConnectOrCreateFieldInput>;
+  create?: InputMaybe<VendorHasAboutpageCreateFieldInput>;
+  delete?: InputMaybe<VendorHasAboutpageDeleteFieldInput>;
+  disconnect?: InputMaybe<VendorHasAboutpageDisconnectFieldInput>;
+  update?: InputMaybe<VendorHasAboutpageUpdateConnectionInput>;
+  where?: InputMaybe<VendorHasAboutpageConnectionWhere>;
+};
+
+export type VendorHasFeaturespageAggregateInput = {
+  AND?: InputMaybe<Array<VendorHasFeaturespageAggregateInput>>;
+  NOT?: InputMaybe<VendorHasFeaturespageAggregateInput>;
+  OR?: InputMaybe<Array<VendorHasFeaturespageAggregateInput>>;
+  count?: InputMaybe<Scalars['Int']['input']>;
+  count_GT?: InputMaybe<Scalars['Int']['input']>;
+  count_GTE?: InputMaybe<Scalars['Int']['input']>;
+  count_LT?: InputMaybe<Scalars['Int']['input']>;
+  count_LTE?: InputMaybe<Scalars['Int']['input']>;
+  node?: InputMaybe<VendorHasFeaturespageNodeAggregationWhereInput>;
+};
+
+export type VendorHasFeaturespageConnectFieldInput = {
+  connect?: InputMaybe<FeaturesPageConnectInput>;
+  /** Whether or not to overwrite any matching relationship with the new properties. Will default to `false` in 4.0.0. */
+  overwrite?: Scalars['Boolean']['input'];
+  where?: InputMaybe<FeaturesPageConnectWhere>;
+};
+
+export type VendorHasFeaturespageConnectOrCreateFieldInput = {
+  onCreate: VendorHasFeaturespageConnectOrCreateFieldInputOnCreate;
+  where: FeaturesPageConnectOrCreateWhere;
+};
+
+export type VendorHasFeaturespageConnectOrCreateFieldInputOnCreate = {
+  node: FeaturesPageOnCreateInput;
+};
+
+export type VendorHasFeaturespageConnection = {
+  __typename?: 'VendorHasFeaturespageConnection';
+  edges: Array<VendorHasFeaturespageRelationship>;
+  pageInfo: PageInfo;
+  totalCount: Scalars['Int']['output'];
+};
+
+export type VendorHasFeaturespageConnectionSort = {
+  node?: InputMaybe<FeaturesPageSort>;
+};
+
+export type VendorHasFeaturespageConnectionWhere = {
+  AND?: InputMaybe<Array<VendorHasFeaturespageConnectionWhere>>;
+  NOT?: InputMaybe<VendorHasFeaturespageConnectionWhere>;
+  OR?: InputMaybe<Array<VendorHasFeaturespageConnectionWhere>>;
+  node?: InputMaybe<FeaturesPageWhere>;
+};
+
+export type VendorHasFeaturespageCreateFieldInput = {
+  node: FeaturesPageCreateInput;
+};
+
+export type VendorHasFeaturespageDeleteFieldInput = {
+  delete?: InputMaybe<FeaturesPageDeleteInput>;
+  where?: InputMaybe<VendorHasFeaturespageConnectionWhere>;
+};
+
+export type VendorHasFeaturespageDisconnectFieldInput = {
+  disconnect?: InputMaybe<FeaturesPageDisconnectInput>;
+  where?: InputMaybe<VendorHasFeaturespageConnectionWhere>;
+};
+
+export type VendorHasFeaturespageFieldInput = {
+  connect?: InputMaybe<VendorHasFeaturespageConnectFieldInput>;
+  connectOrCreate?: InputMaybe<VendorHasFeaturespageConnectOrCreateFieldInput>;
+  create?: InputMaybe<VendorHasFeaturespageCreateFieldInput>;
+};
+
+export type VendorHasFeaturespageNodeAggregationWhereInput = {
+  AND?: InputMaybe<Array<VendorHasFeaturespageNodeAggregationWhereInput>>;
+  NOT?: InputMaybe<VendorHasFeaturespageNodeAggregationWhereInput>;
+  OR?: InputMaybe<Array<VendorHasFeaturespageNodeAggregationWhereInput>>;
+  description_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  description_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  description_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  description_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  description_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  description_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  description_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  description_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  description_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  description_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  description_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  description_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  description_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  description_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  description_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  image_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  image_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  image_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  image_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  image_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  image_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  image_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  image_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  image_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  image_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  image_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  image_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  image_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  image_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  image_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  title_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  title_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  title_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  title_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  title_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  title_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  title_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  title_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  title_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  title_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  title_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  title_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  title_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  title_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  title_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+};
+
+export type VendorHasFeaturespageRelationship = {
+  __typename?: 'VendorHasFeaturespageRelationship';
+  cursor: Scalars['String']['output'];
+  node: FeaturesPage;
+};
+
+export type VendorHasFeaturespageUpdateConnectionInput = {
+  node?: InputMaybe<FeaturesPageUpdateInput>;
+};
+
+export type VendorHasFeaturespageUpdateFieldInput = {
+  connect?: InputMaybe<VendorHasFeaturespageConnectFieldInput>;
+  connectOrCreate?: InputMaybe<VendorHasFeaturespageConnectOrCreateFieldInput>;
+  create?: InputMaybe<VendorHasFeaturespageCreateFieldInput>;
+  delete?: InputMaybe<VendorHasFeaturespageDeleteFieldInput>;
+  disconnect?: InputMaybe<VendorHasFeaturespageDisconnectFieldInput>;
+  update?: InputMaybe<VendorHasFeaturespageUpdateConnectionInput>;
+  where?: InputMaybe<VendorHasFeaturespageConnectionWhere>;
 };
 
 export type VendorHasLeadsAggregateInput = {
@@ -23194,6 +30416,8 @@ export type VendorRelationInput = {
   adminApproved?: InputMaybe<VendorAdminApprovedCreateFieldInput>;
   communicationticketFor?: InputMaybe<VendorCommunicationticketForCreateFieldInput>;
   createdInvoice?: InputMaybe<VendorCreatedInvoiceCreateFieldInput>;
+  hasAboutpage?: InputMaybe<VendorHasAboutpageCreateFieldInput>;
+  hasFeaturespage?: InputMaybe<VendorHasFeaturespageCreateFieldInput>;
   hasLeads?: InputMaybe<VendorHasLeadsCreateFieldInput>;
   hasManagement?: InputMaybe<VendorHasManagementCreateFieldInput>;
   hasModuleticket?: InputMaybe<VendorHasModuleticketCreateFieldInput>;
@@ -23244,6 +30468,8 @@ export type VendorUpdateInput = {
   adminApproved?: InputMaybe<VendorAdminApprovedUpdateFieldInput>;
   communicationticketFor?: InputMaybe<VendorCommunicationticketForUpdateFieldInput>;
   createdInvoice?: InputMaybe<VendorCreatedInvoiceUpdateFieldInput>;
+  hasAboutpage?: InputMaybe<VendorHasAboutpageUpdateFieldInput>;
+  hasFeaturespage?: InputMaybe<VendorHasFeaturespageUpdateFieldInput>;
   hasLeads?: InputMaybe<VendorHasLeadsUpdateFieldInput>;
   hasManagement?: InputMaybe<VendorHasManagementUpdateFieldInput>;
   hasModuleticket?: InputMaybe<VendorHasModuleticketUpdateFieldInput>;
@@ -23599,6 +30825,16 @@ export type VendorWhere = {
   createdInvoiceConnection?: InputMaybe<VendorCreatedInvoiceConnectionWhere>;
   createdInvoiceConnection_NOT?: InputMaybe<VendorCreatedInvoiceConnectionWhere>;
   createdInvoice_NOT?: InputMaybe<InvoiceWhere>;
+  hasAboutpage?: InputMaybe<AboutPageWhere>;
+  hasAboutpageAggregate?: InputMaybe<VendorHasAboutpageAggregateInput>;
+  hasAboutpageConnection?: InputMaybe<VendorHasAboutpageConnectionWhere>;
+  hasAboutpageConnection_NOT?: InputMaybe<VendorHasAboutpageConnectionWhere>;
+  hasAboutpage_NOT?: InputMaybe<AboutPageWhere>;
+  hasFeaturespage?: InputMaybe<FeaturesPageWhere>;
+  hasFeaturespageAggregate?: InputMaybe<VendorHasFeaturespageAggregateInput>;
+  hasFeaturespageConnection?: InputMaybe<VendorHasFeaturespageConnectionWhere>;
+  hasFeaturespageConnection_NOT?: InputMaybe<VendorHasFeaturespageConnectionWhere>;
+  hasFeaturespage_NOT?: InputMaybe<FeaturesPageWhere>;
   hasLeads?: InputMaybe<LeadsWhere>;
   hasLeadsAggregate?: InputMaybe<VendorHasLeadsAggregateInput>;
   hasLeadsConnection?: InputMaybe<VendorHasLeadsConnectionWhere>;

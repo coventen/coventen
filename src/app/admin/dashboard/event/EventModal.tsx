@@ -1,3 +1,5 @@
+'use client'
+
 import { Dialog, Transition } from '@headlessui/react';
 import React, { Fragment, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';

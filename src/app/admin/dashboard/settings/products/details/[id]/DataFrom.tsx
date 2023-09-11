@@ -1,3 +1,5 @@
+'use client'
+
 import React, { Fragment, useState } from 'react';
 import Editor from '@/components/Editor';
 
@@ -44,6 +46,8 @@ const DataFrom = ({ productData, setProductData, featureEditorState, setFeatureE
 
         const inputData = {
             title: productData?.title,
+            video: productData?.video,
+            file: productData?.file,
             shortDescription: productData?.shortDescription,
             image: imageLink,
             price: parseInt(productData?.price),
@@ -101,6 +105,30 @@ const DataFrom = ({ productData, setProductData, featureEditorState, setFeatureE
                                     }
                                 }}
                                 placeholder="Image"
+                                className="mt-2 w-full block  placeholder-gray-400/70 rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-gray-700 focus:primary focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:primary/10"
+                            />
+                        </div>
+                        <div className=" p-1 col-span-2">
+                            <label htmlFor="">file Url</label>
+                            <input
+                                required
+                                type="text"
+                                name="file"
+                                defaultValue={productData?.file}
+                                onChange={(e) => setProductData({ ...productData, file: e.target.value })}
+                                placeholder="file url"
+                                className="mt-2 w-full block  placeholder-gray-400/70 rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-gray-700 focus:primary focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:primary/10"
+                            />
+                        </div>
+                        <div className=" p-1 col-span-2">
+                            <label htmlFor="">Video Url</label>
+                            <input
+                                required
+                                type="text"
+                                name="video"
+                                defaultValue={productData?.video}
+                                onChange={(e) => setProductData({ ...productData, video: e.target.value })}
+                                placeholder="video url"
                                 className="mt-2 w-full block  placeholder-gray-400/70 rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-gray-700 focus:primary focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:primary/10"
                             />
                         </div>

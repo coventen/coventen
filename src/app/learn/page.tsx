@@ -2,41 +2,14 @@
 import React, { useState } from "react";
 import AccordionItem from "./AccordionItem";
 import Navbar from "../Navbar";
+import Main from "./Main";
 
 const Accordion = () => {
-
-    const data = [
-        {
-            id: 1,
-            header: "How long we deliver our training?",
-            text: "It takes 2-3 weeks to get your first blog post ready. That includes the in-depth research & creation of your monthly content marketing strategy that we do before writing your first blog post, Ipsum available."
-        },
-        {
-            id: 2,
-            header: "How long we deliver our training?",
-            text: "It takes 2-3 weeks to get your first blog post ready. That includes the in-depth research & creation of your monthly content marketing strategy that we do before writing your first blog post, Ipsum available."
-        },
-        {
-            id: 3,
-            header: "How long we deliver our training?",
-            text: "It takes 2-3 weeks to get your first blog post ready. That includes the in-depth research & creation of your monthly content marketing strategy that we do before writing your first blog post, Ipsum available."
-        },
-        {
-            id: 4,
-            header: "How long we deliver our training?",
-            text: "It takes 2-3 weeks to get your first blog post ready. That includes the in-depth research & creation of your monthly content marketing strategy that we do before writing your first blog post, Ipsum available."
-        },
-        {
-            id: 5,
-            header: "How long we deliver our training?",
-            text: "It takes 2-3 weeks to get your first blog post ready. That includes the in-depth research & creation of your monthly content marketing strategy that we do before writing your first blog post, Ipsum available."
-        }
-    ]
 
 
     return (
         <>
-            <section className="relative z-20 overflow-hidden bg-white pt-20 pb-12 lg:pt-[120px] lg:pb-[90px]">
+            <section className="relative min-h-screen z-0 overflow-hidden bg-white pt-14 pb-12 lg:pt-[120px] lg:pb-[90px]">
                 <div className="container mx-auto">
                     <div className="-mx-4 flex flex-wrap">
                         <div className="w-full px-4">
@@ -55,39 +28,10 @@ const Accordion = () => {
                         </div>
                     </div>
 
-                    <div className="-mx-4 flex flex-wrap">
-                        <div className="w-full px-4 lg:w-1/2">
-                            <AccordionItem
-                                header="How long we deliver our training?"
-                                text="It takes 2-3 weeks to get your first blog post ready. That includes the in-depth research & creation of your monthly content marketing strategy that we do before writing your first blog post, Ipsum available."
-                            />
-                            <AccordionItem
-                                header="How long we deliver our training?"
-                                text="It takes 2-3 weeks to get your first blog post ready. That includes the in-depth research & creation of your monthly content marketing strategy that we do before writing your first blog post, Ipsum available."
-                            />
-                            <AccordionItem
-                                header="How long we deliver our training?"
-                                text="It takes 2-3 weeks to get your first blog post ready. That includes the in-depth research & creation of your monthly content marketing strategy that we do before writing your first blog post, Ipsum available."
-                            />
-                        </div>
-                        <div className="w-full px-4 lg:w-1/2">
-                            <AccordionItem
-                                header="How long we deliver our training?"
-                                text="It takes 2-3 weeks to get your first blog post ready. That includes the in-depth research & creation of your monthly content marketing strategy that we do before writing your first blog post, Ipsum available."
-                            />
-                            <AccordionItem
-                                header="How long we deliver our training?"
-                                text="It takes 2-3 weeks to get your first blog post ready. That includes the in-depth research & creation of your monthly content marketing strategy that we do before writing your first blog post, Ipsum available."
-                            />
-                            <AccordionItem
-                                header="How long we deliver our training?"
-                                text="It takes 2-3 weeks to get your first blog post ready. That includes the in-depth research & creation of your monthly content marketing strategy that we do before writing your first blog post, Ipsum available."
-                            />
-                        </div>
-                    </div>
+                    <Main />
                 </div>
 
-                <div className="absolute bottom-0 right-0 z-[-1]">
+                <div className="absolute bottom-0 right-0 -z-40">
                     <svg
                         width="1440"
                         height="886"

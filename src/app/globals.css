@@ -4,6 +4,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans&display=swap');
 
+@import 'swiper/css';
+@import 'swiper/css/pagination';
+@import 'swiper/css/grid';
+@import 'swiper/css/navigation';
+
 
 html {
   scroll-behavior: smooth;

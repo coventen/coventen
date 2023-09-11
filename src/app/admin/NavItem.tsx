@@ -121,6 +121,11 @@ export const controlledNavItems = [
                 label: "Add sub category",
                 href: "/admin/dashboard/settings/products/sub_category",
                 icon: <LuFolderPlus className="" />,
+            },
+            {
+                label: "Add Events",
+                href: "/admin/dashboard/event",
+                icon: <LuFolderPlus className="" />,
             }
         ]
     },
@@ -160,6 +165,26 @@ export const controlledNavItems = [
             {
                 label: "Add Industry",
                 href: "/admin/dashboard/settings/industry",
+                icon: <LuStore className="" />,
+            },
+            {
+                label: "Add Features",
+                href: "/admin/dashboard/settings/features",
+                icon: <LuStore className="" />,
+            },
+            {
+                label: "Learn items",
+                href: "/admin/dashboard/settings/learn_items",
+                icon: <LuStore className="" />,
+            },
+            {
+                label: "Solutions",
+                href: "/admin/dashboard/settings/solution_page",
+                icon: <LuStore className="" />,
+            },
+            {
+                label: "All Terms",
+                href: "/admin/dashboard/settings/terms",
                 icon: <LuStore className="" />,
             },
         ]

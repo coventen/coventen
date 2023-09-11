@@ -1,153 +1,117 @@
-'use client'
+
+'use client';
+
+
 import { useGqlClient } from '@/hooks/UseGqlClient';
-import HandleFileUpload from '@/shared/HandleFileUpload';
-import deleteImage from '@/shared/deleteImage';
 import { useMutation, useQuery } from 'graphql-hooks';
-import React, { useEffect, useState } from 'react';
+import Loading from '@/app/loading';
+import Error from '@/components/Error';
 import { toast } from 'react-hot-toast';
-import { v4 as uuid } from 'uuid'
+import slugify from 'slugify';
+import PageTabs from './PageTabs';
 
 
-
-const UPDATE_HOMEPAGE = `
-mutation UpdateHomePages($where: HomePageWhere, $update: HomePageUpdateInput) {
-    updateHomePages(where: $where, update: $update) {
-      homePages {
-        id
-      }
-    }
-  }
-`
-
-const GET_HOMEPAGE = `
-query HomePages {
-  homePages {
-    heroText
-    heroImage
-    id
-  }
+export interface addVariables {
+    title: string,
+    image: string
 }
 
+
+
+const ADD_NEW = `
+mutation CreateHeroes($input: [HeroCreateInput!]!) {
+    createHeroes(input: $input) {
+      info {
+        nodesCreated
+      }
+    }
+  }
 `
 
+const GET_ALL = `
+query Heroes($where: HeroWhere) {
+    heroes(where: $where) {
+      id
+      title
+      image
+    }
+  }
+
+`
+
+const DELETE = `
+mutation DeleteHeroes($where: HeroWhere) {
+    deleteHeroes(where: $where) {
+      nodesDeleted
+    }
+  }
+`
 
 const Main = () => {
+    // STATES
 
-  const [image, setImage] = useState<any>(null);
-  const [title, setTitle] = useState('');
+    // HOOKS
+    const client = useGqlClient()
 
-  //hooks 
-  const client = useGqlClient()
-  const { uploadFile } = HandleFileUpload()
+    // QUERY
+    const { data: heroData, loading, error, refetch } = useQuery(GET_ALL, { client })
 
-
-  //query
-  const { data, loading: loadingQuery, error: errorQuery } = useQuery(GET_HOMEPAGE, { client })
-  //mutation
-  const [updateHomePageFn, { loading, error }] = useMutation(UPDATE_HOMEPAGE, { client })
-
-
-  // initializing mutation  and query
-
-  useEffect(() => {
-    if (data?.homePages[0]) {
-      setTitle(data?.homePages[0]?.heroText)
-    }
-  }, [data?.homePages[0]])
+    // MUTATION
+    const [addNewFn, addNewState] = useMutation(ADD_NEW, { client })
+    const [deleteFn, deleteState] = useMutation(DELETE, { client, })
 
 
 
-  var fileName = data?.homePages[0]?.heroImage.match(/\/([^\/?#]+)[^\/]*$/)[1];
-  console.log(fileName, 'helro')
-  const updateHomePage = async () => {
+    // initialize the query and mutations
 
-    if (image) {
-      const imageLink = await uploadFile(image, `heroImage-${uuid()}`, 'homeImages')
-      if (imageLink) {
-        if (data?.homePages[0]?.heroImage) {
-          deleteImage(data?.homePages[0]?.heroImage)
-        }
+    const addNewItem = async (input: any) => {
 
-        const { data: updateData } = await updateHomePageFn({
-          variables: {
-            where: {
-              id: data?.homePages[0]?.id
-            },
-            update: {
-              heroText: title,
-              heroImage: imageLink
+
+        const { data } = await addNewFn({
+            variables: {
+                "input": [
+                    {
+                        "title": input.title,
+                        "image": input.image
+                    }
+                ]
             }
-          }
         })
 
-        if (updateData?.updateHomePages?.homePages[0]?.id) {
-          toast.success('Updated Successfully')
+        if (data.createHeroes.info.nodesCreated) {
+            toast.success('Added successfully')
+            refetch()
         }
-      }
+    }
 
-    } else {
-      const { data: updateData } = await updateHomePageFn({
-        variables: {
-          where: {
-            id: data?.homePages[0]?.id
-          },
-          update: {
-            heroText: title,
-            heroImage: data?.homePages[0]?.heroImage
-          }
+    const deleteItem = async (id: string) => {
+        const { data } = await deleteFn({
+            variables: {
+                where: {
+                    id
+                }
+            }
+        })
+
+        if (data.deleteHeroes.nodesDeleted) {
+            toast.error('Terms deleted successfully')
+            refetch()
         }
-      })
-
-      if (updateData?.updateHomePages?.homePages[0]?.id) {
-        toast.success('Updated Successfully')
-      }
     }
 
 
 
-  }
 
-  const handleSubmit = (e: any) => {
-    e.preventDefault()
-    updateHomePage()
-  }
-
-  return (
-    <form onSubmit={handleSubmit} className='bg-white rounded p-5 min-h-[70vh]'>
-
-      <div className="mb-5 ">
-        <label htmlFor="title" className="block  text-gray-700 text-sm mb-1">
-          Title
-        </label>
-        <textarea
-          rows={4}
-          defaultValue={title}
-          onChange={(e) => setTitle(e.target.value)}
-          className="mt-1 px-4 py-2 border border-gray-200 rounded-md w-full"
-        />
-      </div>
-
-      <div className="mb-5">
-        <div>
-          <label htmlFor="image" className="block  text-gray-700 text-sm mb-1">Image</label>
-
-          <input
-            onChange={(e) => setImage(e?.target?.files?.[0])}
-            type="file"
-            name="image"
-            className="mt-1 px-4 py-2 border border-gray-200 rounded-md w-full"
-            accept="image/*"
-          />
-        </div>
-      </div>
+    if (loading || addNewState.loading || deleteState.loading) return <Loading />
+    if (error || addNewState.error) return <Error />
 
 
 
-      <div>
-        <button type='submit' className='px-4 py-2 bg-primary text-white font-semibold'>{loading ? 'loading..' : 'Update'}</button>
-      </div>
-    </form>
-  );
+    return (
+        <>
+            <PageTabs heroData={heroData?.heroes} addNewItem={addNewItem} deleteItem={deleteItem} />
+        </>
+    );
 };
 
 export default Main;

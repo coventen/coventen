@@ -17,7 +17,7 @@ import Leads from '@/components/Leads'
 // fetch data from api
 const homePageData = async () => {
 
-  const res = fetch('https://coventenapp.el.r.appspot.com/', {
+  const res = fetch('http://localhost:4000/', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -27,11 +27,6 @@ const homePageData = async () => {
         homePages {
           heroText
           heroImage
-          hasHomeservices {
-            title
-            description
-            id
-          }
           hasProduct {
             title
             shortDescription
@@ -39,7 +34,6 @@ const homePageData = async () => {
           }
         }
       }`,
-      next: { revalidate: 3600 * 24 }
     })
   })
   const { data } = await res.then(res => res.json())
@@ -47,7 +41,7 @@ const homePageData = async () => {
 }
 
 const homeClient = async () => {
-  const res = fetch('https://coventenapp.el.r.appspot.com/', {
+  const res = fetch('http://localhost:4000/', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -60,11 +54,57 @@ const homeClient = async () => {
           logo
         }
       }`,
-      next: { revalidate: 3600 * 24 }
+
     })
   })
   const { data } = await res.then(res => res.json())
   return data.homeClients
+}
+const homeServices = async () => {
+  const res = fetch('http://localhost:4000/', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      query: `
+      query HomeServices {
+        homeServices {
+          title
+          description
+          slug
+          id
+        }
+      }
+      `,
+
+    })
+  })
+  const { data } = await res.then(res => res.json())
+  return data.homeServices
+}
+
+const heroDataFn = async () => {
+  const res = fetch('http://localhost:4000/', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      query: `
+      query Heroes($where: HeroWhere) {
+        heroes(where: $where) {
+          id
+          title
+          image
+        }
+    }
+      `,
+
+    })
+  })
+  const { data } = await res.then(res => res.json())
+  return data.heroes
 }
 
 
@@ -79,18 +119,22 @@ export default async function Home() {
 
   const homeDataPromise = homePageData()
   const homeClientDataPromise = await homeClient()
+  const homeServicePromise = await homeServices()
+  const heroDataPromise = await heroDataFn()
 
-  const [homeData, clientData] = await Promise.all([homeDataPromise, homeClientDataPromise])
+  const [homeData, clientData, services, heroData] = await Promise.all([homeDataPromise, homeClientDataPromise, homeServicePromise, heroDataPromise])
 
 
 
+  console.log(heroData, ' this is hero data')
   return (
     <>
-      <Hero text={homeData?.heroText} bg={homeData?.heroImage} />
-      <Services services={homeData?.hasHomeservices} />
+      <Hero heroData={heroData} />
+      <Services services={services} />
       <Products products={homeData?.hasProduct} />
       <AboutUs />
       {/* <CTA /> */}
+      <Products products={homeData?.hasProduct} />
       <Companies clients={clientData} />
       <Leads />
 
