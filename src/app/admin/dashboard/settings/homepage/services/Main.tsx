@@ -1,215 +1,121 @@
-'use client'
-import Loading from '@/app/loading';
+
+'use client';
+
+
+import Tab from './PageTabs';
 import { useGqlClient } from '@/hooks/UseGqlClient';
-import HandleFileUpload from '@/shared/HandleFileUpload';
-import deleteImage from '@/shared/deleteImage';
 import { useMutation, useQuery } from 'graphql-hooks';
-import React, { useEffect, useState } from 'react';
+import Loading from '@/app/loading';
+import Error from '@/components/Error';
 import { toast } from 'react-hot-toast';
-import { v4 as uuid } from 'uuid'
+import slugify from 'slugify';
+
+
+export interface addVariables {
+    description: string,
+    title: string,
+    slug?: string
+}
 
 
 
-const UPDATE_SERVICE = `
-mutation UpdateHomeServices($where: HomeServicesWhere, $update: HomeServicesUpdateInput) {
-  updateHomeServices(where: $where, update: $update) {
-    homeServices {
+const ADD_NEW = `
+mutation CreateHomeServices($input: [HomeServicesCreateInput!]!) {
+    createHomeServices(input: $input) {
+      info {
+        nodesCreated
+      }
+    }
+  }
+`
+
+const GET_ALL = `
+query HomeServices($where: HomeServicesWhere) {
+    homeServices(where: $where) {
+      title
+      description
       id
     }
   }
-}
+
 `
 
-const GET_SERVICE = `
-query Query {
-  homeServices {
-    id
-    title
-    description
+const DELETE = `
+
+mutation DeleteHomeServices($where: HomeServicesWhere) {
+    deleteHomeServices(where: $where) {
+      nodesDeleted
+    }
   }
-}
 
 `
-
 
 const Main = () => {
+    // STATES
 
-  //states
+    // HOOKS
+    const client = useGqlClient()
 
-  const [serviceData, setServiceData] = useState<any>({
-    service1: {
-      id: '',
-      title: '',
-      description: ''
-    },
-    service2: {
-      id: '',
-      title: '',
-      description: ''
-    },
-    service3: {
-      id: '',
-      title: '',
-      description: ''
-    },
-    service4: {
-      id: '',
-      title: '',
-      description: ''
-    },
-    service5: {
-      id: '',
-      title: '',
-      description: ''
-    },
-    service6: {
-      id: '',
-      title: '',
-      description: ''
-    },
+    // QUERY
+    const { data: HomeServiceData, loading, error, refetch } = useQuery(GET_ALL, { client })
 
-  })
-
-  //hooks 
-  const client = useGqlClient()
-  const { uploadFile } = HandleFileUpload()
-
-
-  //query
-  const { data, loading: loadingQuery, error: errorQuery } = useQuery(GET_SERVICE, { client })
-  //mutation
-  const [updateHomePageFn, { loading, error }] = useMutation(UPDATE_SERVICE, { client })
-
-
-  // initializing mutation  and query
-
-  useEffect(() => {
-    if (data?.homeServices.length) {
-      data?.homeServices?.map((service: any, i: number) => {
-        setServiceData((prev: any) => ({
-          ...prev,
-          [`service${i + 1}`]: {
-            id: service.id,
-            title: service.title,
-            description: service.description
-          }
-        }))
-      })
-    }
-  }, [data?.homeServices?.length])
+    // MUTATION
+    const [addNewFn, addNewState] = useMutation(ADD_NEW, { client })
+    const [deleteFn, deleteState] = useMutation(DELETE, { client, })
 
 
 
+    // initialize the query and mutations
 
+    const addNewItem = async (input: addVariables) => {
+        // console.log(input.title, 'lllllllllllllllllll')
 
-  const updateHomePage = async (id: string, title: string, description: string) => {
+        const { data } = await addNewFn({
+            variables: {
+                "input": [
+                    {
+                        "title": input.title,
+                        "description": input.description,
+                        slug: slugify(input.title, { replacement: '_', remove: /[*+~.()'"!:@]/g })
+                    }
+                ]
+            }
+        })
 
-    const { data: updateData } = await updateHomePageFn({
-      variables: {
-        "where": {
-          "id": id
-        },
-        "update": {
-          "title": title,
-          "description": description
+        if (data.createHomeServices.info.nodesCreated) {
+            toast.success('Added successfully')
+            refetch()
         }
-      }
-    })
+    }
 
-  }
+    const deleteItem = async (id: string) => {
+        const { data } = await deleteFn({
+            variables: {
+                where: {
+                    id
+                }
+            }
+        })
 
-  const handleSubmit = (e: any) => {
-    e.preventDefault()
-    Object.keys(serviceData).map(async (key: any) => {
-      const { id, title, description } = serviceData[key]
-      if (id) {
-        updateHomePage(id, title, description)
-      }
-    })
-    e.target.reset()
-  }
-
-
-
-
-
-  if (loading || loadingQuery) return <Loading />
+        if (data.deleteHomeServices.nodesDeleted) {
+            toast.error('Terms deleted successfully')
+            refetch()
+        }
+    }
 
 
 
 
-
-
-  // render 
-
-  return (
-    <form onSubmit={handleSubmit} className='bg-white rounded p-5 min-h-[70vh]'>
+    if (loading || addNewState.loading || deleteState.loading) return <Loading />
+    if (error || addNewState.error) return <Error />
 
 
 
-      {
-        data?.homeServices?.length && data?.homeServices?.map((service: any, i: number) =>
-
-
-          <div key={service?.id}  >
-
-            <div className="mb-5 ">
-              <p className='font-bold mb-4'>Service-{i + 1}</p>
-              <label htmlFor="title" className="block  text-gray-700 text-sm mb-1">
-                Title
-              </label>
-              <input
-                defaultValue={serviceData[`service${i + 1}`]?.title}
-                onChange={(e) => setServiceData((prev: any) => {
-                  return {
-                    ...prev,
-                    [`service${i + 1}`]: {
-                      ...prev[`service${i + 1}`],
-                      title: e.target.value
-                    }
-                  }
-                })}
-                className="mt-1 px-4 py-2 border border-gray-200 rounded-md w-full"
-              />
-            </div>
-            <div className="mb-5 ">
-              <label htmlFor="title" className="block  text-gray-700 text-sm mb-1">
-                Description
-              </label>
-              <textarea
-                rows={5}
-                defaultValue={serviceData[`service${i + 1}`]?.description}
-                onChange={(e) => setServiceData((prev: any) => {
-                  return {
-                    ...prev,
-                    [`service${i + 1}`]: {
-                      ...prev[`service${i + 1}`],
-                      description: e.target.value
-                    }
-                  }
-                })}
-                className="mt-1 px-4 py-2 border border-gray-200 rounded-md w-full"
-              />
-            </div>
-
-
-          </div>
-
-        )
-      }
-
-
-
-
-
-
-
-
-      <div>
-        <button type='submit' className='px-4 py-2 bg-primary text-white font-semibold'>{loading ? 'loading..' : 'Update'}</button>
-      </div>
-    </form >
-  );
+    return (
+        <>
+            <Tab HomeServiceData={HomeServiceData?.homeServices} addNewFn={addNewItem} deleteItem={deleteItem} />
+        </>
+    );
 };
 
 export default Main;

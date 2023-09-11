@@ -36,7 +36,7 @@ const GET_TESTING = ``
 const SearchInput = () => {
     const [searchText, setSearchText] = useState('');
     const [searchResult, setSearchResult] = useState([]);
-    const options = ['Solutions', 'Products', 'Calibration', 'Testing'];
+    const options = ['Testing', 'Calibration', 'Products', 'Solutions'];
     const [selectedValue, setSelectedValue] = useState(options[0]);
     const [isResultBoxOpen, setIsResultBoxOpen] = useState<boolean>(false)
 
@@ -95,12 +95,13 @@ const SearchInput = () => {
             setSearchResult(data?.products)
         }
         else if (selectedValue === 'Calibration') {
-            setSearchQueryType(GET_CALIBRATION)
-            setSearchResult([])
-        } else if (selectedValue === 'Testing') {
-            setSearchQueryType(GET_TESTING)
+            setSearchQueryType(GET_SERVICES)
             const { data } = await searchFn()
-            setSearchResult([])
+            setSearchResult(data?.subservices)
+        } else if (selectedValue === 'Testing') {
+            setSearchQueryType(GET_SERVICES)
+            const { data } = await searchFn()
+            setSearchResult(data?.subservices)
         }
     }
 

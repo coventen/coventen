@@ -4,15 +4,13 @@ const AboutUs = () => {
     return (
         <>
 
-
-
             {/* <!-- Section 2 --> */}
             <section className="px-2 py-32 bg-white md:px-0">
                 <div className="container items-center max-w-6xl px-8 mx-auto xl:px-5">
                     <div className="flex flex-wrap items-center sm:-mx-3">
                         <div className="w-full md:w-1/2 md:px-3">
                             <div className="w-full pb-6 space-y-6 sm:max-w-md lg:max-w-lg md:space-y-4 lg:space-y-8 xl:space-y-9 sm:pr-5 lg:pr-0 md:pb-0">
-                                <h1 className="text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl md:text-4xl lg:text-5xl xl:text-6xl">
+                                <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl md:text-4xl lg:text-5xl xl:text-6xl">
                                     <span className="block xl:inline">Useful Tools to</span>
                                     <span className="block text-primary xl:inline">Help You Build Faster.</span>
                                 </h1>
@@ -48,7 +46,7 @@ const AboutUs = () => {
 
                     {/* <!-- Content --> */}
                     <div className="box-border mt-8 order-first w-full text-black border-solid md:w-1/2 md:pl-10 md:order-none">
-                        <h2 className=" font-extrabold tracking-tight text-gray-900 sm:text-2xl lg:text-4xl ">
+                        <h2 className=" font-bold tracking-tight text-gray-900 sm:text-2xl lg:text-4xl ">
                             Coventen technologies platform is as simple as eating ripened bananas
                         </h2>
                         <p className="pt-4 pb-8 m-0 leading-7 text-gray-700 border-0 border-gray-300 sm:pr-12 xl:pr-32 lg:text-lg">
@@ -70,7 +68,7 @@ const AboutUs = () => {
 
                     {/* <!-- Content --> */}
                     <div className="box-border mt-8 w-full text-black border-solid md:w-1/2 md:pl-10 md:order-none">
-                        <h2 className=" font-extrabold tracking-tight text-gray-900 sm:text-2xl lg:text-4xl mb-5">
+                        <h2 className=" font-bold tracking-tight text-gray-900 sm:text-2xl lg:text-4xl mb-5">
                             Here, you will discover a treasure trove of knowledge, ideas, and storie
                         </h2>
 
@@ -97,7 +95,7 @@ const AboutUs = () => {
                     </div>
                     {/* <!-- Content --> */}
                     <div className="box-border mt-8 w-full text-black border-solid md:w-1/2 md:pl-10 md:order-none">
-                        <h2 className=" font-extrabold tracking-tight text-gray-900 sm:text-2xl lg:text-4xl mb-5">
+                        <h2 className=" font-bold tracking-tight text-gray-900 sm:text-2xl lg:text-4xl mb-5">
                             What is our goal
                         </h2>
 
@@ -119,7 +117,7 @@ const AboutUs = () => {
 
                     {/* <!-- Content --> */}
                     <div className="box-border mt-8 w-full text-black border-solid md:w-1/2 md:pl-10 md:order-none">
-                        <h2 className=" font-extrabold tracking-tight text-gray-900 sm:text-2xl lg:text-4xl mb-5">
+                        <h2 className=" font-bold tracking-tight text-gray-900 sm:text-2xl lg:text-4xl mb-5">
                             Welcome to a world of innovation and inspiration
                         </h2>
 

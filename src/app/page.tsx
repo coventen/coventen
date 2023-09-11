@@ -17,7 +17,7 @@ import Leads from '@/components/Leads'
 // fetch data from api
 const homePageData = async () => {
 
-  const res = fetch('https://coventenapp.el.r.appspot.com/', {
+  const res = fetch('http://localhost:4000/', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -39,7 +39,7 @@ const homePageData = async () => {
           }
         }
       }`,
-      next: { revalidate: 3600 * 24 }
+      next: { revalidate: 30 }
     })
   })
   const { data } = await res.then(res => res.json())
@@ -47,7 +47,7 @@ const homePageData = async () => {
 }
 
 const homeClient = async () => {
-  const res = fetch('https://coventenapp.el.r.appspot.com/', {
+  const res = fetch('http://localhost:4000/', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -82,7 +82,7 @@ export default async function Home() {
 
   const [homeData, clientData] = await Promise.all([homeDataPromise, homeClientDataPromise])
 
-
+  console.log(homeData?.hasProduct, ' this ')
 
   return (
     <>
@@ -91,6 +91,7 @@ export default async function Home() {
       <Products products={homeData?.hasProduct} />
       <AboutUs />
       {/* <CTA /> */}
+      <Products products={homeData?.hasProduct} />
       <Companies clients={clientData} />
       <Leads />
 
