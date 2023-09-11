@@ -7,7 +7,7 @@ const getNotifications = async (variables: any) => {
 
   const token = Cookies.get('conventenToken');
 
-  const res = fetch('http://localhost:4000/', {
+  const res = fetch('https://coventenapp.el.r.appspot.com/', {
       method: 'POST',
       headers: {
           "authorization": `Bearer ${token}`,

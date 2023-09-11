@@ -17,7 +17,7 @@ import Leads from '@/components/Leads'
 // fetch data from api
 const homePageData = async () => {
 
-  const res = fetch('http://localhost:4000/', {
+  const res = fetch('https://coventenapp.el.r.appspot.com/', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -41,7 +41,7 @@ const homePageData = async () => {
 }
 
 const homeClient = async () => {
-  const res = fetch('http://localhost:4000/', {
+  const res = fetch('https://coventenapp.el.r.appspot.com/', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -61,7 +61,7 @@ const homeClient = async () => {
   return data.homeClients
 }
 const homeServices = async () => {
-  const res = fetch('http://localhost:4000/', {
+  const res = fetch('https://coventenapp.el.r.appspot.com/', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -85,7 +85,7 @@ const homeServices = async () => {
 }
 
 const heroDataFn = async () => {
-  const res = fetch('http://localhost:4000/', {
+  const res = fetch('https://coventenapp.el.r.appspot.com/', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
