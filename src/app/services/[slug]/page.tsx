@@ -48,7 +48,7 @@ const page = async ({ params, searchParams }: any) => {
     return (
         <section className='relative px-16'>
             <div>
-                <img className="z-0 absolute px-16 top-0 left-0 h-96 w-full object-cover" src={details.image || "/assets/heor.jpg"} alt="" />
+                <img className="z-0 absolute px-16 top-0 left-0 h-96 w-full object-cover" src={details?.image || "/assets/heor.jpg"} alt="" />
             </div>
             <main className=' relative z-0'>
                 <article className='bg-transparent pt-44 w-full '>

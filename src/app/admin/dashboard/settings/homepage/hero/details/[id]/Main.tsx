@@ -3,7 +3,6 @@ import { useGqlClient } from '@/hooks/UseGqlClient';
 import { useMutation, useQuery } from 'graphql-hooks';
 import React, { useEffect, useState } from 'react';
 import DataFrom from './DataFrom';
-import { ContentState, Editor, EditorState, convertFromRaw, convertToRaw } from 'draft-js';
 import { useParams, useRouter } from 'next/navigation';
 import { toast } from 'react-hot-toast';
 import Loading from '@/app/loading';
@@ -13,21 +12,20 @@ import slugify from 'slugify';
 
 
 const UPDATE_DATA = `
-mutation UpdateFeaturesPages($where: FeaturesPageWhere, $update: FeaturesPageUpdateInput) {
-    updateFeaturesPages(where: $where, update: $update) {
-      featuresPages {
+mutation UpdateHeroes($where: HeroWhere, $update: HeroUpdateInput) {
+    updateHeroes(where: $where, update: $update) {
+      heroes {
         id
       }
     }
   }
 `
 const GET_DATA = `
-query FeaturesPages($where: FeaturesPageWhere) {
-    featuresPages(where: $where) {
-        id
+query Heroes($where: HeroWhere) {
+    heroes(where: $where) {
+      id
       title
       image
-      description
     }
   }
 `
@@ -37,7 +35,6 @@ const Main = () => {
 
     // states
     const [currentData, setCurrentData] = React.useState({
-        description: '',
         title: '',
         image: ''
 
@@ -59,19 +56,18 @@ const Main = () => {
 
     // // action on change
     useEffect(() => {
-        if (previoustermsData?.featuresPages?.length) {
-            const { title, description, image } = previoustermsData.featuresPages[0]
+        if (previoustermsData?.heroes?.length) {
+            const { title, image } = previoustermsData.heroes[0]
 
             setCurrentData({
                 title,
-                description,
                 image
             })
         }
 
 
 
-    }, [previoustermsData?.featuresPages?.length])
+    }, [previoustermsData?.heroes?.length])
 
 
 
@@ -86,19 +82,18 @@ const Main = () => {
                 },
                 "update": {
                     "title": input.title,
-                    "image": input.image,
-                    "description": input.description
+                    "image": input.image
                 }
             }
         })
-        if (data?.updateFeaturesPages?.featuresPages?.length) {
+        if (data?.updateHeroes?.heroes?.length) {
             toast.success('updated successfully')
             refetch()
             router.push('/admin/dashboard/settings/features')
         }
     }
 
-
+    console.log(previoustermsData, ' this is current data', params?.id)
 
 
     if (loading || updateState.loading) return <Loading />

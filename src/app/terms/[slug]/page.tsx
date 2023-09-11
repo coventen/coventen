@@ -21,7 +21,7 @@ const subServiceDetails = async (slug: string) => {
                     "slug": slug
                 }
             },
-            next: { revalidate: 3600 * 24 }
+
         })
     })
 

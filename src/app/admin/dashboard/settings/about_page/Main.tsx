@@ -11,6 +11,7 @@ import HandleFileUpload from '@/shared/HandleFileUpload';
 import { v4 as uuidv4 } from 'uuid';
 import Editor from '@/components/Editor';
 import slugify from 'slugify';
+import deleteImage from '@/shared/deleteImage';
 
 
 
@@ -68,6 +69,10 @@ const Main = () => {
     const updateAboutPage = async () => {
         const imageLink = await handleImageUpload(image)
 
+        if (imageLink && previousData?.aboutPages[0]?.image) {
+            deleteImage(previousData?.aboutPages[0]?.image)
+        }
+
         // text editor's content
         const contentJson = convertToRaw(editorState.getCurrentContent());
         const contentString = JSON.stringify(contentJson)
@@ -76,15 +81,17 @@ const Main = () => {
             variables: {
                 "update": {
                     "title": title,
-                    "image": imageLink,
+                    "image": imageLink || previousData?.aboutPages[0]?.image,
                     "description": contentString
                 }
             }
         })
 
 
-        if (data.updateAboutPages.info.nodesCreated) {
+        console.log(data, ' this is')
+        if (data?.updateAboutPages?.aboutPages[0]?.id) {
             toast.success("updated successfully")
+            // router.push('/admin/dashboard/settings/about_page')
 
         }
 
@@ -162,7 +169,7 @@ const Main = () => {
             </div>
 
 
-            <div>
+            <div className='mt-7'>
                 <button type='submit' className='px-4 py-2 bg-primary text-white font-semibold'>Submit</button>
             </div>
         </form>

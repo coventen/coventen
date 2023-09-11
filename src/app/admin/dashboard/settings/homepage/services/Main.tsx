@@ -68,8 +68,6 @@ const Main = () => {
     // initialize the query and mutations
 
     const addNewItem = async (input: addVariables) => {
-        // console.log(input.title, 'lllllllllllllllllll')
-
         const { data } = await addNewFn({
             variables: {
                 "input": [

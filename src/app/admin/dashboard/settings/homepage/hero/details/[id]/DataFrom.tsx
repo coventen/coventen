@@ -20,9 +20,9 @@ interface IAddProductProps {
 
 const DataFrom = ({ currentData, setCurrentData, updateItem }: IAddProductProps) => {
     // states
-    const [image, setImage] = useState<File | null>(null)
+    const [image, setImage] = useState<any>(null)
 
-    console.log(typeof image, ' this is image')
+
     // hooks
     const { uploadFile } = HandleFileUpload()
 
@@ -30,13 +30,10 @@ const DataFrom = ({ currentData, setCurrentData, updateItem }: IAddProductProps)
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
         const imageLink = await uploadFile(image, `feature-${uuidv4()}`, 'feature_images')
-        if (imageLink && currentData?.image) {
-            deleteImage(currentData.image)
-        }
+        deleteImage(currentData.image)
         if (imageLink) {
             const inputData = {
                 title: currentData?.title,
-                description: currentData?.description,
                 image: currentData?.imageLink
             }
             updateItem(inputData)
@@ -46,27 +43,19 @@ const DataFrom = ({ currentData, setCurrentData, updateItem }: IAddProductProps)
     }
 
 
+
+
     // render
     return (
         <>
             <div className='min-h-screen'>
                 <form onSubmit={handleSubmit} className="bg-transparent">
                     <div className="grid grid-cols-1 lg:grid-cols-2  gap-5 text-dimText">
-                        <div className=" p-1 col-span-2">
-                            <label htmlFor="">Title</label>
-                            <input
-                                required
-                                type="text"
-                                name="title"
-                                defaultValue={currentData?.title}
-                                onChange={(e) => setCurrentData({ ...currentData, title: e.target.value })}
-                                placeholder="title"
-                                className="mt-2 w-full block  placeholder-gray-400/70 rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-gray-700 focus:primary focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:primary/10"
-                            />
-                        </div>
+
                         <div className=" p-1 col-span-2">
                             <label htmlFor="">Image</label>
                             <input
+                                required
                                 type="file"
                                 name="Image"
                                 onChange={(e) => {
@@ -78,17 +67,19 @@ const DataFrom = ({ currentData, setCurrentData, updateItem }: IAddProductProps)
                                 className="mt-2 w-full block  placeholder-gray-400/70 rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-gray-700 focus:primary focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:primary/10"
                             />
                         </div>
-
-
-                        <div className='col-span-2'>
-                            <p className='text-dimText mb-4'> Description </p>
+                        <div className=" p-1 col-span-2">
+                            <label htmlFor="">Title</label>
                             <textarea
+                                required
                                 rows={5}
-                                defaultValue={currentData.description}
-                                onChange={(e) => setCurrentData({ ...currentData, description: e.target.value })}
-                                className='mt-2 w-full block  placeholder-gray-400/70 rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-gray-700 focus:primary focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:primary/10'
+                                name="title"
+                                defaultValue={currentData?.title}
+                                onChange={(e) => setCurrentData({ ...currentData, title: e.target.value })}
+                                placeholder="title"
+                                className="mt-2 w-full block  placeholder-gray-400/70 rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-gray-700 focus:primary focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:primary/10"
                             />
                         </div>
+
 
 
 

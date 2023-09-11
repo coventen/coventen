@@ -10,9 +10,9 @@ interface EventFilterCardProps {
 const EventFilterCard: React.FC<EventFilterCardProps> = ({ data }) => {
 
     return (
-        <Link href={`/events/details/${data?.id}`} className=" grid place-items-center mt-8 pb-4 w-full">
+        <Link href={`/events/details/${data?.slug}`} className=" grid place-items-center mt-8 pb-4 w-full">
             <div className="bg-white rounded-md border-t border-gray-100 shadow-md w-full">
-                <div className="md:flex items-center justify-center leading-none max-w-4xl w-full lg:min-h-60 ">
+                <div className="md:flex items-center  leading-none max-w-4xl w-full lg:min-h-60 ">
                     <div className="flex-none h-full lg:h-60  p-3">
                         <Image
                             height={700}

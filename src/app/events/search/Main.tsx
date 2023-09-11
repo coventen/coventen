@@ -13,6 +13,7 @@ const GET_EVENT = `
 query Events {
     events {
       name
+      slug
       location
       startAt
       endAt

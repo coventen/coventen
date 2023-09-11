@@ -32,7 +32,7 @@ const navServices = async () => {
                 }
               }
             }`,
-      next: { revalidate: 3600 * 24 }
+
     })
   })
   const { data } = await res.then(res => res.json())
@@ -81,11 +81,34 @@ const navIndustries = async () => {
           title
         }
       }`,
-      next: { revalidate: 36 }
     })
   })
   const { data } = await res.then(res => res.json())
   return data?.industryPages
+}
+
+
+// getting nav Industries
+const navFeatures = async () => {
+
+  const res = fetch('http://localhost:4000/', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      query: `query FeaturesPages($where: FeaturesPageWhere) {
+        featuresPages(where: $where) {
+          title
+          id
+          description
+        }
+      }`,
+      next: { revalidate: 36 }
+    })
+  })
+  const { data } = await res.then(res => res.json())
+  return data?.featuresPages
 }
 
 
@@ -109,11 +132,11 @@ export default async function RootLayout({
   const servicesPromise = navServices()
   const industriesPromise = navIndustries()
   const solutionPromise = navSolution()
+  const featuresPromise = navFeatures()
 
-  const [services, industries, solutions] = await Promise.all([servicesPromise, industriesPromise, solutionPromise])
+  const [services, industries, solutions, features] = await Promise.all([servicesPromise, industriesPromise, solutionPromise, featuresPromise])
 
 
-  console.log(solutions, ' this is solutions')
 
 
   // render
@@ -124,7 +147,7 @@ export default async function RootLayout({
       <body >
 
         <main className='bg-white text-gray-800 dark:bg-darkBg dark:text-white'>
-          <Navbar services={services} industries={industries} solutions={solutions} />
+          <Navbar services={services} industries={industries} solutions={solutions} features={features} />
           {children}
         </main>
         <Footer />

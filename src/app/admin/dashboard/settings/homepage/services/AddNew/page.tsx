@@ -1,3 +1,4 @@
+'use client'
 import React, { Fragment, useState } from 'react';
 import Editor from '@/components/Editor';
 
@@ -48,8 +49,9 @@ const AddNew = ({ setTab, addNewFn }: IAddProductProps) => {
         e.preventDefault()
 
         const inputData = {
-            title: title.toLowerCase(),
+            title: title,
             description: description,
+
         }
 
         addNewFn(inputData)

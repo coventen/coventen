@@ -16,7 +16,7 @@ import {
 import Link from 'next/dist/client/link';
 import Dropdown from '@/components/Navbar/Dropdown/Dropdown';
 import Services from '@/components/Navbar/Dropdown/Services';
-import Features, { features } from '@/components/Navbar/Features';
+import Features from '@/components/Navbar/Features';
 
 
 import { toast } from 'react-hot-toast';
@@ -41,7 +41,7 @@ function classNames(...classes: any[]) {
     return classes.filter(Boolean).join(' ');
 }
 
-export default function Navbar({ services, industries, solutions }: any) {
+export default function Navbar({ services, industries, solutions, features }: any) {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [userStatus, setUserStatus] = useState('')
     const [currentUserType, setCurrentUserType] = useState('')
@@ -133,7 +133,7 @@ export default function Navbar({ services, industries, solutions }: any) {
                         >
                             Home
                         </Link>
-                        <Features />
+                        <Features features={features} />
                         <DropdownIndustry data={industries} />
                         <Services servicesData={services} />
                         <Link

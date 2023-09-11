@@ -1,3 +1,5 @@
+'use client'
+
 import React, { Fragment, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid'
 import toast from 'react-hot-toast';
@@ -53,7 +55,7 @@ const DataFrom = ({ currentData, setCurrentData, updateItem }: IAddProductProps)
                             />
                         </div>
                         <div className=" p-1 col-span-2">
-                            <label htmlFor="">Title</label>
+                            <label htmlFor="">Url</label>
                             <input
                                 required
                                 type="text"
