@@ -13,7 +13,7 @@ type Props = {
 
 async function getEvent(slug: string) {
 
-    const response = await fetch("http://localhost:4000/", {
+    const response = await fetch("https://coventenapp.el.r.appspot.com/", {
         method: "POST",
         body: JSON.stringify({
             query: `

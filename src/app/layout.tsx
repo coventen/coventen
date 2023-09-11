@@ -15,7 +15,7 @@ export const metadata = {
 // getting nav services
 const navServices = async () => {
 
-  const res = fetch('http://localhost:4000/', {
+  const res = fetch('https://coventenapp.el.r.appspot.com/', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -43,7 +43,7 @@ const navServices = async () => {
 // getting nav services
 const navSolution = async () => {
 
-  const res = fetch('http://localhost:4000/', {
+  const res = fetch('https://coventenapp.el.r.appspot.com/', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -69,7 +69,7 @@ const navSolution = async () => {
 // getting nav Industries
 const navIndustries = async () => {
 
-  const res = fetch('http://localhost:4000/', {
+  const res = fetch('https://coventenapp.el.r.appspot.com/', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -91,7 +91,7 @@ const navIndustries = async () => {
 // getting nav Industries
 const navFeatures = async () => {
 
-  const res = fetch('http://localhost:4000/', {
+  const res = fetch('https://coventenapp.el.r.appspot.com/', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
