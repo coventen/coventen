@@ -8,7 +8,7 @@ import Link from 'next/link';
 import DataTable from './DataTable';
 
 
-import AddNew from './AddNew/page';
+import AddNew from './AddNew';
 import { addVariables } from './Main';
 
 
