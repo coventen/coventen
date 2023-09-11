@@ -1,11 +1,13 @@
 'use client'
+import Link from "next/link";
 import { useState } from "react";
 interface IAccordionItem {
     header: string;
     text: string;
+    url: string;
 }
 
-const AccordionItem = ({ header, text }: IAccordionItem) => {
+const AccordionItem = ({ header, text, url }: IAccordionItem) => {
     const [active, setActive] = useState(false);
 
     const handleToggle = () => {
@@ -45,6 +47,7 @@ const AccordionItem = ({ header, text }: IAccordionItem) => {
                     }`}
             >
                 <p className="py-3 text-base leading-relaxed text-body-color">{text}</p>
+                <Link href={url} className="bg-primary/10 cursor-pointer text-primary px-4 py-1.5">Download</Link>
             </div>
         </div>
     );

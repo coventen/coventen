@@ -198,9 +198,9 @@ const Sidebar = ({
                                         "my-2 flex flex-col gap-2 items-stretch": true,
                                     })}
                                 >
-                                    {item.links.map((item: any, index: number) => {
+                                    {item?.links?.length && item?.links.map((item: any, index: number) => {
                                         return (
-                                            <Link href={item.href} key={index}>
+                                            <Link href={item?.href} key={index}>
                                                 <li
 
                                                     className={classNames({
@@ -212,7 +212,7 @@ const Sidebar = ({
                                                     })}
                                                 >
                                                     <p className="flex gap-2 items-center justify-center ">
-                                                        <span className="text-lg">  {item.icon}</span> <span className=" font-semibold">{!collapsed && item.label}</span>
+                                                        <span className="text-lg">  {item?.icon}</span> <span className=" font-semibold">{!collapsed && item.label}</span>
                                                     </p>
                                                 </li>
                                             </Link>
