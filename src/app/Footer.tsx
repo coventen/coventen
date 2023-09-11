@@ -42,14 +42,14 @@ const Footer = () => {
     }, [data?.termsPages])
 
 
-    console.log(terms, 'this is terms')
 
-    // 
+
     function splitArrayIntoChunks(array: any, chunkSize: number) {
         return Array.from({ length: Math.ceil(array.length / chunkSize) }, (v, index) =>
             array.slice(index * chunkSize, index * chunkSize + chunkSize)
         );
     }
+
 
 
     return (
