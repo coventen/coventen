@@ -2,7 +2,7 @@
 
 import React, { Fragment, useState } from 'react';
 import Editor from '@/components/Editor';
-
+import { v4 as uuid } from "uuid"
 
 import { EditorState, convertToRaw } from 'draft-js';
 
@@ -10,11 +10,13 @@ import { EditorState, convertToRaw } from 'draft-js';
 
 import { useGqlClient } from '@/hooks/UseGqlClient';
 import { useQuery } from 'graphql-hooks';
-import { addVariables } from '../Main';
+
+import HandleFileUpload from '@/shared/HandleFileUpload';
+import { addVariables } from './Main';
 
 
 interface IAddProductProps {
-    setTab: (tab: number) => void
+    setTab: any
     addNewFn: (input: addVariables) => void
 
 }
@@ -28,12 +30,12 @@ const AddNew = ({ setTab, addNewFn }: IAddProductProps) => {
 
     // states
     const [title, setTitle] = useState('')
-    const [url, setUrl] = useState('')
+    const [image, setImage] = useState<any>('')
     const [description, setDescription] = useState('')
 
 
     // hooks
-    const client = useGqlClient()
+    const { uploadFile } = HandleFileUpload()
 
 
 
@@ -41,10 +43,11 @@ const AddNew = ({ setTab, addNewFn }: IAddProductProps) => {
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
 
+        const imageLink = await uploadFile(image, `feature-${uuid()}`, 'feature_images')
         const inputData = {
             title: title.toLowerCase(),
             description: description,
-            url: url
+            image: imageLink as string
         }
 
         addNewFn(inputData)
@@ -67,22 +70,29 @@ const AddNew = ({ setTab, addNewFn }: IAddProductProps) => {
                                 type="text"
                                 name="title"
                                 defaultValue={title}
-                                onChange={(e) => setTitle(e.target.value)}
+                                onChange={(e) => {
+                                    if (e?.target?.files && e.target.files.length > 0) {
+                                        setImage(e.target.files[0]);
+                                    }
+                                }}
                                 placeholder="title"
                                 className="mt-2 w-full block  placeholder-gray-400/70 rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-gray-700 focus:primary focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:primary/10"
                             />
                         </div>
                         <div className=" p-1  col-span-2">
                             <label htmlFor="title" className="block  text-gray-700 text-sm mb-1">
-                                Url
+                                image
                             </label>
                             <input
                                 required
-                                type="text"
-                                name="url"
-                                defaultValue={url}
-                                onChange={(e) => setUrl(e.target.value)}
-                                placeholder="url"
+                                type="file"
+                                name="image"
+                                onChange={(e) => {
+                                    if (e?.target?.files && e.target.files.length > 0) {
+                                        setImage(e.target.files[0]);
+                                    }
+                                }}
+                                placeholder="image"
                                 className="mt-2 w-full block  placeholder-gray-400/70 rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-gray-700 focus:primary focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:primary/10"
                             />
                         </div>

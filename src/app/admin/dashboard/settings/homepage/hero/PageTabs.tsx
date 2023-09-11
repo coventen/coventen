@@ -5,7 +5,7 @@ import { Fragment, useEffect, useState } from 'react';
 import { Tab } from '@headlessui/react';
 
 import DataTable from './DataTable';
-import AddNewPage from './AddNew/page';
+import AddNewPage from './AddNew';
 
 
 

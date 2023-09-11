@@ -1,4 +1,5 @@
 'use client'
+
 import React, { Fragment, useState } from 'react';
 import Editor from '@/components/Editor';
 
@@ -9,7 +10,7 @@ import { EditorState, convertToRaw } from 'draft-js';
 
 import { useGqlClient } from '@/hooks/UseGqlClient';
 import { useQuery } from 'graphql-hooks';
-import { addVariables } from '../Main';
+import { addVariables } from './Main';
 
 
 interface IAddProductProps {
@@ -19,14 +20,6 @@ interface IAddProductProps {
 }
 
 
-const GET_SERVICES = `
-query Subservices {
-    subservices {
-      id
-      title
-      slug
-    }
-  }`
 
 
 // component
@@ -35,23 +28,23 @@ const AddNew = ({ setTab, addNewFn }: IAddProductProps) => {
 
     // states
     const [title, setTitle] = useState('')
+    const [url, setUrl] = useState('')
     const [description, setDescription] = useState('')
 
 
     // hooks
     const client = useGqlClient()
 
-    // query
-    const { data, loading, error } = useQuery(GET_SERVICES, { client })
+
 
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
 
         const inputData = {
-            title: title,
+            title: title.toLowerCase(),
             description: description,
-
+            url: url
         }
 
         addNewFn(inputData)
@@ -65,27 +58,33 @@ const AddNew = ({ setTab, addNewFn }: IAddProductProps) => {
             <div className='min-h-screen'>
                 <form onSubmit={handleSubmit} className="bg-transparent">
                     <div className="grid grid-cols-1 lg:grid-cols-2  gap-5">
-                        <div className="mb-5 ">
+                        <div className=" p-1  col-span-2">
                             <label htmlFor="title" className="block  text-gray-700 text-sm mb-1">
                                 Title
                             </label>
-                            <div className="relative inline-flex w-full">
-                                <select
-                                    required
-                                    value={title}
-                                    onChange={(e) => setTitle(e.target.value)}
-                                    name='title'
-                                    className="mt-1 px-4 py-2 border border-gray-200 rounded-md w-full"
-                                >
-                                    {
-                                        data?.subservices && data?.subservices.map((service: any) =>
-                                            <option key={service?.id} value={service?.title} >{service?.title}</option>
-                                        )
-                                    }
-
-                                </select>
-
-                            </div>
+                            <input
+                                required
+                                type="text"
+                                name="title"
+                                defaultValue={title}
+                                onChange={(e) => setTitle(e.target.value)}
+                                placeholder="title"
+                                className="mt-2 w-full block  placeholder-gray-400/70 rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-gray-700 focus:primary focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:primary/10"
+                            />
+                        </div>
+                        <div className=" p-1  col-span-2">
+                            <label htmlFor="title" className="block  text-gray-700 text-sm mb-1">
+                                Url
+                            </label>
+                            <input
+                                required
+                                type="text"
+                                name="url"
+                                defaultValue={url}
+                                onChange={(e) => setUrl(e.target.value)}
+                                placeholder="url"
+                                className="mt-2 w-full block  placeholder-gray-400/70 rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-gray-700 focus:primary focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:primary/10"
+                            />
                         </div>
 
 
