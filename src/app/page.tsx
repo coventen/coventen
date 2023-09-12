@@ -129,13 +129,15 @@ export default async function Home() {
   console.log(heroData, ' this is hero data')
   return (
     <>
-      <Hero heroData={heroData} />
-      <Services services={services} />
-      <Products products={homeData?.hasProduct} />
-      <AboutUs />
-      {/* <CTA /> */}
-      <Products products={homeData?.hasProduct} />
-      <Companies clients={clientData} />
+      <section className='relative z-10'>
+        <Hero heroData={heroData} />
+        <Services services={services} />
+        <Products products={homeData?.hasProduct} />
+        <AboutUs />
+        {/* <CTA /> */}
+        <Products products={homeData?.hasProduct} />
+        <Companies clients={clientData} />
+      </section>
       <Leads />
 
 
