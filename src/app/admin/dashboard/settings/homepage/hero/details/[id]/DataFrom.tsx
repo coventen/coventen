@@ -30,11 +30,19 @@ const DataFrom = ({ currentData, setCurrentData, updateItem }: IAddProductProps)
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
         const imageLink = await uploadFile(image, `feature-${uuidv4()}`, 'feature_images')
-        deleteImage(currentData.image)
+        if (imageLink && currentData?.image) {
+            deleteImage(currentData.image)
+        }
         if (imageLink) {
             const inputData = {
                 title: currentData?.title,
-                image: currentData?.imageLink
+                image: imageLink
+            }
+            updateItem(inputData)
+        } else {
+            const inputData = {
+                title: currentData?.title,
+                image: currentData?.image
             }
             updateItem(inputData)
         }
@@ -55,7 +63,7 @@ const DataFrom = ({ currentData, setCurrentData, updateItem }: IAddProductProps)
                         <div className=" p-1 col-span-2">
                             <label htmlFor="">Image</label>
                             <input
-                                required
+
                                 type="file"
                                 name="Image"
                                 onChange={(e) => {

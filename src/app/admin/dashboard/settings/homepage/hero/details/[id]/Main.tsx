@@ -89,7 +89,7 @@ const Main = () => {
         if (data?.updateHeroes?.heroes?.length) {
             toast.success('updated successfully')
             refetch()
-            router.push('/admin/dashboard/settings/features')
+            router.push('/admin/dashboard/settings/homepage/hero')
         }
     }
 

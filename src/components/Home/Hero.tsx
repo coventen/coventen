@@ -21,7 +21,7 @@ export default function Hero({ heroData }: any) {
                 spaceBetween={10}
                 loop={true}
                 autoplay={{
-                    delay: 7500,
+                    delay: 1500,
                     disableOnInteraction: false,
                 }}
                 // navigation={true}
@@ -50,7 +50,9 @@ export default function Hero({ heroData }: any) {
                         <SwiperSlide key={idx} >
                             <div
                                 style={{
-                                    background: `linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(${item?.image})`,
+                                    background: `linear-gradient( rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.5) ), url(${item?.image})`,
+                                    backgroundSize: 'cover',
+                                    backgroundPosition: 'center',
                                 }}
                                 className="relative h-screen  lg:min-h-[110vh] pt-14 lg:pt-0">
 
@@ -59,7 +61,7 @@ export default function Hero({ heroData }: any) {
                                 <div className="relative container m-auto px-6 md:px-12 lg:px-6">
                                     <div className="mb-12 pt-7 space-y-16 md:mb-20 md:pt-40 lg:w-8/12 lg:mx-auto">
                                         <h1 className="text-white text-center text-2xl font-bold sm:text-4xl md:text-5xl lg:leading-normal ">
-                                            {item?.text}
+                                            {item?.title}
                                         </h1>
                                         <SearchInput />
                                     </div>

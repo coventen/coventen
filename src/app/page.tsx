@@ -101,7 +101,9 @@ const heroDataFn = async () => {
     }
       `,
 
-    })
+    }),
+    next: { revalidate: 10 }
+
   })
   const { data } = await res.then(res => res.json())
   return data.heroes
