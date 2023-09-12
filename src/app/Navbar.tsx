@@ -97,7 +97,7 @@ export default function Navbar({ services, industries, solutions, features }: an
 
     return (
         <>
-            <header className="bg-white ">
+            <header className="bg-white relative z-[90005] ">
                 <nav
                     className=" mx-auto flex max-w-7xl items-center justify-between p-4 lg:px-8"
                     aria-label="Global"
@@ -213,7 +213,10 @@ export default function Navbar({ services, industries, solutions, features }: an
                                                             {({ active }) => (
                                                                 <button
                                                                     type="submit"
-                                                                    onClick={() => logout()}
+                                                                    onClick={() => {
+                                                                        logout()
+                                                                        router.push('/')
+                                                                    }}
                                                                     className={classNames(
                                                                         active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
                                                                         'block w-full px-4 py-2 text-left text-sm'
@@ -352,7 +355,10 @@ export default function Navbar({ services, industries, solutions, features }: an
                                             :
 
                                             <p
-                                                onClick={() => logout()}
+                                                onClick={() => {
+                                                    logout()
+                                                    router.push('/')
+                                                }}
                                                 className="text-sm font-semibold leading-6 text-primaryText mr-8"
                                             >
                                                 SignOut
