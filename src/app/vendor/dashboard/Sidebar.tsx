@@ -86,9 +86,10 @@ const Sidebar = ({
             }
         })
         if (data?.users[0]?.user_type === "LAB_ASSISTANT") {
-
-            const filteredItems = controlledNavItems.flatMap(section => section.links.filter(item => item.label !== "Approve Projects" && item.label !== "Employees"));
-
+            const filteredItems = controlledNavItems.map(section => ({
+                ...section,
+                links: section.links.filter(link => link.label !== "Employees" && link.label !== "Approve Projects")
+            }));
             setAccessibleNavItems(filteredItems)
         }
         else if (data?.users[0]?.user_type === "SERVICE_PROVIDER") {
@@ -103,6 +104,10 @@ const Sidebar = ({
 
 
 
+    useEffect(() => {
+        console.log(accessibleNavItems, "00000000000000000000000000")
+    }, [accessibleNavItems.length])
+
     if (loading) return <Loading />
     if (error) return <Error />
 
@@ -111,11 +116,15 @@ const Sidebar = ({
         return <UnAuthorized />
     }
 
+    console.log(accessibleNavItems, "accessibleNavItems")
+
+    accessibleNavItems.map((item, index) => {
+        console.log(item, "item")
+    })
 
 
 
-    // 👇 use the correct icon depending on the state.
-    const Icon = collapsed ? HiChevronDoubleRight : HiChevronDoubleLeft;
+
     return (
         // <RestrictAdminRoute setAccessibleNavItems={setAccessibleNavItems} navItems={defaultNavItems} accessibleNavItems={accessibleNavItems}>
         <div
@@ -158,7 +167,7 @@ const Sidebar = ({
                                         "my-2 flex flex-col gap-2 items-stretch": true,
                                     })}
                                 >
-                                    {item.links.map((item, index) => {
+                                    {item?.links?.map((item, index) => {
                                         return (
                                             <Link href={item.href} key={index}>
                                                 <li
@@ -184,7 +193,7 @@ const Sidebar = ({
 
                     }
                     {
-                        accessibleNavItems.map((item, index) =>
+                        accessibleNavItems?.map((item, index) =>
 
                             <div key={index}>
                                 <p className={classNames({

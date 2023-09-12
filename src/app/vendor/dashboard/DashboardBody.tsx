@@ -144,25 +144,25 @@ const DashboardBody = (props: PropsWithChildren) => {
                                                     </Link>
                                                 )}
                                             </Menu.Item>
-                                            <form method="POST" action="#">
-                                                <Menu.Item>
-                                                    {({ active }) => (
-                                                        <button
-                                                            type="submit"
-                                                            onClick={() => {
-                                                                logout()
-                                                                router.push('/auth/login')
-                                                            }}
-                                                            className={classNames(
-                                                                active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                                                                'block w-full px-4 py-2 text-left text-sm'
-                                                            )}
-                                                        >
-                                                            Sign out
-                                                        </button>
-                                                    )}
-                                                </Menu.Item>
-                                            </form>
+
+                                            <Menu.Item>
+                                                {({ active }) => (
+                                                    <button
+                                                        type="submit"
+                                                        onClick={() => {
+                                                            router.push('/auth/login')
+                                                            logout()
+                                                        }}
+                                                        className={classNames(
+                                                            active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
+                                                            'block w-full px-4 py-2 text-left text-sm'
+                                                        )}
+                                                    >
+                                                        Sign out
+                                                    </button>
+                                                )}
+                                            </Menu.Item>
+
                                         </div>
                                     </Menu.Items>
                                 </Transition>

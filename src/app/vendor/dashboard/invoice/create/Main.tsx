@@ -10,6 +10,7 @@ import { toast } from 'react-hot-toast';
 import { useRouter } from 'next/navigation';
 import { getEmployerEmail } from '@/shared/getEmployerEmail';
 import createLog from '@/shared/graphQl/mutations/createLog';
+import Loading from '@/app/loading';
 
 const CREATE_INVOICE = `
 mutation CreateInvoices($input: [InvoiceCreateInput!]!) {
@@ -33,7 +34,7 @@ const Main = () => {
 
     // hooks
     const client = useGqlClient()
-    const { user } = AuthConfig()
+    const { user, authLoading } = AuthConfig()
     const router = useRouter()
 
 
@@ -43,16 +44,19 @@ const Main = () => {
 
     // get lab email when user changes
     useEffect(() => {
-        getLabEmail()
+        if (user?.email) {
+            getLabEmail(user?.email)
+
+        }
     }, [user?.email]);
 
 
     // getting lab email if employee is logged in
-    const getLabEmail = async () => {
-        if (user?.email) {
-            const email = await getEmployerEmail(user?.email)
-            setLabEmail(email)
-        }
+    const getLabEmail = async (userEmail: string) => {
+        console.log('i am inside get lab email', userEmail)
+        const email = await getEmployerEmail(userEmail)
+        setLabEmail(email)
+
 
 
     }
@@ -73,7 +77,7 @@ const Main = () => {
 
 
 
-
+    console.log(labEmail, ' hti is e', user?.email)
 
 
     // initializing invoice creation function
@@ -82,7 +86,6 @@ const Main = () => {
         const taxRate = parseInt(invoiceData?.taxRate)
         const { totalPriceWithTax, totalPrice } = calculateTotalPrice(services, taxRate)
 
-        console.log("totalPriceWithTax", totalPriceWithTax, totalPrice, taxRate)
 
         const { data } = await createInvoiceFn({
             variables: {
@@ -134,6 +137,8 @@ const Main = () => {
         }
     }
 
+
+    if (state.loading || authLoading) return <Loading />
 
     // rendering
     return (

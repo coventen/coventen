@@ -25,7 +25,7 @@ import Cookies from 'js-cookie';
 export const useGqlClient = () => {
   const client = new GraphQLClient({
     // url: 'https://coventenapp.el.r.appspot.com/',
-    url: 'https://coventenapp.el.r.appspot.com/',
+    url: 'http://localhost:4000/',
   });
 
   const token = Cookies.get('conventenToken');
