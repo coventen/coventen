@@ -1,4 +1,4 @@
-
+'use client'
 import { OAuthProvider, signOut, getAuth, signInWithRedirect,createUserWithEmailAndPassword,signInWithEmailAndPassword, getRedirectResult, onAuthStateChanged, sendPasswordResetEmail } from "firebase/auth";
 import { app } from "./fireabase.config";
 import { useState, useEffect } from "react";
@@ -109,6 +109,7 @@ const AuthConfig = () => {
   
  function logout() {
       signOut(auth).then(() => {
+        return null
       }).catch((error: any) => {
           // An error happened.
       });

@@ -93,7 +93,7 @@ const Main = () => {
                 where: {
                     forVendor_ALL: {
                         userIs: {
-                            email: labEmail
+                            email: labEmail || "no email"
                         }
                     }
                 },

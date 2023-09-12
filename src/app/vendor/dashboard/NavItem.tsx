@@ -1,4 +1,4 @@
-// components/defaultNavItems.tsx
+'use client'
 import React from "react";
 
 import { LuAppWindow, LuCalculator, LuBellRing, LuUser, LuTerminalSquare, LuShieldCheck, LuReplaceAll, LuSchool2, LuQrCode, LuHeadphones, LuMessagesSquare, LuBookKey, LuCopySlash } from "react-icons/lu";
@@ -17,11 +17,6 @@ export const defaultNavItems = [
                 label: "Dashboard",
                 href: "/vendor/dashboard",
                 icon: <LuAppWindow className="" />,
-            },
-            {
-                label: "Profile",
-                href: "/vendor/dashboard/profile",
-                icon: <LuUser />,
             },
             {
                 label: "Notifications",

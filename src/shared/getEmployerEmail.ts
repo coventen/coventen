@@ -8,16 +8,15 @@ import Cookies from "js-cookie";
 
 
 export const getEmployerEmail = async (userEmail: string) => {
-  console.log(userEmail, 'userEmail')
     const userInfo = await GetUserInfo(userEmail)
     let fetchEmail : any
 
-    if(userInfo.user_type === 'LAB_ASSISTANT' || userInfo.user_type === 'COVENTEN_EMPLOYEE') {
-      console.log(userInfo)
-     fetchEmail = userInfo?.hasEmployee[0]?.employerEmail
+    if(userInfo.user_type === 'LAB_ASSISTANT') {
+     fetchEmail = userInfo?.hasEmployee?.employerEmail
     }else{
         fetchEmail = userEmail
     }
+
 
     return fetchEmail
 
