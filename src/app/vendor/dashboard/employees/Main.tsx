@@ -12,6 +12,7 @@ import Error from '@/components/Error';
 const GET_EMPLOYEES = `
 query Employees($where: EmployeeWhere, $options: UserOptions) {
     employees(where: $where) {
+        id
       userHas(options: $options) {
         id
         name
@@ -23,10 +24,10 @@ query Employees($where: EmployeeWhere, $options: UserOptions) {
 `
 
 const UPDATE_EMPLOYEE_STATUS = `
-mutation UpdateEmployees($where: UserWhere, $update: UserUpdateInput) {
+mutation UpdateEmployees($where: EmployeeWhere, $update: EmployeeUpdateInput) {
     updateEmployees(where: $where, update: $update) {
-      info {
-        bookmark
+      employees {
+        id
       }
     }
   }
@@ -118,7 +119,7 @@ const Main = () => {
 
     }
 
-    console.log(labEmail, 'lab email', user?.email)
+
 
 
     // initializing query and mutations
@@ -170,13 +171,19 @@ const Main = () => {
                 where: {
                     id: id
                 },
-                update: {
-                    status: status
+                "update": {
+                    "userHas": {
+                        "update": {
+                            "node": {
+                                "status": status
+                            }
+                        }
+                    }
                 }
             }
         })
 
-        if (data) {
+        if (data?.updateEmployees?.employees[0]?.id) {
             toast.success("Employee status updated successfully")
             // refetching data
             getEmployeeData({
