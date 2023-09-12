@@ -66,7 +66,7 @@ const EmployeeTable = ({ employeeList, updateEmployeeStatus }: IRolesPeopleTable
                                     {
                                         item.userHas.status === "PENDING" ?
                                             <>
-                                                <button onClick={(e) => handleStatusChange(item.userHas.id, "APPROVED")} className="text-green-700 bg-green-200 px-3 py-2 rounded-md">
+                                                <button onClick={(e) => handleStatusChange(item?.id, "APPROVED")} className="text-green-700 bg-green-200 px-3 py-2 rounded-md">
                                                     Approve
                                                 </button>
                                                 <button className="text-red-700 bg-red-300 px-3 py-2 rounded-md">

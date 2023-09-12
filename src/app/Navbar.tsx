@@ -83,7 +83,7 @@ export default function Navbar({ services, industries, solutions, features }: an
         else if (currentUserType === 'CONSUMER') {
             return `/user/${dest}`
         }
-        else if (currentUserType === 'SERVICE_PROVIDER') {
+        else if (currentUserType === 'SERVICE_PROVIDER' || currentUserType === 'LAB_ASSISTANT') {
             return `/vendor/${dest}`
         } else {
             return '/'
