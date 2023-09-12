@@ -6,6 +6,8 @@ import { useGqlClient } from '@/hooks/UseGqlClient';
 import { useMutation } from 'graphql-hooks';
 import { toast } from 'react-hot-toast';
 import Button from '@/components/Button';
+import { HiOutlineCalendar } from 'react-icons/hi';
+import AuthConfig from '@/firebase/oauth.config';
 
 //props interface
 interface IModalProps {
@@ -14,10 +16,80 @@ interface IModalProps {
 
 }
 
-
+const CREATE_LEAD = `
+mutation CreateLeads($input: [LeadsCreateInput!]!) {
+    createLeads(input: $input) {
+      info {
+        nodesCreated
+      }
+    }
+  }
+`
 
 //component
 function Modal({ isModalOpen, setIsModalOpen, }: IModalProps) {
+
+
+
+
+    //states
+
+    const [selectedIndustry, setSelectedIndustry] = useState<any>('');
+    const [email, setEmail] = useState<string>('');
+    const [phone, setPhone] = useState<string>('');
+    const [message, setMessage] = useState<string>('');
+
+
+    // hooks
+    const client = useGqlClient()
+    const { user } = AuthConfig()
+
+    // queries and mutations
+    const [createLead, createState] = useMutation(CREATE_LEAD, { client })
+
+
+
+
+    // functions
+
+    const createLeads = async () => {
+        const { data } = await createLead({
+            variables: {
+                input: [
+                    {
+                        email: email,
+                        phone: phone,
+                        industry: selectedIndustry,
+                        createdAt: new Date().toISOString(),
+                        message: message
+                    }
+                ]
+            }
+        })
+
+
+        if (data.createLeads.info.nodesCreated) {
+            toast.success('Test Requested Successfully')
+            setEmail('')
+            setPhone('')
+            setMessage('')
+        }
+    }
+
+
+    const handleSubmit = (e: any) => {
+        e.preventDefault()
+        createLeads()
+        e.target.reset()
+
+
+    }
+
+
+
+
+
+
 
     const closeModal = () => {
         setIsModalOpen(false);
@@ -33,7 +105,7 @@ function Modal({ isModalOpen, setIsModalOpen, }: IModalProps) {
             <Transition.Root show={isModalOpen} as={Fragment}>
                 <Dialog
                     as="div"
-                    className="fixed z-10 inset-0 overflow-y-auto"
+                    className="fixed z-[564645656] inset-0 overflow-y-auto"
                     onClose={closeModal}
                 >
                     <div className="flex items-center justify-center min-h-screen px-4 pt-4 pb-20 text-center sm:block sm:p-0">
@@ -68,66 +140,46 @@ function Modal({ isModalOpen, setIsModalOpen, }: IModalProps) {
 
                             <div className="inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full sm:p-6">
                                 <p className="focus:outline-none pt-4 pb-8 text-base text-center sm:text-lg md:text-xl lg:text-2xl font-bold leading-normal text-gray-800">Inquiry</p>
-                                <form className=''>
-                                    <div className="mb-5">
-                                        <label htmlFor="Name" className="block  text-gray-700 text-sm mb-1">
-                                            Name
-                                        </label>
+                                <form onSubmit={handleSubmit} className=" bg-white  ">
+
+                                    <div className="px-5 pb-5">
                                         <input
-                                            id="Name"
-                                            name="Name"
-                                            placeholder='Name'
-                                            type="text"
-                                            className="mt-1 px-4 py-2 border border-gray-200 rounded-md w-full"
+                                            placeholder="Email"
+                                            required
+
+                                            onChange={(e) => setEmail(e.target.value)}
+                                            defaultValue={user?.email || ''}
+                                            className=" text-black placeholder-gray-600 w-full px-4 py-2.5 mt-2 text-base   transition duration-500 ease-in-out transform border-transparent rounded-sm bg-gray-200  focus:border-blueGray-500 focus:bg-white dark:focus:bg-gray-800 focus:outline-none focus:shadow-outline focus:ring-2 ring-offset-current ring-offset-2 ring-gray-400"
+
                                         />
-                                    </div>
-                                    <div className="mb-5">
-                                        <label htmlFor="Name" className="block  text-gray-700 text-sm mb-1">
-                                            Name
-                                        </label>
                                         <input
-                                            id="email"
-                                            name="email"
-                                            type="text"
-                                            placeholder='Email'
-                                            className="mt-1 px-4 py-2 border border-gray-200 rounded-md w-full"
+                                            placeholder="Phone"
+                                            required
+                                            onChange={(e) => setPhone(e.target.value)}
+                                            defaultValue={phone}
+                                            className=" text-black placeholder-gray-600 w-full px-4 py-2.5 mt-2 text-base   transition duration-500 ease-in-out transform border-transparent rounded-sm bg-gray-200  focus:border-blueGray-500 focus:bg-white dark:focus:bg-gray-800 focus:outline-none focus:shadow-outline focus:ring-2 ring-offset-current ring-offset-2 ring-gray-400"
+
                                         />
-                                    </div>
-                                    <div className="mb-5">
-                                        <label htmlFor="Name" className="block  text-gray-700 text-sm mb-1">
-                                            Phone
-                                        </label>
-                                        <input
-                                            name="Phone"
-                                            type="text"
-                                            placeholder='Phone'
-                                            className="mt-1 px-4 py-2 border border-gray-200 rounded-md w-full"
-                                        />
-                                    </div>
-                                    <div className="mb-5">
-                                        <label htmlFor="Name" className="block  text-gray-700 text-sm mb-1">
-                                            Company Name
-                                        </label>
-                                        <input
-                                            name="Phone"
-                                            type="text"
-                                            placeholder='Phone'
-                                            className="mt-1 px-4 py-2 border border-gray-200 rounded-md w-full"
-                                        />
+
+                                        <div className="flex">
+                                            <textarea
+                                                rows={3}
+                                                placeholder="message"
+                                                required
+                                                onChange={(e) => setPhone(e.target.value)}
+                                                defaultValue={message}
+                                                className=" text-black placeholder-gray-600 w-full px-4 py-2.5 mt-2 text-base   transition duration-500 ease-in-out transform border-transparent rounded-sm bg-gray-200  focus:border-blueGray-500 focus:bg-white dark:focus:bg-gray-800 focus:outline-none focus:shadow-outline focus:ring-2 ring-offset-current ring-offset-2 ring-gray-400"
+
+                                            />
+                                        </div>
+                                        <div className="mt-8">
+                                            <button type='submit' className='bg-primary font-bold text-white px-7 py-2.5 rounded'>
+                                                {createState.loading ? 'Loading..' : 'Submit'}
+                                            </button>
+                                        </div>
+
                                     </div>
 
-
-                                    <div className="mt-10">
-
-                                        <Button title='Submit' />
-                                        <button
-                                            type="button"
-                                            className="ml-2 px-4 py-2 text-gray-500 rounded-md hover:bg-gray-200"
-                                            onClick={closeModal}
-                                        >
-                                            Cancel
-                                        </button>
-                                    </div>
                                 </form>
                             </div>
                         </Transition.Child>
