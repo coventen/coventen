@@ -55,7 +55,8 @@ const homeClient = async () => {
         }
       }`,
 
-    })
+    }),
+    next: { revalidate: 10 }
   })
   const { data } = await res.then(res => res.json())
   return data.homeClients
@@ -78,7 +79,8 @@ const homeServices = async () => {
       }
       `,
 
-    })
+    }),
+    next: { revalidate: 10 }
   })
   const { data } = await res.then(res => res.json())
   return data.homeServices
@@ -101,7 +103,9 @@ const heroDataFn = async () => {
     }
       `,
 
-    })
+    }),
+    next: { revalidate: 10 }
+
   })
   const { data } = await res.then(res => res.json())
   return data.heroes
@@ -126,16 +130,18 @@ export default async function Home() {
 
 
 
-  console.log(heroData, ' this is hero data')
+  console.log(services, ' this is services data')
   return (
     <>
-      <Hero heroData={heroData} />
-      <Services services={services} />
-      <Products products={homeData?.hasProduct} />
-      <AboutUs />
-      {/* <CTA /> */}
-      <Products products={homeData?.hasProduct} />
-      <Companies clients={clientData} />
+      <section className='relative z-10'>
+        <Hero heroData={heroData} />
+        <Services services={services} />
+        <Products products={homeData?.hasProduct} />
+        <AboutUs />
+        {/* <CTA /> */}
+        <Products products={homeData?.hasProduct} />
+        <Companies clients={clientData} />
+      </section>
       <Leads />
 
 
