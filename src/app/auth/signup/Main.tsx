@@ -48,7 +48,7 @@ const Main = () => {
             variables: {
                 email,
                 name,
-                userType: user_type === "SERVICE PROVIDER" ? "SERVICE_PROVIDER" : user_type === 'COVENTEN_EMPLOYEE' ? "COVETEN_EMPLOYEE" : user_type,
+                userType: user_type === "SERVICE PROVIDER" ? "SERVICE_PROVIDER" : user_type === 'COVETEN_EMPLOYEE' ? "COVENTEN_EMPLOYEE" : user_type,
             }
         })
 
