@@ -9,13 +9,13 @@ const subServiceDetails = async (slug: string) => {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            query: `query Subservices($where: SubserviceWhere) {
-                subservices(where: $where) {
-                  id
-                  image
+            query: `query Services($where: ServiceWhere) {
+                services(where: $where) {
+                    id
                   title
+                  coverImageUrl
+                  pageContent
                   slug
-                  description
                 }
               }`,
             variables: {
@@ -32,7 +32,7 @@ const subServiceDetails = async (slug: string) => {
     })
 
     const { data } = await res.then(res => res.json())
-    return data.subservices[0]
+    return data?.services[0]
 }
 
 
@@ -48,10 +48,10 @@ const page = async ({ params, searchParams }: any) => {
     return (
         <section className='relative px-16'>
             <div>
-                <img className="z-0 absolute px-16 top-0 left-0 h-96 w-full object-cover" src={details?.image || "/assets/heor.jpg"} alt="" />
+                <img className="z-0 absolute px-16 top-0 left-0 h-[450px] w-full object-cover" src={details?.coverImageUrl || "/assets/heor.jpg"} alt="" />
             </div>
             <main className=' relative z-0'>
-                <article className='bg-transparent pt-44 w-full '>
+                <article className='bg-transparent pt-80 w-full '>
                     <header className="mx-auto    max-w-screen-lg rounded-t-lg bg-white pt-16 text-center shadow-lg w-full">
 
                         <h1 className="mt-2 text-4xl font-bold text-primaryText sm:text-5xl">{details?.title}</h1>
@@ -61,7 +61,7 @@ const page = async ({ params, searchParams }: any) => {
                     </header>
 
                     <div className="mx-auto max-w-screen-lg space-y-12 leading-10 rounded-b-lg bg-white px-8 pt-20 pb-20 font-serif text-lg tracking-wide text-gray-700 sm:shadow-lg w-full ">
-                        <Content content={details?.description} />
+                        <Content content={details?.pageContent} />
 
 
                     </div>

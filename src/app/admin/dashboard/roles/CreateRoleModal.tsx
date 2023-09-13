@@ -118,7 +118,7 @@ const CreateRoleModal: React.FC<ModalProps> = ({ openModal, setOpenModal, create
                                     type="submit"
                                     className="inline-flex justify-center ml-3 px-4 py-2 text-sm font-medium text-white bg-primary border border-transparent rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
                                 >
-                                    Create
+                                    Assign
                                 </button>
                             </div>
                         </form>

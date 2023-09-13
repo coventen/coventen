@@ -14,6 +14,7 @@ interface IAddProductTabsProps {
     addNewProductFn: (input: addProductVariables) => void,
     productData: Product[]
     deleteProduct: (id: string) => void
+    addToHome: (id: string, status: boolean) => void
 }
 
 
@@ -25,7 +26,7 @@ function classNames(...classes: string[]) {
 }
 
 
-const AddProductTabs = ({ addNewProductFn, productData, deleteProduct }: IAddProductTabsProps) => {
+const AddProductTabs = ({ addNewProductFn, productData, deleteProduct, addToHome }: IAddProductTabsProps) => {
     const [tab, setTab] = useState(0);
     return (
         <div className="w-full  bg-white  dark:bg-darkBg p-2 lg:p-7 rounded ">
@@ -73,7 +74,7 @@ const AddProductTabs = ({ addNewProductFn, productData, deleteProduct }: IAddPro
                     <Tab.Panels>
                         <Tab.Panel>
                             <div className="w-full min-h-screen bg-white rounded-xl mt-2 py-2  -md">
-                                <ProductTable productData={productData} deleteProduct={deleteProduct} />
+                                <ProductTable productData={productData} deleteProduct={deleteProduct} addToHome={addToHome} />
                             </div>
 
                         </Tab.Panel>

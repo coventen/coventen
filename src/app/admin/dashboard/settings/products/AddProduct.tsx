@@ -20,10 +20,10 @@ interface IAddProductProps {
 }
 
 const GET_CATEGORY = `
-query SubCategories {
-    subCategories {
-      id
+query Categories($where: CategoryWhere) {
+    categories(where: $where) {
       name
+      id
     }
   }`
 
@@ -53,7 +53,14 @@ const AddProduct = ({ setTab, addNewProductFn }: IAddProductProps) => {
     const client = useGqlClient()
 
     //query
-    const { data, loading, error } = useQuery(GET_CATEGORY, { client })
+    const { data, loading } = useQuery(GET_CATEGORY, {
+        client,
+        variables: {
+            "where": {
+                "type": "PRODUCT"
+            }
+        }
+    })
 
 
 
@@ -151,7 +158,7 @@ const AddProduct = ({ setTab, addNewProductFn }: IAddProductProps) => {
                         </div>
                         <div className="mb-5  w-full">
                             <label htmlFor="title" className="block  text-gray-700 text-sm mb-1">
-                                Sub Category
+                                Category
                             </label>
                             <div className="relative inline-flex w-full">
                                 <select
@@ -162,7 +169,7 @@ const AddProduct = ({ setTab, addNewProductFn }: IAddProductProps) => {
                                     className="mt-1 px-4 py-2 border border-gray-200 rounded-md w-full"
                                 >
                                     {
-                                        data?.subCategories && data?.subCategories.map((service: any) =>
+                                        data?.categories && data?.categories.map((service: any) =>
                                             <option key={service?.id} value={service?.id} >{service?.name}</option>
                                         )
                                     }

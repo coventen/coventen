@@ -4,22 +4,9 @@
 import { Fragment, useEffect, useState } from 'react';
 import { Tab } from '@headlessui/react';
 
-import Link from 'next/link';
 import DataTable from './DataTable';
+import AddNewPage from './AddNew';
 
-
-import AddNew from './AddNew';
-import { addVariables } from './Main';
-
-
-
-
-
-interface IAddProductTabsProps {
-    addNewFn: (input: addVariables) => void,
-    HomeServiceData: any[]
-    deleteItem: (id: string) => void
-}
 
 
 
@@ -29,19 +16,18 @@ function classNames(...classes: string[]) {
 }
 
 // component
-const PageTabs = ({ addNewFn, HomeServiceData, deleteItem }: IAddProductTabsProps) => {
+const PageTabs = ({ addNewItem, categoryData, deleteItem }: any) => {
 
-    //states
-    const [tab, setTab] = useState(0);
+
 
     //render
     return (
         <div className="w-full  bg-white  dark:bg-darkBg p-2 lg:p-7 rounded ">
-            <Tab.Group selectedIndex={tab} onChange={setTab}>
+            <Tab.Group >
                 <div className="flex items-center justify-between mb-3">
                     <div className="mb-3">
                         <h4 className="text-primary-main font-semibold text-xl">
-                            Popular Services
+                            Categories
                         </h4>
                     </div>
                     <div className=''>
@@ -57,7 +43,7 @@ const PageTabs = ({ addNewFn, HomeServiceData, deleteItem }: IAddProductTabsProp
                                     )
                                 }
                             >
-                                Popular Services
+                                Data
                             </Tab>
                             <Tab
                                 className={({ selected }) =>
@@ -81,13 +67,13 @@ const PageTabs = ({ addNewFn, HomeServiceData, deleteItem }: IAddProductTabsProp
                     <Tab.Panels>
                         <Tab.Panel>
                             <div className="w-full min-h-screen bg-white rounded-xl mt-2 py-2  -md">
-                                <DataTable HomeServiceData={HomeServiceData} deleteItem={deleteItem} />
+                                <DataTable categoryData={categoryData} deleteItem={deleteItem} />
                             </div>
 
                         </Tab.Panel>
                         <Tab.Panel>
                             <div className="w-full min-h-screen bg-white rounded-xl mt-2 py-2  -md">
-                                <AddNew addNewFn={addNewFn} setTab={setTab} />
+                                <AddNewPage addNewItem={addNewItem} />
                             </div>
                         </Tab.Panel>
                     </Tab.Panels>

@@ -34,8 +34,8 @@ const Main = ({ params }: { params: string | null }) => {
         let where
         if (params) {
             where = {
-                "hasSubcategory": {
-                    "id": params
+                "categoryHas": {
+                    "id": where
                 }
             }
         } else {
