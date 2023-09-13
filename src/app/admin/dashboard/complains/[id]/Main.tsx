@@ -25,9 +25,9 @@ query Invoices($where: InvoiceWhere) {
       id
       taxType
       taxRate
-      hasService {
+      hasPurchase {
         id
-        serviceName
+        itemName
         price
       }
     }
@@ -80,7 +80,7 @@ const Main = () => {
     const updateInvoice = async (invoiceData: any) => {
 
         const taxRate = parseInt(invoiceData?.taxRate)
-        const { totalPriceWithTax, totalPrice } = calculateTotalPrice(invoiceData.hasService, taxRate)
+        const { totalPriceWithTax, totalPrice } = calculateTotalPrice(invoiceData.hasPurchase, taxRate)
 
 
         const { data } = await updateInvoiceFn({
@@ -94,11 +94,11 @@ const Main = () => {
                     "totalPrice": totalPrice,
                     "priceWithTax": totalPriceWithTax,
                     "status": "SENT",
-                    "hasService": invoiceData.hasService.map((item: Service) => {
+                    "hasPurchase": invoiceData.hasPurchase.map((item: any) => {
                         return {
                             "update": {
                                 "node": {
-                                    "serviceName": item.serviceName,
+                                    "serviceName": item.name,
                                     "price": item.price
                                 }
                             },

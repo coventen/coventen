@@ -2,7 +2,6 @@
 import React from 'react';
 import { useGqlClient } from '@/hooks/UseGqlClient';
 import { useMutation } from 'graphql-hooks';
-import { Invoice, Service } from '@/gql/graphql';
 import InvoiceForm from './InvoiceForm';
 
 import { parse } from 'path';
@@ -39,8 +38,8 @@ const Main = () => {
 
 
     // calculate total price
-    const calculateTotalPrice = (services: any, taxRate: number) => {
-        const allPriceArray = services.map((service: any, i: number) => {
+    const calculateTotalPrice = (purchases: any, taxRate: number) => {
+        const allPriceArray = purchases.map((service: any, i: number) => {
             let price = service[`serviceName${i}`].price
             return parseInt(price)
         })
@@ -56,12 +55,11 @@ const Main = () => {
 
 
     // initializing invoice creation function
-    const createInvoice = async (invoiceData: any, services: any, company: any) => {
+    const createInvoice = async (invoiceData: any, purchases: any, company: any) => {
 
         const taxRate = parseInt(invoiceData?.taxRate)
-        const { totalPriceWithTax, totalPrice } = calculateTotalPrice(services, taxRate)
+        const { totalPriceWithTax, totalPrice } = calculateTotalPrice(purchases, taxRate)
 
-        console.log("totalPriceWithTax", totalPriceWithTax, totalPrice, taxRate)
 
         const { data } = await createInvoiceFn({
             variables: {
@@ -86,14 +84,14 @@ const Main = () => {
                                 }
                             }
                         },
-                        hasService: {
-                            create: services.map((service: any, i: number) => {
+                        hasPurchase: {
+                            create: purchases.map((service: any, i: number) => {
                                 let name = service[`serviceName${i}`].serviceName
                                 let price = service[`serviceName${i}`].price
 
                                 return {
                                     node: {
-                                        serviceName: name,
+                                        itemName: name,
                                         price: parseInt(price),
                                     }
                                 }

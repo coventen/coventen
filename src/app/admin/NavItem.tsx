@@ -113,22 +113,19 @@ export const controlledNavItems = [
                 icon: <LuFlaskConical className="" />,
             },
             {
-                label: "Add category",
-                href: "/admin/dashboard/settings/products/category",
-                icon: <LuFolderPlus className="" />,
-            },
-            {
-                label: "Add sub category",
-                href: "/admin/dashboard/settings/products/sub_category",
-                icon: <LuFolderPlus className="" />,
-            },
-            {
                 label: "Add Events",
                 href: "/admin/dashboard/event",
                 icon: <LuFolderPlus className="" />,
             }
         ]
     },
+
+]
+
+
+export const managementNavItems = [
+
+
     {
         section: "Website Management",
         links: [
@@ -138,29 +135,19 @@ export const controlledNavItems = [
                 icon: <LuTouchpad className="" />,
             },
             {
-                label: "Homepage Services",
-                href: "/admin/dashboard/settings/homepage/services",
-                icon: <LuTrello className="" />,
-            },
-            {
-                label: "Homepage Products",
-                href: "/admin/dashboard/settings/homepage/top_products",
-                icon: <LuWallet className="" />,
-            },
-            {
                 label: "Homepage Clients",
                 href: "/admin/dashboard/settings/homepage/clients",
                 icon: <LuTable className="" />,
             },
             {
-                label: "Add New Service",
-                href: "/admin/dashboard/settings/service_page/services",
+                label: "Categories",
+                href: "/admin/dashboard/settings/category",
                 icon: <LuServer className="" />,
             },
             {
-                label: "Add Sub Service",
-                href: "/admin/dashboard/settings/service_page/sub_service",
-                icon: <LuSquareEqual className="" />,
+                label: "Services",
+                href: "/admin/dashboard/settings/services",
+                icon: <LuServer className="" />,
             },
             {
                 label: "Add Industry",
@@ -178,15 +165,11 @@ export const controlledNavItems = [
                 icon: <LuStore className="" />,
             },
             {
-                label: "Solutions",
-                href: "/admin/dashboard/settings/solution_page",
-                icon: <LuStore className="" />,
-            },
-            {
-                label: "All Terms",
+                label: "legal pages",
                 href: "/admin/dashboard/settings/terms",
                 icon: <LuStore className="" />,
             },
         ]
     },
+
 ]

@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { useGqlClient } from '@/hooks/UseGqlClient';
 import { useMutation } from 'graphql-hooks';
-import { Invoice, Service } from '@/gql/graphql';
+
 import InvoiceForm from './InvoiceForm';
 import AuthConfig from '@/firebase/oauth.config';
 import { parse } from 'path';
@@ -108,14 +108,14 @@ const Main = () => {
                                 }
                             }
                         },
-                        hasService: {
+                        hasPurchase: {
                             create: services.map((service: any, i: number) => {
                                 let name = service[`serviceName${i}`].serviceName
                                 let price = service[`serviceName${i}`].price
 
                                 return {
                                     node: {
-                                        serviceName: name,
+                                        itemName: name,
                                         price: parseInt(price),
                                     }
                                 }

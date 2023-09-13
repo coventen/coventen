@@ -3,7 +3,6 @@ import { useGqlClient } from '@/hooks/UseGqlClient';
 import { useMutation, useQuery } from 'graphql-hooks';
 import React, { useEffect, useState } from 'react';
 import DataFrom from './DataFrom';
-import { ContentState, Editor, EditorState, convertFromRaw, convertToRaw } from 'draft-js';
 import { useParams, useRouter } from 'next/navigation';
 import { toast } from 'react-hot-toast';
 import Loading from '@/app/loading';
@@ -13,20 +12,23 @@ import slugify from 'slugify';
 
 
 const UPDATE_DATA = `
-mutation UpdateHomeServices($where: HomeServicesWhere, $update: HomeServicesUpdateInput) {
-    updateHomeServices(where: $where, update: $update) {
-      homeServices {
+mutation UpdateCategories($where: CategoryWhere, $update: CategoryUpdateInput) {
+    updateCategories(where: $where, update: $update) {
+      categories {
         id
       }
     }
   }
 `
 const GET_DATA = `
-query HomeServices($where: HomeServicesWhere) {
-    homeServices(where: $where) {
-      id
-      title
-      description
+query Categories {
+    categories {
+      name
+      type
+      hasChildCategory {
+        name
+        type
+      }
     }
   }
 `
@@ -36,8 +38,8 @@ const Main = () => {
 
     // states
     const [currentData, setCurrentData] = React.useState({
-        description: '',
         title: '',
+        image: ''
 
     })
 
@@ -57,28 +59,18 @@ const Main = () => {
 
     // // action on change
     useEffect(() => {
-        if (previoustermsData?.homeServices?.length) {
-            const { title, description } = previoustermsData.homeServices[0]
+        if (previoustermsData?.heroes?.length) {
+            const { title, image } = previoustermsData.heroes[0]
 
             setCurrentData({
                 title,
-                description,
+                image
             })
         }
 
 
 
-    }, [previoustermsData?.homeServices?.length])
-
-
-
-
-
-
-
-
-
-
+    }, [previoustermsData?.heroes?.length])
 
 
 
@@ -92,21 +84,19 @@ const Main = () => {
                     id: params?.id
                 },
                 "update": {
-                    "title": currentData?.title,
-                    "description": currentData?.description
+                    "title": input.title,
+                    "image": input.image
                 }
             }
         })
-        if (data?.updateHomeServices?.homeServices?.length) {
+        if (data?.updateHeroes?.heroes?.length) {
             toast.success('updated successfully')
             refetch()
-            router.push('/admin/dashboard/settings/homepage/services')
-
-
+            router.push('/admin/dashboard/settings/homepage/hero')
         }
     }
 
-
+    console.log(previoustermsData, ' this is current data', params?.id)
 
 
     if (loading || updateState.loading) return <Loading />

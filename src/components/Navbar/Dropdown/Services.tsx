@@ -16,7 +16,7 @@ const Services = ({ servicesData }: ServicePage) => {
 
 
     useEffect(() => {
-        setCurrentService(servicesData[0]?.title)
+        setCurrentService(servicesData[0]?.name)
     }, [servicesData?.length])
 
 
@@ -44,18 +44,18 @@ const Services = ({ servicesData }: ServicePage) => {
                                 {
                                     servicesData && servicesData?.map((item: any, index: number) => (
                                         <li
-                                            onClick={() => setCurrentService(item?.title || '')}
-                                            onMouseOver={() => setCurrentService(item?.title || '')}
+                                            onClick={() => setCurrentService(item?.name || '')}
+                                            onMouseOver={() => setCurrentService(item?.name || '')}
                                             key={item.id}
                                             className='cursor-pointer'
                                         >
                                             <div
                                                 className={
-                                                    `${currentService === item.title ?
+                                                    `${currentService === item.name ?
                                                         'bg-gray-100 text-primary' : ''}    
                             flex items-center text-sm transition-all duration-300`}>
-                                                <p className="block p-3   rounded ">{item.title}</p>
-                                                <span className={`${currentService === item.title ? 'block' : 'hidden'} transition-all duration-200`}><MdKeyboardArrowRight /></span>
+                                                <p className="block p-3   rounded ">{item.name}</p>
+                                                <span className={`${currentService === item.name ? 'block' : 'hidden'} transition-all duration-200`}><MdKeyboardArrowRight /></span>
                                             </div>
                                         </li>
                                     ))
@@ -67,9 +67,9 @@ const Services = ({ servicesData }: ServicePage) => {
                                 {/* <h3 className="font-bold text-xl text-primaryText text-bold mb-2">Sub Services</h3> */}
                                 <div className='grid grid-cols-2 text-xs capitalize '>
                                     {
-                                        servicesData && servicesData?.find((service: any) => service.title === currentService)?.hasSubservice?.length
+                                        servicesData && servicesData?.find((service: any) => service.name === currentService)?.hasService?.length
                                             ?
-                                            servicesData?.find((service: any) => service.title === currentService)?.hasSubservice.map((sub: any) =>
+                                            servicesData?.find((service: any) => service.name === currentService)?.hasService.map((sub: any) =>
                                                 <li key={sub?.id}>
                                                     <Link href={`/services/${sub?.slug}`} className="block p-3 hover:bg-gray-100 rounded text-primaryText hover:text-primaryText hover:underline" > {sub?.title}</Link>
                                                 </li>

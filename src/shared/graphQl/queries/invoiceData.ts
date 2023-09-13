@@ -23,9 +23,9 @@ const getInvoiceData = async (id: string) => {
                   taxRate
                   taxType
                   totalPrice
-                  hasService {
+                  hasPurchase {
                     id
-                    serviceName
+                    itemName
                     price
                   }
                   hasClient {
@@ -50,8 +50,6 @@ const getInvoiceData = async (id: string) => {
 
     const { data } = await res.then(res => res.json())
 
-
-console.log(data, 'this is data')
 
     return data?.invoices[0]
 

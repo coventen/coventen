@@ -188,7 +188,7 @@ const Main = () => {
                             <>
                                 <div className="transition-all duration-500 my-2 hover:bg-white  text-gray-600 ">
                                     <>
-                                        <div className="transition-all duration-500 my-2 hover:bg-white border text-gray-600 border-gray-200 rounded-md">
+                                        <div className="transition-all duration-500 my-2 hover:bg-white border text-gray-600 border-gray-200 ">
                                             <>
 
                                                 <div

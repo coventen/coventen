@@ -21,22 +21,26 @@ const navServices = async () => {
       'Content-Type': 'application/json'
     },
     body: JSON.stringify({
-      query: `query ServicePages {
-              servicePages {
-                id
-                title
-                hasSubservice {
-                  id
-                  title
-                  slug
-                }
-              }
-            }`,
-
+      query: `query Categories($where: CategoryWhere) {
+        categories(where: $where) {
+          id
+          name
+          hasService {
+            id
+            title
+            slug
+          }
+        }
+      }`,
+      variables: {
+        "where": {
+          "type": "SERVICE"
+        }
+      }
     })
   })
   const { data } = await res.then(res => res.json())
-  return data?.servicePages
+  return data?.categories
 }
 
 

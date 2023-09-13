@@ -11,6 +11,8 @@ interface IRestrictAdminRouteProps {
     accessibleNavItems: any;
     navItems?: any;
     setAccessibleNavItems: (accessibleNavItems: any) => void;
+    managementNavItems: any;
+    setManagementNavItemsAccess: any
 }
 
 
@@ -25,7 +27,7 @@ query Users($where: UserWhere) {
   }`
 
 
-const RestrictAdminRoute = ({ children, accessibleNavItems, setAccessibleNavItems, navItems }: IRestrictAdminRouteProps) => {
+const RestrictAdminRoute = ({ children, accessibleNavItems, setAccessibleNavItems, navItems, setManagementNavItemsAccess, managementNavItems }: IRestrictAdminRouteProps) => {
 
     // states
     const [data, setData] = React.useState<any>(null)
@@ -37,6 +39,7 @@ const RestrictAdminRoute = ({ children, accessibleNavItems, setAccessibleNavItem
     const userEmail = user?.email
 
     const [getUserFn, getUserState] = useManualQuery(GET_USER, { client })
+
 
 
     useEffect(() => {
@@ -59,10 +62,11 @@ const RestrictAdminRoute = ({ children, accessibleNavItems, setAccessibleNavItem
         }
 
         else if (data?.users?.length) {
-
+            console.log(user?.email, data?.users[0]?.user_type)
             if (data?.users[0]?.user_type === "ADMIN") {
                 setLoading(false)
                 setAccessibleNavItems(navItems)
+                setManagementNavItemsAccess(managementNavItems)
                 return children
             }
             else if (data?.users[0]?.user_type === "COVENTEN_EMPLOYEE") {

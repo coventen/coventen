@@ -1,16 +1,8 @@
 import AboutUs from '@/components/Home/AboutUs'
 import Companies from '@/components/Home/Companies'
 import Hero from '@/components/Home/Hero'
-import ImportantLinks from '@/components/Home/ImportantLinks'
 import Services from '@/components/Home/Services'
-import Image from 'next/image'
-import Footer from './Footer'
-import Navbar from './Navbar'
-import Categories from '@/components/Home/Categories'
-import Services2 from '@/components/Home/Services2'
-import MegaMenu from '@/components/Mega'
 import Products from '@/components/Home/Products'
-import CTA from '@/components/Home/CTA'
 import Leads from '@/components/Leads'
 
 
@@ -27,11 +19,6 @@ const homePageData = async () => {
         homePages {
           heroText
           heroImage
-          hasProduct {
-            title
-            shortDescription
-            id
-          }
         }
       }`,
     })
@@ -69,21 +56,54 @@ const homeServices = async () => {
     },
     body: JSON.stringify({
       query: `
-      query HomeServices {
-        homeServices {
+      query Services($where: ServiceWhere) {
+        services(where: $where) {
           title
-          description
           slug
-          id
+          description
         }
       }
       `,
+      variables: {
+        "where": {
+          "isPopular": true
+        }
+      }
 
     }),
     next: { revalidate: 10 }
   })
   const { data } = await res.then(res => res.json())
-  return data.homeServices
+  return data.services
+}
+
+const homeProducts = async () => {
+  const res = fetch('https://coventenapp.el.r.appspot.com/', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      query: `
+      query Products($where: ProductWhere) {
+        products(where: $where) {
+          title
+          shortDescription
+          id
+        }
+      }
+      `,
+      variables: {
+        "where": {
+          "isPopular": true
+        }
+      }
+
+    }),
+    next: { revalidate: 10 }
+  })
+  const { data } = await res.then(res => res.json())
+  return data.products
 }
 
 const heroDataFn = async () => {
@@ -125,21 +145,21 @@ export default async function Home() {
   const homeClientDataPromise = await homeClient()
   const homeServicePromise = await homeServices()
   const heroDataPromise = await heroDataFn()
+  const productPromise = await homeProducts()
 
-  const [homeData, clientData, services, heroData] = await Promise.all([homeDataPromise, homeClientDataPromise, homeServicePromise, heroDataPromise])
+  const [homeData, clientData, services, heroData, products] = await Promise.all([homeDataPromise, homeClientDataPromise, homeServicePromise, heroDataPromise, productPromise])
 
 
 
-  console.log(services, ' this is services data')
+
   return (
     <>
       <section className='relative z-10'>
         <Hero heroData={heroData} />
         <Services services={services} />
-        <Products products={homeData?.hasProduct} />
+        <Products products={products} />
         <AboutUs />
-        {/* <CTA /> */}
-        <Products products={homeData?.hasProduct} />
+        <Products products={products} />
         <Companies clients={clientData} />
       </section>
       <Leads />

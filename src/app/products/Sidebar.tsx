@@ -17,6 +17,7 @@ import Link from 'next/link';
 import { TbArrowBarLeft } from "react-icons/tb";
 import { useGqlClient } from '@/hooks/UseGqlClient';
 import { useQuery } from 'graphql-hooks';
+import Loading from '../loading';
 
 type Option = {
     title: string
@@ -30,13 +31,13 @@ interface Props {
 
 
 const GET_CATEGORY = `
-query Categories {
+query Categories($where: CategoryWhere) {
     categories {
-      id
       name
-      hasSubcategory {
-        id
+      type
+      hasChildCategory(where: $where) {
         name
+        type
       }
     }
   }
@@ -66,72 +67,20 @@ export default function Sidebar({
     const client = useGqlClient()
 
     // QUERIES
-    const { data, error, loading } = useQuery(GET_CATEGORY, { client })
+    const { data, error, loading } = useQuery(GET_CATEGORY, {
+        client,
+        variables: {
+            "where": {
+                "type": "PRODUCT"
+            }
+        }
+    })
 
 
 
-    const filters = [
-        {
-            id: 1,
-            name: 'Mechines',
-            options: [
-                {
-                    title: 'Scanners & Trackers',
-                    path: '/admin/facilities'
-                },
-                {
-                    title: 'Probe Systems',
-                    path: '/admin/exams'
-                },
-                {
-                    title: 'Robotic Arms',
-                    path: '/admin/degree'
-                },
-
-            ],
-        },
-        {
-            id: 2,
-            name: 'Consumables',
-            options: [
-                {
-                    title: 'Probes',
-                    path: '/admin/facilities'
-                },
-                {
-                    title: 'Oils',
-                    path: '/admin/exams'
-                },
-                {
-                    title: 'Fixtures',
-                    path: '/admin/degree'
-                },
-
-            ],
-        },
-        {
-            id: 3,
-            name: 'Support Tools',
-            options: [
-                {
-                    title: 'Measuring Tools',
-                    path: '/admin/facilities'
-                },
-                {
-                    title: 'Safety Tools',
-                    path: '/admin/exams'
-                },
 
 
-            ],
-        },
-
-
-
-    ];
-
-
-
+    if (loading) return <Loading />
 
 
     return (
@@ -220,7 +169,7 @@ export default function Sidebar({
                                                             <Disclosure.Panel className="pt-6">
 
                                                                 <div className="space-y-6">
-                                                                    {section?.hasSubcategory.map(
+                                                                    {section?.hasChildCategory?.map(
                                                                         (option: any, optionIdx: number) => (
                                                                             <Link
                                                                                 href={`/products?query=${option?.id}`}
@@ -304,7 +253,7 @@ export default function Sidebar({
                                                     <Disclosure.Panel className="pt-6">
 
                                                         <div className="space-y-4">
-                                                            {section?.hasSubcategory.map(
+                                                            {section?.hasChildCategory?.map(
                                                                 (option: any, optionIdx: number) => (
                                                                     <Link
                                                                         href={`/products?query=${option?.id}`}

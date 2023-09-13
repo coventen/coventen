@@ -22,7 +22,7 @@ const InvoiceForm = ({ updateInvoice, invoiceData }: IInvoiceForm) => {
     const [previousData, setPreviousData] = React.useState<any>({
         taxType: '',
         taxRate: '',
-        hasService: []
+        hasPurchase: []
     })
     const [serviceCount, setServiceCount] = React.useState(0)
 
@@ -34,9 +34,9 @@ const InvoiceForm = ({ updateInvoice, invoiceData }: IInvoiceForm) => {
             setPreviousData({
                 taxType: invoiceData?.taxType,
                 taxRate: invoiceData?.taxRate,
-                hasService: invoiceData?.hasService
+                hasPurchase: invoiceData?.hasPurchase
             })
-            setServiceCount(invoiceData?.hasService?.length)
+            setServiceCount(invoiceData?.hasPurchase?.length)
         }
 
     }, [invoiceData])
@@ -52,7 +52,7 @@ const InvoiceForm = ({ updateInvoice, invoiceData }: IInvoiceForm) => {
         updateInvoice(previousData)
     }
 
-    console.log(previousData, 'previousData?.hasService')
+
 
 
 
@@ -115,7 +115,7 @@ const InvoiceForm = ({ updateInvoice, invoiceData }: IInvoiceForm) => {
                                             {/* service inputs */}
                                             <div className='space-y-5'>
                                                 {
-                                                    previousData?.hasService?.map((service: any, i: number) =>
+                                                    previousData?.hasPurchase?.map((service: any, i: number) =>
 
                                                         <div key={i}>
                                                             <ServicesFrom data={service} setPreviousData={setPreviousData} previousData={previousData} />

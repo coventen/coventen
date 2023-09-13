@@ -46,9 +46,20 @@ query Products {
       image
       createdAt
       price
+      isPopular
     }
   }
 
+`
+
+const ADD_TO_HOMEPAGE = `
+mutation UpdateProducts($update: ProductUpdateInput, $where: ProductWhere) {
+    updateProducts(update: $update, where: $where) {
+      products {
+        id
+      }
+    }
+  }
 `
 
 const DELETE_PRODUCT = `
@@ -74,6 +85,7 @@ const Main = () => {
     // MUTATION
     const [addNewProductFn, addNewProductState] = useMutation(ADD_NEW_PRODUCT, { client })
     const [deleteProductFn, deleteProductState] = useMutation(DELETE_PRODUCT, { client, })
+    const [addToHomeFn, addToHomeState] = useMutation(ADD_TO_HOMEPAGE, { client, })
 
 
 
@@ -85,7 +97,7 @@ const Main = () => {
             variables: {
                 "input": [
                     {
-                        "title": input.title,
+                        "title": input.title.toLowerCase(),
                         "shortDescription": input.shortDescription,
                         "features": input.features,
                         "others": input.others,
@@ -114,6 +126,28 @@ const Main = () => {
         }
     }
 
+
+
+    const addToHome = async (id: string, status: boolean) => {
+        const { data } = await addToHomeFn({
+            variables: {
+                where: {
+                    id: id
+                },
+                "update": {
+                    "isPopular": status,
+                    // "isSpecial": null
+                }
+            }
+        })
+
+        if (data.updateProducts.products[0].id) {
+            toast.success("Updated")
+            refetch()
+        }
+    }
+
+
     const deleteProduct = async (id: string) => {
         const { data } = await deleteProductFn({
             variables: {
@@ -132,14 +166,14 @@ const Main = () => {
     console.log(productData);
 
 
-    if (loading || addNewProductState.loading || deleteProductState.loading) return <Loading />
+    if (loading || addNewProductState.loading || deleteProductState.loading || addToHomeState.loading) return <Loading />
     if (error || addNewProductState.error) return <Error />
 
 
 
     return (
         <>
-            <AddProductTabs productData={productData?.products} addNewProductFn={addNewProduct} deleteProduct={deleteProduct} />
+            <AddProductTabs addToHome={addToHome} productData={productData?.products} addNewProductFn={addNewProduct} deleteProduct={deleteProduct} />
         </>
     );
 };

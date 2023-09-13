@@ -106,10 +106,6 @@ const Main = () => {
 
 
 
-
-
-
-
     // initializing the mutation and  quires
     const updateProduct = async (input: Product) => {
         const { data } = await updateProductFn({

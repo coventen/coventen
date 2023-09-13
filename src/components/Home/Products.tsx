@@ -7,9 +7,9 @@ import { Navigation, Pagination, Scrollbar, A11y, Autoplay, Grid } from 'swiper/
 
 
 
-export default function Products({ products }: { products: any[] }) {
+export default function Products({ products }: { products: any }) {
 
-
+    console.log(products, 'products000000000000000000000000000')
 
     return (
         <section className="py-14">
@@ -58,7 +58,7 @@ export default function Products({ products }: { products: any[] }) {
 
 
                             {
-                                products && products.map((item, idx) =>
+                                products && products.map((item: any, idx: number) =>
                                     <SwiperSlide key={item} className="pb-10">
                                         <div key={idx} className="group my-10 flex w-full  flex-col overflow-hidden  border rounded dark:bg-darkBgLight dark:border-darkBorder bg-white/30  ">
                                             <a className="relative mx-3 mt-3 flex h-60 overflow-hidden rounded" href="#">

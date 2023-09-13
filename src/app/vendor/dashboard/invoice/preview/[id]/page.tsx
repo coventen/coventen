@@ -27,7 +27,7 @@ const InvoicePreview = () => {
         setInvoiceData(invoice)
     }
 
-
+    console.log(invoiceData, 'invoiceData')
 
 
     return (
@@ -50,7 +50,7 @@ const InvoicePreview = () => {
 
                                 <div className="text-right">
                                     <h2 className="text-2xl md:text-3xl font-semibold text-gray-800 dark:text-gray-200">Invoice #</h2>
-                                    <span className="mt-1 block text-gray-500">{invoiceData?.id}</span>
+                                    <span className="mt-1 block text-gray-500">{invoiceData?.id.split('-')[0]}</span>
 
 
                                 </div>
@@ -103,10 +103,10 @@ const InvoicePreview = () => {
 
 
                                         {
-                                            invoiceData?.hasService?.map((service) =>
+                                            invoiceData?.hasPurchase?.map((service) =>
                                                 <div className=" " key={service?.id}>
                                                     <div >
-                                                        <p className="font-medium text-xs lg:text-base text-gray-800 dark:text-gray-200">{service?.serviceName}</p>
+                                                        <p className="font-medium text-xs lg:text-base text-gray-800 dark:text-gray-200">{service?.itemName}</p>
                                                     </div>
 
                                                     <div>

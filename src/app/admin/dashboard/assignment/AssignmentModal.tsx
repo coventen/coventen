@@ -265,13 +265,13 @@ function AssignmentModal({ isOpen, setIsOpen, currentProject, refetchProjects }:
                                         <button
                                             onClick={assignModule}
                                             type="submit"
-                                            className="px-4 py-2 bg-primary text-white rounded-md hover:bg-blue-600"
+                                            className="px-4 py-2 bg-primary text-white  hover:bg-blue-600"
                                         >
                                             {state.loading ? 'loading' : 'Submit'}
                                         </button>
                                         <button
                                             type="button"
-                                            className="ml-2 px-4 py-2 text-gray-500 rounded-md hover:bg-gray-200"
+                                            className="ml-2 px-4 py-2 text-gray-500  hover:bg-gray-200"
                                             onClick={closeModal}
                                         >
                                             Cancel

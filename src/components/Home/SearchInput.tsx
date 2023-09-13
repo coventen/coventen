@@ -2,17 +2,14 @@
 import { useGqlClient } from '@/hooks/UseGqlClient';
 import { useManualQuery, useQuery } from 'graphql-hooks';
 import React, { useState, useEffect, Fragment } from 'react';
-import { Popover, Transition } from '@headlessui/react';
-import Link from 'next/link';
-import { AnyPtrRecord } from 'dns';
+
 
 
 
 
 const GET_SERVICES = `
-query Subservices($where: SubserviceWhere, $options: SubserviceOptions) {
-    subservices(where: $where, options: $options) {
-      id
+query Services($where: ServiceWhere) {
+    services(where: $where) {
       title
       slug
     }
@@ -56,17 +53,8 @@ const SearchInput = () => {
                 "limit": 4
             },
             "where": {
-                OR: [
-                    {
-                        title_CONTAINS: searchText.toLowerCase()
-                    },
-                    {
-                        title_CONTAINS: searchText.toUpperCase()
-                    },
-                    {
-                        title_CONTAINS: searchText.replace(/\b\w/g, match => match.toUpperCase())
-                    }
-                ]
+                "title_CONTAINS": searchText.toLowerCase(),
+                "isService": true
             }
 
         }
@@ -88,7 +76,7 @@ const SearchInput = () => {
         if (selectedValue === 'Solutions') {
             setSearchQueryType(GET_SERVICES)
             const { data } = await searchFn()
-            setSearchResult(data?.subservices)
+            setSearchResult(data?.services)
         } else if (selectedValue === 'Products') {
             setSearchQueryType(GET_PRODUCTS)
             const { data } = await searchFn()
@@ -97,11 +85,11 @@ const SearchInput = () => {
         else if (selectedValue === 'Calibration') {
             setSearchQueryType(GET_SERVICES)
             const { data } = await searchFn()
-            setSearchResult(data?.subservices)
+            setSearchResult(data?.services)
         } else if (selectedValue === 'Testing') {
             setSearchQueryType(GET_SERVICES)
             const { data } = await searchFn()
-            setSearchResult(data?.subservices)
+            setSearchResult(data?.services)
         }
     }
 

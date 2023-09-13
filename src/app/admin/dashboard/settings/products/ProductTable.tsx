@@ -2,16 +2,17 @@ import { Product } from '@/gql/graphql';
 import deleteImage from '@/shared/deleteImage';
 import Link from 'next/link';
 import React from 'react';
-import { AiFillEye, AiTwotoneDelete } from 'react-icons/ai';
+
 
 interface IProductTableProps {
     productData: Product[]
     deleteProduct: (id: string) => void
+    addToHome: (id: string, status: boolean) => void
 }
 
-const ProductTable = ({ productData, deleteProduct }: IProductTableProps) => {
+const ProductTable = ({ productData, deleteProduct, addToHome }: IProductTableProps) => {
 
-    console.log(productData, 'productData')
+
 
     return (
         <table className="w-full leading-normal">
@@ -74,19 +75,26 @@ const ProductTable = ({ productData, deleteProduct }: IProductTableProps) => {
                             </td>
                             <td className="px-3 py-5 border-b border-gray-200 bg-white text-xs">
                                 <p className="text-gray-700  whitespace-nowrap  ">
-                                    {item?.createdAt.slice(0, 10)}
+                                    {item?.createdAt?.slice(0, 10)}
                                 </p>
                             </td>
 
                             <td className="px-5 py-5 border-b border-gray-200 bg-white text-xs">
                                 <div className="relative flex items-center justify-center  space-x-4 px-8 ">
 
-                                    <Link href={`/admin/dashboard/products/details/${item?.id}`} className="focus:ring-2 focus:ring-offset-2  text-sm leading-none text-green-600 py-2 px-2 bg-gray-100 rounded hover:bg-gray-200 focus:outline-none"><AiFillEye /></Link>
+                                    <Link href={`/admin/dashboard/settings/products/details/${item?.id}`} className="focus:ring-2 focus:ring-offset-2  text-sm leading-none text-primary py-2 px-2 bg-primary/20 rounded  focus:outline-none">Update</Link>
+                                    {
+                                        item.isPopular ?
+                                            <button onClick={() => addToHome(item?.id, false)} className="focus:ring-2 focus:ring-offset-2  text-sm leading-none text-red-700 py-2 px-2 bg-red-100 rounded  focus:outline-none">Remove from Home</button>
+                                            :
+                                            <button onClick={() => addToHome(item?.id, true)} className="focus:ring-2 focus:ring-offset-2  text-sm leading-none text-green-800 py-2 px-2 bg-green-100  rounded  focus:outline-none">Add to Home</button>
+                                    }
                                     <button onClick={() => {
                                         deleteProduct(item.id)
                                         deleteImage(item?.image as string)
 
-                                    }} className="focus:ring-2 focus:ring-offset-2  text-sm leading-none text-red-600 py-2 px-2 bg-gray-100 rounded hover:bg-gray-200 focus:outline-none"><AiTwotoneDelete /></button>
+                                    }} className="focus:ring-2 focus:ring-offset-2  text-sm leading-none text-red-700 py-2 px-2 bg-red-100 rounded  focus:outline-none">Delete</button>
+
                                 </div>
                             </td>
                         </tr>)
