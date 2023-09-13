@@ -150,6 +150,11 @@ export const managementNavItems = [
                 icon: <LuServer className="" />,
             },
             {
+                label: "Solution",
+                href: "/admin/dashboard/settings/solution",
+                icon: <LuServer className="" />,
+            },
+            {
                 label: "Add Industry",
                 href: "/admin/dashboard/settings/industry",
                 icon: <LuStore className="" />,
