@@ -18,7 +18,7 @@ const InvoiceTable = ({ data, deleteInvoice }: ITableItem) => {
             <thead className="text-gray-600 font-medium border-b">
                 <tr>
                     <th className="py-3 pr-6">Serial No.</th>
-                    <th className="py-3 pr-6">Invoice Id</th>
+                    <th className="py-3 pr-6">Estimation Id</th>
                     <th className="py-3 pr-6">Status</th>
                     <th className="py-3 pr-6">Price</th>
                     <th className="py-3 pr-6 text-right">Action</th>

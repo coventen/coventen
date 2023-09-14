@@ -11,7 +11,7 @@ const RolesPeopleTable = ({ employeeList, updateEmployeeStatus }: IRolesPeopleTa
     // update employee status
 
     const handleStatusChange = async (id: string, status: string) => {
-        await updateEmployeeStatus(id, "APPROVED")
+        await updateEmployeeStatus(id, status)
     }
 
 
@@ -36,6 +36,9 @@ const RolesPeopleTable = ({ employeeList, updateEmployeeStatus }: IRolesPeopleTa
                         <th className="px-6 py-3 text-left text-xs font-medium text-dimText lowercase tracking-wider">
                             role
                         </th>
+                        <th className="px-6 py-3 text-left text-xs font-medium text-dimText lowercase tracking-wider">
+                            Status
+                        </th>
                         <th className="px-6 py-3  text-xs text-center font-medium text-dimText lowercase tracking-wider">
                             Actions
                         </th>
@@ -57,6 +60,9 @@ const RolesPeopleTable = ({ employeeList, updateEmployeeStatus }: IRolesPeopleTa
                                 {item?.hasRole?.name || "N/A"}
                             </td>
                             <td className="px-6 py-3 text-left text-xs font-medium text-dimText lowercase tracking-wider">
+                                {item?.status || "N/A"}
+                            </td>
+                            <td className="px-6 py-3 text-left text-xs font-medium text-dimText lowercase tracking-wider">
                                 <div className="flex justify-center space-x-4">
                                     {
                                         item.status === "PENDING" ?
@@ -69,15 +75,15 @@ const RolesPeopleTable = ({ employeeList, updateEmployeeStatus }: IRolesPeopleTa
                                                 </button>
                                             </>
                                             : item.status === "APPROVED" ?
-                                                <button disabled className="text-green-700 bg-green-200 px-3 py-2 rounded-md">
-                                                    Approved
-                                                </button> :
-                                                item.status === "REJECTED" ?
-                                                    <button disabled className="text-red-700 bg-red-300 px-3 py-2 rounded-md">
-                                                        Rejected
-                                                    </button>
-                                                    : null
+                                                <button onClick={(e) => handleStatusChange(item.id, "REJECTED")} className="text-red-700 bg-red-300 px-3 py-2 rounded-md">
+                                                    Remove
+                                                </button>
+
+                                                :
+                                                null
                                     }
+
+
 
 
                                 </div>
