@@ -15,6 +15,9 @@ query Users($where: UserWhere) {
       id
       name
       email
+      hasRole {
+        id
+      }
     }
   }
 `
@@ -28,8 +31,8 @@ query Roles {
 `
 
 const ASSIGN_ROLE = `
-mutation UpdateUsers($where: UserWhere, $update: UserUpdateInput) {
-    updateUsers(where: $where, update: $update) {
+mutation UpdateUsers($where: UserWhere, $update: UserUpdateInput, $disconnect: UserDisconnectInput) {
+    updateUsers(where: $where, update: $update, disconnect: $disconnect) {
       info {
         relationshipsCreated
         nodesCreated
@@ -73,7 +76,10 @@ const AssignRole: React.FC<ModalProps> = ({
     const assignRoleToEmployee = async (e: any) => {
         e.preventDefault()
 
-        console.log("i am inside assignRoleToEmployee3333", employeeEmail, role)
+        if (userData?.hasRole?.id) {
+            const removeRole = await removePreviousRole(userData?.hasRole?.id)
+        }
+
         const { data } = await assignRoleFn({
             variables: {
                 "where": {
@@ -95,11 +101,7 @@ const AssignRole: React.FC<ModalProps> = ({
 
         })
 
-        console.log(data, 'inside data')
-
         if (data?.updateUsers?.info?.relationshipsCreated) {
-
-            console.log("i am inside assignRoleToEmployee", employeeEmail, role)
             handleClose()
             toast.success('Role assigned successfully')
         }
@@ -108,6 +110,32 @@ const AssignRole: React.FC<ModalProps> = ({
 
 
 
+
+    const removePreviousRole = async (id: string) => {
+        const { data } = await assignRoleFn({
+            variables: {
+                "where": {
+                    "email": employeeEmail
+                },
+                "disconnect": {
+                    "hasRole": {
+                        "where": {
+                            "node": {
+                                "id": id
+                            }
+                        }
+                    }
+                }
+            }
+        })
+
+        if (data) {
+            return true
+
+        } else {
+            return false
+        }
+    }
 
 
 
@@ -202,7 +230,7 @@ const AssignRole: React.FC<ModalProps> = ({
                                     type="submit"
                                     className="inline-flex justify-center ml-3 px-4 py-2 text-sm font-medium text-white bg-primary border border-transparent rounded-md hover:primary focus:outline-none focus:ring-2 focus:ring-offset-2 "
                                 >
-                                    Create
+                                    Assign
                                 </button>
                             </div>
                         </form>
