@@ -18,10 +18,13 @@ const GetLeads = async (where:any = {}, options: any = {})=> {
                 email
                 createdAt
                 condition
-                gstNumber
                 industry
                 phone
+                message
                 status
+                duration
+                  price
+                  vendorAddress
               }
             }`,
               variables: {

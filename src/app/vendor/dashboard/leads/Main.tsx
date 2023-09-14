@@ -65,7 +65,7 @@ const Main = () => {
         variables: {
             where: {
                 userIs: {
-                    email: labEmail
+                    email: labEmail || ' no email'
                 }
             }
         }
@@ -79,7 +79,7 @@ const Main = () => {
 
 
 
-    console.log(industries?.vendors[0]?.industry, ' this is good', labEmail);
+
 
 
 
@@ -100,9 +100,10 @@ const Main = () => {
             }
         })
 
-        if (data.updateLeads.leads.id) {
+        if (data.updateLeads.leads[0].id) {
             setIsModalOpen(false);
             toast.success('Lead updated successfully')
+            getLeadsData()
         }
 
     }
@@ -115,7 +116,7 @@ const Main = () => {
         getUserData()
         getTotalLeadsCount()
 
-    }, [currentPage, searchQuery, user?.email, labEmail]);
+    }, [currentPage, searchQuery, user?.email, labEmail, industryLoading]);
 
     // getting lab email if employee is logged in
     const getLabEmail = async () => {
@@ -130,7 +131,7 @@ const Main = () => {
 
     const getLeadsData = async () => {
         let where
-        if (searchQuery) {
+        if (searchQuery && industries?.vendors[0]?.industry) {
             where = {
                 industry_IN: industries?.vendors[0]?.industry,
                 OR: [
@@ -147,8 +148,10 @@ const Main = () => {
                     }
                 ]
             }
+        } else if (industries?.vendors[0]?.industry) {
+            where = { industry_IN: industries?.vendors[0]?.industry }
         } else {
-            where = { industry_IN: industries?.vendors[0]?.industry, }
+            where = { industry_IN: ['no industry'] }
         }
 
         //fetch options

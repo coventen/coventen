@@ -4,7 +4,7 @@ import Button from '@/components/Button';
 import Error from '@/components/Error';
 import AuthConfig from '@/firebase/oauth.config';
 import { useGqlClient } from '@/hooks/UseGqlClient';
-import { useMutation, useQuery } from 'graphql-hooks';
+import { useManualQuery, useMutation, useQuery } from 'graphql-hooks';
 import React, { useEffect } from 'react';
 import { toast } from 'react-hot-toast';
 import Industries from './Industries';
@@ -41,6 +41,7 @@ const UPDATE_USER = `mutation Mutation($where: UserWhere, $update: UserUpdateInp
 const Main = () => {
 
     //states
+    const [previousData, setPreviousData] = React.useState<any>(null)
     const [userInfo, setUserInfo] = React.useState({
         name: '',
         user_type: '',
@@ -59,26 +60,24 @@ const Main = () => {
 
     //hooks
     const client = useGqlClient()
-    const { user } = AuthConfig()
+    const { user, authLoading } = AuthConfig()
 
 
     // fetching data
-    const { data, error, loading, refetch } = useQuery(GET_USER, {
+    const [getUserFn, userState] = useManualQuery(GET_USER, {
         client,
-        variables: { where: { email: user?.email } }
     })
 
     // updating the user node
     const [updateUserFn, updateUserState] = useMutation(UPDATE_USER, { client })
 
 
-    // updating the user node
-    const userData = data?.users[0]
+
 
     // setting the user data  to the state
     useEffect(() => {
-        if (userData) {
-            const { name, user_type, email, address, bio, companyName, companyEmail, gstNumber, image, zip, city, state } = userData
+        if (previousData) {
+            const { name, user_type, email, address, bio, companyName, companyEmail, gstNumber, image, zip, city, state } = previousData
             setUserInfo({
                 name,
                 user_type,
@@ -94,7 +93,32 @@ const Main = () => {
                 state,
             })
         }
-    }, [userData])
+    }, [previousData])
+
+
+
+
+
+    useEffect(() => {
+        if (user?.email) {
+            getUser()
+        }
+    }, [user?.email, authLoading])
+
+
+
+    // get user 
+    const getUser = async () => {
+        const { data } = await getUserFn({
+            variables: { where: { email: user?.email || 'no user' } }
+        })
+        if (data?.users[0]?.name) {
+            setPreviousData(data?.users[0])
+        }
+    }
+
+
+
 
     // updating the user node
 
@@ -127,12 +151,13 @@ const Main = () => {
         }
     }
 
-    console.log(data)
+
+    console.log(userInfo, ' this is user insof')
 
 
-    if (loading || updateUserState.loading) return <div><Loading /></div>
+    if (updateUserState.loading || authLoading || userState.loading) return <div><Loading /></div>
 
-    if (error || updateUserState.error) return <Error />
+    if (userState.error || updateUserState.error) return <Error />
 
     return (
         <div className="container flex flex-col mx-auto space-y-12">
@@ -151,7 +176,7 @@ const Main = () => {
                     </div>
 
                     {
-                        userData?.user_type !== "LAB_ASSISTANT" && <Industries data={data?.users[0]?.isVendor?.industry} refetch={refetch} />
+                        previousData?.user_type !== "LAB_ASSISTANT" && <Industries data={previousData?.isVendor?.industry} refetch={getUser} />
                     }
 
                 </div>
@@ -161,72 +186,84 @@ const Main = () => {
                         <label htmlFor="lastname" className="text-sm" >Username</label>
                         <input
                             type="text"
-                            value={userInfo.name}
+                            value={userInfo?.name || ''}
                             onChange={(e) => setUserInfo({ ...userInfo, name: e.target.value })}
                             placeholder="Last name" className="w-full rounded-md focus:ring ring-primary dark:border-gray-700 dark:text-gray-900" />
                     </div>
                     <div className="col-span-full sm:col-span-3">
                         <label htmlFor="email" className="text-sm">Email</label>
                         <input
-                            value={userInfo.email}
+                            value={userInfo.email || ''}
                             readOnly
                             onChange={(e) => setUserInfo({ ...userInfo, email: e.target.value })}
                             type="email" placeholder="Email" className="w-full rounded-md focus:ring ring-primary dark:border-gray-700 dark:text-gray-900" />
                     </div>
-                    <div className="col-span-full sm:col-span-3">
-                        <label htmlFor="website" className="text-sm">Gst no.</label>
-                        <input
-                            value={userInfo.gstNumber}
-                            onChange={(e) => setUserInfo({ ...userInfo, gstNumber: e.target.value })}
-                            id="website" type="text" placeholder="Gst no." className="w-full rounded-md focus:ring ring-primary dark:border-gray-700 dark:text-gray-900" />
-                    </div>
 
-                    <div className="col-span-full">
-                        <label htmlFor="address" className="text-sm">Company Name</label>
-                        <input
-                            value={userInfo.companyName}
-                            onChange={(e) => setUserInfo({ ...userInfo, companyName: e.target.value })}
-                            id="address" type="text" placeholder="" className="w-full rounded-md focus:ring ring-primary dark:border-gray-700 dark:text-gray-900" />
-                    </div>
-                    <div className="col-span-full">
-                        <label htmlFor="address" className="text-sm">Company Email</label>
-                        <input
-                            value={userInfo.companyEmail}
-                            onChange={(e) => setUserInfo({ ...userInfo, companyEmail: e.target.value })}
-                            id="address" type="text" placeholder="" className="w-full rounded-md focus:ring ring-primary dark:border-gray-700 dark:text-gray-900" />
-                    </div>
+                    {
+                        previousData && previousData?.user_type !== "LAB_ASSISTANT" &&
+                        <>
+
+                            <div className="col-span-full">
+                                <label htmlFor="address" className="text-sm">Company Name</label>
+                                <input
+                                    value={userInfo.companyName || ''}
+                                    onChange={(e) => setUserInfo({ ...userInfo, companyName: e.target.value })}
+                                    id="address" type="text" placeholder="" className="w-full rounded-md focus:ring ring-primary dark:border-gray-700 dark:text-gray-900" />
+                            </div>
+                            <div className="col-span-full">
+                                <label htmlFor="address" className="text-sm">Company Email</label>
+                                <input
+                                    value={userInfo.companyEmail || ''}
+                                    onChange={(e) => setUserInfo({ ...userInfo, companyEmail: e.target.value })}
+                                    id="address" type="text" placeholder="" className="w-full rounded-md focus:ring ring-primary dark:border-gray-700 dark:text-gray-900" />
+                            </div>
+                            <div className="col-span-full sm:col-span-3">
+                                <label htmlFor="website" className="text-sm">Gst no.</label>
+                                <input
+                                    value={userInfo.gstNumber || ''}
+                                    onChange={(e) => setUserInfo({ ...userInfo, gstNumber: e.target.value })}
+                                    id="website" type="text" placeholder="Gst no." className="w-full rounded-md focus:ring ring-primary dark:border-gray-700 dark:text-gray-900" />
+                            </div>
+
+                        </>
+                    }
+
+
+
+
+
                     <div className="col-span-full">
                         <label htmlFor="address" className="text-sm">Address</label>
                         <input
-                            value={userInfo.address}
+                            value={userInfo.address || ''}
                             onChange={(e) => setUserInfo({ ...userInfo, address: e.target.value })}
                             id="address" type="text" placeholder="" className="w-full rounded-md focus:ring ring-primary dark:border-gray-700 dark:text-gray-900" />
                     </div>
                     <div className="col-span-full sm:col-span-2">
                         <label htmlFor="city" className="text-sm">City</label>
                         <input
-                            value={userInfo.city}
+                            value={userInfo.city || ''}
                             onChange={(e) => setUserInfo({ ...userInfo, city: e.target.value })}
                             id="city" type="text" placeholder="" className="w-full rounded-md focus:ring ring-primary dark:border-gray-700 dark:text-gray-900" />
                     </div>
                     <div className="col-span-full sm:col-span-2">
                         <label htmlFor="state" className="text-sm">State / Province</label>
                         <input
-                            value={userInfo.state}
+                            value={userInfo.state || ''}
                             onChange={(e) => setUserInfo({ ...userInfo, state: e.target.value })}
                             id="state" type="text" placeholder="" className="w-full rounded-md focus:ring ring-primary dark:border-gray-700 dark:text-gray-900" />
                     </div>
                     <div className="col-span-full sm:col-span-2">
                         <label htmlFor="zip" className="text-sm">ZIP / Postal</label>
                         <input
-                            value={userInfo.zip}
+                            value={userInfo.zip || ''}
                             onChange={(e) => setUserInfo({ ...userInfo, zip: e.target.value })}
                             id="zip" type="text" placeholder="" className="w-full rounded-md focus:ring ring-primary dark:border-gray-700 dark:text-gray-900" />
                     </div>
                     <div className="col-span-full">
                         <label htmlFor="bio" className="text-sm">Bio</label>
                         <textarea
-                            value={userInfo.bio}
+                            value={userInfo.bio || ''}
                             onChange={(e) => setUserInfo({ ...userInfo, bio: e.target.value })}
                             id="bio" placeholder="" className="w-full rounded-md focus:ring ring-primary dark:border-gray-700 dark:text-gray-900"></textarea>
                     </div>

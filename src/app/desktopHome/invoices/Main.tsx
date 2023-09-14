@@ -129,8 +129,9 @@ const Main = () => {
                                                 setCurrentInvoiceId(invoice?.id)
                                             }} className='font-semibold border border-desktopPrimary px-3  py-1.5 rounded'>Comment</button>
                                             <button onClick={() => {
-                                                updateInvoice('', "CONFIRMED")
                                                 setCurrentInvoiceId(invoice?.id)
+                                                updateInvoice('', "CONFIRMED")
+
                                             }} className='font-semibold border border-desktopPrimary px-3  py-1.5 rounded'>Confirm</button>
 
 

@@ -5189,7 +5189,7 @@ export type Category = {
   hasChildCategory: Array<Category>;
   hasChildCategoryAggregate?: Maybe<CategoryCategoryHasChildCategoryAggregationSelection>;
   hasChildCategoryConnection: CategoryHasChildCategoryConnection;
-  hasProduct?: Maybe<Product>;
+  hasProduct: Array<Product>;
   hasProductAggregate?: Maybe<CategoryProductHasProductAggregationSelection>;
   hasProductConnection: CategoryHasProductConnection;
   hasService: Array<Service>;
@@ -5429,14 +5429,14 @@ export type CategoryCategoryHasChildUpdateFieldInput = {
 export type CategoryConnectInput = {
   categoryHasChild?: InputMaybe<Array<CategoryCategoryHasChildConnectFieldInput>>;
   hasChildCategory?: InputMaybe<Array<CategoryHasChildCategoryConnectFieldInput>>;
-  hasProduct?: InputMaybe<CategoryHasProductConnectFieldInput>;
+  hasProduct?: InputMaybe<Array<CategoryHasProductConnectFieldInput>>;
   hasService?: InputMaybe<Array<CategoryHasServiceConnectFieldInput>>;
 };
 
 export type CategoryConnectOrCreateInput = {
   categoryHasChild?: InputMaybe<Array<CategoryCategoryHasChildConnectOrCreateFieldInput>>;
   hasChildCategory?: InputMaybe<Array<CategoryHasChildCategoryConnectOrCreateFieldInput>>;
-  hasProduct?: InputMaybe<CategoryHasProductConnectOrCreateFieldInput>;
+  hasProduct?: InputMaybe<Array<CategoryHasProductConnectOrCreateFieldInput>>;
   hasService?: InputMaybe<Array<CategoryHasServiceConnectOrCreateFieldInput>>;
 };
 
@@ -5460,14 +5460,14 @@ export type CategoryCreateInput = {
 export type CategoryDeleteInput = {
   categoryHasChild?: InputMaybe<Array<CategoryCategoryHasChildDeleteFieldInput>>;
   hasChildCategory?: InputMaybe<Array<CategoryHasChildCategoryDeleteFieldInput>>;
-  hasProduct?: InputMaybe<CategoryHasProductDeleteFieldInput>;
+  hasProduct?: InputMaybe<Array<CategoryHasProductDeleteFieldInput>>;
   hasService?: InputMaybe<Array<CategoryHasServiceDeleteFieldInput>>;
 };
 
 export type CategoryDisconnectInput = {
   categoryHasChild?: InputMaybe<Array<CategoryCategoryHasChildDisconnectFieldInput>>;
   hasChildCategory?: InputMaybe<Array<CategoryHasChildCategoryDisconnectFieldInput>>;
-  hasProduct?: InputMaybe<CategoryHasProductDisconnectFieldInput>;
+  hasProduct?: InputMaybe<Array<CategoryHasProductDisconnectFieldInput>>;
   hasService?: InputMaybe<Array<CategoryHasServiceDisconnectFieldInput>>;
 };
 
@@ -5597,7 +5597,7 @@ export type CategoryHasProductAggregateInput = {
 };
 
 export type CategoryHasProductConnectFieldInput = {
-  connect?: InputMaybe<ProductConnectInput>;
+  connect?: InputMaybe<Array<ProductConnectInput>>;
   /** Whether or not to overwrite any matching relationship with the new properties. Will default to `false` in 4.0.0. */
   overwrite?: Scalars['Boolean']['input'];
   where?: InputMaybe<ProductConnectWhere>;
@@ -5645,9 +5645,9 @@ export type CategoryHasProductDisconnectFieldInput = {
 };
 
 export type CategoryHasProductFieldInput = {
-  connect?: InputMaybe<CategoryHasProductConnectFieldInput>;
-  connectOrCreate?: InputMaybe<CategoryHasProductConnectOrCreateFieldInput>;
-  create?: InputMaybe<CategoryHasProductCreateFieldInput>;
+  connect?: InputMaybe<Array<CategoryHasProductConnectFieldInput>>;
+  connectOrCreate?: InputMaybe<Array<CategoryHasProductConnectOrCreateFieldInput>>;
+  create?: InputMaybe<Array<CategoryHasProductCreateFieldInput>>;
 };
 
 export type CategoryHasProductNodeAggregationWhereInput = {
@@ -5802,11 +5802,11 @@ export type CategoryHasProductUpdateConnectionInput = {
 };
 
 export type CategoryHasProductUpdateFieldInput = {
-  connect?: InputMaybe<CategoryHasProductConnectFieldInput>;
-  connectOrCreate?: InputMaybe<CategoryHasProductConnectOrCreateFieldInput>;
-  create?: InputMaybe<CategoryHasProductCreateFieldInput>;
-  delete?: InputMaybe<CategoryHasProductDeleteFieldInput>;
-  disconnect?: InputMaybe<CategoryHasProductDisconnectFieldInput>;
+  connect?: InputMaybe<Array<CategoryHasProductConnectFieldInput>>;
+  connectOrCreate?: InputMaybe<Array<CategoryHasProductConnectOrCreateFieldInput>>;
+  create?: InputMaybe<Array<CategoryHasProductCreateFieldInput>>;
+  delete?: InputMaybe<Array<CategoryHasProductDeleteFieldInput>>;
+  disconnect?: InputMaybe<Array<CategoryHasProductDisconnectFieldInput>>;
   update?: InputMaybe<CategoryHasProductUpdateConnectionInput>;
   where?: InputMaybe<CategoryHasProductConnectionWhere>;
 };
@@ -6043,7 +6043,7 @@ export type CategoryProductHasProductNodeAggregateSelection = {
 export type CategoryRelationInput = {
   categoryHasChild?: InputMaybe<Array<CategoryCategoryHasChildCreateFieldInput>>;
   hasChildCategory?: InputMaybe<Array<CategoryHasChildCategoryCreateFieldInput>>;
-  hasProduct?: InputMaybe<CategoryHasProductCreateFieldInput>;
+  hasProduct?: InputMaybe<Array<CategoryHasProductCreateFieldInput>>;
   hasService?: InputMaybe<Array<CategoryHasServiceCreateFieldInput>>;
 };
 
@@ -6086,7 +6086,7 @@ export type CategoryUniqueWhere = {
 export type CategoryUpdateInput = {
   categoryHasChild?: InputMaybe<Array<CategoryCategoryHasChildUpdateFieldInput>>;
   hasChildCategory?: InputMaybe<Array<CategoryHasChildCategoryUpdateFieldInput>>;
-  hasProduct?: InputMaybe<CategoryHasProductUpdateFieldInput>;
+  hasProduct?: InputMaybe<Array<CategoryHasProductUpdateFieldInput>>;
   hasService?: InputMaybe<Array<CategoryHasServiceUpdateFieldInput>>;
   name?: InputMaybe<Scalars['String']['input']>;
   type?: InputMaybe<CategoryTypeEnum>;
@@ -6130,11 +6130,23 @@ export type CategoryWhere = {
   hasChildCategory_SINGLE?: InputMaybe<CategoryWhere>;
   /** Return Categories where some of the related Categories match this filter */
   hasChildCategory_SOME?: InputMaybe<CategoryWhere>;
-  hasProduct?: InputMaybe<ProductWhere>;
   hasProductAggregate?: InputMaybe<CategoryHasProductAggregateInput>;
-  hasProductConnection?: InputMaybe<CategoryHasProductConnectionWhere>;
-  hasProductConnection_NOT?: InputMaybe<CategoryHasProductConnectionWhere>;
-  hasProduct_NOT?: InputMaybe<ProductWhere>;
+  /** Return Categories where all of the related CategoryHasProductConnections match this filter */
+  hasProductConnection_ALL?: InputMaybe<CategoryHasProductConnectionWhere>;
+  /** Return Categories where none of the related CategoryHasProductConnections match this filter */
+  hasProductConnection_NONE?: InputMaybe<CategoryHasProductConnectionWhere>;
+  /** Return Categories where one of the related CategoryHasProductConnections match this filter */
+  hasProductConnection_SINGLE?: InputMaybe<CategoryHasProductConnectionWhere>;
+  /** Return Categories where some of the related CategoryHasProductConnections match this filter */
+  hasProductConnection_SOME?: InputMaybe<CategoryHasProductConnectionWhere>;
+  /** Return Categories where all of the related Products match this filter */
+  hasProduct_ALL?: InputMaybe<ProductWhere>;
+  /** Return Categories where none of the related Products match this filter */
+  hasProduct_NONE?: InputMaybe<ProductWhere>;
+  /** Return Categories where one of the related Products match this filter */
+  hasProduct_SINGLE?: InputMaybe<ProductWhere>;
+  /** Return Categories where some of the related Products match this filter */
+  hasProduct_SOME?: InputMaybe<ProductWhere>;
   hasServiceAggregate?: InputMaybe<CategoryHasServiceAggregateInput>;
   /** Return Categories where all of the related CategoryHasServiceConnections match this filter */
   hasServiceConnection_ALL?: InputMaybe<CategoryHasServiceConnectionWhere>;
