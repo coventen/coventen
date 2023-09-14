@@ -77,8 +77,8 @@ const Main = () => {
                             <div>
                                 <div className="inline-block align-bottom mr-5">
                                     <span className="text-2xl leading-none align-baseline">$</span>
-                                    <span className="font-bold text-5xl leading-none align-baseline">59</span>
-                                    <span className="text-2xl leading-none align-baseline">.99</span>
+                                    <span className="font-bold text-5xl leading-none align-baseline">{data?.products[0].price}</span>
+
                                 </div>
                                 <div onClick={() => setIsModalOpen(true)} className="inline-block align-bottom">
                                     <Button title='Inquiry' />

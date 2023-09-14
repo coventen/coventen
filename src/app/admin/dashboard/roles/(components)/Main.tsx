@@ -11,6 +11,7 @@ import AuthConfig from '@/firebase/oauth.config';
 const GET_EMPLOYEES = `
 query Users($where: UserWhere) {
     users(where: $where) {
+        id
       name
       email
       status
@@ -179,6 +180,7 @@ const Main = () => {
     }
 
 
+    console.log(employeeList, 'from roles')
 
 
     if (employeeLoading || roleLoading || updateEmployeeState.loading || createRoleStatus.loading) return <Loading />

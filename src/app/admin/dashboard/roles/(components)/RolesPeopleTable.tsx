@@ -80,7 +80,9 @@ const RolesPeopleTable = ({ employeeList, updateEmployeeStatus }: IRolesPeopleTa
                                                 </button>
 
                                                 :
-                                                null
+                                                <button onClick={(e) => handleStatusChange(item.id, "APPROVED")} className="text-green-700 bg-green-200 px-3 py-2 rounded-md">
+                                                    Approve
+                                                </button>
                                     }
 
 
