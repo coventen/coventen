@@ -26,6 +26,9 @@ query Query($where: ProjectWhere, $options: ProjectOptions) {
         title
         description
         files
+        moduleticketFor {
+            ticket
+          }
       }
     }
  }

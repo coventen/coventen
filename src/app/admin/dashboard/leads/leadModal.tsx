@@ -16,7 +16,7 @@ import AuthConfig from '@/firebase/oauth.config';
 
 
 //component
-function LeadsModal({ setUserDetails, userDetails, data, setIsModalOpen, isModalOpen, updateLeads, loading }: IUserModalProps) {
+function LeadsModal({ data, setIsModalOpen, isModalOpen, updateLeads, loading }: IUserModalProps) {
 
 
     console.log(data, 'this is lead data')
@@ -99,9 +99,8 @@ function LeadsModal({ setUserDetails, userDetails, data, setIsModalOpen, isModal
                                         <input
                                             type="text"
                                             name='address'
-                                            onChange={
-                                                (e) => setUserDetails({ ...userDetails, address: e.target.value })}
-                                            value={userDetails?.address}
+                                            readOnly
+                                            value={data?.vendorAddress}
                                             className="mt-1 px-4 py-2 border border-gray-200 rounded-md w-full"
                                         />
                                     </div>
@@ -112,6 +111,8 @@ function LeadsModal({ setUserDetails, userDetails, data, setIsModalOpen, isModal
                                         <input
                                             name='duration'
                                             type="text"
+                                            readOnly
+                                            defaultValue={data?.duration}
                                             className="mt-1 px-4 py-2 border border-gray-200 rounded-md w-full"
                                         />
                                     </div>
@@ -122,6 +123,8 @@ function LeadsModal({ setUserDetails, userDetails, data, setIsModalOpen, isModal
                                         <input
                                             type="number"
                                             name='price'
+                                            readOnly
+                                            defaultValue={data?.price}
                                             className="mt-1 px-4 py-2 border border-gray-200 rounded-md w-full"
                                         />
                                     </div>
@@ -130,11 +133,14 @@ function LeadsModal({ setUserDetails, userDetails, data, setIsModalOpen, isModal
 
                                     <div className="mt-10">
                                         <button
-                                            // onClick={() => updateUser(data?.email || "", 'APPROVED')}
+                                            onClick={() => updateLeads(data?.id)}
                                             type="submit"
-                                            className="px-4 py-2 bg-primary text-white rounded-md hover:bg-blue-600"
+                                            disabled={data.status === "COMPLETED" || data.status === "PENDING"}
+                                            className={`
+                                            ${data.status === "COMPLETED" || data.status === "PENDING" ? 'bg-gray-700 text-white' : 'bg-primary text-white'}
+                                            px-4 py-2 bg-primary text-white rounded-md `}
                                         >
-                                            {loading ? 'updating' : 'Accept'}
+                                            {loading ? 'updating' : 'Resolve'}
                                         </button>
                                         <button
                                             type="button"

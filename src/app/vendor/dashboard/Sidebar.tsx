@@ -75,7 +75,7 @@ const Sidebar = ({
     }, [user?.email, authLoading])
 
 
-
+    console.log("SERVICE_PROVIDER00000000", data?.users[0]?.user_type)
 
     const getUserAndAuthenticate = async (email: string) => {
         const { data, error } = await getDataFn({
@@ -93,6 +93,7 @@ const Sidebar = ({
             setAccessibleNavItems(filteredItems)
         }
         else if (data?.users[0]?.user_type === "SERVICE_PROVIDER") {
+            console.log("SERVICE_PROVIDER", data?.users[0]?.user_type)
             setAccessibleNavItems(controlledNavItems)
         } else {
             setAccessibleNavItems([])

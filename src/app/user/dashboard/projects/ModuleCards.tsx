@@ -69,7 +69,7 @@ const ModuleCards = ({ data }: { data: Module[] }) => {
                                         <div className="">
                                             <div className="pb-10 relative">
                                                 <h5 className="text-desktopPrimary font-bold text-md  mb-2">
-                                                    Ticket Id: #456389
+                                                    Ticket Id: {module?.moduleticketFor?.ticket}
                                                 </h5>
                                                 <h5 className="text-desktopText font-semibold text-sm  mb-3">
                                                     {module?.title}
