@@ -112,7 +112,7 @@ const Main = () => {
         const { data } = await updateEmployeeStatusFn({
             variables: {
                 where: {
-                    id: id
+                    id: id || 'no id'
                 },
                 update: {
                     status: status
