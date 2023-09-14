@@ -3,7 +3,8 @@
 
 
 import { useGqlClient } from '@/hooks/UseGqlClient';
-import { useMutation, useQuery } from 'graphql-hooks';
+import { useManualQuery, useMutation, useQuery } from 'graphql-hooks';
+import { useEffect, useState } from 'react';
 import Loading from '@/app/loading';
 import Error from '@/components/Error';
 import { toast } from 'react-hot-toast';
@@ -14,6 +15,11 @@ import PageTabs from './PageTabs';
 type subCategory = {
     name: string,
 }
+
+
+
+type categoryType = 'PRODUCT' | 'SOLUTION' | 'SERVICE' | 'All'
+
 
 export interface addVariables {
     type: string,
@@ -34,8 +40,8 @@ mutation CreateCategories($input: [CategoryCreateInput!]!) {
 `
 
 const GET_ALL = `
-query Categories {
-    categories {
+query Categories($where: CategoryWhere) {
+    categories(where: $where) {
         id
       name
       type
@@ -54,16 +60,36 @@ mutation DeleteCategories($where: CategoryWhere) {
 
 const Main = () => {
 
+    // states
+    const [selectedType, setSelectedType] = useState<categoryType>('All')
+    const [categoryData, setCategoryData] = useState<any[]>([])
 
     // HOOKS
     const client = useGqlClient()
 
     // QUERY
-    const { data: categoryData, loading, error, refetch } = useQuery(GET_ALL, { client })
+    // const { data: categoryData, loading, error, refetch } = useManualQuery(GET_ALL, { client })
+    const [getAllDataFn, dataState] = useManualQuery(GET_ALL, { client })
 
     // MUTATION
     const [addNewFn, addNewState] = useMutation(ADD_NEW, { client })
     const [deleteFn, deleteState] = useMutation(DELETE, { client, })
+
+
+
+
+
+
+    useEffect(() => {
+        if (selectedType === 'All') {
+            getCategoryData()
+        }
+        else {
+            getCategoryData([selectedType])
+        }
+    }, [selectedType])
+
+
 
 
 
@@ -96,7 +122,7 @@ const Main = () => {
 
             if (data.createCategories.info.nodesCreated) {
                 toast.success('Added successfully')
-                refetch()
+                getCategoryData()
             }
         } else {
             const { data } = await addNewFn({
@@ -112,7 +138,7 @@ const Main = () => {
 
             if (data.createCategories.info.nodesCreated) {
                 toast.success('Added successfully')
-                refetch()
+                getCategoryData()
             }
         }
 
@@ -129,21 +155,34 @@ const Main = () => {
 
         if (data.deleteCategories.nodesDeleted) {
             toast.error('deleted successfully')
-            refetch()
+            getCategoryData()
+        }
+    }
+
+
+    const getCategoryData = async (type: string[] = ["PRODUCT", "SERVICE", "SOLUTION"]) => {
+        const { data } = await getAllDataFn({
+            variables: {
+                where: {
+                    type_IN: type
+                }
+            }
+        })
+        if (data.categories?.length) {
+            setCategoryData(data.categories)
         }
     }
 
 
 
-
-    if (loading || addNewState.loading || deleteState.loading) return <Loading />
-    if (error || addNewState.error) return <Error />
+    if (dataState.loading || addNewState.loading || deleteState.loading) return <Loading />
+    if (dataState.error || addNewState.error) return <Error />
 
 
 
     return (
         <>
-            <PageTabs categoryData={categoryData?.categories} addNewItem={addNewItem} deleteItem={deleteItem} />
+            <PageTabs categoryData={categoryData} addNewItem={addNewItem} deleteItem={deleteItem} selectedType={selectedType} setSelectedType={setSelectedType} />
         </>
     );
 };

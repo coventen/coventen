@@ -21,13 +21,12 @@ mutation UpdateCategories($where: CategoryWhere, $update: CategoryUpdateInput) {
   }
 `
 const GET_DATA = `
-query Categories {
-    categories {
+query Categories($where: CategoryWhere) {
+    categories(where: $where) {
       name
-      type
-      hasChildCategory {
+
+      categoryHasChild {
         name
-        type
       }
     }
   }
@@ -38,8 +37,8 @@ const Main = () => {
 
     // states
     const [currentData, setCurrentData] = React.useState({
-        title: '',
-        image: ''
+        name: '',
+        subCategory: [],
 
     })
 
@@ -59,18 +58,19 @@ const Main = () => {
 
     // // action on change
     useEffect(() => {
-        if (previoustermsData?.heroes?.length) {
-            const { title, image } = previoustermsData.heroes[0]
+        if (previoustermsData?.categories?.length) {
+            const { name, categoryHasChild } = previoustermsData.categories[0]
 
             setCurrentData({
-                title,
-                image
+                name,
+                subCategory: categoryHasChild
+
             })
         }
 
 
 
-    }, [previoustermsData?.heroes?.length])
+    }, [previoustermsData?.categories?.length])
 
 
 
@@ -96,7 +96,7 @@ const Main = () => {
         }
     }
 
-    console.log(previoustermsData, ' this is current data', params?.id)
+
 
 
     if (loading || updateState.loading) return <Loading />
@@ -106,7 +106,7 @@ const Main = () => {
         <>
             <DataFrom
                 setCurrentData={setCurrentData}
-                currentData={currentData}
+                currentData={previoustermsData?.categories}
                 updateItem={updateItem}
             />
 
