@@ -32,10 +32,10 @@ interface Props {
 
 const GET_CATEGORY = `
 query Categories($where: CategoryWhere) {
-    categories {
+    categories(where: $where) {
       name
       type
-      hasChildCategory(where: $where) {
+      categoryHasChild {
         name
         type
       }
@@ -169,7 +169,7 @@ export default function Sidebar({
                                                             <Disclosure.Panel className="pt-6">
 
                                                                 <div className="space-y-6">
-                                                                    {section?.hasChildCategory?.map(
+                                                                    {section?.categoryHasChild?.map(
                                                                         (option: any, optionIdx: number) => (
                                                                             <Link
                                                                                 href={`/products?query=${option?.id}`}
@@ -253,7 +253,7 @@ export default function Sidebar({
                                                     <Disclosure.Panel className="pt-6">
 
                                                         <div className="space-y-4">
-                                                            {section?.hasChildCategory?.map(
+                                                            {section?.categoryHasChild?.map(
                                                                 (option: any, optionIdx: number) => (
                                                                     <Link
                                                                         href={`/products?query=${option?.id}`}

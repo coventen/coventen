@@ -17,6 +17,7 @@ const AddNewPage = ({ addNewItem }: any) => {
     // states
     const [title, setTitle] = useState<any>('')
     const [image, setImage] = useState<any>('')
+    const [imageUploading, setImageUploading] = useState<boolean>(false)
 
 
     // hooks
@@ -27,14 +28,19 @@ const AddNewPage = ({ addNewItem }: any) => {
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
-
+        setImageUploading(true)
         const imageLink = await uploadFile(image, `Hero-${uuid()}`, 'hero_images')
-        const inputData = {
-            title: title.toLowerCase(),
-            image: imageLink as string
+
+        if (imageLink) {
+            setImageUploading(false)
+            const inputData = {
+                title: title.toLowerCase(),
+                image: imageLink as string
+            }
+            addNewItem(inputData)
         }
 
-        addNewItem(inputData)
+
     }
 
 
@@ -84,7 +90,9 @@ const AddNewPage = ({ addNewItem }: any) => {
                     </div>
                     <div className='mt-6 '>
 
-                        <button className='px-4 py-1.5 bg-primary text-white font-semibold'>Add New </button>
+                        <button className='px-4 py-1.5 bg-primary text-white font-semibold'>
+                            {imageUploading ? 'loading' : 'Add New'}
+                        </button>
                     </div>
                 </form>
             </div>
