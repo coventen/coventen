@@ -75,36 +75,67 @@ const AssignRole: React.FC<ModalProps> = ({
     // initializing  assignRole mutation
     const assignRoleToEmployee = async (e: any) => {
         e.preventDefault()
-
-        if (userData?.hasRole?.id) {
+        console.log(userData)
+        console.log(userData?.hasRole?.id)
+        const findUser = userData?.users.find((user: any) => user.email === employeeEmail)
+        if (findUser?.hasRole?.id) {
             const removeRole = await removePreviousRole(userData?.hasRole?.id)
-        }
+            if (removeRole) {
+                console.log(removeRole, 'this i sremove role')
+                const { data } = await assignRoleFn({
+                    variables: {
+                        "where": {
+                            "email": employeeEmail
+                        },
+                        "update": {
+                            "hasRole": {
+                                "connect": {
+                                    "where": {
+                                        "node": {
+                                            "id": role
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
 
-        const { data } = await assignRoleFn({
-            variables: {
-                "where": {
-                    "email": employeeEmail
-                },
-                "update": {
-                    "hasRole": {
-                        "connect": {
-                            "where": {
-                                "node": {
-                                    "id": role
+
+                })
+
+                if (data?.updateUsers?.info?.relationshipsCreated) {
+                    handleClose()
+                    toast.success('Role assigned successfully')
+                }
+            }
+        } else {
+            const { data } = await assignRoleFn({
+                variables: {
+                    "where": {
+                        "email": employeeEmail
+                    },
+                    "update": {
+                        "hasRole": {
+                            "connect": {
+                                "where": {
+                                    "node": {
+                                        "id": role
+                                    }
                                 }
                             }
                         }
                     }
                 }
+
+
+            })
+
+            if (data?.updateUsers?.info?.relationshipsCreated) {
+                handleClose()
+                toast.success('Role assigned successfully')
             }
-
-
-        })
-
-        if (data?.updateUsers?.info?.relationshipsCreated) {
-            handleClose()
-            toast.success('Role assigned successfully')
         }
+
 
     }
 
@@ -230,7 +261,7 @@ const AssignRole: React.FC<ModalProps> = ({
                                     type="submit"
                                     className="inline-flex justify-center ml-3 px-4 py-2 text-sm font-medium text-white bg-primary border border-transparent rounded-md hover:primary focus:outline-none focus:ring-2 focus:ring-offset-2 "
                                 >
-                                    Assign
+                                    {assignRoleState.loading ? 'Assigning...' : 'Assign'}
                                 </button>
                             </div>
                         </form>

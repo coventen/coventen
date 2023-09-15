@@ -1,7 +1,7 @@
 
 'use client';
 
-
+import React, { useState } from 'react';
 import { useGqlClient } from '@/hooks/UseGqlClient';
 import { useMutation, useQuery } from 'graphql-hooks';
 import Loading from '@/app/loading';
@@ -49,6 +49,7 @@ mutation DeleteHeroes($where: HeroWhere) {
 
 const Main = () => {
     // STATES
+
 
     // HOOKS
     const client = useGqlClient()

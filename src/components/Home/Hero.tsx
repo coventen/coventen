@@ -1,6 +1,6 @@
 'use client'
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, Scrollbar, A11y, Autoplay, Grid } from 'swiper/modules';
+import { Navigation, Pagination, Scrollbar, A11y, Autoplay, Grid, EffectCreative } from 'swiper/modules';
 import Link from 'next/link';
 import HeroCard from './HeroCard';
 import SearchInput from './SearchInput';
@@ -17,9 +17,20 @@ export default function Hero({ heroData }: any) {
         <div className="w-full ">
             <Swiper
                 className="w-full  "
-                modules={[Navigation, Pagination, A11y, Autoplay]}
+                modules={[Navigation, Pagination, A11y, Autoplay, EffectCreative]}
                 spaceBetween={10}
                 loop={true}
+                grabCursor={true}
+                // effect={'creative'}
+                // creativeEffect={{
+                //     prev: {
+                //         shadow: true,
+                //         translate: [0, 0, -400],
+                //     },
+                //     next: {
+                //         translate: ['100%', 0, 0],
+                //     },
+                // }}
                 autoplay={{
                     delay: 30500,
                     disableOnInteraction: false,
@@ -54,16 +65,19 @@ export default function Hero({ heroData }: any) {
                                     backgroundSize: 'cover',
                                     backgroundPosition: 'center',
                                 }}
-                                className="relative h-screen  lg:min-h-[110vh] pt-14 lg:pt-0">
+                                className=" h-screen  lg:min-h-[110vh] pt-14 lg:pt-0">
 
                                 {/* <img className="absolute inset-0 w-full h-full object-cover object-top" src={item?.image} width="400" height="500" alt="hero background image" /> */}
                                 {/* <div aria-hidden="true" className="absolute inset-0 w-full h-full bg-gray-800 bg-opacity-30 backdrop-blur-[0px] bg-gradient-to-b from-black/90 to-black/10"></div> */}
-                                <div className="relative container m-auto px-6 md:px-12 lg:px-6">
+                                <div className=" container m-auto px-6 md:px-12 lg:px-6">
                                     <div className="mb-12 pt-7 space-y-16 md:mb-20 md:pt-40 lg:w-8/12 lg:mx-auto">
                                         <h1 className="text-white text-center text-2xl font-bold sm:text-4xl md:text-5xl lg:leading-normal ">
                                             {item?.title}
                                         </h1>
-                                        <SearchInput />
+                                        <div className=''>
+                                            <SearchInput />
+                                        </div>
+
                                     </div>
 
                                 </div>
