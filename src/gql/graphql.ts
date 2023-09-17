@@ -1483,6 +1483,21 @@ export type AdminCreatedInvoiceNodeAggregationWhereInput = {
   taxType_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
   taxType_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
   taxType_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  ticket_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  ticket_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  ticket_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  ticket_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  ticket_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  ticket_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  ticket_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  ticket_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  ticket_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  ticket_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  ticket_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  ticket_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  ticket_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  ticket_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  ticket_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
   totalPrice_AVERAGE_EQUAL?: InputMaybe<Scalars['Float']['input']>;
   totalPrice_AVERAGE_GT?: InputMaybe<Scalars['Float']['input']>;
   totalPrice_AVERAGE_GTE?: InputMaybe<Scalars['Float']['input']>;
@@ -3968,6 +3983,7 @@ export type AdminInvoiceCreatedInvoiceNodeAggregateSelection = {
   priceWithTax: IntAggregateSelectionNullable;
   taxRate: IntAggregateSelectionNullable;
   taxType: StringAggregateSelectionNullable;
+  ticket: StringAggregateSelectionNullable;
   totalPrice: IntAggregateSelectionNullable;
 };
 
@@ -4166,6 +4182,21 @@ export type AdminInvoiceHasNodeAggregationWhereInput = {
   taxType_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
   taxType_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
   taxType_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  ticket_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  ticket_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  ticket_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  ticket_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  ticket_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  ticket_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  ticket_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  ticket_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  ticket_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  ticket_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  ticket_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  ticket_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  ticket_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  ticket_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  ticket_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
   totalPrice_AVERAGE_EQUAL?: InputMaybe<Scalars['Float']['input']>;
   totalPrice_AVERAGE_GT?: InputMaybe<Scalars['Float']['input']>;
   totalPrice_AVERAGE_GTE?: InputMaybe<Scalars['Float']['input']>;
@@ -4225,6 +4256,7 @@ export type AdminInvoiceInvoiceHasNodeAggregateSelection = {
   priceWithTax: IntAggregateSelectionNullable;
   taxRate: IntAggregateSelectionNullable;
   taxType: StringAggregateSelectionNullable;
+  ticket: StringAggregateSelectionNullable;
   totalPrice: IntAggregateSelectionNullable;
 };
 
@@ -7745,6 +7777,21 @@ export type ClientInvoiceHasNodeAggregationWhereInput = {
   taxType_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
   taxType_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
   taxType_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  ticket_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  ticket_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  ticket_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  ticket_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  ticket_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  ticket_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  ticket_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  ticket_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  ticket_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  ticket_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  ticket_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  ticket_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  ticket_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  ticket_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  ticket_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
   totalPrice_AVERAGE_EQUAL?: InputMaybe<Scalars['Float']['input']>;
   totalPrice_AVERAGE_GT?: InputMaybe<Scalars['Float']['input']>;
   totalPrice_AVERAGE_GTE?: InputMaybe<Scalars['Float']['input']>;
@@ -7804,6 +7851,7 @@ export type ClientInvoiceInvoiceHasNodeAggregateSelection = {
   priceWithTax: IntAggregateSelectionNullable;
   taxRate: IntAggregateSelectionNullable;
   taxType: StringAggregateSelectionNullable;
+  ticket: StringAggregateSelectionNullable;
   totalPrice: IntAggregateSelectionNullable;
 };
 
@@ -14219,6 +14267,7 @@ export type Invoice = {
   status?: Maybe<InvoiceStatus>;
   taxRate?: Maybe<Scalars['Int']['output']>;
   taxType?: Maybe<Scalars['String']['output']>;
+  ticket?: Maybe<Scalars['String']['output']>;
   totalPrice?: Maybe<Scalars['Int']['output']>;
   vendorCreated?: Maybe<Vendor>;
   vendorCreatedAggregate?: Maybe<InvoiceVendorVendorCreatedAggregationSelection>;
@@ -14461,6 +14510,7 @@ export type InvoiceAggregateSelection = {
   priceWithTax: IntAggregateSelectionNullable;
   taxRate: IntAggregateSelectionNullable;
   taxType: StringAggregateSelectionNullable;
+  ticket: StringAggregateSelectionNullable;
   totalPrice: IntAggregateSelectionNullable;
 };
 
@@ -14514,6 +14564,7 @@ export type InvoiceCreateInput = {
   status?: InputMaybe<InvoiceStatus>;
   taxRate?: InputMaybe<Scalars['Int']['input']>;
   taxType?: InputMaybe<Scalars['String']['input']>;
+  ticket?: InputMaybe<Scalars['String']['input']>;
   totalPrice?: InputMaybe<Scalars['Int']['input']>;
   vendorCreated?: InputMaybe<InvoiceVendorCreatedFieldInput>;
 };
@@ -14881,6 +14932,7 @@ export type InvoiceOnCreateInput = {
   status?: InputMaybe<InvoiceStatus>;
   taxRate?: InputMaybe<Scalars['Int']['input']>;
   taxType?: InputMaybe<Scalars['String']['input']>;
+  ticket?: InputMaybe<Scalars['String']['input']>;
   totalPrice?: InputMaybe<Scalars['Int']['input']>;
 };
 
@@ -14925,6 +14977,7 @@ export type InvoiceSort = {
   status?: InputMaybe<SortDirection>;
   taxRate?: InputMaybe<SortDirection>;
   taxType?: InputMaybe<SortDirection>;
+  ticket?: InputMaybe<SortDirection>;
   totalPrice?: InputMaybe<SortDirection>;
 };
 
@@ -14957,6 +15010,7 @@ export type InvoiceUpdateInput = {
   taxRate_DECREMENT?: InputMaybe<Scalars['Int']['input']>;
   taxRate_INCREMENT?: InputMaybe<Scalars['Int']['input']>;
   taxType?: InputMaybe<Scalars['String']['input']>;
+  ticket?: InputMaybe<Scalars['String']['input']>;
   totalPrice?: InputMaybe<Scalars['Int']['input']>;
   totalPrice_DECREMENT?: InputMaybe<Scalars['Int']['input']>;
   totalPrice_INCREMENT?: InputMaybe<Scalars['Int']['input']>;
@@ -15186,6 +15240,11 @@ export type InvoiceWhere = {
   taxType_ENDS_WITH?: InputMaybe<Scalars['String']['input']>;
   taxType_IN?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   taxType_STARTS_WITH?: InputMaybe<Scalars['String']['input']>;
+  ticket?: InputMaybe<Scalars['String']['input']>;
+  ticket_CONTAINS?: InputMaybe<Scalars['String']['input']>;
+  ticket_ENDS_WITH?: InputMaybe<Scalars['String']['input']>;
+  ticket_IN?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  ticket_STARTS_WITH?: InputMaybe<Scalars['String']['input']>;
   totalPrice?: InputMaybe<Scalars['Int']['input']>;
   totalPrice_GT?: InputMaybe<Scalars['Int']['input']>;
   totalPrice_GTE?: InputMaybe<Scalars['Int']['input']>;
@@ -23228,6 +23287,21 @@ export type PurchaseInvoiceHasNodeAggregationWhereInput = {
   taxType_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
   taxType_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
   taxType_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  ticket_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  ticket_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  ticket_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  ticket_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  ticket_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  ticket_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  ticket_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  ticket_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  ticket_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  ticket_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  ticket_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  ticket_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  ticket_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  ticket_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  ticket_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
   totalPrice_AVERAGE_EQUAL?: InputMaybe<Scalars['Float']['input']>;
   totalPrice_AVERAGE_GT?: InputMaybe<Scalars['Float']['input']>;
   totalPrice_AVERAGE_GTE?: InputMaybe<Scalars['Float']['input']>;
@@ -23287,6 +23361,7 @@ export type PurchaseInvoiceInvoiceHasNodeAggregateSelection = {
   priceWithTax: IntAggregateSelectionNullable;
   taxRate: IntAggregateSelectionNullable;
   taxType: StringAggregateSelectionNullable;
+  ticket: StringAggregateSelectionNullable;
   totalPrice: IntAggregateSelectionNullable;
 };
 
@@ -30753,6 +30828,21 @@ export type VendorCreatedInvoiceNodeAggregationWhereInput = {
   taxType_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
   taxType_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
   taxType_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  ticket_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  ticket_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  ticket_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  ticket_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  ticket_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  ticket_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  ticket_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  ticket_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  ticket_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  ticket_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  ticket_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  ticket_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  ticket_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  ticket_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  ticket_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
   totalPrice_AVERAGE_EQUAL?: InputMaybe<Scalars['Float']['input']>;
   totalPrice_AVERAGE_GT?: InputMaybe<Scalars['Float']['input']>;
   totalPrice_AVERAGE_GTE?: InputMaybe<Scalars['Float']['input']>;
@@ -32038,6 +32128,7 @@ export type VendorInvoiceCreatedInvoiceNodeAggregateSelection = {
   priceWithTax: IntAggregateSelectionNullable;
   taxRate: IntAggregateSelectionNullable;
   taxType: StringAggregateSelectionNullable;
+  ticket: StringAggregateSelectionNullable;
   totalPrice: IntAggregateSelectionNullable;
 };
 

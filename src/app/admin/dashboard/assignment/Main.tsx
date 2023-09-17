@@ -144,7 +144,7 @@ const Main = () => {
     }
 
 
-    console.log(ProjectData, 'this is project data')
+
 
 
 

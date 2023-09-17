@@ -22,6 +22,7 @@ const getInvoiceData = async (id: string) => {
                   priceWithTax
                   taxRate
                   taxType
+                  ticket
                   totalPrice
                   hasPurchase {
                     id

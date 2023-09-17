@@ -49,8 +49,8 @@ const InvoicePreview = () => {
                                 {/* <!-- Col --> */}
 
                                 <div className="text-right">
-                                    <h2 className="text-2xl md:text-3xl font-semibold text-gray-800 dark:text-gray-200">Invoice #</h2>
-                                    <span className="mt-1 block text-gray-500">{invoiceData?.id.split('-')[0]}</span>
+                                    <h2 className="text-2xl md:text-3xl font-semibold text-gray-800 dark:text-gray-200">Invoice</h2>
+                                    <span className="mt-1 block text-gray-500">#{invoiceData?.ticket}</span>
 
 
                                 </div>
@@ -61,7 +61,7 @@ const InvoicePreview = () => {
                             {/* <!-- Grid --> */}
                             <div className="mt-8 grid sm:grid-cols-2 gap-3">
                                 <div>
-                                    <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-200">Client Details:</h3>
+                                    <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-200">Invoice For:</h3>
                                     <h3 className="text-base  text-gray-600 dark:text-gray-200">{invoiceData?.hasClient?.userIs?.companyName}</h3>
                                     <address className="mt-1 text-sm not-italic text-gray-500">
                                         {invoiceData?.hasClient?.userIs?.companyEmail}<br />

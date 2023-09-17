@@ -1,7 +1,7 @@
 'use client'
 import React from 'react';
 import { useGqlClient } from '@/hooks/UseGqlClient';
-import { useMutation } from 'graphql-hooks';
+import { useManualQuery, useMutation } from 'graphql-hooks';
 import InvoiceForm from './InvoiceForm';
 
 import { parse } from 'path';
@@ -9,6 +9,8 @@ import { toast } from 'react-hot-toast';
 import { useRouter } from 'next/navigation';
 import createLog from '@/shared/graphQl/mutations/createLog';
 import AuthConfig from '@/firebase/oauth.config';
+import { query } from 'firebase/firestore';
+import { generateUniqueId } from '@/shared/genarateUniqueId';
 
 const CREATE_INVOICE = `
 mutation CreateInvoices($input: [InvoiceCreateInput!]!) {
@@ -20,7 +22,24 @@ mutation CreateInvoices($input: [InvoiceCreateInput!]!) {
     }
   }
 `
+const GET_COUNTER = `
+query 
+Query {
+    counters {
+        invoiceCount
+    }
+  }`
+const UPDATE_COUNTER = `
+mutation UpdateCounters($update: CounterUpdateInput) {
+    updateCounters(update: $update) {
+      counters {
+        invoiceCount
+      }
+    }
+  }
 
+
+  `
 
 
 // component
@@ -33,8 +52,12 @@ const Main = () => {
     const router = useRouter()
 
 
-    // saving  user to database
+    // query
+    const [counterFn, counterState] = useManualQuery(GET_COUNTER, { client })
+
+    // mutations
     const [createInvoiceFn, state] = useMutation(CREATE_INVOICE, { client });
+    const [updateCounterFn, updateState] = useMutation(UPDATE_COUNTER, { client })
 
 
     // calculate total price
@@ -59,7 +82,7 @@ const Main = () => {
 
         const taxRate = parseInt(invoiceData?.taxRate)
         const { totalPriceWithTax, totalPrice } = calculateTotalPrice(purchases, taxRate)
-
+        const ticketId = await generateModuleTicket()
 
         const { data } = await createInvoiceFn({
             variables: {
@@ -68,6 +91,7 @@ const Main = () => {
                         clientName: company,
                         totalPrice: totalPrice,
                         priceWithTax: totalPriceWithTax,
+                        ticket: ticketId,
                         taxRate: taxRate,
                         sentBy: "ADMIN",
                         status: "SENT",
@@ -113,6 +137,33 @@ const Main = () => {
             )
         }
     }
+
+
+
+
+    const generateModuleTicket = async () => {
+        const { data } = await counterFn()
+        const counter = data?.counters[0]
+        console.log('this is ticket from inside')
+        if (counter?.invoiceCount) {
+            const invoiceCount = counter?.invoiceCount + 1
+            const ticket = generateUniqueId("E-", invoiceCount)
+            // updating project counter
+            updateCounterFn({
+                variables: {
+                    update: {
+                        invoiceCount: invoiceCount,
+                    }
+                }
+            })
+
+            console.log('this is ticket from inside', ticket)
+            return ticket
+        }
+        return null
+    }
+
+
 
 
     // rendering

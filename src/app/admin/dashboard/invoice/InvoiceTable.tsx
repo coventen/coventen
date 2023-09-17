@@ -27,20 +27,20 @@ const InvoiceTable = ({ data, deleteInvoice }: ITableItem) => {
             <tbody className="text-gray-600 divide-y">
                 {
                     data && data.map((item, idx) => (
-                        <tr key={item.id} className=''>
+                        <tr key={item?.id} className=''>
                             <td className="pr-6 py-4 whitespace-nowrap">{idx + 1}</td>
                             <td className="pr-6 py-4 whitespace-nowrap">
-                                #{item.id.split('-')[0]}
+                                #{item?.ticket}
                             </td>
                             <td className="pr-6 py-4 whitespace-nowrap">
-                                {item.status}
+                                {item?.status}
                             </td>
-                            <td className="pr-6 py-4 whitespace-nowrap">{item.totalPrice || 0}</td>
+                            <td className="pr-6 py-4 whitespace-nowrap">{item?.totalPrice || 0}</td>
                             <td className="text-right whitespace-nowrap space-x-3">
-                                <Link href={`/admin/dashboard/invoice/preview/${item.id}`} className="py-1.5 px-3 text-gray-600 hover:text-gray-500 duration-150 hover:bg-gray-50 border rounded-lg">
+                                <Link href={`/admin/dashboard/invoice/preview/${item?.id}`} className="py-1.5 px-3 text-gray-600 hover:text-gray-500 duration-150 hover:bg-gray-50 border rounded-lg">
                                     View
                                 </Link>
-                                <button onClick={() => deleteInvoice(item.id)} className="py-1.5 px-3 text-gray-600 hover:text-gray-500 duration-150 hover:bg-gray-50 border rounded-lg">
+                                <button onClick={() => deleteInvoice(item?.id)} className="py-1.5 px-3 text-gray-600 hover:text-gray-500 duration-150 hover:bg-gray-50 border rounded-lg">
                                     Delete
                                 </button>
                             </td>
