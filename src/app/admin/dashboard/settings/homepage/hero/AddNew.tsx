@@ -3,6 +3,7 @@
 import React, { Fragment, useState } from 'react';
 import { v4 as uuid } from "uuid"
 import HandleFileUpload from '@/shared/HandleFileUpload';
+import Loading from '@/app/loading';
 
 
 
@@ -30,7 +31,7 @@ const AddNewPage = ({ addNewItem }: any) => {
         e.preventDefault()
         setImageUploading(true)
         const imageLink = await uploadFile(image, `Hero-${uuid()}`, 'hero_images')
-
+        setImageUploading(false)
         if (imageLink) {
             setImageUploading(false)
             const inputData = {
@@ -44,6 +45,7 @@ const AddNewPage = ({ addNewItem }: any) => {
     }
 
 
+    if (imageUploading) return <Loading />
 
 
     return (

@@ -70,11 +70,7 @@ const AddNew = ({ setTab, addNewFn }: IAddProductProps) => {
                                 type="text"
                                 name="title"
                                 defaultValue={title}
-                                onChange={(e) => {
-                                    if (e?.target?.files && e.target.files.length > 0) {
-                                        setImage(e.target.files[0]);
-                                    }
-                                }}
+                                onChange={(e) => setTitle(e.target.value)}
                                 placeholder="title"
                                 className="mt-2 w-full block  placeholder-gray-400/70 rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-gray-700 focus:primary focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:primary/10"
                             />

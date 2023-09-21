@@ -10,6 +10,7 @@ import HandleFileUpload from '@/shared/HandleFileUpload';
 import { v4 as uuidv4 } from 'uuid'
 import toast from 'react-hot-toast';
 import deleteImage from '@/shared/deleteImage';
+import Loading from '@/app/loading';
 
 interface IAddProductProps {
     IndustryData: any,
@@ -28,6 +29,7 @@ const DataFrom = ({ IndustryData, setIndustryData, descriptionEditorState, setDe
 
     // states
     const [image, setImage] = useState<File | null>(null)
+    const [imageUploading, setImageUploading] = useState(false)
 
 
     // hooks 
@@ -42,9 +44,12 @@ const DataFrom = ({ IndustryData, setIndustryData, descriptionEditorState, setDe
         let imageLink
 
         if (image) {
+            setImageUploading(true)
             imageLink = await uploadFile(image, `industry-${uuidv4()}`, 'industry_Images')
+            setImageUploading(false)
             const previousImage = IndustryData?.image
             deleteImage(previousImage)
+            console.log(imageLink, ' this is image link')
             const inputData = {
                 title: IndustryData?.title,
                 image: imageLink,
@@ -65,7 +70,8 @@ const DataFrom = ({ IndustryData, setIndustryData, descriptionEditorState, setDe
     }
 
 
-    console.log(IndustryData, ' this i s')
+    if (imageUploading) return <Loading />
+
 
 
     return (

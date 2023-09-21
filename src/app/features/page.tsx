@@ -35,7 +35,7 @@ const page = async () => {
 
     const data = await featuresDetails()
 
-    console.log(data, ' this is data')
+
 
     return (
         <>

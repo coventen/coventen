@@ -170,6 +170,11 @@ export const managementNavItems = [
                 icon: <LuStore className="" />,
             },
             {
+                label: "About us page",
+                href: "/admin/dashboard/settings/about_page",
+                icon: <LuStore className="" />,
+            },
+            {
                 label: "legal pages",
                 href: "/admin/dashboard/settings/terms",
                 icon: <LuStore className="" />,
