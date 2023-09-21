@@ -53,22 +53,26 @@ const navSolution = async () => {
       'Content-Type': 'application/json'
     },
     body: JSON.stringify({
-      query: `query SolutionPages {
-        solutionPages {
-                id
-                title
-                hasSubsolution {
-                  id
-                  title
-                  slug
-                }
-              }
-            }`,
-      next: { revalidate: 36 }
+      query: `query Categories($where: CategoryWhere) {
+        categories(where: $where) {
+          id
+          name
+          hasService {
+            id
+            title
+            slug
+          }
+        }
+      }`,
+      variables: {
+        "where": {
+          "type": "SOLUTION"
+        }
+      }
     })
   })
   const { data } = await res.then(res => res.json())
-  return data?.solutionPages
+  return data?.categories
 }
 // getting nav Industries
 const navIndustries = async () => {
@@ -141,6 +145,7 @@ export default async function RootLayout({
   const [services, industries, solutions, features] = await Promise.all([servicesPromise, industriesPromise, solutionPromise, featuresPromise])
 
 
+  console.log(solutions, 'this is solution')
 
 
   // render

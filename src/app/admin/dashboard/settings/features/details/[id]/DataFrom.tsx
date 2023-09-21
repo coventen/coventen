@@ -33,11 +33,12 @@ const DataFrom = ({ currentData, setCurrentData, updateItem }: IAddProductProps)
         if (imageLink && currentData?.image) {
             deleteImage(currentData.image)
         }
+
         if (imageLink) {
             const inputData = {
                 title: currentData?.title,
                 description: currentData?.description,
-                image: currentData?.imageLink
+                image: imageLink
             }
             updateItem(inputData)
         }

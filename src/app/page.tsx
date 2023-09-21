@@ -43,7 +43,7 @@ const homeClient = async () => {
       }`,
 
     }),
-    next: { revalidate: 10 }
+
   })
   const { data } = await res.then(res => res.json())
   return data.homeClients
@@ -71,7 +71,7 @@ const homeServices = async () => {
       }
 
     }),
-    next: { revalidate: 10 }
+
   })
   const { data } = await res.then(res => res.json())
   return data.services
@@ -100,7 +100,7 @@ const homeProducts = async () => {
       }
 
     }),
-    next: { revalidate: 10 }
+
   })
   const { data } = await res.then(res => res.json())
   return data.products
@@ -124,7 +124,7 @@ const heroDataFn = async () => {
       `,
 
     }),
-    next: { revalidate: 10 }
+
 
   })
   const { data } = await res.then(res => res.json())

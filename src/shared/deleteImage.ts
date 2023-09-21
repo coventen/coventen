@@ -21,7 +21,7 @@ deleteObject(fileRef).then(() => {
     console.log('Image deleted successfully');
   }).catch((error) => {
     console.log(error);
-    toast.error('Error deleting image');
+
   });
 }
 

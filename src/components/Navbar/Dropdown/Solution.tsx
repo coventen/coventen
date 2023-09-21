@@ -15,8 +15,9 @@ const Solution = ({ solutionData }: SolutionPage) => {
     const [currentSolution, setCurrentSolution] = useState('');
 
 
+
     useEffect(() => {
-        setCurrentSolution(solutionData[0]?.title)
+        setCurrentSolution(solutionData[0]?.name)
     }, [solutionData?.length])
 
 
@@ -44,18 +45,18 @@ const Solution = ({ solutionData }: SolutionPage) => {
                                 {
                                     solutionData && solutionData?.map((item: any, index: number) => (
                                         <li
-                                            onClick={() => setCurrentSolution(item?.title || '')}
-                                            onMouseOver={() => setCurrentSolution(item?.title || '')}
+                                            onClick={() => setCurrentSolution(item?.name || '')}
+                                            onMouseOver={() => setCurrentSolution(item?.name || '')}
                                             key={item.id}
                                             className='cursor-pointer'
                                         >
                                             <div
                                                 className={
-                                                    `${currentSolution === item.title ?
+                                                    `${currentSolution === item.name ?
                                                         'bg-gray-100 text-primary' : ''}    
                             flex items-center text-sm transition-all duration-300`}>
-                                                <p className="block p-3   rounded ">{item.title}</p>
-                                                <span className={`${currentSolution === item.title ? 'block' : 'hidden'} transition-all duration-200`}><MdKeyboardArrowRight /></span>
+                                                <p className="block p-3   rounded ">{item.name}</p>
+                                                <span className={`${currentSolution === item.name ? 'block' : 'hidden'} transition-all duration-200`}><MdKeyboardArrowRight /></span>
                                             </div>
                                         </li>
                                     ))
@@ -67,9 +68,9 @@ const Solution = ({ solutionData }: SolutionPage) => {
                                 {/* <h3 className="font-bold text-xl text-primaryText text-bold mb-2">Sub solution</h3> */}
                                 <div className='grid grid-cols-2 text-xs capitalize '>
                                     {
-                                        solutionData && solutionData?.find((Solution: any) => Solution.title === currentSolution)?.hasSubSolution?.length
+                                        solutionData && solutionData?.find((Solution: any) => Solution.name === currentSolution)?.hasService?.length
                                             ?
-                                            solutionData?.find((Solution: any) => Solution.title === currentSolution)?.hasSubSolution.map((sub: any) =>
+                                            solutionData?.find((Solution: any) => Solution.name === currentSolution)?.hasService.map((sub: any) =>
                                                 <li key={sub?.id}>
                                                     <Link href={`/solution/${sub?.slug}`} className="block p-3 hover:bg-gray-100 rounded text-primaryText hover:text-primaryText hover:underline" > {sub?.title}</Link>
                                                 </li>
