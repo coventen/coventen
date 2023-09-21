@@ -54,7 +54,7 @@ const Solution = ({ solutionData }: SolutionPage) => {
                                                 className={
                                                     `${currentSolution === item.name ?
                                                         'bg-gray-100 text-primary' : ''}    
-                            flex items-center text-sm transition-all duration-300`}>
+                            flex items-center text-sm transition-all duration-300  `}>
                                                 <p className="block p-3   rounded ">{item.name}</p>
                                                 <span className={`${currentSolution === item.name ? 'block' : 'hidden'} transition-all duration-200`}><MdKeyboardArrowRight /></span>
                                             </div>

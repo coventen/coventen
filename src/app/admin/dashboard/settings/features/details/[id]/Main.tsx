@@ -42,6 +42,7 @@ const Main = () => {
         image: ''
 
     })
+    const [imageUploading, setImageUploading] = useState(false)
 
     // hooks
     const client = useGqlClient()
@@ -101,7 +102,7 @@ const Main = () => {
 
 
 
-    if (loading || updateState.loading) return <Loading />
+    if (loading || updateState.loading || imageUploading) return <Loading />
     if (error || updateState.error) return <Error />
 
     return (
@@ -110,6 +111,7 @@ const Main = () => {
                 setCurrentData={setCurrentData}
                 currentData={currentData}
                 updateItem={updateItem}
+                setImageUploading={setImageUploading}
             />
 
 

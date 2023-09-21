@@ -11,6 +11,7 @@ interface IAddProductProps {
     currentData: any,
     setCurrentData: any,
     updateItem: any
+    setImageUploading: any
 }
 
 
@@ -18,7 +19,7 @@ interface IAddProductProps {
 
 
 
-const DataFrom = ({ currentData, setCurrentData, updateItem }: IAddProductProps) => {
+const DataFrom = ({ currentData, setCurrentData, updateItem, setImageUploading }: IAddProductProps) => {
     // states
     const [image, setImage] = useState<File | null>(null)
 
@@ -29,7 +30,9 @@ const DataFrom = ({ currentData, setCurrentData, updateItem }: IAddProductProps)
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
+        setImageUploading(true)
         const imageLink = await uploadFile(image, `feature-${uuidv4()}`, 'feature_images')
+        setImageUploading(false)
         if (imageLink && currentData?.image) {
             deleteImage(currentData.image)
         }
