@@ -11,7 +11,7 @@ import SearchInput from './SearchInput';
 
 export default function Hero({ heroData }: any) {
 
-
+    console.log(heroData, ' this is hero')
 
     return (
         <div className="w-full ">
@@ -32,7 +32,7 @@ export default function Hero({ heroData }: any) {
                 //     },
                 // }}
                 autoplay={{
-                    delay: 30500,
+                    delay: 10000,
                     disableOnInteraction: false,
                 }}
                 // navigation={true}
@@ -65,7 +65,7 @@ export default function Hero({ heroData }: any) {
                                     backgroundSize: 'cover',
                                     backgroundPosition: 'center',
                                 }}
-                                className=" h-screen  lg:min-h-[110vh] pt-14 lg:pt-0">
+                                className=" h-[50vh]  lg:min-h-[110vh] pt-14 lg:pt-0">
 
                                 {/* <img className="absolute inset-0 w-full h-full object-cover object-top" src={item?.image} width="400" height="500" alt="hero background image" /> */}
                                 {/* <div aria-hidden="true" className="absolute inset-0 w-full h-full bg-gray-800 bg-opacity-30 backdrop-blur-[0px] bg-gradient-to-b from-black/90 to-black/10"></div> */}
@@ -74,7 +74,7 @@ export default function Hero({ heroData }: any) {
                                         <h1 className="text-white text-center text-2xl font-bold sm:text-4xl md:text-5xl lg:leading-normal ">
                                             {item?.title}
                                         </h1>
-                                        <div className=''>
+                                        <div className='block lg:hidden'>
                                             <SearchInput />
                                         </div>
 
@@ -89,7 +89,12 @@ export default function Hero({ heroData }: any) {
                     )
                 }
 
+
             </Swiper>
+
+            <div className='hidden lg:block  absolute w-full  lg:w-[70%] left-1/2 top-[400px] transform -translate-x-1/2 -translate-y-1/2 z-[9999999999999999] '>
+                <SearchInput />
+            </div>
         </div>
     )
 }

@@ -58,7 +58,7 @@ const page = async () => {
                                                     <p className="text-gray-800 capitalize text-3xl font-semibold sm:text-4xl">
                                                         {item?.title}
                                                     </p>
-                                                    <p className="pt-6 text-gray-600 capitalize ">
+                                                    <p className="pt-6 text-gray-600  ">
                                                         {item?.description}
                                                     </p>
 
@@ -78,7 +78,7 @@ const page = async () => {
                                                     <p className="text-gray-800 capitalize  text-3xl font-semibold sm:text-4xl">
                                                         {item?.title}
                                                     </p>
-                                                    <p className="pt-6 text-gray-600 capitalize ">
+                                                    <p className="pt-6 text-gray-600 ">
                                                         {item?.description}
                                                     </p>
 

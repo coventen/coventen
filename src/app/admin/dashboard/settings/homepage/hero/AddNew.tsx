@@ -75,10 +75,11 @@ const AddNewPage = ({ addNewItem }: any) => {
                             <label htmlFor="title" className="block  text-gray-700 text-sm mb-1">
                                 Title
                             </label>
-                            <textarea
+                            <input
                                 required
-                                rows={5}
                                 name="title"
+                                type="text"
+                                maxLength={55}
                                 defaultValue={title}
                                 onChange={(e) => setTitle(e.target.value)}
                                 placeholder="title"
