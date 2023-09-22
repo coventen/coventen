@@ -5,12 +5,14 @@ import { v4 as uuidv4 } from 'uuid'
 import toast from 'react-hot-toast';
 import HandleFileUpload from '@/shared/HandleFileUpload';
 import deleteImage from '@/shared/deleteImage';
+import { AiTwotoneDelete } from 'react-icons/ai';
 
 
 interface IAddProductProps {
     currentData: any,
     setCurrentData: any,
-    updateItem: any
+    updateItem: any,
+    deleteItem: any
 }
 
 
@@ -18,12 +20,14 @@ interface IAddProductProps {
 
 
 
-const DataFrom = ({ currentData, setCurrentData, updateItem }: IAddProductProps) => {
+const DataFrom = ({ currentData, setCurrentData, updateItem, deleteItem }: IAddProductProps) => {
     // states
     const [subCategoryCount, setSubCategoryCount] = useState(0)
 
 
-    const handleSubmit = (e: any) => { }
+    const handleSubmit = (e: any) => {
+        e.preventDefault()
+    }
 
 
     useEffect(() => {
@@ -37,12 +41,11 @@ const DataFrom = ({ currentData, setCurrentData, updateItem }: IAddProductProps)
     }, [currentData?.subCategory?.length])
 
 
-    console.log(currentData, 'this is current data')
 
     // render
     return (
         <>
-            <div className="">
+            <div className="mt-8">
                 <div className="container max-w-screen-lg mx-auto">
                     <div>
 
@@ -80,58 +83,44 @@ const DataFrom = ({ currentData, setCurrentData, updateItem }: IAddProductProps)
                                                 {/* service title */}
                                                 <div className='flex  justify-between'>
                                                     <p className='text-xl font-semibold text-gray-800'>
-                                                        Sub Category
+                                                        Sub Categories
                                                     </p>
 
-                                                    <div>
-                                                        <label >Add More</label>
-                                                        <div className="h-10 w-28  flex border border-gray-300  rounded items-center mt-1">
-                                                            <div
-                                                                onClick={() => setSubCategoryCount(subCategoryCount - 1)}
-                                                                className="cursor-pointer outline-none focus:outline-none border-r border-gray-300 transition-all text-gray-500 hover:text-blue-600">
-                                                                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mx-2" viewBox="0 0 20 20" fill="currentColor">
-                                                                    <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
-                                                                </svg>
-                                                            </div>
-                                                            <input name="soda" id="soda" placeholder="0"
-                                                                className="px-2 text-center appearance-none outline-none text-gray-800 w-full bg-transparent"
-                                                                readOnly
-                                                                value={subCategoryCount} />
-                                                            <div onClick={() => setSubCategoryCount(subCategoryCount + 1)} className="cursor-pointer outline-none focus:outline-none border-l border-gray-300 transition-all text-gray-500 hover:text-blue-600">
-                                                                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mx-2 fill-current" viewBox="0 0 20 20" fill="currentColor">
-                                                                    <path fillRule="evenodd" d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z" clipRule="evenodd" />
-                                                                </svg>
-                                                            </div>
-                                                        </div>
-                                                    </div>
 
                                                 </div>
                                                 {/* service inputs */}
-                                                <div className='space-y-5'>
+                                                <div className='space-y-5 mt-8'>
                                                     {
                                                         [...Array(subCategoryCount)].map((_, i) =>
 
                                                             <div key={i}>
                                                                 <div className="md:col-span-4">
                                                                     <label htmlFor="">Sub Category Name</label>
-                                                                    <input
-                                                                        value={currentData.subCategory[i]?.name || ''}
-                                                                        onChange={(e) => {
-                                                                            setCurrentData({
-                                                                                ...currentData,
-                                                                                subCategory: currentData.subCategory.map((item: any, index: number) => {
-                                                                                    if (index === i) {
-                                                                                        return {
-                                                                                            ...item,
-                                                                                            name: e.target.value
+                                                                    <div className='flex space-x-5'>
+                                                                        <input
+                                                                            value={currentData.subCategory[i]?.name || ''}
+                                                                            onChange={(e) => {
+                                                                                setCurrentData({
+                                                                                    ...currentData,
+                                                                                    subCategory: currentData.subCategory.map((item: any, index: number) => {
+                                                                                        if (index === i) {
+                                                                                            return {
+                                                                                                ...item,
+                                                                                                name: e.target.value
+                                                                                            }
+                                                                                        } else {
+                                                                                            return item
                                                                                         }
-                                                                                    } else {
-                                                                                        return item
-                                                                                    }
+                                                                                    })
                                                                                 })
-                                                                            })
-                                                                        }}
-                                                                        type="text" id="" className="h-10 border border-gray-300 mt-1 rounded px-4 w-full " placeholder="" />
+                                                                            }}
+                                                                            type="text" id="" className="h-10 border border-gray-300 mt-1 rounded px-4 w-full " placeholder="" />
+
+                                                                        <button onClick={() => {
+                                                                            deleteItem(currentData.subCategory[i]?.id || 'no id')
+                                                                        }} className="focus:ring-2 focus:ring-offset-2  text-sm leading-none text-red-600 py-2 px-2 bg-gray-100 rounded hover:bg-gray-200 focus:outline-none"><AiTwotoneDelete /></button>
+                                                                    </div>
+
                                                                 </div>
                                                             </div>
                                                         )
@@ -143,9 +132,9 @@ const DataFrom = ({ currentData, setCurrentData, updateItem }: IAddProductProps)
                                         </div>
 
 
-                                        <div className="md:col-span-5 text-right mt-8">
-                                            <div className="inline-flex items-end">
-                                                <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Submit</button>
+                                        <div className="md:col-span-5  mt-8">
+                                            <div className="inline-flex ">
+                                                <button onClick={updateItem} type='button' className="bg-primary hover:bg-blue-700 text-white font-bold py-2 px-6 ">Update</button>
                                             </div>
                                         </div>
 

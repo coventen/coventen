@@ -76,7 +76,7 @@ const DataTable = ({ categoryData, deleteItem }: ITermsTableProps) => {
                             <td className="px-5 py-5 border-b border-gray-200 bg-white text-xs">
                                 <div className="relative flex items-center justify-center  space-x-4 px-8 ">
 
-                                    {/* <Link href={`/admin/dashboard/settings/category/details/${item?.id}`} className="focus:ring-2 focus:ring-offset-2  text-sm leading-none text-green-600 py-2 px-2 bg-gray-100 rounded hover:bg-gray-200 focus:outline-none"><AiFillEye /></Link> */}
+                                    <Link href={`/admin/dashboard/settings/category/details/${item?.id}`} className="focus:ring-2 focus:ring-offset-2  text-sm leading-none text-green-600 py-2 px-2 bg-gray-100 rounded hover:bg-gray-200 focus:outline-none"><AiFillEye /></Link>
                                     <button onClick={() => {
                                         deleteItem(item.id)
                                     }} className="focus:ring-2 focus:ring-offset-2  text-sm leading-none text-red-600 py-2 px-2 bg-gray-100 rounded hover:bg-gray-200 focus:outline-none"><AiTwotoneDelete /></button>
