@@ -101,7 +101,6 @@ const AddProduct = ({ setTab, addNewIndustryFn }: IAddProductProps) => {
                                 Image
                             </label>
                             <input
-                                required
                                 type="file"
                                 name="Image"
                                 onChange={(e) => {
