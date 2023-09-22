@@ -17,8 +17,6 @@ const aboutUsPageDetails = async () => {
                   description
                 }
               }`,
-            next: { revalidate: 30 }
-
         })
     })
 

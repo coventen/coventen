@@ -24,7 +24,6 @@ const getNotifications = async (variables: any) => {
               }`,
               variables: variables,
         }),
-        next: { revalidate: 300 } 
     })
 
     const {data} = await res.then(res => res.json())
