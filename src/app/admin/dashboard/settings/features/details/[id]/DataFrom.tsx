@@ -30,9 +30,14 @@ const DataFrom = ({ currentData, setCurrentData, updateItem, setImageUploading }
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
-        setImageUploading(true)
-        const imageLink = await uploadFile(image, `feature-${uuidv4()}`, 'feature_images')
-        setImageUploading(false)
+
+        let imageLink = null
+
+        if (image) {
+            setImageUploading(true)
+            imageLink = await uploadFile(image, `feature-${uuidv4()}`, 'feature_images')
+            setImageUploading(false)
+        }
         if (imageLink && currentData?.image) {
             deleteImage(currentData.image)
         }
@@ -41,7 +46,7 @@ const DataFrom = ({ currentData, setCurrentData, updateItem, setImageUploading }
             const inputData = {
                 title: currentData?.title,
                 description: currentData?.description,
-                image: imageLink
+                image: imageLink || currentData.image
             }
             updateItem(inputData)
         }

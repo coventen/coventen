@@ -13,6 +13,7 @@ import { useQuery } from 'graphql-hooks';
 
 import HandleFileUpload from '@/shared/HandleFileUpload';
 import { addVariables } from './Main';
+import Loading from '@/app/loading';
 
 
 interface IAddProductProps {
@@ -32,6 +33,7 @@ const AddNew = ({ setTab, addNewFn }: IAddProductProps) => {
     const [title, setTitle] = useState('')
     const [image, setImage] = useState<any>('')
     const [description, setDescription] = useState('')
+    const [uploading, setUploading] = useState(false)
 
 
     // hooks
@@ -42,12 +44,18 @@ const AddNew = ({ setTab, addNewFn }: IAddProductProps) => {
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
+        let imageLink = null
+        if (image) {
+            setUploading(true)
+            imageLink = await uploadFile(image, `feature-${uuid()}`, 'feature_images')
+            setUploading(false)
+        }
 
-        const imageLink = await uploadFile(image, `feature-${uuid()}`, 'feature_images')
+
         const inputData = {
             title: title.toLowerCase(),
             description: description,
-            image: imageLink as string
+            image: imageLink || ''
         }
 
         addNewFn(inputData)
@@ -55,6 +63,7 @@ const AddNew = ({ setTab, addNewFn }: IAddProductProps) => {
 
 
 
+    if (uploading) return <Loading />
 
     return (
         <>
