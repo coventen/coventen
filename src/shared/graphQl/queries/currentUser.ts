@@ -39,11 +39,7 @@ const GetCurrentUserDetails = async () => {
                     email: user?.email
                   },
               },
-              context: {
-                fetchOptions: {
-                  next: { revalidate: 10 },
-                },
-              }
+ 
         })
     })
 

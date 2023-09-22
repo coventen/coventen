@@ -18,7 +18,7 @@ const featuresDetails = async () => {
                 }
               }`
         }),
-        next: { revalidate: 36 }
+
 
     })
 

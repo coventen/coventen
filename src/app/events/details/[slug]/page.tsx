@@ -34,11 +34,7 @@ async function getEvent(slug: string) {
                     slug: slug
                 }
             },
-            context: {
-                fetchOptions: {
-                    next: { revalidate: 60 },
-                },
-            },
+
 
         }),
         headers: {

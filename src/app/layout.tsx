@@ -112,7 +112,7 @@ const navFeatures = async () => {
           description
         }
       }`,
-      next: { revalidate: 36 }
+
     })
   })
   const { data } = await res.then(res => res.json())

@@ -17,6 +17,8 @@ const aboutUsPageDetails = async () => {
                   description
                 }
               }`,
+
+
         })
     })
 

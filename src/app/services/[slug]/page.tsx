@@ -23,11 +23,6 @@ const subServiceDetails = async (slug: string) => {
                     "slug": slug
                 }
             },
-            context: {
-                fetchOptions: {
-                    next: { revalidate: 10 },
-                },
-            }
         })
     })
 
