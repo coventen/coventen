@@ -7,25 +7,7 @@ import Leads from '@/components/Leads'
 
 
 // fetch data from api
-const homePageData = async () => {
 
-  const res = fetch('https://coventenapp.el.r.appspot.com/', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({
-      query: `query HomePages {
-        homePages {
-          heroText
-          heroImage
-        }
-      }`,
-    })
-  })
-  const { data } = await res.then(res => res.json())
-  return data.homePages[0]
-}
 
 const homeClient = async () => {
   const res = fetch('https://coventenapp.el.r.appspot.com/', {
@@ -141,16 +123,16 @@ const heroDataFn = async () => {
 export default async function Home() {
 
 
-  const homeDataPromise = homePageData()
+
   const homeClientDataPromise = await homeClient()
   const homeServicePromise = await homeServices()
   const heroDataPromise = await heroDataFn()
   const productPromise = await homeProducts()
 
-  const [homeData, clientData, services, heroData, products] = await Promise.all([homeDataPromise, homeClientDataPromise, homeServicePromise, heroDataPromise, productPromise])
+  const [clientData, services, heroData, products] = await Promise.all([homeClientDataPromise, homeServicePromise, heroDataPromise, productPromise])
 
 
-
+  console.log(heroData, ' this i herodata')
 
   return (
     <>

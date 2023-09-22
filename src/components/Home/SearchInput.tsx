@@ -1,6 +1,7 @@
 'use client'
 import { useGqlClient } from '@/hooks/UseGqlClient';
 import { useManualQuery, useQuery } from 'graphql-hooks';
+import Link from 'next/link';
 import React, { useState, useEffect, Fragment } from 'react';
 
 
@@ -48,16 +49,6 @@ const SearchInput = () => {
     //query
     const [searchFn, { data, loading }] = useManualQuery(searchQueryType, {
         client,
-        variables: {
-            "options": {
-                "limit": 4
-            },
-            "where": {
-                "title_CONTAINS": searchText.toLowerCase(),
-                "isService": true
-            }
-
-        }
     })
 
 
@@ -75,24 +66,55 @@ const SearchInput = () => {
     const searchData = async () => {
         if (selectedValue === 'Solutions') {
             setSearchQueryType(GET_SERVICES)
-            const { data } = await searchFn()
+            const { data } = await searchFn({
+                variables: {
+                    "options": {
+                        "limit": 4
+                    },
+                    "where": {
+                        "title_CONTAINS": searchText.toLowerCase(),
+                        "isSolution": true
+                    }
+
+                }
+            })
             setSearchResult(data?.services)
         } else if (selectedValue === 'Products') {
             setSearchQueryType(GET_PRODUCTS)
-            const { data } = await searchFn()
+            const { data } = await searchFn({
+                variables: {
+                    "options": {
+                        "limit": 4
+                    },
+                    "where": {
+                        "title_CONTAINS": searchText.toLowerCase(),
+                    }
+
+                }
+            })
             setSearchResult(data?.products)
         }
-        else if (selectedValue === 'Calibration') {
+        else if (selectedValue === 'Calibration' || selectedValue === 'Testing') {
             setSearchQueryType(GET_SERVICES)
-            const { data } = await searchFn()
-            setSearchResult(data?.services)
-        } else if (selectedValue === 'Testing') {
-            setSearchQueryType(GET_SERVICES)
-            const { data } = await searchFn()
+            const { data } = await searchFn({
+                variables: {
+                    "options": {
+                        "limit": 4
+                    },
+                    "where": {
+                        "title_CONTAINS": searchText.toLowerCase(),
+                        "isService": true
+                    }
+
+                }
+            })
             setSearchResult(data?.services)
         }
+
     }
 
+
+    console.log(searchResult, 'slfldsfjlds', selectedValue)
 
 
 
@@ -143,15 +165,59 @@ const SearchInput = () => {
                     <div className="p-4 h-44">
                         <div className="w-full h-44 bg-white shadow-md rounded-md p-7">
                             <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
-                                {searchResult?.length ?
+
+                                {
+                                    selectedValue === "Products" ?
+
+                                        <>
+                                            {searchResult?.length ?
+                                                searchResult?.map((result: any) => (
+                                                    <Link href={`/products/details/${result?.id}`} key={result?.id} className="text-dimText text-sm underline py-1 px-2">
+                                                        {result?.title}
+                                                    </Link>
+                                                ))
+                                                :
+                                                <p className="text-dimText">No result found</p>
+                                            }
+                                        </>
+
+                                        :
+                                        selectedValue === "Solutions" ?
+                                            <>
+                                                {searchResult?.length ?
+                                                    searchResult?.map((result: any) => (
+                                                        <Link href={`/solution/${result?.slug}`} key={result?.id} className="text-dimText text-sm underline py-1 px-2">
+                                                            {result?.title}
+                                                        </Link>
+                                                    ))
+                                                    :
+                                                    <p className="text-dimText">No result found</p>
+                                                }
+                                            </>
+                                            :
+                                            <>
+                                                {searchResult?.length ?
+                                                    searchResult?.map((result: any) => (
+                                                        <Link href={`/services/${result.slug}`} key={result?.id} className="text-dimText text-sm underline py-1 px-2">
+                                                            {result?.title}
+                                                        </Link>
+                                                    ))
+                                                    :
+                                                    <p className="text-dimText">No result found</p>
+                                                }
+                                            </>
+                                }
+
+
+                                {/* {searchResult?.length ?
                                     searchResult?.map((result: any) => (
-                                        <div key={result?.id} className="text-dimText text-sm underline py-1 px-2">
+                                        <Link href={`/services/${result.slug}`} key={result?.id} className="text-dimText text-sm underline py-1 px-2">
                                             {result?.title}
-                                        </div>
+                                        </Link>
                                     ))
                                     :
                                     <p className="text-dimText">No result found</p>
-                                }
+                                } */}
 
                             </div>
                         </div>
