@@ -3,7 +3,7 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import { useGqlClient } from '@/hooks/UseGqlClient';
 import { useMutation, useQuery } from 'graphql-hooks';
-import { EditorState, convertToRaw } from 'draft-js';
+import { EditorState, convertFromRaw, convertToRaw } from 'draft-js';
 import Loading from '@/app/loading';
 import { toast } from 'react-hot-toast';
 import { useRouter } from 'next/navigation';
@@ -45,6 +45,7 @@ mutation UpdateAboutPages($update: AboutPageUpdateInput) {
 const Main = () => {
 
     // states
+    const [imageUploading, setImageUploading] = useState(false)
     const [title, setTitle] = useState('')
     const [image, setImage] = useState<any>(null)
     const [editorState, setEditorState] = useState(() =>
@@ -67,7 +68,12 @@ const Main = () => {
 
     // initializing the  communication creation
     const updateAboutPage = async () => {
-        const imageLink = await handleImageUpload(image)
+        let imageLink = null
+        if (image) {
+            setImageUploading(true)
+            imageLink = await handleImageUpload(image)
+            setImageUploading(false)
+        }
 
         if (imageLink && previousData?.aboutPages[0]?.image) {
             deleteImage(previousData?.aboutPages[0]?.image)
@@ -87,8 +93,6 @@ const Main = () => {
             }
         })
 
-
-        console.log(data, ' this is')
         if (data?.updateAboutPages?.aboutPages[0]?.id) {
             toast.success("updated successfully")
             // router.push('/admin/dashboard/settings/about_page')
@@ -112,13 +116,25 @@ const Main = () => {
         if (previousData?.aboutPages?.length) {
             const { title, image, description } = previousData.aboutPages[0]
             setTitle(title)
-            // setEditorState(EditorState.createWithContent(JSON.parse(description)))
+            setEditorState(convertRawToEditorState(description) || EditorState.createEmpty())
 
         }
 
     }, [previousData])
 
 
+    const convertRawToEditorState = (raw: string) => {
+        console.log('raw', raw)
+        if (!raw) {
+            console.log('raw is empty')
+            return
+        }
+        const rawContent = JSON.parse(raw);
+        const contentState = convertFromRaw(rawContent);
+        const editorState = EditorState.createWithContent(contentState);
+        console.log('editorState', editorState)
+        return editorState
+    }
 
 
 
@@ -128,7 +144,7 @@ const Main = () => {
         return res;
     }
 
-    if (updateState.loading) return <Loading />
+    if (updateState.loading || imageUploading) return <Loading />
 
 
     //render
@@ -150,7 +166,7 @@ const Main = () => {
 
             <div className="mb-5">
                 <div>
-                    <label htmlFor="image" className="block  text-gray-700 text-sm mb-1">Image</label>
+                    <label htmlFor="image" className="block  text-gray-700 text-sm mb-1">Cover Image</label>
 
                     <input
                         onChange={(e) => setImage(e?.target?.files?.[0])}
@@ -163,14 +179,14 @@ const Main = () => {
             </div>
             <div className='bg-white'>
                 <label htmlFor="title" className="block  text-gray-700 text-sm mb-1">
-                    Description
+                    Page Content
                 </label>
                 <Editor setEditorState={setEditorState} editorState={editorState} />
             </div>
 
 
             <div className='mt-7'>
-                <button type='submit' className='px-4 py-2 bg-primary text-white font-semibold'>Submit</button>
+                <button type='submit' className='px-4 py-2 bg-primary text-white font-semibold'>Update</button>
             </div>
         </form>
     );
