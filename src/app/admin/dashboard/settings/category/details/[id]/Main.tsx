@@ -120,7 +120,7 @@ const Main = () => {
         if (data?.updateCategories?.categories[0]?.id) {
             toast.success('updated successfully')
             refetch()
-            // router.push('/admin/dashboard/settings/homepage/hero')
+            router.push('/admin/dashboard/settings/category')
         }
     }
 
@@ -151,6 +151,7 @@ const Main = () => {
             toast.success('Added successfully')
             refetch()
             setIsModalOpen(false)
+            router.push('/admin/dashboard/settings/category')
         }
     }
 
@@ -167,6 +168,7 @@ const Main = () => {
 
         if (data.deleteCategories.nodesDeleted) {
             toast.error('deleted successfully')
+            router.push('/admin/dashboard/settings/category')
             refetch()
         }
     }
