@@ -71,7 +71,7 @@ const Main = () => {
                         </div>
                         <div className="w-full md:w-1/2 px-10">
                             <div className="mb-10">
-                                <h1 className="font-bold uppercase text-2xl mb-5">{data?.products[0].title}</h1>
+                                <h1 className="font-bold uppercase text-2xl mb-5 text-secondary">{data?.products[0].title}</h1>
                                 <p className="text-sm">{data?.products[0].shortDescription} <a href="#" className="opacity-50 text-gray-900 hover:opacity-100 inline-block text-xs leading-none border-b border-gray-900">MORE </a></p>
                             </div>
                             <div>

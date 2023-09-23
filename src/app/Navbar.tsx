@@ -59,7 +59,7 @@ export default function Navbar({ services, industries, solutions, features }: an
     }, [user?.email, authLoading])
 
 
-    console.log(industries, 'from navbar')
+
 
 
 

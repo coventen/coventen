@@ -83,12 +83,21 @@ const navIndustries = async () => {
       'Content-Type': 'application/json'
     },
     body: JSON.stringify({
-      query: `query IndustryPages {
-        industryPages {
+      query: `query IndustryPages($options: IndustryPageOptions) {
+        industryPages(options: $options) {
           id
           title
         }
       }`,
+      variables: {
+        "options": {
+          "sort": [
+            {
+              "createdAt": "DESC"
+            }
+          ]
+        }
+      }
     })
   })
   const { data } = await res.then(res => res.json())
@@ -105,13 +114,22 @@ const navFeatures = async () => {
       'Content-Type': 'application/json'
     },
     body: JSON.stringify({
-      query: `query FeaturesPages($where: FeaturesPageWhere) {
-        featuresPages(where: $where) {
+      query: `query FeaturesPages($where: FeaturesPageWhere, $options: FeaturesPageOptions) {
+        featuresPages(where: $where, options: $options) {
           title
           id
           description
         }
       }`,
+      variables: {
+        "options": {
+          "sort": [
+            {
+              "createdAt": "DESC"
+            }
+          ]
+        }
+      }
 
     })
   })
@@ -145,7 +163,7 @@ export default async function RootLayout({
   const [services, industries, solutions, features] = await Promise.all([servicesPromise, industriesPromise, solutionPromise, featuresPromise])
 
 
-  console.log(solutions, 'this is solution')
+
 
 
   // render

@@ -30,14 +30,16 @@ mutation CreateFeaturesPages($input: [FeaturesPageCreateInput!]!) {
 `
 
 const GET_ALL = `
-query FeaturesPages($where: FeaturesPageWhere) {
-    featuresPages(where: $where) {
+query FeaturesPages($where: FeaturesPageWhere, $options: FeaturesPageOptions) {
+    featuresPages(where: $where, options: $options) {
         id
       title
       image
       description
+      createdAt
     }
   }
+
 
 `
 
@@ -56,7 +58,18 @@ const Main = () => {
     const client = useGqlClient()
 
     // QUERY
-    const { data: featureData, loading, error, refetch } = useQuery(GET_ALL, { client })
+    const { data: featureData, loading, error, refetch } = useQuery(GET_ALL, {
+        client,
+        variables: {
+            "options": {
+                "sort": [
+                    {
+                        "createdAt": "DESC"
+                    }
+                ]
+            }
+        }
+    })
 
     // MUTATION
     const [addNewFn, addNewState] = useMutation(ADD_NEW, { client })
@@ -75,7 +88,8 @@ const Main = () => {
                     {
                         "title": input.title,
                         "image": input.image,
-                        "description": input.description
+                        "description": input.description,
+                        createdAt: new Date().toISOString(),
                     }
                 ]
             }

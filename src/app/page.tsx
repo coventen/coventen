@@ -25,6 +25,7 @@ const homeClient = async () => {
       }`,
 
     }),
+    next: { revalidate: 10 }
 
   })
   const { data } = await res.then(res => res.json())
@@ -53,6 +54,7 @@ const homeServices = async () => {
       }
 
     }),
+    next: { revalidate: 10 }
 
   })
   const { data } = await res.then(res => res.json())
@@ -82,6 +84,7 @@ const homeProducts = async () => {
       }
 
     }),
+    next: { revalidate: 10 }
 
   })
   const { data } = await res.then(res => res.json())
@@ -106,11 +109,42 @@ const heroDataFn = async () => {
       `,
 
     }),
-
-
+    next: { revalidate: 10 }
   })
   const { data } = await res.then(res => res.json())
   return data.heroes
+}
+const aboutCompanyFn = async () => {
+  const res = fetch('https://coventenapp.el.r.appspot.com/', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      query: `
+      query AboutUsSections {
+        aboutUsSections {
+          id
+          title
+          description
+          imageUrl
+          hasPoints {
+            id
+            title
+            description
+            url
+            iconUrl
+          }
+        }
+      }
+      `,
+
+    }),
+    next: { revalidate: 10 }
+
+  })
+  const { data } = await res.then(res => res.json())
+  return data.aboutUsSections[0]
 }
 
 
@@ -128,11 +162,12 @@ export default async function Home() {
   const homeServicePromise = await homeServices()
   const heroDataPromise = await heroDataFn()
   const productPromise = await homeProducts()
+  const aboutCompanyPromise = await aboutCompanyFn()
 
-  const [clientData, services, heroData, products] = await Promise.all([homeClientDataPromise, homeServicePromise, heroDataPromise, productPromise])
+  const [clientData, services, heroData, products, aboutCompany] = await Promise.all([homeClientDataPromise, homeServicePromise, heroDataPromise, productPromise, aboutCompanyPromise])
 
 
-  console.log(heroData, ' this i herodata')
+  console.log(aboutCompany)
 
   return (
     <>
@@ -140,7 +175,7 @@ export default async function Home() {
         <Hero heroData={heroData} />
         <Services services={services} />
         <Products products={products} />
-        <AboutUs />
+        <AboutUs data={aboutCompany} />
         <Products products={products} />
         <Companies clients={clientData} />
       </section>

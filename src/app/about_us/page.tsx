@@ -74,7 +74,7 @@ const page = async ({ params, searchParams }: any) => {
                         <img src={details?.image || '/assets/no_image.png'} className='max-h-[500px] w-full ' />
                     </div>
                     <div className="px-4 lg:px-0 mt-7">
-                        <h2 className="text-4xl font-semibold text-gray-800 leading-tight">
+                        <h2 className="text-4xl font-semibold text-secondary leading-tight">
                             {details?.title}
                         </h2>
                     </div>

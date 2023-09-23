@@ -7,11 +7,8 @@ import Link from 'next/link';
 
 
 
-
-
 const Features = ({ features }: any) => {
 
-    console.log(features, ' this is features')
 
     return (
         <Popover.Group className="hidden lg:flex lg:gap-x-12 mr-8">
@@ -46,7 +43,7 @@ const Features = ({ features }: any) => {
                                     </p>
                                 </div>
                             </Link>
-                            {features.length && features?.map((item: any) => (
+                            {features?.length && features?.map((item: any) => (
                                 <Link
                                     href={`/features#${item?.id}`}
                                     key={item?.title}

@@ -46,7 +46,7 @@ const page = async ({ params, searchParams }: any) => {
                 <article className='bg-transparent pt-6 w-full '>
                     <header className="mx-auto    max-w-screen-lg rounded-t-lg bg-white pt-16 text-center  w-full">
 
-                        <h1 className="mt-2 text-4xl capitalize font-bold text-primaryText sm:text-5xl">{details?.title}</h1>
+                        <h1 className="mt-2 text-4xl capitalize font-bold text-secondary sm:text-5xl">{details?.title}</h1>
 
 
 

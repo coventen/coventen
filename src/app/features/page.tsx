@@ -55,7 +55,7 @@ const page = async () => {
                                                 </div>
                                                 <div className="max-w-xl px-4 space-y-3 mt-6 sm:px-0 md:mt-0 lg:max-w-2xl">
 
-                                                    <p className="text-gray-800 capitalize text-3xl font-semibold sm:text-4xl">
+                                                    <p className="text-secondary capitalize text-3xl font-semibold sm:text-4xl ">
                                                         {item?.title}
                                                     </p>
                                                     <p className="pt-6 text-gray-600  ">
@@ -75,10 +75,10 @@ const page = async () => {
 
                                                 <div className="max-w-xl px-4 space-y-3 mt-6 sm:px-0 md:mt-0 lg:max-w-2xl">
 
-                                                    <p className="text-gray-800 capitalize  text-3xl font-semibold sm:text-4xl">
+                                                    <p className="text-secondary capitalize  text-3xl font-semibold sm:text-4xl">
                                                         {item?.title}
                                                     </p>
-                                                    <p className="pt-6 text-gray-600 ">
+                                                    <p className="pt-6 text-gray-600 text-left ">
                                                         {item?.description}
                                                     </p>
 

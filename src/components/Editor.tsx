@@ -39,7 +39,6 @@ const Editor: React.FC<Props> = ({ editorState, setEditorState }) => {
                 onEditorStateChange={onEditorStateChange}
                 wrapperClassName="demo-wrapper"
                 editorClassName="demo-editor"
-            // toolbar={toolbar}
             />
             {/* <button onClick={onSave}>Save</button> */}
         </div>

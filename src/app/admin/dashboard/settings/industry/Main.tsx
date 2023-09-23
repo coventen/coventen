@@ -30,14 +30,16 @@ mutation CreateIndustryPages($input: [IndustryPageCreateInput!]!) {
 `
 
 const GET_ALL = `
-query IndustryPages {
-    industryPages {
+query IndustryPages($options: IndustryPageOptions) {
+    industryPages(options: $options) {
       id
       title
       image
       description
+      createdAt
     }
   }
+
 
 `
 
@@ -59,7 +61,18 @@ const Main = () => {
     const client = useGqlClient()
 
     // QUERY
-    const { data: IndustryData, loading, error, refetch } = useQuery(GET_ALL, { client })
+    const { data: IndustryData, loading, error, refetch } = useQuery(GET_ALL, {
+        client,
+        variables: {
+            "options": {
+                "sort": [
+                    {
+                        "createdAt": "DESC"
+                    }
+                ]
+            }
+        }
+    })
 
     // MUTATION
     const [addNewIndustryFn, addNewIndustryState] = useMutation(ADD_NEW, { client })
@@ -77,7 +90,8 @@ const Main = () => {
                     {
                         "title": input.title,
                         "image": input.image,
-                        "description": input.description
+                        "description": input.description,
+                        createdAt: new Date().toISOString(),
                     }
                 ]
             }
@@ -111,7 +125,7 @@ const Main = () => {
 
 
     if (loading || addNewIndustryState.loading || deleteIndustryState.loading) return <Loading />
-    if (error || addNewIndustryState.error) return <Error />
+    // if (error || addNewIndustryState.error) return <Error />
 
 
 
