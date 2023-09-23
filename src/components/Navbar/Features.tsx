@@ -51,7 +51,7 @@ const Features = ({ features }: any) => {
                                 >
 
                                     <div className="flex-auto">
-                                        <p className="block font-semibold text-primaryText">
+                                        <p className="block font-semibold text-primaryText capitalize">
                                             {item?.title}
                                             <span className="absolute inset-0" />
                                         </p>

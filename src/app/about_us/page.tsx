@@ -1,6 +1,6 @@
 import React from 'react';
 import Content from './Content';
-
+import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 
 const aboutUsPageDetails = async () => {
     const res = fetch('https://coventenapp.el.r.appspot.com/', {
@@ -19,7 +19,8 @@ const aboutUsPageDetails = async () => {
               }`,
 
 
-        })
+        }),
+        next: { revalidate: 10 }
     })
 
     const { data } = await res.then(res => res.json())

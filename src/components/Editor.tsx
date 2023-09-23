@@ -27,18 +27,17 @@ const Editor: React.FC<Props> = ({ editorState, setEditorState }) => {
 
 
 
-    const onSave = () => {
-        const content = convertToRaw(editorState.getCurrentContent());
-        // console.log(content);
-    };
+
 
     return (
         <div className="min-h-[300px] border border-gray-200 rounded-md">
             <TextEditor
                 editorState={editorState}
                 onEditorStateChange={onEditorStateChange}
-                wrapperClassName="demo-wrapper"
-                editorClassName="demo-editor"
+                toolbar={{
+                    options: ['inline', 'blockType', 'fontSize', 'list', 'textAlign', 'colorPicker', 'link', 'embedded', 'image'],
+                }}
+
             />
             {/* <button onClick={onSave}>Save</button> */}
         </div>

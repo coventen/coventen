@@ -2,6 +2,7 @@ import { useGqlClient } from '@/hooks/UseGqlClient';
 import { useQuery } from 'graphql-hooks';
 import React from 'react';
 import AccordionItem from './AccordionItem';
+import Modal from './Modal';
 
 
 const GET_LEARN = `
@@ -17,7 +18,7 @@ query LearnItems {
 
 
 const Main = () => {
-
+    const [isModalOpen, setIsModalOpen] = React.useState(false);
     //HOOKS 
     const client = useGqlClient()
 
@@ -26,6 +27,7 @@ const Main = () => {
 
 
 
+    console.log(isModalOpen)
 
 
     return (
@@ -41,12 +43,13 @@ const Main = () => {
                                 header={item?.title}
                                 text={item?.description}
                                 url={item?.url}
+                                setIsModalOpen={setIsModalOpen}
                             />
                         </div>)
                 }
 
 
-
+                {/* <Modal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} /> */}
 
             </div>
         </>

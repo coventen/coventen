@@ -5,14 +5,16 @@ interface IAccordionItem {
     header: string;
     text: string;
     url: string;
+    setIsModalOpen: any
 }
 
-const AccordionItem = ({ header, text, url }: IAccordionItem) => {
+const AccordionItem = ({ header, text, url, setIsModalOpen }: IAccordionItem) => {
     const [active, setActive] = useState(false);
 
     const handleToggle = () => {
         // event.preventDefault();
         setActive(!active);
+        setIsModalOpen(false)
     };
     return (
         <div className="single-faq mb-8 w-full rounded-lg border border-[#F3F4FE] bg-white p-4 sm:p-8 lg:px-6 xl:px-8">
@@ -47,8 +49,15 @@ const AccordionItem = ({ header, text, url }: IAccordionItem) => {
                     }`}
             >
                 <p className="py-3 text-base leading-relaxed text-body-color">{text}</p>
-                <Link href={url} className="bg-primary/10 cursor-pointer text-primary px-4 py-1.5">Download</Link>
+                <div className="flex items-center space-x-3">
+                    <Link href={url} className="bg-primary/10 cursor-pointer text-primary px-4 py-1.5">Download</Link>
+                    <div>
+                        <button onClick={setIsModalOpen(true)} className="bg-primary/10 cursor-pointer text-primary px-4 py-1.5 ml-4">Interested</button>
+                    </div>
+                </div>
+
             </div>
+
         </div>
     );
 };

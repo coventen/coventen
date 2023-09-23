@@ -140,6 +140,11 @@ export const managementNavItems = [
                 icon: <LuTable className="" />,
             },
             {
+                label: "Homepage About Company",
+                href: "/admin/dashboard/settings/homepage/about_company",
+                icon: <LuTable className="" />,
+            },
+            {
                 label: "Categories",
                 href: "/admin/dashboard/settings/category",
                 icon: <LuServer className="" />,
