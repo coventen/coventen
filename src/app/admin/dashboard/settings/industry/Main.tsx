@@ -67,7 +67,7 @@ const Main = () => {
             "options": {
                 "sort": [
                     {
-                        "createdAt": "DESC"
+                        "createdAt": "ASC"
                     }
                 ]
             }

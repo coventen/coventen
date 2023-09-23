@@ -9,14 +9,23 @@ const featuresDetails = async () => {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            query: `query FeaturesPages($where: FeaturesPageWhere) {
-                featuresPages(where: $where) {
+            query: `query FeaturesPages($where: FeaturesPageWhere, $options: FeaturesPageOptions) {
+                featuresPages(where: $where, options: $options) {
                   title
                   id
                   image
                   description
                 }
-              }`
+              }`,
+            variables: {
+                "options": {
+                    "sort": [
+                        {
+                            "createdAt": "ASC"
+                        }
+                    ]
+                }
+            }
         }),
 
 

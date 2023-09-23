@@ -93,12 +93,14 @@ const navIndustries = async () => {
         "options": {
           "sort": [
             {
-              "createdAt": "DESC"
+              "createdAt": "ASC"
             }
           ]
         }
       }
-    })
+    }),
+    next: { revalidate: 10 }
+
   })
   const { data } = await res.then(res => res.json())
   return data?.industryPages
@@ -125,13 +127,14 @@ const navFeatures = async () => {
         "options": {
           "sort": [
             {
-              "createdAt": "DESC"
+              "createdAt": "ASC"
             }
           ]
         }
       }
 
-    })
+    }),
+    next: { revalidate: 10 }
   })
   const { data } = await res.then(res => res.json())
   return data?.featuresPages
@@ -163,7 +166,7 @@ export default async function RootLayout({
   const [services, industries, solutions, features] = await Promise.all([servicesPromise, industriesPromise, solutionPromise, featuresPromise])
 
 
-
+  console.log(features, 'oooooooooooooooo')
 
 
   // render

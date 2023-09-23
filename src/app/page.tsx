@@ -167,7 +167,7 @@ export default async function Home() {
   const [clientData, services, heroData, products, aboutCompany] = await Promise.all([homeClientDataPromise, homeServicePromise, heroDataPromise, productPromise, aboutCompanyPromise])
 
 
-  console.log(aboutCompany)
+
 
   return (
     <>
