@@ -1,5 +1,6 @@
 import React from 'react';
 import Content from './Content';
+import QuillViewer from './Content';
 
 
 const subServiceDetails = async (slug: string) => {
@@ -22,7 +23,8 @@ const subServiceDetails = async (slug: string) => {
                 }
             },
 
-        })
+        }),
+        next: { revalidate: 10 }
     })
 
     const { data } = await res.then(res => res.json())
@@ -36,6 +38,8 @@ const page = async ({ params, searchParams }: any) => {
 
 
     const details = await subServiceDetails(params.slug || 'no slug')
+
+    console.log(details?.content, ' this is details0 quil;l content000000000000000000000000000000000000000')
 
 
 
@@ -53,7 +57,7 @@ const page = async ({ params, searchParams }: any) => {
                     </header>
 
                     <div className="mx-auto max-w-screen-lg space-y-12 leading-10 rounded-b-lg bg-white px-8 pt-20 pb-20 font-serif text-lg tracking-wide text-gray-700  w-full ">
-                        <Content content={details?.content} />
+                        <QuillViewer content={JSON.parse(details?.content)} />
 
 
                     </div>

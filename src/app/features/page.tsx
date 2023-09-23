@@ -59,15 +59,15 @@ const page = async () => {
                                     <section className="py-14">
                                         <div className="max-w-screen-xl mx-auto md:px-8">
                                             <div className="items-center gap-x-12 sm:px-4 md:px-0 lg:flex">
-                                                <div className="flex-1 sm:hidden lg:block">
+                                                <div className="lg:w-[40%] flex  items-center justify-center  sm:hidden lg:block">
                                                     <img src={item?.image} className="md:max-w-lg sm:rounded-lg" alt="" />
                                                 </div>
-                                                <div className="max-w-xl px-4 space-y-3 mt-6 sm:px-0 md:mt-0 lg:max-w-2xl">
+                                                <div className=" max-w-xl  ml-8 px-4 space-y-3 mt-6 sm:px-0 md:mt-0 lg:w-[60%] lg:max-w-2xl">
 
                                                     <p className="text-secondary capitalize text-3xl font-semibold sm:text-4xl ">
                                                         {item?.title}
                                                     </p>
-                                                    <p className="pt-6 text-gray-600  ">
+                                                    <p className="pt-6 text-gray-600 text-justify ">
                                                         {item?.description}
                                                     </p>
 
@@ -82,17 +82,17 @@ const page = async () => {
                                         <div className="max-w-screen-xl mx-auto md:px-8">
                                             <div className="items-center gap-x-12 sm:px-4 md:px-0 lg:flex">
 
-                                                <div className="max-w-xl px-4 space-y-3 mt-6 sm:px-0 md:mt-0 lg:max-w-2xl">
+                                                <div className="max-w-xl px-4 space-y-3 mt-6 sm:px-0 lg:w-[60%] md:mt-0 g:max-w-2xl">
 
                                                     <p className="text-secondary capitalize  text-3xl font-semibold sm:text-4xl">
                                                         {item?.title}
                                                     </p>
-                                                    <p className="pt-6 text-gray-600 text-left ">
+                                                    <p className="pt-6 text-gray-600 text-justify  ">
                                                         {item?.description}
                                                     </p>
 
                                                 </div>
-                                                <div className="flex-1 sm:hidden lg:block">
+                                                <div className="flex  items-center justify-center sm:hidden lg:block lg:w-[40%]">
                                                     <img src={item?.image} className="md:max-w-lg sm:rounded-lg" alt="" />
                                                 </div>
                                             </div>

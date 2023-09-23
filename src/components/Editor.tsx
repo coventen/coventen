@@ -38,6 +38,9 @@ const Editor: React.FC<Props> = ({ editorState, setEditorState }) => {
                     options: ['inline', 'blockType', 'fontSize', 'list', 'textAlign', 'colorPicker', 'link', 'embedded', 'image'],
                 }}
 
+                wrapperClassName="wysiwyg-wrapper"
+                editorClassName="wysiwyg-editor"
+
             />
             {/* <button onClick={onSave}>Save</button> */}
         </div>

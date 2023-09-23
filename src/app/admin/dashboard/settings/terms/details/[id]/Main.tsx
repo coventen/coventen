@@ -36,9 +36,7 @@ query TermsPages($where: TermsPageWhere) {
 const Main = () => {
 
     // states
-    const [descriptionEditorState, setDescriptionEditorState] = useState(() =>
-        EditorState.createEmpty()
-    );
+    const [descriptionEditorState, setDescriptionEditorState] = useState("");
 
 
     const [termsData, settermsData] = React.useState({
@@ -69,7 +67,7 @@ const Main = () => {
     useEffect(() => {
         if (previoustermsData?.termsPages?.length) {
             const { title, content } = previoustermsData.termsPages[0]
-            setDescriptionEditorState(convertRawToEditorState(content) || EditorState.createEmpty())
+            setDescriptionEditorState(JSON.parse(content))
             settermsData({
                 title,
                 content,

@@ -166,7 +166,7 @@ export default async function RootLayout({
   const [services, industries, solutions, features] = await Promise.all([servicesPromise, industriesPromise, solutionPromise, featuresPromise])
 
 
-  console.log(features, 'oooooooooooooooo')
+
 
 
   // render

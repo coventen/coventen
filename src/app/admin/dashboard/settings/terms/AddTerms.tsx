@@ -8,6 +8,7 @@ import { EditorState, convertToRaw } from 'draft-js';
 
 
 import { addTermsVariables } from './Main';
+import QuillEditor from '@/components/QuillEditor';
 
 
 interface IAddProductProps {
@@ -24,11 +25,7 @@ const AddTerms = ({ setTab, addNewTermsFn }: IAddProductProps) => {
     // states
 
     const [title, setTitle] = useState('')
-    const [termsEditorState, setTermsEditorState] = useState(() =>
-        EditorState.createEmpty()
-    );
-
-
+    const [termsEditorState, setTermsEditorState] = useState('');
 
 
 
@@ -37,13 +34,13 @@ const AddTerms = ({ setTab, addNewTermsFn }: IAddProductProps) => {
 
         const inputData = {
             title: title.toLowerCase(),
-            content: JSON.stringify(convertToRaw(termsEditorState.getCurrentContent())),
+            content: JSON.stringify(termsEditorState),
         }
 
         addNewTermsFn(inputData)
     }
 
-
+    console.log(termsEditorState, ' this is editor')
 
 
     return (
@@ -69,7 +66,7 @@ const AddTerms = ({ setTab, addNewTermsFn }: IAddProductProps) => {
 
                         <div className='col-span-2'>
                             <p className='text-dimText mb-4'> Description </p>
-                            <Editor setEditorState={setTermsEditorState} editorState={termsEditorState} />
+                            <QuillEditor setEditorState={setTermsEditorState} editorState={termsEditorState} />
                         </div>
 
                     </div>

@@ -10,6 +10,7 @@ import HandleFileUpload from '@/shared/HandleFileUpload';
 import { v4 as uuidv4 } from 'uuid'
 import toast from 'react-hot-toast';
 import deleteImage from '@/shared/deleteImage';
+import QuillEditor from '@/components/QuillEditor';
 
 interface IAddProductProps {
     termsData: any,
@@ -35,7 +36,7 @@ const DataFrom = ({ termsData, settermsData, descriptionEditorState, setDescript
 
         const inputData = {
             title: termsData?.title,
-            content: JSON.stringify(convertToRaw(descriptionEditorState.getCurrentContent())),
+            content: JSON.stringify(descriptionEditorState),
         }
         updatetermsFn(inputData)
 
@@ -64,8 +65,8 @@ const DataFrom = ({ termsData, settermsData, descriptionEditorState, setDescript
 
 
                         <div className='col-span-2'>
-                            <p className='text-dimText mb-4'> Description </p>
-                            <Editor setEditorState={setDescriptionEditorState} editorState={descriptionEditorState} />
+                            <p className='text-dimText mb-4'> Page Content</p>
+                            <QuillEditor setEditorState={setDescriptionEditorState} editorState={descriptionEditorState} />
                         </div>
 
 
