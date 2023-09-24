@@ -23,7 +23,9 @@ const subServiceDetails = async (slug: string) => {
                     "slug": slug
                 }
             },
-        })
+
+        }),
+        next: { revalidate: 10 }
     })
 
     const { data } = await res.then(res => res.json())
