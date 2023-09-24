@@ -99,7 +99,7 @@ const Main = () => {
 
 
 
-    console.log(params?.id)
+
 
 
 

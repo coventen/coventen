@@ -10,7 +10,7 @@ const ProductPage = ({ params, searchParams }: any) => {
     return (
         <Sidebar>
             <>
-                <Main params={searchParams?.query || null} />
+                <Main />
 
 
             </>
