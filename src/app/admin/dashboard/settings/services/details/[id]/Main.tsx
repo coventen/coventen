@@ -3,7 +3,6 @@ import { useGqlClient } from '@/hooks/UseGqlClient';
 import { useMutation, useQuery } from 'graphql-hooks';
 import React, { useEffect, useState } from 'react';
 import DataFrom from './DataFrom';
-import { ContentState, Editor, EditorState, convertFromRaw, convertToRaw } from 'draft-js';
 import { useParams, useRouter } from 'next/navigation';
 import { Service } from '@/gql/graphql';
 import { toast } from 'react-hot-toast';
@@ -23,8 +22,8 @@ mutation UpdateServices($where: ServiceWhere, $update: ServiceUpdateInput) {
   }
 `
 const GET_DATA = `
-query Services {
-    services {
+query Services($where: ServiceWhere, $options: ServiceOptions) {
+    services(where: $where, options: $options) {
       id
       category
       coverImageUrl
@@ -43,9 +42,7 @@ query Services {
 const Main = () => {
 
     // states
-    const [ContentEditorState, setContentEditorState] = useState(() =>
-        EditorState.createEmpty()
-    );
+    const [ContentEditorState, setContentEditorState] = useState('');
 
 
     const [ServiceData, setServiceData] = React.useState({
@@ -62,6 +59,7 @@ const Main = () => {
     const params = useParams()
     const router = useRouter()
 
+    console.log(params?.id, ' this is id')
 
     // QUERY
     const { data: previousServiceData, loading, error } = useQuery(GET_DATA, { client, variables: { where: { id: params?.id } } })
@@ -79,7 +77,7 @@ const Main = () => {
     useEffect(() => {
         if (previousServiceData?.services?.length) {
             const { title, description, coverImageUrl, pageContent, thumbnailUrl } = previousServiceData.services[0]
-            setContentEditorState(convertRawToEditorState(pageContent) || EditorState.createEmpty())
+            setContentEditorState(JSON.parse(pageContent))
             setServiceData({
                 thumbnailUrl,
                 pageContent,
@@ -88,9 +86,6 @@ const Main = () => {
                 title
             })
         }
-
-
-
     }, [previousServiceData?.services?.length])
 
 
@@ -132,18 +127,6 @@ const Main = () => {
     }
 
 
-    const convertRawToEditorState = (raw: string) => {
-        console.log('raw', raw)
-        if (!raw) {
-            console.log('raw is empty')
-            return
-        }
-        const rawContent = JSON.parse(raw);
-        const contentState = convertFromRaw(rawContent);
-        const editorState = EditorState.createWithContent(contentState);
-        console.log('editorState', editorState)
-        return editorState
-    }
 
     if (loading || updateState.loading) return <Loading />
     if (error || updateState.error) return <Error />

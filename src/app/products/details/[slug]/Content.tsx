@@ -1,11 +1,11 @@
 import React from 'react';
 
-function MessageContent({ content }: any) {
+function Content({ content }: any) {
     // Render the Quill content as HTML
     return (
-        <div dangerouslySetInnerHTML={{ __html: JSON.parse(content) }} />
+        <div className='text-justify' dangerouslySetInnerHTML={{ __html: content }} />
     );
 }
 
-export default MessageContent;
+export default Content;
 // Compare this snippet from src/app/industries/%5Bid%5D/Main.tsx:

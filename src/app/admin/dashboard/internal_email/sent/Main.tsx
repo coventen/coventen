@@ -80,7 +80,7 @@ const Main = () => {
 
     const getEmailCount = async () => {
         const { data } = await getInternalEmailFn()
-        if (data.communicationTickets.length) {
+        if (data?.communicationTickets?.length) {
             setTotalInternalEmail(data.communicationTickets.length)
             setTotalPages(Math.ceil(data.communicationTickets.length / pageLimit))
         }
@@ -175,7 +175,7 @@ const Main = () => {
                                             >
 
                                                 <div className=" flex items-center justify-between p-1 my-1 cursor-pointer  w-full">
-                                                    <Link href={`/admin/dashboard/internal_email/message_preview/${item?.id}`} className="flex items-center ">
+                                                    <Link href={`/admin/dashboard/internal_email/message/${item?.id}`} className="flex items-center ">
                                                         <div className="flex items-center mr-4 ml-1 space-x-1">
 
                                                             <button title="Read">

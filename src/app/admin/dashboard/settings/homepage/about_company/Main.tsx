@@ -9,7 +9,7 @@ import { toast } from 'react-hot-toast';
 import { useRouter } from 'next/navigation';
 import HandleFileUpload from '@/shared/HandleFileUpload';
 import { v4 as uuidv4 } from 'uuid';
-import Editor from '@/components/Editor';
+
 import slugify from 'slugify';
 import deleteImage from '@/shared/deleteImage';
 
@@ -65,9 +65,7 @@ const Main = () => {
     })
 
 
-    const [editorState, setEditorState] = useState(() =>
-        EditorState.createEmpty()
-    );
+    const [editorState, setEditorState] = useState("")
 
     // hooks
     const client = useGqlClient()

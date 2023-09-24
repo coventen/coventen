@@ -1,5 +1,9 @@
-import React, { useState } from 'react';
-import ReactQuill from 'react-quill';
+
+
+import dynamic from 'next/dynamic';
+import React from 'react';
+import ReactQuill, { Quill } from 'react-quill';
+// import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css'; // Import the Quill styles
 interface Props {
     editorState: any;
@@ -7,8 +11,13 @@ interface Props {
 }
 
 
+const QuillEditor = dynamic(
+    () => import('react-quill').then((mod) => mod.default),
+    { ssr: false }
+);
 
-function QuillEditor({ editorState, setEditorState }: Props) {
+
+export default function PageTextEditor({ editorState, setEditorState }: Props) {
 
 
     // Define a handler to update the editor content
@@ -18,20 +27,20 @@ function QuillEditor({ editorState, setEditorState }: Props) {
     return (
         <div className='min-h-[400px] mb-20'>
             {/* <h2>My Quill Editor</h2> */}
-            <ReactQuill
+            <QuillEditor
                 value={editorState}
                 onChange={handleEditorChange}
-                style={{ height: '400px' }}
+                style={{ height: '330px' }}
                 modules={{
                     toolbar: [
                         [{ 'header': '1' }, { 'header': '2' }, { 'font': [] }],
                         [{ size: [] }],
                         ['bold', 'italic', 'underline', 'strike', 'blockquote'],
+                        [{ 'color': [] }],
+                        [{ 'align': [] }],
                         [{ 'list': 'ordered' }, { 'list': 'bullet' },
                         { 'indent': '-1' }, { 'indent': '+1' }],
                         ['link', 'image', 'video'],
-                        [{ 'color': [] }],
-                        [{ 'align': [] }],
                         ['clean']
                     ],
                 }}
@@ -40,4 +49,4 @@ function QuillEditor({ editorState, setEditorState }: Props) {
     );
 }
 
-export default QuillEditor;
+

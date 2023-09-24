@@ -4,9 +4,9 @@ import { useGqlClient } from '@/hooks/UseGqlClient';
 import { useMutation, useQuery } from 'graphql-hooks';
 import React, { useState } from 'react';
 import MessageContent from './MessageContent';
-import Editor from '@/components/Editor';
+
 import Button from '@/components/Button';
-import { EditorState, convertToRaw } from 'draft-js';
+
 import { toast } from 'react-hot-toast';
 import Loading from '@/app/loading';
 import Error from '@/components/Error';
@@ -35,9 +35,7 @@ const Reply = ({ ticketId }: { ticketId: string }) => {
     //states
     const [isReply, setIsReply] = useState(false)
     const [replyMessage, setReplyMessage] = useState("")
-    const [editorState, setEditorState] = useState(() =>
-        EditorState.createEmpty()
-    );
+    const [editorState, setEditorState] = useState("")
 
     //hooks
     const client = useGqlClient()

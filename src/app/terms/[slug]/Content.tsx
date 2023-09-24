@@ -1,10 +1,10 @@
 import React from 'react';
 
-function QuillViewer({ content }: any) {
+function Content({ content }: any) {
     // Render the Quill content as HTML
     return (
-        <div dangerouslySetInnerHTML={{ __html: content }} />
+        <div className='text-justify' dangerouslySetInnerHTML={{ __html: content }} />
     );
 }
 
-export default QuillViewer;
+export default Content;

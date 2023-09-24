@@ -56,7 +56,7 @@ const page = async ({ params, searchParams }: any) => {
                     </header>
 
                     <div className="mx-auto max-w-screen-lg space-y-12 leading-10 rounded-b-lg bg-white px-8 pt-20 pb-20 font-serif text-lg tracking-wide text-gray-700 sm:shadow-lg w-full ">
-                        <Content content={details?.pageContent} />
+                        <Content content={JSON.parse(details?.pageContent)} />
 
 
                     </div>

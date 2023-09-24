@@ -36,6 +36,7 @@ query Categories($where: CategoryWhere) {
       name
       type
       categoryHasChild {
+        id
         name
         type
       }

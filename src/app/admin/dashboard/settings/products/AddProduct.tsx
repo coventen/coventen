@@ -1,10 +1,10 @@
 'use client'
 
-import React, { Fragment, useState } from 'react';
-import Editor from '@/components/Editor';
+import React, { Fragment, useEffect, useState } from 'react';
 
 
-import { EditorState, convertToRaw } from 'draft-js';
+
+
 import Button from '@/components/Button';
 import { addProductVariables } from './Main';
 import HandleFileUpload from '@/shared/HandleFileUpload';
@@ -12,6 +12,8 @@ import { v4 as uuidv4 } from 'uuid'
 import toast from 'react-hot-toast';
 import { useGqlClient } from '@/hooks/UseGqlClient';
 import { useQuery } from 'graphql-hooks';
+import PageTextEditor from '@/components/PageTextEditor';
+import Loading from '@/app/loading';
 
 interface IAddProductProps {
     setTab: (tab: number) => void
@@ -22,8 +24,10 @@ interface IAddProductProps {
 const GET_CATEGORY = `
 query Categories($where: CategoryWhere) {
     categories(where: $where) {
-      name
-      id
+      categoryHasChild {
+        id
+        name
+      }
     }
   }`
 
@@ -39,13 +43,10 @@ const AddProduct = ({ setTab, addNewProductFn }: IAddProductProps) => {
     const [video, setVideo] = useState('')
     const [shortDescription, setShortDescription] = useState('')
     const [image, setImage] = useState<File | null>(null)
-    const [featureEditorState, setFeatureEditorState] = useState(() =>
-        EditorState.createEmpty()
-    );
+    const [featureEditorState, setFeatureEditorState] = useState('');
+    const [uploading, setUploading] = useState(false)
 
-    const [othersEditorState, setOthersEditorState] = useState(() =>
-        EditorState.createEmpty()
-    );
+    const [othersEditorState, setOthersEditorState] = useState('');
 
 
     // hooks 
@@ -71,7 +72,9 @@ const AddProduct = ({ setTab, addNewProductFn }: IAddProductProps) => {
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
 
+        setUploading(true)
         const imageLink = await uploadFile(image, `product-${uuidv4()}`, 'product_Images')
+        setUploading(false)
         if (!imageLink) return toast.error('Something went wrong  please try again later ')
 
         console.log('imageLink', imageLink)
@@ -80,20 +83,39 @@ const AddProduct = ({ setTab, addNewProductFn }: IAddProductProps) => {
             shortDescription,
             video,
             file,
-            features: JSON.stringify(convertToRaw(featureEditorState.getCurrentContent())),
-            others: JSON.stringify(convertToRaw(othersEditorState.getCurrentContent())),
+            features: JSON.stringify(featureEditorState),
+            others: JSON.stringify(othersEditorState),
             image: imageLink,
             price,
             category: selectedCategory,
         }
-
-
 
         addNewProductFn(inputData)
     }
 
 
 
+    // Extract id and name pairs
+    const filteredCategory: { id: string; name: string }[] = data?.categories.reduce(
+        (result: any, category: any) => {
+            const childCategories = category?.categoryHasChild;
+            childCategories?.forEach((childCategory: any) => {
+                result.push({ id: childCategory?.id, name: childCategory?.name });
+            });
+            return result;
+        },
+        []
+    );
+
+
+    useEffect(() => {
+        if (filteredCategory && filteredCategory.length > 0) {
+            setSelectedCategory(filteredCategory[0].id);
+        }
+    }, [filteredCategory])
+
+
+    if (uploading) return <Loading />
 
     return (
         <>
@@ -169,8 +191,8 @@ const AddProduct = ({ setTab, addNewProductFn }: IAddProductProps) => {
                                     className="mt-1 px-4 py-2 border border-gray-200 rounded-md w-full"
                                 >
                                     {
-                                        data?.categories && data?.categories.map((service: any) =>
-                                            <option key={service?.id} value={service?.id} >{service?.name}</option>
+                                        filteredCategory && filteredCategory?.map((cat: any, idx: number) =>
+                                            <option key={cat?.id} value={cat?.id} >{cat?.name}</option>
                                         )
                                     }
 
@@ -208,11 +230,11 @@ const AddProduct = ({ setTab, addNewProductFn }: IAddProductProps) => {
                         </div>
                         <div className='col-span-2'>
                             <p className='text-dimText mb-4'> Features </p>
-                            <Editor setEditorState={setFeatureEditorState} editorState={featureEditorState} />
+                            <PageTextEditor setEditorState={setFeatureEditorState} editorState={featureEditorState} />
                         </div>
                         <div className='col-span-2'>
                             <p className='text-dimText mb-4'> Others </p>
-                            <Editor setEditorState={setOthersEditorState} editorState={othersEditorState} />
+                            <PageTextEditor setEditorState={setOthersEditorState} editorState={othersEditorState} />
                         </div>
 
                     </div>

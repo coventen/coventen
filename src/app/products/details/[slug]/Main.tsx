@@ -5,7 +5,10 @@ import { useGqlClient } from '@/hooks/UseGqlClient';
 import { useQuery } from 'graphql-hooks';
 import React, { useEffect } from 'react';
 import Modal from './Modal';
-import { ContentState, Editor, EditorState, convertFromRaw } from 'draft-js';
+import PageTextEditor from '@/components/PageTextEditor';
+import Content from './Content';
+import { useParams } from 'next/navigation'
+
 const GET_PRODUCTS = `
 query Query($where: ProductWhere) {
     products(where: $where)  {
@@ -31,31 +34,34 @@ const Main = () => {
 
     // hooks
     const client = useGqlClient()
+    const params = useParams()
 
     // quires
-    const { data, loading } = useQuery(GET_PRODUCTS, { client })
+    const { data, loading } = useQuery(GET_PRODUCTS, {
+        client,
+        variables: {
+            where: {
+                id: params.slug
+            }
+        }
 
+    })
 
+    console.log(params.slug)
 
     useEffect(() => {
 
         if (data?.products[0]?.features) {
-            const content = convertContentToRaw(data?.products[0]?.features)
-            setFeatures(content)
+            setFeatures(JSON.parse(data?.products[0]?.features))
         }
         if (data?.products[0]?.others) {
-            setHighlights(convertContentToRaw(data?.products[0]?.others))
+            setHighlights(JSON.parse(data?.products[0]?.others))
         }
 
     }, [data?.products[0]])
 
 
-    const convertContentToRaw = (content: any) => {
-        const rawContent = JSON.parse(content);
-        const contentState = convertFromRaw(rawContent);
-        const editorState = EditorState.createWithContent(contentState);
-        return editorState
-    }
+
 
 
     return (
@@ -99,13 +105,13 @@ const Main = () => {
                 </ div>
 
                 <div className="mt-10 text-sm">
-                    {features && <Editor editorState={features} readOnly={true} onChange={() => { }} />}
+                    {features && <Content content={features} />}
                 </div>
 
                 <div className="mt-10">
                     <h2 className="text-sm font-medium text-gray-900">Details</h2>
 
-                    {highlights && <Editor editorState={highlights} readOnly={true} onChange={() => { }} />}
+                    {highlights && <Content content={highlights} />}
                 </div>
 
 

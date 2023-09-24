@@ -72,7 +72,7 @@ const Solution = ({ solutionData }: SolutionPage) => {
                                             ?
                                             solutionData?.find((Solution: any) => Solution.name === currentSolution)?.hasService.map((sub: any) =>
                                                 <li key={sub?.id}>
-                                                    <Link href={`/solution/${sub?.slug}`} className="block p-3 hover:bg-gray-100 rounded text-primaryText hover:text-primaryText hover:underline" > {sub?.title}</Link>
+                                                    <Link href={`/services/${sub?.slug}`} className="block p-3 hover:bg-gray-100 rounded text-primaryText hover:text-primaryText hover:underline" > {sub?.title}</Link>
                                                 </li>
                                             )
                                             :

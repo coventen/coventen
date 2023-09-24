@@ -1,15 +1,8 @@
 'use client'
 
 import React, { Fragment, useState } from 'react';
-import Editor from '@/components/Editor';
-
-
-import { EditorState, convertToRaw } from 'draft-js';
-
-
 import { addTermsVariables } from './Main';
-import QuillEditor from '@/components/QuillEditor';
-
+import PageTextEditor from '@/components/PageTextEditor';
 
 interface IAddProductProps {
     setTab: (tab: number) => void
@@ -40,7 +33,7 @@ const AddTerms = ({ setTab, addNewTermsFn }: IAddProductProps) => {
         addNewTermsFn(inputData)
     }
 
-    console.log(termsEditorState, ' this is editor')
+
 
 
     return (
@@ -66,7 +59,7 @@ const AddTerms = ({ setTab, addNewTermsFn }: IAddProductProps) => {
 
                         <div className='col-span-2'>
                             <p className='text-dimText mb-4'> Description </p>
-                            <QuillEditor setEditorState={setTermsEditorState} editorState={termsEditorState} />
+                            <PageTextEditor setEditorState={setTermsEditorState} editorState={termsEditorState} />
                         </div>
 
                     </div>

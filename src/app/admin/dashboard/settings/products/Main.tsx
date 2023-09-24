@@ -36,8 +36,8 @@ mutation Mutation($input: [ProductCreateInput!]!) {
 `
 
 const GET_ALL_PRODUCTS = `
-query Products {
-    products {
+query Products($options: ProductOptions) {
+    products(options: $options) {
       id
       title
       shortDescription
@@ -80,7 +80,18 @@ const Main = () => {
     const client = useGqlClient()
 
     // QUERY
-    const { data: productData, loading, error, refetch } = useQuery(GET_ALL_PRODUCTS, { client })
+    const { data: productData, loading, error, refetch } = useQuery(GET_ALL_PRODUCTS, {
+        client,
+        variables: {
+            "options": {
+                "sort": [
+                    {
+                        "isPopular": "DESC",
+                    }
+                ]
+            }
+        }
+    })
 
     // MUTATION
     const [addNewProductFn, addNewProductState] = useMutation(ADD_NEW_PRODUCT, { client })
@@ -106,7 +117,7 @@ const Main = () => {
                         video: input.video,
                         file: input.file,
                         createdAt: new Date().toISOString(),
-                        "hasSubcategory": {
+                        "categoryHas": {
                             "connect": {
                                 "where": {
                                     "node": {
@@ -163,11 +174,11 @@ const Main = () => {
         }
     }
 
-    console.log(productData);
+
 
 
     if (loading || addNewProductState.loading || deleteProductState.loading || addToHomeState.loading) return <Loading />
-    if (error || addNewProductState.error) return <Error />
+    // if (error || addNewProductState.error) return <Error />
 
 
 

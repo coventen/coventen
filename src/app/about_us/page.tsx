@@ -1,6 +1,6 @@
 import React from 'react';
 import Content from './Content';
-import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
+
 
 const aboutUsPageDetails = async () => {
     const res = fetch('https://coventenapp.el.r.appspot.com/', {
@@ -83,7 +83,7 @@ const page = async ({ params, searchParams }: any) => {
                     <div className="flex flex-col lg:flex-row lg:space-x-12">
 
                         <div className="px-4 lg:px-0 mt-12 text-gray-700 text-lg leading-relaxed w-full ">
-                            <Content content={details?.description} />
+                            <Content content={JSON.parse(details?.description)} />
                         </div>
 
 

@@ -55,7 +55,7 @@ const page = async ({ params, searchParams }: any) => {
     const { id } = params
     const details = await getMessageDetails(id)
 
-    console.log(details?.hasReply)
+
 
 
     return (
@@ -88,7 +88,7 @@ const page = async ({ params, searchParams }: any) => {
                     }
                 </div>
 
-
+                {/* 
                 {
                     details?.hasReply?.map((reply: any, i: number) =>
                         <div key={i}>
@@ -98,12 +98,12 @@ const page = async ({ params, searchParams }: any) => {
                                     <div className='text-dimText'>
                                         {reply?.replyMessage}
                                     </div>
-                                    {/* <textarea value={reply?.replyMessage} id="Reply" rows={5} placeholder="" className="w-full rounded-sm border border-gray-300 ring-primary dark:border-gray-700 dark:text-gray-900"></textarea> */}
+                             
                                 </div>
                             </div>
                         </div>
                     )
-                }
+                } */}
 
             </main>
 

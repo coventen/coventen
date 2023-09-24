@@ -3,7 +3,7 @@ import { useGqlClient } from '@/hooks/UseGqlClient';
 import { useMutation, useQuery } from 'graphql-hooks';
 import React, { useEffect, useState } from 'react';
 import DataFrom from './DataFrom';
-import { ContentState, Editor, EditorState, convertFromRaw, convertToRaw } from 'draft-js';
+
 import { useParams, useRouter } from 'next/navigation';
 import { Product } from '@/gql/graphql';
 import { toast } from 'react-hot-toast';
@@ -41,13 +41,9 @@ query Products($where: ProductWhere) {
 const Main = () => {
 
     // states
-    const [featureEditorState, setFeatureEditorState] = useState(() =>
-        EditorState.createEmpty()
-    );
+    const [featureEditorState, setFeatureEditorState] = useState('');
 
-    const [othersEditorState, setOthersEditorState] = useState(() =>
-        EditorState.createEmpty()
-    );
+    const [othersEditorState, setOthersEditorState] = useState('');
     const [productData, setProductData] = React.useState({
         title: '',
         shortDescription: '',
@@ -80,8 +76,8 @@ const Main = () => {
     useEffect(() => {
         if (previousProductData?.products?.length) {
             const { title, shortDescription, features, others, image, price, video, file } = previousProductData.products[0]
-            setFeatureEditorState(convertRawToEditorState(features) || EditorState.createEmpty())
-            setOthersEditorState(convertRawToEditorState(others) || EditorState.createEmpty())
+            setFeatureEditorState(JSON.parse(features))
+            setOthersEditorState(JSON.parse(others))
             setProductData({
                 title,
                 shortDescription,
@@ -91,8 +87,6 @@ const Main = () => {
                 video
             })
         }
-
-
 
     }, [previousProductData?.products?.length])
 
@@ -134,18 +128,7 @@ const Main = () => {
     }
 
 
-    const convertRawToEditorState = (raw: string) => {
-        console.log('raw', raw)
-        if (!raw) {
-            console.log('raw is empty')
-            return
-        }
-        const rawContent = JSON.parse(raw);
-        const contentState = convertFromRaw(rawContent);
-        const editorState = EditorState.createWithContent(contentState);
-        console.log('editorState', editorState)
-        return editorState
-    }
+
 
     if (loading || updateState.loading) return <Loading />
     if (error || updateState.error) return <Error />

@@ -9,8 +9,8 @@ const subServiceDetails = async (id: string) => {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            query: `query IndustryPages {
-                industryPages {
+            query: `query IndustryPages($where: IndustryPageWhere) {
+                industryPages(where: $where) {
                   id
                   title
                   image
@@ -23,7 +23,9 @@ const subServiceDetails = async (id: string) => {
                 }
             },
 
-        })
+        }),
+        next: { revalidate: 10 }
+
     })
 
     const { data } = await res.then(res => res.json())
@@ -38,13 +40,13 @@ const page = async ({ params, searchParams }: any) => {
 
     const details = await subServiceDetails(params.id || 'no slug')
 
-    console.log(details)
+    console.log(params.id)
 
 
     return (
         <section className='relative px-16'>
             <div>
-                <img className="z-0 absolute px-16 top-0 left-0 h-96 w-full object-cover" src={details.image || "/assets/heor.jpg"} alt="" />
+                <img className="z-0 absolute px-16 top-0 left-0 h-96 w-full object-cover" src={details?.image || "/assets/heor.jpg"} alt="" />
             </div>
             <main className=' relative z-0'>
                 <article className='bg-transparent pt-44 w-full '>
@@ -57,7 +59,7 @@ const page = async ({ params, searchParams }: any) => {
                     </header>
 
                     <div className="mx-auto max-w-screen-lg space-y-12 leading-10 rounded-b-lg bg-white px-8 pt-20 pb-20 font-serif text-lg tracking-wide text-gray-700 sm:shadow-lg w-full ">
-                        <Content content={details?.description} />
+                        <Content content={JSON.parse(details?.description)} />
 
 
                     </div>

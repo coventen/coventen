@@ -3,18 +3,18 @@
 import React, { useState, useCallback } from 'react';
 import { useGqlClient } from '@/hooks/UseGqlClient';
 import { useMutation } from 'graphql-hooks';
-import { EditorState, convertToRaw } from 'draft-js';
+
 import Loading from '@/app/loading';
 import { toast } from 'react-hot-toast';
 import { useRouter } from 'next/navigation';
 import HandleFileUpload from '@/shared/HandleFileUpload';
 import { v4 as uuidv4 } from 'uuid';
-import Editor from '@/components/Editor';
 import Dropzone from 'react-dropzone';
 import FilePreview from '@/app/vendor/dashboard/projects/(components)/FilePreview';
 import { HiOutlineTrash } from 'react-icons/hi';
 import UserSelect from './UserSelect';
 import createLog from '@/shared/graphQl/mutations/createLog';
+import PageTextEditor from '@/components/PageTextEditor';
 
 
 
@@ -45,8 +45,7 @@ const Main = () => {
     const [selectedUsers, setSelectedUsers] = useState<any[]>([])
     const [selectedUserType, setSelectedUserType] = useState<string>("CONSUMER")
     const [subject, setSubject] = useState<string>("")
-    const [editorState, setEditorState] = useState(() =>
-        EditorState.createEmpty()
+    const [editorState, setEditorState] = useState(''
     );
 
     // hooks
@@ -63,8 +62,7 @@ const Main = () => {
         const dateTime = new Date().toISOString()
 
         // text editor's content
-        const contentJson = convertToRaw(editorState.getCurrentContent());
-        const contentString = JSON.stringify(contentJson)
+        const contentString = JSON.stringify(editorState)
         const fileLinks = await handleUpload()
 
 
@@ -234,7 +232,7 @@ const Main = () => {
                 />
             </div>
             <div className='bg-white'>
-                <Editor setEditorState={setEditorState} editorState={editorState} />
+                <PageTextEditor setEditorState={setEditorState} editorState={editorState} />
             </div>
             <div className="inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden  transform transition-all sm:my-8 sm:align-middle sm:max-w-2xl sm:w-full sm:p-6">
                 <p className="block  text-gray-700 text-sm mb-">Attachment</p>

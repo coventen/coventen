@@ -3,8 +3,8 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import { useGqlClient } from '@/hooks/UseGqlClient';
 import { useManualQuery, useMutation, useQuery } from 'graphql-hooks';
-import Editor from '@/components/Editor';
-import { EditorState, convertToRaw } from 'draft-js';
+
+
 import Loading from '@/app/loading';
 import { data } from 'autoprefixer';
 import { toast } from 'react-hot-toast';
@@ -17,6 +17,7 @@ import Dropzone from 'react-dropzone';
 import { v4 as uuidv4 } from 'uuid';
 import { getEmployerEmail } from '@/shared/getEmployerEmail';
 import createLog from '@/shared/graphQl/mutations/createLog';
+import PageTextEditor from '@/components/PageTextEditor';
 
 
 
@@ -43,9 +44,7 @@ const Main = () => {
     const [fileLinks, setFileLinks] = useState<any>([]);
     const [subject, setSubject] = useState<string>("")
     const [labEmail, setLabEmail] = useState('')
-    const [editorState, setEditorState] = useState(() =>
-        EditorState.createEmpty()
-    );
+    const [editorState, setEditorState] = useState("")
 
     // hooks
     const client = useGqlClient()
@@ -62,8 +61,7 @@ const Main = () => {
         const dateTime = new Date().toISOString()
 
         // text editor's content
-        const contentJson = convertToRaw(editorState.getCurrentContent());
-        const contentString = JSON.stringify(contentJson)
+        const contentString = JSON.stringify(editorState)
         const fileLinks = await handleUpload()
 
         let { data } = await createCommunicationFn({
@@ -192,7 +190,7 @@ const Main = () => {
                 />
             </div>
             <div className='bg-white'>
-                <Editor setEditorState={setEditorState} editorState={editorState} />
+                <PageTextEditor setEditorState={setEditorState} editorState={editorState} />
             </div>
 
             <div className="inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden  transform transition-all sm:my-8 sm:align-middle sm:max-w-2xl sm:w-full sm:p-6">

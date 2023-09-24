@@ -1,9 +1,9 @@
 'use client'
 import React, { Fragment, useState } from 'react';
-import Editor from '@/components/Editor';
 
 
-import { EditorState, convertToRaw } from 'draft-js';
+
+
 import Button from '@/components/Button';
 
 import HandleFileUpload from '@/shared/HandleFileUpload';
@@ -12,6 +12,7 @@ import toast from 'react-hot-toast';
 import { useGqlClient } from '@/hooks/UseGqlClient';
 import { useQuery } from 'graphql-hooks';
 import { addIndustryVariables } from './Main';
+import PageTextEditor from '@/components/PageTextEditor';
 
 interface IAddProductProps {
     setTab: (tab: number) => void
@@ -35,13 +36,9 @@ const AddProduct = ({ setTab, addNewIndustryFn }: IAddProductProps) => {
 
     const [title, setTitle] = useState('')
     const [image, setImage] = useState<File | null>(null)
-    const [industryEditorState, setIndustryEditorState] = useState(() =>
-        EditorState.createEmpty()
-    );
+    const [industryEditorState, setIndustryEditorState] = useState('');
 
-    const [othersEditorState, setOthersEditorState] = useState(() =>
-        EditorState.createEmpty()
-    );
+    const [othersEditorState, setOthersEditorState] = useState('');
 
 
     // hooks 
@@ -65,7 +62,7 @@ const AddProduct = ({ setTab, addNewIndustryFn }: IAddProductProps) => {
 
         const inputData = {
             title: title.toLowerCase(),
-            description: JSON.stringify(convertToRaw(industryEditorState.getCurrentContent())),
+            description: JSON.stringify(industryEditorState),
             image: imageLink,
         }
 
@@ -115,7 +112,7 @@ const AddProduct = ({ setTab, addNewIndustryFn }: IAddProductProps) => {
 
                         <div className='col-span-2'>
                             <p className='text-dimText mb-4'> Description </p>
-                            <Editor setEditorState={setIndustryEditorState} editorState={industryEditorState} />
+                            <PageTextEditor setEditorState={setIndustryEditorState} editorState={industryEditorState} />
                         </div>
 
                     </div>

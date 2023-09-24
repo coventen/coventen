@@ -1,10 +1,10 @@
 'use client'
 
 import React, { Fragment, useState } from 'react';
-import Editor from '@/components/Editor';
+
 import { v4 as uuid } from "uuid"
 
-import { EditorState, convertToRaw } from 'draft-js';
+
 
 
 

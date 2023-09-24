@@ -186,7 +186,7 @@ const SearchInput = () => {
                                             <>
                                                 {searchResult?.length ?
                                                     searchResult?.map((result: any) => (
-                                                        <Link href={`/solution/${result?.slug}`} key={result?.id} className="text-dimText text-sm underline py-1 px-2">
+                                                        <Link href={`/services/${result?.slug}`} key={result?.id} className="text-dimText text-sm underline py-1 px-2">
                                                             {result?.title}
                                                         </Link>
                                                     ))

@@ -1,15 +1,16 @@
 'use client'
 
 import React, { Fragment, useState } from 'react';
-import Editor from '@/components/Editor';
 
 
-import { EditorState, convertToRaw } from 'draft-js';
+
+
 import Button from '@/components/Button';
 import HandleFileUpload from '@/shared/HandleFileUpload';
 import { v4 as uuidv4 } from 'uuid'
 import toast from 'react-hot-toast';
 import { Product } from '@/gql/graphql';
+import PageTextEditor from '@/components/PageTextEditor';
 
 interface IAddProductProps {
     productData: any,
@@ -51,8 +52,8 @@ const DataFrom = ({ productData, setProductData, featureEditorState, setFeatureE
             shortDescription: productData?.shortDescription,
             image: imageLink,
             price: parseInt(productData?.price),
-            features: JSON.stringify(convertToRaw(featureEditorState.getCurrentContent())),
-            others: JSON.stringify(convertToRaw(othersEditorState.getCurrentContent())),
+            features: JSON.stringify(featureEditorState),
+            others: JSON.stringify(othersEditorState),
 
         }
 
@@ -146,11 +147,11 @@ const DataFrom = ({ productData, setProductData, featureEditorState, setFeatureE
                         </div>
                         <div className='col-span-2'>
                             <p className='text-dimText mb-4'> Features </p>
-                            <Editor setEditorState={setFeatureEditorState} editorState={featureEditorState} />
+                            <PageTextEditor setEditorState={setFeatureEditorState} editorState={featureEditorState} />
                         </div>
                         <div className='col-span-2'>
                             <p className='text-dimText mb-4'> Others </p>
-                            <Editor setEditorState={setOthersEditorState} editorState={othersEditorState} />
+                            <PageTextEditor setEditorState={setOthersEditorState} editorState={othersEditorState} />
                         </div>
 
 

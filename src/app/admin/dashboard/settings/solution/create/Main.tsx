@@ -3,14 +3,14 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import { useGqlClient } from '@/hooks/UseGqlClient';
 import { useMutation, useQuery } from 'graphql-hooks';
-import { EditorState, convertToRaw } from 'draft-js';
 import Loading from '@/app/loading';
 import { toast } from 'react-hot-toast';
 import { useRouter } from 'next/navigation';
 import HandleFileUpload from '@/shared/HandleFileUpload';
 import { v4 as uuidv4 } from 'uuid';
-import Editor from '@/components/Editor';
+
 import slugify from 'slugify';
+import PageTextEditor from '@/components/PageTextEditor';
 
 
 const GET_SERVICES = `
@@ -46,9 +46,7 @@ const Main = () => {
     const [thumbnail, setThumbnail] = useState<any>(null)
     const [description, setDescription] = useState('')
     const [selectedCategory, setSelectedCategory] = useState('')
-    const [editorState, setEditorState] = useState(() =>
-        EditorState.createEmpty()
-    );
+    const [editorState, setEditorState] = useState("")
 
     // hooks
     const client = useGqlClient()
@@ -76,8 +74,7 @@ const Main = () => {
         const imageLinkUrl = await handleImageUpload(thumbnail)
 
         // text editor's content
-        const contentJson = convertToRaw(editorState.getCurrentContent());
-        const contentString = JSON.stringify(contentJson)
+        const contentString = JSON.stringify(editorState)
 
         let { data } = await createServiceFn({
             variables: {
@@ -127,14 +124,13 @@ const Main = () => {
 
     useEffect(() => {
 
-        if (data?.createServices?.length) {
-            setSelectedCategory(data?.servicePages[0]?.id)
+        if (data?.categories?.length) {
+            setSelectedCategory(data?.categories[0]?.id)
         }
-
-    }, [data?.servicePages?.length])
-
+    }, [data?.categories?.length])
 
 
+    console.log(data?.categories[0]?.id)
 
 
     //handle image upload to firebase
@@ -228,7 +224,7 @@ const Main = () => {
                 <label htmlFor="title" className="block  text-gray-700 text-sm mb-1">
                     Page Content
                 </label>
-                <Editor setEditorState={setEditorState} editorState={editorState} />
+                <PageTextEditor setEditorState={setEditorState} editorState={editorState} />
             </div>
 
 

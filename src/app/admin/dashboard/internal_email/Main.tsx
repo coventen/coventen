@@ -4,6 +4,7 @@ import Error from '@/components/Error';
 import AuthConfig from '@/firebase/oauth.config';
 
 import { useGqlClient } from '@/hooks/UseGqlClient';
+import deleteImage from '@/shared/deleteImage';
 import { getEmployerEmail } from '@/shared/getEmployerEmail';
 import { useManualQuery, useMutation, useQuery } from 'graphql-hooks';
 import Link from 'next/link';
@@ -19,6 +20,7 @@ query CommunicationTickets($where: CommunicationTicketWhere, $options: Communica
       id
       sub
       date
+      files
     }
   }
 
@@ -34,9 +36,6 @@ mutation DeleteCommunicationTickets($where: CommunicationTicketWhere) {
 
 // component
 const Main = () => {
-
-    // states
-    const [labEmail, setLabEmail] = useState('')
     // pagination states
     const [pageLimit, setPageLimit] = useState(10)
     const [currentPage, setCurrentPage] = useState(1)
@@ -57,25 +56,14 @@ const Main = () => {
 
     // refetching data based on pagination and search query
     useEffect(() => {
-        getLabEmail()
         getInternalEmailData()
         getEmailCount()
-    }, [currentPage, user?.email, labEmail]);
+    }, [currentPage, user?.email]);
 
 
 
 
 
-
-    // getting lab email if employee is logged in
-    const getLabEmail = async () => {
-        if (user?.email) {
-            const email = await getEmployerEmail(user?.email)
-            setLabEmail(email)
-        }
-
-
-    }
 
     // initializing query and mutations
 
@@ -116,7 +104,7 @@ const Main = () => {
 
     // delete message INIT
 
-    const deleteMessage = async (id: string) => {
+    const deleteMessage = async (id: string, files: string[]) => {
         const { data } = await deleteMessageFn({
             variables: {
                 where: {
@@ -126,10 +114,20 @@ const Main = () => {
         })
 
         if (data.deleteCommunicationTickets.nodesDeleted) {
+            deleteOldMessageFiles(files)
             getInternalEmailData()
             toast.error("Message deleted successfully")
         }
     }
+
+
+
+    const deleteOldMessageFiles = async (filesLinks: string[]) => {
+        const result = filesLinks.map(async (item) => {
+            deleteImage(item)
+        })
+    }
+
 
 
     if (internalEmailState.loading || deleteState.loading) return <Loading />
@@ -177,7 +175,7 @@ const Main = () => {
                                             >
 
                                                 <div className=" flex items-center justify-between p-1 my-1 cursor-pointer  w-full">
-                                                    <Link href={`/admin/dashboard/internal_email/message_preview/${item?.id}`} className="flex items-center ">
+                                                    <Link href={`/admin/dashboard/internal_email/message/${item?.id}`} className="flex items-center ">
                                                         <div className="flex items-center mr-4 ml-1 space-x-1">
 
                                                             <button title="Read">
@@ -192,7 +190,10 @@ const Main = () => {
                                                     <div className=" flex items-center justify-end">
                                                         <div className="flex items-center space-x-2" >
 
-                                                            <button onClick={() => deleteMessage(item?.id)} title="Delete">
+                                                            <button onClick={() => {
+                                                                deleteMessage(item?.id, item?.files)
+
+                                                            }} title="Delete">
                                                                 <svg xmlns="http://www.w3.org/2000/svg" className="text-gray-500 hover:text-gray-900 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
                                                                 </svg>

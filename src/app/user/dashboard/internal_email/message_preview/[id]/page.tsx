@@ -55,7 +55,7 @@ const page = async ({ params, searchParams }: any) => {
     const { id } = params
     const details = await getMessageDetails(id)
 
-    console.log(details, 'ooooooooooooooooooooooooooooooooooooooooooooooooo')
+
 
 
     return (
@@ -66,7 +66,7 @@ const page = async ({ params, searchParams }: any) => {
                 <h2 className="text-gray-700 text-xl font-bold dark:text-gray-200">Sub: {details?.sub}</h2>
 
                 <div className="mt-2 leading-loose text-gray-600 dark:text-gray-300">
-                    <MessageContent content={details?.message} />
+                    <MessageContent content={JSON.parse(details?.message)} />
                 </div>
                 <div className='grid grid-cols-1 lg:grid-cols-4 gap-2'>
                     <p className='text-sm text-gray-600 mb-7'>Attachments: </p>

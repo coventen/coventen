@@ -3,7 +3,7 @@ import { useGqlClient } from '@/hooks/UseGqlClient';
 import { useMutation, useQuery } from 'graphql-hooks';
 import React, { useEffect, useState } from 'react';
 import DataFrom from './DataFrom';
-import { ContentState, Editor, EditorState, convertFromRaw, convertToRaw } from 'draft-js';
+
 import { useParams, useRouter } from 'next/navigation';
 import { toast } from 'react-hot-toast';
 import Loading from '@/app/loading';
@@ -116,17 +116,7 @@ const Main = () => {
     }
 
 
-    const convertRawToEditorState = (raw: string) => {
-        if (!raw) {
-            console.log('raw is empty')
-            return
-        }
-        const rawContent = JSON.parse(raw);
-        const contentState = convertFromRaw(rawContent);
-        const editorState = EditorState.createWithContent(contentState);
-        console.log('editorState', editorState)
-        return editorState
-    }
+
 
     if (loading || updateState.loading) return <Loading />
     if (error || updateState.error) return <Error />

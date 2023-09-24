@@ -1,16 +1,13 @@
 'use client'
 
 import React, { Fragment, useState } from 'react';
-import Editor from '@/components/Editor';
-
-
-import { EditorState, convertToRaw } from 'draft-js';
 import Button from '@/components/Button';
 import HandleFileUpload from '@/shared/HandleFileUpload';
 import { v4 as uuidv4 } from 'uuid'
 import toast from 'react-hot-toast';
 import { Product } from '@/gql/graphql';
 import deleteImage from '@/shared/deleteImage';
+import PageTextEditor from '@/components/PageTextEditor';
 
 interface IAddProductProps {
     ServiceData: any,
@@ -57,7 +54,7 @@ const DataFrom = ({ ServiceData, setServiceData, ContentEditorState, setContentE
             description: ServiceData?.description,
             coverImageUrl: CoverImageUrl || ServiceData.coverImageUrl,
             thumbnailUrl: thumbnailUrl || ServiceData.thumbnailUrl,
-            pageContent: JSON.stringify(convertToRaw(ContentEditorState.getCurrentContent())),
+            pageContent: JSON.stringify(ContentEditorState),
 
 
         }
@@ -129,7 +126,7 @@ const DataFrom = ({ ServiceData, setServiceData, ContentEditorState, setContentE
                         </div>
                         <div className='col-span-2'>
                             <p className='text-dimText mb-4'> Page Content </p>
-                            <Editor setEditorState={setContentEditorState} editorState={ContentEditorState} />
+                            <PageTextEditor setEditorState={setContentEditorState} editorState={ContentEditorState} />
                         </div>
 
 

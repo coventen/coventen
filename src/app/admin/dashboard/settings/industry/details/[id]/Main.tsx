@@ -3,7 +3,7 @@ import { useGqlClient } from '@/hooks/UseGqlClient';
 import { useMutation, useQuery } from 'graphql-hooks';
 import React, { useEffect, useState } from 'react';
 import DataFrom from './DataFrom';
-import { ContentState, Editor, EditorState, convertFromRaw, convertToRaw } from 'draft-js';
+
 import { useParams, useRouter } from 'next/navigation';
 import { toast } from 'react-hot-toast';
 import Loading from '@/app/loading';
@@ -36,9 +36,7 @@ query IndustryPages {
 const Main = () => {
 
     // states
-    const [descriptionEditorState, setDescriptionEditorState] = useState(() =>
-        EditorState.createEmpty()
-    );
+    const [descriptionEditorState, setDescriptionEditorState] = useState('');
 
     console.log('descriptionEditorState', descriptionEditorState)
 
@@ -71,7 +69,7 @@ const Main = () => {
     useEffect(() => {
         if (previousIndustryData?.industryPages?.length) {
             const { title, description, features, others, image, price } = previousIndustryData.industryPages[0]
-            setDescriptionEditorState(convertRawToEditorState(features) || EditorState.createEmpty())
+            setDescriptionEditorState(features)
             setIndustryData({
                 title,
                 description,
@@ -120,18 +118,7 @@ const Main = () => {
     }
 
 
-    const convertRawToEditorState = (raw: string) => {
-        console.log('raw', raw)
-        if (!raw) {
-            console.log('raw is empty')
-            return
-        }
-        const rawContent = JSON.parse(raw);
-        const contentState = convertFromRaw(rawContent);
-        const editorState = EditorState.createWithContent(contentState);
-        console.log('editorState', editorState)
-        return editorState
-    }
+
 
     if (loading || updateState.loading) return <Loading />
     if (error || updateState.error) return <Error />

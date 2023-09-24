@@ -1,16 +1,17 @@
 'use client'
 
 import React, { Fragment, useState } from 'react';
-import Editor from '@/components/Editor';
 
 
-import { EditorState, convertToRaw } from 'draft-js';
+
+
 import Button from '@/components/Button';
 import HandleFileUpload from '@/shared/HandleFileUpload';
 import { v4 as uuidv4 } from 'uuid'
 import toast from 'react-hot-toast';
 import deleteImage from '@/shared/deleteImage';
-import QuillEditor from '@/components/QuillEditor';
+import PageTextEditor from '@/components/PageTextEditor';
+// import QuillEditor from '@/components/QuillEditor';
 
 interface IAddProductProps {
     termsData: any,
@@ -66,7 +67,7 @@ const DataFrom = ({ termsData, settermsData, descriptionEditorState, setDescript
 
                         <div className='col-span-2'>
                             <p className='text-dimText mb-4'> Page Content</p>
-                            <QuillEditor setEditorState={setDescriptionEditorState} editorState={descriptionEditorState} />
+                            <PageTextEditor setEditorState={setDescriptionEditorState} editorState={descriptionEditorState} />
                         </div>
 
 

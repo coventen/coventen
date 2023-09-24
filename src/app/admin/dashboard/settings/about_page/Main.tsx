@@ -3,15 +3,15 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import { useGqlClient } from '@/hooks/UseGqlClient';
 import { useMutation, useQuery } from 'graphql-hooks';
-import { EditorState, convertFromRaw, convertToRaw } from 'draft-js';
 import Loading from '@/app/loading';
 import { toast } from 'react-hot-toast';
 import { useRouter } from 'next/navigation';
 import HandleFileUpload from '@/shared/HandleFileUpload';
 import { v4 as uuidv4 } from 'uuid';
-import Editor from '@/components/Editor';
+
 import slugify from 'slugify';
 import deleteImage from '@/shared/deleteImage';
+import PageTextEditor from '@/components/PageTextEditor';
 
 
 
@@ -48,9 +48,7 @@ const Main = () => {
     const [imageUploading, setImageUploading] = useState(false)
     const [title, setTitle] = useState('')
     const [image, setImage] = useState<any>(null)
-    const [editorState, setEditorState] = useState(() =>
-        EditorState.createEmpty()
-    );
+    const [editorState, setEditorState] = useState("")
 
     // hooks
     const client = useGqlClient()
@@ -80,8 +78,8 @@ const Main = () => {
         }
 
         // text editor's content
-        const contentJson = convertToRaw(editorState.getCurrentContent());
-        const contentString = JSON.stringify(contentJson)
+
+        const contentString = JSON.stringify(editorState)
 
         let { data } = await updateAboutPageFn({
             variables: {
@@ -116,25 +114,14 @@ const Main = () => {
         if (previousData?.aboutPages?.length) {
             const { title, image, description } = previousData.aboutPages[0]
             setTitle(title)
-            setEditorState(convertRawToEditorState(description) || EditorState.createEmpty())
+            setEditorState(JSON.parse(description))
 
         }
 
     }, [previousData])
 
 
-    const convertRawToEditorState = (raw: string) => {
-        console.log('raw', raw)
-        if (!raw) {
-            console.log('raw is empty')
-            return
-        }
-        const rawContent = JSON.parse(raw);
-        const contentState = convertFromRaw(rawContent);
-        const editorState = EditorState.createWithContent(contentState);
-        console.log('editorState', editorState)
-        return editorState
-    }
+
 
 
 
@@ -181,7 +168,7 @@ const Main = () => {
                 <label htmlFor="title" className="block  text-gray-700 text-sm mb-1">
                     Page Content
                 </label>
-                <Editor setEditorState={setEditorState} editorState={editorState} />
+                <PageTextEditor setEditorState={setEditorState} editorState={editorState} />
             </div>
 
 

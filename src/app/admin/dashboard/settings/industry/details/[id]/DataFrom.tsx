@@ -1,16 +1,17 @@
 'use client'
 
 import React, { Fragment, useState } from 'react';
-import Editor from '@/components/Editor';
 
 
-import { EditorState, convertToRaw } from 'draft-js';
+
+
 import Button from '@/components/Button';
 import HandleFileUpload from '@/shared/HandleFileUpload';
 import { v4 as uuidv4 } from 'uuid'
 import toast from 'react-hot-toast';
 import deleteImage from '@/shared/deleteImage';
 import Loading from '@/app/loading';
+import PageTextEditor from '@/components/PageTextEditor';
 
 interface IAddProductProps {
     IndustryData: any,
@@ -53,14 +54,14 @@ const DataFrom = ({ IndustryData, setIndustryData, descriptionEditorState, setDe
             const inputData = {
                 title: IndustryData?.title,
                 image: imageLink,
-                description: JSON.stringify(convertToRaw(descriptionEditorState.getCurrentContent())),
+                description: JSON.stringify(descriptionEditorState),
             }
             updateIndustryFn(inputData)
         } else {
             const inputData = {
                 title: IndustryData?.title,
                 image: IndustryData?.image,
-                description: JSON.stringify(convertToRaw(descriptionEditorState.getCurrentContent())),
+                description: JSON.stringify(descriptionEditorState),
             }
             updateIndustryFn(inputData)
         }
@@ -110,7 +111,7 @@ const DataFrom = ({ IndustryData, setIndustryData, descriptionEditorState, setDe
 
                         <div className='col-span-2'>
                             <p className='text-dimText mb-4'> Description </p>
-                            <Editor setEditorState={setDescriptionEditorState} editorState={descriptionEditorState} />
+                            <PageTextEditor setEditorState={setDescriptionEditorState} editorState={descriptionEditorState} />
                         </div>
 
 
