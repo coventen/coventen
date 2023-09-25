@@ -68,7 +68,7 @@ const EventDetails = () => {
 
                 <div className="flex flex-col lg:flex-row lg:space-x-12">
 
-                    <div className="px-4 lg:px-0 mt-12 text-gray-700 text-lg leading-relaxed w-full lg:w-3/4">
+                    <div className="px-4 lg:px-0 mt-12 text-gray-700 text-lg leading-relaxed w-full lg:w-3/4 text-justify">
                         {eventData?.events[0]?.description}
 
                     </div>
