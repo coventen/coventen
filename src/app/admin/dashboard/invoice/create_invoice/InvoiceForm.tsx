@@ -59,7 +59,7 @@ const InvoiceForm = ({ createInvoice }: IInvoiceForm) => {
             <div className="container max-w-screen-lg mx-auto">
                 <div>
 
-                    <div className="bg-white rounded p-4 px-4 md:p-8 mb-6">
+                    <div className="bg-white   p-4 px-4 md:p-8 mb-6">
                         <div className="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-2">
 
 
@@ -71,7 +71,7 @@ const InvoiceForm = ({ createInvoice }: IInvoiceForm) => {
 
                                             <AutoSelectConsumer setSelected={setSelected} selected={selected} />
                                         </div>
-                                        {/* <input type="text" name="full_name" id="full_name" className="h-10 border border-gray-300 mt-1 rounded px-4 w-full "  /> */}
+                                        {/* <input type="text" name="full_name" id="full_name" className="h-10 border border-gray-300 mt-1   px-4 w-full "  /> */}
                                     </div>
                                     <div className='col-span-2 '>
                                         <p >Tax</p>
@@ -81,7 +81,7 @@ const InvoiceForm = ({ createInvoice }: IInvoiceForm) => {
 
                                                 <div className="relative">
                                                     <select
-                                                        className=" h-full rounded-r border-t  rounded-l-md sm:rounded-r-none sm:border-r-0 border-r border-b block  w-full bg-white border-gray-300 text-gray-700 py-2 px-4 pr-8 leading-tight focus:outline-none focus:border-l focus:border-r focus:bg-white focus:border-gray-500" {...register("taxType")}>
+                                                        className=" h-full  -r border-t   -l-md sm: -r-none sm:border-r-0 border-r border-b block  w-full bg-white border-gray-300 text-gray-700 py-2 px-4 pr-8 leading-tight focus:outline-none focus:border-l focus:border-r focus:bg-white focus:border-gray-500" {...register("taxType")}>
                                                         <option>GST</option>
                                                         <option>SGST</option>
                                                         <option>UGST</option>
@@ -95,7 +95,46 @@ const InvoiceForm = ({ createInvoice }: IInvoiceForm) => {
                                                 </span>
                                                 <input placeholder="Tax rate"
                                                     type='number'
-                                                    className="  sm:rounded-l-none rounded-r-md  border border-gray-300 border-b block pl-8 pr-6 py-2 w-full bg-white text-sm placeholder-gray-400 text-gray-700 focus:bg-white focus:placeholder-gray-600 focus:text-gray-700 focus:outline-none" {...register("taxRate")} />
+                                                    className="    border border-gray-300 border-b block pl-8 pr-6 py-2 w-full bg-white text-sm placeholder-gray-400 text-gray-700 focus:bg-white focus:placeholder-gray-600 focus:text-gray-700 focus:outline-none" {...register("taxRate")} />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className='col-span-full  w-full mt-3'>
+                                        <p >HNS</p>
+
+                                        <div className="flex  sm:flex-row w-full ">
+
+                                            <div className="block relative w-full">
+
+                                                <input
+                                                    type='text'
+                                                    className="  border border-gray-300 border-b block pl-8 pr-6 py-2 w-full bg-white text-sm placeholder-gray-400 text-gray-700 focus:bg-white focus:placeholder-gray-600 focus:text-gray-700 focus:outline-none" {...register("hns")} />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className='col-span-full w-full mt-3'>
+                                        <p >Place Of Supply</p>
+
+                                        <div className="flex  sm:flex-row  w-full">
+
+                                            <div className="block relative w-full">
+
+                                                <input
+                                                    type='text'
+                                                    className="  border border-gray-300 border-b block pl-8 pr-6 py-2 w-full bg-white text-sm placeholder-gray-400 text-gray-700 focus:bg-white focus:placeholder-gray-600 focus:text-gray-700 focus:outline-none" {...register("placeOfSupply")} />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className='col-span-full w-full mt-3'>
+                                        <p >Subject</p>
+
+                                        <div className="flex  sm:flex-row w-full ">
+
+                                            <div className="block relative w-full">
+
+                                                <input
+                                                    type='text'
+                                                    className="    border border-gray-300 border-b block pl-8 pr-6 py-2 w-full bg-white text-sm placeholder-gray-400 text-gray-700 focus:bg-white focus:placeholder-gray-600 focus:text-gray-700 focus:outline-none" {...register("subject")} />
                                             </div>
                                         </div>
                                     </div>
@@ -114,7 +153,7 @@ const InvoiceForm = ({ createInvoice }: IInvoiceForm) => {
 
                                                 <div>
                                                     <label >Add More service</label>
-                                                    <div className="h-10 w-28  flex border border-gray-300  rounded items-center mt-1">
+                                                    <div className="h-10 w-28  flex border border-gray-300    items-center mt-1">
                                                         <div
                                                             onClick={() => setServiceCount(serviceCount - 1)}
                                                             className="cursor-pointer outline-none focus:outline-none border-r border-gray-300 transition-all text-gray-500 hover:text-blue-600">
@@ -123,7 +162,7 @@ const InvoiceForm = ({ createInvoice }: IInvoiceForm) => {
                                                             </svg>
                                                         </div>
                                                         <input name="soda" id="soda" placeholder="0"
-                                                            className="px-2 text-center appearance-none outline-none text-gray-800 w-full bg-transparent"
+                                                            className="px-2 text-center appearance-none outline-none text-gray-800 w-full bg-transparent border-none"
                                                             readOnly
                                                             value={serviceCount} />
                                                         <div onClick={() => setServiceCount(serviceCount + 1)} className="cursor-pointer outline-none focus:outline-none border-l border-gray-300 transition-all text-gray-500 hover:text-blue-600">
@@ -153,7 +192,7 @@ const InvoiceForm = ({ createInvoice }: IInvoiceForm) => {
 
                                     <div className="md:col-span-5 text-right mt-8">
                                         <div className="inline-flex items-end">
-                                            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Submit</button>
+                                            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4  ">Submit</button>
                                         </div>
                                     </div>
 
