@@ -37,7 +37,7 @@ function classNames(...classes: string[]) {
 
 export default function SideBarFilter({ children, setSearchFilter }: Props) {
 
-    const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
+    const [mobileFiltersOpen, setMobileFiltersOpen] = useState(true);
 
     const filters = [
         {

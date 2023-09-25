@@ -10,15 +10,16 @@ import { useManualQuery, useQuery } from 'graphql-hooks';
 import Loading from '@/app/loading';
 
 const GET_EVENT = `
-query Events {
-    events {
+query Events($where: EventWhere, $options: EventOptions) {
+    events(where: $where, options: $options) {
+      id
       name
       slug
-      location
-      startAt
-      endAt
-      image
       description
+      location
+      image
+      endAt
+      startAt
     }
   }
 `;
@@ -64,9 +65,7 @@ const Main = () => {
 
     }, [searchFilter])
 
-
-
-
+    useEffect(() => { }, [eventData])
     const getEvents = async (where: any) => {
 
         const { data } = await getEventDataFn({

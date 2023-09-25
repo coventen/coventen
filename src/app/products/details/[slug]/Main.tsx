@@ -47,7 +47,7 @@ const Main = () => {
 
     })
 
-    console.log(params.slug)
+
 
     useEffect(() => {
 

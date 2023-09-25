@@ -1,10 +1,13 @@
 'use client'
 import React, { useState } from 'react';
 import { useForm, SubmitHandler, set } from "react-hook-form"
-import industries from '@/utlts/InductiresData.json';
+// import industries from '@/utlts/InductiresData.json';
 import MultiSelect from '@/components/Multiselect';
 import AutoSelectVendor from '@/components/AutoSelectVendor';
 import AuthConfig from '@/firebase/oauth.config';
+import { useGqlClient } from '@/hooks/UseGqlClient';
+import { useQuery } from 'graphql-hooks';
+import MultiselectIndustry from '@/components/MultiselectIndustry';
 
 
 
@@ -24,6 +27,16 @@ interface ISignUpProps {
 
 }
 
+
+
+const GET_INDUSTRY = `
+query IndustryPages($where: IndustryPageWhere, $options: IndustryPageOptions) {
+    industryPages(where: $where, options: $options) {
+      id
+      title
+    }
+  }
+`
 
 
 
@@ -56,7 +69,13 @@ const SignUpFrom = ({ createUser, setLoading, setError, loading, error }: ISignU
     } = useForm<IFormInput>()
 
     const { signUpWithEmailAndPassword } = AuthConfig()
+    const client = useGqlClient()
 
+    // query
+    const { data: industries, loading: industryLoading } = useQuery(GET_INDUSTRY, { client })
+
+
+    console.log(industries, 'industries')
 
 
     // handle authentication
@@ -205,7 +224,7 @@ const SignUpFrom = ({ createUser, setLoading, setError, loading, error }: ISignU
                                 Industries
                             </label>
                             <div className="relative inline-flex w-full">
-                                <MultiSelect setSelectedOptions={setSelectedIndustries} selectedOptions={selectedIndustries} options={industries} />
+                                <MultiselectIndustry setSelectedOptions={setSelectedIndustries} selectedOptions={selectedIndustries} options={industries?.industryPages} />
 
                             </div>
                         </div>
