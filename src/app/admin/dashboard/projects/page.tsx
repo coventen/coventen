@@ -7,7 +7,7 @@ import Main from './Main';
 
 
 //component
-const AssignmentPage = () => {
+const ProjectsPage = () => {
 
 
 
@@ -17,7 +17,7 @@ const AssignmentPage = () => {
             <div className="w-full  bg-white min-h-[400px] rounded-lg py-4 md:py-7 px-4 md:px-8 xl:px-10 ">
                 <div className=" py-4 md:py-7">
                     <div className="flex items-center justify-between">
-                        <p className="focus:outline-none text-base sm:text-lg md:text-xl lg:text-2xl font-bold leading-normal text-gray-800">Assignment</p>
+                        <p className="focus:outline-none text-base sm:text-lg md:text-xl lg:text-2xl font-bold leading-normal text-gray-800">Projects</p>
 
                     </div>
 
@@ -37,4 +37,4 @@ const AssignmentPage = () => {
     );
 };
 
-export default AssignmentPage;
+export default ProjectsPage;

@@ -98,7 +98,7 @@ const Main = () => {
   //mutation
   const [updateHomePageFn, { loading, error }] = useMutation(UPDATE_client, { client })
 
-  console.log(data)
+  console.log(clientData, ' client data')
 
 
 
@@ -116,7 +116,7 @@ const Main = () => {
         }))
       })
     }
-  }, [data?.homeclients?.length])
+  }, [data?.homeclients?.length, loadingQuery])
 
 
 
@@ -137,7 +137,7 @@ const Main = () => {
     })
 
     if (updateData?.updateHomeClients?.homeClients?.length) {
-      toast.success('Updated')
+      // toast.success('Updated')
       refetch()
     }
 
@@ -147,7 +147,7 @@ const Main = () => {
     e.preventDefault()
     Object.keys(clientData).map(async (key: any) => {
       const { id, name, logo } = clientData[key]
-      if (logo) {
+      if (logo && typeof logo !== 'string') {
         const newLogoLink = await uploadFile(logo, `client-${uuid()}`, 'home_Client_images')
         if (newLogoLink) {
           const oldLogo = data?.homeClients?.find((client: any) => client.id === id)?.logo
@@ -160,7 +160,7 @@ const Main = () => {
         updateHomePage(id, name, oldLogo)
       }
     })
-    e.target.reset()
+
   }
 
 
@@ -199,7 +199,7 @@ const Main = () => {
                     ...prev,
                     [`client${i + 1}`]: {
                       ...prev[`client${i + 1}`],
-                      title: e.target.value
+                      name: e.target.value
                     }
                   }
                 })}

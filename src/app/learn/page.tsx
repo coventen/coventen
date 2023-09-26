@@ -31,7 +31,7 @@ const Accordion = () => {
                     <Main />
                 </div>
 
-                <div className="absolute bottom-0 right-0 -z-40">
+                {/* <div className="absolute bottom-0 right-0 -z-40">
                     <svg
                         width="1440"
                         height="886"
@@ -59,7 +59,7 @@ const Accordion = () => {
                             </linearGradient>
                         </defs>
                     </svg>
-                </div>
+                </div> */}
             </section>
         </>
     );

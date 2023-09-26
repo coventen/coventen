@@ -28,6 +28,7 @@ query LearnItems($where: LearnItemWhere) {
       title
       description
       url
+      imageUrl
     }
   }
 `
@@ -39,7 +40,8 @@ const Main = () => {
     const [currentData, setCurrentData] = React.useState({
         description: '',
         title: '',
-        url: ''
+        url: '',
+        imageUrl: ''
 
     })
 
@@ -60,12 +62,13 @@ const Main = () => {
     // // action on change
     useEffect(() => {
         if (previoustermsData?.learnItems?.length) {
-            const { title, description, url } = previoustermsData.learnItems[0]
+            const { title, description, url, imageUrl } = previoustermsData.learnItems[0]
 
             setCurrentData({
                 title,
                 description,
-                url
+                url,
+                imageUrl
             })
         }
 
@@ -97,7 +100,8 @@ const Main = () => {
                 "update": {
                     "title": input.title,
                     "description": input.description,
-                    "url": input.url
+                    "url": input.url,
+                    imageUrl: input.imageUrl
                 }
             }
         })

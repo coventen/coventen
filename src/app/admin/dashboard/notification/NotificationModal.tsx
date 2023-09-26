@@ -30,7 +30,7 @@ mutation CreateNotifications($input: [NotificationCreateInput!]!) {
 //component
 function NotificationModal({ isOpen, setIsOpen, setNewNotification }: INotificationModal) {
 
-    console.log(isOpen, 'this is me')
+
 
 
     //states

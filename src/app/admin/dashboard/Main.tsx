@@ -9,6 +9,7 @@ import NotificationCard from '@/components/NotificationCard';
 import NotificationBlock from '../../../components/NotificationBlock';
 import InfoCards from '@/components/InfoCards';
 import AuthConfig from '@/firebase/oauth.config';
+import Link from 'next/link';
 
 
 
@@ -161,21 +162,21 @@ const Main = () => {
         <>
             {/* <!-- status section Start --> */}
             <section className="grid lg:grid-cols-3 md:grid-cols-2 gap-6 w-full max-w-6xl" >
-                <div className='mb-5'>
+                <Link href='/admin/dashboard/projects' className='mb-5 cursor-pointer'>
                     <InfoCards title='Total Projects' value={projectData?.projects?.length || '00'} />
-                </div>
-                <div className='mb-5'>
+                </Link>
+                <Link href='/admin/dashboard/ticket_system/all_tickets' className='mb-5 cursor-pointer' >
                     <InfoCards title='Tickets Created' value={`${totalTickets < 10 ? `0${totalTickets}` : totalTickets}` || '00'} />
-                </div>
-                <div className='mb-5'>
+                </Link>
+                <Link href='/admin/dashboard/ticket_system/all_tickets' className='mb-5 cursor-pointer'>
                     <InfoCards title='On Going ' value={`${pendingTickets < 10 ? `0${pendingTickets}` : pendingTickets}` || '00'} />
-                </div>
-                <div className='mb-5'>
+                </Link>
+                <Link href='/admin/dashboard/ticket_system/all_tickets' className='mb-5 cursor-pointer'>
                     <InfoCards title='Rejected Tickets' value={`${rejectionTickets < 10 ? `0${rejectionTickets}` : rejectionTickets}` || '00'} />
-                </div>
-                <div className='mb-5'>
+                </Link>
+                <Link href='/admin/dashboard/ticket_system/all_tickets' className='mb-5 cursor-pointer'>
                     <InfoCards title='Completed' value={`${completedTickets < 10 ? `0${completedTickets}` : completedTickets}` || '00'} />
-                </div>
+                </Link>
             </section >
             {/* <!-- status section End  --> */}
 

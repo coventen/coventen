@@ -80,6 +80,8 @@ const PageTabs = ({ addNewItem, categoryData, deleteItem, selectedType, setSelec
                                             SOLUTION</option>
                                         <option >
                                             PRODUCT</option>
+                                        <option >
+                                            EVENT</option>
                                     </select>
 
                                 </div>

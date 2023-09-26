@@ -73,6 +73,7 @@ const homeProducts = async () => {
         products(where: $where) {
           title
           shortDescription
+          image
           id
         }
       }

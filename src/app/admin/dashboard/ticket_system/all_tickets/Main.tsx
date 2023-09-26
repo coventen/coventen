@@ -3,7 +3,7 @@ import { useManualQuery, useQuery } from 'graphql-hooks';
 import React, { useState, useEffect } from 'react';
 import TicketTable from './TicketTable';
 import { useGqlClient } from '@/hooks/UseGqlClient';
-import AssignmentModal from '../../assignment/AssignmentModal';
+import AssignmentModal from '../../projects/AssignmentModal';
 import Pagination from '@/components/Pagination';
 import TableSkeleton from '@/components/TableSkeleton';
 import TicketReassignModal from './TicketReassignModal';

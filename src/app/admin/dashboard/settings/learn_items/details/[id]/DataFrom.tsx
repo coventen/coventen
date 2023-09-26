@@ -3,6 +3,9 @@
 import React, { Fragment, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid'
 import toast from 'react-hot-toast';
+import HandleFileUpload from '@/shared/HandleFileUpload';
+import deleteImage from '@/shared/deleteImage';
+import Loading from '@/app/loading';
 
 
 interface IAddProductProps {
@@ -18,17 +21,34 @@ interface IAddProductProps {
 
 const DataFrom = ({ currentData, setCurrentData, updateItem }: IAddProductProps) => {
 
+    // states
+    const [image, setImage] = useState<File | null>(null)
+    const [uploading, setUploading] = useState(false)
+
+
+    // hooks
+    const { uploadFile } = HandleFileUpload()
+
 
 
 
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
-
+        let imageLink
+        if (image) {
+            setUploading(true)
+            imageLink = await uploadFile(image, `learn-${uuidv4()}`, 'Learn_Images')
+            setUploading(false)
+            if (currentData?.imageUrl) {
+                deleteImage(currentData?.imageUrl)
+            }
+        }
         const inputData = {
             title: currentData?.title,
             description: currentData?.description,
-            url: currentData?.url
+            url: currentData?.url,
+            imageUrl: imageLink || currentData?.imageUrl
         }
         updateItem(inputData)
 
@@ -36,6 +56,7 @@ const DataFrom = ({ currentData, setCurrentData, updateItem }: IAddProductProps)
     }
 
 
+    if (uploading) return <Loading />
 
     return (
         <>
@@ -63,6 +84,23 @@ const DataFrom = ({ currentData, setCurrentData, updateItem }: IAddProductProps)
                                 defaultValue={currentData?.url}
                                 onChange={(e) => setCurrentData({ ...currentData, url: e.target.value })}
                                 placeholder="url"
+                                className="mt-2 w-full block  placeholder-gray-400/70 rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-gray-700 focus:primary focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:primary/10"
+                            />
+                        </div>
+                        <div className=" p-1  col-span-2">
+                            <label htmlFor="title" className="block  text-gray-700 text-sm mb-1">
+                                Image
+                            </label>
+                            <input
+                                required
+                                type="file"
+                                name="Image"
+                                onChange={(e) => {
+                                    if (e?.target?.files && e.target.files.length > 0) {
+                                        setImage(e.target.files[0]);
+                                    }
+                                }}
+                                placeholder="Image"
                                 className="mt-2 w-full block  placeholder-gray-400/70 rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-gray-700 focus:primary focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:primary/10"
                             />
                         </div>

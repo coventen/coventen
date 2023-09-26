@@ -100,7 +100,7 @@ const InvoiceForm = ({ createInvoice }: IInvoiceForm) => {
                                         </div>
                                     </div>
                                     <div className='col-span-full  w-full mt-3'>
-                                        <p >HNS</p>
+                                        <p >HSN/SAC Code</p>
 
                                         <div className="flex  sm:flex-row w-full ">
 

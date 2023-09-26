@@ -7,6 +7,7 @@ import Image from 'next/image';
 import { useParams } from 'next/navigation';
 import React from 'react';
 import Modal from '../Modal';
+import Link from 'next/link';
 
 
 const GET_EVENT = `
@@ -20,6 +21,7 @@ query Events($where: EventWhere, $options: EventOptions) {
       image
       endAt
       startAt
+      registrationUrl
     }
   }`
 
@@ -76,8 +78,9 @@ const EventDetails = () => {
                     <div className="w-full lg:w-1/4 m-auto mt-2 max-w-screen-sm">
                         <div className="col-span-1 lg:col-span-2 p-4">
 
-                            <div className="border-b border-gray-300 pb-1 mt-7">
-                                <button onClick={() => setIsModalOpen(true)} className='bg-primary text-white px-4 py-1.5'>Interest</button>
+                            <div className="border-b border-gray-300 pb-1 mt-7 flex space-x-3">
+                                <button onClick={() => setIsModalOpen(true)} className='bg-primary text-white px-4 py-1.5'>Interested</button>
+                                <Link href={eventData?.events[0]?.registrationUrl || '#'} className=' text-primary px-4 py-1.5'>Register</Link>
                             </div>
                             <div className="border-b border-gray-300 pb-1 mt-7">
                                 <p

@@ -207,7 +207,7 @@ const Main = () => {
                     >
                         <option value="" disabled>Select an option</option>
                         <option value="SERVICE_PROVIDER" >Vendor</option>
-                        <option value="CONSUMER" >Consumer</option>
+                        <option value="CONSUMER" >client</option>
 
                     </select>
 

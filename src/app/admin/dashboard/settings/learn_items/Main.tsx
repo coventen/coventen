@@ -14,7 +14,8 @@ import slugify from 'slugify';
 export interface addVariables {
     description: string,
     title: string,
-    url: string
+    url: string,
+    imageUrl: string,
 }
 
 
@@ -36,6 +37,7 @@ query LearnItems($where: LearnItemWhere) {
       title
       description
       url
+      imageUrl
     }
   }
 
@@ -76,7 +78,8 @@ const Main = () => {
                     {
                         "title": input.title,
                         "description": input.description,
-                        "url": input.url
+                        "url": input.url,
+                        "imageUrl": input.imageUrl,
                     }
                 ]
             }

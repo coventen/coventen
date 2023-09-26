@@ -77,6 +77,10 @@ const Main = () => {
     }
 
 
+    useEffect(() => {
+        console.log(products, ' this is products')
+    }, [products?.length])
+
     return (
         <>
             <section className="text-gray-600 body-font">
@@ -90,8 +94,8 @@ const Main = () => {
                                         products.map((product, index) =>
 
                                             <Link key={product?.id} href={`/products/details/${product?.id}`} className="lg:w-1/4 md:w-1/2 p-4 w-full">
-                                                <a className="block relative h-48 rounded overflow-hidden">
-                                                    <Image height={430} width={265} alt="ecommerce" className="object-cover object-center w-full h-full block" src={product?.image || '/assets/no_image.png'} />
+                                                <a className="block relative h-48 rounded overflow-hidden group overflow-hidden">
+                                                    <Image height={430} width={265} alt="ecommerce" className="transition-all duration-500 object-cover object-center w-full h-full block group-hover:scale-125" src={product?.image || '/assets/no_image.png'} />
                                                 </a>
                                                 <div className="mt-4">
                                                     <h2 className="text-gray-900 title-font text-base font-medium">{product?.title}</h2>

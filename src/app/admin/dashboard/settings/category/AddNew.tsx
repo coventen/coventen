@@ -70,6 +70,7 @@ const AddNewPage = ({ addNewItem }: any) => {
                                                         <option >SOLUTION</option>
                                                         <option >PRODUCT</option>
                                                         <option >SERVICE</option>
+                                                        <option >EVENT</option>
                                                     </select>
 
 

@@ -21,7 +21,6 @@ const FIND_EVENT = `
 query Events($where: EventWhere) {
     events(where: $where) {
       name
-      price
       startAt
       location
       image

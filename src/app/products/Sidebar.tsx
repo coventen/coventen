@@ -148,7 +148,7 @@ export default function Sidebar({
                                                     {({ open }) => (
                                                         <>
                                                             <h3 className="-mx-2 -my-3 flow-root">
-                                                                <Disclosure.Button className="flex w-full items-center justify-between bg-white px-2 py-3 text-gray-400 hover:text-gray-500">
+                                                                <Disclosure.Button className="flex w-full items-center justify-between bg-white px-2 py-3 text-gray-400 hover:text-gray-500 cursor-pointer">
                                                                     <span className="font-medium text-gray-900">
                                                                         {section.name}
                                                                     </span>
@@ -169,17 +169,17 @@ export default function Sidebar({
                                                             </h3>
                                                             <Disclosure.Panel className="pt-6">
 
-                                                                <div className="space-y-6">
+                                                                <div className="space-y-6 cursor-pointer">
                                                                     {section?.categoryHasChild?.map(
                                                                         (option: any, optionIdx: number) => (
                                                                             <Link
                                                                                 href={`/products?query=${option?.id}`}
                                                                                 key={option?.name}
-                                                                                className="flex items-center"
+                                                                                className="flex items-center cursor-pointer"
                                                                             >
                                                                                 <label
                                                                                     htmlFor={`filter-mobile-${section.id}-${optionIdx}`}
-                                                                                    className="ml-3 min-w-0 flex-1 text-gray-500"
+                                                                                    className="ml-3 min-w-0 flex-1 text-gray-500 cursor-pointer"
                                                                                 >
                                                                                     {option?.name}
                                                                                 </label>

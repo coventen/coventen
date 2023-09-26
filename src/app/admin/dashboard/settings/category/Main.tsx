@@ -18,7 +18,7 @@ type subCategory = {
 
 
 
-type categoryType = 'PRODUCT' | 'SOLUTION' | 'SERVICE' | 'All'
+type categoryType = 'PRODUCT' | 'SOLUTION' | 'SERVICE' | 'EVENT' | 'All'
 
 
 export interface addVariables {
@@ -160,7 +160,7 @@ const Main = () => {
     }
 
 
-    const getCategoryData = async (type: string[] = ["PRODUCT", "SERVICE", "SOLUTION"]) => {
+    const getCategoryData = async (type: string[] = ["PRODUCT", "SERVICE", "SOLUTION", "EVENT"]) => {
         const { data } = await getAllDataFn({
             variables: {
                 where: {

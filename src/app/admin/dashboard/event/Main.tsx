@@ -33,6 +33,14 @@ query Events {
     }
   }
 `;
+const GET_CATEGORY = `
+query Categories($where: CategoryWhere) {
+    categories(where: $where) {
+      name
+      id
+    }
+  }
+`;
 const DELETE_EVENT = `
 mutation DeleteEvents($where: EventWhere) {
     deleteEvents(where: $where) {
@@ -48,6 +56,7 @@ const Main = () => {
     const [openUpdateModal, setOpenUpdateModal] = useState(false);
     const [openPreviewModal, setOpenPreviewModal] = useState(false);
     const [currentEvent, setCurrentEvent] = useState('');
+    const [selectedCategory, setSelectedCategory] = useState('');
     const [deleteId, setDeleteId] = useState('');
 
 
@@ -57,12 +66,20 @@ const Main = () => {
 
     // QUERY
     const { data: eventData, loading, error, refetch } = useQuery(GET_EVENT, { client })
+    const { data: category, loading: catLoading } = useQuery(GET_CATEGORY, {
+        client,
+        variables: {
+            "where": {
+                "type": "EVENT"
+            }
+        }
+    })
 
     // MUTATION
     const [createEventFn, createEventState] = useMutation(CREATE_EVENT, { client })
     const [deleteEventFn, deleteEventState] = useMutation(DELETE_EVENT, { client, })
 
-
+    console.log(selectedCategory)
 
     // initialize the query and mutations
 
@@ -77,6 +94,8 @@ const Main = () => {
                         "description": input.description,
                         "location": input.location,
                         "endAt": input.endAt,
+                        registrationUrl: input.regUrl,
+                        category: selectedCategory,
                         slug: slugify(input.name, { replacement: '_', remove: /[*+~.()'"!:@]/g }),
                         "startAt": input.startAt,
                     }
@@ -107,12 +126,17 @@ const Main = () => {
     }
 
 
+    useEffect(() => {
+        setSelectedCategory(category?.categories[0]?.name)
+    }, [category?.categories])
 
 
 
-    if (loading || deleteEventState.loading || createEventState.loading) return <Loading />
+    if (loading || deleteEventState.loading || createEventState.loading || catLoading) return <Loading />
 
 
+
+    console.log(createEventState.error)
 
 
 
@@ -166,6 +190,9 @@ const Main = () => {
                 openModal={openModal}
                 createEventFn={createEvent}
                 loading={loading}
+                setSelectedCategory={setSelectedCategory}
+                selectedCategory={selectedCategory}
+                category={category?.categories}
             />
             <UpdateModal
                 id={currentEvent}

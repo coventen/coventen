@@ -62,8 +62,8 @@ export const controlledNavItems = [
                 icon: <LuCalculator className="" />,
             },
             {
-                label: "Assignments",
-                href: "/admin/dashboard/assignment",
+                label: "Projects",
+                href: "/admin/dashboard/projects",
                 icon: <LuReplaceAll className="" />,
             },
 

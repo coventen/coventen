@@ -95,6 +95,7 @@ const AddProduct = ({ setTab, addNewProductFn }: IAddProductProps) => {
 
 
 
+
     // Extract id and name pairs
     const filteredCategory: { id: string; name: string }[] = data?.categories.reduce(
         (result: any, category: any) => {
@@ -107,12 +108,6 @@ const AddProduct = ({ setTab, addNewProductFn }: IAddProductProps) => {
         []
     );
 
-
-    useEffect(() => {
-        if (filteredCategory && filteredCategory.length > 0) {
-            setSelectedCategory(filteredCategory[0].id);
-        }
-    }, [filteredCategory])
 
 
     if (uploading) return <Loading />
@@ -190,6 +185,7 @@ const AddProduct = ({ setTab, addNewProductFn }: IAddProductProps) => {
                                     name='category'
                                     className="mt-1 px-4 py-2 border border-gray-200 rounded-md w-full"
                                 >
+                                    <option disabled defaultChecked value='' >Select Category</option>
                                     {
                                         filteredCategory && filteredCategory?.map((cat: any, idx: number) =>
                                             <option key={cat?.id} value={cat?.id} >{cat?.name}</option>

@@ -1,6 +1,6 @@
 import { Switch } from '@headlessui/react';
 import React, { useState } from 'react';
-import { AiFillEye, } from 'react-icons/ai';
+import { AiFillEye, AiOutlineEye, } from 'react-icons/ai';
 import { BsPencilSquare } from 'react-icons/bs';
 import { MdDelete } from 'react-icons/md';
 
@@ -71,23 +71,30 @@ const EventTable: React.FC<Props> = ({ data, deleteEvent, setCurrentEvent, loadi
                                 {i + 1}
                             </td>
                             <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                {item?.name?.slice(0, 30) + '...'}
+                                {item?.name?.slice(0, 20) + '...'}
                             </td>
                             <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                {item.location}
+                                {item?.location?.slice(0, 20)}
                             </td>
                             <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                {item.startAt.slice(0, 10)}
+                                {item?.startAt.slice(0, 10)}
                             </td>
                             <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                {item.endAt.slice(0, 10)}
+                                {item?.endAt.slice(0, 10)}
                             </td>
-                            <td className="px-6 py-4 whitespace-nowrap text-center text-md font-medium flex items-center space-x-2" >
+                            <td  >
+                                <button className="px-6 py-4 whitespace-nowrap text-center text-md font-medium flex items-center space-x-2">
+                                    {/* <button className="px-6 py-4 whitespace-nowrap text-center text-md font-medium flex items-center space-x-2">
+                                        <AiOutlineEye onClick={() => {
+                                            setOpenUpdateModal(true)
+                                            setCurrentEvent(item?.id)
+                                        }} className='text-xl text-green-500' />
+                                    </button> */}
 
-
-                                <MdDelete onClick={() => {
-                                    deleteEvent(item?.id)
-                                }} className='text-xl text-red-500' />
+                                    <MdDelete onClick={() => {
+                                        deleteEvent(item?.id)
+                                    }} className='text-xl text-red-500' />
+                                </button>
 
                             </td>
                         </tr>

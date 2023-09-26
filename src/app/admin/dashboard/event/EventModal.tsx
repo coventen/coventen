@@ -14,13 +14,19 @@ interface Props {
     openModal: any;
     createEventFn: any
     loading: any
+    category: any
+    selectedCategory: any
+    setSelectedCategory: any
 }
 
 const EventModal: React.FC<Props> = ({
     setOpenModal,
     openModal,
     createEventFn,
-    loading
+    loading,
+    category,
+    selectedCategory,
+    setSelectedCategory,
 }) => {
 
     const { uploadFile } = HandleFileUpload()
@@ -43,6 +49,9 @@ const EventModal: React.FC<Props> = ({
         const description = e.target.description.value;
         const location = e.target.location.value;
         const image = e.target.image.files[0]
+        const regUrl = e.target.regUrl.value
+
+        console.log(startAt, endAt)
 
         const uploadedImageLink = await uploadFile(image, `events-${uuidv4()}`, 'event_images')
 
@@ -53,22 +62,19 @@ const EventModal: React.FC<Props> = ({
         else {
             const input = {
                 name,
-                startAt,
-                endAt,
+                startAt: new Date(startAt).toISOString(),
+                endAt: new Date(endAt).toISOString(),
                 description,
                 location,
+                regUrl,
                 image: uploadedImageLink
 
             }
             createEventFn(input)
         }
 
-
-
-
     };
 
-    // console.log(image, 'image')
 
     return (
         <>
@@ -115,13 +121,36 @@ const EventModal: React.FC<Props> = ({
                                                     className="mt-2 w-full block  placeholder-gray-400/70 rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-gray-700 focus:primary focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:primary/10"
                                                 />
                                             </div>
+                                            <div className="mb-5  w-full">
+                                                <label htmlFor="title" className="block  text-gray-700 text-sm mb-1">
+                                                    Category
+                                                </label>
+                                                <div className="relative inline-flex w-full">
+                                                    <select
+                                                        required
+                                                        value={selectedCategory}
+                                                        onChange={(e) => setSelectedCategory(e.target.value)}
+                                                        name='category'
+                                                        className="mt-2 w-full block  placeholder-gray-400/70 rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-gray-700 focus:primary focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:primary/10"
+                                                    >
+                                                        <option defaultChecked value='' >Select Category</option>
+                                                        {
+                                                            category?.length && category?.map((cat: any, idx: number) =>
+                                                                <option key={cat?.name} value={cat?.name} >{cat?.name}</option>
+                                                            )
+                                                        }
+
+                                                    </select>
+
+                                                </div>
+                                            </div>
 
 
                                             <div className=" p-1  ">
 
                                                 <label htmlFor='startAt' className="block text-sm text-gray-500 dark:text-gray-300">  Start at</label>
 
-                                                <input type="date" id='startAt' name="start At"
+                                                <input type="date" id='startAt' name="startAt"
                                                     placeholder="startAt" className="block  mt-2 w-full placeholder-gray-400/70 dark:placeholder-gray-500 rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-gray-700 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:focus:border-blue-300" />
 
 
@@ -146,10 +175,20 @@ const EventModal: React.FC<Props> = ({
                                                     className="mt-2 w-full block  placeholder-gray-400/70 rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-gray-700 focus:primary focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:primary/10"
                                                 />
                                             </div>
+                                            <div className=" p-1    ">
+                                                <label className="block text-sm text-gray-500 dark:text-gray-300">Registration Url</label>
+                                                <input
+                                                    type="text"
+                                                    name="regUrl"
+                                                    placeholder="Registration Url"
+                                                    className="mt-2 w-full block  placeholder-gray-400/70 rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-gray-700 focus:primary focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:primary/10"
+                                                />
+                                            </div>
 
                                             <div className=" p-1  col-span-full  ">
                                                 <label className="block text-sm text-gray-500 dark:text-gray-300"> Image</label>
                                                 <input
+                                                    required
                                                     type="file"
                                                     name="image"
                                                     placeholder="image"

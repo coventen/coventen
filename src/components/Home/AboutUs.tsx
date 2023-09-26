@@ -40,14 +40,14 @@ const AboutUs = ({ data }: any) => {
                                 {
                                     data?.hasPoints?.map((item: any) => (
                                         <div className="pt-4 flex gap-4 md:items-center" key={item?.id}>
-                                            <div className="w-12 h-12 flex gap-4 rounded-full bg-gray-100">
+                                            <div className="w-12 h-12 flex gap-4 rounded-full bg-gray-100 group overflow-hidden">
                                                 <Image
                                                     src={item?.iconUrl || '/assets/no_image.png'}
                                                     alt="image"
                                                     loading="lazy"
                                                     width={1000}
                                                     height={1000}
-                                                    className='w-12 h-12 flex  rounded-full object-cover object-center'
+                                                    className='w-12 h-12 flex  rounded-full object-cover object-center transition-all duration-500 group-hover:scale-125'
                                                 />
                                             </div>
                                             <div className="w-5/6">

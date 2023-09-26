@@ -3,6 +3,7 @@
 @tailwind utilities;
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mooli&family=Nunito+Sans:opsz@6..12&display=swap');
 
 @import 'swiper/css';
 @import 'swiper/css/pagination';
@@ -15,7 +16,7 @@
 html {
   scroll-behavior: smooth;
   /* font-family: 'Poppins', sans-serif; */
-  /* font-family: 'Nunito Sans', sans-serif; */
+  font-family: 'Mooli', sans-serif;
 }
 
 

@@ -97,6 +97,9 @@ const Main = () => {
                         status: "SENT",
                         taxType: invoiceData.taxType,
                         createdAt: new Date().toISOString(),
+                        hsn: invoiceData.hns,
+                        placeOfSupply: invoiceData.placeOfSupply,
+                        subject: invoiceData.subject,
                         hasClient: {
                             connect: {
                                 where: {

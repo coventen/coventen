@@ -24,6 +24,7 @@ type Option = {
 interface Props {
     children: React.ReactNode;
     setSearchFilter: any;
+    category: any;
 
 }
 
@@ -35,7 +36,7 @@ function classNames(...classes: string[]) {
 
 
 
-export default function SideBarFilter({ children, setSearchFilter }: Props) {
+export default function SideBarFilter({ children, setSearchFilter, category }: Props) {
 
     const [mobileFiltersOpen, setMobileFiltersOpen] = useState(true);
 
@@ -59,6 +60,7 @@ export default function SideBarFilter({ children, setSearchFilter }: Props) {
 
             ],
         },
+
 
     ];
 
@@ -121,10 +123,10 @@ export default function SideBarFilter({ children, setSearchFilter }: Props) {
 
                                         {/* Filters */}
                                         <form className="mt-4 border-t border-gray-200">
-                                            {filters.map((section) => (
+                                            {filters?.map((section) => (
                                                 <Disclosure
                                                     as="div"
-                                                    key={section.id}
+                                                    key={section?.id}
                                                     className="border-t border-gray-200 px-4 py-6"
                                                 >
                                                     {({ open }) => (
@@ -132,7 +134,7 @@ export default function SideBarFilter({ children, setSearchFilter }: Props) {
                                                             <h3 className="-mx-2 -my-3 flow-root">
                                                                 <Disclosure.Button className="flex w-full items-center justify-between bg-white px-2 py-3 text-gray-400 hover:text-gray-500">
                                                                     <span className="font-medium text-gray-900">
-                                                                        {section.name}
+                                                                        {section?.name}
                                                                     </span>
                                                                     <span className="ml-6 flex items-center">
                                                                         {open ? (
@@ -152,15 +154,18 @@ export default function SideBarFilter({ children, setSearchFilter }: Props) {
                                                             <Disclosure.Panel className="pt-6">
 
                                                                 <div className="space-y-6">
-                                                                    {section.options.map(
+                                                                    {section?.options?.map(
                                                                         (option: Option, optionIdx: number) => (
                                                                             <button
-                                                                                onClick={() => setSearchFilter(option?.title)}
+                                                                                onClick={() => setSearchFilter({
+                                                                                    type: 'Date',
+                                                                                    value: option?.title
+                                                                                })}
                                                                                 key={option?.title}
                                                                                 className="flex items-center"
                                                                             >
                                                                                 <label
-                                                                                    htmlFor={`filter-mobile-${section.id}-${optionIdx}`}
+                                                                                    htmlFor={`filter-mobile-${section?.id}-${optionIdx}`}
                                                                                     className="ml-3 min-w-0 flex-1 text-gray-500"
                                                                                 >
                                                                                     {option?.title}
@@ -175,6 +180,61 @@ export default function SideBarFilter({ children, setSearchFilter }: Props) {
                                                     )}
                                                 </Disclosure>
                                             ))}
+                                            <Disclosure
+                                                as="div"
+
+                                                className="border-t border-gray-200 px-4 py-6"
+                                            >
+                                                {({ open }) => (
+                                                    <>
+                                                        <h3 className="-mx-2 -my-3 flow-root">
+                                                            <Disclosure.Button className="flex w-full items-center justify-between bg-white px-2 py-3 text-gray-400 hover:text-gray-500">
+                                                                <span className="font-medium text-gray-900">
+                                                                    Category
+                                                                </span>
+                                                                <span className="ml-6 flex items-center">
+                                                                    {open ? (
+                                                                        <HiMinus
+                                                                            className="h-5 w-5"
+                                                                            aria-hidden="true"
+                                                                        />
+                                                                    ) : (
+                                                                        <HiPlus
+                                                                            className="h-5 w-5"
+                                                                            aria-hidden="true"
+                                                                        />
+                                                                    )}
+                                                                </span>
+                                                            </Disclosure.Button>
+                                                        </h3>
+                                                        <Disclosure.Panel className="pt-6">
+
+                                                            <div className="space-y-6">
+                                                                {category?.map(
+                                                                    (option: any, optionIdx: number) => (
+                                                                        <button
+                                                                            onClick={() => setSearchFilter({
+                                                                                type: 'Category',
+                                                                                value: option?.name
+                                                                            })}
+                                                                            key={option?.name}
+                                                                            className="flex items-center"
+                                                                        >
+                                                                            <label
+
+                                                                                className="ml-3 min-w-0 flex-1 text-gray-500"
+                                                                            >
+                                                                                {option?.name}
+                                                                            </label>
+                                                                        </button>
+                                                                    )
+                                                                )}
+                                                            </div>
+
+                                                        </Disclosure.Panel>
+                                                    </>
+                                                )}
+                                            </Disclosure>
                                         </form>
                                     </Dialog.Panel>
                                 </Transition.Child>
@@ -239,7 +299,10 @@ export default function SideBarFilter({ children, setSearchFilter }: Props) {
                                                             {section.options.map(
                                                                 (option: Option, optionIdx: number) => (
                                                                     <button
-                                                                        onClick={() => setSearchFilter(option?.title)}
+                                                                        onClick={() => setSearchFilter({
+                                                                            type: 'Date',
+                                                                            value: option?.title
+                                                                        })}
                                                                         key={option?.title}
                                                                         className="flex items-center"
                                                                     >
@@ -259,6 +322,62 @@ export default function SideBarFilter({ children, setSearchFilter }: Props) {
                                             )}
                                         </Disclosure>
                                     ))}
+
+                                    <Disclosure
+                                        as="div"
+
+                                        className="border-t border-gray-200  py-6"
+                                    >
+                                        {({ open }) => (
+                                            <>
+                                                <h3 className="-mx-2 -my-3 flow-root">
+                                                    <Disclosure.Button className="flex w-full items-center justify-between bg-white px-2 py-3 text-gray-400 hover:text-gray-500">
+                                                        <span className="font-medium text-md text-gray-900">
+                                                            Category
+                                                        </span>
+                                                        <span className="ml-6 flex items-center">
+                                                            {open ? (
+                                                                <HiMinus
+                                                                    className="h-5 w-5"
+                                                                    aria-hidden="true"
+                                                                />
+                                                            ) : (
+                                                                <HiPlus
+                                                                    className="h-5 w-5"
+                                                                    aria-hidden="true"
+                                                                />
+                                                            )}
+                                                        </span>
+                                                    </Disclosure.Button>
+                                                </h3>
+                                                <Disclosure.Panel className="pt-6">
+
+                                                    <div className="space-y-6">
+                                                        {category?.map(
+                                                            (option: any, optionIdx: number) => (
+                                                                <button
+                                                                    onClick={() => setSearchFilter({
+                                                                        type: 'Category',
+                                                                        value: option?.name
+                                                                    })}
+                                                                    key={option?.name}
+                                                                    className="flex items-center"
+                                                                >
+                                                                    <label
+
+                                                                        className="ml-3 min-w-0 flex-1 text-gray-500"
+                                                                    >
+                                                                        {option?.name}
+                                                                    </label>
+                                                                </button>
+                                                            )
+                                                        )}
+                                                    </div>
+
+                                                </Disclosure.Panel>
+                                            </>
+                                        )}
+                                    </Disclosure>
                                 </form>
 
                                 {/* Product grid */}

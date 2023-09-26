@@ -28,16 +28,16 @@ mutation UpdateEvents($update: EventUpdateInput, $where: EventWhere) {
 `;
 
 const FIND_EVENT = `
-query Events($where: EventWhere) {
-    events(where: $where) {
+query Events($where: EventWhere, $options: EventOptions) {
+    events(where: $where, options: $options) {
+      id
       name
-      price
-      startAt
+      slug
+      description
       location
       image
       endAt
-      description
-      id
+      startAt
     }
   }
 `;
@@ -51,7 +51,6 @@ const UpdateModal: React.FC<Props> = ({
 }) => {
     const [input, setInput] = useState({
         name: '',
-        price: "",
         startAt: '',
         endAt: '',
         image: '',
@@ -77,6 +76,8 @@ const UpdateModal: React.FC<Props> = ({
     });
 
 
+    console.log(data, 'data')
+
 
 
     const [mutationFn, state] = useMutation(UPDATE_EVENT, {
@@ -84,7 +85,6 @@ const UpdateModal: React.FC<Props> = ({
         variables: {
             update: {
                 name: input.name,
-                price: parseInt(input.price),
                 location: input.location,
                 image: input.image,
                 endAt: input.endAt,
@@ -121,7 +121,6 @@ const UpdateModal: React.FC<Props> = ({
     const handleSubmit = (e: any) => {
         e.preventDefault();
         const name = e.target.name.value;
-        const price = e.target.price.value;
         const startAt = convertToIsoDate(e.target.startAt.value);
         const endAt = convertToIsoDate(e.target.endAt.value);
         const status = e.target.status.value;
@@ -149,7 +148,6 @@ const UpdateModal: React.FC<Props> = ({
             if (event) {
                 setInput({
                     name: event?.name,
-                    price: event?.price,
                     startAt: event?.startAt,
                     endAt: event?.endAt,
                     description: event?.description,
@@ -168,7 +166,7 @@ const UpdateModal: React.FC<Props> = ({
     return (
         <>
             <Transition appear show={openUpdateModal} as={Fragment}>
-                <Dialog as="div" className="relative z-[9000000]" onClose={closeModal}>
+                <Dialog as="div" className="relative z-[90000000000000] bg-red-800" onClose={closeModal}>
                     <Transition.Child
                         as={Fragment}
                         enter="ease-out duration-300"
@@ -197,7 +195,7 @@ const UpdateModal: React.FC<Props> = ({
                                         as="h3"
                                         className="text-xl font-medium leading-6 text-gray-900 mb-7"
                                     >
-                                        Add New Event
+                                        Update Event
                                     </Dialog.Title>
                                     <form onSubmit={handleSubmit} className="bg-transparent">
                                         <div className="grid grid-cols-1 lg:grid-cols-2  gap-0">
@@ -209,17 +207,6 @@ const UpdateModal: React.FC<Props> = ({
                                                     value={input.name}
                                                     onChange={(e) => setInput({ ...input, name: e.target.value })}
                                                     placeholder="Name"
-                                                    className="mt-2 w-full block  placeholder-gray-400/70 rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-gray-700 focus:primary focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:primary/10"
-                                                />
-                                            </div>
-                                            <div className=" p-1  ">
-                                                <label className="block text-sm text-gray-500 dark:text-gray-300">  price</label>
-                                                <input
-                                                    type="text"
-                                                    name="price"
-                                                    value={input.price}
-                                                    onChange={(e) => setInput({ ...input, price: e.target.value })}
-                                                    placeholder="price"
                                                     className="mt-2 w-full block  placeholder-gray-400/70 rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-gray-700 focus:primary focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:primary/10"
                                                 />
                                             </div>
@@ -293,9 +280,9 @@ const UpdateModal: React.FC<Props> = ({
                                                 />
                                             </div>
                                         </div>
-                                        <button className="btn-primary mx-auto block mt-8">
+                                        <button className=" mx-auto block mt-8 px-5 ">
                                             {
-                                                state.loading ? 'Loading...' : 'Add'
+                                                state.loading ? 'Loading...' : 'Update'
                                             }
                                         </button>
                                     </form>
