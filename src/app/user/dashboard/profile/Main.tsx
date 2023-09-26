@@ -91,6 +91,7 @@ const Main = () => {
     }, [userData])
 
 
+    console.log(userData)
 
     // updating the user node
 

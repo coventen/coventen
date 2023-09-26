@@ -21,7 +21,7 @@ const Sidebar = () => {
                     <li>
                         <Link href="/user/dashboard/internal_email"
                             className={`
-                            ${pathname === "/vendor/dashboard/internal_email" ? "bg-gray-400 bg-opacity-30 text-blue-600" : " bg-opacity-30 text-primaryText"}
+                            ${pathname === "/user/dashboard/internal_email" ? "bg-gray-400 bg-opacity-30 text-blue-600" : " bg-opacity-30 text-primaryText"}
                              flex items-center justify-between py-1.5 px-4 rounded cursor-pointer`}>
                             <span className="flex items-center space-x-2">
                                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -29,14 +29,14 @@ const Sidebar = () => {
                                 </svg>
                                 <span>Inbox</span>
                             </span>
-                            <span className="bg-sky-500 text-gray-100 font-bold px-2 py-0.5 text-xs rounded-lg">0</span>
+
                         </Link>
                     </li>
 
                     <li>
                         <Link href="/user/dashboard/internal_email/sent"
                             className={`
-                            ${pathname === "/vendor/dashboard/internal_email/sent" ? "bg-gray-400 bg-opacity-30 text-blue-600" : "bg-opacity-30 text-primaryText"}
+                            ${pathname === "/user/dashboard/internal_email/sent" ? "bg-gray-400 bg-opacity-30 text-blue-600" : "bg-opacity-30 text-primaryText"}
                              flex items-center space-x-2 py-1.5 px-4 rounded cursor-pointer`}>
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 rotate-90" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>

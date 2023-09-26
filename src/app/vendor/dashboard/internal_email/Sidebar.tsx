@@ -29,7 +29,7 @@ const Sidebar = () => {
                                 </svg>
                                 <span>Inbox</span>
                             </span>
-                            <span className="bg-sky-500 text-gray-100 font-bold px-2 py-0.5 text-xs rounded-lg">0</span>
+
                         </Link>
                     </li>
 

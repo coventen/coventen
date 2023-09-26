@@ -135,6 +135,8 @@ const Main = () => {
     }
 
 
+    console.log(emailData, ' this is email data')
+
     if (internalEmailState.loading || deleteState.loading) return <Loading />
 
     if (internalEmailState.error || deleteState.error) return <Error />
@@ -180,7 +182,7 @@ const Main = () => {
                                             >
 
                                                 <div className=" flex items-center justify-between p-1 my-1 cursor-pointer  w-full">
-                                                    <Link href={`/admin/dashboard/internal_email/message_preview/${item?.id}`} className="flex items-center ">
+                                                    <Link href={`/vendor/dashboard/internal_email/message_preview/${item?.id}`} className="flex items-center ">
                                                         <div className="flex items-center mr-4 ml-1 space-x-1">
 
                                                             <button title="Read">

@@ -63,7 +63,7 @@ const page = async ({ params, searchParams }: any) => {
 
 
             <main className="mt-8">
-                <h2 className="text-gray-700 text-xl font-bold dark:text-gray-200">Sub: {details?.sub}</h2>
+                <h2 className="text-gray-900 font-semibold dark:text-gray-200 pb-4 border-b">Sub: {details?.sub}</h2>
 
                 <div className="mt-2 leading-loose text-gray-600 dark:text-gray-300">
                     <MessageContent content={details?.message} />
