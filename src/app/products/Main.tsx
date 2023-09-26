@@ -70,8 +70,7 @@ const Main = () => {
             }
         })
 
-        if (data?.products?.length) {
-            console.log(data?.products)
+        if (data?.products) {
             setProducts(data?.products)
         }
     }
