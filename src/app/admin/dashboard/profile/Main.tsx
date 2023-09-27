@@ -6,6 +6,7 @@ import { useGqlClient } from '@/hooks/UseGqlClient';
 import { useMutation, useQuery } from 'graphql-hooks';
 import React, { useEffect } from 'react';
 import { toast } from 'react-hot-toast';
+import { BiEdit } from 'react-icons/bi';
 
 const GET_USER = `query Users($where: UserWhere) {
     users(where: $where) {
@@ -122,7 +123,7 @@ const Main = () => {
         <form className="container flex flex-col mx-auto space-y-12">
             <fieldset className="grid grid-cols-3 gap-6 p-6 rounded-md shadow-sm dark:bg-gray-900">
                 <div className="space-y-2 col-span-full lg:col-span-1">
-                    <div className="flex flex-col justify-center bg-white max-w-xs p-6 shadow-md rounded-xl sm:px-12 dark:bg-gray-900 dark:text-gray-100">
+                    <div className="flex flex-col justify-center relative bg-white max-w-xs p-6 shadow-md rounded-xl sm:px-12 dark:bg-gray-900 dark:text-gray-100">
                         <img src={userInfo.image || '/assets/no_user.png'} className='w-32 mx-auto' />
                         <div className="space-y-4 text-center divide-y divide-gray-700">
                             <div className="my-2 space-y-1">
@@ -130,6 +131,17 @@ const Main = () => {
                                 <p className="px-5 text-[10px] capitalize sm:text-base dark:text-gray-400">{userInfo.user_type}</p>
                             </div>
 
+                        </div>
+                        <div className='absolute top-3 right-2 test-lg ' >
+                            <input
+                                type="file"
+                                id="fileInput"
+                                className='hidden'
+                            // onChange={(e) => handleFileInputChange(e)}
+                            />
+                            <label htmlFor="fileInput" className="absolute top-3 right-2 text-lg cursor-pointer">
+                                <BiEdit />
+                            </label>
                         </div>
                     </div>
                 </div>

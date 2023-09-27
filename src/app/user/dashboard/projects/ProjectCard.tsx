@@ -2,9 +2,9 @@
 
 import React, { useState } from 'react';
 import ModuleCards from './ModuleCards';
-import { Project } from '@/gql/graphql';
+import { Module, Project } from '@/gql/graphql';
 
-const ProjectCard = ({ data, deleteProjectById }: { data: Project[], deleteProjectById: (id: string) => void }) => {
+const ProjectCard = ({ data, deleteProjectById, deleteModuleById }: { data: Project[], deleteProjectById: (id: string, module: string[]) => void, deleteModuleById: any }) => {
 
     //states
     const [expandedIndex, setExpandedIndex] = useState(null);
@@ -18,6 +18,14 @@ const ProjectCard = ({ data, deleteProjectById }: { data: Project[], deleteProje
 
 
 
+    const checkStatus = (modules: any) => {
+        const result = modules.map((module: Module) => module.moduleticketFor?.status)
+        if (result.includes('PENDING')) {
+            return true
+        } else {
+            return false
+        }
+    }
 
 
 
@@ -81,7 +89,7 @@ const ProjectCard = ({ data, deleteProjectById }: { data: Project[], deleteProje
                                                     {project?.description}
                                                 </p>
 
-                                                <ModuleCards data={project?.hasModule} />
+                                                <ModuleCards data={project?.hasModule} deleteModuleById={deleteModuleById} />
 
 
 
@@ -91,9 +99,17 @@ const ProjectCard = ({ data, deleteProjectById }: { data: Project[], deleteProje
 
                                         {/*  delete button */}
                                         <div className='w-full flex items-center justify-end'>
-                                            <button
-                                                onClick={() => deleteProjectById(project?.id)}
-                                                className='bg-red-200 text-red-600 font-semibold text-xs px-3 py-1 rounded text-right'>Delete Project</button>
+                                            {
+                                                checkStatus(project?.hasModule) || project?.status === "PENDING" && <button
+                                                    onClick={() => {
+                                                        let modules = project?.hasModule?.map((module) => module?.id)
+                                                        deleteProjectById(project?.id, modules)
+
+                                                    }}
+                                                    className='bg-red-200 text-red-600 font-semibold text-xs px-3 py-1 rounded text-right'>
+                                                    Delete Project
+                                                </button>
+                                            }
                                         </div>
 
 

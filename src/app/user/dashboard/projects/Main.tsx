@@ -40,6 +40,14 @@ mutation Mutation($where: ProjectWhere) {
   }
 }
 `
+const DELETE_MODULE = `
+mutation DeleteModules($where: ModuleWhere) {
+    deleteModules(where: $where) {
+      nodesDeleted
+    }
+  }
+`
+
 
 //component
 const Main = () => {
@@ -57,8 +65,10 @@ const Main = () => {
 
     //quires 
     const [getProjectFn, ProjectDataState] = useManualQuery(GET_ALL_PROJECTS_OVERVIEW, { client })
+
     // mutation
     const [deleteProjectFn, state, resetFn] = useMutation(DELETE_PROJECT, { client });
+    const [deleteModuleFn, moduleDeleteState,] = useMutation(DELETE_MODULE, { client });
 
 
     // refetching data based on pagination 
@@ -120,11 +130,25 @@ const Main = () => {
     }
 
 
+    const deleteModuleById = async (id: string) => {
+        const { data } = await deleteModuleFn({
+            variables: {
+                where: {
+                    id
+                }
+            }
+        })
+        if (data.deleteModules.nodesDeleted) {
+            getProjectData()
+            toast.error('module Deleted ')
+        }
+    }
+
 
 
 
     // initializing project delete function
-    const deleteProjectById = async (id: string) => {
+    const deleteProjectById = async (id: string, modules: string[]) => {
         const { data } = await deleteProjectFn({
             variables: {
                 where: {
@@ -135,6 +159,7 @@ const Main = () => {
         if (data.deleteProjects.nodesDeleted) {
             getProjectData()
             toast.error('Project Deleted ')
+            modules.map((module) => deleteModuleById(module))
         }
     }
 
@@ -148,7 +173,7 @@ const Main = () => {
     return (
         <section >
             <Suspense fallback={<Loading />}>
-                <ProjectCard data={ProjectData} deleteProjectById={deleteProjectById} />
+                <ProjectCard data={ProjectData} deleteProjectById={deleteProjectById} deleteModuleById={deleteModuleById} />
                 <div className='w-full flex items-center justify-center'>
                     {totalProject > pageLimit &&
                         <Pagination currentPage={currentPage} setCurrentPage={setCurrentPage} totalPages={totalPages} />
