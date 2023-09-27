@@ -26,7 +26,7 @@ const InvoicePage = () => {
                 </div>
                 <div className='flex items-center justify-end'>
                     <div>
-                        <Link href='/admin/dashboard/invoice/create_invoice' className="focus:ring-2 focus:ring-offset-2 focus:ring-primary mt-4 sm:mt-0 inline-flex items-start justify-start px-6 py-3 bg-primary hover:bg-primary focus:outline-none rounded">
+                        <Link href='/admin/dashboard/invoice/create_invoice' className="focus:ring-2 focus:ring-offset-2 focus:ring-primary mt-4 sm:mt-0 inline-flex items-start justify-start px-6 py-3 bg-primary hover:bg-primary focus:outline-none ">
                             <p className="text-sm font-medium leading-none text-white">Create new Estimation</p>
                         </Link>
                     </div>

@@ -11,6 +11,7 @@ import createLog from '@/shared/graphQl/mutations/createLog';
 import AuthConfig from '@/firebase/oauth.config';
 import { query } from 'firebase/firestore';
 import { generateUniqueId } from '@/shared/genarateUniqueId';
+import Loading from '@/app/loading';
 
 const CREATE_INVOICE = `
 mutation CreateInvoices($input: [InvoiceCreateInput!]!) {
@@ -64,7 +65,9 @@ const Main = () => {
     const calculateTotalPrice = (purchases: any, taxRate: number) => {
         const allPriceArray = purchases.map((service: any, i: number) => {
             let price = service[`serviceName${i}`].price
-            return parseInt(price)
+            let quantity = service[`serviceName${i}`].quantity
+            const totalPrice = parseInt(price) * parseInt(quantity)
+            return totalPrice
         })
         const totalPrice = allPriceArray.reduce((a: number, b: number) => a + b, 0)
         const totalPriceWithTax = Math.floor(totalPrice + (totalPrice * taxRate / 100))
@@ -83,7 +86,6 @@ const Main = () => {
         const taxRate = parseInt(invoiceData?.taxRate)
         const { totalPriceWithTax, totalPrice } = calculateTotalPrice(purchases, taxRate)
         const ticketId = await generateModuleTicket()
-
         const { data } = await createInvoiceFn({
             variables: {
                 input: [
@@ -115,11 +117,13 @@ const Main = () => {
                             create: purchases.map((service: any, i: number) => {
                                 let name = service[`serviceName${i}`].serviceName
                                 let price = service[`serviceName${i}`].price
+                                let quantity = service[`serviceName${i}`].quantity
 
                                 return {
                                     node: {
                                         itemName: name,
                                         price: parseInt(price),
+                                        quantity: parseInt(quantity)
                                     }
                                 }
                             }
@@ -147,7 +151,7 @@ const Main = () => {
     const generateModuleTicket = async () => {
         const { data } = await counterFn()
         const counter = data?.counters[0]
-        console.log('this is ticket from inside')
+
         if (counter?.invoiceCount) {
             const invoiceCount = counter?.invoiceCount + 1
             const ticket = generateUniqueId("E-", invoiceCount)
@@ -160,7 +164,6 @@ const Main = () => {
                 }
             })
 
-            console.log('this is ticket from inside', ticket)
             return ticket
         }
         return null
@@ -168,6 +171,7 @@ const Main = () => {
 
 
 
+    if (state.loading || updateState.loading) return <Loading />
 
     // rendering
     return (

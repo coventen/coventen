@@ -14,6 +14,7 @@ query Query($where: InvoiceWhere, $options: InvoiceOptions) {
       clientName
       clientEmail
       totalPrice
+      priceWithTax
       status
       ticket
     }
