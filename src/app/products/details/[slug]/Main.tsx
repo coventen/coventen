@@ -94,7 +94,7 @@ const Main = () => {
                         </div>
                     </div>
                 </div>
-                <Modal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />
+                <Modal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} product={data?.products[0].title} />
             </div>
 
             {/* features */}

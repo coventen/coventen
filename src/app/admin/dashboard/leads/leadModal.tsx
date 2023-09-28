@@ -16,10 +16,10 @@ import AuthConfig from '@/firebase/oauth.config';
 
 
 //component
-function LeadsModal({ data, setIsModalOpen, isModalOpen, updateLeads, loading }: IUserModalProps) {
+function LeadsModal({ data, setIsModalOpen, isModalOpen, loading }: any) {
 
 
-    console.log(data, 'this is lead data')
+
 
 
     //handle close modal
@@ -28,20 +28,6 @@ function LeadsModal({ data, setIsModalOpen, isModalOpen, updateLeads, loading }:
     }
 
 
-    const handleSubmit = (e: any) => {
-        e.preventDefault();
-        const address = e.target.address.value;
-        const duration = e.target.duration.value;
-        const price = e.target.price.value;
-
-        const data = {
-            address,
-            duration,
-            price
-        }
-        updateLeads(data);
-
-    }
 
 
     //render
@@ -86,71 +72,27 @@ function LeadsModal({ data, setIsModalOpen, isModalOpen, updateLeads, loading }:
                         >
 
                             <div className="inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full sm:p-6">
-                                <p className="focus:outline-none pt-4 pb-8 text-base text-center sm:text-lg md:text-xl lg:text-2xl font-bold leading-normal text-gray-800">Lead</p>
+                                <p className="focus:outline-none pt-4 pb-8 text-base text-center sm:text-lg md:text-xl lg:text-2xl font-bold leading-normal text-gray-800">Lead Details</p>
 
-                                <p className='text-md text-dimText my-6'>
-                                    Description : {data?.message}
+                                <p className='text-md  my-6'>
+                                    Name : {data?.name}
                                 </p>
-                                <form onSubmit={handleSubmit} className=''>
-                                    <div className="mb-5">
-                                        <label htmlFor="title" className="block  text-gray-700 text-sm mb-1">
-                                            Address
-                                        </label>
-                                        <input
-                                            type="text"
-                                            name='address'
-                                            readOnly
-                                            value={data?.vendorAddress}
-                                            className="mt-1 px-4 py-2 border border-gray-200 rounded-md w-full"
-                                        />
-                                    </div>
-                                    <div className="mb-5">
-                                        <label htmlFor="title" className="block  text-gray-700 text-sm mb-1">
-                                            Duration
-                                        </label>
-                                        <input
-                                            name='duration'
-                                            type="text"
-                                            readOnly
-                                            defaultValue={data?.duration}
-                                            className="mt-1 px-4 py-2 border border-gray-200 rounded-md w-full"
-                                        />
-                                    </div>
-                                    <div className="mb-5">
-                                        <label htmlFor="title" className="block  text-gray-700 text-sm mb-1">
-                                            Price
-                                        </label>
-                                        <input
-                                            type="number"
-                                            name='price'
-                                            readOnly
-                                            defaultValue={data?.price}
-                                            className="mt-1 px-4 py-2 border border-gray-200 rounded-md w-full"
-                                        />
-                                    </div>
+                                <p className='text-md  my-6'>
+                                    Email : {data?.email}
+                                </p>
+                                <p className='text-md  my-6'>
+                                    Phone : {data?.phone}
+                                </p>
+                                <p className='text-md  my-6'>
+                                    Type : {data?.type}
+                                </p>
+                                <p className='text-md  my-6'>
+                                    Interest : {data?.interest}
+                                </p>
+                                <p className='text-md  my-6'>
+                                    Message : {data?.message}
+                                </p>
 
-
-
-                                    <div className="mt-10">
-                                        <button
-                                            onClick={() => updateLeads(data?.id)}
-                                            type="submit"
-                                            disabled={data.status === "COMPLETED" || data.status === "PENDING"}
-                                            className={`
-                                            ${data.status === "COMPLETED" || data.status === "PENDING" ? 'bg-gray-700 text-white' : 'bg-primary text-white'}
-                                            px-4 py-2 bg-primary text-white rounded-md `}
-                                        >
-                                            {loading ? 'updating' : 'Resolve'}
-                                        </button>
-                                        <button
-                                            type="button"
-                                            className="ml-2 px-4 py-2 text-gray-500 rounded-md hover:bg-gray-200"
-                                            onClick={closeModal}
-                                        >
-                                            Cancel
-                                        </button>
-                                    </div>
-                                </form>
                             </div>
                         </Transition.Child>
                     </div>

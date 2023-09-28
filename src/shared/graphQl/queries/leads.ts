@@ -16,11 +16,14 @@ const GetLeads = async (where:any = {}, options: any = {})=> {
               leads(where: $where, options: $options) {
                 id
                 email
+                name
                 createdAt
                 condition
                 industry
                 phone
                 message
+                type
+                interest
                 status
                 duration
                   price

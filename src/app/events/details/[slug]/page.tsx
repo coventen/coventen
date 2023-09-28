@@ -59,13 +59,14 @@ const EventDetails = () => {
             <main className="mt-10">
 
                 <div className="mb-4 md:mb-0 w-full mx-auto relative">
-                    <div className="px-4 lg:px-0">
-                        <h2 className="text-4xl font-semibold text-gray-800 leading-tight">
-                            {eventData?.events[0]?.name}
-                        </h2>
-                    </div>
+
 
                     <img src={eventData?.events[0]?.image || '/assets/no_image.png'} className='max-h-[450px] w-full ' />
+                </div>
+                <div className="px-4 lg:px-0 mt-10">
+                    <h2 className="text-4xl font-semibold text-gray-800 leading-tight">
+                        {eventData?.events[0]?.name}
+                    </h2>
                 </div>
 
                 <div className="flex flex-col lg:flex-row lg:space-x-12">
@@ -134,7 +135,7 @@ const EventDetails = () => {
             </main>
 
 
-            <Modal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />
+            <Modal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} event={eventData?.events[0]?.name} />
         </div>
     );
 };

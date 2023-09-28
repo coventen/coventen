@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
 import React, { useEffect } from 'react';
 import { BsCurrencyRupee } from 'react-icons/bs';
+import Loading from '../loading';
 
 
 const GET_PRODUCTS = `
@@ -79,6 +80,9 @@ const Main = () => {
     useEffect(() => {
         console.log(products, ' this is products')
     }, [products?.length])
+
+
+    if (loading) return <Loading />
 
     return (
         <>

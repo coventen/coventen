@@ -28,6 +28,7 @@ query LearnItems {
 
 const Main = () => {
     const [isModalOpen, setIsModalOpen] = React.useState(false);
+    const [currentEvent, setCurrentEvent] = React.useState<any>(null);
     //HOOKS 
     const client = useGqlClient()
 
@@ -78,7 +79,10 @@ const Main = () => {
                                         </button>
                                     </Link>
 
-                                    <button onClick={() => setIsModalOpen(true)} className="relative group inline-block flex-shrink-0   py-3 px-5  font-semibold text-primary  overflow-hidden" type="submit">
+                                    <button onClick={() => {
+                                        setIsModalOpen(true)
+                                        setCurrentEvent(item?.title)
+                                    }} className="relative group inline-block flex-shrink-0   py-3 px-5  font-semibold text-primary  overflow-hidden" type="submit">
 
                                         <div className="relative flex items-center justify-center">
                                             <span className="">Interested</span>
@@ -93,7 +97,7 @@ const Main = () => {
                 }
 
 
-                <Modal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />
+                <Modal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} learn={currentEvent} />
 
             </div>
         </>

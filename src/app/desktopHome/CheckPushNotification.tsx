@@ -56,7 +56,7 @@ const CheckPushNotification = () => {
                 "createdAt_GTE": fiveDaysAgo()
             },
             "options": {
-                limit: 5,
+                limit: 3,
                 "sort": [
                     {
                         "createdAt": "DESC"

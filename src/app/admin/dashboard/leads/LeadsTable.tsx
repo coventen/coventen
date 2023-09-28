@@ -4,6 +4,10 @@ import { ILeadsTableProps } from './interface';
 
 
 const LeadsTable = ({ data, setIsModalOpen, setCurrentLead }: ILeadsTableProps) => {
+
+
+
+
     return (
         <table className="min-w-full leading-normal uppercase">
             <thead>
@@ -14,16 +18,19 @@ const LeadsTable = ({ data, setIsModalOpen, setCurrentLead }: ILeadsTableProps) 
                     </th>
                     <th
                         className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-dimText dark:text-darkDimText uppercase tracking-wider dark:bg-darkBg dark:border-darkBorder">
+                        Name
+                    </th>
+                    <th
+                        className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-dimText dark:text-darkDimText uppercase tracking-wider dark:bg-darkBg dark:border-darkBorder">
                         Email
                     </th>
                     <th
                         className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-dimText dark:text-darkDimText uppercase tracking-wider dark:bg-darkBg dark:border-darkBorder">
                         Phone
                     </th>
-
                     <th
                         className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-dimText dark:text-darkDimText uppercase tracking-wider dark:bg-darkBg dark:border-darkBorder">
-                        Status
+                        Type
                     </th>
                     <th
                         className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-dimText dark:text-darkDimText uppercase tracking-wider dark:bg-darkBg dark:border-darkBorder">
@@ -42,6 +49,9 @@ const LeadsTable = ({ data, setIsModalOpen, setCurrentLead }: ILeadsTableProps) 
                                 <p className=" whitespace-no-wrap">L-{index + 1}</p>
                             </td>
                             <td className="px-5 py-5  bg-white text-xs dark:bg-darkBg dark:border-darkBorder">
+                                <p className=" whitespace-no-wrap">{lead?.name}</p>
+                            </td>
+                            <td className="px-5 py-5  bg-white text-xs dark:bg-darkBg dark:border-darkBorder">
                                 <p className=" whitespace-no-wrap">{lead?.email}</p>
                             </td>
                             <td className="px-5 py-5  bg-white text-xs dark:bg-darkBg dark:border-darkBorder">
@@ -51,7 +61,7 @@ const LeadsTable = ({ data, setIsModalOpen, setCurrentLead }: ILeadsTableProps) 
                             </td>
                             <td className="px-5 py-5  bg-white text-xs dark:bg-darkBg dark:border-darkBorder">
                                 <p className=" whitespace-no-wrap">
-                                    {lead.status === "COMPLETED" ? 'RESOLVED' : lead.status}
+                                    {lead?.type}
                                 </p>
                             </td>
                             <td className="px-5 py-5 cursor-pointer  bg-white text-xs dark:bg-darkBg dark:border-darkBorder rounded-xl font-semibold">

@@ -1,5 +1,5 @@
 'use client'
-import { Fragment, useState } from 'react';
+import { Fragment, useEffect, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { Dialog, Transition } from '@headlessui/react';
 import { useGqlClient } from '@/hooks/UseGqlClient';
@@ -13,6 +13,7 @@ import AuthConfig from '@/firebase/oauth.config';
 interface IModalProps {
     isModalOpen: boolean;
     setIsModalOpen: (value: boolean) => void;
+    product: string
 
 }
 
@@ -27,28 +28,32 @@ mutation CreateLeads($input: [LeadsCreateInput!]!) {
 `
 
 //component
-function Modal({ isModalOpen, setIsModalOpen, }: IModalProps) {
-
-
-
-
-    //states
-
-    const [selectedIndustry, setSelectedIndustry] = useState<any>('');
-    const [email, setEmail] = useState<string>('');
-    const [phone, setPhone] = useState<string>('');
-    const [message, setMessage] = useState<string>('');
-
+function Modal({ isModalOpen, setIsModalOpen, product }: IModalProps) {
 
     // hooks
     const client = useGqlClient()
     const { user } = AuthConfig()
+
+
+    //states
+    const [email, setEmail] = useState<string>('');
+    const [phone, setPhone] = useState<string>('');
+    const [message, setMessage] = useState<string>('');
+    const [name, setName] = useState<string>('');
+
+
+
 
     // queries and mutations
     const [createLead, createState] = useMutation(CREATE_LEAD, { client })
 
 
 
+    useEffect(() => {
+        if (user?.email) {
+            setEmail(user?.email)
+        }
+    }, [user?.email])
 
     // functions
 
@@ -58,8 +63,10 @@ function Modal({ isModalOpen, setIsModalOpen, }: IModalProps) {
                 input: [
                     {
                         email: email,
+                        name: name,
                         phone: phone,
-                        industry: selectedIndustry,
+                        type: 'PRODUCT',
+                        interest: product,
                         createdAt: new Date().toISOString(),
                         message: message
                     }
@@ -69,10 +76,8 @@ function Modal({ isModalOpen, setIsModalOpen, }: IModalProps) {
 
 
         if (data.createLeads.info.nodesCreated) {
-            toast.success('Test Requested Successfully')
-            setEmail('')
-            setPhone('')
-            setMessage('')
+            toast.success('Interest submitted ')
+            closeModal()
         }
     }
 
@@ -86,7 +91,7 @@ function Modal({ isModalOpen, setIsModalOpen, }: IModalProps) {
     }
 
 
-
+    console.log(name, email, phone, message)
 
 
 
@@ -144,11 +149,18 @@ function Modal({ isModalOpen, setIsModalOpen, }: IModalProps) {
 
                                     <div className="px-5 pb-5">
                                         <input
+                                            placeholder="Name"
+                                            required
+                                            onChange={(e) => setName(e.target.value)}
+                                            defaultValue={name}
+                                            className=" text-black placeholder-gray-600 w-full px-4 py-2.5 mt-2 text-base   transition duration-500 ease-in-out transform border-transparent rounded-sm bg-gray-200  focus:border-blueGray-500 focus:bg-white dark:focus:bg-gray-800 focus:outline-none focus:shadow-outline focus:ring-2 ring-offset-current ring-offset-2 ring-gray-400"
+
+                                        />
+                                        <input
                                             placeholder="Email"
                                             required
-
                                             onChange={(e) => setEmail(e.target.value)}
-                                            defaultValue={user?.email || ''}
+                                            defaultValue={email}
                                             className=" text-black placeholder-gray-600 w-full px-4 py-2.5 mt-2 text-base   transition duration-500 ease-in-out transform border-transparent rounded-sm bg-gray-200  focus:border-blueGray-500 focus:bg-white dark:focus:bg-gray-800 focus:outline-none focus:shadow-outline focus:ring-2 ring-offset-current ring-offset-2 ring-gray-400"
 
                                         />
@@ -166,7 +178,7 @@ function Modal({ isModalOpen, setIsModalOpen, }: IModalProps) {
                                                 rows={3}
                                                 placeholder="message"
                                                 required
-                                                onChange={(e) => setPhone(e.target.value)}
+                                                onChange={(e) => setMessage(e.target.value)}
                                                 defaultValue={message}
                                                 className=" text-black placeholder-gray-600 w-full px-4 py-2.5 mt-2 text-base   transition duration-500 ease-in-out transform border-transparent rounded-sm bg-gray-200  focus:border-blueGray-500 focus:bg-white dark:focus:bg-gray-800 focus:outline-none focus:shadow-outline focus:ring-2 ring-offset-current ring-offset-2 ring-gray-400"
 

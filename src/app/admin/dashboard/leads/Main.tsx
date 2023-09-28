@@ -18,15 +18,15 @@ import GetLeads from '@/shared/graphQl/queries/leads';
 import GetCurrentUserDetails from '@/shared/graphQl/queries/currentUser';
 
 
-const RESOLVED_LEADS = `
-mutation UpdateLeads($where: LeadsWhere, $update: LeadsUpdateInput) {
-    updateLeads(where: $where, update: $update) {
-        leads {
-            id
-          }
-    }
-  }
-`
+// const RESOLVED_LEADS = `
+// mutation UpdateLeads($where: LeadsWhere, $update: LeadsUpdateInput) {
+//     updateLeads(where: $where, update: $update) {
+//         leads {
+//             id
+//           }
+//     }
+//   }
+// `
 
 
 
@@ -52,7 +52,7 @@ const Main = () => {
     const client = useGqlClient();
 
     // MUTATIONS
-    const [updateLeadsFn, updateState] = useMutation(RESOLVED_LEADS, { client })
+    // const [updateLeadsFn, updateState] = useMutation(RESOLVED_LEADS, { client })
 
 
 
@@ -115,25 +115,25 @@ const Main = () => {
 
 
     // handle update leads
-    const updateLeads = async (id: string) => {
-        const { data } = await updateLeadsFn({
-            variables: {
-                where: {
-                    id: id
-                },
-                update: {
-                    status: "COMPLETED",
-                }
-            }
-        })
+    // const updateLeads = async (id: string) => {
+    //     const { data } = await updateLeadsFn({
+    //         variables: {
+    //             where: {
+    //                 id: id
+    //             },
+    //             update: {
+    //                 status: "COMPLETED",
+    //             }
+    //         }
+    //     })
 
-        if (data.updateLeads.leads[0].id) {
-            setIsModalOpen(false);
-            toast.success('Lead updated successfully')
-            getLeadsData()
-        }
+    //     if (data.updateLeads.leads[0].id) {
+    //         setIsModalOpen(false);
+    //         toast.success('Lead updated successfully')
+    //         getLeadsData()
+    //     }
 
-    }
+    // }
 
 
 
@@ -168,7 +168,7 @@ const Main = () => {
                 setCurrentLead={setCurrentLead}
                 userDetails={userDetails}
                 setUserDetails={setUserDetails}
-                updateLeads={updateLeads}
+            // updateLeads={updateLeads}
             />
             <div className='w-full flex items-center justify-center'>
                 {totalLeads! > pageLimit &&

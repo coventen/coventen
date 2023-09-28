@@ -37,6 +37,7 @@ const Leads = () => {
     //states
     const [isLeadFromOpen, setIsLeadFromOpen] = useState<boolean>(false);
     const [selectedIndustry, setSelectedIndustry] = useState<any>('');
+    const [name, setName] = useState<string>('');
     const [email, setEmail] = useState<string>('');
     const [phone, setPhone] = useState<string>('');
     const [message, setMessage] = useState<string>('');
@@ -59,8 +60,10 @@ const Leads = () => {
                 input: [
                     {
                         email: email,
+                        name: name,
                         phone: phone,
-                        industry: selectedIndustry,
+                        type: 'TEST',
+                        interest: selectedIndustry,
                         createdAt: new Date().toISOString(),
                         message: message
                     }
@@ -69,7 +72,7 @@ const Leads = () => {
         })
 
 
-        if (data.createLeads.info.nodesCreated) {
+        if (data?.createLeads?.info?.nodesCreated) {
             setIsLeadFromOpen(false)
             toast.success('Test Requested Successfully')
             setEmail('')
@@ -119,6 +122,14 @@ const Leads = () => {
                                             </div>
                                         </div>
                                         <div className="px-5 pb-5">
+                                            <input
+                                                placeholder="Name"
+                                                required
+                                                onChange={(e) => setName(e.target.value)}
+                                                defaultValue={name}
+                                                className=" text-black placeholder-gray-600 w-full px-4 py-2.5 mt-2 text-base   transition duration-500 ease-in-out transform border-transparent rounded-sm bg-gray-200  focus:border-blueGray-500 focus:bg-white dark:focus:bg-gray-800 focus:outline-none focus:shadow-outline focus:ring-2 ring-offset-current ring-offset-2 ring-gray-400"
+
+                                            />
                                             <input
                                                 placeholder="Email"
                                                 required
