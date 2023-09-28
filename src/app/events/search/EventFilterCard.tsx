@@ -13,12 +13,12 @@ const EventFilterCard: React.FC<EventFilterCardProps> = ({ data }) => {
         <>
 
             <div className=" bg-white border h-full w-full border-gray-300 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700  relative">
-                <a href="#">
+                <div >
                     <img className="rounded-t-lg h-56 w-full" src={data?.image || '/assets/no_image.png'} alt="" />
-                </a>
+                </div>
                 <div className="p-5 mb-9">
                     <a href="#">
-                        <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{data?.name}</h5>
+                        <h5 className="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">{data?.name}</h5>
                     </a>
                     <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">{data?.description.slice(0, 70)}</p>
                     <Link href={`/events/details/${data?.slug}`} className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-primary absolute bottom-4">

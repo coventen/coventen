@@ -14,20 +14,21 @@ export default function Companies({ clients }: { clients: any[] }) {
                     <div className="relative z-10 container px-4 mx-auto">
                         <p className="mb-14 text-base  text-center font-semibold uppercase tracking-px">Powering next-gen companies</p>
                         <div className="flex flex-wrap max-w-5xl mx-auto -m-3">
+                            <div className="mt-6">
+                                <ul className="flex gap-y-6 flex-wrap items-center justify-center [&>*]:px-12 lg:divide-x">
+
+                                    {
+                                        clients && clients.map((item, idx) =>
+                                            <li key={item.id} className="flex-none mb-8">
+                                                <img src={item?.logo} className="w-32 " alt="client image" />
+                                            </li>
+                                        )
+                                    }
+
+                                </ul>
+                            </div>
 
 
-                            {
-                                clients && clients.map((item, idx) =>
-                                    <div key={item.id} className="w-full md:w-1/2 lg:w-1/4 p-3 ">
-                                        <div className="flex items-center justify-center py-8 px-9 h-full bg-white rounded-3xl transition-all duration-500 hover:scale-110 cursor-pointer">
-                                            <div className="flex items-center space-x-3 font-bold">
-                                                <img src={item?.logo} className="h-10 w-10 rounded-full" alt="client image" />
-                                                <span>{item?.name}</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                )
-                            }
 
 
 

@@ -51,8 +51,6 @@ const EventModal: React.FC<Props> = ({
         const image = e.target.image.files[0]
         const regUrl = e.target.regUrl.value
 
-        console.log(startAt, endAt)
-
         const uploadedImageLink = await uploadFile(image, `events-${uuidv4()}`, 'event_images')
 
         if (!uploadedImageLink) {

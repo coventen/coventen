@@ -81,7 +81,7 @@ export default function Products({ products }: { products: any }) {
                                             </p>
                                         </div> */}
                                                 <Link href={`/products/details/${item?.id}`} >
-                                                    <button className="relative group inline-block flex-shrink-0 w-full  py-3 px-5 text-sm font-semibold text-orange-50 bg-primary rounded-md overflow-hidden" type="submit">
+                                                    <button className="relative group inline-block flex-shrink-0 w-full  py-3 px-5 text-sm font-semibold text-orange-50 bg-primary  overflow-hidden" type="submit">
 
                                                         <div className="relative flex items-center justify-center">
                                                             <span className="mr-4">View Details</span>

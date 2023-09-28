@@ -49,6 +49,18 @@ mutation DeleteEvents($where: EventWhere) {
   }
 `;
 
+const UPDATE_EVENT = `
+mutation UpdateEvents($update: EventUpdateInput, $where: EventWhere) {
+  updateEvents(update: $update, where: $where) {
+    info {
+      nodesCreated
+      nodesDeleted
+      relationshipsCreated
+      relationshipsDeleted
+    }
+  }
+} 
+`;
 
 
 const Main = () => {
@@ -78,11 +90,13 @@ const Main = () => {
     // MUTATION
     const [createEventFn, createEventState] = useMutation(CREATE_EVENT, { client })
     const [deleteEventFn, deleteEventState] = useMutation(DELETE_EVENT, { client, })
+    const [updateFn, updateState] = useMutation(UPDATE_EVENT, { client, })
 
     console.log(selectedCategory)
 
     // initialize the query and mutations
 
+    // create event
     const createEvent = async (input: any) => {
 
         const { data } = await createEventFn({
@@ -110,6 +124,32 @@ const Main = () => {
         }
     }
 
+
+    const updateEvent = async (input: any, id: string) => {
+        console.log(input, ' this is input')
+        const { data } = await updateFn({
+            variables: {
+                update: {
+                    name: input.name,
+                    location: input.location,
+                    image: input.image,
+                    endAt: input.endAt,
+                    startAt: input.startAt,
+                    description: input.description,
+                    registrationUrl: input.regUrl,
+                },
+                where: {
+                    id_CONTAINS: id
+                }
+            },
+        })
+
+        if (data) {
+            setOpenUpdateModal(false)
+            refetch()
+        }
+    }
+
     const deleteEvent = async (id: string) => {
         const { data } = await deleteEventFn({
             variables: {
@@ -122,6 +162,7 @@ const Main = () => {
         if (data.deleteEvents.nodesDeleted) {
             toast.error('event deleted successfully')
             refetch()
+
         }
     }
 
@@ -132,11 +173,11 @@ const Main = () => {
 
 
 
-    if (loading || deleteEventState.loading || createEventState.loading || catLoading) return <Loading />
+    if (loading || deleteEventState.loading || createEventState.loading || catLoading || updateState.loading) return <Loading />
 
 
 
-    console.log(createEventState.error)
+
 
 
 
@@ -198,12 +239,12 @@ const Main = () => {
                 id={currentEvent}
                 setOpenUpdateModal={setOpenUpdateModal}
                 openUpdateModal={openUpdateModal}
+                setSelectedCategory={setSelectedCategory}
+                selectedCategory={selectedCategory}
+                category={category?.categories}
+                updateEvent={updateEvent}
             />
-            <PreviewModal
-                id={currentEvent}
-                setOpenPreviewModal={setOpenPreviewModal}
-                openPreviewModal={openPreviewModal}
-            />
+
         </>
     );
 };

@@ -6,7 +6,7 @@ interface IButtonProps {
 
 const Button = ({ title }: IButtonProps) => {
     return (
-        <button className='bg-primary font-bold text-white px-7 py-2.5 rounded'>
+        <button className='bg-primary font-bold text-white px-7 py-2.5'>
             {title}
         </button>
     );

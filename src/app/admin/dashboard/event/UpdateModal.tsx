@@ -5,27 +5,22 @@ import React, { Fragment, useEffect, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { useMutation, useQuery } from 'graphql-hooks';
 import { useGqlClient } from '@/hooks/UseGqlClient';
+import HandleFileUpload from '@/shared/HandleFileUpload';
+import Loading from '@/app/loading';
 
 
 interface Props {
     setOpenUpdateModal: any;
     openUpdateModal: any;
     id: string;
+    category: any
+    selectedCategory: any
+    setSelectedCategory: any
+    updateEvent: any
 
 }
 
-const UPDATE_EVENT = `
-mutation UpdateEvents($update: EventUpdateInput, $where: EventWhere) {
-  updateEvents(update: $update, where: $where) {
-    info {
-      nodesCreated
-      nodesDeleted
-      relationshipsCreated
-      relationshipsDeleted
-    }
-  }
-} 
-`;
+
 
 const FIND_EVENT = `
 query Events($where: EventWhere, $options: EventOptions) {
@@ -35,6 +30,7 @@ query Events($where: EventWhere, $options: EventOptions) {
       slug
       description
       location
+      registrationUrl
       image
       endAt
       startAt
@@ -46,7 +42,11 @@ query Events($where: EventWhere, $options: EventOptions) {
 const UpdateModal: React.FC<Props> = ({
     setOpenUpdateModal,
     openUpdateModal,
-    id
+    id,
+    category,
+    selectedCategory,
+    setSelectedCategory,
+    updateEvent
 
 }) => {
     const [input, setInput] = useState({
@@ -56,10 +56,16 @@ const UpdateModal: React.FC<Props> = ({
         image: '',
         description: '',
         location: '',
+        regUrl: '',
         fetch: false,
     });
 
+
+    // hooks
     const client = useGqlClient();
+    const { uploadFile } = HandleFileUpload()
+
+
     function closeModal() {
         setOpenUpdateModal(false);
     }
@@ -76,26 +82,27 @@ const UpdateModal: React.FC<Props> = ({
     });
 
 
-    console.log(data, 'data')
 
 
 
-    const [mutationFn, state] = useMutation(UPDATE_EVENT, {
-        client,
-        variables: {
-            update: {
-                name: input.name,
-                location: input.location,
-                image: input.image,
-                endAt: input.endAt,
-                startAt: input.startAt,
-                description: input.description,
-            },
-            where: {
-                id_CONTAINS: id
-            }
-        },
-    });
+
+    // const [mutationFn, state] = useMutation(UPDATE_EVENT, {
+    //     client,
+    //     variables: {
+    //         update: {
+    //             name: input.name,
+    //             location: input.location,
+    //             image: input.image,
+    //             endAt: input.endAt,
+    //             startAt: input.startAt,
+    //             description: input.description,
+    //             registrationUrl: input.regUrl,
+    //         },
+    //         where: {
+    //             id_CONTAINS: id
+    //         }
+    //     },
+    // });
 
 
 
@@ -118,27 +125,41 @@ const UpdateModal: React.FC<Props> = ({
 
 
 
-    const handleSubmit = (e: any) => {
+    const handleSubmit = async (e: any) => {
         e.preventDefault();
         const name = e.target.name.value;
         const startAt = convertToIsoDate(e.target.startAt.value);
         const endAt = convertToIsoDate(e.target.endAt.value);
-        const status = e.target.status.value;
         const description = e.target.description.value;
         const image = e.target.image.files[0];
         const location = e.target.location.value;
+        const regUrl = e.target.regUrl.value;
+        if (image) {
+            const uploadedImageLink = await uploadFile(image, `events-${uuidv4()}`, 'event_images')
+            const input = {
+                name,
+                startAt: new Date(startAt).toISOString(),
+                endAt: new Date(endAt).toISOString(),
+                description,
+                location,
+                regUrl,
+                image: uploadedImageLink as string,
+            };
+            updateEvent(input, id)
+        } else {
+            const input = {
+                name,
+                startAt: new Date(startAt).toISOString(),
+                endAt: new Date(endAt).toISOString(),
+                description,
+                location,
+                regUrl,
+                image: data.events[0].image,
+                fetch: false,
+            };
+            updateEvent(input, id)
+        }
 
-
-        // const dateString = "2023-05-09";
-        // const dateObject = new Date(dateString);
-        // const isoDate = dateObject.toISOString();
-
-        // console.log(endAt, startAt, 'date')
-
-
-
-
-        mutationFn()
 
     };
 
@@ -153,6 +174,7 @@ const UpdateModal: React.FC<Props> = ({
                     description: event?.description,
                     location: event?.location,
                     image: event?.image,
+                    regUrl: event?.registrationUrl,
                     fetch: false,
                 });
             }
@@ -161,7 +183,12 @@ const UpdateModal: React.FC<Props> = ({
     }, [data])
 
 
-    if (eventLoading) return <div>Loading...</div>
+
+
+
+
+
+    if (eventLoading) return <Loading />
 
     return (
         <>
@@ -190,15 +217,15 @@ const UpdateModal: React.FC<Props> = ({
                                 leaveFrom="opacity-100 scale-100"
                                 leaveTo="opacity-0 scale-95"
                             >
-                                <Dialog.Panel className="w-full max-w-[600px] py-12 flex items-center justify-center flex-col transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
+                                <Dialog.Panel className="w-full max-w-[750px] py-12 flex items-center justify-center flex-col transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
                                     <Dialog.Title
                                         as="h3"
-                                        className="text-xl font-medium leading-6 text-gray-900 mb-7"
+                                        className="text-xl font-medium leading-6 text-gray-900 mb-7 w-full"
                                     >
                                         Update Event
                                     </Dialog.Title>
-                                    <form onSubmit={handleSubmit} className="bg-transparent">
-                                        <div className="grid grid-cols-1 lg:grid-cols-2  gap-0">
+                                    <form onSubmit={handleSubmit} className="bg-transparent w-full">
+                                        <div className="grid grid-cols-1 lg:grid-cols-2  gap-0 w-full">
                                             <div className=" p-1  ">
                                                 <label className="block text-sm text-gray-500 dark:text-gray-300">  Name</label>
                                                 <input
@@ -234,23 +261,31 @@ const UpdateModal: React.FC<Props> = ({
                                                     className="block  mt-2 w-full placeholder-gray-400/70 dark:placeholder-gray-500 rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-gray-700 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:focus:border-blue-300" />
 
                                             </div>
-
-                                            <div className=" p-1  ">
-                                                <div className="inline-block relative w-full">
-
+                                            <div className="mb-5  w-full">
+                                                <label htmlFor="title" className="block  text-gray-700 text-sm mb-1">
+                                                    Category
+                                                </label>
+                                                <div className="relative inline-flex w-full">
                                                     <select
-                                                        name="status"
-                                                        // value={input.status}
-                                                        // onChange={(e) => setInput({ ...input, status: e.target.value })}
+                                                        required
+                                                        value={selectedCategory}
+                                                        onChange={(e) => setSelectedCategory(e.target.value)}
+                                                        name='category'
                                                         className="mt-2 w-full block  placeholder-gray-400/70 rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-gray-700 focus:primary focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:primary/10"
                                                     >
-                                                        <option value={'Active'}>Active</option>
-                                                        <option value={'Deactive'}>Deactive</option>
+                                                        <option defaultChecked value='' >Select Category</option>
+                                                        {
+                                                            category?.length && category?.map((cat: any, idx: number) =>
+                                                                <option key={cat?.name} value={cat?.name} >{cat?.name}</option>
+                                                            )
+                                                        }
+
                                                     </select>
+
                                                 </div>
                                             </div>
-                                            <div className=" p-1 ">
-
+                                            <div className=" p-1 col-span-2 ">
+                                                <label className="block text-sm text-gray-500 dark:text-gray-300"> Image</label>
                                                 <input
                                                     name="image"
                                                     // onChange={handleUpload}
@@ -269,9 +304,21 @@ const UpdateModal: React.FC<Props> = ({
                                                     className="mt-2 w-full block  placeholder-gray-400/70 rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-gray-700 focus:primary focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:primary/10"
                                                 />
                                             </div>
+                                            <div className=" p-1  col-span-2  ">
+                                                <label className="block text-sm text-gray-500 dark:text-gray-300">Registration Url</label>
+                                                <input
+                                                    type="text"
+                                                    name="regUrl"
+                                                    value={input.regUrl}
+                                                    onChange={(e) => setInput({ ...input, regUrl: e.target.value })}
+                                                    placeholder="Registration Url"
+                                                    className="mt-2 w-full block  placeholder-gray-400/70 rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-gray-700 focus:primary focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:primary/10"
+                                                />
+                                            </div>
                                             <div className=" p-1  col-span-2 ">
                                                 <label className="block text-sm text-gray-500 dark:text-gray-300">  description</label>
                                                 <textarea
+                                                    rows={8}
                                                     name="description"
                                                     value={input.description}
                                                     onChange={(e) => setInput({ ...input, description: e.target.value })}
@@ -280,10 +327,8 @@ const UpdateModal: React.FC<Props> = ({
                                                 />
                                             </div>
                                         </div>
-                                        <button className=" mx-auto block mt-8 px-5 ">
-                                            {
-                                                state.loading ? 'Loading...' : 'Update'
-                                            }
+                                        <button className="  block mt-8  bg-primary text-white px-6 py-2 ">
+                                            Update
                                         </button>
                                     </form>
                                 </Dialog.Panel>

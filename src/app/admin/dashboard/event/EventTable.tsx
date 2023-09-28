@@ -84,12 +84,12 @@ const EventTable: React.FC<Props> = ({ data, deleteEvent, setCurrentEvent, loadi
                             </td>
                             <td  >
                                 <button className="px-6 py-4 whitespace-nowrap text-center text-md font-medium flex items-center space-x-2">
-                                    {/* <button className="px-6 py-4 whitespace-nowrap text-center text-md font-medium flex items-center space-x-2">
+                                    <button className="px-6 py-4 whitespace-nowrap text-center text-md font-medium flex items-center space-x-2">
                                         <AiOutlineEye onClick={() => {
                                             setOpenUpdateModal(true)
                                             setCurrentEvent(item?.id)
                                         }} className='text-xl text-green-500' />
-                                    </button> */}
+                                    </button>
 
                                     <MdDelete onClick={() => {
                                         deleteEvent(item?.id)
