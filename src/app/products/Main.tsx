@@ -2,10 +2,10 @@
 
 import { useGqlClient } from '@/hooks/UseGqlClient';
 import { useManualQuery } from 'graphql-hooks';
-import Image from 'next/image';
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
 import React, { useEffect } from 'react';
+import { BsCurrencyRupee } from 'react-icons/bs';
 
 
 const GET_PRODUCTS = `
@@ -84,7 +84,7 @@ const Main = () => {
         <>
             <section className="text-gray-600 body-font">
                 <div className="container px-5 pb-24 mx-auto">
-                    <div className="flex flex-wrap -m-4">
+                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
 
                         {
                             products.length ?
@@ -92,15 +92,32 @@ const Main = () => {
                                     {
                                         products.map((product, index) =>
 
-                                            <Link key={product?.id} href={`/products/details/${product?.id}`} className="lg:w-1/4 md:w-1/2 p-4 w-full">
-                                                <a className="block relative h-48 rounded overflow-hidden group overflow-hidden">
-                                                    <Image height={430} width={265} alt="ecommerce" className="transition-all duration-500 object-cover object-center w-full h-full block group-hover:scale-125" src={product?.image || '/assets/no_image.png'} />
-                                                </a>
-                                                <div className="mt-4">
-                                                    <h2 className="text-gray-900 title-font text-base font-medium">{product?.title}</h2>
-                                                    {/* <p className="mt-1">{product?.price}</p> */}
+                                            <div key={index} className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                                                <div className='overflow-hidden'>
+                                                    <img className="p-2 rounded-t-lg h-48 w-full group-hover:scale-125" src={product?.image || '/assets/no_image.png'} alt="product image" />
                                                 </div>
-                                            </Link>
+                                                <div className="px-5 pb-5">
+                                                    <p >
+                                                        <h5 className="text-lg font-semibold tracking-tight text-gray-700 dark:text-white capitalize">{product?.title}</h5>
+                                                    </p>
+
+                                                    <div className="flex items-center mt-10 justify-between">
+                                                        <span className="text-xl flex items-center justify-center space-x-2 font-bold text-gray-700 dark:text-white"><BsCurrencyRupee /> {product?.price}</span>
+                                                        <Link href={`/products/details/${product?.id}`} className="text-white bg-primary font-medium  text-sm px-5 py-1.5 text-center ">View Details</Link>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                            // <Link key={product?.id} href={`/products/details/${product?.id}`} className="lg:w-1/4 md:w-1/2 p-4 w-full">
+                                            //     <a className="block relative h-48 rounded overflow-hidden group overflow-hidden">
+                                            //         <Image height={430} width={265} alt="ecommerce" className="transition-all duration-500 object-cover object-center w-full h-full block group-hover:scale-125" src={product?.image || '/assets/no_image.png'} />
+                                            //     </a>
+                                            //     <div className="mt-4">
+                                            //         <h2 className="text-gray-900 title-font text-base font-medium">{product?.title}</h2>
+
+                                            //     </div>
+                                            // </Link>
                                         )
                                     }
 

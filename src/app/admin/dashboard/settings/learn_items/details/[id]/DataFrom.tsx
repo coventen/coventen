@@ -45,9 +45,6 @@ const DataFrom = ({ currentData, setCurrentData, updateItem }: IAddProductProps)
             }
         }
         const inputData = {
-            title: currentData?.title,
-            description: currentData?.description,
-            url: currentData?.url,
             imageUrl: imageLink || currentData?.imageUrl
         }
         updateItem(inputData)
@@ -92,7 +89,7 @@ const DataFrom = ({ currentData, setCurrentData, updateItem }: IAddProductProps)
                                 Image
                             </label>
                             <input
-                                required
+
                                 type="file"
                                 name="Image"
                                 onChange={(e) => {
@@ -103,6 +100,83 @@ const DataFrom = ({ currentData, setCurrentData, updateItem }: IAddProductProps)
                                 placeholder="Image"
                                 className="mt-2 w-full block  placeholder-gray-400/70 rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-gray-700 focus:primary focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:primary/10"
                             />
+                        </div>
+                        <div className=" p-1  col-span-2">
+                            <label htmlFor="title" className="block  text-gray-700 text-sm mb-1">
+                                mode
+                            </label>
+                            <input
+                                required
+                                type="text"
+                                name="url"
+                                defaultValue={currentData?.mode}
+                                onChange={(e) => setCurrentData({ ...currentData, mode: e.target.value })}
+                                placeholder="url"
+                                className="mt-2 w-full block  placeholder-gray-400/70 rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-gray-700 focus:primary focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:primary/10"
+                            />
+                        </div>
+                        <div className=" p-1  col-span-2">
+                            <label htmlFor="title" className="block  text-gray-700 text-sm mb-1">
+                                seats
+                            </label>
+                            <input
+                                required
+                                type="number"
+                                name="url"
+                                defaultValue={currentData?.seats}
+                                onChange={(e) => setCurrentData({ ...currentData, seats: parseInt(e.target.value) })}
+                                placeholder="url"
+                                className="mt-2 w-full block  placeholder-gray-400/70 rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-gray-700 focus:primary focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:primary/10"
+                            />
+                        </div>
+                        <div className=" p-1  col-span-2">
+                            <label htmlFor="title" className="block  text-gray-700 text-sm mb-1">
+                                price
+                            </label>
+                            <input
+                                required
+                                type="number"
+                                defaultValue={currentData?.price}
+                                onChange={(e) => setCurrentData({ ...currentData, price: parseInt(e.target.value) })}
+                                placeholder="url"
+                                className="mt-2 w-full block  placeholder-gray-400/70 rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-gray-700 focus:primary focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:primary/10"
+                            />
+                        </div>
+                        <div className=" p-1  col-span-2">
+                            <label htmlFor="title" className="block  text-gray-700 text-sm mb-1">
+                                credit
+                            </label>
+                            <input
+                                required
+                                type="text"
+                                name="url"
+                                defaultValue={currentData?.credit}
+                                onChange={(e) => setCurrentData({ ...currentData, credit: e.target.value })}
+                                placeholder="url"
+                                className="mt-2 w-full block  placeholder-gray-400/70 rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-gray-700 focus:primary focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:primary/10"
+                            />
+                        </div>
+                        <div className=" p-1  ">
+                            <label htmlFor='startAt' className="block text-sm text-gray-500 dark:text-gray-300">Registration Start</label>
+                            <input
+                                type="date"
+                                name="endAt"
+                                defaultValue={currentData?.startAt}
+                                onChange={(e) => setCurrentData({ ...currentData, startDate: e.target.value })}
+                                placeholder="ends At"
+                                className="block  mt-2 w-full placeholder-gray-400/70 dark:placeholder-gray-500 rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-gray-700 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:focus:border-blue-300" />
+
+                        </div>
+                        <div className=" p-1  ">
+                            <label htmlFor='startAt' className="block text-sm text-gray-500 dark:text-gray-300">Registration End</label>
+                            <input
+                                type="date"
+                                name="endAt"
+                                defaultValue={currentData?.endAt}
+                                onChange={(e) => setCurrentData({ ...currentData, endDate: e.target.value })}
+                                placeholder="ends At"
+                                className="block  mt-2 w-full placeholder-gray-400/70 dark:placeholder-gray-500 rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-gray-700 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:focus:border-blue-300" />
+
                         </div>
 
 
@@ -115,10 +189,6 @@ const DataFrom = ({ currentData, setCurrentData, updateItem }: IAddProductProps)
                                 className='mt-2 w-full block  placeholder-gray-400/70 rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-gray-700 focus:primary focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:primary/10'
                             />
                         </div>
-
-
-
-
                     </div>
                     <div className='mt-6 '>
 

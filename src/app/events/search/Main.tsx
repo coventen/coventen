@@ -152,7 +152,7 @@ const Main = () => {
                     category={category?.categories}
                 >
                     <div
-                        className={`grid grid-cols-1 gap-3 ${isOpen ? 'hidden' : 'block'}`}
+                        className={`grid grid-cols-2 gap-3 ${isOpen ? 'hidden' : 'block'}`}
                     >
 
                         {

@@ -29,6 +29,13 @@ query LearnItems($where: LearnItemWhere) {
       description
       url
       imageUrl
+        mode
+        seats
+        price
+        credit
+        startDate
+        endDate
+
     }
   }
 `
@@ -41,7 +48,13 @@ const Main = () => {
         description: '',
         title: '',
         url: '',
-        imageUrl: ''
+        imageUrl: '',
+        mode: '',
+        seats: '',
+        price: '',
+        credit: '',
+        startDate: '',
+        endDate: ''
 
     })
 
@@ -62,13 +75,19 @@ const Main = () => {
     // // action on change
     useEffect(() => {
         if (previoustermsData?.learnItems?.length) {
-            const { title, description, url, imageUrl } = previoustermsData.learnItems[0]
+            const { title, description, url, imageUrl, mode, seats, price, credit, startDate, endDate } = previoustermsData.learnItems[0]
 
             setCurrentData({
                 title,
                 description,
                 url,
-                imageUrl
+                imageUrl,
+                mode,
+                seats,
+                price,
+                credit,
+                startDate,
+                endDate
             })
         }
 
@@ -80,6 +99,7 @@ const Main = () => {
 
 
 
+    console.log(currentData)
 
 
 
@@ -98,10 +118,17 @@ const Main = () => {
                     id: params?.id
                 },
                 "update": {
-                    "title": input.title,
-                    "description": input.description,
-                    "url": input.url,
-                    imageUrl: input.imageUrl
+                    "title": currentData.title,
+                    "description": currentData.description,
+                    "url": currentData.url,
+                    imageUrl: input.imageUrl,
+                    "mode": currentData.mode,
+                    "seats": currentData.seats,
+                    "price": currentData.price,
+                    "credit": currentData.credit,
+                    "startDate": currentData.startDate,
+                    "endDate": currentData.endDate,
+                    "createdAt": new Date().toISOString()
                 }
             }
         })

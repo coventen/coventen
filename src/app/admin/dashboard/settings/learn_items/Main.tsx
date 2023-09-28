@@ -16,6 +16,13 @@ export interface addVariables {
     title: string,
     url: string,
     imageUrl: string,
+    mode: string,
+    seats: number,
+    price: number,
+    credit: string,
+    startDate: string,
+    endDate: string,
+
 }
 
 
@@ -80,6 +87,13 @@ const Main = () => {
                         "description": input.description,
                         "url": input.url,
                         "imageUrl": input.imageUrl,
+                        "mode": input.mode,
+                        "seats": input.seats,
+                        "price": input.price,
+                        "credit": input.credit,
+                        "startDate": input.startDate,
+                        "endDate": input.endDate,
+                        "createdAt": new Date().toISOString()
                     }
                 ]
             }

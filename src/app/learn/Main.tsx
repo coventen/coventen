@@ -4,6 +4,7 @@ import React from 'react';
 import AccordionItem from './AccordionItem';
 import Modal from './Modal';
 import Link from 'next/link';
+import { BsCurrencyRupee } from 'react-icons/bs';
 
 
 const GET_LEARN = `
@@ -14,6 +15,12 @@ query LearnItems {
       description
       url
       imageUrl
+      mode
+      seats
+      price
+      credit
+      startDate
+      endDate
     }
   }
 `
@@ -49,16 +56,24 @@ const Main = () => {
                             </div>
                             <div className="mt-4 px-5 pb-5">
 
-                                <h5 className="text-xl tracking-tight font-semibold capitalize">{item?.title}</h5>
-                                <p className="mt-2 text-sm mb-5 text-dimText dark:text-gray-300">
+                                <h5 className="text-xl tracking-tight font-semibold capitalize mb-2">{item?.title}</h5>
+                                <p className="mt-2 text-sm mb-5 text-justify text-dimText dark:text-gray-300">
                                     {item?.description || 'N/A'}
                                 </p>
+
+                                <p className='font-semibold text-sm mb-3'>Mode: {item?.mode} | Seats: {item?.seats} | Credit: {item?.credit}</p>
+                                <p className='font-semibold text-sm mb-3'>Date of apply: {item?.startDate.slice(0, 10)} -- {item?.endDate.slice(0, 10)} </p>
+                                <p className='font-semibold text-sm mb-8 flex items-center space-x-2'>Price: <BsCurrencyRupee /> {item?.price}</p>
+                                {/* <p className="mt-2 text-sm mb-3 text-dimText dark:text-gray-300">
+                                    {item?.description || 'N/A'}
+                                </p> */}
+
                                 <div className='flex space-x-3'>
                                     <Link href={item?.url} >
                                         <button className="relative group inline-block flex-shrink-0  py-3 px-5  font-semibold text-orange-50 bg-primary overflow-hidden" type="submit">
 
                                             <div className="relative flex items-center justify-center">
-                                                <span className="">Download</span>
+                                                <span className="">Learn More</span>
                                             </div>
                                         </button>
                                     </Link>
