@@ -96,9 +96,9 @@ const Main = () => {
                                     {
                                         products.map((product, index) =>
 
-                                            <div key={index} className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                                                <div className='overflow-hidden'>
-                                                    <img className="p-2 rounded-t-lg h-48 w-full group-hover:scale-125" src={product?.image || '/assets/no_image.png'} alt="product image" />
+                                            <div key={index} className="w-full group max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                                                <div className='overflow-hidden h-48 '>
+                                                    <img className="p-2 rounded-t-lg h-48  w-full group-hover:scale-125" src={product?.image || '/assets/no_image.png'} alt="product image" />
                                                 </div>
                                                 <div className="px-5 pb-5">
                                                     <div >
