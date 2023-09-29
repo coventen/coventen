@@ -42,12 +42,12 @@ export default function Hero({ heroData }: any) {
                 slidesPerView={1}
                 breakpoints={{
                     640: {
-                        slidesPerView: 2,
+                        slidesPerView: 1,
                         spaceBetween: 10,
                     },
                     768: {
-                        slidesPerView: 2,
-                        spaceBetween: 10,
+                        slidesPerView: 1,
+                        spaceBetween: 14,
                     },
                     900: {
                         slidesPerView: 1,

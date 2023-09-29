@@ -14,7 +14,7 @@ const EventFilterCard: React.FC<EventFilterCardProps> = ({ data }) => {
 
             <div className=" bg-white border h-full w-full border-gray-300 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700  relative">
                 <div >
-                    <img className="rounded-t-lg h-56 w-full" src={data?.image || '/assets/no_image.png'} alt="" />
+                    <img className="rounded-t-lg h-56 w-full object-cover" src={data?.image || '/assets/no_image.png'} alt="" />
                 </div>
                 <div className="p-5 mb-9">
                     <a href="#">

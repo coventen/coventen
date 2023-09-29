@@ -176,7 +176,7 @@ export default async function RootLayout({
 
       <body >
 
-        <main className='bg-white text-gray-800 dark:bg-darkBg dark:text-white'>
+        <main className='bg-white text-gray-800 dark:bg-darkBg dark:text-white max-w-screen-2xl mx-auto'>
           <Navbar services={services} industries={industries} solutions={solutions} features={features} />
           {children}
         </main>
