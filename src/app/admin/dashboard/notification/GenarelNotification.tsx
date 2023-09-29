@@ -8,6 +8,7 @@ import { BiSolidEditAlt } from 'react-icons/bi';
 import Error from '@/components/Error';
 import { toast } from 'react-hot-toast';
 import NotificationView from './NotificationView';
+import Pagination from '@/components/Pagination';
 
 //props interface
 interface INotificationTab {
