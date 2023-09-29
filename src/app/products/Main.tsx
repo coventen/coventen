@@ -101,9 +101,9 @@ const Main = () => {
                                                     <img className="p-2 rounded-t-lg h-48 w-full group-hover:scale-125" src={product?.image || '/assets/no_image.png'} alt="product image" />
                                                 </div>
                                                 <div className="px-5 pb-5">
-                                                    <p >
-                                                        <h5 className="text-lg font-semibold tracking-tight text-gray-700 dark:text-white capitalize">{product?.title}</h5>
-                                                    </p>
+                                                    <div >
+                                                        <h5 className="text-lg font-semibold tracking-tight text-gray-700 dark:text-white uppercase">{product?.title}</h5>
+                                                    </div>
 
                                                     <div className="flex items-center mt-10 justify-between">
                                                         <span className="text-xl flex items-center justify-center space-x-2 font-bold text-gray-700 dark:text-white"><BsCurrencyRupee /> {product?.price}</span>

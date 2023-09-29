@@ -34,7 +34,7 @@ const Features = ({ features }: any) => {
                             >
 
                                 <div className="flex-auto">
-                                    <p className="block font-semibold text-primaryText">
+                                    <p className="block uppercase font-semibold text-primaryText">
                                         About Us
                                         <span className="absolute inset-0" />
                                     </p>
@@ -47,11 +47,11 @@ const Features = ({ features }: any) => {
                                 <Link
                                     href={`/features#${item?.id}`}
                                     key={item?.title}
-                                    className="group relative flex items-center gap-x-4 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50"
+                                    className="group  relative flex items-center gap-x-4 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50"
                                 >
 
                                     <div className="flex-auto">
-                                        <p className="block font-semibold text-primaryText capitalize">
+                                        <p className="block uppercase font-semibold text-primaryText ">
                                             {item?.title}
                                             <span className="absolute inset-0" />
                                         </p>

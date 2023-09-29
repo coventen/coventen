@@ -29,6 +29,7 @@ query LearnItems($where: LearnItemWhere) {
       description
       url
       imageUrl
+      rating
         mode
         seats
         price
@@ -54,7 +55,8 @@ const Main = () => {
         price: '',
         credit: '',
         startDate: '',
-        endDate: ''
+        endDate: '',
+        rating: ''
 
     })
 
@@ -75,7 +77,7 @@ const Main = () => {
     // // action on change
     useEffect(() => {
         if (previoustermsData?.learnItems?.length) {
-            const { title, description, url, imageUrl, mode, seats, price, credit, startDate, endDate } = previoustermsData.learnItems[0]
+            const { title, description, url, rating, imageUrl, mode, seats, price, credit, startDate, endDate } = previoustermsData.learnItems[0]
 
             setCurrentData({
                 title,
@@ -87,7 +89,8 @@ const Main = () => {
                 price,
                 credit,
                 startDate,
-                endDate
+                endDate,
+                rating
             })
         }
 
@@ -128,6 +131,7 @@ const Main = () => {
                     "credit": currentData.credit,
                     "startDate": currentData.startDate,
                     "endDate": currentData.endDate,
+                    rating: currentData.rating,
                     "createdAt": new Date().toISOString()
                 }
             }

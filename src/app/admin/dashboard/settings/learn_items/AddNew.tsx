@@ -42,6 +42,7 @@ const AddNew = ({ setTab, addNewFn }: IAddProductProps) => {
     const [credit, setCredit] = useState('')
     const [startAt, setStartAt] = useState('')
     const [endAt, setEndAt] = useState('')
+    const [rating, setRating] = useState('')
 
 
 
@@ -71,6 +72,7 @@ const AddNew = ({ setTab, addNewFn }: IAddProductProps) => {
             credit: credit,
             startDate: startAt,
             endDate: endAt,
+            rating: rating
 
         }
 
@@ -106,10 +108,9 @@ const AddNew = ({ setTab, addNewFn }: IAddProductProps) => {
                             <input
                                 required
                                 type="text"
-                                name="url"
                                 defaultValue={url}
                                 onChange={(e) => setUrl(e.target.value)}
-                                placeholder="url"
+
                                 className="mt-2 w-full block  placeholder-gray-400/70 rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-gray-700 focus:primary focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:primary/10"
                             />
                         </div>
@@ -132,57 +133,66 @@ const AddNew = ({ setTab, addNewFn }: IAddProductProps) => {
                         </div>
                         <div className=" p-1  col-span-2">
                             <label htmlFor="title" className="block  text-gray-700 text-sm mb-1">
-                                mode
+                                rating
                             </label>
                             <input
                                 required
                                 type="text"
-                                name="url"
+                                defaultValue={rating}
+                                onChange={(e) => setRating(e.target.value)}
+
+                                className="mt-2 w-full block  placeholder-gray-400/70 rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-gray-700 focus:primary focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:primary/10"
+                            />
+                        </div>
+                        <div className=" p-1  col-span-2">
+                            <label htmlFor="title" className="block  text-gray-700 text-sm mb-1">
+                                Mode
+                            </label>
+                            <input
+                                required
+                                type="text"
                                 defaultValue={mode}
                                 onChange={(e) => setMode(e.target.value)}
-                                placeholder="url"
+
                                 className="mt-2 w-full block  placeholder-gray-400/70 rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-gray-700 focus:primary focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:primary/10"
                             />
                         </div>
                         <div className=" p-1  col-span-2">
                             <label htmlFor="title" className="block  text-gray-700 text-sm mb-1">
-                                seats
+                                Seats
                             </label>
                             <input
                                 required
                                 type="text"
-                                name="url"
                                 defaultValue={seats}
                                 onChange={(e) => setSeats(parseInt(e.target.value))}
-                                placeholder="url"
+
                                 className="mt-2 w-full block  placeholder-gray-400/70 rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-gray-700 focus:primary focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:primary/10"
                             />
                         </div>
                         <div className=" p-1  col-span-2">
                             <label htmlFor="title" className="block  text-gray-700 text-sm mb-1">
-                                price
+                                Price
                             </label>
                             <input
                                 required
                                 type="text"
-                                name="url"
                                 defaultValue={price}
                                 onChange={(e) => setPrice(parseInt(e.target.value))}
-                                placeholder="url"
+
                                 className="mt-2 w-full block  placeholder-gray-400/70 rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-gray-700 focus:primary focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:primary/10"
                             />
                         </div>
                         <div className=" p-1  col-span-2">
                             <label htmlFor="title" className="block  text-gray-700 text-sm mb-1">
-                                credit
+                                Credits
                             </label>
                             <input
                                 required
                                 type="text"
-                                name="url"
                                 defaultValue={credit}
                                 onChange={(e) => setCredit(e.target.value)}
-                                placeholder="url"
+
                                 className="mt-2 w-full block  placeholder-gray-400/70 rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-gray-700 focus:primary focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:primary/10"
                             />
                         </div>

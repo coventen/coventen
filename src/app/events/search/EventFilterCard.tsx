@@ -17,9 +17,9 @@ const EventFilterCard: React.FC<EventFilterCardProps> = ({ data }) => {
                     <img className="rounded-t-lg h-56 w-full object-cover" src={data?.image || '/assets/no_image.png'} alt="" />
                 </div>
                 <div className="p-5 mb-9">
-                    <a href="#">
-                        <h5 className="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">{data?.name}</h5>
-                    </a>
+                    <p>
+                        <h5 className="mb-2 text-lg font-semibold uppercase tracking-tight text-gray-900 dark:text-white">{data?.name}</h5>
+                    </p>
                     <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">{data?.description.slice(0, 70)}</p>
                     <Link href={`/events/details/${data?.slug}`} className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-primary absolute bottom-4">
                         Read more

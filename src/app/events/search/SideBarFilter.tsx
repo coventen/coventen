@@ -133,7 +133,7 @@ export default function SideBarFilter({ children, setSearchFilter, category }: P
                                                         <>
                                                             <h3 className="-mx-2 -my-3 flow-root">
                                                                 <Disclosure.Button className="flex w-full items-center justify-between bg-white px-2 py-3 text-gray-400 hover:text-gray-500">
-                                                                    <span className="font-medium text-gray-900">
+                                                                    <span className="font-medium  uppercase text-md text-gray-900">
                                                                         {section?.name}
                                                                     </span>
                                                                     <span className="ml-6 flex items-center">
@@ -166,7 +166,7 @@ export default function SideBarFilter({ children, setSearchFilter, category }: P
                                                                             >
                                                                                 <label
                                                                                     htmlFor={`filter-mobile-${section?.id}-${optionIdx}`}
-                                                                                    className="ml-3 min-w-0 flex-1 text-gray-500"
+                                                                                    className="ml-3 min-w-0 flex-1 text-gray-500 uppercase"
                                                                                 >
                                                                                     {option?.title}
                                                                                 </label>
@@ -189,7 +189,7 @@ export default function SideBarFilter({ children, setSearchFilter, category }: P
                                                     <>
                                                         <h3 className="-mx-2 -my-3 flow-root">
                                                             <Disclosure.Button className="flex w-full items-center justify-between bg-white px-2 py-3 text-gray-400 hover:text-gray-500">
-                                                                <span className="font-medium text-gray-900">
+                                                                <span className="font-medium uppercase text-sm text-gray-900">
                                                                     Category
                                                                 </span>
                                                                 <span className="ml-6 flex items-center">
@@ -222,7 +222,7 @@ export default function SideBarFilter({ children, setSearchFilter, category }: P
                                                                         >
                                                                             <label
 
-                                                                                className="ml-3 min-w-0 flex-1 text-gray-500"
+                                                                                className="ml-3 min-w-0 flex-1 capitalize text-gray-500"
                                                                             >
                                                                                 {option?.name}
                                                                             </label>
@@ -275,7 +275,7 @@ export default function SideBarFilter({ children, setSearchFilter, category }: P
                                                 <>
                                                     <h3 className="-my-3 flow-root">
                                                         <Disclosure.Button className="flex w-full items-center justify-between bg-white py-3 text-sm text-gray-400 hover:text-gray-500">
-                                                            <span className=" text-md text-gray-900">
+                                                            <span className="uppercase text-md text-gray-900">
                                                                 {section.name}
                                                             </span>
                                                             <span className="ml-6 flex items-center">
@@ -308,7 +308,7 @@ export default function SideBarFilter({ children, setSearchFilter, category }: P
                                                                     >
                                                                         <label
                                                                             htmlFor={`filter-mobile-${section.id}-${optionIdx}`}
-                                                                            className="ml-3 min-w-0 flex-1 text-gray-500"
+                                                                            className="ml-3 min-w-0 flex-1 text-gray-500 uppercase"
                                                                         >
                                                                             {option?.title}
                                                                         </label>
@@ -332,7 +332,7 @@ export default function SideBarFilter({ children, setSearchFilter, category }: P
                                             <>
                                                 <h3 className="-mx-2 -my-3 flow-root">
                                                     <Disclosure.Button className="flex w-full items-center justify-between bg-white px-2 py-3 text-gray-400 hover:text-gray-500">
-                                                        <span className=" text-md text-gray-900">
+                                                        <span className="uppercase text-sm text-gray-900">
                                                             Category
                                                         </span>
                                                         <span className="ml-6 flex items-center">
@@ -352,7 +352,7 @@ export default function SideBarFilter({ children, setSearchFilter, category }: P
                                                 </h3>
                                                 <Disclosure.Panel className="pt-6">
 
-                                                    <div className="space-y-6 text-sm">
+                                                    <div className="space-y-4 text-sm">
                                                         {category?.map(
                                                             (option: any, optionIdx: number) => (
                                                                 <button
@@ -365,7 +365,7 @@ export default function SideBarFilter({ children, setSearchFilter, category }: P
                                                                 >
                                                                     <label
 
-                                                                        className="ml-3 capitalize min-w-0 flex-1 text-gray-500"
+                                                                        className="ml-3 text-sm capitalize min-w-0 flex-1 text-gray-500"
                                                                     >
                                                                         {option?.name}
                                                                     </label>

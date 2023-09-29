@@ -80,7 +80,7 @@ const DataFrom = ({ currentData, setCurrentData, updateItem }: IAddProductProps)
                                 name="url"
                                 defaultValue={currentData?.url}
                                 onChange={(e) => setCurrentData({ ...currentData, url: e.target.value })}
-                                placeholder="url"
+
                                 className="mt-2 w-full block  placeholder-gray-400/70 rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-gray-700 focus:primary focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:primary/10"
                             />
                         </div>
@@ -103,6 +103,19 @@ const DataFrom = ({ currentData, setCurrentData, updateItem }: IAddProductProps)
                         </div>
                         <div className=" p-1  col-span-2">
                             <label htmlFor="title" className="block  text-gray-700 text-sm mb-1">
+                                rating
+                            </label>
+                            <input
+                                required
+                                type="text"
+                                defaultValue={currentData?.rating}
+                                onChange={(e) => setCurrentData({ ...currentData, rating: e.target.value })}
+
+                                className="mt-2 w-full block  placeholder-gray-400/70 rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-gray-700 focus:primary focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:primary/10"
+                            />
+                        </div>
+                        <div className=" p-1  col-span-2">
+                            <label htmlFor="title" className="block  text-gray-700 text-sm mb-1">
                                 mode
                             </label>
                             <input
@@ -111,7 +124,7 @@ const DataFrom = ({ currentData, setCurrentData, updateItem }: IAddProductProps)
                                 name="url"
                                 defaultValue={currentData?.mode}
                                 onChange={(e) => setCurrentData({ ...currentData, mode: e.target.value })}
-                                placeholder="url"
+
                                 className="mt-2 w-full block  placeholder-gray-400/70 rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-gray-700 focus:primary focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:primary/10"
                             />
                         </div>
@@ -125,7 +138,7 @@ const DataFrom = ({ currentData, setCurrentData, updateItem }: IAddProductProps)
                                 name="url"
                                 defaultValue={currentData?.seats}
                                 onChange={(e) => setCurrentData({ ...currentData, seats: parseInt(e.target.value) })}
-                                placeholder="url"
+
                                 className="mt-2 w-full block  placeholder-gray-400/70 rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-gray-700 focus:primary focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:primary/10"
                             />
                         </div>
@@ -138,7 +151,7 @@ const DataFrom = ({ currentData, setCurrentData, updateItem }: IAddProductProps)
                                 type="number"
                                 defaultValue={currentData?.price}
                                 onChange={(e) => setCurrentData({ ...currentData, price: parseInt(e.target.value) })}
-                                placeholder="url"
+
                                 className="mt-2 w-full block  placeholder-gray-400/70 rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-gray-700 focus:primary focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:primary/10"
                             />
                         </div>
@@ -152,7 +165,7 @@ const DataFrom = ({ currentData, setCurrentData, updateItem }: IAddProductProps)
                                 name="url"
                                 defaultValue={currentData?.credit}
                                 onChange={(e) => setCurrentData({ ...currentData, credit: e.target.value })}
-                                placeholder="url"
+
                                 className="mt-2 w-full block  placeholder-gray-400/70 rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-gray-700 focus:primary focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:primary/10"
                             />
                         </div>
