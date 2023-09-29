@@ -1,7 +1,7 @@
 'use client'
 
 import classNames from "classnames";
-import React, { PropsWithChildren, useState, Fragment } from "react";
+import React, { PropsWithChildren, useState, Fragment, useEffect } from "react";
 import { Transition, Menu } from '@headlessui/react';
 import { FaBars } from 'react-icons/fa';
 import Sidebar from "./Sidebar";
@@ -9,10 +9,12 @@ import { Toaster } from "react-hot-toast";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import AuthConfig from "@/firebase/oauth.config";
+import CheckNotification from "./CheckNotification";
 
 const DashboardBody = (props: PropsWithChildren) => {
 
     // state
+    const [newNotificationCount, setNewNotificationCount] = useState(0)
     const [collapsed, setSidebarCollapsed] = useState(false);
     const [showSidebar, setShowSidebar] = useState(true)
 
@@ -20,6 +22,10 @@ const DashboardBody = (props: PropsWithChildren) => {
     const router = useRouter()
     const { logout } = AuthConfig()
 
+
+    useEffect(() => {
+        console.log(newNotificationCount)
+    }, [newNotificationCount])
 
     return (
         <div
@@ -76,10 +82,7 @@ const DashboardBody = (props: PropsWithChildren) => {
                                     ></path>
                                 </svg>
                             </button>
-                            <button
-                                aria-label="chat"
-                                className="h-10 w-10 rounded-xl border bg-gray-100 active:bg-gray-200 dark:bg-gray-700 dark:border-gray-600 dark:active:bg-gray-800"
-                            >
+                            <Link href='/user/dashboard/internal_email' className="relative m-auto h-5 w-5 text-sm text-gray-600 dark:text-gray-300" >
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     className="m-auto h-5 w-5 text-sm text-gray-600 dark:text-gray-300"
@@ -94,22 +97,14 @@ const DashboardBody = (props: PropsWithChildren) => {
                                         d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"
                                     />
                                 </svg>
-                            </button>
-                            <button
-                                aria-label="notification"
-                                className="h-10 w-10 rounded-xl border bg-gray-100 active:bg-gray-200 dark:bg-gray-700 dark:border-gray-600 dark:active:bg-gray-800"
-                            >
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    className="m-auto h-5 w-5 text-sm text-gray-600 dark:text-gray-300"
-                                    viewBox="0 0 20 20"
-                                    fill="currentColor"
-                                >
-                                    <path
-                                        d="M10 2a6 6 0 00-6 6v3.586l-.707.707A1 1 0 004 14h12a1 1 0 00.707-1.707L16 11.586V8a6 6 0 00-6-6zM10 18a3 3 0 01-3-3h6a3 3 0 01-3 3z"
-                                    />
+                                <span className="absolute top-0 right-0 inline-flex items-center py-0.5 px-1.5 rounded-full text-xs font-medium transform -translate-y-1/2 translate-x-1/2 bg-rose-500 text-white">{newNotificationCount}</span>
+                            </Link>
+                            <Link href='/user/dashboard/notification' className="relative m-auto h-5 w-5 text-sm text-gray-600 dark:text-gray-300" >
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                    <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zM8 1.918l-.797.161A4.002 4.002 0 0 0 4 6c0 .628-.134 2.197-.459 3.742-.16.767-.376 1.566-.663 2.258h10.244c-.287-.692-.502-1.49-.663-2.258C12.134 8.197 12 6.628 12 6a4.002 4.002 0 0 0-3.203-3.92L8 1.917zM14.22 12c.223.447.481.801.78 1H1c.299-.199.557-.553.78-1C2.68 10.2 3 6.88 3 6c0-2.42 1.72-4.44 4.005-4.901a1 1 0 1 1 1.99 0A5.002 5.002 0 0 1 13 6c0 .88.32 4.2 1.22 6z" />
                                 </svg>
-                            </button>
+                                <span className="absolute top-0 right-0 inline-flex items-center py-0.5 px-1.5 rounded-full text-xs font-medium transform -translate-y-1/2 translate-x-1/2 bg-rose-500 text-white">{newNotificationCount}</span>
+                            </Link>
                             <Menu as="div" className="relative inline-block text-left">
                                 <div>
                                     <Menu.Button className="">
@@ -174,7 +169,7 @@ const DashboardBody = (props: PropsWithChildren) => {
                     {props.children}
                 </div>
 
-
+                <CheckNotification setNewNotificationCount={setNewNotificationCount} />
             </div>
         </div>
     );

@@ -64,6 +64,15 @@ mutation Mutation($input: [ModuleTicketCreateInput!]!) {
 
 `
 
+const SEND_NOTIFICATION = `
+mutation CreateNotifications($input: [NotificationCreateInput!]!) {
+    createNotifications(input: $input) {
+      info {
+        nodesCreated
+      }
+    }
+  }`
+
 
 //component
 function AssignmentModal({ isOpen, setIsOpen, currentProject, refetchProjects }: IModalProps) {
@@ -94,6 +103,7 @@ function AssignmentModal({ isOpen, setIsOpen, currentProject, refetchProjects }:
     //  mutations
     const [assignModuleFn, state] = useMutation(ASSIGN_MODULE, { client });
     const [updateCounterFn, updateState] = useMutation(UPDATE_COUNTER, { client })
+    const [sendNotificationFn, notificationState] = useMutation(SEND_NOTIFICATION, { client })
 
 
     // initializing  assign module
@@ -158,6 +168,7 @@ function AssignmentModal({ isOpen, setIsOpen, currentProject, refetchProjects }:
             setIsOpen(false);
             toast.success('Module assigned successfully');
             refetchProjects()
+            sendNotificationToVendor()
             createLog(
                 `Module Assignment`,
                 ` Module assigned to ${selected.companyName} by ${user?.email} `
@@ -167,7 +178,7 @@ function AssignmentModal({ isOpen, setIsOpen, currentProject, refetchProjects }:
     }
 
 
-    console.log(currentProject, selected, selected.companyName, currentProject.projectTicket)
+
 
 
     //handle close modal
@@ -196,7 +207,61 @@ function AssignmentModal({ isOpen, setIsOpen, currentProject, refetchProjects }:
     }
 
 
+    console.log(selected, 'this is selected')
 
+    const sendNotificationToVendor = async () => {
+        const { data } = await sendNotificationFn({
+            variables: {
+                "input": [
+                    {
+                        "title": "You Have a New Module",
+                        "description": "You have been assigned a new module. Please check the module details and If you have any questions, please contact us.",
+                        "createdAt": new Date().toISOString(),
+                        "notificationFor": "VENDOR",
+                        "vendorHas": {
+                            "connect": {
+                                "where": {
+                                    "node": {
+                                        "userIs": {
+                                            "id": selected.id
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                ]
+            }
+        })
+        console.log(data, 'this is data')
+    }
+
+    // const sendNotificationToClient = async () => {
+    //     const { data } = await sendNotificationFn({
+    //         variables: {
+    //             "input": [
+    //                 {
+    //                     "title": "Your Module Has Been Assigned",
+    //                     "description": `Your module has been assigned to ${selected.companyName}.  `,
+    //                     // "type": null,
+    //                     "createdAt": new Date().toISOString(),
+    //                     "clientHas": {
+    //                         "connect": {
+    //                             "where": {
+    //                                 "node": {
+    //                                     "userIs": {
+    //                                         "email": null
+    //                                     }
+    //                                 }
+    //                             }
+    //                         }
+    //                     },
+
+    //                 }
+    //             ]
+    //         }
+    //     })
+    // }
 
 
 

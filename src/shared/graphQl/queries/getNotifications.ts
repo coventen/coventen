@@ -1,5 +1,4 @@
 
-import { NotificationOptions, NotificationWhere } from "@/gql/graphql";
 import Cookies from "js-cookie";
 
 const getNotifications = async (variables: any) => {
@@ -20,14 +19,18 @@ const getNotifications = async (variables: any) => {
                   title
                   description
                   createdAt
+                  notificationFor
+                  image
+                  isViewed
                 }
               }`,
               variables: variables,
         }),
+        next: {revalidate: 10}
     })
 
     const {data} = await res.then(res => res.json())
-    return data?.notifications[0]
+    return data?.notifications
 }
 
 

@@ -20,7 +20,7 @@ interface INotification {
     id: string;
     image: string;
     title: string;
-    type: string;
+    notificationFor: string;
     description: string;
     createdAt: string;
 }
@@ -33,7 +33,7 @@ query Notifications($where: NotificationWhere, $options: NotificationOptions) {
       id
       image
       title
-      type
+      notificationFor
       description
       createdAt
     }
@@ -53,6 +53,11 @@ const GenarelNotification = ({ newNotification }: INotificationTab) => {
     //states
     const [isNotificationViewModalOpen, setIsNotificationViewModalOpen] = useState(false);
     const [currentNotification, setCurrentNotification] = useState<INotification | null>(null);
+    const [pageLimit, setPageLimit] = useState(10)
+    const [currentPage, setCurrentPage] = useState(1)
+    const [totalPages, setTotalPages] = useState(0)
+    const [totalNotification, setTotalNotification] = useState(0)
+    const [NotificationData, setNotificationData] = useState<any>([])
 
 
     // Create GraphQL client using custom hook
@@ -66,17 +71,32 @@ const GenarelNotification = ({ newNotification }: INotificationTab) => {
         client,
         variables: {
             where: {
-                type: 'GENERAL'
+                notificationFor: 'GENERAL'
             }
         },
         options: {
-            sort: [
-                {
-                    createdAt: "DESC"
-                }
-            ]
+            options: {
+                limit: pageLimit,
+                offset: (currentPage - 1) * pageLimit,
+                sort: [
+                    {
+                        createdAt: "DESC"
+                    }
+                ]
+            }
         }
     });
+
+
+
+
+    useEffect(() => {
+        refetch()
+    }, [currentPage])
+
+
+
+
 
     // Delete Notification
     const handleDelete = async (id: string) => {
@@ -99,6 +119,12 @@ const GenarelNotification = ({ newNotification }: INotificationTab) => {
             refetch();
         }
     }, [newNotification])  //eslint-disable-line
+
+
+
+
+
+
 
 
     // Render when there are no notifications
@@ -129,7 +155,7 @@ const GenarelNotification = ({ newNotification }: INotificationTab) => {
 
                                                 <td className="  text-center col-span-3 mt-3">
                                                     <div className="flex items-center pl-5">
-                                                        <p className="text-base font-medium leading-none text-gray-700 mr-2">{item?.title}</p>
+                                                        <p className="text-base font-medium leading-none text-gray-700 mr-2">{item?.title?.slice(0, 50)}</p>
 
                                                     </div>
                                                 </td>
@@ -145,19 +171,18 @@ const GenarelNotification = ({ newNotification }: INotificationTab) => {
 
 
                                                 <td className="ml-2  text-center col-span-2 ">
-                                                    <button className="py-3 px-3 text-sm focus:outline-none leading-none text-primary  bg-primary/10 rounded">Published  at {item?.createdAt.slice(11, 16)}</button>
+                                                    <button className="py-3 px-3 text-sm focus:outline-none leading-none text-primary  bg-primary/10 ">Published  at {item?.createdAt.slice(11, 16)}</button>
                                                 </td>
                                                 {/* <td className="  text-center">
                                                     <button className="focus:ring-2 focus:ring-offset-2  text-sm leading-none text-gray-600 py-3 px-5 bg-gray-100 rounded hover:bg-gray-200 focus:outline-none">View</button>
                                                 </td> */}
                                                 <td className="  text-center col-span-2 ">
-                                                    <div className="relative flex items-center justify-around  px-8 ">
+                                                    <div className="relative flex items-center justify-center space-x-4  px-8 ">
                                                         <button onClick={() => {
                                                             setIsNotificationViewModalOpen(true);
                                                             setCurrentNotification(item);
-                                                        }} className="focus:ring-2 focus:ring-offset-2  text-sm leading-none text-primary py-2 px-2 bg-gray-100 rounded hover:bg-gray-200 focus:outline-none"><AiFillEye /></button>
-                                                        {/* <button className="focus:ring-2 focus:ring-offset-2  text-sm leading-none text-green-600 py-2 px-2 bg-gray-100 rounded hover:bg-gray-200 focus:outline-none"><BiSolidEditAlt /></button> */}
-                                                        <button onClick={() => handleDelete(item?.id)} className="focus:ring-2 focus:ring-offset-2  text-sm leading-none text-red-600 py-2 px-2 bg-gray-100 rounded hover:bg-gray-200 focus:outline-none"><AiTwotoneDelete /></button>
+                                                        }} className="focus:ring-2 focus:ring-offset-2  text-sm leading-none text-primary py-2 px-2 bg-gray-100  hover:bg-gray-200 focus:outline-none"><AiFillEye /></button>
+                                                        <button onClick={() => handleDelete(item?.id)} className="focus:ring-2 focus:ring-offset-2  text-sm leading-none text-red-600 py-2 px-2 bg-gray-100  hover:bg-gray-200 focus:outline-none"><AiTwotoneDelete /></button>
                                                     </div>
                                                 </td>
                                             </tr>
@@ -170,6 +195,12 @@ const GenarelNotification = ({ newNotification }: INotificationTab) => {
                         </table>
                     </div>
                 </div>
+            </div>
+
+            <div className='w-full flex items-center justify-center'>
+                {totalNotification > pageLimit &&
+                    <Pagination currentPage={currentPage} setCurrentPage={setCurrentPage} totalPages={totalPages} />}
+
             </div>
             <NotificationView isNotificationViewModalOpen={isNotificationViewModalOpen} setIsNotificationViewModalOpen={setIsNotificationViewModalOpen}
                 data={currentNotification} />

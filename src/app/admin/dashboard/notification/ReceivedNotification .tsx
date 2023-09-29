@@ -21,7 +21,7 @@ interface INotification {
     id: string;
     image: string;
     title: string;
-    type: string;
+    notificationFor: string;
     description: string;
     createdAt: string;
 
@@ -35,7 +35,7 @@ query Notifications($where: NotificationWhere, $options: NotificationOptions) {
       id
       image
       title
-      type
+      notificationFor
       description
       createdAt
     }
@@ -50,7 +50,7 @@ mutation Mutation($where: NotificationWhere) {
   }
   `
 //component 
-const PersonalizeNotification = ({ newNotification }: INotificationTab) => {
+const ReceivedNotification = ({ newNotification }: INotificationTab) => {
 
     //states
     const [isNotificationViewModalOpen, setIsNotificationViewModalOpen] = useState(false);
@@ -67,7 +67,7 @@ const PersonalizeNotification = ({ newNotification }: INotificationTab) => {
         client,
         variables: {
             where: {
-                type_IN: ["CLIENT", "VENDOR"]
+                notificationFor_IN: ["ADMIN"]
             }
         },
         options: {
@@ -176,4 +176,4 @@ const PersonalizeNotification = ({ newNotification }: INotificationTab) => {
     );
 };
 
-export default PersonalizeNotification;
+export default ReceivedNotification;

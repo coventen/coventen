@@ -90,7 +90,19 @@ const Main = () => {
         revalidateOnFocus: false,
         variables: {
             "where": {
-                "type_IN": ["CLIENT", "GENERAL"]
+                "OR": [
+                    {
+                        "notificationFor": "CLIENT",
+                        "clientHas": {
+                            "userIs": {
+                                "email": user?.email || 'no email'
+                            }
+                        }
+                    },
+                    {
+                        "notificationFor": "GENERAL",
+                    },
+                ]
             },
             "options": {
                 "limit": 3,

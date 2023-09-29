@@ -21,8 +21,8 @@ mutation Mutation($where: IndustryPageWhere, $update: IndustryPageUpdateInput) {
   }
 `
 const GET_INDUSTRY = `
-query IndustryPages {
-    industryPages {
+query IndustryPages($where: IndustryPageWhere, $options: IndustryPageOptions) {
+    industryPages(where: $where, options: $options) {
       id
       title
       image
@@ -68,8 +68,8 @@ const Main = () => {
     // // action on change
     useEffect(() => {
         if (previousIndustryData?.industryPages?.length) {
-            const { title, description, features, others, image, price } = previousIndustryData.industryPages[0]
-            setDescriptionEditorState(features)
+            const { title, description, image } = previousIndustryData.industryPages[0]
+            setDescriptionEditorState(JSON.parse(description))
             setIndustryData({
                 title,
                 description,

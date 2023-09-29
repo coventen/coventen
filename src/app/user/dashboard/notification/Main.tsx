@@ -1,13 +1,17 @@
 'use client'
 import React, { useEffect, useState, Suspense } from 'react';
 import { useGqlClient } from '@/hooks/UseGqlClient';
-import { useMutation, useQuery } from 'graphql-hooks';
+import { useManualQuery, useMutation, useQuery } from 'graphql-hooks';
 import { BsThreeDotsVertical } from 'react-icons/bs';
 import { AiTwotoneDelete, AiFillEye } from 'react-icons/ai';
 import { BiSolidEditAlt } from 'react-icons/bi';
 import Error from '@/components/Error';
 import { toast } from 'react-hot-toast';
 import NotificationView from './NotificationView';
+import { getEmployerEmail } from '@/shared/getEmployerEmail';
+import AuthConfig from '@/firebase/oauth.config';
+import Loading from '@/app/loading';
+import Pagination from '@/components/Pagination';
 
 //props interface
 interface INotificationTab {
@@ -20,7 +24,7 @@ interface INotification {
     id: string;
     image: string;
     title: string;
-    type: string;
+    notificationFor: string;
     description: string;
     createdAt: string;
 }
@@ -28,14 +32,24 @@ interface INotification {
 
 //query for getting notification data
 const GET_NOTIFICATION = `
-query Notifications($where: NotificationWhere) {
-    notifications(where: $where) {
+query Notifications($where: NotificationWhere, $options: NotificationOptions) {
+    notifications(where: $where, options: $options) {
       id
       image
       title
-      type
+      notificationFor
       description
       createdAt
+    }
+  }
+  `
+//query for getting notification data
+const UPDATE_NOTIFICATION = `
+mutation UpdateNotifications($where: NotificationWhere, $update: NotificationUpdateInput) {
+    updateNotifications(where: $where, update: $update) {
+      notifications {
+        id
+      }
     }
   }
   `
@@ -45,34 +59,126 @@ query Notifications($where: NotificationWhere) {
 const Main = () => {
 
     //states
+    const [allNotification, setAllNotification] = useState<INotification[]>([]);
     const [isNotificationViewModalOpen, setIsNotificationViewModalOpen] = useState(false);
     const [currentNotification, setCurrentNotification] = useState<INotification | null>(null);
+    // pagination states
+    const [pageLimit, setPageLimit] = useState(10)
+    const [currentPage, setCurrentPage] = useState(1)
+    const [totalPages, setTotalPages] = useState(0)
+    const [totalNotification, setTotalNotification] = useState(0)
+    const [NotificationData, setNotificationData] = useState<any>([])
 
 
-    // Create GraphQL client using custom hook
+
+    // hooks
     const client = useGqlClient();
 
-    // GraphQL Query
-    const { data, loading, error, refetch } = useQuery(GET_NOTIFICATION, {
-        client,
-        variables: {
-            where: {
-                type_IN: ["GENERAL", "CLIENT"]
+    const { user, authLoading } = AuthConfig()
+
+    //quires 
+    const [getNotificationFn, dataState] = useManualQuery(GET_NOTIFICATION, { client })
+
+
+    // mutation
+    const [updateNotificationFn, updateState] = useMutation(UPDATE_NOTIFICATION, { client })
+
+
+
+    useEffect(() => {
+        getNotifications()
+        getNotificationCount()
+    }, [currentPage, user?.email, authLoading])
+
+
+    const updateNotification = async (id: string) => {
+        const { data } = await updateNotificationFn({
+            variables: {
+                where: {
+                    id
+                },
+                update: {
+                    isViewed: true
+                }
             }
+        })
+    }
+
+
+    // getting general notifications for all users
+    const getNotifications = async () => {
+        const { data } = await getNotificationFn({
+            variables: {
+                "where": {
+                    "OR": [
+                        {
+                            "notificationFor": "CLIENT",
+                            "clientHas": {
+                                "userIs": {
+                                    "email": user?.email || 'no email'
+                                }
+                            }
+                        },
+                        {
+                            "notificationFor": "GENERAL",
+                        },
+                    ]
+                },
+                options: {
+                    limit: pageLimit,
+                    offset: (currentPage - 1) * pageLimit,
+                    sort: [
+                        {
+                            createdAt: "DESC"
+                        }
+                    ]
+                }
+            }
+        })
+        if (data?.notifications?.length > 0) {
+            setAllNotification(data?.notifications)
         }
-    });
+    }
+
+    const getNotificationCount = async () => {
+        const { data } = await getNotificationFn({
+            variables: {
+                "where": {
+                    "OR": [
+                        {
+                            "notificationFor": "VENDOR",
+                            "clientHas": {
+                                "userIs": {
+                                    "email": user?.email || 'no email'
+                                }
+                            }
+                        },
+                        {
+                            "notificationFor": "GENERAL",
+                        },
+                    ]
+                }
+            }
+        })
+
+        if (data?.notifications?.length > 0) {
+            setTotalNotification(data?.notifications?.length)
+            setTotalPages(Math.ceil(data?.notifications?.length / pageLimit))
+        }
+    }
 
 
 
-    if (data?.notifications?.length === 0) {
+
+
+
+    if (allNotification?.length === 0) {
         return <div className="w-full h-full mt-12 text-sm mx-5"> No Data Found</div>;
     }
 
 
     // Render when there is an error
-    if (error) {
-        return <Error />;
-    }
+    if (dataState.loading) return <Loading />
 
     // Render the component
 
@@ -85,7 +191,7 @@ const Main = () => {
                             {/* <Suspense fallback={<div>Loading...</div>}> */}
                             <tbody>
                                 {
-                                    data?.notifications?.map((item: INotification) =>
+                                    allNotification?.map((item: INotification) =>
                                         <div key={item?.id} className='w-full  flex items-center justify-center'>
                                             <tr className="focus:outline-none w-full h-16 border border-gray-100 rounded grid grid-cols-8 place-content-center ">
 
@@ -109,14 +215,13 @@ const Main = () => {
                                                 <td className="ml-2  text-center col-span-2 ">
                                                     <button className="py-3 px-3 text-sm focus:outline-none leading-none text-primary  bg-primary/10 rounded">Published  at {item?.createdAt.slice(11, 16)}</button>
                                                 </td>
-                                                {/* <td className="  text-center">
-                                                    <button className="focus:ring-2 focus:ring-offset-2  text-sm leading-none text-gray-600 py-3 px-5 bg-gray-100 rounded hover:bg-gray-200 focus:outline-none">View</button>
-                                                </td> */}
+
                                                 <td className="  text-center col-span-2 ">
                                                     <div className="relative flex items-center justify-around  px-8 ">
                                                         <button onClick={() => {
                                                             setIsNotificationViewModalOpen(true);
                                                             setCurrentNotification(item);
+                                                            updateNotification(item?.id);
                                                         }} className="focus:ring-2 focus:ring-offset-2  text-sm leading-none text-primary py-2 px-2 bg-gray-100 rounded hover:bg-gray-200 focus:outline-none"><AiFillEye /></button>
 
                                                     </div>
@@ -132,6 +237,13 @@ const Main = () => {
                     </div>
                 </div>
             </div>
+
+            <div className='w-full flex items-center justify-center'>
+                {totalNotification > pageLimit &&
+                    <Pagination currentPage={currentPage} setCurrentPage={setCurrentPage} totalPages={totalPages} />}
+
+            </div>
+
             <NotificationView isNotificationViewModalOpen={isNotificationViewModalOpen} setIsNotificationViewModalOpen={setIsNotificationViewModalOpen}
                 data={currentNotification} />
         </div >

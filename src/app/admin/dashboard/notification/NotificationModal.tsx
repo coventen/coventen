@@ -36,8 +36,8 @@ function NotificationModal({ isOpen, setIsOpen, setNewNotification }: INotificat
     //states
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
-    const [image, setImage] = useState(null);
-    const [selectedOption, setSelectedOption] = useState('GENAREL');
+    const [uploading, setUploading] = useState(false);
+    // const [selectedOption, setSelectedOption] = useState('GENAREL');
 
     // hooks
     const client = useGqlClient()
@@ -55,10 +55,7 @@ function NotificationModal({ isOpen, setIsOpen, setNewNotification }: INotificat
         "VENDOR"
     ];
 
-    //handle select option
-    const handleSelect = (e: any) => {
-        setSelectedOption(e.target.value);
-    };
+
 
     //handle close modal
     function closeModal() {
@@ -76,9 +73,16 @@ function NotificationModal({ isOpen, setIsOpen, setNewNotification }: INotificat
         event.preventDefault();
         const title = event.target.title.value;
         const description = event.target.description.value;
-        const userType = event.target.userType.value;
         const image = event.target.image.files[0];
-        const imageUrl = await handleImageUpload(image);
+        let imageUrl
+
+        if (image) {
+            setUploading(true)
+            imageUrl = await handleImageUpload(image);
+            setUploading(false)
+        } else {
+            imageUrl = ""
+        }
 
         const date = new Date();
         let isoDate = date.toISOString();
@@ -89,7 +93,7 @@ function NotificationModal({ isOpen, setIsOpen, setNewNotification }: INotificat
                     {
                         title: title,
                         description: description,
-                        type: userType,
+                        notificationFor: "GENERAL",
                         image: imageUrl,
                         createdAt: isoDate,
                     }
@@ -111,7 +115,7 @@ function NotificationModal({ isOpen, setIsOpen, setNewNotification }: INotificat
 
     //handle image upload to firebase
     async function handleImageUpload(file: any) {
-        const res = await uploadFile(file, `${file.name}-${uuidv4()}`, "notification_images");
+        const res = await uploadFile(file, `notification-${uuidv4()}`, "notification_images");
         return res;
     }
 
@@ -176,13 +180,13 @@ function NotificationModal({ isOpen, setIsOpen, setNewNotification }: INotificat
                                             onChange={(e) => setTitle(e.target.value)}
                                         />
                                     </div>
-                                    <div className="mb-5">
+                                    {/* <div className="mb-5">
                                         <label className="block  text-gray-700 text-sm mb-1">
                                             Notification Type
                                         </label>
                                         <div className="relative inline-flex w-full">
                                             <select
-                                                name='userType'
+                                                name='notificationFor'
                                                 value={selectedOption}
                                                 onChange={handleSelect}
                                                 className="mt-1 px-4 py-2 border border-gray-200 rounded-md w-full"
@@ -196,9 +200,9 @@ function NotificationModal({ isOpen, setIsOpen, setNewNotification }: INotificat
                                             </select>
 
                                         </div>
-                                    </div>
+                                    </div> */}
                                     {/* notification user select for personalized notifications */}
-                                    {
+                                    {/* {
                                         selectedOption === 'PERSONALIZED' && (
                                             <div className="mb-5">
                                                 <label className="block  text-gray-700 text-sm mb-1">
@@ -219,7 +223,7 @@ function NotificationModal({ isOpen, setIsOpen, setNewNotification }: INotificat
                                                 </div>
                                             </div>
                                         )
-                                    }
+                                    } */}
 
 
                                     <div className="mb-5">
@@ -236,7 +240,7 @@ function NotificationModal({ isOpen, setIsOpen, setNewNotification }: INotificat
                                         <textarea
                                             id="description"
                                             name="description"
-
+                                            rows={7}
                                             className="mt-1 px-4 py-2 border border-gray-200 rounded-md w-full"
                                             value={description}
                                             onChange={(e) => setDescription(e.target.value)}
@@ -260,13 +264,13 @@ function NotificationModal({ isOpen, setIsOpen, setNewNotification }: INotificat
                                     <div className="mt-10">
                                         <button
                                             type="submit"
-                                            className="px-4 py-2 bg-primary text-white rounded-md hover:bg-blue-600"
+                                            className="px-4 py-2 bg-primary text-white hover:bg-blue-600"
                                         >
-                                            Submit
+                                            {state?.loading ? 'Sending...' : 'Send'}
                                         </button>
                                         <button
                                             type="button"
-                                            className="ml-2 px-4 py-2 text-gray-500 rounded-md hover:bg-gray-200"
+                                            className="ml-2 px-4 py-2 text-gray-500  hover:bg-gray-200"
                                             onClick={closeModal}
                                         >
                                             Cancel

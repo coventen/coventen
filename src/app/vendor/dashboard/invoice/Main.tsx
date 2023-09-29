@@ -8,6 +8,7 @@ import { toast } from 'react-hot-toast';
 import Pagination from '@/components/Pagination';
 import { getEmployerEmail } from '@/shared/getEmployerEmail';
 import AuthConfig from '@/firebase/oauth.config';
+import Loading from '@/app/loading';
 
 const GET_INVOICES = `
 query Query($where: InvoiceWhere, $options: InvoiceOptions) {
@@ -145,8 +146,9 @@ const Main = () => {
         }
     }
 
-    console.log(invoiceData, 'invoiceData')
 
+
+    if (invoiceDataState.loading) return <Loading />
 
     return (
         <div>

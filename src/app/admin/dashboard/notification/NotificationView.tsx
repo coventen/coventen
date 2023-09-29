@@ -82,14 +82,14 @@ function NotificationView({ data, isNotificationViewModalOpen, setIsNotification
                                     </div>
                                     <div className="mb-5">
                                         <label htmlFor="title" className="block  text-gray-700 text-sm mb-1">
-                                            Type
+                                            Notification For
                                         </label>
                                         <input
                                             id="title"
                                             name="title"
                                             type="text"
                                             className="mt-1 px-4 py-2 border border-gray-200 rounded-md w-full"
-                                            value={data?.type}
+                                            value={data?.notificationFor}
 
                                         />
                                     </div>
@@ -102,7 +102,7 @@ function NotificationView({ data, isNotificationViewModalOpen, setIsNotification
                                         <textarea
                                             id="description"
                                             name="description"
-
+                                            rows={7}
                                             className="mt-1 px-4 py-2 border border-gray-200 rounded-md w-full"
                                             value={data?.description}
 
