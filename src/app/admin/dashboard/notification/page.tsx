@@ -22,6 +22,7 @@ const NotificationPage = () => {
 
 
 
+
     return (
         <>
             <div className="w-full  bg-white min-h-[80vh] rounded-lg py-4 md:py-7 px-4 md:px-8 xl:px-10 ">
@@ -69,10 +70,10 @@ const NotificationPage = () => {
                         </Tab.List>
                         <Tab.Panels>
                             <Tab.Panel>
-                                {/* <ReceivedNotification newNotification={newNotification} /> */}
+                                <ReceivedNotification newNotification={newNotification} />
                             </Tab.Panel>
                             <Tab.Panel>
-                                {/* <GenarelNotification newNotification={newNotification} /> */}
+                                <GenarelNotification newNotification={newNotification} />
                             </Tab.Panel>
                         </Tab.Panels>
                     </Tab.Group>

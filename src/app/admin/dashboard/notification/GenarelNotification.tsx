@@ -1,13 +1,16 @@
 'use client'
 import React, { useEffect, useState, Suspense } from 'react';
 import { useGqlClient } from '@/hooks/UseGqlClient';
-import { useMutation, useQuery } from 'graphql-hooks';
+import { useManualQuery, useMutation, useQuery } from 'graphql-hooks';
 import { BsThreeDotsVertical } from 'react-icons/bs';
 import { AiTwotoneDelete, AiFillEye } from 'react-icons/ai';
 import { BiSolidEditAlt } from 'react-icons/bi';
 import Error from '@/components/Error';
 import { toast } from 'react-hot-toast';
 import NotificationView from './NotificationView';
+import { getEmployerEmail } from '@/shared/getEmployerEmail';
+import AuthConfig from '@/firebase/oauth.config';
+import Loading from '@/app/loading';
 import Pagination from '@/components/Pagination';
 
 //props interface
@@ -40,6 +43,17 @@ query Notifications($where: NotificationWhere, $options: NotificationOptions) {
     }
   }
   `
+//query for getting notification data
+const UPDATE_NOTIFICATION = `
+mutation UpdateNotifications($where: NotificationWhere, $update: NotificationUpdateInput) {
+    updateNotifications(where: $where, update: $update) {
+      notifications {
+        id
+      }
+    }
+  }
+  `
+
 //query for deleting notification
 const DELETE_NOTIFICATION = `
 mutation Mutation($where: NotificationWhere) {
@@ -48,54 +62,96 @@ mutation Mutation($where: NotificationWhere) {
     }
   }
   `
+
+
 //component 
 const GenarelNotification = ({ newNotification }: INotificationTab) => {
 
     //states
+    const [allNotification, setAllNotification] = useState<INotification[]>([]);
     const [isNotificationViewModalOpen, setIsNotificationViewModalOpen] = useState(false);
     const [currentNotification, setCurrentNotification] = useState<INotification | null>(null);
+    // pagination states
     const [pageLimit, setPageLimit] = useState(10)
     const [currentPage, setCurrentPage] = useState(1)
     const [totalPages, setTotalPages] = useState(0)
     const [totalNotification, setTotalNotification] = useState(0)
-    const [NotificationData, setNotificationData] = useState<any>([])
 
 
-    // Create GraphQL client using custom hook
+
+
+    // hooks
     const client = useGqlClient();
 
-    // GraphQL Mutations
+
+    //quires 
+    const [getNotificationFn, dataState] = useManualQuery(GET_NOTIFICATION, { client })
+
+
+    // mutation
+    const [updateNotificationFn, updateState] = useMutation(UPDATE_NOTIFICATION, { client })
     const [deleteFn, deleteState, dReset] = useMutation(DELETE_NOTIFICATION, { client });
-
-    // GraphQL Query
-    const { data, loading, error, refetch } = useQuery(GET_NOTIFICATION, {
-        client,
-        variables: {
-            where: {
-                notificationFor: 'GENERAL'
-            }
-        },
-        options: {
-            options: {
-                limit: pageLimit,
-                offset: (currentPage - 1) * pageLimit,
-                sort: [
-                    {
-                        createdAt: "DESC"
-                    }
-                ]
-            }
-        }
-    });
-
 
 
 
     useEffect(() => {
-        refetch()
-    }, [currentPage])
+        getNotifications()
+        getNotificationCount()
+    }, [currentPage, newNotification])
 
 
+    const updateNotification = async (id: string) => {
+        const { data } = await updateNotificationFn({
+            variables: {
+                where: {
+                    id
+                },
+                update: {
+                    isViewed: true
+                }
+            }
+        })
+    }
+
+
+    // getting general notifications for all users
+    const getNotifications = async () => {
+        const { data } = await getNotificationFn({
+            variables: {
+                where: {
+                    notificationFor: 'GENERAL'
+                },
+                options: {
+                    limit: pageLimit,
+                    offset: (currentPage - 1) * pageLimit,
+                    sort: [
+                        {
+                            createdAt: "DESC"
+                        }
+                    ]
+                }
+            }
+        })
+        console.log(data, 'data')
+        if (data?.notifications?.length > 0) {
+            setAllNotification(data?.notifications)
+        }
+    }
+
+    const getNotificationCount = async () => {
+        const { data } = await getNotificationFn({
+            variables: {
+                where: {
+                    notificationFor: 'GENERAL'
+                },
+            }
+        })
+
+        if (data?.notifications?.length > 0) {
+            setTotalNotification(data?.notifications?.length)
+            setTotalPages(Math.ceil(data?.notifications?.length / pageLimit))
+        }
+    }
 
 
 
@@ -109,37 +165,22 @@ const GenarelNotification = ({ newNotification }: INotificationTab) => {
             }
         });
         if (data) {
-            refetch();
+            getNotifications()
             toast.error('Notification Deleted Successfully');
         }
     };
 
-    // Fetch Notifications on newNotification change
-    useEffect(() => {
-        if (newNotification) {
-            refetch();
-        }
-    }, [newNotification])  //eslint-disable-line
 
 
-
-
-
-
-
-
-    // Render when there are no notifications
-    if (data?.notifications?.length === 0) {
+    if (allNotification?.length === 0) {
         return <div className="w-full h-full mt-12 text-sm mx-5"> No Data Found</div>;
     }
 
 
     // Render when there is an error
-    if (error || deleteState.error) {
-        return <Error />;
-    }
+    if (dataState.loading) return <Loading />
 
-    // Render the component
+    console.log(allNotification, 'allNotification')
 
     return (
         <div>
@@ -150,7 +191,7 @@ const GenarelNotification = ({ newNotification }: INotificationTab) => {
                             {/* <Suspense fallback={<div>Loading...</div>}> */}
                             <tbody>
                                 {
-                                    data?.notifications?.map((item: INotification) =>
+                                    allNotification?.map((item: INotification) =>
                                         <div key={item?.id} className='w-full  flex items-center justify-center'>
                                             <tr className="focus:outline-none w-full h-16 border border-gray-100 rounded grid grid-cols-8 place-content-center ">
 
