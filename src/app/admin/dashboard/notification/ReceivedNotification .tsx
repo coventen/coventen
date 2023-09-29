@@ -179,14 +179,14 @@ const ReceivedNotification = ({ newNotification }: INotificationTab) => {
     // Render when there is an error
     if (dataState.loading) return <Loading />
 
-    console.log(allNotification, 'allNotification')
+
 
     return (
         <div>
             <div className="w-full h-full">
                 <div className="bg-white h-full min-h-[400px] py-4 md:py-7 px-4 md:px-8 xl:px-10">
                     <div className="mt-7 overflow-x-auto">
-                        <table className="w-full whitespace-nowrap">
+                        <table className="w-full w-full min-w-[750px]">
                             {/* <Suspense fallback={<div>Loading...</div>}> */}
                             <tbody>
                                 {

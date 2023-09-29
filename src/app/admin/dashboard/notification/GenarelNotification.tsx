@@ -187,7 +187,7 @@ const GenarelNotification = ({ newNotification }: INotificationTab) => {
             <div className="w-full h-full">
                 <div className="bg-white h-full min-h-[400px] py-4 md:py-7 px-4 md:px-8 xl:px-10">
                     <div className="mt-7 overflow-x-auto">
-                        <table className="w-full whitespace-nowrap">
+                        <table className="w-full min-w-[750px]">
                             {/* <Suspense fallback={<div>Loading...</div>}> */}
                             <tbody>
                                 {
@@ -197,7 +197,7 @@ const GenarelNotification = ({ newNotification }: INotificationTab) => {
 
                                                 <td className="  text-center col-span-3 mt-3">
                                                     <div className="flex items-center pl-5">
-                                                        <p className="text-base font-medium leading-none text-gray-700 mr-2">{item?.title?.slice(0, 50)}</p>
+                                                        <p className="text-sm lg:text-base font-medium leading-none text-gray-700 mr-2">{item?.title?.slice(0, 50)}</p>
 
                                                     </div>
                                                 </td>

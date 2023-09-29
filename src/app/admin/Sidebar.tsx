@@ -58,7 +58,7 @@ const Sidebar = ({
     return (
         <RestrictAdminRoute setAccessibleNavItems={setAccessibleNavItems} navItems={controlledNavItems} accessibleNavItems={accessibleNavItems} managementNavItems={managementNavItems} setManagementNavItemsAccess={setManagementNavItemsAccess}>
             <div
-                className={`bg-white text-primaryText z-[99999999999999565]  border-r  lg:block ${showSidebar ? 'block' : 'hidden'}`}
+                className={`bg-white text-primaryText z-[99999999999999565]  border-r   lg:block ${showSidebar ? 'block' : 'hidden'}`}
             >
                 <div
                     className={classNames({

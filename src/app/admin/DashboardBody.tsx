@@ -14,7 +14,7 @@ const DashboardBody = (props: PropsWithChildren) => {
 
     // state
     const [collapsed, setSidebarCollapsed] = useState(false);
-    const [showSidebar, setShowSidebar] = useState(true)
+    const [showSidebar, setShowSidebar] = useState(false)
 
     // hooks 
     const router = useRouter()
