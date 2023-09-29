@@ -69,10 +69,10 @@ const NotificationPage = () => {
                         </Tab.List>
                         <Tab.Panels>
                             <Tab.Panel>
-                                <ReceivedNotification newNotification={newNotification} />
+                                {/* <ReceivedNotification newNotification={newNotification} /> */}
                             </Tab.Panel>
                             <Tab.Panel>
-                                <GenarelNotification newNotification={newNotification} />
+                                {/* <GenarelNotification newNotification={newNotification} /> */}
                             </Tab.Panel>
                         </Tab.Panels>
                     </Tab.Group>
