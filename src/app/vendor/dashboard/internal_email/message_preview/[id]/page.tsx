@@ -8,7 +8,7 @@ import { BsCloudDownload } from 'react-icons/bs';
 const getMessageDetails = async (id: string) => {
     const token = Cookies.get('conventenToken');
 
-    const res = fetch('https://coventenapp.el.r.appspot.com/', {
+    const res = fetch('http://localhost:4000/', {
         method: 'POST',
         headers: {
             "authorization": `Bearer ${token}`,

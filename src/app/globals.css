@@ -20,6 +20,41 @@ html {
 }
 
 
+.btn2 span:first-child{
+  transform: translateX(-101%);
+  transition: transform .3s ease-in
+}
+.btn2:hover span{
+  transform: translateX(0)
+}
+
+.btn3{
+  transform: scale(1);
+  transition: transform .2s ease-in
+}
+
+.btn3:hover{
+  transform: scale(1.1);
+}
+
+.btn3 span{
+  transform: scale(1);
+  transition: transform .3s ease-in
+}
+
+.btn3:hover span{
+  transform: scale(1.1, 1.2);
+}
+
+.btn4 span{
+  transform: translateX(-101%);
+  transition: transform .2s ease-in
+}
+
+.btn4:hover span{
+  transform: translateX(0)
+}
+
 
 /* Path: src\app\app.component.html */
 

@@ -96,21 +96,33 @@ const Main = () => {
                                     {
                                         products.map((product, index) =>
 
-                                            <div key={index} className="w-full group max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                                                <div className='overflow-hidden h-48 '>
-                                                    <img className="p-2 rounded-t-lg h-48  w-full group-hover:scale-125" src={product?.image || '/assets/no_image.png'} alt="product image" />
+                                            <div key={index} className="group relative my-10 flex w-full  flex-col overflow-hidden  border rounded dark:bg-darkBgLight dark:border-darkBorder bg-white/30 cursor-pointer ">
+                                                <div className="relative mx-3 mt-3 flex  h-48 overflow-hidden rounded group" >
+                                                    <img className="peer absolute top-0 right-0  h-48 w-full  rounded overflow-hidden transition-all duration-500 group-hover:scale-125" src={product?.image || '/assets/no_image.png'} alt="product image" />
+
+
+                                                    <svg className="pointer-events-none absolute inset-x-0 bottom-5 mx-auto text-3xl text-white  transition-opacity group-hover:animate-ping group-hover:opacity-30 peer-hover:opacity-0" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32"><path fill="currentColor" d="M2 10a4 4 0 0 1 4-4h20a4 4 0 0 1 4 4v10a4 4 0 0 1-2.328 3.635a2.996 2.996 0 0 0-.55-.756l-8-8A3 3 0 0 0 14 17v7H6a4 4 0 0 1-4-4V10Zm14 19a1 1 0 0 0 1.8.6l2.7-3.6H25a1 1 0 0 0 .707-1.707l-8-8A1 1 0 0 0 16 17v12Z" /></svg>
+
                                                 </div>
-                                                <div className="px-5 pb-5">
-                                                    <div >
-                                                        <h5 className="text-lg font-semibold tracking-tight text-gray-700 dark:text-white uppercase">{product?.title}</h5>
+                                                <div className="mt-4 px-5 pb-3 mb-12 ">
+                                                    <h5 className="text-base text-gray-900 tracking-tight font-semibold uppercase mb-2">{product?.title}</h5>
+
+                                                </div>
+                                                <div className=" px-5 pb-5  absolute bottom-2 w-full">
+                                                    <div className="flex items-center w-full mt-3 justify-between">
+                                                        <span className="text-lg flex items-center justify-center space-x-2 font-semibold  dark:text-white  text-gray-900">Price: {product?.price}</span>
+
+                                                        <Link href={`/products/details/${product?.id}`} className="text-white bg-primary font-medium  text-sm px-4 py-1.5 text-center ">View Details</Link>
                                                     </div>
 
-                                                    <div className="flex items-center mt-10 justify-between">
-                                                        <span className="text-xl flex items-center justify-center space-x-2 font-bold text-gray-700 dark:text-white"><BsCurrencyRupee /> {product?.price}</span>
-                                                        <Link href={`/products/details/${product?.id}`} className="text-white bg-primary font-medium  text-sm px-5 py-1.5 text-center ">View Details</Link>
-                                                    </div>
+
+
                                                 </div>
+
                                             </div>
+
+
+
 
 
                                             // <Link key={product?.id} href={`/products/details/${product?.id}`} className="lg:w-1/4 md:w-1/2 p-4 w-full">
@@ -142,7 +154,7 @@ const Main = () => {
 
                     </div>
                 </div>
-            </section>
+            </section >
         </>
     );
 };

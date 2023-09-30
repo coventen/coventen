@@ -119,13 +119,6 @@ export const controlledNavItems = [
             }
         ]
     },
-
-]
-
-
-export const managementNavItems = [
-
-
     {
         section: "Website Management",
         links: [
@@ -160,12 +153,12 @@ export const managementNavItems = [
                 icon: <LuServer className="" />,
             },
             {
-                label: "Add Industry",
+                label: "Industry",
                 href: "/admin/dashboard/settings/industry",
                 icon: <LuStore className="" />,
             },
             {
-                label: "Add Features",
+                label: "Features",
                 href: "/admin/dashboard/settings/features",
                 icon: <LuStore className="" />,
             },
@@ -188,3 +181,5 @@ export const managementNavItems = [
     },
 
 ]
+
+

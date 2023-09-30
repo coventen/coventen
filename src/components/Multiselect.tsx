@@ -67,7 +67,7 @@ function MultiSelect({ selectedOptions, setSelectedOptions, options, loading }: 
                         loading && <p>loading ....</p>
                     }
 
-                    {filteredOptions && filteredOptions?.slice(0, 10).map((option) => (
+                    {filteredOptions && filteredOptions?.map((option) => (
                         <div
                             key={option.id}
                             className={`${selectedOptions.find((item) => item.id === option.id)

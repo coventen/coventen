@@ -132,7 +132,6 @@ const GenarelNotification = ({ newNotification }: INotificationTab) => {
                 }
             }
         })
-        console.log(data, 'data')
         if (data?.notifications?.length > 0) {
             setAllNotification(data?.notifications)
         }
@@ -180,7 +179,7 @@ const GenarelNotification = ({ newNotification }: INotificationTab) => {
     // Render when there is an error
     if (dataState.loading) return <Loading />
 
-    console.log(allNotification, 'allNotification')
+
 
     return (
         <div>

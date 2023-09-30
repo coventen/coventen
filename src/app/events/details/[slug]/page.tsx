@@ -80,8 +80,24 @@ const EventDetails = () => {
                         <div className="col-span-1 lg:col-span-2 p-4">
 
                             <div className="border-b border-gray-300 pb-1 mt-7 flex space-x-3">
-                                <button onClick={() => setIsModalOpen(true)} className='bg-primary text-white px-4 py-1.5'>Interested</button>
-                                <Link href={eventData?.events[0]?.registrationUrl || '#'} className=' text-primary px-4 py-1.5'>Register</Link>
+                                <button onClick={() => setIsModalOpen(true)} className="relative group inline-block flex-shrink-0  py-2.5 px-5 text-sm font-semibold text-orange-50 bg-primary  overflow-hidden" type="submit">
+                                    <div className="absolute top-0 right-full w-full h-full bg-gray-900 transform group-hover:translate-x-full group-hover:scale-102 transition duration-500"></div>
+                                    <div className="relative flex items-center justify-center">
+                                        <span className="">Interested</span>
+
+                                    </div>
+                                </button>
+                                <Link href={eventData?.events[0]?.registrationUrl || '#'} >
+                                    <button
+
+                                        className="relative group inline-block flex-shrink-0   py-2.5 px-5 text-sm font-semibold text-primary hover:text-white bg-transparent border border-primary  overflow-hidden" type="submit">
+                                        <div className="absolute top-0 right-full w-full h-full bg-primary transform group-hover:translate-x-full group-hover:scale-102 transition duration-500"></div>
+                                        <div className="relative flex items-center justify-center">
+                                            <span className="">Register</span>
+                                        </div>
+                                    </button>
+                                </Link>
+
                             </div>
                             <div className="border-b border-gray-300 pb-1 mt-7">
                                 <p

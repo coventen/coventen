@@ -6,7 +6,7 @@ interface IButtonProps {
 
 const AnimatedButton = ({ title }: IButtonProps) => {
     return (
-        <button className="relative group inline-block flex-shrink-0 w-full  py-3 px-5 text-sm font-semibold text-orange-50 bg-primary rounded-md overflow-hidden" type="submit">
+        <button className="relative group inline-block flex-shrink-0 w-full  py-3 px-5 text-sm font-semibold text-orange-50 bg-primary  overflow-hidden" type="submit">
             <div className="absolute top-0 right-full w-full h-full bg-gray-900 transform group-hover:translate-x-full group-hover:scale-102 transition duration-500"></div>
             <div className="relative flex items-center justify-center">
                 <span className="mr-4">{title}</span>

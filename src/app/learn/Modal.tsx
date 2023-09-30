@@ -189,7 +189,7 @@ function Modal({ isModalOpen, setIsModalOpen, learn }: IModalProps) {
                                             />
                                         </div>
                                         <div className="mt-8">
-                                            <button type='submit' className='bg-primary font-bold text-white px-7 py-2.5 rounded'>
+                                            <button type='submit' className='bg-primary font-bold text-white px-7 py-2.5 '>
                                                 {createState.loading ? 'Loading..' : 'Submit'}
                                             </button>
                                         </div>

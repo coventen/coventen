@@ -1,16 +1,16 @@
 import { useGqlClient } from '@/hooks/UseGqlClient';
-import { useQuery } from 'graphql-hooks';
-import React from 'react';
-import AccordionItem from './AccordionItem';
+import { useManualQuery, useQuery } from 'graphql-hooks';
+import React, { useEffect } from 'react';
 import Modal from './Modal';
 import Link from 'next/link';
-import { BsCurrencyRupee } from 'react-icons/bs';
 import { AiFillStar } from 'react-icons/ai';
+import Pagination from '@/components/Pagination';
+import Loading from '../loading';
 
 
 const GET_LEARN = `
-query LearnItems {
-    learnItems {
+query LearnItems($where: LearnItemWhere, $options: LearnItemOptions) {
+    learnItems(where: $where, options: $options) {
       id
       title
       description
@@ -31,15 +31,70 @@ query LearnItems {
 const Main = () => {
     const [isModalOpen, setIsModalOpen] = React.useState(false);
     const [currentEvent, setCurrentEvent] = React.useState<any>(null);
+    const [data, setData] = React.useState<any>(null);
+    // pagination states
+    const [pageLimit, setPageLimit] = React.useState(6)
+    const [currentPage, setCurrentPage] = React.useState(1)
+    const [totalPages, setTotalPages] = React.useState(0)
+    const [totalLearnItem, setTotalLearnItem] = React.useState(0)
+
+
     //HOOKS 
     const client = useGqlClient()
 
     //query
-    const { data, error, loading } = useQuery(GET_LEARN, { client })
+
+    const [getLearnItemFn, dataState] = useManualQuery(GET_LEARN, { client })
+
+    // getting general notifications for all users
+    const getLearnItems = async () => {
+        const { data } = await getLearnItemFn({
+            variables: {
+                where: {},
+                options: {
+                    limit: pageLimit,
+                    offset: (currentPage - 1) * pageLimit,
+                    sort: [
+                        {
+                            createdAt: "DESC"
+                        }
+                    ]
+                }
+            }
+        })
+
+        if (data?.learnItems?.length > 0) {
+            setData(data)
+        }
+    }
+
+    const getItemsCount = async () => {
+        const { data } = await getLearnItemFn()
+
+        if (data?.learnItems?.length > 0) {
+            setData(data)
+            setTotalLearnItem(data?.learnItems?.length)
+            setTotalPages(Math.ceil(data?.learnItems?.length / pageLimit))
+        }
+    }
+
+
+    useEffect(() => {
+        getItemsCount()
+        getLearnItems()
+
+    }, [currentPage])
 
 
 
-    console.log(data)
+    useEffect(() => {
+        console.log(data?.learnItems?.length, 'data?.learnItems?.length')
+
+    }, [data?.learnItems?.length])
+
+    console.log(totalLearnItem, 'totalLearnItem', pageLimit, 'pageLimit', currentPage, 'currentPage', totalPages, 'totalPages')
+
+    if (dataState.loading) <Loading />
 
 
     return (
@@ -49,7 +104,7 @@ const Main = () => {
 
                 {
                     data?.learnItems?.length && data.learnItems.map((item: any) =>
-                        <div key={item?.id} className="group relative my-10 flex w-full  flex-col overflow-hidden  border rounded dark:bg-darkBgLight dark:border-darkBorder bg-white/30 cursor-pointer ">
+                        <div key={item?.id} className=" relative my-10 flex w-full  flex-col overflow-hidden  border rounded dark:bg-darkBgLight dark:border-darkBorder bg-white/30  ">
                             <div className="relative mx-3 mt-3 flex h-60 overflow-hidden rounded group" >
                                 <img className="peer absolute top-0 right-0 h-full w-full object-contain transition-all duration-500 group-hover:scale-125" src={item?.imageUrl || '/assets/no_image.png'} alt="product image" />
 
@@ -96,16 +151,43 @@ const Main = () => {
 
 
                                 <div className=' absolute bottom-4 flex space-x-3'>
-                                    <Link href={item?.url} >
+                                    {/* <Link href={item?.url} >
                                         <button className="relative group inline-block flex-shrink-0  py-3 px-5  font-semibold text-orange-50 bg-primary overflow-hidden" type="submit">
 
                                             <div className="relative flex items-center justify-center">
                                                 <span className="">Learn More</span>
                                             </div>
                                         </button>
-                                    </Link>
+                                    </Link> */}
+                                    <div>
+                                        <Link href={item?.url} >
+                                            <button className="relative group inline-block flex-shrink-0  py-3.5 px-5 text-sm font-semibold text-orange-50 bg-primary  overflow-hidden" type="submit">
+                                                <div className="absolute top-0 right-full w-full h-full bg-gray-900 transform group-hover:translate-x-full group-hover:scale-102 transition duration-500"></div>
+                                                <div className="relative flex items-center justify-center">
+                                                    <span className="">Learn More</span>
 
-                                    <button onClick={() => {
+                                                </div>
+                                            </button>
+                                        </Link>
+                                    </div>
+
+                                    <button
+                                        onClick={() => {
+                                            setIsModalOpen(true)
+                                            setCurrentEvent(item?.title)
+                                        }}
+                                        className="relative group inline-block flex-shrink-0   py-3 px-5 text-sm font-semibold text-primary hover:text-white bg-transparent border border-primary  overflow-hidden" type="submit">
+                                        <div className="absolute top-0 right-full w-full h-full bg-primary transform group-hover:translate-x-full group-hover:scale-102 transition duration-500"></div>
+                                        <div className="relative flex items-center justify-center">
+                                            <span className="">Interested</span>
+                                        </div>
+                                    </button>
+
+
+
+
+
+                                    {/* <button onClick={() => {
                                         setIsModalOpen(true)
                                         setCurrentEvent(item?.title)
                                     }} className="relative group inline-block flex-shrink-0   py-3 px-5  font-semibold text-primary  overflow-hidden" type="submit">
@@ -113,7 +195,7 @@ const Main = () => {
                                         <div className="relative flex items-center justify-center">
                                             <span className="">Interested</span>
                                         </div>
-                                    </button>
+                                    </button> */}
 
                                 </div>
 
@@ -124,6 +206,11 @@ const Main = () => {
 
 
                 <Modal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} learn={currentEvent} />
+
+            </div>
+            <div className='w-full mt-12 flex items-center justify-center'>
+                {totalLearnItem > pageLimit &&
+                    <Pagination currentPage={currentPage} setCurrentPage={setCurrentPage} totalPages={totalPages} />}
 
             </div>
         </>

@@ -4,7 +4,7 @@ import Content from './Content';
 
 
 const subServiceDetails = async (slug: string) => {
-    const res = fetch('https://coventenapp.el.r.appspot.com/', {
+    const res = fetch('http://localhost:4000/', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
