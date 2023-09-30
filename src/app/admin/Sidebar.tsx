@@ -6,7 +6,7 @@ import classNames from "classnames";
 import { HiChevronDoubleLeft, HiChevronDoubleRight } from 'react-icons/hi';
 import Image from "next/image";
 import Link from "next/link";
-import { managementNavItems, controlledNavItems, defaultNavItems, } from "./NavItem";
+import { controlledNavItems, defaultNavItems, } from "./NavItem";
 import { usePathname, useRouter } from 'next/navigation';
 import RestrictAdminRoute from "@/components/RestrictAdminRoute";
 import { useGqlClient } from "@/hooks/UseGqlClient";
@@ -41,7 +41,7 @@ const Sidebar = ({
 
 
 
-    useEffect(() => { }, [accessibleNavItems, managementNavItems])
+    useEffect(() => { }, [accessibleNavItems])
 
 
     // HOOKS
@@ -56,7 +56,7 @@ const Sidebar = ({
     // 👇 use the correct icon depending on the state.
     const Icon = collapsed ? HiChevronDoubleRight : HiChevronDoubleLeft;
     return (
-        <RestrictAdminRoute setAccessibleNavItems={setAccessibleNavItems} navItems={controlledNavItems} accessibleNavItems={accessibleNavItems} managementNavItems={managementNavItems} setManagementNavItemsAccess={setManagementNavItemsAccess}>
+        <RestrictAdminRoute setAccessibleNavItems={setAccessibleNavItems} navItems={controlledNavItems} accessibleNavItems={accessibleNavItems} managementNavItems={[]} setManagementNavItemsAccess={setManagementNavItemsAccess}>
             <div
                 className={`bg-white text-primaryText z-[99999999999999565]  border-r   lg:block ${showSidebar ? 'block' : 'hidden'}`}
             >
@@ -162,46 +162,7 @@ const Sidebar = ({
                             )
 
                         }
-                        {
-                            managementNavItemsAccess && managementNavItemsAccess.map((item, index) =>
 
-                                <div key={index}>
-                                    <p className={classNames({
-                                        " text-xs font-semibold ": true, //colors
-                                        "transition-colors duration-300": true, //animation
-                                        " p-1 mx-3 block ": !collapsed,
-                                        " p-1 mx-3 hidden": collapsed,
-                                    })}>{item?.section}</p>
-                                    <ul
-                                        className={classNames({
-                                            "my-2 flex flex-col gap-2 items-stretch": true,
-                                        })}
-                                    >
-                                        {item?.links?.map((item: any, index: number) => {
-                                            return (
-                                                <Link href={item?.href} key={index}>
-                                                    <li
-
-                                                        className={classNames({
-                                                            " hover:bg-gray-200  flex": true, //colors
-                                                            "transition-colors duration-300": true, //animation
-                                                            " p-2 mx-3 gap-4 ": !collapsed,
-                                                            " p-2 mx-3 w-10 h-10": collapsed,
-                                                            "bg-primary text-white hover:bg-primary": pathname === item.href,
-                                                        })}
-                                                    >
-                                                        <p className="flex gap-2 items-center justify-center ">
-                                                            <span className="text-xl">  {item.icon}</span> <span className=" font-semibold text-sm">{!collapsed && item.label}</span>
-                                                        </p>
-                                                    </li>
-                                                </Link>
-                                            );
-                                        })}
-                                    </ul>
-                                </div>
-                            )
-
-                        }
                     </nav>
 
                     {/* profile part ...omitted for brevity */}

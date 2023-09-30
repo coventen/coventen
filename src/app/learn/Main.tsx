@@ -127,6 +127,10 @@ const Main = () => {
                                     </p>
                                 </div>
                                 <div className='flex items-center justify-between'>
+                                    <p className='font-semibold text-sm mb-3'>Price:</p>
+                                    <p className='font-semibold text-dimText text-sm mb-3'>{item?.price}</p>
+                                </div>
+                                <div className='flex items-center justify-between'>
                                     <p className='font-semibold text-sm mb-3'>Seats:</p>
                                     <p className='font-semibold text-dimText text-sm mb-3'>{item?.seats}</p>
                                 </div>
