@@ -5,8 +5,9 @@ import { useManualQuery } from 'graphql-hooks';
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
 import React, { useEffect } from 'react';
-import { BsCurrencyRupee } from 'react-icons/bs';
 import Loading from '../loading';
+import Pagination from '@/components/Pagination';
+
 
 
 const GET_PRODUCTS = `
@@ -25,6 +26,11 @@ query Query($where: ProductWhere, $options: ProductOptions) {
 const Main = () => {
     // states
     const [products, setProducts] = React.useState<any[]>([])
+    // pagination states
+    const [pageLimit, setPageLimit] = React.useState(10)
+    const [currentPage, setCurrentPage] = React.useState(1)
+    const [totalPages, setTotalPages] = React.useState(0)
+    const [totalProduct, setTotalProduct] = React.useState(0)
 
     // hooks
     const client = useGqlClient()
@@ -56,15 +62,23 @@ const Main = () => {
     }, [search])
 
 
+    useEffect(() => {
+        getProducts()
+        getItemsCount()
+    }, [currentPage])
 
-    const getProducts = async (where: any) => {
+
+
+    const getProducts = async (where: any = {}) => {
         const { data } = await getProductsFn({
             variables: {
                 "where": where,
-                "options": {
-                    "sort": [
+                options: {
+                    limit: pageLimit,
+                    offset: (currentPage - 1) * pageLimit,
+                    sort: [
                         {
-                            "createdAt": "DESC"
+                            createdAt: "DESC"
                         }
                     ]
                 }
@@ -73,6 +87,16 @@ const Main = () => {
 
         if (data?.products) {
             setProducts(data?.products)
+        }
+    }
+
+
+    const getItemsCount = async () => {
+        const { data } = await getProductsFn()
+
+        if (data?.products?.length > 0) {
+            setTotalProduct(data?.products?.length)
+            setTotalPages(Math.ceil(data?.products?.length / pageLimit))
         }
     }
 
@@ -155,6 +179,12 @@ const Main = () => {
                     </div>
                 </div>
             </section >
+
+            <div className='w-full mt-12 flex items-center justify-center'>
+                {totalProduct > pageLimit &&
+                    <Pagination currentPage={currentPage} setCurrentPage={setCurrentPage} totalPages={totalPages} />}
+
+            </div>
         </>
     );
 };

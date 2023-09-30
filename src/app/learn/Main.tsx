@@ -72,7 +72,6 @@ const Main = () => {
         const { data } = await getLearnItemFn()
 
         if (data?.learnItems?.length > 0) {
-            setData(data)
             setTotalLearnItem(data?.learnItems?.length)
             setTotalPages(Math.ceil(data?.learnItems?.length / pageLimit))
         }

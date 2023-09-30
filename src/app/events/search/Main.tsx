@@ -8,6 +8,7 @@ import SideBarFilter from './SideBarFilter';
 import { useGqlClient } from '@/hooks/UseGqlClient';
 import { useManualQuery, useQuery } from 'graphql-hooks';
 import Loading from '@/app/loading';
+import Pagination from '@/components/Pagination';
 
 const GET_EVENT = `
 query Events($where: EventWhere, $options: EventOptions) {
@@ -48,6 +49,11 @@ const Main = () => {
         value: '',
     })
     const [eventData, setEventData] = useState<any>(null)
+    // pagination states
+    const [pageLimit, setPageLimit] = React.useState(8)
+    const [currentPage, setCurrentPage] = React.useState(1)
+    const [totalPages, setTotalPages] = React.useState(0)
+    const [totalEvent, setTotalEvent] = React.useState(0)
 
     // HOOKS
     const client = useGqlClient()
@@ -89,24 +95,39 @@ const Main = () => {
             where = {
                 "category_CONTAINS": searchFilter.value
             }
+        } else {
+            where = {}
         }
-        console.log(where, 'this is search filter')
         getEvents(where)
 
     }, [searchFilter.value, searchFilter.type])
 
-    useEffect(() => { }, [eventData])
-    const getEvents = async (where: any) => {
+
+
+
+    useEffect(() => {
+        getEvents()
+        getItemsCount()
+    }, [currentPage])
+
+
+
+
+    // get events data
+    const getEvents = async (where: any = {}) => {
         const { data } = await getEventDataFn({
             variables: {
                 where: where,
-                "options": {
-                    "sort": [
+                options: {
+                    limit: pageLimit,
+                    offset: (currentPage - 1) * pageLimit,
+                    sort: [
                         {
                             "startAt": "ASC"
                         }
                     ]
                 }
+
             }
         })
 
@@ -114,6 +135,16 @@ const Main = () => {
             setEventData(data)
         }
 
+    }
+
+    // get event count
+    const getItemsCount = async () => {
+        const { data } = await getEventDataFn()
+
+        if (data?.events?.length > 0) {
+            setTotalEvent(data?.events?.length)
+            setTotalPages(Math.ceil(data?.events?.length / pageLimit))
+        }
     }
 
 
@@ -137,6 +168,7 @@ const Main = () => {
         return isoLastDate;
     }
 
+    console.log('totalLearnItem', pageLimit, 'pageLimit', currentPage, 'currentPage', totalPages, 'totalPages')
 
     useEffect(() => { console.log(eventData?.events, 'these are events') }, [eventData?.events?.length])
 
@@ -174,6 +206,11 @@ const Main = () => {
                         }
                     </div>
                 </SideBarFilter>
+            </div>
+            <div className='w-full mt-12 flex items-center justify-center'>
+                {totalEvent > pageLimit &&
+                    <Pagination currentPage={currentPage} setCurrentPage={setCurrentPage} totalPages={totalPages} />}
+
             </div>
         </>
     );

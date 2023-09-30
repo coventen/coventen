@@ -3,7 +3,7 @@ import React from 'react';
 
 
 const featuresDetails = async () => {
-    const res = fetch('http://localhost:4000/', {
+    const res = fetch('https://coventenapp.el.r.appspot.com/', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
