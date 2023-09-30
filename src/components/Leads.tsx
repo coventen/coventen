@@ -5,7 +5,7 @@ import industries from '@/utlts/InductiresData.json'
 import { useGqlClient } from '@/hooks/UseGqlClient';
 
 import { toast } from 'react-hot-toast';
-import { useMutation } from 'graphql-hooks';
+import { useMutation, useQuery } from 'graphql-hooks';
 
 
 // interface
@@ -28,7 +28,14 @@ mutation CreateLeads($input: [LeadsCreateInput!]!) {
 `
 
 
-
+const GET_INDUSTRY = `
+query IndustryPages($where: IndustryPageWhere, $options: IndustryPageOptions) {
+    industryPages(where: $where, options: $options) {
+      id
+      title
+    }
+  }
+`
 
 
 //component
@@ -41,20 +48,38 @@ const Leads = () => {
     const [email, setEmail] = useState<string>('');
     const [phone, setPhone] = useState<string>('');
     const [message, setMessage] = useState<string>('');
+    const [error, setError] = useState<string>('');
 
 
     // hooks
     const client = useGqlClient()
 
     // queries and mutations
+    const { data, loading, error: industryError } = useQuery(GET_INDUSTRY, { client })
     const [createLead, createState] = useMutation(CREATE_LEAD, { client })
 
 
+    const handlePhoneChange = (inputValue: any) => {
+        const numericValue = inputValue.replace(/\D/g, '');
+        const indianPhonePattern = /^[789]\d{9}$/;
+
+        if (!indianPhonePattern.test(numericValue)) {
+            setError('Please enter a valid Indian phone number');
+        } else if (numericValue.length > 10) {
+            setError('Phone number cannot be more than 10 digits');
+        } else if (numericValue.length < 10) {
+            setError('Phone number cannot be less than 10 digits');
+        } else {
+            setPhone(numericValue);
+            setError(''); // Clear any previous error message
+        }
+    };
 
 
     // functions
 
     const createLeads = async () => {
+        if (error) return
         const { data } = await createLead({
             variables: {
                 input: [
@@ -83,6 +108,7 @@ const Leads = () => {
 
 
     const handleSubmit = (e: any) => {
+
         e.preventDefault()
         createLeads()
         e.target.reset()
@@ -112,7 +138,7 @@ const Leads = () => {
                         <div className="flex  ">
                             <div className="m-auto">
                                 <div>
-                                    <form onSubmit={handleSubmit} className=" bg-white border border-gray-200 shadow-lg ">
+                                    <form onSubmit={handleSubmit} className=" bg-white border border-gray-200 shadow-lg  max-w-lg">
                                         <div className="flex">
                                             <div className="flex-1 py-5 pl-5 text-primaryText overflow-hidden flex items-center  space-x-3">
                                                 <HiOutlineCalendar size={25} />
@@ -141,11 +167,15 @@ const Leads = () => {
                                             <input
                                                 placeholder="Phone"
                                                 required
-                                                onChange={(e) => setPhone(e.target.value)}
+                                                type='number'
+                                                onChange={(e) => handlePhoneChange(e.target.value)}
                                                 defaultValue={phone}
-                                                className=" text-black placeholder-gray-600 w-full px-4 py-2.5 mt-2 text-base   transition duration-500 ease-in-out transform border-transparent rounded-sm bg-gray-200  focus:border-blueGray-500 focus:bg-white dark:focus:bg-gray-800 focus:outline-none focus:shadow-outline focus:ring-2 ring-offset-current ring-offset-2 ring-gray-400"
-
+                                                className="text-black placeholder-gray-600 w-full px-4 py-2.5 mt-2 text-base transition duration-500 ease-in-out transform border-transparent rounded-sm bg-gray-200 focus:border-blueGray-500 focus:bg-white dark:focus:bg-gray-800 focus:outline-none focus:shadow-outline focus:ring-2 ring-offset-current ring-offset-2 ring-gray-400"
+                                                pattern="[789]\d{9}" // Pattern for Indian phone numbers starting with 7, 8, or 9 and having a total of 10 digits
                                             />
+                                            {error ? <p className='text-red-500 text-xs'>{error}</p> : null}
+
+
                                             <div className="flex">
                                                 <div className="flex-grow">
                                                     <select
@@ -155,11 +185,11 @@ const Leads = () => {
 
                                                     >
                                                         <option value="" disabled>Select an Industry</option>
-                                                        {industries?.map((option: any) => (
+                                                        {data?.industryPages?.map((option: any) => (
 
 
-                                                            <option key={option?.id} value={option?.name}>
-                                                                {option?.name}
+                                                            <option key={option?.id} value={option?.title}>
+                                                                {option?.title}
                                                             </option>
                                                         ))}
                                                     </select>
@@ -176,8 +206,8 @@ const Leads = () => {
 
                                                 />
                                             </div>
-                                            <div className="mt-8">
-                                                <button type='submit' className='bg-primary font-bold text-white px-7 py-2.5 rounded'>
+                                            <div className="mt-3">
+                                                <button type='submit' className='bg-primary font-bold text-white px-7 py-2 '>
                                                     {createState.loading ? 'Loading..' : 'Submit'}
                                                 </button>
                                             </div>

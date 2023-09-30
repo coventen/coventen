@@ -3,9 +3,6 @@
 import { useGqlClient } from '@/hooks/UseGqlClient';
 import { useManualQuery, useQuery } from 'graphql-hooks';
 import React, { useEffect } from 'react';
-import { FaArrowUp } from 'react-icons/fa';
-import { Notification } from '@/gql/graphql';
-import NotificationCard from '@/components/NotificationCard';
 import NotificationBlock from '../../../components/NotificationBlock';
 import InfoCards from '@/components/InfoCards';
 import AuthConfig from '@/firebase/oauth.config';
@@ -78,7 +75,7 @@ const Main = () => {
         revalidateOnFocus: false,
         variables: {
             "where": {
-                "type_IN": ["CLIENT", "GENERAL"]
+                "notificationFor": 'ADMIN'
             },
             "options": {
                 "limit": 3,

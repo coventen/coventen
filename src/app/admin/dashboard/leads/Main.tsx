@@ -36,6 +36,7 @@ import GetCurrentUserDetails from '@/shared/graphQl/queries/currentUser';
 const Main = () => {
     //states
     const [leads, setLeads] = useState<Leads[] | []>([]);
+    const [selectedUserType, setSelectedUserType] = useState('All')
     const [userDetails, setUserDetails] = useState<User | {}>({})
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [currentLead, setCurrentLead] = useState<Leads | {}>({});
@@ -61,14 +62,14 @@ const Main = () => {
     useEffect(() => {
         getLeadsData()
         getTotalLeadsCount()
-    }, [currentPage]);
+    }, [currentPage, selectedUserType, searchQuery]);
 
 
 
     // initializing query and mutations
     const getLeadsData = async () => {
 
-        let where
+        let where = {}
         if (searchQuery) {
             where = {
                 OR: [
@@ -77,7 +78,7 @@ const Main = () => {
 
                     },
                     {
-                        industry_CONTAINS: searchQuery.toLocaleLowerCase()
+                        interest_CONTAINS: searchQuery.toLocaleLowerCase()
 
                     },
                     {
@@ -86,9 +87,14 @@ const Main = () => {
                 ]
             }
         }
-        else {
-            where = {}
+
+        if (selectedUserType !== 'All') {
+            where = {
+                ...where,
+                type_IN: [selectedUserType]
+            }
         }
+
 
         //fetch options
         const options = {
@@ -114,36 +120,28 @@ const Main = () => {
     }
 
 
-    // handle update leads
-    // const updateLeads = async (id: string) => {
-    //     const { data } = await updateLeadsFn({
-    //         variables: {
-    //             where: {
-    //                 id: id
-    //             },
-    //             update: {
-    //                 status: "COMPLETED",
-    //             }
-    //         }
-    //     })
-
-    //     if (data.updateLeads.leads[0].id) {
-    //         setIsModalOpen(false);
-    //         toast.success('Lead updated successfully')
-    //         getLeadsData()
-    //     }
-
-    // }
 
 
 
 
     return (
         <div>
-            <div className="my-2 flex justify-end sm:flex-row flex-col">
+            <div className="my-2 flex justify-end sm:flex-row flex-col mb-5">
                 <div className="flex flex-row mb-1 sm:mb-0">
 
+                    <div className="relative">
+                        <select
+                            value={selectedUserType}
+                            onChange={(e) => setSelectedUserType(e.target.value)}
+                            className=" h-full rounded-r border-t sm:rounded-r-none sm:border-r-0 border-r border-b block  w-full  bg-white border-gray-300  py-2 px-4 pr-8 leading-tight focus:outline-none focus:border-l focus:border-r text-xs  focus:border-gray-500  dark:bg-darkBg dark:border-darkBorder">
+                            <option value={"All"}>All</option>
+                            <option value={"TEST"}>TEST</option>
+                            <option value={"EVENT"}>EVENT</option>
+                            <option value={"PRODUCT"}>PRODUCT</option>
+                            <option value={"LEARN"}>LEARN</option>
+                        </select>
 
+                    </div>
                 </div>
                 <div className="block relative">
                     <span className="h-full absolute inset-y-0 left-0 flex items-center pl-2">
@@ -156,10 +154,11 @@ const Main = () => {
                     <input
                         value={searchQuery}
                         onChange={(e) => setSearchQuery(e.target.value)}
-                        placeholder="Search by email or industry"
+                        placeholder="Search."
                         className="  sm:rounded-l-none border border-gray-300 border-b block pl-8 pr-6 py-2 w-full bg-white text-sm placeholder-gray-400 text-gray-700  focus:placeholder-gray-600 focus:text-gray-700 focus:outline-none dark:bg-darkBg dark:border-darkBorder" />
                 </div>
             </div>
+
             <LeadsTable data={leads} setIsModalOpen={setIsModalOpen} setCurrentLead={setCurrentLead} />
             <LeadsModal
                 isModalOpen={isModalOpen}

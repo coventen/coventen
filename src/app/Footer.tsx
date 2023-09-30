@@ -6,7 +6,7 @@ import Link from 'next/link';
 import React, { useEffect } from 'react';
 import { AiFillTwitterCircle } from 'react-icons/ai';
 import { BiLogoInstagramAlt } from 'react-icons/bi';
-import { BsPinterest } from 'react-icons/bs';
+import { BsPinterest, BsYoutube } from 'react-icons/bs';
 import { FaFacebook, FaReddit } from 'react-icons/fa';
 
 
@@ -68,6 +68,7 @@ const Footer = () => {
                             <p className='text-gray-500 hover:text-blue-600'><AiFillTwitterCircle /></p>
                             <p className='text-gray-500 hover:text-pink-600 text-[25px]'><BiLogoInstagramAlt /></p>
                             <p className='text-gray-500 hover:text-red-600' ><BsPinterest /></p>
+                            <p className='text-gray-500 hover:text-red-700' ><BsYoutube /></p>
 
                         </div>
 

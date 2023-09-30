@@ -43,6 +43,7 @@ const AddProduct = ({ setTab, addNewProductFn }: IAddProductProps) => {
     const [video, setVideo] = useState('')
     const [shortDescription, setShortDescription] = useState('')
     const [image, setImage] = useState<File | null>(null)
+    const [sideImage, setSideImage] = useState<File | null>(null)
     const [featureEditorState, setFeatureEditorState] = useState('');
     const [uploading, setUploading] = useState(false)
 
@@ -74,10 +75,10 @@ const AddProduct = ({ setTab, addNewProductFn }: IAddProductProps) => {
 
         setUploading(true)
         const imageLink = await uploadFile(image, `product-${uuidv4()}`, 'product_Images')
+        const sideImageLink = await uploadFile(sideImage, `product-${uuidv4()}`, 'product_Images')
         setUploading(false)
         if (!imageLink) return toast.error('Something went wrong  please try again later ')
 
-        console.log('imageLink', imageLink)
         const inputData = {
             title,
             shortDescription,
@@ -86,6 +87,7 @@ const AddProduct = ({ setTab, addNewProductFn }: IAddProductProps) => {
             features: JSON.stringify(featureEditorState),
             others: JSON.stringify(othersEditorState),
             image: imageLink,
+            sideImage: sideImageLink,
             price,
             category: selectedCategory,
         }
@@ -207,6 +209,23 @@ const AddProduct = ({ setTab, addNewProductFn }: IAddProductProps) => {
                                 onChange={(e) => {
                                     if (e?.target?.files && e.target.files.length > 0) {
                                         setImage(e.target.files[0]);
+                                    }
+                                }}
+                                placeholder="Image"
+                                className="mt-2 w-full block  placeholder-gray-400/70 rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-gray-700 focus:primary focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:primary/10"
+                            />
+                        </div>
+                        <div className=" p-1  col-span-2">
+                            <label htmlFor="title" className="block  text-gray-700 text-sm mb-1">
+                                Image
+                            </label>
+                            <input
+                                required
+                                type="file"
+                                name="Image2"
+                                onChange={(e) => {
+                                    if (e?.target?.files && e.target.files.length > 0) {
+                                        setSideImage(e.target.files[0]);
                                     }
                                 }}
                                 placeholder="Image"

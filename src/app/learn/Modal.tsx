@@ -40,7 +40,7 @@ function Modal({ isModalOpen, setIsModalOpen, learn }: IModalProps) {
     const [phone, setPhone] = useState<string>('');
     const [message, setMessage] = useState<string>('');
     const [name, setName] = useState<string>('');
-
+    const [error, setError] = useState<string>('');
     // hooks
     const client = useGqlClient()
     const { user } = AuthConfig()
@@ -54,6 +54,7 @@ function Modal({ isModalOpen, setIsModalOpen, learn }: IModalProps) {
     // functions
 
     const createLeads = async () => {
+        if (error) return
         const { data } = await createLead({
             variables: {
                 input: [
@@ -90,6 +91,22 @@ function Modal({ isModalOpen, setIsModalOpen, learn }: IModalProps) {
     }
 
 
+
+    const handlePhoneChange = (inputValue: any) => {
+        const numericValue = inputValue.replace(/\D/g, '');
+        const indianPhonePattern = /^[789]\d{9}$/;
+
+        if (!indianPhonePattern.test(numericValue)) {
+            setError('Please enter a valid Indian phone number');
+        } else if (numericValue.length > 10) {
+            setError('Phone number cannot be more than 10 digits');
+        } else if (numericValue.length < 10) {
+            setError('Phone number cannot be less than 10 digits');
+        } else {
+            setPhone(numericValue);
+            setError('');
+        }
+    };
 
 
     useEffect(() => {
@@ -171,11 +188,14 @@ function Modal({ isModalOpen, setIsModalOpen, learn }: IModalProps) {
                                         <input
                                             placeholder="Phone"
                                             required
-                                            onChange={(e) => setPhone(e.target.value)}
+                                            type='number'
+                                            onChange={(e) => handlePhoneChange(e.target.value)}
                                             defaultValue={phone}
-                                            className=" text-black placeholder-gray-600 w-full px-4 py-2.5 mt-2 text-base   transition duration-500 ease-in-out transform border-transparent rounded-sm bg-gray-200  focus:border-blueGray-500 focus:bg-white dark:focus:bg-gray-800 focus:outline-none focus:shadow-outline focus:ring-2 ring-offset-current ring-offset-2 ring-gray-400"
-
+                                            className="text-black placeholder-gray-600 w-full px-4 py-2.5 mt-2 text-base transition duration-500 ease-in-out transform border-transparent rounded-sm bg-gray-200 focus:border-blueGray-500 focus:bg-white dark:focus:bg-gray-800 focus:outline-none focus:shadow-outline focus:ring-2 ring-offset-current ring-offset-2 ring-gray-400"
+                                            pattern="[789]\d{9}" // Pattern for Indian phone numbers starting with 7, 8, or 9 and having a total of 10 digits
                                         />
+                                        {error ? <p className='text-red-500 text-xs'>{error}</p> : null}
+
 
                                         <div className="flex">
                                             <textarea

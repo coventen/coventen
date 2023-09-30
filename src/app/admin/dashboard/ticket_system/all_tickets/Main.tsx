@@ -23,6 +23,7 @@ query ModuleTickets($where: ModuleTicketWhere, $options: ModuleTicketOptions) {
       vendorHas {
         userIs {
           companyName
+          id
         }
       }
       
@@ -33,7 +34,7 @@ query ModuleTickets($where: ModuleTicketWhere, $options: ModuleTicketOptions) {
 
 const Main = () => {
   const [isOpen, setIsOpen] = React.useState(false);
-  const [currentModuleTicket, setCurrentModuleTicket] = React.useState({});
+  const [currentModuleTicket, setCurrentModuleTicket] = React.useState<any>({});
   // search sates
   const [searchQuery, setSearchQuery] = useState('')
 

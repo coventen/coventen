@@ -93,20 +93,34 @@ const InvoicePreview = () => {
                                         </dl>
 
                                     </div>
+                                    <div className="grid grid-cols-2 sm:grid-cols-1 gap-3 sm:gap-2">
+                                        <dl className="grid sm:grid-cols-3 gap-x-1">
+                                            <dt className="col-span-2 font-semibold text-gray-800 dark:text-gray-200">Expiry Date:</dt>
+                                            <dd className="col-span-1 text-gray-500">{invoiceData?.expiryDate?.slice(0, 10) || 'N/A'}</dd>
+                                        </dl>
+
+                                    </div>
                                     {/* <!-- End Grid --> */}
                                 </div>
                                 {/* <!-- Col --> */}
                             </div>
                             {/* <!-- End Grid --> */}
 
+                            <div className='space-y-3'>
+                                <p className='font-semibold'>Place Of Supply: <span className='text-dimText font-normal'>{invoiceData?.placeOfSupply}</span></p>
+                                <p className='font-semibold'>HSN/SAC: <span className='text-dimText font-normal'>{invoiceData?.hsn}</span></p>
+                                <p className='font-semibold'>Subject: <span className='text-dimText font-normal'>{invoiceData?.subject}</span></p>
+                            </div>
+
                             {/* <!-- Table --> */}
                             <div className="mt-6">
                                 <div className="border border-gray-200 p-4 rounded-lg space-y-4 dark:border-gray-700">
                                     <div className="hidden md:flex items-center justify-between">
-                                        <div className="sm:col-span-2 text-xs font-medium text-gray-500 uppercase">Service Name</div>
+                                        <div className="sm:col-span-2 text-xs font-medium  uppercase">Service Name</div>
 
 
-                                        <div className="text-right text-xs font-medium text-gray-500 uppercase">Amount</div>
+                                        <div className="text-right text-xs font-medium uppercase">Quantity</div>
+                                        <div className="text-right text-xs font-medium  uppercase">Amount</div>
                                     </div>
 
                                     <div className="hidden sm:block border-b border-gray-200 dark:border-gray-700"></div>
@@ -117,13 +131,16 @@ const InvoicePreview = () => {
 
                                         {
                                             invoiceData?.hasPurchase?.map((service) =>
-                                                <div className=" " key={service?.id}>
+                                                <div className="grid grid-cols-3 " key={service?.id}>
                                                     <div >
                                                         <p className="font-medium text-xs lg:text-base text-gray-800 dark:text-gray-200">{service?.itemName}</p>
                                                     </div>
+                                                    <div >
+                                                        <p className="font-medium text-xs text-center lg:text-base text-gray-800 dark:text-gray-200">{service?.quantity}</p>
+                                                    </div>
 
-                                                    <div>
-                                                        <p className="sm:text-right text-xs lg:text-base text-gray-800 dark:text-gray-200">${service?.price}</p>
+                                                    <div >
+                                                        <p className="sm:text-right text-xs lg:text-base text-gray-800 dark:text-gray-200">{service?.price}</p>
                                                     </div>
                                                 </div>
                                                 // <div className="sm:hidden border-b border-gray-200 dark:border-gray-700"></div>
@@ -152,7 +169,7 @@ const InvoicePreview = () => {
 
                                             <dl className="grid sm:grid-cols-5 gap-x-3">
                                                 <dt className="col-span-3 font-semibold text-gray-800 dark:text-gray-200">Total:</dt>
-                                                <dd className="col-span-2 text-gray-500">${invoiceData?.totalPrice}</dd>
+                                                <dd className="col-span-2 text-gray-500">{invoiceData?.totalPrice}</dd>
                                             </dl>
 
                                             <dl className="grid sm:grid-cols-5 gap-x-3">
@@ -163,7 +180,7 @@ const InvoicePreview = () => {
 
                                             <dl className="grid sm:grid-cols-5 gap-x-3">
                                                 <dt className="col-span-3 font-semibold text-gray-800 dark:text-gray-200">Total Amount With Tax:</dt>
-                                                <dd className="col-span-2 text-gray-500">${invoiceData?.priceWithTax}</dd>
+                                                <dd className="col-span-2 text-gray-500">{invoiceData?.priceWithTax}</dd>
                                             </dl>
                                         </div>
                                         {/* <!-- End Grid --> */}

@@ -24,9 +24,14 @@ const getInvoiceData = async (id: string) => {
                   taxType
                   ticket
                   totalPrice
+                  placeOfSupply
+                  hsn
+                  subject
+                  expiryDate
                   hasPurchase {
                     id
                     itemName
+                    quantity
                     price
                   }
                   hasClient {

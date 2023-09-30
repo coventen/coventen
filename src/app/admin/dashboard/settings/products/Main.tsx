@@ -20,7 +20,8 @@ export interface addProductVariables {
     price: number
     category: string
     file?: string,
-    video?: string
+    video?: string,
+    sideImage?: string,
 }
 
 
@@ -113,6 +114,7 @@ const Main = () => {
                         "features": input.features,
                         "others": input.others,
                         "image": input.image,
+                        sideImage: input.sideImage,
                         "price": input.price,
                         video: input.video,
                         file: input.file,

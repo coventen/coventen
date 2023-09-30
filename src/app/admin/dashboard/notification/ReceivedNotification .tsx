@@ -186,7 +186,7 @@ const ReceivedNotification = ({ newNotification }: INotificationTab) => {
             <div className="w-full h-full">
                 <div className="bg-white h-full min-h-[400px] py-4 md:py-7 px-4 md:px-8 xl:px-10">
                     <div className="mt-7 overflow-x-auto">
-                        <table className="w-full w-full min-w-[750px]">
+                        <table className=" w-full min-w-[750px]">
                             {/* <Suspense fallback={<div>Loading...</div>}> */}
                             <tbody>
                                 {
@@ -222,6 +222,7 @@ const ReceivedNotification = ({ newNotification }: INotificationTab) => {
                                                         <button onClick={() => {
                                                             setIsNotificationViewModalOpen(true);
                                                             setCurrentNotification(item);
+                                                            updateNotification(item?.id)
                                                         }} className="focus:ring-2 focus:ring-offset-2  text-sm leading-none text-primary py-2 px-2 bg-gray-100  hover:bg-gray-200 focus:outline-none"><AiFillEye /></button>
                                                         <button onClick={() => handleDelete(item?.id)} className="focus:ring-2 focus:ring-offset-2  text-sm leading-none text-red-600 py-2 px-2 bg-gray-100  hover:bg-gray-200 focus:outline-none"><AiTwotoneDelete /></button>
                                                     </div>

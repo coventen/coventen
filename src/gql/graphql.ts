@@ -1932,6 +1932,16 @@ export type AdminCreatedInvoiceNodeAggregationWhereInput = {
   createdAt_MIN_GTE?: InputMaybe<Scalars['DateTime']['input']>;
   createdAt_MIN_LT?: InputMaybe<Scalars['DateTime']['input']>;
   createdAt_MIN_LTE?: InputMaybe<Scalars['DateTime']['input']>;
+  expiryDate_MAX_EQUAL?: InputMaybe<Scalars['DateTime']['input']>;
+  expiryDate_MAX_GT?: InputMaybe<Scalars['DateTime']['input']>;
+  expiryDate_MAX_GTE?: InputMaybe<Scalars['DateTime']['input']>;
+  expiryDate_MAX_LT?: InputMaybe<Scalars['DateTime']['input']>;
+  expiryDate_MAX_LTE?: InputMaybe<Scalars['DateTime']['input']>;
+  expiryDate_MIN_EQUAL?: InputMaybe<Scalars['DateTime']['input']>;
+  expiryDate_MIN_GT?: InputMaybe<Scalars['DateTime']['input']>;
+  expiryDate_MIN_GTE?: InputMaybe<Scalars['DateTime']['input']>;
+  expiryDate_MIN_LT?: InputMaybe<Scalars['DateTime']['input']>;
+  expiryDate_MIN_LTE?: InputMaybe<Scalars['DateTime']['input']>;
   hsn_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
   hsn_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
   hsn_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
@@ -2214,21 +2224,6 @@ export type AdminCreatedNotificationNodeAggregationWhereInput = {
   title_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
   title_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
   title_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  type_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
-  type_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
-  type_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
-  type_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
-  type_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
-  type_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  type_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  type_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  type_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  type_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  type_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  type_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  type_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  type_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  type_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
 };
 
 export type AdminCreatedNotificationRelationship = {
@@ -3903,6 +3898,21 @@ export type AdminHasLearnitemNodeAggregationWhereInput = {
   price_SUM_GTE?: InputMaybe<Scalars['Int']['input']>;
   price_SUM_LT?: InputMaybe<Scalars['Int']['input']>;
   price_SUM_LTE?: InputMaybe<Scalars['Int']['input']>;
+  rating_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  rating_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  rating_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  rating_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  rating_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  rating_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  rating_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  rating_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  rating_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  rating_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  rating_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  rating_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  rating_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  rating_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  rating_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
   seats_AVERAGE_EQUAL?: InputMaybe<Scalars['Float']['input']>;
   seats_AVERAGE_GT?: InputMaybe<Scalars['Float']['input']>;
   seats_AVERAGE_GTE?: InputMaybe<Scalars['Float']['input']>;
@@ -4731,6 +4741,7 @@ export type AdminInvoiceCreatedInvoiceNodeAggregateSelection = {
   clientName: StringAggregateSelectionNullable;
   complain: StringAggregateSelectionNullable;
   createdAt: DateTimeAggregateSelectionNullable;
+  expiryDate: DateTimeAggregateSelectionNullable;
   hsn: StringAggregateSelectionNullable;
   id: IdAggregateSelectionNonNullable;
   placeOfSupply: StringAggregateSelectionNullable;
@@ -4882,6 +4893,16 @@ export type AdminInvoiceHasNodeAggregationWhereInput = {
   createdAt_MIN_GTE?: InputMaybe<Scalars['DateTime']['input']>;
   createdAt_MIN_LT?: InputMaybe<Scalars['DateTime']['input']>;
   createdAt_MIN_LTE?: InputMaybe<Scalars['DateTime']['input']>;
+  expiryDate_MAX_EQUAL?: InputMaybe<Scalars['DateTime']['input']>;
+  expiryDate_MAX_GT?: InputMaybe<Scalars['DateTime']['input']>;
+  expiryDate_MAX_GTE?: InputMaybe<Scalars['DateTime']['input']>;
+  expiryDate_MAX_LT?: InputMaybe<Scalars['DateTime']['input']>;
+  expiryDate_MAX_LTE?: InputMaybe<Scalars['DateTime']['input']>;
+  expiryDate_MIN_EQUAL?: InputMaybe<Scalars['DateTime']['input']>;
+  expiryDate_MIN_GT?: InputMaybe<Scalars['DateTime']['input']>;
+  expiryDate_MIN_GTE?: InputMaybe<Scalars['DateTime']['input']>;
+  expiryDate_MIN_LT?: InputMaybe<Scalars['DateTime']['input']>;
+  expiryDate_MIN_LTE?: InputMaybe<Scalars['DateTime']['input']>;
   hsn_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
   hsn_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
   hsn_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
@@ -5052,6 +5073,7 @@ export type AdminInvoiceInvoiceHasNodeAggregateSelection = {
   clientName: StringAggregateSelectionNullable;
   complain: StringAggregateSelectionNullable;
   createdAt: DateTimeAggregateSelectionNullable;
+  expiryDate: DateTimeAggregateSelectionNullable;
   hsn: StringAggregateSelectionNullable;
   id: IdAggregateSelectionNonNullable;
   placeOfSupply: StringAggregateSelectionNullable;
@@ -5103,6 +5125,7 @@ export type AdminLearnItemHasLearnitemNodeAggregateSelection = {
   imageUrl: StringAggregateSelectionNullable;
   mode: StringAggregateSelectionNullable;
   price: IntAggregateSelectionNullable;
+  rating: StringAggregateSelectionNullable;
   seats: IntAggregateSelectionNullable;
   startDate: DateTimeAggregateSelectionNullable;
   title: StringAggregateSelectionNullable;
@@ -5136,7 +5159,6 @@ export type AdminNotificationCreatedNotificationNodeAggregateSelection = {
   id: IdAggregateSelectionNonNullable;
   image: StringAggregateSelectionNullable;
   title: StringAggregateSelectionNullable;
-  type: StringAggregateSelectionNullable;
 };
 
 export type AdminOnCreateInput = {
@@ -8166,21 +8188,6 @@ export type ClientHasNotificationNodeAggregationWhereInput = {
   title_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
   title_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
   title_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  type_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
-  type_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
-  type_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
-  type_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
-  type_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
-  type_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  type_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  type_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  type_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  type_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  type_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  type_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  type_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  type_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  type_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
 };
 
 export type ClientHasNotificationRelationship = {
@@ -8582,6 +8589,16 @@ export type ClientInvoiceHasNodeAggregationWhereInput = {
   createdAt_MIN_GTE?: InputMaybe<Scalars['DateTime']['input']>;
   createdAt_MIN_LT?: InputMaybe<Scalars['DateTime']['input']>;
   createdAt_MIN_LTE?: InputMaybe<Scalars['DateTime']['input']>;
+  expiryDate_MAX_EQUAL?: InputMaybe<Scalars['DateTime']['input']>;
+  expiryDate_MAX_GT?: InputMaybe<Scalars['DateTime']['input']>;
+  expiryDate_MAX_GTE?: InputMaybe<Scalars['DateTime']['input']>;
+  expiryDate_MAX_LT?: InputMaybe<Scalars['DateTime']['input']>;
+  expiryDate_MAX_LTE?: InputMaybe<Scalars['DateTime']['input']>;
+  expiryDate_MIN_EQUAL?: InputMaybe<Scalars['DateTime']['input']>;
+  expiryDate_MIN_GT?: InputMaybe<Scalars['DateTime']['input']>;
+  expiryDate_MIN_GTE?: InputMaybe<Scalars['DateTime']['input']>;
+  expiryDate_MIN_LT?: InputMaybe<Scalars['DateTime']['input']>;
+  expiryDate_MIN_LTE?: InputMaybe<Scalars['DateTime']['input']>;
   hsn_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
   hsn_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
   hsn_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
@@ -8752,6 +8769,7 @@ export type ClientInvoiceInvoiceHasNodeAggregateSelection = {
   clientName: StringAggregateSelectionNullable;
   complain: StringAggregateSelectionNullable;
   createdAt: DateTimeAggregateSelectionNullable;
+  expiryDate: DateTimeAggregateSelectionNullable;
   hsn: StringAggregateSelectionNullable;
   id: IdAggregateSelectionNonNullable;
   placeOfSupply: StringAggregateSelectionNullable;
@@ -8814,7 +8832,6 @@ export type ClientNotificationHasNotificationNodeAggregateSelection = {
   id: IdAggregateSelectionNonNullable;
   image: StringAggregateSelectionNullable;
   title: StringAggregateSelectionNullable;
-  type: StringAggregateSelectionNullable;
 };
 
 export type ClientOnCreateInput = {
@@ -15215,6 +15232,7 @@ export type Invoice = {
   clientName?: Maybe<Scalars['String']['output']>;
   complain?: Maybe<Scalars['String']['output']>;
   createdAt?: Maybe<Scalars['DateTime']['output']>;
+  expiryDate?: Maybe<Scalars['DateTime']['output']>;
   hasAdmin?: Maybe<Admin>;
   hasAdminAggregate?: Maybe<InvoiceAdminHasAdminAggregationSelection>;
   hasAdminConnection: InvoiceHasAdminConnection;
@@ -15472,6 +15490,7 @@ export type InvoiceAggregateSelection = {
   complain: StringAggregateSelectionNullable;
   count: Scalars['Int']['output'];
   createdAt: DateTimeAggregateSelectionNullable;
+  expiryDate: DateTimeAggregateSelectionNullable;
   hsn: StringAggregateSelectionNullable;
   id: IdAggregateSelectionNonNullable;
   placeOfSupply: StringAggregateSelectionNullable;
@@ -15525,6 +15544,7 @@ export type InvoiceCreateInput = {
   clientName?: InputMaybe<Scalars['String']['input']>;
   complain?: InputMaybe<Scalars['String']['input']>;
   createdAt?: InputMaybe<Scalars['DateTime']['input']>;
+  expiryDate?: InputMaybe<Scalars['DateTime']['input']>;
   hasAdmin?: InputMaybe<InvoiceHasAdminFieldInput>;
   hasClient?: InputMaybe<InvoiceHasClientFieldInput>;
   hasPurchase?: InputMaybe<InvoiceHasPurchaseFieldInput>;
@@ -15919,6 +15939,7 @@ export type InvoiceOnCreateInput = {
   clientName?: InputMaybe<Scalars['String']['input']>;
   complain?: InputMaybe<Scalars['String']['input']>;
   createdAt?: InputMaybe<Scalars['DateTime']['input']>;
+  expiryDate?: InputMaybe<Scalars['DateTime']['input']>;
   hsn?: InputMaybe<Scalars['String']['input']>;
   placeOfSupply?: InputMaybe<Scalars['String']['input']>;
   priceWithTax?: InputMaybe<Scalars['Int']['input']>;
@@ -15967,6 +15988,7 @@ export type InvoiceSort = {
   clientName?: InputMaybe<SortDirection>;
   complain?: InputMaybe<SortDirection>;
   createdAt?: InputMaybe<SortDirection>;
+  expiryDate?: InputMaybe<SortDirection>;
   hsn?: InputMaybe<SortDirection>;
   id?: InputMaybe<SortDirection>;
   placeOfSupply?: InputMaybe<SortDirection>;
@@ -15997,6 +16019,7 @@ export type InvoiceUpdateInput = {
   clientName?: InputMaybe<Scalars['String']['input']>;
   complain?: InputMaybe<Scalars['String']['input']>;
   createdAt?: InputMaybe<Scalars['DateTime']['input']>;
+  expiryDate?: InputMaybe<Scalars['DateTime']['input']>;
   hasAdmin?: InputMaybe<InvoiceHasAdminUpdateFieldInput>;
   hasClient?: InputMaybe<InvoiceHasClientUpdateFieldInput>;
   hasPurchase?: InputMaybe<Array<InvoiceHasPurchaseUpdateFieldInput>>;
@@ -16189,6 +16212,12 @@ export type InvoiceWhere = {
   createdAt_IN?: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
   createdAt_LT?: InputMaybe<Scalars['DateTime']['input']>;
   createdAt_LTE?: InputMaybe<Scalars['DateTime']['input']>;
+  expiryDate?: InputMaybe<Scalars['DateTime']['input']>;
+  expiryDate_GT?: InputMaybe<Scalars['DateTime']['input']>;
+  expiryDate_GTE?: InputMaybe<Scalars['DateTime']['input']>;
+  expiryDate_IN?: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
+  expiryDate_LT?: InputMaybe<Scalars['DateTime']['input']>;
+  expiryDate_LTE?: InputMaybe<Scalars['DateTime']['input']>;
   hasAdmin?: InputMaybe<AdminWhere>;
   hasAdminAggregate?: InputMaybe<InvoiceHasAdminAggregateInput>;
   hasAdminConnection?: InputMaybe<InvoiceHasAdminConnectionWhere>;
@@ -16999,6 +17028,7 @@ export type LearnItem = {
   imageUrl?: Maybe<Scalars['String']['output']>;
   mode?: Maybe<Scalars['String']['output']>;
   price?: Maybe<Scalars['Int']['output']>;
+  rating?: Maybe<Scalars['String']['output']>;
   seats?: Maybe<Scalars['Int']['output']>;
   startDate?: Maybe<Scalars['DateTime']['output']>;
   title?: Maybe<Scalars['String']['output']>;
@@ -17141,6 +17171,7 @@ export type LearnItemAggregateSelection = {
   imageUrl: StringAggregateSelectionNullable;
   mode: StringAggregateSelectionNullable;
   price: IntAggregateSelectionNullable;
+  rating: StringAggregateSelectionNullable;
   seats: IntAggregateSelectionNullable;
   startDate: DateTimeAggregateSelectionNullable;
   title: StringAggregateSelectionNullable;
@@ -17172,6 +17203,7 @@ export type LearnItemCreateInput = {
   imageUrl?: InputMaybe<Scalars['String']['input']>;
   mode?: InputMaybe<Scalars['String']['input']>;
   price?: InputMaybe<Scalars['Int']['input']>;
+  rating?: InputMaybe<Scalars['String']['input']>;
   seats?: InputMaybe<Scalars['Int']['input']>;
   startDate?: InputMaybe<Scalars['DateTime']['input']>;
   title?: InputMaybe<Scalars['String']['input']>;
@@ -17200,6 +17232,7 @@ export type LearnItemOnCreateInput = {
   imageUrl?: InputMaybe<Scalars['String']['input']>;
   mode?: InputMaybe<Scalars['String']['input']>;
   price?: InputMaybe<Scalars['Int']['input']>;
+  rating?: InputMaybe<Scalars['String']['input']>;
   seats?: InputMaybe<Scalars['Int']['input']>;
   startDate?: InputMaybe<Scalars['DateTime']['input']>;
   title?: InputMaybe<Scalars['String']['input']>;
@@ -17227,6 +17260,7 @@ export type LearnItemSort = {
   imageUrl?: InputMaybe<SortDirection>;
   mode?: InputMaybe<SortDirection>;
   price?: InputMaybe<SortDirection>;
+  rating?: InputMaybe<SortDirection>;
   seats?: InputMaybe<SortDirection>;
   startDate?: InputMaybe<SortDirection>;
   title?: InputMaybe<SortDirection>;
@@ -17248,6 +17282,7 @@ export type LearnItemUpdateInput = {
   price?: InputMaybe<Scalars['Int']['input']>;
   price_DECREMENT?: InputMaybe<Scalars['Int']['input']>;
   price_INCREMENT?: InputMaybe<Scalars['Int']['input']>;
+  rating?: InputMaybe<Scalars['String']['input']>;
   seats?: InputMaybe<Scalars['Int']['input']>;
   seats_DECREMENT?: InputMaybe<Scalars['Int']['input']>;
   seats_INCREMENT?: InputMaybe<Scalars['Int']['input']>;
@@ -17308,6 +17343,11 @@ export type LearnItemWhere = {
   price_IN?: InputMaybe<Array<InputMaybe<Scalars['Int']['input']>>>;
   price_LT?: InputMaybe<Scalars['Int']['input']>;
   price_LTE?: InputMaybe<Scalars['Int']['input']>;
+  rating?: InputMaybe<Scalars['String']['input']>;
+  rating_CONTAINS?: InputMaybe<Scalars['String']['input']>;
+  rating_ENDS_WITH?: InputMaybe<Scalars['String']['input']>;
+  rating_IN?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  rating_STARTS_WITH?: InputMaybe<Scalars['String']['input']>;
   seats?: InputMaybe<Scalars['Int']['input']>;
   seats_GT?: InputMaybe<Scalars['Int']['input']>;
   seats_GTE?: InputMaybe<Scalars['Int']['input']>;
@@ -21221,8 +21261,9 @@ export type Notification = {
   description?: Maybe<Scalars['String']['output']>;
   id: Scalars['ID']['output'];
   image?: Maybe<Scalars['String']['output']>;
+  isViewed?: Maybe<Scalars['Boolean']['output']>;
+  notificationFor?: Maybe<NotificationType>;
   title?: Maybe<Scalars['String']['output']>;
-  type?: Maybe<Scalars['String']['output']>;
   vendorHas?: Maybe<Vendor>;
   vendorHasAggregate?: Maybe<NotificationVendorVendorHasAggregationSelection>;
   vendorHasConnection: NotificationVendorHasConnection;
@@ -21405,7 +21446,6 @@ export type NotificationAggregateSelection = {
   id: IdAggregateSelectionNonNullable;
   image: StringAggregateSelectionNullable;
   title: StringAggregateSelectionNullable;
-  type: StringAggregateSelectionNullable;
 };
 
 export type NotificationClientClientHasAggregationSelection = {
@@ -21553,8 +21593,9 @@ export type NotificationCreateInput = {
   createdAt?: InputMaybe<Scalars['DateTime']['input']>;
   description?: InputMaybe<Scalars['String']['input']>;
   image?: InputMaybe<Scalars['String']['input']>;
+  isViewed?: InputMaybe<Scalars['Boolean']['input']>;
+  notificationFor?: InputMaybe<NotificationType>;
   title?: InputMaybe<Scalars['String']['input']>;
-  type?: InputMaybe<Scalars['String']['input']>;
   vendorHas?: InputMaybe<NotificationVendorHasFieldInput>;
 };
 
@@ -21580,8 +21621,9 @@ export type NotificationOnCreateInput = {
   createdAt?: InputMaybe<Scalars['DateTime']['input']>;
   description?: InputMaybe<Scalars['String']['input']>;
   image?: InputMaybe<Scalars['String']['input']>;
+  isViewed?: InputMaybe<Scalars['Boolean']['input']>;
+  notificationFor?: InputMaybe<NotificationType>;
   title?: InputMaybe<Scalars['String']['input']>;
-  type?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type NotificationOptions = {
@@ -21603,9 +21645,17 @@ export type NotificationSort = {
   description?: InputMaybe<SortDirection>;
   id?: InputMaybe<SortDirection>;
   image?: InputMaybe<SortDirection>;
+  isViewed?: InputMaybe<SortDirection>;
+  notificationFor?: InputMaybe<SortDirection>;
   title?: InputMaybe<SortDirection>;
-  type?: InputMaybe<SortDirection>;
 };
+
+export enum NotificationType {
+  Admin = 'ADMIN',
+  Client = 'CLIENT',
+  General = 'GENERAL',
+  Vendor = 'VENDOR'
+}
 
 export type NotificationUniqueWhere = {
   id?: InputMaybe<Scalars['ID']['input']>;
@@ -21617,8 +21667,9 @@ export type NotificationUpdateInput = {
   createdAt?: InputMaybe<Scalars['DateTime']['input']>;
   description?: InputMaybe<Scalars['String']['input']>;
   image?: InputMaybe<Scalars['String']['input']>;
+  isViewed?: InputMaybe<Scalars['Boolean']['input']>;
+  notificationFor?: InputMaybe<NotificationType>;
   title?: InputMaybe<Scalars['String']['input']>;
-  type?: InputMaybe<Scalars['String']['input']>;
   vendorHas?: InputMaybe<NotificationVendorHasUpdateFieldInput>;
 };
 
@@ -21792,16 +21843,14 @@ export type NotificationWhere = {
   image_ENDS_WITH?: InputMaybe<Scalars['String']['input']>;
   image_IN?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   image_STARTS_WITH?: InputMaybe<Scalars['String']['input']>;
+  isViewed?: InputMaybe<Scalars['Boolean']['input']>;
+  notificationFor?: InputMaybe<NotificationType>;
+  notificationFor_IN?: InputMaybe<Array<InputMaybe<NotificationType>>>;
   title?: InputMaybe<Scalars['String']['input']>;
   title_CONTAINS?: InputMaybe<Scalars['String']['input']>;
   title_ENDS_WITH?: InputMaybe<Scalars['String']['input']>;
   title_IN?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   title_STARTS_WITH?: InputMaybe<Scalars['String']['input']>;
-  type?: InputMaybe<Scalars['String']['input']>;
-  type_CONTAINS?: InputMaybe<Scalars['String']['input']>;
-  type_ENDS_WITH?: InputMaybe<Scalars['String']['input']>;
-  type_IN?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  type_STARTS_WITH?: InputMaybe<Scalars['String']['input']>;
   vendorHas?: InputMaybe<VendorWhere>;
   vendorHasAggregate?: InputMaybe<NotificationVendorHasAggregateInput>;
   vendorHasConnection?: InputMaybe<NotificationVendorHasConnectionWhere>;
@@ -24555,6 +24604,16 @@ export type PurchaseInvoiceHasNodeAggregationWhereInput = {
   createdAt_MIN_GTE?: InputMaybe<Scalars['DateTime']['input']>;
   createdAt_MIN_LT?: InputMaybe<Scalars['DateTime']['input']>;
   createdAt_MIN_LTE?: InputMaybe<Scalars['DateTime']['input']>;
+  expiryDate_MAX_EQUAL?: InputMaybe<Scalars['DateTime']['input']>;
+  expiryDate_MAX_GT?: InputMaybe<Scalars['DateTime']['input']>;
+  expiryDate_MAX_GTE?: InputMaybe<Scalars['DateTime']['input']>;
+  expiryDate_MAX_LT?: InputMaybe<Scalars['DateTime']['input']>;
+  expiryDate_MAX_LTE?: InputMaybe<Scalars['DateTime']['input']>;
+  expiryDate_MIN_EQUAL?: InputMaybe<Scalars['DateTime']['input']>;
+  expiryDate_MIN_GT?: InputMaybe<Scalars['DateTime']['input']>;
+  expiryDate_MIN_GTE?: InputMaybe<Scalars['DateTime']['input']>;
+  expiryDate_MIN_LT?: InputMaybe<Scalars['DateTime']['input']>;
+  expiryDate_MIN_LTE?: InputMaybe<Scalars['DateTime']['input']>;
   hsn_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
   hsn_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
   hsn_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
@@ -24725,6 +24784,7 @@ export type PurchaseInvoiceInvoiceHasNodeAggregateSelection = {
   clientName: StringAggregateSelectionNullable;
   complain: StringAggregateSelectionNullable;
   createdAt: DateTimeAggregateSelectionNullable;
+  expiryDate: DateTimeAggregateSelectionNullable;
   hsn: StringAggregateSelectionNullable;
   id: IdAggregateSelectionNonNullable;
   placeOfSupply: StringAggregateSelectionNullable;
@@ -31624,6 +31684,16 @@ export type VendorCreatedInvoiceNodeAggregationWhereInput = {
   createdAt_MIN_GTE?: InputMaybe<Scalars['DateTime']['input']>;
   createdAt_MIN_LT?: InputMaybe<Scalars['DateTime']['input']>;
   createdAt_MIN_LTE?: InputMaybe<Scalars['DateTime']['input']>;
+  expiryDate_MAX_EQUAL?: InputMaybe<Scalars['DateTime']['input']>;
+  expiryDate_MAX_GT?: InputMaybe<Scalars['DateTime']['input']>;
+  expiryDate_MAX_GTE?: InputMaybe<Scalars['DateTime']['input']>;
+  expiryDate_MAX_LT?: InputMaybe<Scalars['DateTime']['input']>;
+  expiryDate_MAX_LTE?: InputMaybe<Scalars['DateTime']['input']>;
+  expiryDate_MIN_EQUAL?: InputMaybe<Scalars['DateTime']['input']>;
+  expiryDate_MIN_GT?: InputMaybe<Scalars['DateTime']['input']>;
+  expiryDate_MIN_GTE?: InputMaybe<Scalars['DateTime']['input']>;
+  expiryDate_MIN_LT?: InputMaybe<Scalars['DateTime']['input']>;
+  expiryDate_MIN_LTE?: InputMaybe<Scalars['DateTime']['input']>;
   hsn_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
   hsn_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
   hsn_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
@@ -32787,21 +32857,6 @@ export type VendorHasNotificationNodeAggregationWhereInput = {
   title_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
   title_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
   title_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  type_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
-  type_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
-  type_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
-  type_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
-  type_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
-  type_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  type_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  type_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  type_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  type_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  type_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  type_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  type_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  type_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  type_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
 };
 
 export type VendorHasNotificationRelationship = {
@@ -33076,6 +33131,7 @@ export type VendorInvoiceCreatedInvoiceNodeAggregateSelection = {
   clientName: StringAggregateSelectionNullable;
   complain: StringAggregateSelectionNullable;
   createdAt: DateTimeAggregateSelectionNullable;
+  expiryDate: DateTimeAggregateSelectionNullable;
   hsn: StringAggregateSelectionNullable;
   id: IdAggregateSelectionNonNullable;
   placeOfSupply: StringAggregateSelectionNullable;
@@ -33151,7 +33207,6 @@ export type VendorNotificationHasNotificationNodeAggregateSelection = {
   id: IdAggregateSelectionNonNullable;
   image: StringAggregateSelectionNullable;
   title: StringAggregateSelectionNullable;
-  type: StringAggregateSelectionNullable;
 };
 
 export type VendorOnCreateInput = {

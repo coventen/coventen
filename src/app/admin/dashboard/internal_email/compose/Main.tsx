@@ -206,8 +206,8 @@ const Main = () => {
                         className="mt-1 px-4 py-2 border border-gray-200 rounded-md w-full"
                     >
                         <option value="" disabled>Select an option</option>
-                        <option value="SERVICE_PROVIDER" >Vendor</option>
-                        <option value="CONSUMER" >client</option>
+                        <option value="SERVICE_PROVIDER" >VENDOR</option>
+                        <option value="CONSUMER" >CLIENT</option>
 
                     </select>
 

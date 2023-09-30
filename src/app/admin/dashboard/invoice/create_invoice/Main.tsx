@@ -97,6 +97,7 @@ const Main = () => {
                         taxRate: taxRate,
                         sentBy: "ADMIN",
                         status: "SENT",
+                        expiryDate: invoiceData.expiryDate,
                         taxType: invoiceData.taxType,
                         createdAt: new Date().toISOString(),
                         hsn: invoiceData.hns,

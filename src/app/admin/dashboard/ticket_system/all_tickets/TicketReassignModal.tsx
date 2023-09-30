@@ -51,15 +51,14 @@ query Vendors( $userIsWhere2: UserWhere) {
 `
 
 const ASSIGN_MODULE = `
-mutation Mutation($input: [ModuleTicketCreateInput!]!) {
-    createModuleTickets(input: $input) {
+mutation UpdateModuleTickets($where: ModuleTicketWhere, $disconnect: ModuleTicketDisconnectInput, $connect: ModuleTicketConnectInput, $update: ModuleTicketUpdateInput) {
+    updateModuleTickets(where: $where, disconnect: $disconnect, connect: $connect, update: $update) {
       info {
-        nodesCreated
         relationshipsCreated
+        relationshipsDeleted
       }
     }
   }
-
 `
 
 
@@ -69,7 +68,7 @@ function TicketReassignModal({ isOpen, setIsOpen, currentModuleTicket, refetchMo
     //states
     const [selected, setSelected] = useState<any>({});
 
-    console.log(selected.companyName, "companyname")
+    console.log(selected?.id, 'selected')
 
     //hooks
     const client = useGqlClient();
@@ -96,67 +95,63 @@ function TicketReassignModal({ isOpen, setIsOpen, currentModuleTicket, refetchMo
     // initializing  assign module
 
     const assignModule = async () => {
-        const moduleTicket = await generateModuleTicket()
+
+        console.log(currentModuleTicket.moduleTicketId, 'currentModuleTicket', currentModuleTicket.vendorId)
+
+        if (currentModuleTicket.vendorId) {
+            await disconnectPreviousVendor()
+        }
         const { data } = await assignModuleFn({
             variables: {
-                input: [
-                    {
-                        status: "ASSIGNED",
-                        vendorHas: {
-                            connect: {
-                                where: {
-                                    node: {
-                                        userIs: {
-                                            companyName: selected?.companyName,
-                                            // id: null
-                                        }
-                                    }
+                "where": {
+                    "id": currentModuleTicket.moduleTicketId
+                },
+                "connect": {
+                    "vendorHas": {
+                        "where": {
+                            "node": {
+                                "userIs": {
+                                    "id": selected?.id
                                 }
                             }
                         },
-                        ticket: moduleTicket,
-                        clientHas: {
-                            connect: {
-                                where: {
-                                    node: {
-                                        userIs: {
-                                            email: currentModuleTicket.clientEmail,
-                                        }
-                                    }
-                                }
-                            }
-                        },
-                        projectticketHas: {
-                            connect: {
-                                where: {
-                                    node: {
-                                        projectTicket: currentModuleTicket.projectTicket
-                                    }
-                                }
-                            }
-                        },
-                        forModule: {
-                            connect: {
-                                where: {
-                                    node: {
-                                        id: currentModuleTicket.moduleId
-                                    }
-                                }
-                            }
-                        }
+                        "overwrite": true
                     }
-                ]
+                },
+
             }
         })
 
-        console.log(data, 'klkjfkldsf')
 
-        if (data.createModuleTickets.info.nodesCreated) {
+
+        if (data) {
             setIsOpen(false);
             toast.success('Module assigned successfully');
             console.log('success')
             refetchModuleTickets()
         }
+    }
+
+    const disconnectPreviousVendor = async () => {
+        const { data } = await assignModuleFn({
+            variables: {
+                "where": {
+                    "id": currentModuleTicket.moduleTicketId
+                },
+                "disconnect": {
+                    "vendorHas": {
+                        "where": {
+                            "node": {
+                                "userIs": {
+                                    "id": currentModuleTicket.vendorId
+                                }
+                            }
+                        }
+                    }
+                },
+
+            }
+        })
     }
 
 

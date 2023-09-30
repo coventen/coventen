@@ -28,22 +28,9 @@ const CheckNotification = ({ setNewNotificationCount }: any) => {
         const variables = {
 
             "where": {
-                "notificationFor_IN": ["GENERAL"],
+                "notificationFor_IN": ["ADMIN"],
                 "createdAt_GTE": fiveDaysAgo(),
                 "isViewed": false,
-                "OR": [
-                    {
-                        "notificationFor": "CLIENT",
-                        "clientHas": {
-                            "userIs": {
-                                "email": user?.email || 'no email'
-                            }
-                        }
-                    },
-                    {
-                        "notificationFor": "GENERAL",
-                    },
-                ]
             },
             "options": {
                 limit: 3,

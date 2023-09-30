@@ -95,17 +95,20 @@ const TicketTable = ({ data, setIsOpen, setCurrentModuleTicket }: ITicketTable) 
                                                     onClick={() => setIsOpen(true)}
                                                     className="py-1.5 bg-gray-600 px-3 text-white duration-150 uppercase border rounded"
                                                 >
-                                                    Resign
+                                                    Reassign
                                                 </button>
                                             ) : (
                                                 <button
                                                     onClick={() => {
                                                         setIsOpen(true)
-                                                        setCurrentModuleTicket(item?.id)
+                                                        setCurrentModuleTicket({
+                                                            moduleTicketId: item.id,
+                                                            vendorId: item.vendorHas?.userIs?.id
+                                                        })
                                                     }}
                                                     className="py-1.5 bg-red-600 px-3 text-white duration-150 uppercase border rounded"
                                                 >
-                                                    Resign
+                                                    Reassign
                                                 </button>
                                             )
                                     }

@@ -32,6 +32,7 @@ query Products($where: ProductWhere) {
       image
       file
       video
+      sideImage
     }
   }
 

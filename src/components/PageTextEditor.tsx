@@ -20,6 +20,26 @@ const QuillEditor = dynamic(
 export default function PageTextEditor({ editorState, setEditorState }: Props) {
 
 
+    const ColorHexCodes = [
+        '#FF0000', // Red
+        '#008000', // Green
+        '#0000FF', // Blue
+        '#FFFF00', // Yellow
+        '#FFA500', // Orange
+        '#800080', // Purple
+        '#FFC0CB', // Pink
+        '#A52A2A', // Brown
+        '#808080', // Gray
+        '#000000', // Black
+        '#FFFFFF', // White
+        '#175392', // logo color
+        '#FFD700',
+        '#4B0082',
+        '#00FFFF',
+        '#FF6347',
+        '#7FFF00',
+    ];
+
     // Define a handler to update the editor content
     const handleEditorChange = (html: any) => {
         setEditorState(html);
@@ -36,7 +56,7 @@ export default function PageTextEditor({ editorState, setEditorState }: Props) {
                         [{ 'header': '1' }, { 'header': '2' }, { 'font': [] }],
                         [{ size: [] }],
                         ['bold', 'italic', 'underline', 'strike', 'blockquote'],
-                        [{ 'color': [] }],
+                        [{ 'color': ColorHexCodes }],
                         [{ 'align': [] }],
                         [{ 'list': 'ordered' }, { 'list': 'bullet' },
                         { 'indent': '-1' }, { 'indent': '+1' }],

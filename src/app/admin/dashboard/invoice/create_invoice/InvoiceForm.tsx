@@ -42,7 +42,6 @@ const InvoiceForm = ({ createInvoice }: IInvoiceForm) => {
 
     // handle creating invoice
     const handleCreating: SubmitHandler<any> = (data) => {
-        console.log(data, 'data')
         createInvoice(data, services, selected ? selected.companyName : '')
     }
 
@@ -98,6 +97,15 @@ const InvoiceForm = ({ createInvoice }: IInvoiceForm) => {
                                                     className="    border border-gray-300 border-b block pl-8 pr-6 py-2 w-full bg-white text-sm placeholder-gray-400 text-gray-700 focus:bg-white focus:placeholder-gray-600 focus:text-gray-700 focus:outline-none" {...register("taxRate")} />
                                             </div>
                                         </div>
+                                    </div>
+                                    <div className='col-span-2 '>
+                                        <p >Expiry Date</p>
+                                        <input
+                                            type="date"
+
+                                            placeholder="ends At"
+                                            className="border border-gray-300 border-b block pl-8 pr-6 py-2 w-full bg-white text-sm placeholder-gray-400 text-gray-700 focus:bg-white focus:placeholder-gray-600 focus:text-gray-700 focus:outline-none" {...register("expiryDate")} />
+
                                     </div>
                                     <div className='col-span-full  w-full mt-3'>
                                         <p >HSN/SAC Code</p>
