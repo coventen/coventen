@@ -150,7 +150,7 @@ const Main = () => {
                             <p>{invoice?.status === "SENT" ? "PENDING" : invoice?.status === "COMPLAINED" ? "COMMENTED" : invoice?.status || 'N/A'}</p>
                             <div className='space-x-3 col-span-2 flex items-center justify-center'>
 
-                                <Link href={`/desktopHome/invoices/preview/${invoice.id}`} className='font-semibold border border-dimTetext-dimText px-3  py-1.5 rounded'>View</Link>
+                                <Link href={`/user/dashboard/invoices/preview/${invoice.id}`} className='font-semibold border border-dimTetext-dimText px-3  py-1.5 rounded'>View</Link>
 
                                 {
                                     invoice?.status === "SENT" && (

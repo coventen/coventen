@@ -41,24 +41,43 @@ const InvoicePreview = () => {
                         <div className="flex flex-col p-4 sm:px-10 sm:pt-14 sm:pb-40  bg-white shadow-md rounded-xl dark:bg-gray-800  ">
                             {/* <!-- Grid --> */}
                             <div className="flex justify-between">
-                                <div>
-                                    <img src="/assets/log.png" alt="logo" />
-                                    <div className='mt-7'>
-                                        <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-200">Coveten Industrial Solutions </h3>
-                                        <h3 className="text-sm  text-gray-600 dark:text-gray-200">An unit of N Square Corporation </h3>
-                                        <address className="mt-1 text-sm not-italic text-gray-500">
-                                            #504, 2nd Phase, 6th Stage, BTM Layout, Off Bannerghatta road<br />
-                                            {/* <br /> */}
-                                            Bangalore Karnataka 560076
-                                            <br />
-                                            India
-                                            <br />
-                                            GSTIN 29AWMPN1593P1ZI<br />
+                                {
+                                    invoiceData?.sentBy === "VENDOR" ?
+                                        <>
+                                            <div>
 
-                                        </address>
-                                    </div>
+                                                <div className='mt-7'>
+                                                    <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-200 capitalize">{invoiceData?.vendorCreated?.userIs?.companyName} </h3>
+                                                    <h3 className="text-sm  text-gray-600 dark:text-gray-200">{invoiceData?.vendorCreated?.userIs?.email} </h3>
+                                                    <address className="mt-1 text-sm not-italic text-gray-500">
+                                                        {invoiceData?.vendorCreated?.userIs?.address}
 
-                                </div>
+                                                    </address>
+                                                </div>
+                                            </div>
+                                        </>
+                                        :
+                                        <>
+                                            <div>
+                                                <img src="/assets/log.png" alt="logo" />
+                                                <div className='mt-7'>
+                                                    <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-200">Coveten Industrial Solutions </h3>
+                                                    <h3 className="text-sm  text-gray-600 dark:text-gray-200">An unit of N Square Corporation </h3>
+                                                    <address className="mt-1 text-sm not-italic text-gray-500">
+                                                        #504, 2nd Phase, 6th Stage, BTM Layout, Off Bannerghatta road<br />
+                                                        {/* <br /> */}
+                                                        Bangalore Karnataka 560076
+                                                        <br />
+                                                        India
+                                                        <br />
+                                                        GSTIN 29AWMPN1593P1ZI<br />
+
+                                                    </address>
+                                                </div>
+                                            </div>
+                                        </>
+
+                                }
                                 {/* <!-- Col --> */}
 
                                 <div className="text-right">
@@ -75,12 +94,45 @@ const InvoicePreview = () => {
                             <div className="mt-8 grid sm:grid-cols-2 gap-3">
                                 <div>
                                     <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-200">Invoice For:</h3>
-                                    <h3 className="text-base  text-gray-600 dark:text-gray-200">{invoiceData?.hasClient?.userIs?.companyName}</h3>
-                                    <address className="mt-1 text-sm not-italic text-gray-500">
-                                        {invoiceData?.hasClient?.userIs?.companyEmail}<br />
-                                        {invoiceData?.hasClient?.userIs?.address}<br />
+                                    {
+                                        invoiceData?.sentBy === "VENDOR" ?
+                                            <>
+                                                <div>
 
-                                    </address>
+                                                    <div className='mb-10'>
+                                                        <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-200">Coveten Industrial Solutions </h3>
+                                                        <h3 className="text-sm  text-gray-600 dark:text-gray-200">An unit of N Square Corporation </h3>
+                                                        <address className="mt-1 text-sm not-italic text-gray-500">
+                                                            #504, 2nd Phase, 6th Stage, BTM Layout, Off Bannerghatta road<br />
+                                                            {/* <br /> */}
+                                                            Bangalore Karnataka, India
+                                                            <br />
+                                                            GSTIN 29AWMPN1593P1ZI<br />
+
+                                                        </address>
+                                                    </div>
+                                                </div>
+                                            </>
+                                            :
+                                            <>
+
+
+
+                                                <h3 className="text-base  text-gray-600 dark:text-gray-200">{invoiceData?.hasClient?.userIs?.companyName}</h3>
+                                                <address className="mt-1 text-sm not-italic text-gray-500">
+                                                    {invoiceData?.hasClient?.userIs?.companyEmail}<br />
+                                                    {invoiceData?.hasClient?.userIs?.address}<br />
+
+                                                </address>
+                                            </>
+
+
+                                    }
+
+
+
+
+
                                 </div>
                                 {/* <!-- Col --> */}
 

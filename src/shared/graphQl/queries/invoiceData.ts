@@ -16,34 +16,44 @@ const getInvoiceData = async (id: string) => {
       },
         body: JSON.stringify({
             query: `query Query($where: InvoiceWhere) {
-                invoices(where: $where) {
+              invoices(where: $where) {
+                id
+                createdAt
+                priceWithTax
+                taxRate
+                taxType
+                ticket
+                totalPrice
+                placeOfSupply
+                hsn
+                sentBy
+                status
+                subject
+                expiryDate
+                hasPurchase {
                   id
-                  createdAt
-                  priceWithTax
-                  taxRate
-                  taxType
-                  ticket
-                  totalPrice
-                  placeOfSupply
-                  hsn
-                  subject
-                  expiryDate
-                  hasPurchase {
-                    id
-                    itemName
-                    quantity
-                    price
+                  itemName
+                  quantity
+                  price
+                }
+                hasClient {
+                  id
+                  userIs {
+                    companyName
+                    companyEmail
+                    address
                   }
-                  hasClient {
-                    id
-                    userIs {
-                      companyName
-                      companyEmail
-                      address
-                    }
+                }
+                vendorCreated {
+                  userIs {
+                    companyName
+                    companyEmail
+                    address
+                    email
                   }
                 }
               }
+            }
             `,
             variables: {
                     where: {

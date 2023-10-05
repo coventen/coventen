@@ -17,6 +17,8 @@ query Query($where: InvoiceWhere, $options: InvoiceOptions) {
       priceWithTax
       status
       ticket
+      sentBy
+      
     }
   }`
 const DELETE_INVOICES = `
@@ -127,7 +129,7 @@ const Main = () => {
     }
   }
 
-  console.log(invoiceData, 'invoiceData')
+
 
 
   return (
