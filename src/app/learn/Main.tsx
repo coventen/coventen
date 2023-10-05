@@ -18,6 +18,7 @@ query LearnItems($where: LearnItemWhere, $options: LearnItemOptions) {
       imageUrl
       mode
       rating
+      courseFor
       seats
       price
       credit
@@ -91,7 +92,7 @@ const Main = () => {
 
     }, [data?.learnItems?.length])
 
-    console.log(totalLearnItem, 'totalLearnItem', pageLimit, 'pageLimit', currentPage, 'currentPage', totalPages, 'totalPages')
+
 
     if (dataState.loading) <Loading />
 
@@ -119,7 +120,10 @@ const Main = () => {
                             </div>
                             <div className=" px-5 pb-5 ">
 
-
+                                <div className='flex items-center justify-between'>
+                                    <p className='font-semibold text-sm mb-3'>Who can apply:</p>
+                                    <p className='font-semibold text-dimText text-sm mb-3'>{item?.courseFor || 'Everyone'}</p>
+                                </div>
                                 <div className='flex items-center justify-between'>
                                     <p className='font-semibold text-sm mb-3 '>Rating:</p>
                                     <p className='font-semibold text-dimText text-sm mb-3 flex items-center justify-center space-x-2'>{item?.rating || 4.5}
@@ -148,20 +152,11 @@ const Main = () => {
                                     </p>
                                 </div>
 
-                                {/* <p className='font-semibold text-sm mb-3'>Mode: {item?.mode} | Seats: {item?.seats} | Credit: {item?.credit}</p>
-                                <p className='font-semibold text-sm mb-3'>Date of apply: {item?.startDate.slice(0, 10)} -- {item?.endDate.slice(0, 10)} </p>
-                                <p className='font-semibold text-sm mb-12 flex items-center space-x-2'>Price: <BsCurrencyRupee /> {item?.price}</p> */}
+
 
 
                                 <div className=' absolute bottom-4 flex space-x-3'>
-                                    {/* <Link href={item?.url} >
-                                        <button className="relative group inline-block flex-shrink-0  py-3 px-5  font-semibold text-orange-50 bg-primary overflow-hidden" type="submit">
 
-                                            <div className="relative flex items-center justify-center">
-                                                <span className="">Learn More</span>
-                                            </div>
-                                        </button>
-                                    </Link> */}
                                     <div>
                                         <Link href={item?.url} >
                                             <button className="relative group inline-block flex-shrink-0  py-3.5 px-5 text-sm font-semibold text-orange-50 bg-primary  overflow-hidden" type="submit">
@@ -186,19 +181,6 @@ const Main = () => {
                                         </div>
                                     </button>
 
-
-
-
-
-                                    {/* <button onClick={() => {
-                                        setIsModalOpen(true)
-                                        setCurrentEvent(item?.title)
-                                    }} className="relative group inline-block flex-shrink-0   py-3 px-5  font-semibold text-primary  overflow-hidden" type="submit">
-
-                                        <div className="relative flex items-center justify-center">
-                                            <span className="">Interested</span>
-                                        </div>
-                                    </button> */}
 
                                 </div>
 

@@ -32,7 +32,14 @@ mutation Mutation($input: [CommunicationTicketCreateInput!]!) {
 
 `
 
-
+const SEND_NOTIFICATION = `
+  mutation CreateNotifications($input: [NotificationCreateInput!]!) {
+      createNotifications(input: $input) {
+        info {
+          nodesCreated
+        }
+      }
+    }`
 
 //component
 const Main = () => {
@@ -52,7 +59,7 @@ const Main = () => {
 
     // mutation query
     const [createCommunicationFn, createState, resetFn] = useMutation(CREATE_NEW_COMMUNICATION, { client })
-
+    const [sendNotificationFn, notificationState] = useMutation(SEND_NOTIFICATION, { client })
 
     // initializing the  communication creation
     const createCommunication = async () => {
@@ -90,6 +97,7 @@ const Main = () => {
         })
         if (data.createCommunicationTickets.info.nodesCreated) {
             toast.success("Message sent successfully")
+            sendNotification()
             router.push('/user/dashboard/internal_email/sent')
         }
 
@@ -105,6 +113,23 @@ const Main = () => {
     useEffect(() => { }, [user?.email])
 
 
+
+    const sendNotification = async () => {
+
+        const { data: adminData } = await sendNotificationFn({
+            variables: {
+                "input": [
+                    {
+                        "title": `You have a new email`,
+                        "description": `You have a new email check your inbox.`,
+                        "createdAt": new Date().toISOString(),
+                        "notificationFor": "ADMIN",
+                    }
+                ]
+            }
+        })
+
+    }
 
 
 

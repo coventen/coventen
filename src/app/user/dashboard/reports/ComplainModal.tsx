@@ -1,24 +1,38 @@
 'use client'
 import { Fragment, useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 import { Dialog, Transition } from '@headlessui/react';
 
 
 //props interface
-interface INotificationModal {
-    isNotificationViewModalOpen: boolean;
-    setIsNotificationViewModalOpen: (value: boolean) => void;
-    data: any
-}
+interface IComplainModal {
+    isOpen: boolean;
+    setIsOpen: (value: boolean) => void;
+    addComplain: (complain: string) => void;
 
-// GraphQL Mutation for creating notification
+}
 
 
 //component
-function NotificationView({ data, isNotificationViewModalOpen, setIsNotificationViewModalOpen }: INotificationModal) {
+function ComplainModal({ isOpen, setIsOpen, addComplain }: IComplainModal) {
+
 
     //handle close modal
     function closeModal() {
-        setIsNotificationViewModalOpen(false);
+        setIsOpen(false);
+    }
+
+    //handle open modal
+    function openModal() {
+        setIsOpen(true);
+    }
+
+    const handleSubmit = async (e: any) => {
+        e.preventDefault()
+        const description = e.target.description.value
+        if (description.length) {
+            addComplain(description)
+        }
     }
 
 
@@ -28,7 +42,7 @@ function NotificationView({ data, isNotificationViewModalOpen, setIsNotification
         <div>
 
 
-            <Transition.Root show={isNotificationViewModalOpen} as={Fragment}>
+            <Transition.Root show={isOpen} as={Fragment}>
                 <Dialog
                     as="div"
                     className="fixed z-[120000000000] inset-0 overflow-y-auto"
@@ -65,26 +79,41 @@ function NotificationView({ data, isNotificationViewModalOpen, setIsNotification
                         >
 
                             <div className="inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full sm:p-6">
-                                <p className="focus:outline-none pt-4 pb-8 text-base text-center sm:text-lg md:text-xl lg:text-2xl font-bold leading-normal text-gray-800">Notifications</p>
-                                <div className='space-y-4'>
-                                    <p className="block  text-gray-700 font-semibold  mb-1">
-                                        {data?.title}
-                                    </p>
-                                    <p className="block  text-gray-700  mb-1">
-                                        {data?.description}
-                                    </p>
+                                <p className="focus:outline-none pt-4 pb-8 text-base text-center sm:text-lg md:text-xl lg:text-2xl font-bold leading-normal text-gray-800">Comment</p>
+                                <form onSubmit={handleSubmit} className=''>
 
-                                    <div className="mt-16">
 
+                                    <div className="mb-5">
+                                        <label htmlFor="description" className="block  text-gray-700 text-sm mb-1">
+                                            Description
+                                        </label>
+                                        <textarea
+                                            id="description"
+                                            name="description"
+                                            required
+                                            className="mt-1 px-4 py-2 border border-gray-200 rounded-md w-full"
+                                            rows={3}
+                                        />
+                                    </div>
+
+
+
+                                    <div className="mt-10">
+                                        <button
+                                            type="submit"
+                                            className="px-4 py-2 bg-primary text-white  "
+                                        >
+                                            Submit
+                                        </button>
                                         <button
                                             type="button"
-                                            className="ml-2 px-4 py-1 text-gray-500 rounded-md hover:bg-gray-200"
+                                            className="ml-2 px-4 py-2 text-gray-500 rounded-md hover:bg-gray-200"
                                             onClick={closeModal}
                                         >
-                                            Close
+                                            Cancel
                                         </button>
                                     </div>
-                                </div>
+                                </form>
                             </div>
                         </Transition.Child>
                     </div>
@@ -94,4 +123,4 @@ function NotificationView({ data, isNotificationViewModalOpen, setIsNotification
     );
 }
 
-export default NotificationView;
+export default ComplainModal;

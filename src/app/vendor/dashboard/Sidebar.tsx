@@ -160,7 +160,7 @@ const Sidebar = ({
                                 <p className={classNames({
                                     " text-xs font-semibold ": true, //colors
                                     "transition-colors duration-300": true, //animation
-                                    "rounded-md p-1 mx-3 block ": !collapsed,
+                                    " p-1 mx-3 block ": !collapsed,
                                     "rounded-full p-1 mx-3 hidden": collapsed,
                                 })}>{item?.section}</p>
                                 <ul
@@ -176,7 +176,7 @@ const Sidebar = ({
                                                     className={classNames({
                                                         " hover:bg-gray-200  flex": true, //colors
                                                         "transition-colors duration-300": true, //animation
-                                                        "rounded-md p-2 mx-3 gap-4 ": !collapsed,
+                                                        " p-2 mx-3 gap-4 ": !collapsed,
                                                         "rounded-full p-2 mx-3 w-10 h-10": collapsed,
                                                         "bg-primary text-white hover:bg-primary": pathname === item.href,
                                                     })}
@@ -200,7 +200,7 @@ const Sidebar = ({
                                 <p className={classNames({
                                     " text-xs font-semibold ": true, //colors
                                     "transition-colors duration-300": true, //animation
-                                    "rounded-md p-1 mx-3 block ": !collapsed,
+                                    " p-1 mx-3 block ": !collapsed,
                                     "rounded-full p-1 mx-3 hidden": collapsed,
                                 })}>{item?.section}</p>
                                 <ul
@@ -216,7 +216,7 @@ const Sidebar = ({
                                                     className={classNames({
                                                         " hover:bg-gray-200  flex": true, //colors
                                                         "transition-colors duration-300": true, //animation
-                                                        "rounded-md p-2 mx-3 gap-4 ": !collapsed,
+                                                        " p-2 mx-3 gap-4 ": !collapsed,
                                                         "rounded-full p-2 mx-3 w-10 h-10": collapsed,
                                                         "bg-primary text-white hover:bg-primary": pathname === item.href,
                                                     })}

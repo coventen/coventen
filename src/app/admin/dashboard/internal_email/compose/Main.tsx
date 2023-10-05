@@ -33,6 +33,14 @@ mutation Mutation($input: [CommunicationTicketCreateInput!]!) {
 
 `
 
+const SEND_NOTIFICATION = `
+  mutation CreateNotifications($input: [NotificationCreateInput!]!) {
+      createNotifications(input: $input) {
+        info {
+          nodesCreated
+        }
+      }
+    }`
 
 
 
@@ -55,6 +63,7 @@ const Main = () => {
 
     // mutation query
     const [createCommunicationFn, createState, resetFn] = useMutation(CREATE_NEW_COMMUNICATION, { client })
+    const [sendNotificationFn, notificationState] = useMutation(SEND_NOTIFICATION, { client })
 
 
     // initializing the  communication creation
@@ -133,6 +142,7 @@ const Main = () => {
 
             if (data?.createCommunicationTickets?.info?.nodesCreated) {
                 toast.success("Message sent successfully")
+                sendNotification()
                 router.push('/admin/dashboard/internal_email/sent')
             }
 
@@ -181,7 +191,69 @@ const Main = () => {
 
 
 
+    const sendNotification = async () => {
 
+        if (selectedUserType === "SERVICE_PROVIDER") {
+            const { data } = await sendNotificationFn({
+                variables: {
+                    "input": [
+                        {
+                            "title": "You have a new email",
+                            "description": "Admin has sent you a new email",
+                            "createdAt": new Date().toISOString(),
+                            "notificationFor": "VENDOR",
+                            "vendorHas": {
+                                connect: selectedUsers.map(user => {
+                                    return {
+                                        where: {
+                                            node: {
+                                                userIs: {
+                                                    email: user.email
+                                                }
+                                            }
+                                        }
+                                    }
+                                })
+                            }
+                        }
+                    ]
+                }
+            })
+        } else if (selectedUserType === "CONSUMER") {
+            const { data } = await sendNotificationFn({
+                variables: {
+                    "input": [
+                        {
+                            "title": "You have a new email",
+                            "description": "Admin has sent you a new email",
+                            "createdAt": new Date().toISOString(),
+                            "notificationFor": "CLIENT",
+                            "clientHas": {
+                                connect: selectedUsers.map(user => {
+                                    return {
+                                        where: {
+                                            node: {
+                                                userIs: {
+                                                    email: user.email
+                                                }
+                                            }
+                                        }
+                                    }
+                                })
+                            }
+                        }
+                    ]
+                }
+            })
+        }
+
+
+
+
+
+
+
+    }
 
 
     if (createState.error) {

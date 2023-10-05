@@ -53,7 +53,14 @@ mutation UpdateCounters($update: CounterUpdateInput) {
 
 
   `
-
+const SEND_NOTIFICATION = `
+  mutation CreateNotifications($input: [NotificationCreateInput!]!) {
+      createNotifications(input: $input) {
+        info {
+          nodesCreated
+        }
+      }
+    }`
 
 
 //component
@@ -97,7 +104,7 @@ const Main = () => {
         client,
         variables: {
             where: {
-                email: user?.email || 'no user'
+                email: user?.email
             }
 
         }
@@ -107,6 +114,7 @@ const Main = () => {
     // mutations
     const [createProjectFn, state, resetFn] = useMutation(CREATE_PROJECT, { client })
     const [updateProjectCounterFn, updateState] = useMutation(UPDATE_PROJECT_COUNTER, { client })
+    const [sendNotificationFn, notificationState] = useMutation(SEND_NOTIFICATION, { client })
 
 
 
@@ -178,7 +186,8 @@ const Main = () => {
         })
         if (data.createProjects.info.nodesCreated) {
             toast.success('Project created successfully')
-            router.push('/desktopHome/projects')
+            router.push('/user/dashboard/projects')
+            sendNotification(projectId as string)
             createLog(
                 `Project Creation`,
                 `Project created with ticket ${projectId} by ${user?.email}`
@@ -209,12 +218,6 @@ const Main = () => {
 
 
 
-
-
-
-
-
-
     // upload files
     const uploadFiles = async (files: File[]) => {
         setUploading(true)
@@ -228,9 +231,6 @@ const Main = () => {
 
         return fileLinks;
     }
-
-
-
 
 
     // generating project ticket based on project count on database
@@ -260,7 +260,32 @@ const Main = () => {
 
 
 
-    if (loading || updateState.loading || state.loading) return <div><Loading /></div>
+
+
+    const sendNotification = async (projectId: string) => {
+
+        const { data: adminData } = await sendNotificationFn({
+            variables: {
+                "input": [
+                    {
+                        "title": `A user has created a new project`,
+                        "description": `A user has created a new project with ticket ${projectId}`,
+                        "createdAt": new Date().toISOString(),
+                        "notificationFor": "ADMIN",
+                    }
+                ]
+            }
+        })
+
+    }
+
+
+
+
+
+
+
+    if (loading) return <div><Loading /></div>
 
     //render
     return (

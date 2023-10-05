@@ -100,7 +100,7 @@ const CheckNotification = ({ setNewNotificationCount }: any) => {
             value: previousData ? [...previousData, id] : [id],
         };
 
-        localStorage.setItem(data.key, JSON.stringify(data.value));
+        // localStorage.setItem(data.key, JSON.stringify(data.value));
 
     };
 
@@ -112,10 +112,10 @@ const CheckNotification = ({ setNewNotificationCount }: any) => {
             data?.forEach((item: any) => {
                 if (viewedNotification?.includes(item?.id)) {
                     return;
+                } else {
+                    // handleNotify(item?.title, item?.description, item?.image);
+                    handleNotificationView(item?.id);
                 }
-
-                handleNotify(item?.title, item?.description, item?.image);
-                handleNotificationView(item?.id);
 
             });
         }

@@ -21,6 +21,11 @@ query ModuleTickets($where: ModuleTicketWhere) {
     forModule {
       title
     }
+    vendorHas {
+      userIs {
+        id
+      }
+    }
   }
 }
 `
@@ -34,12 +39,22 @@ mutation UpdateModuleTickets($where: ModuleTicketWhere, $update: ModuleTicketUpd
 }
 `
 
+const SEND_NOTIFICATION = `
+  mutation CreateNotifications($input: [NotificationCreateInput!]!) {
+      createNotifications(input: $input) {
+        info {
+          nodesCreated
+        }
+      }
+    }`
+
 
 const Main = () => {
   //states
   const [currentModule, setCurrentModule] = React.useState('');
   const [messages, setMessages] = React.useState<any>([]);
   const [isOpen, setIsOpen] = React.useState(false);
+  const [vendorId, setVendorId] = React.useState('');
   //hooks 
   const client = useGqlClient();
   const { user } = AuthConfig()
@@ -62,6 +77,7 @@ const Main = () => {
 
   // ADDING COMPLAIN
   const [addComplainFn, state, resetFn] = useMutation(UPDATE_MODULE, { client });
+  const [sendNotificationFn, notificationState] = useMutation(SEND_NOTIFICATION, { client })
 
 
 
@@ -85,6 +101,7 @@ const Main = () => {
       setIsOpen(false)
       resetFn()
       console.log('updated')
+      sendNotification('commented')
       toast.success('Complain Added Successfully')
       createLog(
         `Module Report`,
@@ -110,9 +127,10 @@ const Main = () => {
       resetFn()
       console.log('updated')
       toast.success('Complain Added Successfully')
+      sendNotification('confirmed')
       createLog(
         `Module Report`,
-        `Report added to ${data?.updateModuleTickets?.moduleTickets[0]?.forModule?.title} module`
+        `Report confirmed ${data?.updateModuleTickets?.moduleTickets[0]?.forModule?.title} module`
       )
     }
 
@@ -121,17 +139,45 @@ const Main = () => {
 
   useEffect(() => { }, [data?.moduleTickets])
 
-  console.log(data?.moduleTickets)
+
+
+  const sendNotification = async (type: string) => {
+
+    const { data: adminData } = await sendNotificationFn({
+      variables: {
+        "input": [
+          {
+            "title": `A user has ${type} a report`,
+            "description": `A user has created a new project with ticket ${type}`,
+            "createdAt": new Date().toISOString(),
+            "notificationFor": "VENDOR",
+            "vendorHas": {
+              "connect": {
+                "where": {
+                  "node": {
+                    "userIs": {
+                      "id": vendorId
+                    }
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    })
+  }
+
 
 
   if (loading || state.loading) return <Loading />
 
   return (
-    <div className='flex flex-row h-full  lg:max-h-[85vh]    w-full overflow-x-hidden'>
+    <div className='flex flex-row h-full  lg:max-h-[85vh] w-full overflow-x-hidden'>
       <Sidebar data={data?.moduleTickets} setCurrentModule={setCurrentModule} />
       <div className='w-full'>
 
-        <DocCards currentModule={currentModule} setIsOpen={setIsOpen} confirmComplete={confirmComplete} />
+        <DocCards currentModule={currentModule} setIsOpen={setIsOpen} confirmComplete={confirmComplete} setVendorId={setVendorId} />
       </div>
       <ComplainModal isOpen={isOpen} setIsOpen={setIsOpen} addComplain={addComplain} />
     </div>

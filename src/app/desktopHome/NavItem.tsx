@@ -4,7 +4,7 @@ import React from "react";
 
 
 
-import { LuAppWindow, LuCalculator, LuBellRing, LuVoicemail, LuUser, LuTerminalSquare, LuShieldCheck, LuReplaceAll, LuSchool2, LuQrCode, LuHeadphones, LuCopySlash, LuClipboardCheck } from "react-icons/lu";
+import { LuAppWindow, LuCalculator, LuBellRing, LuVoicemail, LuUser, LuTerminalSquare, LuShieldCheck, LuReplaceAll, LuSchool2, LuQrCode, LuHeadphones, LuCopySlash, LuClipboardCheck, LuMail } from "react-icons/lu";
 // define a NavItem prop
 
 type Links =
@@ -36,6 +36,11 @@ export const defaultNavItems = [
                 label: "Profile",
                 href: "/desktopHome/profile",
                 icon: <LuUser className="w-6 h-6" />,
+            },
+            {
+                label: "Notifications",
+                href: "/desktopHome/notification",
+                icon: <LuBellRing className="w-6 h-6" />,
             }
         ]
     },
@@ -50,7 +55,7 @@ export const defaultNavItems = [
             {
                 label: "Chats",
                 href: "/desktopHome/chats",
-                icon: <LuReplaceAll className="w-6 h-6" />,
+                icon: <LuMail className="w-6 h-6" />,
             }
         ]
     },
@@ -60,12 +65,12 @@ export const defaultNavItems = [
             {
                 label: "Projects",
                 href: "/desktopHome/projects",
-                icon: <LuTerminalSquare className="w-6 h-6" />,
+                icon: <LuSchool2 className="w-6 h-6" />,
             },
             {
                 label: "Samples",
                 href: "/desktopHome/sample",
-                icon: <LuTerminalSquare className="w-6 h-6" />,
+                icon: <LuShieldCheck className="w-6 h-6" />,
             },
             {
                 label: "Reports",

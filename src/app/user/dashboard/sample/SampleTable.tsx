@@ -51,12 +51,12 @@ const SampleTable = ({ data, updateModuleStatus }: Props) => {
                             </td>
 
                             <td className="px-5 py-5  bg-white text-xs dark:bg-darkBg dark:border-darkBorder">
-                                <p className=" whitespace-no-wrap">{module?.projectHas?.title}</p>
+                                <p className=" whitespace-no-wrap">{module?.projectHas?.title?.slice(0, 20)}..</p>
                             </td>
 
                             <td className="px-5 py-5  bg-white text-xs dark:bg-darkBg dark:border-darkBorder">
                                 <p className=" whitespace-no-wrap">
-                                    {module?.title}
+                                    {module?.title?.slice(0, 20)}...
                                 </p>
                             </td>
 

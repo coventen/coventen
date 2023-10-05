@@ -83,7 +83,7 @@ const CheckNotification = ({ setNewNotificationCount }: any) => {
                     return;
                 }
 
-                handleNotify(item?.title, item?.description, item?.image);
+                // handleNotify(item?.title, item?.description, item?.image);
                 handleNotificationView(item?.id);
 
             });

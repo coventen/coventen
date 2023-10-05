@@ -17,8 +17,9 @@ query Query($where: InvoiceWhere, $options: InvoiceOptions) {
       clientName
       clientEmail
       totalPrice
+      priceWithTax
       status
-      createdAt
+      ticket
     }
   }`
 const DELETE_INVOICES = `
@@ -30,136 +31,137 @@ mutation Mutation($where: InvoiceWhere) {
 
 
 const Main = () => {
-    // search sates
-    const [searchQuery, setSearchQuery] = useState('')
-    const [labEmail, setLabEmail] = useState('')
+  // search sates
+  const [searchQuery, setSearchQuery] = useState('')
+  const [labEmail, setLabEmail] = useState('')
 
-    // pagination states
-    const [pageLimit, setPageLimit] = useState(10)
-    const [currentPage, setCurrentPage] = useState(1)
-    const [totalPages, setTotalPages] = useState(0)
-    const [totalInvoice, setTotalInvoice] = useState(0)
-    const [invoiceData, setInvoiceData] = useState<any>([])
+  // pagination states
+  const [pageLimit, setPageLimit] = useState(10)
+  const [currentPage, setCurrentPage] = useState(1)
+  const [totalPages, setTotalPages] = useState(0)
+  const [totalInvoice, setTotalInvoice] = useState(0)
+  const [invoiceData, setInvoiceData] = useState<any>([])
 
-    // hooks
-    const client = useGqlClient()
-    const { user } = AuthConfig()
-
-
-    //quires 
-    const [getInvoiceFn, invoiceDataState] = useManualQuery(GET_INVOICES, { client })
-
-    // mutation
-    const [deleteInvoiceFn, state] = useMutation(DELETE_INVOICES, { client });
+  // hooks
+  const client = useGqlClient()
+  const { user } = AuthConfig()
 
 
-    // refetching data based on pagination and search query
-    useEffect(() => {
+  //quires 
+  const [getInvoiceFn, invoiceDataState] = useManualQuery(GET_INVOICES, { client })
 
-        let where = {
-            sentBy_IN: ["VENDOR"],
-            vendorCreated: {
-                userIs: {
-                    email: labEmail
-                }
-            }
+  // mutation
+  const [deleteInvoiceFn, state] = useMutation(DELETE_INVOICES, { client });
+
+
+  // refetching data based on pagination and search query
+  useEffect(() => {
+
+    let where = {
+      sentBy: "VENDOR",
+      vendorCreated: {
+        userIs: {
+          email: labEmail
         }
-        getLabEmail()
-        getInvoiceData(where)
-        getInvoiceCount()
-    }, [currentPage, searchQuery, user?.email, labEmail]);
+      }
+    }
+    getLabEmail()
+    getInvoiceData(where)
+    getInvoiceCount()
+  }, [currentPage, searchQuery, user?.email, labEmail]);
 
 
 
 
 
 
-    // getting lab email if employee is logged in
-    const getLabEmail = async () => {
-        if (user?.email) {
-            const email = await getEmployerEmail(user?.email)
-            setLabEmail(email)
-        }
-
-
+  // getting lab email if employee is logged in
+  const getLabEmail = async () => {
+    if (user?.email) {
+      const email = await getEmployerEmail(user?.email)
+      setLabEmail(email)
     }
 
 
+  }
 
 
-    // initializing query and mutations
 
 
-    const getInvoiceCount = async () => {
-        const { data } = await getInvoiceFn({
-            variables: {
-                where: {
-                    sentBy_IN: ["VENDOR"]
-                }
-            }
-        })
-        if (data.invoices.length) {
-            setTotalInvoice(data.invoices.length)
-            setTotalPages(Math.ceil(data.invoices.length / pageLimit))
+  // initializing query and mutations
+
+
+  const getInvoiceCount = async () => {
+    const { data } = await getInvoiceFn({
+      variables: {
+        where: {
+          sentBy: "VENDOR"
         }
-
+      }
+    })
+    if (data.invoices.length) {
+      setTotalInvoice(data.invoices.length)
+      setTotalPages(Math.ceil(data.invoices.length / pageLimit))
     }
 
-    const getInvoiceData = async (where: any) => {
-        const { data } = await getInvoiceFn({
-            variables: {
-                where: where,
-                options: {
-                    limit: pageLimit,
-                    offset: (currentPage - 1) * pageLimit,
-                    sort: [
-                        {
-                            createdAt: "DESC"
-                        }
-                    ]
-                }
+  }
+
+  const getInvoiceData = async (where: any) => {
+    const { data } = await getInvoiceFn({
+      variables: {
+        where: where,
+        options: {
+          limit: pageLimit,
+          offset: (currentPage - 1) * pageLimit,
+          sort: [
+            {
+              createdAt: "DESC"
             }
-        })
-
-
-
-        if (data.invoices.length) {
-            setInvoiceData(data?.invoices)
+          ]
         }
+      }
+    })
+
+
+
+    if (data.invoices.length) {
+      setInvoiceData(data?.invoices)
     }
+  }
 
 
 
 
-    const deleteInvoice = async (id: any) => {
-        const { data } = await deleteInvoiceFn({
-            variables: {
-                where: {
-                    id: id
-                }
-            }
-        })
-
-        if (data?.deleteInvoices?.nodesDeleted > 0) {
-            toast.success('Invoice deleted successfully')
-            getInvoiceData({ sentBy_IN: ["ADMIN", "VENDOR"] })
+  const deleteInvoice = async (id: any) => {
+    const { data } = await deleteInvoiceFn({
+      variables: {
+        where: {
+          id: id
         }
+      }
+    })
+
+    if (data?.deleteInvoices?.nodesDeleted > 0) {
+      toast.success('Invoice deleted successfully')
+      getInvoiceData({ sentBy_IN: ["ADMIN", "VENDOR"] })
     }
+  }
 
 
 
-    if (invoiceDataState.loading) return <Loading />
+  if (invoiceDataState.loading) return <Loading />
 
-    return (
-        <div>
-            <InvoiceTable data={invoiceData} deleteInvoice={deleteInvoice} />
-            <div className='w-full flex items-center justify-center'>
-                {totalInvoice! > pageLimit &&
-                    <Pagination currentPage={currentPage} setCurrentPage={setCurrentPage} totalPages={totalPages} />}
 
-            </div>
-        </div>
-    );
+  return (
+    <div>
+      <InvoiceTable data={invoiceData} deleteInvoice={deleteInvoice} />
+      <div className='w-full flex items-center justify-center'>
+        {totalInvoice! > pageLimit &&
+          <Pagination currentPage={currentPage} setCurrentPage={setCurrentPage} totalPages={totalPages} />}
+
+      </div>
+    </div>
+  );
 };
 
 export default Main;

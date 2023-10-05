@@ -24,7 +24,14 @@ mutation UpdateModuleTickets($where: ModuleTicketWhere, $update: ModuleTicketUpd
   }
   
 `
-
+const SEND_NOTIFICATION = `
+mutation CreateNotifications($input: [NotificationCreateInput!]!) {
+    createNotifications(input: $input) {
+      info {
+        nodesCreated
+      }
+    }
+  }`
 
 
 
@@ -37,6 +44,7 @@ const AcceptedModules = () => {
     const [modules, setModules] = useState([])
     const [isDocModalOpen, setIsDocModalOpen] = useState(false)
     const [currentModuleId, setCurrentModuleId] = useState('')
+    const [clientId, setClientId] = useState('')
     const [reset, setReset] = useState(false)
     const [loading, setLoading] = useState(false)
     const [labEmail, setLabEmail] = useState('')
@@ -52,6 +60,7 @@ const AcceptedModules = () => {
 
     // UPDATING MODULE STATUS
     const [updateModuleStatusFn, updateStatus] = useMutation(UPDATE_MODULE_STATUS, { client })
+    const [sendNotificationFn, notificationState] = useMutation(SEND_NOTIFICATION, { client })
 
 
 
@@ -132,8 +141,8 @@ const AcceptedModules = () => {
             }
         })
 
-        if (data.updateModuleTickets.moduleTickets.length) {
-            console.log('updated')
+        if (data) {
+            console.log('updated 00000000000000000000000000000000000')
             setReset(!reset)
             getModulesData()
             toast.success('Module updated successfully')
@@ -166,7 +175,7 @@ const AcceptedModules = () => {
     if (loading || updateStatus.loading || authLoading) return <Loading />
 
 
-    console.log(modules, 'modules')
+
 
 
     return (
@@ -194,7 +203,12 @@ const AcceptedModules = () => {
                                 <div className="relative w-40 ">
                                     <select
                                         value={module?.status || 'ACCEPTED'}
-                                        onChange={(e) => handleStatusChange(e, module?.id)}
+                                        onChange={(e) => {
+                                            handleStatusChange(e, module?.id)
+                                            setClientId(module?.clientHas?.userIs?.id)
+                                        }
+
+                                        }
                                         className=" h-full rounded-r block  w-full bg-white border text-sm pr-8 border-gray-300  py-1 px-3  leading-tight focus:outline-none  dark:bg-darkBg dark:border-darkBorder">
                                         <option value='ACCEPTED'>IN DEVELOPMENT</option>
                                         <option value='UNDER_REVIEW'>UNDER REVIEW</option>
@@ -214,7 +228,7 @@ const AcceptedModules = () => {
                     }
                 </tbody>
                 <UploadDocModal isDocModalOpen={isDocModalOpen} setIsDocModalOpen={setIsDocModalOpen} currentModuleId={currentModuleId} updateModule={updateModule} />
-            </table>
+            </table >
             <div className='w-full flex items-center justify-center'>
                 {totalModules! > pageLimit &&
                     <Pagination currentPage={currentPage} setCurrentPage={setCurrentPage} totalPages={totalPages} />}

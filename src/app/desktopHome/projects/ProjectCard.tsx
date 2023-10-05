@@ -100,7 +100,7 @@ const ProjectCard = ({ data, deleteProjectById, deleteModuleById }: { data: Proj
                                         {/*  delete button */}
                                         <div className='w-full flex items-center justify-end'>
                                             {
-                                                checkStatus(project?.hasModule) || project?.status === "PENDING" && <button
+                                                !checkStatus(project?.hasModule) || project?.status === "PENDING" && <button
                                                     onClick={() => {
                                                         let modules = project?.hasModule?.map((module) => module?.id)
                                                         deleteProjectById(project?.id, modules)

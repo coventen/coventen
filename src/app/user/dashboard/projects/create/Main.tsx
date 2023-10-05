@@ -53,7 +53,14 @@ mutation UpdateCounters($update: CounterUpdateInput) {
 
 
   `
-
+const SEND_NOTIFICATION = `
+  mutation CreateNotifications($input: [NotificationCreateInput!]!) {
+      createNotifications(input: $input) {
+        info {
+          nodesCreated
+        }
+      }
+    }`
 
 
 //component
@@ -107,6 +114,7 @@ const Main = () => {
     // mutations
     const [createProjectFn, state, resetFn] = useMutation(CREATE_PROJECT, { client })
     const [updateProjectCounterFn, updateState] = useMutation(UPDATE_PROJECT_COUNTER, { client })
+    const [sendNotificationFn, notificationState] = useMutation(SEND_NOTIFICATION, { client })
 
 
 
@@ -179,6 +187,7 @@ const Main = () => {
         if (data.createProjects.info.nodesCreated) {
             toast.success('Project created successfully')
             router.push('/user/dashboard/projects')
+            sendNotification(projectId as string)
             createLog(
                 `Project Creation`,
                 `Project created with ticket ${projectId} by ${user?.email}`
@@ -209,12 +218,6 @@ const Main = () => {
 
 
 
-
-
-
-
-
-
     // upload files
     const uploadFiles = async (files: File[]) => {
         setUploading(true)
@@ -228,9 +231,6 @@ const Main = () => {
 
         return fileLinks;
     }
-
-
-
 
 
     // generating project ticket based on project count on database
@@ -257,6 +257,30 @@ const Main = () => {
     if (moduleCount < 1) {
         setModuleCount(1)
     }
+
+
+
+
+
+    const sendNotification = async (projectId: string) => {
+
+        const { data: adminData } = await sendNotificationFn({
+            variables: {
+                "input": [
+                    {
+                        "title": `A user has created a new project`,
+                        "description": `A user has created a new project with ticket ${projectId}`,
+                        "createdAt": new Date().toISOString(),
+                        "notificationFor": "ADMIN",
+                    }
+                ]
+            }
+        })
+
+    }
+
+
+
 
 
 
@@ -365,7 +389,7 @@ const Main = () => {
 
                                     <div className=" mt-8">
                                         <div className="">
-                                            <button type='submit' className="bg-desktopPrimary  text-white font-bold py-3 px-12 text-lg rounded">{state.loading || uploading ? "loading" : 'Submit'}</button>
+                                            <button type='submit' className="bg-primary  text-white font-bold py-3 px-12 text-lg rounded">{state.loading || uploading ? "loading" : 'Submit'}</button>
                                         </div>
                                     </div>
 

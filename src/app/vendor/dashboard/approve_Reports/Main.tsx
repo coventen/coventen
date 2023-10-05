@@ -26,6 +26,15 @@ mutation UpdateModuleTickets($where: ModuleTicketWhere, $update: ModuleTicketUpd
   
 `
 
+const SEND_NOTIFICATION = `
+mutation CreateNotifications($input: [NotificationCreateInput!]!) {
+    createNotifications(input: $input) {
+      info {
+        nodesCreated
+      }
+    }
+  }`
+
 
 // component
 const Main = () => {
@@ -36,6 +45,7 @@ const Main = () => {
     const [loading, setLoading] = useState(false)
     const [isOpen, setIsOpen] = useState(false)
     const [isViewModalOpen, setIsViewModalOpen] = useState(false)
+    const [clientId, setClientId] = useState('')
     // pagination states
     const [pageLimit, setPageLimit] = useState(10)
     const [currentPage, setCurrentPage] = useState(1)
@@ -49,6 +59,7 @@ const Main = () => {
 
     // mutations
     const [updateModuleStatusFn, updateStatus] = useMutation(UPDATE_MODULE, { client })
+    const [sendNotificationFn, notificationState] = useMutation(SEND_NOTIFICATION, { client })
 
 
 
@@ -134,6 +145,7 @@ const Main = () => {
             getModulesData()
             setIsOpen(false)
             toast.success('Module updated successfully')
+            sendNotificationToVendor()
 
         }
     }
@@ -167,6 +179,42 @@ const Main = () => {
         updateModule(variables)
 
     }
+
+
+
+
+
+
+    const sendNotificationToVendor = async () => {
+
+        const { data: clientData } = await sendNotificationFn({
+            variables: {
+                "input": [
+                    {
+                        "title": `Vendor has sent your module report for review`,
+                        "description": `Check the report and approve it if it is correct or reject it if it is not correct`,
+                        "createdAt": new Date().toISOString(),
+                        "notificationFor": "CLIENT",
+                        "clientHas": {
+                            "connect": {
+                                "where": {
+                                    "node": {
+                                        "userIs": {
+                                            "id": clientId
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                ]
+            }
+        })
+
+    }
+
+
+
 
 
 
@@ -210,7 +258,10 @@ const Main = () => {
                                     </button>
                                     <button
                                         disabled={module?.status === "DRAFT"}
-                                        onClick={() => approveModule(module?.id)}
+                                        onClick={() => {
+                                            approveModule(module?.id)
+                                            setClientId(module?.clientHas?.userIs?.id)
+                                        }}
                                         className={`${module?.status === "COMPLAINED" && 'hidden'} px-3 py-2 font-semibold bg-green-200 text-green-700 rounded-sm`}>
                                         {module?.status === "DRAFT" ? "Approved" : "Approve"}
                                     </button>

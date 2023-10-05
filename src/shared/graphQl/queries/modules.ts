@@ -20,6 +20,11 @@ const GetModules = async (where: any={}, options: any={}) => {
                 id
                 ticket
                 status
+                clientHas {
+                  userIs {
+                    id
+                  }
+                }
                 forModule {
                   id
                   title

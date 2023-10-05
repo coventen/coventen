@@ -16,7 +16,7 @@ query ModuleTickets($where: ModuleTicketWhere) {
 `
 
 
-const DocCards = ({ currentModule }: { currentModule: string }) => {
+const DocCards = ({ currentModule, setIsOpen, confirmComplete, setVendorId }: { currentModule: string, confirmComplete: any, setIsOpen: any, setVendorId: any }) => {
 
 
     //hooks 
@@ -35,7 +35,9 @@ const DocCards = ({ currentModule }: { currentModule: string }) => {
 
     });
 
-    console.log(data?.moduleTickets[0], 'module tickets00000000000')
+
+
+
 
     if (loading) return <p><Loading /></p>
 
@@ -63,9 +65,25 @@ const DocCards = ({ currentModule }: { currentModule: string }) => {
             <div
                 className="flex flex-col flex-auto flex-shrink-0 rounded-lg bg-white h-full min-h-[85vh] lg:max-h-[85vh]"
             >
-                <div className='bg-white shadow-sm px-4 py-5 rounded-lg flex items-center'>
-                    <p className='bg-green-500 w-3 h-3 rounded-full mr-2'></p>
-                    <p className='font-bold'> {data?.moduleTickets[0]?.ticket}</p>
+                <div className='bg-white shadow-sm px-4 py-5 rounded-lg flex items-center  justify-between'>
+                    <div className='flex items-center'>
+                        <p className='bg-green-500 w-3 h-3 rounded-full mr-2'></p>
+                        <p className='font-bold'> {data?.moduleTickets[0]?.ticket}</p>
+                    </div>
+                    <div className='space-x-3'>
+                        <button onClick={() => {
+                            setIsOpen(true)
+                            setVendorId(data?.moduleTickets[0]?.forModule?.vendor?.id)
+                        }} className='bg-primary text-white font-semibold px-4 py-1'>
+                            Comment
+                        </button>
+                        <button onClick={() => {
+                            confirmComplete()
+                            setVendorId(data?.moduleTickets[0]?.vendorHas?.userIs?.id)
+                        }} className='bg-primary  text-white font-semibold px-4 py-1'>
+                            Confirm
+                        </button>
+                    </div>
 
                 </div>
 

@@ -145,7 +145,7 @@ const Main = () => {
                             "createdAt": "DESC"
                         }
                     ],
-                    "limit": 6
+                    "limit": 5
                 }
             }
         })
@@ -194,7 +194,7 @@ const Main = () => {
                                         <div className='text-sm'>
 
                                             <p className='text-desktopText text-xs xl:text-base'>{item?.ticket}</p>
-                                            <p className='text-desktopTextLight text-[10px] xl:text-sm'>{item?.createdAt}</p>
+                                            <p className='text-desktopTextLight text-[10px] xl:text-sm'>{item?.createdAt?.slice(0, 10)}</p>
                                         </div>
                                     </div>
 

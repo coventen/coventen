@@ -20,6 +20,7 @@ query Query($where: InvoiceWhere) {
       taxType
       taxRate
       status
+      ticket
       priceWithTax
       id
     }
@@ -35,12 +36,22 @@ mutation UpdateInvoices($where: InvoiceWhere, $update: InvoiceUpdateInput) {
   }
 `
 
+const SEND_NOTIFICATION = `
+  mutation CreateNotifications($input: [NotificationCreateInput!]!) {
+      createNotifications(input: $input) {
+        info {
+          nodesCreated
+        }
+      }
+    }`
+
 // component
 const Main = () => {
 
 
     //states
     const [currentInvoiceId, setCurrentInvoiceId] = React.useState<any>('')
+    const [currentInvoiceTicketId, setCurrentInvoiceTicketId] = React.useState<any>('')
     const [isOpen, setIsOpen] = React.useState(false)
 
 
@@ -55,7 +66,7 @@ const Main = () => {
             where: {
                 hasClient: {
                     userIs: {
-                        email: user?.email || 'np email'
+                        email: user?.email || 'no email'
                     }
                 },
             }
@@ -65,6 +76,7 @@ const Main = () => {
 
     // mutations
     const [updateInvoiceFn, state, resetFn] = useMutation(UPDATE_INVOICE, { client });
+    const [sendNotificationFn, notificationState] = useMutation(SEND_NOTIFICATION, { client })
 
     // initializing add complain function
     const updateInvoice = async (complain: string, status: string) => {
@@ -84,11 +96,30 @@ const Main = () => {
             setIsOpen(false)
             refetch()
             toast.success('Complain added successfully')
+            sendNotification('complained')
             createLog(
-                `Invoice Rejected`,
-                `Invoice Rejected with id ${currentInvoiceId} by ${user?.email}`
+                `Invoice complained`,
+                `Invoice complained with id ${currentInvoiceTicketId} by ${user?.email}`
             )
         }
+    }
+
+
+    const sendNotification = async (type: string) => {
+
+        const { data: adminData } = await sendNotificationFn({
+            variables: {
+                "input": [
+                    {
+                        "title": `A user has ${type} invoice`,
+                        "description": `A user has ${type} invoice. Check the invoice with id ${currentInvoiceTicketId}.`,
+                        "createdAt": new Date().toISOString(),
+                        "notificationFor": "ADMIN",
+                    }
+                ]
+            }
+        })
+
     }
 
 
@@ -114,7 +145,7 @@ const Main = () => {
                     data?.invoices && data?.invoices?.map((invoice: any, i: number) =>
                         <div key={i} className='bg-white  border-b px-4 py-5 text-sm border-gray-200  text-dimText grid grid-cols-7 min-w-[700px] overflow-x-scroll lg:overflow-hidden'>
                             <p>{i + 1}</p>
-                            <p className='col-span-2'>{invoice?.id}</p>
+                            <p className='col-span-2'>{invoice?.ticket}</p>
                             <p>{invoice.priceWithTax}</p>
                             <p>{invoice?.status === "SENT" ? "PENDING" : invoice?.status === "COMPLAINED" ? "COMMENTED" : invoice?.status || 'N/A'}</p>
                             <div className='space-x-3 col-span-2 flex items-center justify-center'>
@@ -127,10 +158,13 @@ const Main = () => {
                                             <button onClick={() => {
                                                 setIsOpen(true)
                                                 setCurrentInvoiceId(invoice?.id)
+                                                setCurrentInvoiceTicketId(invoice?.ticket)
                                             }} className='font-semibold border border-dimTetext-dimText px-3  py-1.5 rounded'>Comment</button>
                                             <button onClick={() => {
                                                 setCurrentInvoiceId(invoice?.id)
                                                 updateInvoice('', "CONFIRMED")
+                                                setCurrentInvoiceTicketId(invoice?.ticket)
+                                                sendNotification('confirmed')
 
                                             }} className='font-semibold border border-dimTetext-dimText px-3  py-1.5 rounded'>Confirm</button>
 

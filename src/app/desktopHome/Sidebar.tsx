@@ -118,14 +118,20 @@ const Sidebar = ({
                         router.push('/desktopHome/auth/login')
                     }}
                     className={classNames({
-                        " hover:bg-primary hover:text-white cursor-pointer flex": true, //colors
+                        "text-desktopText hover:bg-gray-200 cursor-pointer flex": true, //colors
                         "transition-colors duration-300": true, //animation
                         "rounded-md p-2 mx-3 gap-4 ": !collapsed,
                         "rounded-full p-2 mx-3 w-10 h-10": collapsed,
                     })}
                 >
-                    <p className="flex gap-2 items-center justify-center ">
-                        <span className="text-xl">  <LuLogOut /></span> <span className=" font-semibold"> Log Out</span>
+                    <p className="flex gap-2 items-center justify-center cursor-pointer">
+                        <span className="text-xl">  <LuLogOut /></span>
+                        {!collapsed &&
+                            <>
+                                <span className=" font-semibold"> Log Out</span>
+                            </>
+                        }
+
                     </p>
                 </div>
             </div>

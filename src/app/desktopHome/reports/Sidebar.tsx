@@ -14,7 +14,7 @@ const Sidebar = ({ data, setCurrentModule }: ISidebar) => {
 
                 <div className="flex flex-row items-center  h-12 w-full">
 
-                    <div className="ml-2 font-bold text-2xl">All Tickets</div>
+                    <div className="ml-2 font-bold text-2xl">All Reports</div>
                 </div>
 
 

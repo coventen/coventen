@@ -14,7 +14,7 @@ const Sidebar = ({ data, setCurrentModule }: ISidebar) => {
 
                 <div className="flex flex-row items-center  h-12 w-full">
 
-                    <div className="ml-2 font-bold text-2xl">All Tickets</div>
+                    <div className="ml-2 font-bold text-2xl">All Reports</div>
                 </div>
 
 
@@ -30,15 +30,15 @@ const Sidebar = ({ data, setCurrentModule }: ISidebar) => {
                                     className="flex flex-row items-center hover:bg-gray-100 rounded-xl p-2 border-b"
                                 >
                                     <div
-                                        className="flex items-center justify-center h-10 w-10 bg-primary/20 text-primary font-bold rounded-lg"
+                                        className="flex items-center justify-center mr-1 h-10 w-10 bg-primary/20 text-primary font-bold rounded-lg"
                                     >
                                         M
                                     </div>
                                     <div>
 
-                                        <div className="ml-2  ">
+                                        <div className=" ">
                                             <div>
-                                                <span className='text-sm font-semibold '> {item.forModule?.title?.slice(0, 40)}...</span>
+                                                <span className='text-sm font-semibold text-left'> {item.forModule?.title?.slice(0, 20)}...</span>
 
                                             </div>
 

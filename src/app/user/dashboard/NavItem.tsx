@@ -4,7 +4,7 @@ import React from "react";
 
 
 
-import { LuAppWindow, LuCalculator, LuBellRing, LuVoicemail, LuUser, LuTerminalSquare, LuShieldCheck, LuReplaceAll, LuSchool2, LuQrCode, LuHeadphones, LuCopySlash, LuClipboardCheck } from "react-icons/lu";
+import { LuAppWindow, LuCalculator, LuBellRing, LuVoicemail, LuUser, LuTerminalSquare, LuShieldCheck, LuReplaceAll, LuSchool2, LuQrCode, LuHeadphones, LuCopySlash, LuClipboardCheck, LuMail } from "react-icons/lu";
 // define a NavItem prop
 
 type Links =
@@ -29,13 +29,18 @@ export const defaultNavItems = [
         links: [
             {
                 label: "Dashboard",
-                href: "/user/dashboard",
+                href: "/desktopHome",
                 icon: <LuAppWindow className="w-6 h-6" />,
             },
             {
                 label: "Profile",
-                href: "/user/dashboard/profile",
+                href: "/desktopHome/profile",
                 icon: <LuUser className="w-6 h-6" />,
+            },
+            {
+                label: "Notifications",
+                href: "/desktopHome/notification",
+                icon: <LuBellRing className="w-6 h-6" />,
             }
         ]
     },
@@ -44,13 +49,13 @@ export const defaultNavItems = [
         links: [
             {
                 label: "Internal Email",
-                href: "/user/dashboard/internal_email",
+                href: "/desktopHome/internal_email",
                 icon: <LuCopySlash className="w-6 h-6" />,
             },
             {
                 label: "Chats",
-                href: "/user/dashboard/chats",
-                icon: <LuReplaceAll className="w-6 h-6" />,
+                href: "/desktopHome/chats",
+                icon: <LuMail className="w-6 h-6" />,
             }
         ]
     },
@@ -59,22 +64,22 @@ export const defaultNavItems = [
         links: [
             {
                 label: "Projects",
-                href: "/user/dashboard/projects",
-                icon: <LuTerminalSquare className="w-6 h-6" />,
+                href: "/desktopHome/projects",
+                icon: <LuSchool2 className="w-6 h-6" />,
             },
             {
                 label: "Samples",
-                href: "/user/dashboard/sample",
-                icon: <LuTerminalSquare className="w-6 h-6" />,
+                href: "/desktopHome/sample",
+                icon: <LuShieldCheck className="w-6 h-6" />,
             },
             {
                 label: "Reports",
-                href: "/user/dashboard/reports",
+                href: "/desktopHome/reports",
                 icon: <LuClipboardCheck className="w-6 h-6" />,
             },
             {
                 label: "Estimation",
-                href: "/user/dashboard/invoices",
+                href: "/desktopHome/invoices",
                 icon: <LuCalculator className="w-6 h-6" />,
             },
         ]
@@ -84,7 +89,7 @@ export const defaultNavItems = [
         links: [
             {
                 label: "Customer Support",
-                href: "/user/dashboard/support",
+                href: "/desktopHome/support",
                 icon: <LuHeadphones className="w-6 h-6" />,
             },
         ]

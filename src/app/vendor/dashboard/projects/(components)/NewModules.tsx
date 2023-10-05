@@ -26,6 +26,14 @@ mutation UpdateModuleTickets($where: ModuleTicketWhere, $update: ModuleTicketUpd
   }
   
 `
+const SEND_NOTIFICATION = `
+mutation CreateNotifications($input: [NotificationCreateInput!]!) {
+    createNotifications(input: $input) {
+      info {
+        nodesCreated
+      }
+    }
+  }`
 
 
 
@@ -41,6 +49,7 @@ const NewModules = () => {
     const [currentModuleId, setCurrentModuleId] = useState('')
     const [loading, setLoading] = useState(false)
     const [labEmail, setLabEmail] = useState('')
+    const [clientId, setClientId] = useState('')
     // pagination states
     const [pageLimit, setPageLimit] = useState(10)
     const [currentPage, setCurrentPage] = useState(1)
@@ -54,6 +63,7 @@ const NewModules = () => {
 
     // UPDATING MODULE STATUS
     const [updateModuleStatusFn, updateStatus] = useMutation(UPDATE_MODULE_STATUS, { client })
+    const [sendNotificationFn, notificationState] = useMutation(SEND_NOTIFICATION, { client })
 
 
     // getting module data
@@ -104,6 +114,8 @@ const NewModules = () => {
             if (data.updateModuleTickets.moduleTickets.length) {
                 console.log('updated')
                 getModulesData()
+                sendNotificationToVendor('REJECTED')
+
                 toast.success('Module updated successfully')
             }
         }
@@ -121,6 +133,7 @@ const NewModules = () => {
             if (data.updateModuleTickets.moduleTickets.length) {
                 console.log('updated')
                 getModulesData()
+                sendNotificationToVendor('ACCEPTED')
                 toast.success('Module updated successfully')
             }
         }
@@ -189,7 +202,48 @@ const NewModules = () => {
     }
 
 
-    console.log(modules, 'modules', labEmail)
+
+
+    const sendNotificationToVendor = async (type: string) => {
+
+        const { data: clientData } = await sendNotificationFn({
+            variables: {
+                "input": [
+                    {
+                        "title": `Vendor has ${type} a module`,
+                        "description": `Vendor has ${type} your module now you can chat with him`,
+                        "createdAt": new Date().toISOString(),
+                        "notificationFor": "CLIENT",
+                        "clientHas": {
+                            "connect": {
+                                "where": {
+                                    "node": {
+                                        "userIs": {
+                                            "id": clientId
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                ]
+            }
+        })
+        const { data: adminData } = await sendNotificationFn({
+            variables: {
+                "input": [
+                    {
+                        "title": `Vendor has ${type} a module`,
+                        "description": `Vendor has ${type} a module`,
+                        "createdAt": new Date().toISOString(),
+                        "notificationFor": "ADMIN",
+                    }
+                ]
+            }
+        })
+        console.log(clientData, adminData, 'client notification')
+    }
+
 
 
     if (loading || updateStatus.loading || authLoading) return <Loading />
@@ -227,7 +281,9 @@ const NewModules = () => {
                                     </button>
                                     <button
                                         onClick={() => {
+                                            setClientId(module?.clientHas?.userIs?.id)
                                             updateModule('ACCEPTED', module?.id)
+
                                         }}
                                         className='px-3 py-1 bg-green-600 text-white rounded'>
                                         Accept

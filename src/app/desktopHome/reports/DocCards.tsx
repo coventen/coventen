@@ -16,7 +16,7 @@ query ModuleTickets($where: ModuleTicketWhere) {
 `
 
 
-const DocCards = ({ currentModule, setIsOpen, confirmComplete }: { currentModule: string, confirmComplete: any, setIsOpen: any }) => {
+const DocCards = ({ currentModule, setIsOpen, confirmComplete, setVendorId }: { currentModule: string, confirmComplete: any, setIsOpen: any, setVendorId: any }) => {
 
 
     //hooks 
@@ -40,7 +40,6 @@ const DocCards = ({ currentModule, setIsOpen, confirmComplete }: { currentModule
 
 
     if (loading) return <p><Loading /></p>
-
 
 
     if (!data?.moduleTickets[0]?.reports?.length) return (

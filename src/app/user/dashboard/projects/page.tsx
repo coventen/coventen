@@ -10,7 +10,7 @@ const Projects = () => {
 
 
     return (
-        <div className='p-4 h-full max-h-screen  flex flex-col space-y-4 bg-white'>
+        <div className='p-4 h-full max-h-screen  flex flex-col space-y-4 bg-white min-h-[80vh]'>
 
             {/* project  sections  */}
             <section>

@@ -66,59 +66,26 @@ function NotificationView({ data, isNotificationViewModalOpen, setIsNotification
 
                             <div className="inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full sm:p-6">
                                 <p className="focus:outline-none pt-4 pb-8 text-base text-center sm:text-lg md:text-xl lg:text-2xl font-bold leading-normal text-gray-800">Notifications</p>
-                                <div className=''>
-                                    <div className="mb-5">
-                                        <label htmlFor="title" className="block  text-gray-700 text-sm mb-1">
-                                            Title
-                                        </label>
-                                        <input
-                                            id="title"
-                                            name="title"
-                                            type="text"
-                                            className="mt-1 px-4 py-2 border border-gray-200 rounded-md w-full"
-                                            value={data?.title}
-
-                                        />
-                                    </div>
-                                    <div className="mb-5">
-                                        <label htmlFor="title" className="block  text-gray-700 text-sm mb-1">
-                                            Type
-                                        </label>
-                                        <input
-                                            id="title"
-                                            name="title"
-                                            type="text"
-                                            className="mt-1 px-4 py-2 border border-gray-200 rounded-md w-full"
-                                            value={data?.type}
-
-                                        />
-                                    </div>
-
-
-                                    <div className="mb-5">
-                                        <label htmlFor="description" className="block  text-gray-700 text-sm mb-1">
-                                            Description
-                                        </label>
-                                        <textarea
-                                            id="description"
-                                            name="description"
-
-                                            className="mt-1 px-4 py-2 border border-gray-200 rounded-md w-full"
-                                            value={data?.description}
-
-                                        />
-                                    </div>
+                                <div className='space-y-4'>
+                                    <p className="block  text-gray-700 font-semibold  mb-1">
+                                        {data?.title}
+                                    </p>
+                                    <p className="block  text-gray-700  mb-1">
+                                        {data?.description}
+                                    </p>
 
 
 
-                                    <div className="mt-10">
+
+
+                                    <div className="mt-16">
 
                                         <button
                                             type="button"
-                                            className="ml-2 px-4 py-2 text-gray-500 rounded-md hover:bg-gray-200"
+                                            className="ml-2 px-4 py-1 text-gray-500 rounded-md hover:bg-gray-200"
                                             onClick={closeModal}
                                         >
-                                            Cancel
+                                            Close
                                         </button>
                                     </div>
                                 </div>

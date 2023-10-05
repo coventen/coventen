@@ -27,6 +27,7 @@ const ServicesFrom = ({ index, setServices, services }: IServiceFrom) => {
         //getting the dynamic data
         const serviceName = data[`serviceName${index}`];
         const price = data[`price${index}`];
+        const quantity = data[`quantity${index}`];
 
 
 
@@ -36,6 +37,7 @@ const ServicesFrom = ({ index, setServices, services }: IServiceFrom) => {
             const serviceData = {
                 serviceName,
                 price,
+                quantity
             };
 
             // checking if the module is already present
@@ -57,15 +59,19 @@ const ServicesFrom = ({ index, setServices, services }: IServiceFrom) => {
 
 
     return (
-        <form onChange={handleSubmit(handleServices)} className='grid  gap-6'>
-            <div className="max-w-md w-full">
+        <form onChange={handleSubmit(handleServices)} className='grid lg:grid-cols-5 gap-6'>
+            <div className="md:col-span-3">
                 <label htmlFor="">Service Name</label>
                 <input type="text" id="" className="h-10 border border-gray-300 mt-1 rounded px-4 w-full " placeholder=""  {...register(`serviceName${index}`)} />
             </div>
 
-            <div className="max-w-md w-full">
+            <div className="md:col-span-1">
+                <label htmlFor="">Quantity</label>
+                <input type='number' required defaultValue={1} className="h-10 border border-gray-300 mt-1 rounded px-4 w-full " placeholder="" {...register(`quantity${index}`)} />
+            </div>
+            <div className="md:col-span-1">
                 <label htmlFor="">Price</label>
-                <input type='number' className="h-10 border border-gray-300 mt-1 rounded px-4 w-full " placeholder="" {...register(`price${index}`)} />
+                <input type='number' required className="h-10 border border-gray-300 mt-1 rounded px-4 w-full " placeholder="" {...register(`price${index}`)} />
             </div>
         </form>
     );

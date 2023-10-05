@@ -39,10 +39,10 @@ const Main = () => {
 
     const search = searchParams.get('query')
 
-    console.log(search)
+
 
     // quires
-    const [getProductsFn, { data, loading, error }] = useManualQuery(GET_PRODUCTS, { client })
+    const [getProductsFn, dataState] = useManualQuery(GET_PRODUCTS, { client })
 
 
     useEffect(() => {
@@ -106,7 +106,7 @@ const Main = () => {
     }, [products?.length])
 
 
-    if (loading) return <Loading />
+    if (dataState.loading) return <Loading />
 
     return (
         <>

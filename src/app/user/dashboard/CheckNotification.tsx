@@ -1,34 +1,26 @@
 
 'use client'
-
+import React, { useEffect, useState } from 'react';
 import Loading from '@/app/loading';
 import AuthConfig from '@/firebase/oauth.config';
-import { getEmployerEmail } from '@/shared/getEmployerEmail';
-// Import required modules and components
 import getNotifications from '@/shared/graphQl/queries/getNotifications';
-import React, { useEffect, useState } from 'react';
 
 interface Props {
-    setSlideOverOpen: (value: boolean) => void;
+    setNewNotificationCount: (count: number) => void;
 }
 
-
-
-//component
-const CheckNotification = ({ setNewNotificationCount }: any) => {
-
-    const [data, setData] = useState<any>([])
-    const { user, authLoading } = AuthConfig()
-
+const CheckNotification = ({ setNewNotificationCount }: Props) => {
+    const [data, setData] = useState<any[]>([]);
+    const { user, authLoading } = AuthConfig();
 
     useEffect(() => {
-        getClinetNotification()
-    }, [authLoading, user?.email, authLoading]) //eslint-disable-line
-
+        if (!authLoading && user?.email) {
+            getClinetNotification();
+        }
+    }, [authLoading, user?.email]);
 
     const getClinetNotification = async () => {
         const variables = {
-
             "where": {
                 "notificationFor_IN": ["GENERAL"],
                 "createdAt_GTE": fiveDaysAgo(),
@@ -46,7 +38,6 @@ const CheckNotification = ({ setNewNotificationCount }: any) => {
                         "notificationFor": "GENERAL",
                     },
                 ]
-
             },
             "options": {
                 limit: 3,
@@ -56,16 +47,12 @@ const CheckNotification = ({ setNewNotificationCount }: any) => {
                     }
                 ]
             }
-        }
+        };
 
-        const data = await getNotifications(variables)
-        setData(data)
-    }
+        const fetchedData = await getNotifications(variables);
+        setData(fetchedData);
+    };
 
-
-
-
-    // Handle displaying a notification
     const handleNotify = (title: string, description: string, image: string) => {
         Notification.requestPermission().then((result) => {
             new Notification(title, {
@@ -75,40 +62,27 @@ const CheckNotification = ({ setNewNotificationCount }: any) => {
         });
     };
 
-    // Handle saving notification ID in local storage
     const handleNotificationView = (id: string) => {
-
         const previousData = localStorage.getItem("ViewedNotificationIds");
-
         const data = {
             key: 'ViewedNotificationIds',
-            value: previousData ? [...previousData, id] : [id],
+            value: previousData ? JSON.parse(previousData).concat(id) : [id],
         };
-
-        localStorage.setItem(data.key, JSON.stringify(data.value));
-
+        // localStorage.setItem(data.key, JSON.stringify(data.value));
     };
 
     useEffect(() => {
-        // Retrieve viewed notification IDs from local storage
         const viewedNotification = localStorage.getItem("ViewedNotificationIds");
         if (data?.length) {
-            setNewNotificationCount(data?.length)
+            setNewNotificationCount(data?.length);
             data?.forEach((item: any) => {
-                if (viewedNotification?.includes(item?.id)) {
-                    return;
+                if (!viewedNotification || !viewedNotification.includes(item?.id)) {
+                    // handleNotify(item?.title, item?.description, item?.image);
+                    handleNotificationView(item?.id);
                 }
-
-                handleNotify(item?.title, item?.description, item?.image);
-                handleNotificationView(item?.id);
-
             });
         }
-    }, [data?.length]); //eslint-disable-line
-
-
-
-    // Calculate the date that is five days before the current date
+    }, [data?.length]);
 
     function fiveDaysAgo() {
         const currentDate = new Date();
@@ -117,15 +91,13 @@ const CheckNotification = ({ setNewNotificationCount }: any) => {
         return tenDaysAgo.toISOString();
     }
 
+    if (authLoading) return <Loading />;
 
-    if (authLoading) return <Loading />
-
-
-    //render
+    // You can add your JSX content here to render notifications or other UI elements based on the fetched data.
 
     return (
         <div>
-
+            {/* Add your content here */}
         </div>
     );
 };

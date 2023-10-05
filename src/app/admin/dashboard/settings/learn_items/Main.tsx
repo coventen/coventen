@@ -22,7 +22,8 @@ export interface addVariables {
     credit: string,
     startDate: string,
     endDate: string,
-    rating: string
+    rating: string,
+    courseFor: string,
 
 }
 
@@ -91,6 +92,7 @@ const Main = () => {
                         "mode": input.mode,
                         "seats": input.seats,
                         rating: input.rating,
+                        courseFor: input.courseFor,
                         "price": input.price,
                         "credit": input.credit,
                         "startDate": input.startDate,
