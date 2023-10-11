@@ -52,6 +52,7 @@ const Main = () => {
         price: '',
         video: '',
         file: '',
+        sideImage: ''
 
     })
 
@@ -76,7 +77,7 @@ const Main = () => {
     // // action on change
     useEffect(() => {
         if (previousProductData?.products?.length) {
-            const { title, shortDescription, features, others, image, price, video, file } = previousProductData.products[0]
+            const { title, shortDescription, sideImage, features, others, image, price, video, file } = previousProductData.products[0]
             setFeatureEditorState(JSON.parse(features))
             setOthersEditorState(JSON.parse(others))
             setProductData({
@@ -85,7 +86,8 @@ const Main = () => {
                 image,
                 price,
                 file,
-                video
+                video,
+                sideImage
             })
         }
 
@@ -114,16 +116,16 @@ const Main = () => {
                     features: input.features,
                     others: input.others,
                     image: input.image || previousProductData?.products[0].image,
+                    sideImage: input.sideImage || previousProductData?.products[0].sideImage,
                     price: input.price,
                     video: input.video,
                     file: input.file,
-                    createdAt: new Date().toISOString()
                 }
             }
         })
         if (data?.updateProducts?.products?.length) {
             toast.success('Product updated successfully')
-            router.push('/admin/dashboard/products/create')
+            router.push('/admin/dashboard/settings/products')
 
         }
     }

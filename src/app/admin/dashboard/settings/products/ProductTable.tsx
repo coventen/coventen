@@ -92,6 +92,7 @@ const ProductTable = ({ productData, deleteProduct, addToHome }: IProductTablePr
                                     <button onClick={() => {
                                         deleteProduct(item.id)
                                         deleteImage(item?.image as string)
+                                        deleteImage(item?.sideImage as string)
 
                                     }} className="focus:ring-2 focus:ring-offset-2  text-sm leading-none text-red-700 py-2 px-2 bg-red-100 rounded  focus:outline-none">Delete</button>
 

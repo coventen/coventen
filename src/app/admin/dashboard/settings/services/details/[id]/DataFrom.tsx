@@ -9,6 +9,7 @@ import toast from 'react-hot-toast';
 import { Product } from '@/gql/graphql';
 import deleteImage from '@/shared/deleteImage';
 import PageTextEditor from '@/components/PageTextEditor';
+import { set } from 'react-hook-form';
 
 interface IAddProductProps {
     ServiceData: any,
@@ -29,6 +30,9 @@ const DataFrom = ({ ServiceData, setServiceData, ContentEditorState, setContentE
     const [CoverImage, setCoverImage] = useState<any>(null)
     const [thumbnail, setThumbnail] = useState<any>(null)
 
+    const [loading, setLoading] = useState<boolean>(false)
+    const [thumbnailLoading, setThumbnailLoading] = useState<boolean>(false)
+
 
     // hooks 
     const { uploadFile } = HandleFileUpload()
@@ -38,9 +42,26 @@ const DataFrom = ({ ServiceData, setServiceData, ContentEditorState, setContentE
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
+        setLoading(true)
+        setThumbnailLoading(true)
+        let CoverImageUrl
+        let thumbnailUrl
 
-        const CoverImageUrl = await uploadFile(CoverImage, `service-${uuidv4()}`, 'Service_Images')
-        const thumbnailUrl = await uploadFile(thumbnail, `service-${uuidv4()}`, 'Service_Images')
+        if (CoverImage) {
+            CoverImageUrl = await uploadFile(CoverImage, `service-${uuidv4()}`, 'Service_Images')
+            setLoading(false)
+        } else {
+            setLoading(false)
+        }
+        if (thumbnail) {
+            thumbnailUrl = await uploadFile(thumbnail, `service-${uuidv4()}`, 'Service_Images')
+            setThumbnailLoading(false)
+        } else {
+            setThumbnailLoading(false)
+        }
+
+
+
 
         if (CoverImageUrl && ServiceData.coverImageUrl) {
             deleteImage(ServiceData.coverImageUrl)
@@ -59,7 +80,6 @@ const DataFrom = ({ ServiceData, setServiceData, ContentEditorState, setContentE
 
 
         }
-
 
         updateServiceFn(inputData)
 
@@ -116,7 +136,7 @@ const DataFrom = ({ ServiceData, setServiceData, ContentEditorState, setContentE
                         <div className=" p-1  col-span-2 ">
                             <label htmlFor="">Short Description</label>
                             <textarea
-                                required
+
                                 rows={5}
                                 defaultValue={ServiceData?.description}
                                 onChange={(e) => setServiceData({ ...ServiceData, description: e.target.value })}
@@ -136,7 +156,9 @@ const DataFrom = ({ ServiceData, setServiceData, ContentEditorState, setContentE
                     </div>
                     <div className='mt-6 '>
 
-                        <button className='px-4 py-1.5 bg-primary text-white font-semibold'>Update</button>
+                        <button className='px-4 py-1.5 bg-primary text-white font-semibold'>
+                            {loading || thumbnailLoading ? 'uploading image...' : 'Update'}
+                        </button>
                     </div>
                 </form>
             </div>

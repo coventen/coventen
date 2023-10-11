@@ -146,6 +146,7 @@ const Main = () => {
     if (createState.loading) return <Loading />
 
 
+
     //render
     return (
         <form onSubmit={handleSubmit} className='bg-white rounded p-5 '>
@@ -162,6 +163,7 @@ const Main = () => {
                         name='userType'
                         className="mt-1 px-4 py-2 border border-gray-200 rounded-md w-full"
                     >
+                        <option>Select Category</option>
                         {
                             data?.categories && data?.categories.map((service: any) =>
                                 <option key={service?.id} value={service?.id} >{service?.name}</option>

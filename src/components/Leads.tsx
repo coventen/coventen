@@ -188,7 +188,7 @@ const Leads = () => {
                                                         {data?.industryPages?.map((option: any) => (
 
 
-                                                            <option key={option?.id} value={option?.title}>
+                                                            <option key={option?.id} value={option?.title} className='uppercase'>
                                                                 {option?.title}
                                                             </option>
                                                         ))}

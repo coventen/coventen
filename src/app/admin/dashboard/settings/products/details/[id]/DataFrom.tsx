@@ -11,6 +11,7 @@ import { v4 as uuidv4 } from 'uuid'
 import toast from 'react-hot-toast';
 import { Product } from '@/gql/graphql';
 import PageTextEditor from '@/components/PageTextEditor';
+import deleteImage from '@/shared/deleteImage';
 
 interface IAddProductProps {
     productData: any,
@@ -31,7 +32,10 @@ const DataFrom = ({ productData, setProductData, featureEditorState, setFeatureE
 
     // states
     const [image, setImage] = useState<File | null>(null)
+    const [sideImage, setSideImage] = useState<File | null>(null)
+    const [uploading, setUploading] = useState(false)
 
+    const [sideImageUploading, setSideImageUploading] = useState(false)
 
     // hooks 
     const { uploadFile } = HandleFileUpload()
@@ -40,10 +44,34 @@ const DataFrom = ({ productData, setProductData, featureEditorState, setFeatureE
 
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+        setUploading(true)
+        setSideImageUploading(true)
         e.preventDefault()
+        let sideImageLink
+        let imageLink
 
-        const imageLink = await uploadFile(image, `product-${uuidv4()}`, 'product_Images')
-        if (!imageLink) return toast.error('Something went wrong  please try again later ')
+        if (image) {
+            imageLink = await uploadFile(image, `product-${uuidv4()}`, 'product_Images')
+            setUploading(false)
+        } else {
+            setUploading(false)
+        }
+        if (sideImage) {
+            sideImageLink = await uploadFile(sideImage, `product-${uuidv4()}`, 'product_Images')
+            setSideImageUploading(false)
+        } else {
+            setSideImageUploading(false)
+        }
+
+
+        if (image && productData?.image) {
+            deleteImage(productData.image)
+
+        }
+        if (sideImage && productData?.sideImage) {
+            deleteImage(productData.sideImage)
+        }
+
 
         const inputData = {
             title: productData?.title,
@@ -51,6 +79,7 @@ const DataFrom = ({ productData, setProductData, featureEditorState, setFeatureE
             file: productData?.file,
             shortDescription: productData?.shortDescription,
             image: imageLink,
+            sideImage: sideImageLink,
             price: parseInt(productData?.price),
             features: JSON.stringify(featureEditorState),
             others: JSON.stringify(othersEditorState),
@@ -73,7 +102,7 @@ const DataFrom = ({ productData, setProductData, featureEditorState, setFeatureE
                         <div className=" p-1 col-span-2">
                             <label htmlFor="">Title</label>
                             <input
-                                required
+
                                 type="text"
                                 name="title"
                                 defaultValue={productData?.title}
@@ -85,11 +114,11 @@ const DataFrom = ({ productData, setProductData, featureEditorState, setFeatureE
                         <div className=" p-1  col-span-2">
                             <label htmlFor="">Price</label>
                             <input
-                                required
+
                                 type="text"
                                 name="price"
-                                defaultValue={productData?.price || 0}
-                                onChange={(e) => setProductData({ ...productData, price: e.target.value })}
+                                defaultValue={productData?.price}
+                                onChange={(e) => setProductData({ ...productData, price: parseInt(e.target.value) })}
                                 placeholder="price"
                                 className="mt-2 w-full block  placeholder-gray-400/70 rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-gray-700 focus:primary focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:primary/10"
                             />
@@ -109,10 +138,27 @@ const DataFrom = ({ productData, setProductData, featureEditorState, setFeatureE
                                 className="mt-2 w-full block  placeholder-gray-400/70 rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-gray-700 focus:primary focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:primary/10"
                             />
                         </div>
+                        <div className=" p-1  col-span-2">
+                            <label htmlFor="title" className="block  text-gray-700 text-sm mb-1">
+                                Image
+                            </label>
+                            <input
+
+                                type="file"
+                                name="Image2"
+                                onChange={(e) => {
+                                    if (e?.target?.files && e.target.files.length > 0) {
+                                        setSideImage(e.target.files[0]);
+                                    }
+                                }}
+                                placeholder="Image"
+                                className="mt-2 w-full block  placeholder-gray-400/70 rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-gray-700 focus:primary focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:primary/10"
+                            />
+                        </div>
                         <div className=" p-1 col-span-2">
                             <label htmlFor="">file Url</label>
                             <input
-                                required
+
                                 type="text"
                                 name="file"
                                 defaultValue={productData?.file}
@@ -124,7 +170,7 @@ const DataFrom = ({ productData, setProductData, featureEditorState, setFeatureE
                         <div className=" p-1 col-span-2">
                             <label htmlFor="">Video Url</label>
                             <input
-                                required
+
                                 type="text"
                                 name="video"
                                 defaultValue={productData?.video}
@@ -136,7 +182,7 @@ const DataFrom = ({ productData, setProductData, featureEditorState, setFeatureE
                         <div className=" p-1  col-span-2 ">
                             <label htmlFor="">Short Description</label>
                             <textarea
-                                required
+
                                 rows={5}
                                 defaultValue={productData?.shortDescription}
                                 onChange={(e) => setProductData({ ...productData, shortDescription: e.target.value })}
@@ -159,7 +205,10 @@ const DataFrom = ({ productData, setProductData, featureEditorState, setFeatureE
                     </div>
                     <div className='mt-6 '>
 
-                        <button className='px-4 py-1.5 bg-primary text-white font-semibold'>Update</button>
+                        <button className='px-4 py-1.5 bg-primary text-white font-semibold'>{
+                            uploading || sideImageUploading ? 'Uploading Images...' : 'Update Product'
+
+                        }</button>
                     </div>
                 </form>
             </div>

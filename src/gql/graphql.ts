@@ -3798,6 +3798,21 @@ export type AdminHasLearnitemNodeAggregationWhereInput = {
   AND?: InputMaybe<Array<AdminHasLearnitemNodeAggregationWhereInput>>;
   NOT?: InputMaybe<AdminHasLearnitemNodeAggregationWhereInput>;
   OR?: InputMaybe<Array<AdminHasLearnitemNodeAggregationWhereInput>>;
+  courseFor_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  courseFor_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  courseFor_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  courseFor_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  courseFor_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  courseFor_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  courseFor_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  courseFor_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  courseFor_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  courseFor_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  courseFor_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  courseFor_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  courseFor_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  courseFor_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  courseFor_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
   createdAt_MAX_EQUAL?: InputMaybe<Scalars['DateTime']['input']>;
   createdAt_MAX_GT?: InputMaybe<Scalars['DateTime']['input']>;
   createdAt_MAX_GTE?: InputMaybe<Scalars['DateTime']['input']>;
@@ -4302,6 +4317,21 @@ export type AdminHasProductNodeAggregationWhereInput = {
   shortDescription_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
   shortDescription_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
   shortDescription_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  sideImage_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  sideImage_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  sideImage_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  sideImage_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  sideImage_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  sideImage_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  sideImage_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  sideImage_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  sideImage_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  sideImage_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  sideImage_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  sideImage_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  sideImage_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  sideImage_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  sideImage_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
   title_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
   title_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
   title_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
@@ -5117,6 +5147,7 @@ export type AdminLearnItemHasLearnitemAggregationSelection = {
 
 export type AdminLearnItemHasLearnitemNodeAggregateSelection = {
   __typename?: 'AdminLearnItemHasLearnitemNodeAggregateSelection';
+  courseFor: StringAggregateSelectionNullable;
   createdAt: DateTimeAggregateSelectionNullable;
   credit: StringAggregateSelectionNullable;
   description: StringAggregateSelectionNullable;
@@ -5189,6 +5220,7 @@ export type AdminProductHasProductNodeAggregateSelection = {
   others: StringAggregateSelectionNullable;
   price: IntAggregateSelectionNullable;
   shortDescription: StringAggregateSelectionNullable;
+  sideImage: StringAggregateSelectionNullable;
   title: StringAggregateSelectionNullable;
   video: StringAggregateSelectionNullable;
 };
@@ -6627,6 +6659,21 @@ export type CategoryHasProductNodeAggregationWhereInput = {
   shortDescription_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
   shortDescription_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
   shortDescription_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  sideImage_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  sideImage_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  sideImage_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  sideImage_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  sideImage_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  sideImage_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  sideImage_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  sideImage_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  sideImage_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  sideImage_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  sideImage_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  sideImage_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  sideImage_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  sideImage_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  sideImage_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
   title_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
   title_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
   title_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
@@ -6904,6 +6951,7 @@ export type CategoryProductHasProductNodeAggregateSelection = {
   others: StringAggregateSelectionNullable;
   price: IntAggregateSelectionNullable;
   shortDescription: StringAggregateSelectionNullable;
+  sideImage: StringAggregateSelectionNullable;
   title: StringAggregateSelectionNullable;
   video: StringAggregateSelectionNullable;
 };
@@ -14180,6 +14228,21 @@ export type HomePageHasProductNodeAggregationWhereInput = {
   shortDescription_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
   shortDescription_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
   shortDescription_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  sideImage_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  sideImage_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  sideImage_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  sideImage_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  sideImage_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  sideImage_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  sideImage_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  sideImage_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  sideImage_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  sideImage_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  sideImage_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  sideImage_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  sideImage_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  sideImage_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  sideImage_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
   title_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
   title_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
   title_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
@@ -14300,6 +14363,7 @@ export type HomePageProductHasProductNodeAggregateSelection = {
   others: StringAggregateSelectionNullable;
   price: IntAggregateSelectionNullable;
   shortDescription: StringAggregateSelectionNullable;
+  sideImage: StringAggregateSelectionNullable;
   title: StringAggregateSelectionNullable;
   video: StringAggregateSelectionNullable;
 };
@@ -17020,6 +17084,7 @@ export type LearnItem = {
   adminHas?: Maybe<Admin>;
   adminHasAggregate?: Maybe<LearnItemAdminAdminHasAggregationSelection>;
   adminHasConnection: LearnItemAdminHasConnection;
+  courseFor?: Maybe<Scalars['String']['output']>;
   createdAt?: Maybe<Scalars['DateTime']['output']>;
   credit?: Maybe<Scalars['String']['output']>;
   description?: Maybe<Scalars['String']['output']>;
@@ -17163,6 +17228,7 @@ export type LearnItemAdminHasUpdateFieldInput = {
 export type LearnItemAggregateSelection = {
   __typename?: 'LearnItemAggregateSelection';
   count: Scalars['Int']['output'];
+  courseFor: StringAggregateSelectionNullable;
   createdAt: DateTimeAggregateSelectionNullable;
   credit: StringAggregateSelectionNullable;
   description: StringAggregateSelectionNullable;
@@ -17196,6 +17262,7 @@ export type LearnItemConnectWhere = {
 
 export type LearnItemCreateInput = {
   adminHas?: InputMaybe<LearnItemAdminHasFieldInput>;
+  courseFor?: InputMaybe<Scalars['String']['input']>;
   createdAt?: InputMaybe<Scalars['DateTime']['input']>;
   credit?: InputMaybe<Scalars['String']['input']>;
   description?: InputMaybe<Scalars['String']['input']>;
@@ -17225,6 +17292,7 @@ export type LearnItemEdge = {
 };
 
 export type LearnItemOnCreateInput = {
+  courseFor?: InputMaybe<Scalars['String']['input']>;
   createdAt?: InputMaybe<Scalars['DateTime']['input']>;
   credit?: InputMaybe<Scalars['String']['input']>;
   description?: InputMaybe<Scalars['String']['input']>;
@@ -17252,6 +17320,7 @@ export type LearnItemRelationInput = {
 
 /** Fields to sort LearnItems by. The order in which sorts are applied is not guaranteed when specifying many fields in one LearnItemSort object. */
 export type LearnItemSort = {
+  courseFor?: InputMaybe<SortDirection>;
   createdAt?: InputMaybe<SortDirection>;
   credit?: InputMaybe<SortDirection>;
   description?: InputMaybe<SortDirection>;
@@ -17273,6 +17342,7 @@ export type LearnItemUniqueWhere = {
 
 export type LearnItemUpdateInput = {
   adminHas?: InputMaybe<LearnItemAdminHasUpdateFieldInput>;
+  courseFor?: InputMaybe<Scalars['String']['input']>;
   createdAt?: InputMaybe<Scalars['DateTime']['input']>;
   credit?: InputMaybe<Scalars['String']['input']>;
   description?: InputMaybe<Scalars['String']['input']>;
@@ -17300,6 +17370,11 @@ export type LearnItemWhere = {
   adminHasConnection?: InputMaybe<LearnItemAdminHasConnectionWhere>;
   adminHasConnection_NOT?: InputMaybe<LearnItemAdminHasConnectionWhere>;
   adminHas_NOT?: InputMaybe<AdminWhere>;
+  courseFor?: InputMaybe<Scalars['String']['input']>;
+  courseFor_CONTAINS?: InputMaybe<Scalars['String']['input']>;
+  courseFor_ENDS_WITH?: InputMaybe<Scalars['String']['input']>;
+  courseFor_IN?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  courseFor_STARTS_WITH?: InputMaybe<Scalars['String']['input']>;
   createdAt?: InputMaybe<Scalars['DateTime']['input']>;
   createdAt_GT?: InputMaybe<Scalars['DateTime']['input']>;
   createdAt_GTE?: InputMaybe<Scalars['DateTime']['input']>;
@@ -22210,6 +22285,7 @@ export type Product = {
   others?: Maybe<Scalars['String']['output']>;
   price?: Maybe<Scalars['Int']['output']>;
   shortDescription?: Maybe<Scalars['String']['output']>;
+  sideImage?: Maybe<Scalars['String']['output']>;
   title?: Maybe<Scalars['String']['output']>;
   video?: Maybe<Scalars['String']['output']>;
 };
@@ -22394,6 +22470,7 @@ export type ProductAggregateSelection = {
   others: StringAggregateSelectionNullable;
   price: IntAggregateSelectionNullable;
   shortDescription: StringAggregateSelectionNullable;
+  sideImage: StringAggregateSelectionNullable;
   title: StringAggregateSelectionNullable;
   video: StringAggregateSelectionNullable;
 };
@@ -22550,6 +22627,7 @@ export type ProductCreateInput = {
   others?: InputMaybe<Scalars['String']['input']>;
   price?: InputMaybe<Scalars['Int']['input']>;
   shortDescription?: InputMaybe<Scalars['String']['input']>;
+  sideImage?: InputMaybe<Scalars['String']['input']>;
   title?: InputMaybe<Scalars['String']['input']>;
   video?: InputMaybe<Scalars['String']['input']>;
 };
@@ -22717,6 +22795,7 @@ export type ProductOnCreateInput = {
   others?: InputMaybe<Scalars['String']['input']>;
   price?: InputMaybe<Scalars['Int']['input']>;
   shortDescription?: InputMaybe<Scalars['String']['input']>;
+  sideImage?: InputMaybe<Scalars['String']['input']>;
   title?: InputMaybe<Scalars['String']['input']>;
   video?: InputMaybe<Scalars['String']['input']>;
 };
@@ -22746,6 +22825,7 @@ export type ProductSort = {
   others?: InputMaybe<SortDirection>;
   price?: InputMaybe<SortDirection>;
   shortDescription?: InputMaybe<SortDirection>;
+  sideImage?: InputMaybe<SortDirection>;
   title?: InputMaybe<SortDirection>;
   video?: InputMaybe<SortDirection>;
 };
@@ -22769,6 +22849,7 @@ export type ProductUpdateInput = {
   price_DECREMENT?: InputMaybe<Scalars['Int']['input']>;
   price_INCREMENT?: InputMaybe<Scalars['Int']['input']>;
   shortDescription?: InputMaybe<Scalars['String']['input']>;
+  sideImage?: InputMaybe<Scalars['String']['input']>;
   title?: InputMaybe<Scalars['String']['input']>;
   video?: InputMaybe<Scalars['String']['input']>;
 };
@@ -22836,6 +22917,11 @@ export type ProductWhere = {
   shortDescription_ENDS_WITH?: InputMaybe<Scalars['String']['input']>;
   shortDescription_IN?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   shortDescription_STARTS_WITH?: InputMaybe<Scalars['String']['input']>;
+  sideImage?: InputMaybe<Scalars['String']['input']>;
+  sideImage_CONTAINS?: InputMaybe<Scalars['String']['input']>;
+  sideImage_ENDS_WITH?: InputMaybe<Scalars['String']['input']>;
+  sideImage_IN?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  sideImage_STARTS_WITH?: InputMaybe<Scalars['String']['input']>;
   title?: InputMaybe<Scalars['String']['input']>;
   title_CONTAINS?: InputMaybe<Scalars['String']['input']>;
   title_ENDS_WITH?: InputMaybe<Scalars['String']['input']>;

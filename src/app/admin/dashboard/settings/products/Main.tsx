@@ -45,6 +45,7 @@ query Products($options: ProductOptions) {
       others
       features
       image
+      sideImage
       createdAt
       price
       isPopular
