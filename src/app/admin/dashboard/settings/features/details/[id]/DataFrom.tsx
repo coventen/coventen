@@ -46,7 +46,14 @@ const DataFrom = ({ currentData, setCurrentData, updateItem, setImageUploading }
             const inputData = {
                 title: currentData?.title,
                 description: currentData?.description,
-                image: imageLink || currentData.image
+                image: imageLink
+            }
+            updateItem(inputData)
+        } else {
+            const inputData = {
+                title: currentData?.title,
+                description: currentData?.description,
+                image: currentData.image
             }
             updateItem(inputData)
         }
