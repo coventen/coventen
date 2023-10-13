@@ -4,6 +4,7 @@ import Hero from '@/components/Home/Hero'
 import Services from '@/components/Home/Services'
 import Products from '@/components/Home/Products'
 import Leads from '@/components/Leads'
+import SpacialProducts from '@/components/Home/SpacialProducts'
 
 
 // fetch data from api
@@ -61,7 +62,7 @@ const homeServices = async () => {
   return data.services
 }
 
-const homeProducts = async () => {
+const popularProducts = async () => {
   const res = fetch('https://coventenapp.el.r.appspot.com/', {
     method: 'POST',
     headers: {
@@ -81,6 +82,36 @@ const homeProducts = async () => {
       variables: {
         "where": {
           "isPopular": true
+        }
+      }
+
+    }),
+    next: { revalidate: 10 }
+
+  })
+  const { data } = await res.then(res => res.json())
+  return data.products
+}
+const spacialProducts = async () => {
+  const res = fetch('https://coventenapp.el.r.appspot.com/', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      query: `
+      query Products($where: ProductWhere) {
+        products(where: $where) {
+          title
+          shortDescription
+          image
+          id
+        }
+      }
+      `,
+      variables: {
+        "where": {
+          "isSpecial": true
         }
       }
 
@@ -162,10 +193,11 @@ export default async function Home() {
   const homeClientDataPromise = await homeClient()
   const homeServicePromise = await homeServices()
   const heroDataPromise = await heroDataFn()
-  const productPromise = await homeProducts()
+  const productPromise = await popularProducts()
+  const spacialProductsPromise = await spacialProducts()
   const aboutCompanyPromise = await aboutCompanyFn()
 
-  const [clientData, services, heroData, products, aboutCompany] = await Promise.all([homeClientDataPromise, homeServicePromise, heroDataPromise, productPromise, aboutCompanyPromise])
+  const [clientData, services, heroData, products, aboutCompany, spacialProductsData] = await Promise.all([homeClientDataPromise, homeServicePromise, heroDataPromise, productPromise, aboutCompanyPromise, spacialProductsPromise])
 
 
 
@@ -177,7 +209,7 @@ export default async function Home() {
         <Services services={services} />
         <Products products={products} />
         <AboutUs data={aboutCompany} />
-        <Products products={products} />
+        <SpacialProducts products={spacialProductsData} />
         <Companies clients={clientData} />
       </section>
       <Leads />

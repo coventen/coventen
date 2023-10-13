@@ -7,7 +7,7 @@ import React from 'react';
 interface IProductTableProps {
     productData: Product[]
     deleteProduct: (id: string) => void
-    addToHome: (id: string, status: boolean) => void
+    addToHome: (id: string, status: boolean, type: string) => void
 }
 
 const ProductTable = ({ productData, deleteProduct, addToHome }: IProductTableProps) => {
@@ -82,19 +82,25 @@ const ProductTable = ({ productData, deleteProduct, addToHome }: IProductTablePr
                             <td className="px-5 py-5 border-b border-gray-200 bg-white text-xs">
                                 <div className="relative flex items-center justify-center  space-x-4 px-8 ">
 
-                                    <Link href={`/admin/dashboard/settings/products/details/${item?.id}`} className="focus:ring-2 focus:ring-offset-2  text-sm leading-none text-primary py-2 px-2 bg-primary/20 rounded  focus:outline-none">Update</Link>
+                                    <Link href={`/admin/dashboard/settings/products/details/${item?.id}`} className="focus:ring-2 focus:ring-offset-2  text-xs leading-none text-primary py-2 px-2 bg-primary/20 rounded  focus:outline-none">Update</Link>
                                     {
                                         item.isPopular ?
-                                            <button onClick={() => addToHome(item?.id, false)} className="focus:ring-2 focus:ring-offset-2  text-sm leading-none text-red-700 py-2 px-2 bg-red-100 rounded  focus:outline-none">Remove from Home</button>
+                                            <button onClick={() => addToHome(item?.id, false, 'popular')} className="focus:ring-2 focus:ring-offset-2  text-xs leading-none text-red-700 py-2 px-2 bg-red-100 rounded  focus:outline-none">Remove from Popular</button>
                                             :
-                                            <button onClick={() => addToHome(item?.id, true)} className="focus:ring-2 focus:ring-offset-2  text-sm leading-none text-green-800 py-2 px-2 bg-green-100  rounded  focus:outline-none">Add to Home</button>
+                                            <button onClick={() => addToHome(item?.id, true, 'popular')} className="focus:ring-2 focus:ring-offset-2  text-xs leading-none text-green-800 py-2 px-2 bg-green-100  rounded  focus:outline-none">Make Popular</button>
+                                    }
+                                    {
+                                        item.isSpecial ?
+                                            <button onClick={() => addToHome(item?.id, false, 'spacial')} className="focus:ring-2 focus:ring-offset-2  text-xs leading-none text-red-700 py-2 px-2 bg-red-100 rounded  focus:outline-none">Remove from Spacial</button>
+                                            :
+                                            <button onClick={() => addToHome(item?.id, true, 'spacial')} className="focus:ring-2 focus:ring-offset-2  text-xs leading-none text-green-800 py-2 px-2 bg-green-100  rounded  focus:outline-none">Make Spacial</button>
                                     }
                                     <button onClick={() => {
                                         deleteProduct(item.id)
                                         deleteImage(item?.image as string)
                                         deleteImage(item?.sideImage as string)
 
-                                    }} className="focus:ring-2 focus:ring-offset-2  text-sm leading-none text-red-700 py-2 px-2 bg-red-100 rounded  focus:outline-none">Delete</button>
+                                    }} className="focus:ring-2 focus:ring-offset-2  text-xs leading-none text-red-700 py-2 px-2 bg-red-100 rounded  focus:outline-none">Delete</button>
 
                                 </div>
                             </td>

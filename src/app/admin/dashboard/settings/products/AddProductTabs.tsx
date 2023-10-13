@@ -14,7 +14,7 @@ interface IAddProductTabsProps {
     addNewProductFn: (input: addProductVariables) => void,
     productData: Product[]
     deleteProduct: (id: string) => void
-    addToHome: (id: string, status: boolean) => void
+    addToHome: (id: string, status: boolean, type: string) => void
 }
 
 

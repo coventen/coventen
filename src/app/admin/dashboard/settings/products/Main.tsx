@@ -49,6 +49,7 @@ query Products($options: ProductOptions) {
       createdAt
       price
       isPopular
+      isSpecial
     }
   }
 
@@ -142,15 +143,15 @@ const Main = () => {
 
 
 
-    const addToHome = async (id: string, status: boolean) => {
+    const addToHome = async (id: string, status: boolean, type: string) => {
         const { data } = await addToHomeFn({
             variables: {
                 where: {
                     id: id
                 },
                 "update": {
-                    "isPopular": status,
-                    // "isSpecial": null
+                    "isPopular": type === 'popular' ? status : false,
+                    "isSpecial": type === 'spacial' ? status : false
                 }
             }
         })
