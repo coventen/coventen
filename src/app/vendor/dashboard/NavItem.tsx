@@ -46,6 +46,16 @@ export const controlledNavItems = [
                 icon: <LuSchool2 className="" />,
             },
             {
+                label: "Tests",
+                href: "/vendor/dashboard/tests",
+                icon: <LuSchool2 className="" />,
+            },
+            {
+                label: "Reports",
+                href: "/vendor/dashboard/reports",
+                icon: <LuSchool2 className="" />,
+            },
+            {
                 label: "Project Samples",
                 href: "/vendor/dashboard/sample",
                 icon: <LuSchool2 className="" />,
