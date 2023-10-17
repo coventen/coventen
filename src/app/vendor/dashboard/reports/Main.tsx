@@ -139,17 +139,17 @@ const Main = () => {
       const { data } = await getReportsFn({
         variables: {
           variables: {
-            where: {
-              status: "DRAFT",
+            "where": {
+              "status": "COMPLETED",
               "userHas": {
-                "email": email || ' no email'
+                "email": email || 'no email'
               }
             }
           },
-          options: {
-            sort: [
+          "options": {
+            "sort": [
               {
-                createdAt: "DESC"
+                "createdAt": "ASC"
               }
             ]
           }
@@ -163,7 +163,7 @@ const Main = () => {
 
 
 
-
+  console.log(reportData, "666666666666666666")
 
 
   // useEffect(() => { }, [reportData])

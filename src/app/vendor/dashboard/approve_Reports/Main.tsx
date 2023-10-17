@@ -213,7 +213,7 @@ const Main = () => {
             variables: variables
         })
 
-        if (data.updateModuleTickets.moduleTickets[0]?.id) {
+        if (data?.updateModules) {
             console.log('updated')
             setReset(!reset)
             getModulesData()

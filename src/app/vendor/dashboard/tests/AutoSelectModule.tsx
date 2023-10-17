@@ -38,13 +38,13 @@ const AutoSelectModule = ({ selected, setSelected }: any) => {
     // refetching data based on  query
 
     useEffect(() => {
-        getticketData(query)
+        getticketData(query.toUpperCase(), user?.email)
     }, [query])
 
 
     useEffect(() => {
         getLabEmail()
-        getticketData()
+        getticketData('', user?.email)
     }, [user?.email])
 
 
@@ -59,7 +59,7 @@ const AutoSelectModule = ({ selected, setSelected }: any) => {
 
 
 
-    const getticketData = async (query = '') => {
+    const getticketData = async (query = '', email: string) => {
         const { data } = await getticketFn({
             variables: {
                 "where": {
@@ -67,7 +67,7 @@ const AutoSelectModule = ({ selected, setSelected }: any) => {
                     "status": "ACCEPTED",
                     "vendorHas": {
                         "userIs": {
-                            "email": labEmail || 'no email'
+                            "email": email || 'no email'
                         }
                     }
                 },

@@ -18,7 +18,7 @@ const ModuleCards = ({ data, deleteModuleById }: { data: Module[], deleteModuleB
         setExpandedIndex((prevIndex) => (prevIndex === index ? null : index));
     };
 
-
+    console.log(data, ' 999999999999999999999999')
 
 
 

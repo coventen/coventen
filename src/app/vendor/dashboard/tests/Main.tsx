@@ -23,6 +23,7 @@ query TestTickets($options: TestTicketOptions, $where: TestTicketWhere) {
         title
         files
         description
+        status
         createdAt
       }
     }
@@ -71,7 +72,7 @@ const Main = () => {
     // refetching data based on pagination 
     useEffect(() => {
         getLabEmail()
-        getProjectData()
+        getProjectData(user?.email)
         // getProjectCount()
 
     }, [currentPage, user?.email]);
@@ -99,30 +100,32 @@ const Main = () => {
 
     }
 
-    const getProjectData = async () => {
-        const { data } = await getProjectFn({
-            variables: {
-                // "where": {
-                //     "userHas": {
-                //         "email": labEmail || 'no email'
-                //     }
-                // },
-                options: {
-                    limit: pageLimit,
-                    offset: (currentPage - 1) * pageLimit,
-                    sort: [
-                        {
-                            createdAt: "DESC"
+    const getProjectData = async (email: string) => {
+        if (email) {
+            const { data } = await getProjectFn({
+                variables: {
+                    "where": {
+                        "userHas": {
+                            "email": email || 'no email'
                         }
-                    ]
+                    },
+                    options: {
+                        limit: pageLimit,
+                        offset: (currentPage - 1) * pageLimit,
+                        sort: [
+                            {
+                                createdAt: "DESC"
+                            }
+                        ]
+                    }
                 }
+            })
+
+
+
+            if (data.testTickets.length) {
+                setProjectData(data?.testTickets)
             }
-        })
-
-
-
-        if (data.testTickets.length) {
-            setProjectData(data?.testTickets)
         }
     }
 
@@ -136,7 +139,7 @@ const Main = () => {
             }
         })
         if (data.deleteModules.nodesDeleted) {
-            getProjectData()
+            getProjectData(user?.email)
             toast.error('module Deleted ')
         }
     }
@@ -166,7 +169,7 @@ const Main = () => {
             }
         })
         if (data.deleteTestTickets.nodesDeleted) {
-            getProjectData()
+            getProjectData(user?.email)
             toast.error('Project Deleted ')
             modules.map((module) => deleteModuleById(module))
         }
