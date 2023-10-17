@@ -8,7 +8,7 @@ import AnimatedButton from '../AnimatedButton';
 
 
 
-export default function Products({ products }: { products: any }) {
+export default function SpacialProducts({ products }: { products: any }) {
 
 
 

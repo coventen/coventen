@@ -124,8 +124,6 @@ const Main = () => {
             const email = await getEmployerEmail(user?.email)
             setLabEmail(email)
         }
-
-
     }
 
 

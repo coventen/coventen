@@ -68,8 +68,11 @@ const CheckNotification = ({ setNewNotificationCount }: any) => {
             key: 'ViewedNotificationIds',
             value: previousData ? [...previousData, id] : [id],
         };
+        if (previousData) {
+            localStorage.removeItem(data.key)
+        }
 
-        localStorage.setItem(data.key, JSON.stringify(data.value));
+        // localStorage.setItem(data.key, JSON.stringify(""));
 
     };
 

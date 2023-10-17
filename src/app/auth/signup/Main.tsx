@@ -68,7 +68,7 @@ const Main = () => {
                         isVendor: {
                             create: {
                                 node: {
-                                    industry: selectedIndustries.map((industry) => industry.name),
+                                    // industry: selectedIndustries.map((industry) => industry.name),
                                     sub_type: sub_type
                                 }
                             }

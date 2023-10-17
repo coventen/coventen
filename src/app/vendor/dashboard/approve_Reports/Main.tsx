@@ -4,13 +4,14 @@ import React, { useEffect, useState } from 'react';
 import ViewModal from './ViewModal';
 import Loading from '@/app/loading';
 import { useGqlClient } from '@/hooks/UseGqlClient';
-import { useMutation } from 'graphql-hooks';
+import { useManualQuery, useMutation } from 'graphql-hooks';
 import { toast } from 'react-hot-toast';
 import ComplainModal from './ComplainModal';
 import Pagination from '@/components/Pagination';
 import Error from '@/components/Error';
 import GetModules from '@/shared/graphQl/queries/modules';
 import createLog from '@/shared/graphQl/mutations/createLog';
+import { Module } from '@/gql/graphql';
 
 
 
@@ -36,6 +37,33 @@ mutation CreateNotifications($input: [NotificationCreateInput!]!) {
   }`
 
 
+const GET_TEST_MODULES = `
+  query Modules($options: ModuleOptions, $where: ModuleWhere) {
+    modules(options: $options, where: $where) {
+      id
+      title
+      description
+      files
+      ticket
+      status
+      type
+      reports
+    }
+  }
+  `
+
+const UPDATE_TEST_MODULE = `
+mutation UpdateModules($where: ModuleWhere, $update: ModuleUpdateInput, $disconnect: ModuleDisconnectInput) {
+    updateModules(where: $where, update: $update, disconnect: $disconnect) {
+      info {
+        nodesCreated
+        relationshipsCreated
+      }
+    }
+  }
+`
+
+
 // component
 const Main = () => {
     //states
@@ -46,6 +74,8 @@ const Main = () => {
     const [isOpen, setIsOpen] = useState(false)
     const [isViewModalOpen, setIsViewModalOpen] = useState(false)
     const [clientId, setClientId] = useState('')
+    const [testModuleData, setTestModuleData] = useState<Module[]>([])
+    const [moduleType, setModuleType] = useState('' as any)
     // pagination states
     const [pageLimit, setPageLimit] = useState(10)
     const [currentPage, setCurrentPage] = useState(1)
@@ -60,7 +90,8 @@ const Main = () => {
     // mutations
     const [updateModuleStatusFn, updateStatus] = useMutation(UPDATE_MODULE, { client })
     const [sendNotificationFn, notificationState] = useMutation(SEND_NOTIFICATION, { client })
-
+    const [getTestModulesFn, status] = useManualQuery(GET_TEST_MODULES, { client })
+    const [updateTestModuleStatusFn, updateTestStatus] = useMutation(UPDATE_TEST_MODULE, { client })
 
 
 
@@ -69,12 +100,39 @@ const Main = () => {
     useEffect(() => {
         getModulesData()
         getTotalModulesCount()
+        getTestModule()
     }, [currentPage, user?.email]);
 
 
 
 
+    // get test module data
+    const getTestModule = async () => {
+        const { data } = await getTestModulesFn({
+            variables: {
+                "options": {
+                    "sort": [
+                        {
+                            "createdAt": "ASC"
+                        }
+                    ]
+                },
+                "where": {
+                    status: "UNDER_REVIEW",
+                    "forUser": {
+                        "email": user?.email || 'no email'
+                    }
+                }
+            }
+        })
+        console.log(data?.modules, ' this is data77777777777777777777777')
 
+        if (data) {
+
+            setTestModuleData(data?.modules)
+        }
+
+    }
     // get module data
     const getModulesData = async () => {
         setLoading(true)
@@ -149,10 +207,26 @@ const Main = () => {
 
         }
     }
+    // update Test module status after uploading doc
+    const updateTestModule = async (variables: any) => {
+        const { data } = await updateTestModuleStatusFn({
+            variables: variables
+        })
+
+        if (data.updateModuleTickets.moduleTickets[0]?.id) {
+            console.log('updated')
+            setReset(!reset)
+            getModulesData()
+            setIsOpen(false)
+            toast.success('Module updated successfully')
+            sendNotificationToVendor()
+
+        }
+    }
 
 
 
-    const approveModule = async (id: string) => {
+    const approveModule = async (id: string, type: string) => {
         const variables =
         {
             where: {
@@ -160,12 +234,18 @@ const Main = () => {
             },
             update: {
                 status: "DRAFT",
+
             }
         }
-        updateModule(variables)
+        if (type === 'PROJECT') {
+            updateModule(variables)
+        } else if (type === 'TEST') {
+            updateTestModule(variables)
+        }
+
 
     }
-    const addComplain = async (complain: string) => {
+    const addComplain = async (complain: string, type: string) => {
         const variables =
         {
             where: {
@@ -176,7 +256,12 @@ const Main = () => {
                 complain: complain
             }
         }
-        updateModule(variables)
+        if (type === 'PROJECT') {
+            updateModule(variables)
+        } else if (type === 'TEST') {
+            updateTestModule(variables)
+        }
+
 
     }
 
@@ -259,7 +344,7 @@ const Main = () => {
                                     <button
                                         disabled={module?.status === "DRAFT"}
                                         onClick={() => {
-                                            approveModule(module?.id)
+                                            approveModule(module?.id, 'PROJECT')
                                             setClientId(module?.clientHas?.userIs?.id)
                                         }}
                                         className={`${module?.status === "COMPLAINED" && 'hidden'} px-3 py-2 font-semibold bg-green-200 text-green-700 rounded-sm`}>
@@ -283,8 +368,57 @@ const Main = () => {
 
                     )
                     }
+                    {/*  test module */}
+                    {testModuleData && testModuleData?.map((module: any, index: number) =>
+
+                        <tr key={module?.id} className="bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-900 text-gray-700 dark:text-gray-400">
+
+                            <td className="px-4 py-3 text-sm">{index + 1}</td>
+                            <td className="px-4 py-3 text-sm">{module?.ticket}</td>
+                            <td className="px-4 py-3 text-sm">{module?.title || 'N/A'}</td>
+                            <td className="px-4 py-3 text-sm space-x-2 flex items-center justify-center">
+                                <div className="relative space-x-3">
+
+                                    <button
+
+                                        onClick={() => {
+                                            setModuleType('PROJECT')
+                                            setCurrentModuleId(module?.id)
+                                            setIsViewModalOpen(true)
+                                        }}
+                                        className={` px-3 py-2 font-semibold bg-primary/20 text-primary rounded-sm`}>
+                                        View
+                                    </button>
+                                    <button
+                                        disabled={module?.status === "DRAFT"}
+                                        onClick={() => {
+                                            approveModule(module?.id, 'TEST')
+                                            setClientId(module?.clientHas?.userIs?.id)
+                                        }}
+                                        className={`${module?.status === "COMPLAINED" && 'hidden'} px-3 py-2 font-semibold bg-green-200 text-green-700 rounded-sm`}>
+                                        {module?.status === "DRAFT" ? "Approved" : "Approve"}
+                                    </button>
+                                    <button
+                                        disabled={module?.status === "COMPLAINED"}
+                                        onClick={() => {
+                                            setModuleType('TEST')
+                                            setCurrentModuleId(module?.id)
+                                            setIsOpen(true)
+                                        }
+                                        } className={`${module?.status === "DRAFT" && 'hidden'}  px-3 py-2 font-semibold bg-red-200 text-red-700 rounded-sm`}>
+                                        {module?.status === "COMPLAINED" ? "Rejected" : "Reject"}
+                                    </button>
+
+                                </div>
+
+                            </td>
+
+                        </tr>
+
+                    )
+                    }
                 </tbody>
-                <ComplainModal setIsOpen={setIsOpen} isOpen={isOpen} addComplain={addComplain} />
+                <ComplainModal setIsOpen={setIsOpen} isOpen={isOpen} addComplain={addComplain} type={moduleType} />
                 {/* <ViewModal setIsModalOpen={setVewModal} isModalOpen={viewMOdal} /> */}
 
             </table>

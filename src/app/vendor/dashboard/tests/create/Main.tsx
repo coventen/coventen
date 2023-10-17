@@ -3,7 +3,7 @@ import AutoComplete from '@/components/AutoComplete';
 import { useForm, SubmitHandler } from "react-hook-form"
 import React, { useEffect } from 'react';
 import ModuleFrom from './ModuleFrom';
-import { IModuleInput, IProjectInput } from './createProject.interface';
+import { IModuleInput, IInput } from './createProject.interface';
 import { useGqlClient } from '@/hooks/UseGqlClient';
 import { useManualQuery, useMutation, useQuery } from 'graphql-hooks';
 import AuthConfig from '@/firebase/oauth.config';
@@ -14,18 +14,24 @@ import { useRouter } from 'next/navigation';
 import HandleFileUpload from '@/shared/HandleFileUpload';
 import { v4 as uuidv4 } from 'uuid';
 import createLog from '@/shared/graphQl/mutations/createLog';
+import { getEmployerEmail } from '@/shared/getEmployerEmail';
+import AutoSelectModule from '../AutoSelectModule';
 
 
 
 
-const CREATE_PROJECT = `mutation Mutation($input: [ProjectCreateInput!]!) {
-    createProjects(input: $input) {
+const CREATE_PROJECT = `
+mutation CreateTestTickets($input: [TestTicketCreateInput!]!) {
+    createTestTickets(input: $input) {
       info {
         nodesCreated
+        relationshipsCreated
       }
     }
-  }`
-const GET_USER = `query Query($where: UserWhere) {
+  }
+  `
+const GET_USER = `
+query Query($where: UserWhere) {
     users(where: $where) {
       companyName
       city
@@ -34,19 +40,22 @@ const GET_USER = `query Query($where: UserWhere) {
       state
       gstNumber
     }
-  }`
-const GET_PROJECT_COUNTER = `query Query {
+  }
+  `
+
+const GET_PROJECT_COUNTER = `
+query Query {
     counters {
-      projectCount
-      moduleCount
-      invoiceCount
+        testCount
+
     }
-  }`
+  }
+  `
 const UPDATE_PROJECT_COUNTER = `
 mutation UpdateCounters($update: CounterUpdateInput) {
     updateCounters(update: $update) {
       counters {
-        projectCount
+        testCount
       }
     }
   }
@@ -68,18 +77,10 @@ const Main = () => {
 
     //states
     const [moduleCount, setModuleCount] = React.useState(1)
-    const [selectedCompany, setSelectCompany] = React.useState(null);
+    const [selectedModule, setSelectModule] = React.useState<any>(null);
     const [modules, setModules] = React.useState<any[]>([]);
     const [uploading, setUploading] = React.useState(false);
-    const [userInfo, setUserInfo] = React.useState({
-
-        address: '',
-        gstNumber: '',
-        companyName: '',
-        zip: '',
-        city: '',
-        state: '',
-    })
+    const [labEmail, setLabEmail] = React.useState('')
 
 
 
@@ -92,7 +93,9 @@ const Main = () => {
         register,
         handleSubmit,
         formState: { errors },
-    } = useForm<IProjectInput>()
+    } = useForm<IInput>()
+
+
 
 
 
@@ -100,34 +103,26 @@ const Main = () => {
 
     //query
     const [counterFn, counterState] = useManualQuery(GET_PROJECT_COUNTER, { client })
-    const { data, loading, error } = useQuery(GET_USER, {
-        client,
-        variables: {
-            where: {
-                email: user?.email
-            }
 
-        }
-    });
 
 
     // mutations
-    const [createProjectFn, state, resetFn] = useMutation(CREATE_PROJECT, { client })
-    const [updateProjectCounterFn, updateState] = useMutation(UPDATE_PROJECT_COUNTER, { client })
+    const [createProjectFn, state] = useMutation(CREATE_PROJECT, { client })
+    const [updateTestCounterFn, updateState] = useMutation(UPDATE_PROJECT_COUNTER, { client })
     const [sendNotificationFn, notificationState] = useMutation(SEND_NOTIFICATION, { client })
 
 
 
 
     //submitting form for project creation
-    const handleProjectSubmit = (data: IProjectInput) => {
+    const handleProjectSubmit = (data: IInput) => {
         createProject(data)
     }
 
     //handle project creation 
-    const createProject = async (projectData: IProjectInput) => {
-        const { state, country, city, address, projectDescription, projectName } = projectData
-        const projectId = await generateProjectTicket()
+    const createProject = async (testData: IInput) => {
+        const { testDescription, testName } = testData
+
 
 
         // uploading files -> create module data
@@ -139,7 +134,18 @@ const Main = () => {
                 node: {
                     title: title,
                     description: description,
-                    files: await uploadFiles(documents.files)
+                    files: await uploadFiles(documents.files),
+                    ticket: await generateTestTicket(),
+                    type: "TEST",
+                    "userHas": {
+                        "connect": {
+                            "where": {
+                                "node": {
+                                    "email": labEmail || 'no email'
+                                }
+                            }
+                        }
+                    }
 
                 }
             }
@@ -147,51 +153,60 @@ const Main = () => {
 
         const moduleData = await Promise.all(moduleDataPromise)
 
-        const { data } = await createProjectFn({
-            variables: {
-                input: [
-                    {
-                        title: projectName,
-                        description: projectDescription,
-                        email: user?.email,
-                        companyName: userInfo.companyName,
-                        country: country,
-                        city: city,
-                        address: address,
-                        createdAt: new Date().toISOString(),
-                        projectticketFor: {
-                            create: {
-                                node: {
-                                    projectTicket: projectId
+        if (labEmail && selectedModule) {
+
+            const { data } = await createProjectFn({
+                variables: {
+                    input: [
+                        {
+                            title: testName,
+                            description: testDescription,
+                            createdAt: new Date().toISOString(),
+                            "userHas": {
+                                "connect": {
+                                    "where": {
+                                        "node": {
+                                            "email": labEmail || 'no email'
+                                        }
+                                    }
                                 }
-                            }
-                        },
-                        clientOrdered: {
-                            connect: {
-                                where: {
-                                    node: {
-                                        userIs: {
-                                            email: user?.email
+                            },
+                            hasModule: {
+                                create: moduleData
+                            },
+                            "moduleticketHas": {
+                                "connect": {
+                                    "where": {
+                                        "node": {
+                                            "ticket": selectedModule.ticket || 'no ticket'
                                         }
                                     }
                                 }
                             }
-                        },
-                        hasModule: {
-                            create: moduleData
                         }
-                    }
-                ]
+                    ]
+                }
+            })
+            if (data.createTestTickets.info.nodesCreated) {
+                toast.success(' created successfully')
+                router.push('/vendor/dashboard/tests')
+                // sendNotification('')
+                // createLog(
+                //     `Test Creation`,
+                //     `Test with ticket ${projectId} by ${user?.email}`
+                // )
             }
-        })
-        if (data.createProjects.info.nodesCreated) {
-            toast.success('Project created successfully')
-            router.push('/user/dashboard/projects')
-            sendNotification(projectId as string)
-            createLog(
-                `Project Creation`,
-                `Project created with ticket ${projectId} by ${user?.email}`
-            )
+        }
+
+
+    }
+
+
+    // getting lab email if employee is logged in
+    const getLabEmail = async () => {
+        if (user?.email) {
+            const email = await getEmployerEmail(user?.email)
+            setLabEmail(email)
         }
 
 
@@ -200,21 +215,10 @@ const Main = () => {
 
 
 
-    // making change able  data
-    const userData = data?.users[0]
+    // // making change able  data
     useEffect(() => {
-        if (userData) {
-            const { address, companyName, gstNumber, zip, city, state } = userData
-            setUserInfo({
-                address,
-                companyName,
-                gstNumber,
-                zip,
-                city,
-                state,
-            })
-        }
-    }, [userData])
+        getLabEmail()
+    }, [user?.email])
 
 
 
@@ -234,17 +238,23 @@ const Main = () => {
 
 
     // generating project ticket based on project count on database
-    const generateProjectTicket = async () => {
+    const generateTestTicket = async () => {
         const { data } = await counterFn()
         const counter = data?.counters[0]
-        if (counter?.projectCount) {
-            const projectCount = counter?.projectCount + 1
-            const projectTicket = generateUniqueId("P-", projectCount)
+        if (counter?.testCount) {
+            let testCount
+            if (counter?.testCount === 1) {
+                testCount = 1
+            } else {
+                testCount = counter?.testCount + 1
+            }
+
+            const projectTicket = generateUniqueId("T-", testCount)
             // updating project counter
-            updateProjectCounterFn({
+            updateTestCounterFn({
                 variables: {
                     update: {
-                        projectCount: projectCount,
+                        testCount: testCount,
                     }
                 }
             })
@@ -262,30 +272,29 @@ const Main = () => {
 
 
 
-    const sendNotification = async (projectId: string) => {
+    // const sendNotification = async (projectId: string) => {
 
-        const { data: adminData } = await sendNotificationFn({
-            variables: {
-                "input": [
-                    {
-                        "title": `A user has created a new project`,
-                        "description": `A user has created a new project with ticket ${projectId}`,
-                        "createdAt": new Date().toISOString(),
-                        "notificationFor": "ADMIN",
-                    }
-                ]
-            }
-        })
+    //     const { data: adminData } = await sendNotificationFn({
+    //         variables: {
+    //             "input": [
+    //                 {
+    //                     "title": `A user has created a new project`,
+    //                     "description": `A user has created a `,
+    //                     "createdAt": new Date().toISOString(),
+    //                     "notificationFor": "ADMIN",
+    //                 }
+    //             ]
+    //         }
+    //     })
 
-    }
-
-
+    // }
 
 
 
 
 
-    if (loading) return <div><Loading /></div>
+
+    // if (loading) return <div><Loading /></div>
 
     //render
     return (
@@ -302,49 +311,33 @@ const Main = () => {
                                 <div className="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-5">
 
 
-                                    <div className="md:col-span-3">
-                                        <label htmlFor="address">Address / Street</label>
-                                        <input defaultValue={userInfo.address || ''} type="text" id="address" className="h-10 border border-gray-300 mt-1 rounded px-4 w-full " placeholder=""
-                                            {...register("address")} />
-                                    </div>
-
-                                    <div className="md:col-span-2">
-                                        <label htmlFor="city">City</label>
-                                        <input type="text" id="city"
-                                            defaultValue={userInfo.city || ''} className="h-10 border border-gray-300 mt-1 rounded px-4 w-full " placeholder=""
-                                            {...register("city")} />
-                                    </div>
-                                    <div className="md:col-span-2">
-                                        <label htmlFor="State">State</label>
-                                        <input type="text" id="State"
-                                            defaultValue={userInfo.state || ''} className="h-10 border border-gray-300 mt-1 rounded px-4 w-full " placeholder=""
-                                            {...register("state")} />
-                                    </div>
-
-
-
-
                                     {/* project details */}
 
                                     <div className="col-span-full">
-                                        <label htmlFor="address">Project name</label>
+                                        <label htmlFor="address"> name</label>
                                         <input type="text" id="address" className="h-10 border border-gray-300 mt-1 rounded px-4 w-full " placeholder=""   {...register('testName')} />
                                     </div>
 
                                     <div className="col-span-full">
-                                        <label htmlFor="city">Project Description</label>
+                                        <label htmlFor="city"> Description</label>
                                         <textarea rows={4} id="city" className=" border border-gray-300 mt-1 rounded px-4 w-full " placeholder="" {...register("testDescription")} />
+                                    </div>
+                                    <div className="col-span-full  pt-5">
+                                        <label htmlFor="city"> Select Module</label>
+                                        <div className='relative'>
+                                            <AutoSelectModule selected={selectedModule} setSelected={setSelectModule} />
+                                        </div>
                                     </div>
 
 
 
                                     {/* modules add  start */}
-                                    <div className="md:col-span-5 mt-8">
+                                    <div className="md:col-span-5 mt-20">
                                         <div>
                                             {/* modules title */}
                                             <div className='flex  justify-between'>
                                                 <p className='text-xl font-semibold text-gray-800'>
-                                                    Modules
+                                                    Tests
                                                 </p>
 
                                                 <div>
@@ -390,7 +383,7 @@ const Main = () => {
 
                                     <div className=" mt-8">
                                         <div className="">
-                                            <button type='submit' className="bg-desktopPrimary  text-white font-bold py-3 px-12 text-lg rounded">{updateState.loading || state.loading || uploading ? "loading..." : 'Submit'}</button>
+                                            <button type='submit' className="bg-primary  text-white font-bold py-3 px-12 text-lg rounded">{state.loading || uploading ? "loading" : 'Submit'}</button>
                                         </div>
                                     </div>
 

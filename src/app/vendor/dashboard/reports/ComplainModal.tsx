@@ -2,22 +2,19 @@
 import { Fragment, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { Dialog, Transition } from '@headlessui/react';
-import { useGqlClient } from '@/hooks/UseGqlClient';
-import { useMutation } from 'graphql-hooks';
-import { toast } from 'react-hot-toast';
+
 
 //props interface
 interface IComplainModal {
     isOpen: boolean;
     setIsOpen: (value: boolean) => void;
-    addComplain: (complain: string, type: string) => void;
-    type: string
+    addComplain: (complain: string) => void;
 
 }
 
 
 //component
-function ComplainModal({ isOpen, setIsOpen, addComplain, type }: IComplainModal) {
+function ComplainModal({ isOpen, setIsOpen, addComplain }: IComplainModal) {
 
 
     //handle close modal
@@ -34,7 +31,7 @@ function ComplainModal({ isOpen, setIsOpen, addComplain, type }: IComplainModal)
         e.preventDefault()
         const description = e.target.description.value
         if (description.length) {
-            addComplain(description, type)
+            addComplain(description)
         }
     }
 

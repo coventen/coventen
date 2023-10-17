@@ -327,12 +327,12 @@ const Main = () => {
 
                                     <div className="col-span-full">
                                         <label htmlFor="address">Project name</label>
-                                        <input type="text" id="address" className="h-10 border border-gray-300 mt-1 rounded px-4 w-full " placeholder=""   {...register('projectName')} />
+                                        <input type="text" id="address" className="h-10 border border-gray-300 mt-1 rounded px-4 w-full " placeholder=""   {...register('testName')} />
                                     </div>
 
                                     <div className="col-span-full">
                                         <label htmlFor="city">Project Description</label>
-                                        <textarea rows={4} id="city" className=" border border-gray-300 mt-1 rounded px-4 w-full " placeholder="" {...register("projectDescription")} />
+                                        <textarea rows={4} id="city" className=" border border-gray-300 mt-1 rounded px-4 w-full " placeholder="" {...register("testDescription")} />
                                     </div>
 
 
