@@ -24,7 +24,7 @@ import Cookies from 'js-cookie';
 
 export const useGqlClient = () => {
   const client = new GraphQLClient({
-    url: 'http://localhost:4000/',
+    url: 'https://coventenapp.el.r.appspot.com/',
     // url: 'http://localhost:4000/',
   });
 
@@ -32,7 +32,5 @@ export const useGqlClient = () => {
   if(token) {
     client.setHeader('authorization', `Bearer ${token}`)
   }
-
-
   return client;
 };
