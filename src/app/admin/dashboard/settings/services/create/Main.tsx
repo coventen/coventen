@@ -11,6 +11,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 import slugify from 'slugify';
 import PageTextEditor from '@/components/PageTextEditor';
+import MultiselectCategory from '../MultiselectCategory';
 
 
 const GET_SERVICES = `
@@ -45,8 +46,9 @@ const Main = () => {
     const [CoverImage, setCoverImage] = useState<any>(null)
     const [thumbnail, setThumbnail] = useState<any>(null)
     const [description, setDescription] = useState('')
-    const [selectedCategory, setSelectedCategory] = useState('')
+    const [selectedCategory, setSelectedCategory] = useState<any>([])
     const [editorState, setEditorState] = useState("");
+
 
     // hooks
     const client = useGqlClient()
@@ -65,6 +67,11 @@ const Main = () => {
 
     // mutation query
     const [createServiceFn, createState, resetFn] = useMutation(CREATE_NEW_SUB_SERVICE, { client })
+
+
+
+
+
 
 
 
@@ -89,13 +96,17 @@ const Main = () => {
                         "thumbnailUrl": imageLinkUrl,
                         "isService": true,
                         "categoryHas": {
-                            "connect": {
-                                "where": {
-                                    "node": {
-                                        "id": selectedCategory
+                            "connect": selectedCategory.map((item: any) => {
+                                return {
+                                    "where": {
+                                        "node": {
+                                            "id": item.id
+                                        }
                                     }
                                 }
-                            }
+                            })
+
+
                         }
                     }
                 ],
@@ -155,24 +166,8 @@ const Main = () => {
                 <label htmlFor="title" className="block  text-gray-700 text-sm mb-1">
                     category
                 </label>
-                <div className="relative inline-flex w-full">
-                    <select
+                <MultiselectCategory setSelectedCategory={setSelectedCategory} selectedCategory={selectedCategory} />
 
-                        value={selectedCategory}
-                        onChange={(e) => setSelectedCategory(e.target.value)}
-                        name='userType'
-                        className="mt-1 px-4 py-2 border border-gray-200 rounded-md w-full"
-                    >
-                        <option>Select Category</option>
-                        {
-                            data?.categories && data?.categories.map((service: any) =>
-                                <option key={service?.id} value={service?.id} >{service?.name}</option>
-                            )
-                        }
-
-                    </select>
-
-                </div>
             </div>
             <div className="mb-5 ">
                 <label htmlFor="title" className="block  text-gray-700 text-sm mb-1">

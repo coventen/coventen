@@ -25,7 +25,6 @@ const GET_DATA = `
 query Services($where: ServiceWhere, $options: ServiceOptions) {
     services(where: $where, options: $options) {
       id
-      category
       coverImageUrl
       title
       description
@@ -33,6 +32,10 @@ query Services($where: ServiceWhere, $options: ServiceOptions) {
       pageContent
       isPopular
       thumbnailUrl
+      categoryHas {
+        name
+        id
+      }
     }
   }
 
@@ -43,7 +46,7 @@ const Main = () => {
 
     // states
     const [ContentEditorState, setContentEditorState] = useState('');
-
+    const [selectedCategory, setSelectedCategory] = useState<any>([])
 
     const [ServiceData, setServiceData] = React.useState({
         title: '',
@@ -78,6 +81,7 @@ const Main = () => {
         if (previousServiceData?.services?.length) {
             const { title, description, coverImageUrl, pageContent, thumbnailUrl } = previousServiceData.services[0]
             setContentEditorState(JSON.parse(pageContent))
+            setSelectedCategory(previousServiceData.services[0].categoryHas)
             setServiceData({
                 thumbnailUrl,
                 pageContent,
@@ -92,7 +96,20 @@ const Main = () => {
 
 
 
-
+    console.log(selectedCategory.map((item: any) => {
+        return {
+            "connect": [
+                {
+                    "where": {
+                        "node": {
+                            "id": item.id
+                        }
+                    },
+                    "overwrite": true
+                }
+            ]
+        }
+    }))
 
 
 
@@ -115,7 +132,54 @@ const Main = () => {
                     "coverImageUrl": input.coverImageUrl,
                     slug: slugify(input.title as string, { replacement: '_', remove: /[*+~.()'"!:@]/g }),
                     "pageContent": input.pageContent,
-                    "thumbnailUrl": input.thumbnailUrl
+                    "thumbnailUrl": input.thumbnailUrl,
+                    "categoryHas": [
+                        {
+                            "disconnect": previousServiceData.services[0].categoryHas.map((item: any) => {
+                                return {
+                                    "where": {
+                                        "node": {
+                                            "id": item.id
+                                        }
+                                    }
+                                }
+                            }),
+                            "connect": selectedCategory.map((item: any) => {
+                                return {
+                                    "where": {
+                                        "node": {
+                                            "id": item.id
+                                        }
+                                    },
+                                    "overwrite": true
+                                }
+                            })
+                        }
+                    ],
+                    // "categoryHas": selectedCategory.map((item: any) => {
+                    //     return {
+                    //         "where": {
+                    //             "node": {
+                    //                 "id": item.id
+                    //             }
+                    //         }
+                    //     }
+                    // }),
+
+                    // [
+                    //     {
+                    //         "where": {
+                    //             "node": {
+                    //                 "id": null
+                    //             }
+                    //         }
+                    //     }
+                    // ]
+
+
+
+
+
                 }
             }
         })
@@ -139,6 +203,8 @@ const Main = () => {
                 ContentEditorState={ContentEditorState}
                 setContentEditorState={setContentEditorState}
                 updateServiceFn={updateService}
+                setSelectedCategory={setSelectedCategory}
+                selectedCategory={selectedCategory}
             />
 
 
