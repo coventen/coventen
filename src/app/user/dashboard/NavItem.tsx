@@ -29,12 +29,12 @@ export const defaultNavItems = [
         links: [
             {
                 label: "Dashboard",
-                href: "/desktopHome",
+                href: "/user/dashboard",
                 icon: <LuAppWindow className="w-6 h-6" />,
             },
             {
                 label: "Notifications",
-                href: "/desktopHome/notification",
+                href: "/user/dashboard/notification",
                 icon: <LuBellRing className="w-6 h-6" />,
             }
         ]
@@ -44,12 +44,12 @@ export const defaultNavItems = [
         links: [
             {
                 label: "Internal Email",
-                href: "/desktopHome/internal_email",
+                href: "/user/dashboard/internal_email",
                 icon: <LuCopySlash className="w-6 h-6" />,
             },
             {
                 label: "Chats",
-                href: "/desktopHome/chats",
+                href: "/user/dashboard/chats",
                 icon: <LuMail className="w-6 h-6" />,
             }
         ]
@@ -59,22 +59,22 @@ export const defaultNavItems = [
         links: [
             {
                 label: "Projects",
-                href: "/desktopHome/projects",
+                href: "/user/dashboard/projects",
                 icon: <LuSchool2 className="w-6 h-6" />,
             },
             {
                 label: "Samples",
-                href: "/desktopHome/sample",
+                href: "/user/dashboard/sample",
                 icon: <LuShieldCheck className="w-6 h-6" />,
             },
             {
                 label: "Reports",
-                href: "/desktopHome/reports",
+                href: "/user/dashboard/reports",
                 icon: <LuClipboardCheck className="w-6 h-6" />,
             },
             {
                 label: "Estimation",
-                href: "/desktopHome/invoices",
+                href: "/user/dashboard/invoices",
                 icon: <LuCalculator className="w-6 h-6" />,
             },
         ]
@@ -84,7 +84,7 @@ export const defaultNavItems = [
         links: [
             {
                 label: "Customer Support",
-                href: "/desktopHome/support",
+                href: "/user/dashboard/support",
                 icon: <LuHeadphones className="w-6 h-6" />,
             },
         ]
