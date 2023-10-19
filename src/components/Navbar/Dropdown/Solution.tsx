@@ -39,7 +39,7 @@ const Solution = ({ solutionData }: SolutionPage) => {
                 >
                     <Popover.Panel className="absolute mt-10 lg:-ml-24 top-full z-10 w-screen max-w-xl overflow-hidden rounded-lg bg-white shadow-lg ring-1 ring-gray-900/5">
 
-                        <div className=" bg-white p-4 w-full  mx-auto grid grid-cols-1 md:grid-cols-3 shadow-lg rounded-md ">
+                        <div className=" bg-white p-4 w-full h-[400px] overflow-y-auto scrollbar-thumb-blue scrollbar-thumb-rounded scrollbar-track-blue-lighter scrollbar-w-2 scrolling-touch  mx-auto grid grid-cols-1 md:grid-cols-3 shadow-lg rounded-md ">
                             <ul className="px-4 w-full  border-gray-300 border-b sm:border-r lg:border-b-0 pb-3 pt-3 lg:pt-3">
                                 {/* <h3 className="font-bold text-xl text-primaryText text-bold mb-2">{title}</h3> */}
                                 {

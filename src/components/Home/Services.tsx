@@ -49,11 +49,11 @@ export default function Services({ services }: { services: any[] }) {
                             className="w-full  "
                             modules={[Navigation, Pagination, A11y, Autoplay]}
                             spaceBetween={10}
-                            // loop={true}
-                            // autoplay={{
-                            //     delay: 2500,
-                            //     disableOnInteraction: false,
-                            // }}
+                            loop={true}
+                            autoplay={{
+                                delay: 2500,
+                                disableOnInteraction: false,
+                            }}
                             navigation={true}
                             pagination={{
                                 clickable: true,

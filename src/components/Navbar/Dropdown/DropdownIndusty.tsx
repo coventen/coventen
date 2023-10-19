@@ -33,7 +33,7 @@ const DropdownIndustry = ({ data }: IProps) => {
                     leaveTo="opacity-0 translate-y-1"
                 >
                     <Popover.Panel className="absolute -left-8 top-full z-10 mt-3 w-screen max-w-md overflow-hidden rounded-lg bg-white shadow-lg ring-1 ring-gray-900/5">
-                        <div className="p-4">
+                        <div className="p-4 h-[500px] overflow-y-auto scrollbar-thumb-blue scrollbar-thumb-rounded scrollbar-track-blue-lighter scrollbar-w-2 scrolling-touch">
                             {
                                 data && data?.map((item: any) =>
 

@@ -97,7 +97,7 @@ example:
   
   .scrollbar-thumb-blue::-webkit-scrollbar-thumb {
     --bg-opacity: 1;
-    background-color: #3d3d3d17;
+    background-color: #16161677;
     opacity: 0.3;
     /* background-color: rgba(237, 242, 247, var(--bg-opacity)); */
   }
