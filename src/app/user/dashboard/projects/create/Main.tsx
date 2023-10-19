@@ -83,6 +83,8 @@ const Main = () => {
 
 
 
+    console.log(modules, 'this is modules')
+
     //hooks
     const { user } = AuthConfig()
     const router = useRouter()
@@ -155,9 +157,9 @@ const Main = () => {
                         description: projectDescription,
                         email: user?.email,
                         companyName: userInfo.companyName,
-                        country: country,
-                        city: city,
-                        address: address,
+                        // country: country,
+                        // city: city,
+                        // address: address,
                         createdAt: new Date().toISOString(),
                         projectticketFor: {
                             create: {
@@ -301,7 +303,7 @@ const Main = () => {
                                 <div className="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-5">
 
 
-                                    <div className="md:col-span-3">
+                                    {/* <div className="md:col-span-3">
                                         <label htmlFor="address">Address / Street</label>
                                         <input defaultValue={userInfo.address || ''} type="text" id="address" className="h-10 border border-gray-300 mt-1 rounded px-4 w-full " placeholder=""
                                             {...register("address")} />
@@ -318,7 +320,7 @@ const Main = () => {
                                         <input type="text" id="State"
                                             defaultValue={userInfo.state || ''} className="h-10 border border-gray-300 mt-1 rounded px-4 w-full " placeholder=""
                                             {...register("state")} />
-                                    </div>
+                                    </div> */}
 
 
 
@@ -358,9 +360,9 @@ const Main = () => {
                                                             </svg>
                                                         </button>
                                                         <input name="soda" id="soda" placeholder="0"
-                                                            className="px-2 text-center appearance-none outline-none text-gray-800 w-full bg-transparent"
+                                                            className="px-2 text-center appearance-none outline-none border-none text-gray-800 w-full bg-transparent"
                                                             readOnly
-                                                            defaultValue={moduleCount}
+                                                            value={moduleCount}
                                                         />
                                                         <button type='button' onClick={() => setModuleCount(moduleCount + 1)} className="cursor-pointer outline-none focus:outline-none border-l border-gray-300 transition-all text-gray-500 hover:text-desktopPrimary">
                                                             <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mx-2 fill-current" viewBox="0 0 20 20" fill="currentColor">

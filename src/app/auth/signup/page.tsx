@@ -10,7 +10,7 @@ export default function Login() {
             <div className="relative flex-1 hidden items-center justify-center h-screen bg-white lg:flex">
                 <div className="relative z-10 w-full max-w-md">
                     {/* <img src="https://floatui.com/logo-dark.svg" width={150} /> */}
-                    <p className="text-gray-900 font-bold text-xl">Company Logo</p>
+
                     <div className=" mt-16 space-y-3">
                         <h3 className="text-gray-900 text-3xl font-bold">Start growing your business quickly</h3>
                         <p className="text-gray-800">

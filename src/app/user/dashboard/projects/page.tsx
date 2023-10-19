@@ -24,7 +24,7 @@ const Projects = () => {
                 </div>
                 <div className='flex items-center justify-between bg-gray-200 py-4 mt-6 px-5 rounded-md'>
                     <h2 className='text-sm font-semibold '>Project Details</h2>
-                    <h2 className='text-sm font-semibold text-dimText'>Quick Actions</h2>
+                    <h2 className='text-sm font-semibold '>Quick Actions</h2>
                 </div>
             </section>
             {/*  */}

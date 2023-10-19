@@ -37,6 +37,15 @@ query IndustryPages($where: IndustryPageWhere, $options: IndustryPageOptions) {
   }
 `
 
+const GET_SERVICE = `
+query Services($where: ServiceWhere, $options: ServiceOptions) {
+    services(where: $where, options: $options) {
+      id
+      title
+    }
+  }
+`
+
 
 //component
 const Leads = () => {
@@ -44,6 +53,7 @@ const Leads = () => {
     //states
     const [isLeadFromOpen, setIsLeadFromOpen] = useState<boolean>(false);
     const [selectedIndustry, setSelectedIndustry] = useState<any>('');
+    const [selectedService, setSelectedService] = useState<any>('');
     const [name, setName] = useState<string>('');
     const [email, setEmail] = useState<string>('');
     const [phone, setPhone] = useState<string>('');
@@ -56,7 +66,14 @@ const Leads = () => {
 
     // queries and mutations
     const { data, loading, error: industryError } = useQuery(GET_INDUSTRY, { client })
+    const { data: serviceData, loading: serviceLoading, error: serviceError } = useQuery(GET_SERVICE, { client })
     const [createLead, createState] = useMutation(CREATE_LEAD, { client })
+
+
+
+
+
+
 
 
     const handlePhoneChange = (inputValue: any) => {
@@ -75,6 +92,8 @@ const Leads = () => {
         }
     };
 
+    console.log(selectedService, selectedIndustry)
+
 
     // functions
 
@@ -88,7 +107,7 @@ const Leads = () => {
                         name: name,
                         phone: phone,
                         type: 'TEST',
-                        interest: selectedIndustry,
+                        interest: `industry: ${selectedIndustry}, service: ${selectedService}`,
                         createdAt: new Date().toISOString(),
                         message: message
                     }
@@ -153,7 +172,7 @@ const Leads = () => {
                                                 required
                                                 onChange={(e) => setName(e.target.value)}
                                                 defaultValue={name}
-                                                className=" text-black placeholder-gray-600 w-full px-4 py-2.5 mt-2 text-base   transition duration-500 ease-in-out transform border-transparent rounded-sm bg-gray-200  focus:border-blueGray-500 focus:bg-white dark:focus:bg-gray-800 focus:outline-none focus:shadow-outline focus:ring-2 ring-offset-current ring-offset-2 ring-gray-400"
+                                                className=" text-black placeholder-gray-600 w-full px-4 py-1.5 mt-2 text-base   transition duration-500 ease-in-out transform border-transparent rounded-sm bg-gray-200  focus:border-blueGray-500 focus:bg-white dark:focus:bg-gray-800 focus:outline-none focus:shadow-outline focus:ring-2 ring-offset-current ring-offset-2 ring-gray-400"
 
                                             />
                                             <input
@@ -161,7 +180,7 @@ const Leads = () => {
                                                 required
                                                 onChange={(e) => setEmail(e.target.value)}
                                                 defaultValue={email}
-                                                className=" text-black placeholder-gray-600 w-full px-4 py-2.5 mt-2 text-base   transition duration-500 ease-in-out transform border-transparent rounded-sm bg-gray-200  focus:border-blueGray-500 focus:bg-white dark:focus:bg-gray-800 focus:outline-none focus:shadow-outline focus:ring-2 ring-offset-current ring-offset-2 ring-gray-400"
+                                                className=" text-black placeholder-gray-600 w-full px-4 py-1.5 mt-2 text-base   transition duration-500 ease-in-out transform border-transparent rounded-sm bg-gray-200  focus:border-blueGray-500 focus:bg-white dark:focus:bg-gray-800 focus:outline-none focus:shadow-outline focus:ring-2 ring-offset-current ring-offset-2 ring-gray-400"
 
                                             />
                                             <input
@@ -170,7 +189,7 @@ const Leads = () => {
                                                 type='number'
                                                 onChange={(e) => handlePhoneChange(e.target.value)}
                                                 defaultValue={phone}
-                                                className="text-black placeholder-gray-600 w-full px-4 py-2.5 mt-2 text-base transition duration-500 ease-in-out transform border-transparent rounded-sm bg-gray-200 focus:border-blueGray-500 focus:bg-white dark:focus:bg-gray-800 focus:outline-none focus:shadow-outline focus:ring-2 ring-offset-current ring-offset-2 ring-gray-400"
+                                                className="text-black placeholder-gray-600 w-full px-4 py-1.5 mt-2 text-base transition duration-500 ease-in-out transform border-transparent rounded-sm bg-gray-200 focus:border-blueGray-500 focus:bg-white dark:focus:bg-gray-800 focus:outline-none focus:shadow-outline focus:ring-2 ring-offset-current ring-offset-2 ring-gray-400"
                                                 pattern="[789]\d{9}" // Pattern for Indian phone numbers starting with 7, 8, or 9 and having a total of 10 digits
                                             />
                                             {error ? <p className='text-red-500 text-xs'>{error}</p> : null}
@@ -181,11 +200,30 @@ const Leads = () => {
                                                     <select
                                                         value={selectedIndustry}
                                                         onChange={(e) => setSelectedIndustry(e.target.value)}
-                                                        className="text-black placeholder-gray-600 w-full px-4 py-2.5 mt-2 text-base   transition duration-500 ease-in-out transform border-transparent rounded-sm bg-gray-200  focus:border-blueGray-500 focus:bg-white dark:focus:bg-gray-800 focus:outline-none focus:shadow-outline focus:ring-2 ring-offset-current ring-offset-2 ring-gray-400"
+                                                        className="text-black placeholder-gray-600 w-full px-4 py-1.5 mt-2 text-base   transition duration-500 ease-in-out transform border-transparent rounded-sm bg-gray-200  focus:border-blueGray-500 focus:bg-white dark:focus:bg-gray-800 focus:outline-none focus:shadow-outline focus:ring-2 ring-offset-current ring-offset-2 ring-gray-400"
 
                                                     >
                                                         <option value="" disabled>Select an Industry</option>
                                                         {data?.industryPages?.map((option: any) => (
+
+
+                                                            <option key={option?.id} value={option?.title} className='uppercase'>
+                                                                {option?.title}
+                                                            </option>
+                                                        ))}
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div className="flex">
+                                                <div className="flex-grow">
+                                                    <select
+                                                        value={selectedService}
+                                                        onChange={(e) => setSelectedService(e.target.value)}
+                                                        className="text-black placeholder-gray-600 w-full px-4 py-1.5 mt-2 text-base   transition duration-500 ease-in-out transform border-transparent rounded-sm bg-gray-200  focus:border-blueGray-500 focus:bg-white dark:focus:bg-gray-800 focus:outline-none focus:shadow-outline focus:ring-2 ring-offset-current ring-offset-2 ring-gray-400"
+
+                                                    >
+                                                        <option value="" disabled>Select Service</option>
+                                                        {serviceData?.services?.map((option: any) => (
 
 
                                                             <option key={option?.id} value={option?.title} className='uppercase'>
@@ -202,7 +240,7 @@ const Leads = () => {
                                                     required
                                                     onChange={(e) => setMessage(e.target.value)}
                                                     defaultValue={message}
-                                                    className=" text-black placeholder-gray-600 w-full px-4 py-2.5 mt-2 text-base   transition duration-500 ease-in-out transform border-transparent rounded-sm bg-gray-200  focus:border-blueGray-500 focus:bg-white dark:focus:bg-gray-800 focus:outline-none focus:shadow-outline focus:ring-2 ring-offset-current ring-offset-2 ring-gray-400"
+                                                    className=" text-black placeholder-gray-600 w-full px-4 py-1.5 mt-2 text-base   transition duration-500 ease-in-out transform border-transparent rounded-sm bg-gray-200  focus:border-blueGray-500 focus:bg-white dark:focus:bg-gray-800 focus:outline-none focus:shadow-outline focus:ring-2 ring-offset-current ring-offset-2 ring-gray-400"
 
                                                 />
                                             </div>

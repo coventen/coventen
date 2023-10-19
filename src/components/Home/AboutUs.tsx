@@ -1,11 +1,10 @@
 'use client'
 
 import Image from 'next/image';
+import Link from 'next/link';
 import React from 'react';
 // style={{ background: "linear-gradient(152.92deg, rgba(192, 132, 252, 0.2) 4.54%, rgba(232, 121, 249, 0.26) 34.2%, rgba(192, 132, 252, 0.1) 77.55%)" }}
 const AboutUs = ({ data }: any) => {
-
-    console.log(data, ' the data000000000000000000000')
 
     return (
         <section className='py-16'>
@@ -52,7 +51,14 @@ const AboutUs = ({ data }: any) => {
                                             </div>
                                             <div className="w-5/6">
                                                 <h4 className="font-semibold text-lg  dark:text-teal-300">{item.title}</h4>
-                                                <p className="text-dimText dark:text-darkDimText">{item?.description}</p>
+                                                <p className="text-dimText dark:text-darkDimText">
+                                                    {item?.description}
+                                                    {
+                                                        item?.url && <Link href={item?.url} className='text-primary ml-2 hover:underline'>read more</Link>
+                                                    }
+                                                </p>
+
+
                                             </div>
                                         </div>
                                     ))

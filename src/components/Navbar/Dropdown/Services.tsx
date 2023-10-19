@@ -65,7 +65,7 @@ const Services = ({ servicesData }: ServicePage) => {
                             </ul>
                             <ul className="px-4 w-full md:col-span-2  border-gray-300  pb-6 pt-6 lg:pt-3">
                                 {/* <h3 className="font-bold text-xl text-primaryText text-bold mb-2">Sub Services</h3> */}
-                                <div className='grid grid-cols-2 text-xs capitalize '>
+                                <div className='grid grid-cols-2 text-xs  '>
                                     {
                                         servicesData && servicesData?.find((service: any) => service.name === currentService)?.hasService?.length
                                             ?

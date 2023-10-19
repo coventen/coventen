@@ -7,6 +7,7 @@ import { useForm, SubmitHandler } from "react-hook-form"
 import { IModuleInput } from './createProject.interface';
 import { HiOutlineTrash } from 'react-icons/hi';
 import FilePreview from '@/app/vendor/dashboard/projects/(components)/FilePreview';
+import AutoSelectService from '@/components/AutoSelectService';
 
 //interface props
 interface IModuleFrom {
@@ -24,7 +25,7 @@ const ModuleFrom = ({ index, setModules, modules }: IModuleFrom) => {
     //states
     const [files, setFiles] = useState<any[]>([]);
     const [title, setTitle] = useState<string>('');
-
+    const [selected, setSelected] = useState<any>([]);
 
 
     // hook from 
@@ -43,10 +44,12 @@ const ModuleFrom = ({ index, setModules, modules }: IModuleFrom) => {
 
 
 
+
     // setting the module data
     const handleModule: SubmitHandler<any> = (data) => {
         //getting the dynamic data
-        const title = data[`moduleTitle${index}`];
+        // const title = data[`moduleTitle${index}`];
+        const title = selected.title;
         const description = data[`moduleDescription${index}`];
         console.log(data)
 
@@ -105,10 +108,14 @@ const ModuleFrom = ({ index, setModules, modules }: IModuleFrom) => {
         <form onChange={handleSubmit(handleModule)}>
             <div className="">
                 <label htmlFor="address">Module-{index}</label>
-                <input type="text" id="address" className="h-10 border border-gray-300 mt-1 rounded px-4 w-full " placeholder=""   {...register(`moduleTitle${index}`)} />
+                <div className='relative mb-4'>
+
+                    <AutoSelectService selected={selected} setSelected={setSelected} />
+                </div>
+                {/* <input type="text" id="address" className="h-10 border border-gray-300 mt-1 rounded px-4 w-full " placeholder=""   {...register(`moduleTitle${index}`)} /> */}
             </div>
 
-            <div className="">
+            <div className="mt-16">
                 <label htmlFor="city">Description</label>
                 <textarea rows={4} id="city" className=" border border-gray-300 mt-1 rounded px-4 w-full " placeholder="" {...register(`moduleDescription${index}`)} />
             </div>

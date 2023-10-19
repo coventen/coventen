@@ -34,7 +34,7 @@ export default function SpacialProducts({ products }: { products: any }) {
                             spaceBetween={10}
                             loop={true}
                             autoplay={{
-                                delay: 2000,
+                                delay: 1500,
                                 disableOnInteraction: false,
                             }}
                             pagination={{
@@ -61,7 +61,7 @@ export default function SpacialProducts({ products }: { products: any }) {
                             {
                                 products && products.map((item: any, idx: number) =>
                                     <SwiperSlide key={item} className="pb-10">
-                                        <div key={idx} className="group my-10 flex w-full  flex-col overflow-hidden  border rounded dark:bg-darkBgLight dark:border-darkBorder bg-white/30 cursor-pointer ">
+                                        <div key={idx} className="group relative my-10 flex w-full h-[450px] flex-col overflow-hidden  border rounded dark:bg-darkBgLight dark:border-darkBorder bg-white/30 cursor-pointer ">
                                             <div className="relative mx-3 mt-3 flex h-60 overflow-hidden rounded group" >
                                                 <img className="peer absolute top-0 right-0 h-full w-full object-cover transition-all duration-500 group-hover:scale-125" src={item?.image || '/assets/no_image.png'} alt="product image" />
 
@@ -73,10 +73,10 @@ export default function SpacialProducts({ products }: { products: any }) {
 
                                                 <h5 className="text-lg font-normal uppercase text-gray-950 tracking-tight ">{item?.title}</h5>
                                                 <p className="mt-2 text-sm mb-5 text-dimText dark:text-gray-300">
-                                                    {item?.shortDescription.slice(0, 315) || 'N/A'}
+                                                    {item?.shortDescription.slice(0, 150) || 'N/A'}...
                                                 </p>
 
-                                                <Link href={`/products/details/${item?.id}`} >
+                                                <Link href={`/products/details/${item?.id}`} className='absolute bottom-4 w-full' >
                                                     <AnimatedButton title="View Details" />
 
                                                 </Link>

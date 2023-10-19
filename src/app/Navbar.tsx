@@ -33,10 +33,6 @@ import Solution from '@/components/Navbar/Dropdown/Solution';
 
 
 
-
-
-
-
 function classNames(...classes: any[]) {
     return classes.filter(Boolean).join(' ');
 }
@@ -160,7 +156,14 @@ export default function Navbar({ services, industries, solutions, features }: an
                     <div className="hidden lg:flex lg:flex-1 lg:justify-end">
                         {
                             user?.email ?
-                                <>
+                                <div className=' flex items-center justify-center space-x-3'>
+                                    {
+                                        currentUserType === 'CONSUMER' ?
+                                            <Link href='/user/dashboard/projects/create' className='text-sm font-semibold leading-6 text-primaryText'>
+                                                Create Project
+                                            </Link>
+                                            : <p></p>
+                                    }
 
                                     <Menu as="div" className="relative inline-block text-left">
                                         <div>
@@ -233,7 +236,7 @@ export default function Navbar({ services, industries, solutions, features }: an
                                     </Menu>
 
 
-                                </>
+                                </div>
                                 :
                                 <Link
                                     href="/auth/login"
