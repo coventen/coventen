@@ -63,7 +63,7 @@ const Services = ({ servicesData }: ServicePage) => {
 
 
                             </ul>
-                            <ul className="px-4 w-full md:col-span-2  border-gray-300  pb-6 pt-6 lg:pt-3">
+                            <ul className="px-4 w-full h-[400px] overflow-y-auto scrollbar-thumb-blue scrollbar-thumb-rounded scrollbar-track-blue-lighter scrollbar-w-2 scrolling-touch md:col-span-2  border-gray-300  pb-6 pt-6 lg:pt-3">
                                 {/* <h3 className="font-bold text-xl text-primaryText text-bold mb-2">Sub Services</h3> */}
                                 <div className='grid grid-cols-2 text-xs  '>
                                     {

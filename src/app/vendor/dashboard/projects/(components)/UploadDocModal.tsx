@@ -22,8 +22,6 @@ interface IUserModalProps {
     setIsDocModalOpen: (value: boolean) => void;
     currentModuleId?: string
     updateModule?: any
-    updateTestModule: any
-    type: string
 }
 
 
@@ -38,19 +36,10 @@ mutation Mutation($where: ModuleTicketWhere, $update: ModuleTicketUpdateInput) {
   }
 
 `
-const UPDATE_TEST_MODULE_REPORT = `
-mutation UpdateModules($where: ModuleWhere, $update: ModuleUpdateInput) {
-    updateModules(where: $where, update: $update) {
-      info {
-        nodesCreated
-        relationshipsCreated
-      }
-    }
-  }
-`
+
 
 //component
-function UploadDocModal({ setIsDocModalOpen, isDocModalOpen, currentModuleId, updateModule, updateTestModule, type }: IUserModalProps) {
+function UploadDocModal({ setIsDocModalOpen, isDocModalOpen, currentModuleId, updateModule }: IUserModalProps) {
 
 
     // states
@@ -66,7 +55,6 @@ function UploadDocModal({ setIsDocModalOpen, isDocModalOpen, currentModuleId, up
 
     // fetching data
     const [updateModuleReportFn, updateStatus] = useMutation(UPDATE_MODULE_REPORT, { client })
-    const [updateTestModuleReportFn, updateTestStatus] = useMutation(UPDATE_TEST_MODULE_REPORT, { client })
 
 
     //handle close modal
@@ -117,43 +105,21 @@ function UploadDocModal({ setIsDocModalOpen, isDocModalOpen, currentModuleId, up
 
                 console.log(uploadedFilesData, 'uploadedFilesData')
                 setUploading(false)
-
-
-                if (type === 'TEST') {
-                    const { data } = await updateTestModuleReportFn({
-                        variables: {
-                            where: {
-                                id: currentModuleId
-                            },
-                            update: {
-                                reports: uploadedFilesData
-                            }
+                const { data } = await updateModuleReportFn({
+                    variables: {
+                        where: {
+                            id: currentModuleId
                         },
-                    })
+                        update: {
+                            reports: uploadedFilesData
+                        }
+                    },
+                })
 
-                    if (data.updateModules) {
-                        updateTestModule('UNDER_REVIEW', currentModuleId)
-                        closeModal()
-                    }
-                } else {
-                    const { data } = await updateModuleReportFn({
-                        variables: {
-                            where: {
-                                id: currentModuleId
-                            },
-                            update: {
-                                reports: uploadedFilesData
-                            }
-                        },
-                    })
-
-                    if (data.updateModuleTickets.moduleTickets.length) {
-                        updateModule('UNDER_REVIEW', currentModuleId)
-                        closeModal()
-                    }
+                if (data.updateModuleTickets.moduleTickets.length) {
+                    updateModule('UNDER_REVIEW', currentModuleId)
+                    closeModal()
                 }
-
-
             }
 
         } catch (error) {

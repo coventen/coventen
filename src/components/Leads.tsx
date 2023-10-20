@@ -66,7 +66,14 @@ const Leads = () => {
 
     // queries and mutations
     const { data, loading, error: industryError } = useQuery(GET_INDUSTRY, { client })
-    const { data: serviceData, loading: serviceLoading, error: serviceError } = useQuery(GET_SERVICE, { client })
+    const { data: serviceData, loading: serviceLoading, error: serviceError } = useQuery(GET_SERVICE, {
+        client,
+        variables: {
+            "where": {
+                "isService": true
+            }
+        }
+    })
     const [createLead, createState] = useMutation(CREATE_LEAD, { client })
 
 

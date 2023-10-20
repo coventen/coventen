@@ -107,7 +107,7 @@ const Main = () => {
                     status: "COMPLAINED",
                     vendorHas: {
                         userIs: {
-                            email: labEmail
+                            email: labEmail || "no email"
                         }
                     }
                 },
@@ -118,7 +118,6 @@ const Main = () => {
             }
         })
 
-        console.log(data, 'data3')
 
         if (data.moduleTickets.length) {
             setData(data.moduleTickets)
@@ -141,7 +140,7 @@ const Main = () => {
                     <Pagination currentPage={currentPage} setCurrentPage={setCurrentPage} totalPages={totalPages} />}
 
             </div>
-            <UploadDocModal isDocModalOpen={isDocModalOpen} setIsDocModalOpen={setIsDocModalOpen} />
+            <UploadDocModal isDocModalOpen={isDocModalOpen} setIsDocModalOpen={setIsDocModalOpen} currentComplain={currentComplain} getComplainData={getComplainData} />
             <ViewModal currentComplain={currentComplain} setIsModalOpen={setIsModalOpen} isModalOpen={isModalOpen} />
         </div>
     );

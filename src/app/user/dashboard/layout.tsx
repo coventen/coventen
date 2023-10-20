@@ -16,10 +16,13 @@ const Layout = (props: PropsWithChildren) => {
 
     //render
     return (
-        <div className="absolute top-0 w-full z-[9999999999999] bg-white overflow-hidden ">
-            <DashboardBody>
-                {props.children}
-            </DashboardBody>
+        <div className="absolute top-0 w-full z-[9999999999999] bg-gray-200 overflow-hidden ">
+            <div className="max-w-screen-2xl mx-auto bg-white">
+                <DashboardBody>
+                    {props.children}
+                </DashboardBody>
+            </div>
+
 
             <Toaster
                 position="bottom-right"

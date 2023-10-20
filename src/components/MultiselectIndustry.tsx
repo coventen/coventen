@@ -67,16 +67,16 @@ function MultiselectIndustry({ selectedOptions, setSelectedOptions, options, loa
                         loading && <p>loading ....</p>
                     }
 
-                    {filteredOptions && filteredOptions?.slice(0, 10)?.map((option) => (
+                    {filteredOptions && filteredOptions?.slice(0, 10)?.map((option: any) => (
                         <div
                             key={option.id}
-                            className={`${selectedOptions.find((item) => item.id === option.id)
+                            className={`${selectedOptions.find((item: any) => item.id === option.id)
                                 ? 'text-amber-900 bg-amber-100'
                                 : 'text-gray-900'
                                 } cursor-default select-none relative py-2 pl-8 pr-4 `}
                             onClick={() => toggleOption(option)}
                         >
-                            <span className="block truncate">{option?.title}</span>
+                            <span className="block truncate uppercase">{option?.title}</span>
                             {selectedOptions.find((item) => item?.id === option?.id) && (
                                 <span className="absolute inset-y-0 left-0 flex items-center pl-3">
                                     <HiCheck className="w-5 h-5" />
@@ -98,10 +98,10 @@ function MultiselectIndustry({ selectedOptions, setSelectedOptions, options, loa
             </Transition>
 
 
-            <div className='grid grid-cols-1 lg:grid-cols-6 gap-2 w-full'>
+            <div className='grid grid-cols-1 lg:grid-cols-3 gap-2 w-full'>
                 {selectedOptions.length > 0 && (
                     selectedOptions.map((option: any, i: number) => (
-                        <div key={i} className=" pr-2 flex items-center justify-center text-xs pointer-events-none mt-3 mb-2 border border-gray-300 px-1 py-1 rounded-lg">
+                        <div key={i} className=" mr-2 flex  items-center justify-center text-xs pointer-events-none  mt-3  border border-gray-300 px-4 py-1 ">
                             {option.title}
                         </div>
                     ))

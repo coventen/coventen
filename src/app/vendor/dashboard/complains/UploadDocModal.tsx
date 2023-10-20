@@ -22,8 +22,8 @@ import deleteImage from '@/shared/deleteImage';
 interface IUserModalProps {
     isDocModalOpen: boolean;
     setIsDocModalOpen: (value: boolean) => void;
-    currentModuleId?: string
-    updateModule?: any
+    currentComplain: string
+    getComplainData: any
 }
 
 
@@ -49,7 +49,7 @@ mutation Mutation($where: ModuleTicketWhere, $update: ModuleTicketUpdateInput) {
 
 
 //component
-function UploadDocModal({ setIsDocModalOpen, isDocModalOpen, currentModuleId, updateModule }: IUserModalProps) {
+function UploadDocModal({ setIsDocModalOpen, isDocModalOpen, currentComplain, getComplainData }: IUserModalProps) {
 
 
     // states
@@ -69,7 +69,7 @@ function UploadDocModal({ setIsDocModalOpen, isDocModalOpen, currentModuleId, up
         client,
         variables: {
             "where": {
-                "id": currentModuleId
+                "id": currentComplain
             }
         }
     })
@@ -77,6 +77,8 @@ function UploadDocModal({ setIsDocModalOpen, isDocModalOpen, currentModuleId, up
     // MUTATIONS
     const [updateModuleReportFn, updateStatus] = useMutation(UPDATE_MODULE_REPORT, { client })
 
+
+    console.log(currentComplain, 'currentComplain99999999999')
 
     //handle close modal
     function closeModal() {
@@ -131,7 +133,7 @@ function UploadDocModal({ setIsDocModalOpen, isDocModalOpen, currentModuleId, up
                     const { data } = await updateModuleReportFn({
                         variables: {
                             where: {
-                                id: currentModuleId
+                                id: currentComplain
                             },
                             update: {
                                 reports: uploadedFilesData,
@@ -141,6 +143,7 @@ function UploadDocModal({ setIsDocModalOpen, isDocModalOpen, currentModuleId, up
                     })
 
                     if (data.updateModuleTickets.moduleTickets.length) {
+                        getComplainData()
                         closeModal()
                     }
                 } else {

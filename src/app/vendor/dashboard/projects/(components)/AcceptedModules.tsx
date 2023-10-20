@@ -5,13 +5,12 @@ import React, { useEffect, useState } from 'react';
 import ViewModal from './ViewModal';
 import Loading from '@/app/loading';
 import { useGqlClient } from '@/hooks/UseGqlClient';
-import { useManualQuery, useMutation } from 'graphql-hooks';
+import { useMutation } from 'graphql-hooks';
 import { toast } from 'react-hot-toast';
 import UploadDocModal from './UploadDocModal';
 import Pagination from '@/components/Pagination';
 import GetModules from '@/shared/graphQl/queries/modules';
 import { getEmployerEmail } from '@/shared/getEmployerEmail';
-import { Module } from '@/gql/graphql';
 
 
 
@@ -34,30 +33,7 @@ mutation CreateNotifications($input: [NotificationCreateInput!]!) {
     }
   }`
 
-const GET_TEST_MODULES = `
-  query Modules($options: ModuleOptions, $where: ModuleWhere) {
-    modules(options: $options, where: $where) {
-      id
-      title
-      description
-      files
-      ticket
-      status
-      type
-    }
-  }
-  `
 
-const UPDATE_TEST_MODULE = `
-mutation UpdateModules($where: ModuleWhere, $update: ModuleUpdateInput) {
-    updateModules(where: $where, update: $update) {
-      info {
-        nodesCreated
-        relationshipsCreated
-      }
-    }
-  }
-`
 
 
 
@@ -72,8 +48,6 @@ const AcceptedModules = () => {
     const [reset, setReset] = useState(false)
     const [loading, setLoading] = useState(false)
     const [labEmail, setLabEmail] = useState('')
-    const [testModuleData, setTestModuleData] = useState<Module[]>([])
-    const [moduleType, setModuleType] = useState<string>('')
     // pagination states
     const [pageLimit, setPageLimit] = useState(10)
     const [currentPage, setCurrentPage] = useState(1)
@@ -84,10 +58,8 @@ const AcceptedModules = () => {
     const { user, authLoading } = AuthConfig()
     const client = useGqlClient()
 
-    //quires and mutations
-    const [getTestModulesFn, status] = useManualQuery(GET_TEST_MODULES, { client })
+    // UPDATING MODULE STATUS
     const [updateModuleStatusFn, updateStatus] = useMutation(UPDATE_MODULE_STATUS, { client })
-    const [updateTestModuleStatusFn, updateTestStatus] = useMutation(UPDATE_TEST_MODULE, { client })
     const [sendNotificationFn, notificationState] = useMutation(SEND_NOTIFICATION, { client })
 
 
@@ -98,7 +70,6 @@ const AcceptedModules = () => {
         getLabEmail()
         getModulesData()
         getTotalModulesCount()
-        getTestModule()
     }, [currentPage, user?.email, authLoading, labEmail]);
 
 
@@ -138,35 +109,6 @@ const AcceptedModules = () => {
         }
     }
 
-    // get Test module data
-    const getTestModule = async () => {
-        const { data } = await getTestModulesFn({
-            variables: {
-                "options": {
-                    "sort": [
-                        {
-                            "createdAt": "ASC"
-                        }
-                    ]
-                },
-                "where": {
-                    status: "ACCEPTED",
-                    "forUser": {
-                        "email": labEmail || 'no email'
-                    }
-                }
-            }
-        })
-        console.log(data?.modules, ' this is data77777777777777777777777')
-
-        if (data) {
-
-            setTestModuleData(data?.modules)
-        }
-
-    }
-
-
     //getting total modules
     const getTotalModulesCount = async () => {
         const where = {
@@ -200,27 +142,9 @@ const AcceptedModules = () => {
         })
 
         if (data) {
+
             setReset(!reset)
             getModulesData()
-            toast.success('Module updated successfully')
-        }
-    }
-    // update Test module status after uploading doc
-    const updateTestModule = async (status: string, id: string) => {
-        const { data } = await updateTestModuleStatusFn({
-            variables: {
-                where: {
-                    id: id
-                },
-                update: {
-                    status: status
-                }
-            }
-        })
-
-        if (data) {
-            setReset(!reset)
-            getTestModule()
             toast.success('Module updated successfully')
         }
     }
@@ -244,6 +168,8 @@ const AcceptedModules = () => {
 
 
     }
+
+    console.log('lab email', labEmail)
 
 
 
@@ -280,7 +206,6 @@ const AcceptedModules = () => {
                                     <select
                                         value={module?.status || 'ACCEPTED'}
                                         onChange={(e) => {
-                                            setModuleType('PROJECT')
                                             handleStatusChange(e, module?.id)
                                             setClientId(module?.clientHas?.userIs?.id)
                                         }
@@ -300,46 +225,11 @@ const AcceptedModules = () => {
                     )
                         :
                         <tr className="bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-900 text-gray-700 dark:text-gray-400">
-                            {/* <td colSpan={4} className="px-4 py-3 text-sm ">No modules found</td> */}
-                        </tr>
-                    }
-                    {testModuleData.length ? testModuleData?.map((module: any, index: number) =>
-
-                        <tr key={module?.id} className="bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-900 text-gray-700 dark:text-gray-400">
-
-                            <td className="px-4 py-3 text-sm">{index + 1}</td>
-                            <td className="px-4 py-3 text-sm">{module?.ticket}</td>
-                            <td className="px-4 py-3 text-sm">{module?.title || 'N/A'}</td>
-                            <td className="px-4 py-3 text-sm space-x-2 flex items-center justify-center">
-                                <div className="relative w-40 ">
-                                    <select
-                                        value={module?.status || 'ACCEPTED'}
-                                        onChange={(e) => {
-                                            setModuleType('TEST')
-                                            handleStatusChange(e, module?.id)
-                                            setClientId(module?.clientHas?.userIs?.id)
-                                        }
-
-                                        }
-                                        className=" h-full rounded-r block  w-full bg-white border text-sm pr-8 border-gray-300  py-1 px-3  leading-tight focus:outline-none  dark:bg-darkBg dark:border-darkBorder">
-                                        <option value='ACCEPTED'>IN DEVELOPMENT</option>
-                                        <option value='UNDER_REVIEW'>UNDER REVIEW</option>
-                                    </select>
-
-                                </div>
-
-                            </td>
-
-                        </tr>
-
-                    )
-                        :
-                        <tr className="bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-900 text-gray-700 dark:text-gray-400">
-                            {/* <td colSpan={4} className="px-4 py-3 text-sm ">No modules found</td> */}
+                            <td colSpan={4} className="px-4 py-3 text-sm ">No modules found</td>
                         </tr>
                     }
                 </tbody>
-                <UploadDocModal type={moduleType} isDocModalOpen={isDocModalOpen} setIsDocModalOpen={setIsDocModalOpen} currentModuleId={currentModuleId} updateModule={updateModule} updateTestModule={updateTestModule} />
+                <UploadDocModal isDocModalOpen={isDocModalOpen} setIsDocModalOpen={setIsDocModalOpen} currentModuleId={currentModuleId} updateModule={updateModule} />
             </table >
             <div className='w-full flex items-center justify-center'>
                 {totalModules! > pageLimit &&

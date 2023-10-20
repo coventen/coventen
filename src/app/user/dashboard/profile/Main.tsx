@@ -131,7 +131,7 @@ const Main = () => {
     return (
         <form className="container flex flex-col mx-auto space-y-12">
             <fieldset className="grid grid-cols-3 gap-6 p-6 rounded-md shadow-sm dark:bg-gray-900">
-                <div className="space-y-2 col-span-full lg:col-span-1">
+                {/* <div className="space-y-2 col-span-full lg:col-span-1">
                     <div className="flex flex-col justify-center bg-white max-w-xs p-6 shadow-md rounded-xl sm:px-12 dark:bg-gray-900 dark:text-gray-100">
                         <img src={userInfo.image || '/assets/no_user.png'} className='w-32 mx-auto' />
                         <div className="space-y-4 text-center divide-y divide-gray-700">
@@ -142,7 +142,7 @@ const Main = () => {
 
                         </div>
                     </div>
-                </div>
+                </div> */}
                 <div className="grid grid-cols-6 gap-4 col-span-full lg:col-span-2">
 
                     <div className="col-span-full sm:col-span-3">

@@ -135,10 +135,10 @@ const ChatBody = ({ messages, currentModule }: Props) => {
                                     <div key={message?.id} className="col-start-6 col-end-13 p-3 rounded-lg">
                                         <div className="flex items-center justify-start flex-row-reverse">
                                             <div
-                                                className={`${message.senderId === user?.email ? 'bg-primary' : 'bg-desktopPrimary-500'}
+                                                className={`${message.senderId === user?.email ? 'bg-gray-600' : 'bg-primary'}
                                                 flex items-center justify-center h-10 w-10 rounded-full  text-white font-bold flex-shrink-0`}
                                             >
-                                                {user?.email?.slice(0, 1).toUpperCase()}
+                                                {message.senderId === user?.email ? user?.email?.slice(0, 1).toUpperCase() : "V"}
                                             </div>
                                             <div
                                                 ref={latestMessageRef}

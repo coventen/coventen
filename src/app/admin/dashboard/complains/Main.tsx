@@ -18,6 +18,7 @@ query Query($where: InvoiceWhere, $options: InvoiceOptions) {
       clientEmail
       totalPrice
       status
+      ticket
       complain
     }
   }`

@@ -135,7 +135,8 @@ const ChatBody = ({ messages, currentModule }: Props) => {
                                     <div key={message?.id} className="col-start-6 col-end-13 p-3 rounded-lg">
                                         <div className="flex items-center justify-start flex-row-reverse">
                                             <div
-                                                className="flex items-center justify-center h-10 w-10 rounded-full bg-primary text-white font-bold flex-shrink-0"
+                                                className={`${message.senderId === user?.email ? 'bg-gray-600' : 'bg-primary'}
+                                               flex items-center justify-center h-10 w-10 rounded-full  text-white font-bold flex-shrink-0`}
                                             >
                                                 {user?.email?.slice(0, 1).toUpperCase()}
                                             </div>
@@ -211,7 +212,7 @@ const ChatBody = ({ messages, currentModule }: Props) => {
                 </div>
                 {/* send button input */}
                 {
-                    messages?.length && <form onSubmit={handleSubmit} className=" px-4  h-16   sm:mb-0 ">
+                    <form onSubmit={handleSubmit} className=" px-4  h-16   sm:mb-0 ">
                         <div className="relative flex border-none">
 
                             <input onChange={(e) => setText(e.target.value)} type="text" placeholder="Write your message!" className="w-full outline-none focus:outline-none focus:border-none focus:ring-0 text-gray-600 placeholder-gray-600 pl-12 bg-primary/20 border-none shadow-md rounded-md py-3" />

@@ -79,17 +79,15 @@ const Main = () => {
     const getInternalEmailData = async () => {
         const { data } = await getInternalEmailFn({
             variables: {
-                where: {
-                    where: {
-                        sender_IN: ["CONSUMER", "SERVICE_PROVIDER"]
-                    }
+                "where": {
+                    "sender_IN": ["CONSUMER", "SERVICE_PROVIDER"]
                 },
                 options: {
                     limit: pageLimit,
                     offset: (currentPage - 1) * pageLimit,
                     sort: [
                         {
-                            date: "DESC"
+                            "date": "ASC"
                         }
                     ]
                 }

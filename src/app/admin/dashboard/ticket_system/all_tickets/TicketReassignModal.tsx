@@ -96,8 +96,6 @@ function TicketReassignModal({ isOpen, setIsOpen, currentModuleTicket, refetchMo
 
     const assignModule = async () => {
 
-        console.log(currentModuleTicket.moduleTicketId, 'currentModuleTicket', currentModuleTicket.vendorId)
-
         if (currentModuleTicket.vendorId) {
             await disconnectPreviousVendor()
         }
@@ -105,6 +103,10 @@ function TicketReassignModal({ isOpen, setIsOpen, currentModuleTicket, refetchMo
             variables: {
                 "where": {
                     "id": currentModuleTicket.moduleTicketId
+                },
+                "update": {
+                    status: "ASSIGNED",
+                    createdAt: new Date().toISOString(),
                 },
                 "connect": {
                     "vendorHas": {

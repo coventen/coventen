@@ -8,6 +8,7 @@ import { useManualQuery, useMutation, useQuery } from 'graphql-hooks';
 import React, { useEffect } from 'react';
 import { toast } from 'react-hot-toast';
 import Industries from './Industries';
+import Services from './Services';
 
 const GET_USER = `query Users($where: UserWhere) {
     users(where: $where) {
@@ -26,6 +27,7 @@ const GET_USER = `query Users($where: UserWhere) {
       isVendor {
         id
         industry
+        service
       }
     }
   }`
@@ -152,7 +154,7 @@ const Main = () => {
     }
 
 
-    console.log(userInfo, ' this is user insof')
+
 
 
     if (updateUserState.loading || authLoading || userState.loading) return <div><Loading /></div>
@@ -164,7 +166,7 @@ const Main = () => {
             <fieldset className="grid grid-cols-3 gap-6 p-6 rounded-md shadow-sm dark:bg-gray-900">
 
                 <div className="col-span-full lg:col-span-1">
-                    <div className="flex flex-col justify-center bg-white max-w-xs p-6 shadow-sm rounded-xl sm:px-12 dark:bg-gray-900 dark:text-gray-100">
+                    {/* <div className="flex flex-col justify-center bg-white max-w-xs p-6 shadow-sm rounded-xl sm:px-12 dark:bg-gray-900 dark:text-gray-100">
                         <img src={userInfo.image || '/assets/no_user.png'} className='w-32 mx-auto' />
                         <div className="space-y-4 text-center divide-y divide-gray-700">
                             <div className="my-2 space-y-1">
@@ -173,10 +175,13 @@ const Main = () => {
                             </div>
 
                         </div>
-                    </div>
+                    </div> */}
 
                     {
                         previousData?.user_type !== "LAB_ASSISTANT" && <Industries data={previousData?.isVendor?.industry} refetch={getUser} />
+                    }
+                    {
+                        previousData?.user_type !== "LAB_ASSISTANT" && <Services data={previousData?.isVendor?.service} refetch={getUser} />
                     }
 
                 </div>

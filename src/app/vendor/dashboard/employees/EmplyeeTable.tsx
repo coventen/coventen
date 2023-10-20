@@ -11,12 +11,12 @@ const EmployeeTable = ({ employeeList, updateEmployeeStatus }: IRolesPeopleTable
     // update employee status
 
     const handleStatusChange = async (id: string, status: string) => {
-        await updateEmployeeStatus(id, "APPROVED")
+        await updateEmployeeStatus(id, status)
     }
 
 
 
-
+    console.log(employeeList, 'employee list')
 
 
     return (
@@ -64,24 +64,24 @@ const EmployeeTable = ({ employeeList, updateEmployeeStatus }: IRolesPeopleTable
                             <td className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                 <div className="flex justify-center space-x-4">
                                     {
-                                        item.userHas.status === "PENDING" ?
+                                        item?.userHas?.status === "PENDING" ?
                                             <>
-                                                <button onClick={(e) => handleStatusChange(item?.id, "APPROVED")} className="text-green-700 bg-green-200 px-3 py-2 rounded-md">
+                                                <button onClick={(e) => handleStatusChange(item?.userHas?.id, "APPROVED")} className="text-green-700 bg-green-200 px-3 py-2 rounded-md">
                                                     Approve
                                                 </button>
-                                                <button className="text-red-700 bg-red-300 px-3 py-2 rounded-md">
+                                                <button onClick={(e) => handleStatusChange(item?.userHas?.id, "REJECTED")} className="text-red-700 bg-red-300 px-3 py-2 rounded-md">
                                                     Reject
                                                 </button>
                                             </>
-                                            : item.userHas.status === "APPROVED" ?
-                                                <button disabled className="text-green-700 bg-green-200 px-3 py-2 rounded-md">
-                                                    Approved
-                                                </button> :
-                                                item.userHas.status === "REJECTED" ?
-                                                    <button disabled className="text-red-700 bg-red-300 px-3 py-2 rounded-md">
-                                                        Rejected
-                                                    </button>
-                                                    : null
+                                            : item?.userHas?.status === "APPROVED" ?
+                                                <button onClick={(e) => handleStatusChange(item?.userHas?.id, "REJECTED")} className="text-red-700 bg-red-300 px-3 py-2 rounded-md">
+                                                    Remove
+                                                </button>
+
+                                                :
+                                                <button onClick={(e) => handleStatusChange(item?.userHas?.id, "APPROVED")} className="text-green-700 bg-green-200 px-3 py-2 rounded-md">
+                                                    Approve
+                                                </button>
                                     }
 
 

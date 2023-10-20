@@ -43,7 +43,7 @@ const InvoiceTable = ({ data, deleteInvoice, setIsOpen, setCurrentComplain }: IT
                         <tr key={item?.id} className=''>
                             <td className="pr-6 py-4 whitespace-nowrap">{idx + 1}</td>
                             <td className="pr-6 py-4 whitespace-nowrap">
-                                {item?.id}
+                                {item?.ticket}
                             </td>
                             <td className="pr-6 py-4 whitespace-nowrap">
                                 {item?.status}

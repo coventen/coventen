@@ -5,12 +5,11 @@ import React, { useEffect, useState } from 'react';
 import ViewModal from './ViewModal';
 import Loading from '@/app/loading';
 import { useGqlClient } from '@/hooks/UseGqlClient';
-import { useManualQuery, useMutation } from 'graphql-hooks';
+import { useMutation } from 'graphql-hooks';
 import { toast } from 'react-hot-toast';
 import Pagination from '@/components/Pagination';
 import GetModules from '@/shared/graphQl/queries/modules';
 import { getEmployerEmail } from '@/shared/getEmployerEmail';
-import { Module } from '@/gql/graphql';
 
 
 
@@ -37,30 +36,7 @@ mutation CreateNotifications($input: [NotificationCreateInput!]!) {
   }`
 
 
-const GET_TEST_MODULES = `
-  query Modules($options: ModuleOptions, $where: ModuleWhere) {
-    modules(options: $options, where: $where) {
-      id
-      title
-      description
-      files
-      ticket
-      status
-      type
-    }
-  }
-  `
 
-const UPDATE_TEST_MODULE = `
-mutation UpdateModules($where: ModuleWhere, $update: ModuleUpdateInput, $disconnect: ModuleDisconnectInput) {
-    updateModules(where: $where, update: $update, disconnect: $disconnect) {
-      info {
-        nodesCreated
-        relationshipsCreated
-      }
-    }
-  }
-`
 
 
 
@@ -74,7 +50,6 @@ const NewModules = () => {
     const [loading, setLoading] = useState(false)
     const [labEmail, setLabEmail] = useState('')
     const [clientId, setClientId] = useState('')
-    const [testModuleData, setTestModuleData] = useState<Module[]>([])
     // pagination states
     const [pageLimit, setPageLimit] = useState(10)
     const [currentPage, setCurrentPage] = useState(1)
@@ -86,10 +61,8 @@ const NewModules = () => {
     const { user, authLoading } = AuthConfig()
     const client = useGqlClient()
 
-    //quires and mutations
-    const [getTestModulesFn, status] = useManualQuery(GET_TEST_MODULES, { client })
+    // UPDATING MODULE STATUS
     const [updateModuleStatusFn, updateStatus] = useMutation(UPDATE_MODULE_STATUS, { client })
-    const [updateTestModuleStatusFn, updateTestStatus] = useMutation(UPDATE_TEST_MODULE, { client })
     const [sendNotificationFn, notificationState] = useMutation(SEND_NOTIFICATION, { client })
 
 
@@ -98,7 +71,6 @@ const NewModules = () => {
         getLabEmail()
         getModulesData()
         getTotalModulesCount()
-        getTestModule()
     }, [currentPage, labEmail, user?.email]);
 
 
@@ -113,34 +85,8 @@ const NewModules = () => {
 
     }
 
-    const getTestModule = async () => {
-        const { data } = await getTestModulesFn({
-            variables: {
-                "options": {
-                    "sort": [
-                        {
-                            "createdAt": "ASC"
-                        }
-                    ]
-                },
-                "where": {
-                    status: "ASSIGNED",
-                    "forUser": {
-                        "email": labEmail || 'no email'
-                    }
-                }
-            }
-        })
-        console.log(data?.modules, ' this is data77777777777777777777777')
 
-        if (data) {
-
-            setTestModuleData(data?.modules)
-        }
-
-    }
-
-    //* update module status
+    // update module status
     const updateModule = async (status: string, id: string) => {
 
         if (status === 'REJECTED') {
@@ -187,64 +133,6 @@ const NewModules = () => {
             if (data.updateModuleTickets.moduleTickets.length) {
                 console.log('updated')
                 getModulesData()
-                sendNotificationToVendor('ACCEPTED')
-                toast.success('Module updated successfully')
-            }
-        }
-
-
-
-
-
-
-
-    }
-    //* update Test module status
-    const updateTestModule = async (status: string, id: string) => {
-
-        if (status === 'REJECTED') {
-            const { data } = await updateTestModuleStatusFn({
-                variables: {
-                    where: {
-                        id: id
-                    },
-                    update: {
-                        status: status
-                    },
-                    "disconnect": {
-                        "forUser": {
-                            "where": {
-                                "node": {
-                                    "email": labEmail || "no email"
-                                }
-                            }
-                        }
-                    }
-
-                }
-            })
-            if (data?.updateModules) {
-                console.log('updated')
-                getModulesData()
-                sendNotificationToVendor('REJECTED')
-
-                toast.success('Module updated successfully')
-            }
-        }
-        else {
-            const { data } = await updateTestModuleStatusFn({
-                variables: {
-                    where: {
-                        id: id
-                    },
-                    update: {
-                        status: status
-                    }
-                }
-            })
-            if (data?.updateModules) {
-                console.log('updated')
-                getTestModule()
                 sendNotificationToVendor('ACCEPTED')
                 toast.success('Module updated successfully')
             }
@@ -357,8 +245,6 @@ const NewModules = () => {
     }
 
 
-    console.log(testModuleData, 'this is test module data 000000000000')
-
 
     if (loading || updateStatus.loading || authLoading) return <Loading />
 
@@ -420,57 +306,7 @@ const NewModules = () => {
                         :
                         (
                             <tr className="bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-900 text-gray-700 dark:text-gray-400">
-                                {/* <td className="px-4 py-3 text-sm" colSpan={4}>No modules found</td> */}
-                            </tr>
-                        )
-                    }
-
-                    {/************************  test modules *******************/}
-                    {testModuleData?.length ?
-                        (testModuleData?.map((module: any, index: number) =>
-
-                            <tr key={module?.id} className="bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-900 text-gray-700 dark:text-gray-400">
-
-                                <td className="px-4 py-3 text-sm">{index + 1}</td>
-                                <td className="px-4 py-3 text-sm">{module?.ticket}</td>
-                                <td className="px-4 py-3 text-sm">{module?.title || 'N/A'}</td>
-                                <td className="px-4 py-3 text-sm space-x-2 text-center">
-                                    <button
-                                        onClick={() => {
-                                            setIsModalOpen(true)
-                                            setCurrentModuleId(module?.id)
-                                        }}
-                                        className='px-3 py-1 bg-primary text-white rounded'>
-                                        View
-                                    </button>
-                                    <button
-                                        onClick={() => {
-                                            setClientId(module?.clientHas?.userIs?.id)
-                                            updateTestModule('ACCEPTED', module?.id)
-
-                                        }}
-                                        className='px-3 py-1 bg-green-600 text-white rounded'>
-                                        Accept
-                                    </button>
-                                    <button
-                                        onClick={() => {
-                                            updateTestModule('REJECTED', module?.id)
-                                        }}
-                                        className='px-3 py-1 bg-red-600 text-white rounded'>
-                                        Reject
-                                    </button>
-
-                                </td>
-
-                            </tr>
-
-                        ))
-
-
-                        :
-                        (
-                            <tr className="bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-900 text-gray-700 dark:text-gray-400">
-                                {/* <td className="px-4 py-3 text-sm" colSpan={4}>No modules found</td> */}
+                                <td className="px-4 py-3 text-sm" colSpan={4}>No modules found</td>
                             </tr>
                         )
                     }

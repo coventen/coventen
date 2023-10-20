@@ -40,6 +40,9 @@ const Main = () => {
     const [createUserFn, state] = useMutation(CREATE_USER, { client });
     const [updateUserFn, updateState] = useMutation(UPDATE_USER, { client });
 
+
+
+
     // initializing user creation function
     const createUser = async (name: string, email: string, user_type: string, sub_type: string, selectedIndustries: any[], selectedVendor: string) => {
 
@@ -68,7 +71,7 @@ const Main = () => {
                         isVendor: {
                             create: {
                                 node: {
-                                    // industry: selectedIndustries.map((industry) => industry.name),
+                                    industry: selectedIndustries.map((industry) => industry.title),
                                     sub_type: sub_type
                                 }
                             }

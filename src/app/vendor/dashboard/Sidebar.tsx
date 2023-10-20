@@ -106,7 +106,7 @@ const Sidebar = ({
 
 
     useEffect(() => {
-        console.log(accessibleNavItems, "00000000000000000000000000")
+        console.log(accessibleNavItems, "")
     }, [accessibleNavItems.length])
 
     if (loading) return <Loading />

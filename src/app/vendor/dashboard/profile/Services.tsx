@@ -7,6 +7,8 @@ import { useGqlClient } from '@/hooks/UseGqlClient';
 import { useMutation } from 'graphql-hooks';
 import AuthConfig from '@/firebase/oauth.config';
 import { toast } from 'react-hot-toast';
+import AddServiceModal from './AddServiceModal';
+
 
 
 const UPDATE_USER = `mutation UpdateVendors($where: VendorWhere, $update: VendorUpdateInput) {
@@ -20,7 +22,7 @@ const UPDATE_USER = `mutation UpdateVendors($where: VendorWhere, $update: Vendor
 
 
 // component
-const Industries = ({ data, refetch }: { data: string[], refetch: any }) => {
+const Services = ({ data, refetch }: { data: string[], refetch: any }) => {
     // states
     const [isModalOpen, setIsModalOpen] = React.useState(false);
 
@@ -34,7 +36,7 @@ const Industries = ({ data, refetch }: { data: string[], refetch: any }) => {
 
 
 
-    const deleteIndustry = async (industry: string) => {
+    const deleteService = async (industry: string) => {
         const updatedIndustries = data.filter((item: string) => item !== industry)
 
 
@@ -47,41 +49,63 @@ const Industries = ({ data, refetch }: { data: string[], refetch: any }) => {
                     }
                 },
                 "update": {
-                    industry: updatedIndustries
+                    service: updatedIndustries
                 }
             }
         })
         if (updateDta?.updateVendors) {
-            toast.error('Industry deleted')
+            toast.error('Service deleted')
             refetch()
         }
 
     }
 
 
-    const addIndustry = async (industry: string) => {
-        console.log('i am here')
+    const addService = async (service: string) => {
 
-        const { data: updateDta } = await updateUserFn({
-            variables: {
-                "where": {
-                    "userIs": {
-                        "email": user?.email
+        if (data?.length) {
+            const { data: updateDta } = await updateUserFn({
+                variables: {
+                    "where": {
+                        "userIs": {
+                            "email": user?.email
+                        }
+                    },
+                    "update": {
+                        "service_PUSH": [service]
                     }
-                },
-                "update": {
-                    "industry_PUSH": industry
                 }
+            })
+            if (updateDta?.updateVendors) {
+                toast.success('Service added')
+                setIsModalOpen(false)
+                refetch()
             }
-        })
-
-
-
-        if (updateDta?.updateVendors) {
-            toast.success('Industry added')
-            setIsModalOpen(false)
-            refetch()
+        } else {
+            const { data: updateDta } = await updateUserFn({
+                variables: {
+                    "where": {
+                        "userIs": {
+                            "email": user?.email
+                        }
+                    },
+                    "update": {
+                        "service": service
+                    }
+                }
+            })
+            if (updateDta?.updateVendors) {
+                toast.success('Service added')
+                setIsModalOpen(false)
+                refetch()
+            }
         }
+
+
+
+
+
+
 
     }
 
@@ -98,7 +122,7 @@ const Industries = ({ data, refetch }: { data: string[], refetch: any }) => {
 
             <div className="space-y-4 text-gray-800 mt-2">
                 <div className="my-2 space-y-1">
-                    <h2 className="text-xl font-semibold text-center sm:text-2xl">Industries</h2>
+                    <h2 className="text-xl font-semibold text-center sm:text-2xl">Services</h2>
                 </div>
                 <ul className="my-2 space-y-2 ">
                     {
@@ -108,7 +132,7 @@ const Industries = ({ data, refetch }: { data: string[], refetch: any }) => {
                                 <p className='capitalize'>
                                     {item}
                                 </p>
-                                <button type='button' onClick={() => deleteIndustry(item)} className='text-gray-700 text-lg'><MdDelete /></button>
+                                <button type='button' onClick={() => deleteService(item)} className='text-gray-700 text-lg'><MdDelete /></button>
                             </li>
 
                         )
@@ -118,9 +142,9 @@ const Industries = ({ data, refetch }: { data: string[], refetch: any }) => {
                 </ul>
 
             </div>
-            <IndustryModal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} addIndustry={addIndustry} />
+            <AddServiceModal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} addService={addService} />
         </div>
     );
 };
 
-export default Industries;
+export default Services;

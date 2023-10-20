@@ -24,10 +24,10 @@ query Employees($where: EmployeeWhere, $options: UserOptions) {
 `
 
 const UPDATE_EMPLOYEE_STATUS = `
-mutation UpdateEmployees($where: EmployeeWhere, $update: EmployeeUpdateInput) {
-    updateEmployees(where: $where, update: $update) {
-      employees {
-        id
+mutation UpdateUsers($where: UserWhere, $update: UserUpdateInput) {
+    updateUsers(where: $where, update: $update) {
+      info {
+        bookmark
       }
     }
   }
@@ -166,24 +166,22 @@ const Main = () => {
     // updating employee status
 
     const updateEmployeeStatus = async (id: string, status: string) => {
+
+        console.log(id, status, 'id and status')
+
+
         const { data } = await updateEmployeeStatusFn({
             variables: {
                 where: {
-                    id: id
+                    id: id || 'no id'
                 },
-                "update": {
-                    "userHas": {
-                        "update": {
-                            "node": {
-                                "status": status
-                            }
-                        }
-                    }
+                update: {
+                    status: status
                 }
             }
         })
 
-        if (data?.updateEmployees?.employees[0]?.id) {
+        if (data) {
             toast.success("Employee status updated successfully")
             // refetching data
             getEmployeeData({
