@@ -105,7 +105,7 @@ const TicketTable = ({ data, setIsOpen, setCurrentModuleTicket }: ITicketTable) 
                                     </button>
 
                                     {
-                                        ((item?.status as string) === 'ACCEPTED' || (item?.status as string) === 'COMPLAINED' || (item?.status as string) === 'ASSIGNED' || (item?.status as string) === 'UNDER_REVIEW' || (item?.status as string) === 'DRAFT')
+                                        ((item?.status as string) === 'ACCEPTED' || (item?.status as string) === 'COMPLAINED' || (item?.status as string) === 'ASSIGNED' || (item?.status as string) === 'COMPLETED' || (item?.status as string) === 'UNDER_REVIEW' || (item?.status as string) === 'DRAFT')
                                             ? (
                                                 <button
                                                     disabled

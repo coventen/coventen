@@ -61,11 +61,11 @@ export default function Services({ services }: { services: any[] }) {
                             slidesPerView={1}
                             breakpoints={{
                                 640: {
-                                    slidesPerView: 2,
+                                    slidesPerView: 1,
                                     spaceBetween: 10,
                                 },
                                 768: {
-                                    slidesPerView: 2,
+                                    slidesPerView: 1,
                                     spaceBetween: 10,
                                 },
                                 900: {
