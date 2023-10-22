@@ -1,34 +1,38 @@
 import { Invoice, Service } from '@/gql/graphql';
-import React from 'react';
+import React, { useEffect } from 'react';
 
 
 
 interface IServiceFrom {
     data: any
     setPreviousData: (data: Invoice) => void
-    previousData: Invoice
+    previousData: Invoice,
+    index: number
 }
 
 
-const ServicesFrom = ({ data, setPreviousData, previousData }: IServiceFrom) => {
+const ServicesFrom = ({ index, data, setPreviousData, previousData }: IServiceFrom) => {
 
     const [serviceData, setServiceData] = React.useState<any>(data)
 
+    console.log(serviceData, ' this is service data')
 
-    const handleServiceChange = (e: any) => {
-        const filteredData = previousData.hasPurchase.filter((service: any) => service.itemName !== data.itemName)
+    useEffect(() => {
+        const updatedHasPurchase = [...previousData.hasPurchase];
+        updatedHasPurchase[index] = serviceData;
+        console.log(updatedHasPurchase, ' this is updated has purchase')
 
         setPreviousData({
             ...previousData,
-            hasPurchase: [...filteredData, serviceData]
-        })
+            hasPurchase: updatedHasPurchase,
+        });
 
-    }
 
+    }, [serviceData.itemName, serviceData.price, serviceData.quantity])
 
 
     return (
-        <form onChange={handleServiceChange} className='grid lg:grid-cols-5 gap-6'>
+        <form className='grid  lg:grid-cols-6 gap-6'>
             <div className="md:col-span-4">
                 <label htmlFor="">Service Name</label>
                 <input
@@ -37,7 +41,12 @@ const ServicesFrom = ({ data, setPreviousData, previousData }: IServiceFrom) => 
                     type="text" id=""
                     className="h-10 border border-gray-300 mt-1 rounded px-4 w-full " placeholder="" />
             </div>
-
+            <div className="md:col-span-1">
+                <label htmlFor="">Quantity</label>
+                <input type='number' required
+                    defaultValue={serviceData?.quantity || ''} className="h-10 border border-gray-300 mt-1 rounded px-4 w-full " placeholder=""
+                    onChange={(e) => setServiceData({ ...serviceData, quantity: parseInt(e.target.value) })} />
+            </div>
             <div className="md:col-span-1">
                 <label htmlFor="">Price</label>
                 <input defaultValue={serviceData?.price || ''}

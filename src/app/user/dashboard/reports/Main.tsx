@@ -69,7 +69,7 @@ const Main = () => {
             email: user?.email || 'no email'
           }
         },
-        status: "DRAFT"
+        "status_IN": ["DRAFT", "COMPLETED"]
       }
     }
 

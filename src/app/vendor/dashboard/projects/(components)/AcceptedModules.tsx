@@ -48,6 +48,7 @@ const AcceptedModules = () => {
     const [reset, setReset] = useState(false)
     const [loading, setLoading] = useState(false)
     const [labEmail, setLabEmail] = useState('')
+    const [uploading, setUploading] = useState(false)
     // pagination states
     const [pageLimit, setPageLimit] = useState(10)
     const [currentPage, setCurrentPage] = useState(1)

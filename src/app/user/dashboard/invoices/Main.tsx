@@ -95,7 +95,7 @@ const Main = () => {
         if (data?.updateInvoices?.invoices[0]?.id) {
             setIsOpen(false)
             refetch()
-            toast.success('Complain added successfully')
+            toast.success('Updated successfully')
             sendNotification('complained')
             createLog(
                 `Invoice complained`,
@@ -162,8 +162,8 @@ const Main = () => {
                                             }} className='font-semibold border border-dimTetext-dimText px-3  py-1.5 rounded'>Comment</button>
                                             <button onClick={() => {
                                                 setCurrentInvoiceId(invoice?.id)
-                                                updateInvoice('', "CONFIRMED")
                                                 setCurrentInvoiceTicketId(invoice?.ticket)
+                                                updateInvoice('', "CONFIRMED")
                                                 sendNotification('confirmed')
 
                                             }} className='font-semibold border border-dimTetext-dimText px-3  py-1.5 rounded'>Confirm</button>

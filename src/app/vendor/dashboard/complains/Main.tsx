@@ -40,6 +40,7 @@ const Main = () => {
     const [isDocModalOpen, setIsDocModalOpen] = React.useState(false)
     const [data, setData] = useState<any>([])
     const [labEmail, setLabEmail] = useState('')
+    const [loading, setLoading] = useState(false)
 
     // pagination states
     const [pageLimit, setPageLimit] = useState(10)
@@ -67,7 +68,8 @@ const Main = () => {
         getTotalComplains()
     }, [currentPage, user?.email, labEmail]);
 
-
+    // reloading component after data changes
+    useEffect(() => { }, [data.length])
 
     // getting lab email if employee is logged in
     const getLabEmail = async () => {
@@ -101,6 +103,7 @@ const Main = () => {
     }
 
     const getComplainData = async () => {
+        setLoading(true)
         const { data } = await getComplainFn({
             variables: {
                 where: {
@@ -121,6 +124,9 @@ const Main = () => {
 
         if (data.moduleTickets.length) {
             setData(data.moduleTickets)
+            setLoading(false)
+        } else {
+            setLoading(false)
         }
     }
 
@@ -128,8 +134,8 @@ const Main = () => {
 
 
 
-    if (state?.error) return <Error />
-    if (state?.loading) return <Loading />
+    // if (state?.error return <Error />
+    if (state?.loading || loading) return <Loading />
 
 
     return (

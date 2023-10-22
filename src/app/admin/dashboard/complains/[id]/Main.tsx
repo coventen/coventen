@@ -2,12 +2,11 @@
 import React from 'react';
 import { useGqlClient } from '@/hooks/UseGqlClient';
 import { useMutation, useQuery } from 'graphql-hooks';
-import { Invoice, Service } from '@/gql/graphql';
 import InvoiceForm from './InvoiceForm';
-import { parse } from 'path';
 import { toast } from 'react-hot-toast';
 import { useParams, useRouter } from 'next/navigation';
 import AuthConfig from '@/firebase/oauth.config';
+import Loading from '@/app/loading';
 
 const UPDATE_INVOICE = `
 mutation UpdateInvoices($where: InvoiceWhere, $update: InvoiceUpdateInput) {
@@ -26,9 +25,9 @@ query Invoices($where: InvoiceWhere) {
       taxType
       taxRate
       hasPurchase {
-        id
         itemName
         price
+        quantity
       }
     }
   }
@@ -46,7 +45,6 @@ const Main = () => {
     const router = useRouter()
     const params = useParams()
 
-    console.log('this is params', params)
 
     // QUERY
     const { data: invoiceData, loading, error } = useQuery(GET_INVOICE_DATA, {
@@ -59,15 +57,19 @@ const Main = () => {
     })
 
 
-    console.log(invoiceData, ' this is invoice data000000000')
 
     // MUTATION
     const [updateInvoiceFn, state] = useMutation(UPDATE_INVOICE, { client });
 
 
     // calculate total price
-    const calculateTotalPrice = (services: any, taxRate: number) => {
-        const allPriceArray = services.map((item: any) => item.price)
+    const calculateTotalPrice = (purchases: any, taxRate: number) => {
+        const allPriceArray = purchases.map((service: any, i: number) => {
+            let price = service.price
+            let quantity = service.quantity
+            const totalPrice = parseInt(price) * parseInt(quantity)
+            return totalPrice
+        })
         const totalPrice = allPriceArray.reduce((a: number, b: number) => a + b, 0)
         const totalPriceWithTax = Math.floor(totalPrice + (totalPrice * taxRate / 100))
 
@@ -80,10 +82,11 @@ const Main = () => {
     // initializing invoice creation function
     const updateInvoice = async (invoiceData: any) => {
 
+
+
         const taxRate = parseInt(invoiceData?.taxRate)
         const { totalPriceWithTax, totalPrice } = calculateTotalPrice(invoiceData.hasPurchase, taxRate)
-
-
+        console.log(invoiceData, ' this is invoice data')
         const { data } = await updateInvoiceFn({
             variables: {
                 "where": {
@@ -99,7 +102,7 @@ const Main = () => {
                         return {
                             "update": {
                                 "node": {
-                                    "itemName": item.name,
+                                    "itemName": item.itemName,
                                     "price": item.price
                                 }
                             },
@@ -122,6 +125,7 @@ const Main = () => {
         }
     }
 
+    if (loading || state.loading) return <Loading />
 
     // rendering
     return (

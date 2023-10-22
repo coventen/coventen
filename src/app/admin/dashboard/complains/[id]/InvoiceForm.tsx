@@ -1,13 +1,9 @@
 'use client'
 import AutoComplete from '@/components/AutoComplete';
 import React, { useEffect } from 'react';
-import { useForm, SubmitHandler, set } from "react-hook-form"
 import ServicesFrom from './ServicesFrom';
 import { Invoice, Service } from '@/gql/graphql';
 import { BsPercent } from 'react-icons/bs';
-import AutoSelect from '@/components/AutoSelect';
-import { useGqlClient } from '@/hooks/UseGqlClient';
-import { useQuery } from 'graphql-hooks';
 
 interface IInvoiceForm {
     updateInvoice: (invoiceData: Invoice) => void
@@ -34,8 +30,13 @@ const InvoiceForm = ({ updateInvoice, invoiceData }: IInvoiceForm) => {
             setPreviousData({
                 taxType: invoiceData?.taxType,
                 taxRate: invoiceData?.taxRate,
-                hasPurchase: invoiceData?.hasPurchase
-            })
+                hasPurchase: invoiceData?.hasPurchase.map((service, idx) => ({
+                    itemName: service.itemName,
+                    price: service.price,
+                    quantity: service.quantity
+                })),
+            });
+
         }
 
     }, [invoiceData])
@@ -50,8 +51,6 @@ const InvoiceForm = ({ updateInvoice, invoiceData }: IInvoiceForm) => {
         e.preventDefault()
         updateInvoice(previousData)
     }
-
-
 
 
 
@@ -114,10 +113,10 @@ const InvoiceForm = ({ updateInvoice, invoiceData }: IInvoiceForm) => {
                                             {/* service inputs */}
                                             <div className='space-y-5'>
                                                 {
-                                                    previousData?.hasPurchase?.map((purchaseItem: any, i: number) =>
+                                                    invoiceData?.hasPurchase?.map((purchaseItem: any, i: number) =>
 
                                                         <div key={i}>
-                                                            <ServicesFrom data={purchaseItem} setPreviousData={setPreviousData} previousData={previousData} />
+                                                            <ServicesFrom index={i} data={purchaseItem} setPreviousData={setPreviousData} previousData={previousData} />
                                                         </div>
                                                     )
                                                 }

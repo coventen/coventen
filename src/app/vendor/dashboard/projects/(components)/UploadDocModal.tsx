@@ -128,7 +128,7 @@ function UploadDocModal({ setIsDocModalOpen, isDocModalOpen, currentModuleId, up
     };
 
 
-
+    if (uploading) return <Loading />
 
 
     //render

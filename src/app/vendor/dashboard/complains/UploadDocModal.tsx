@@ -78,7 +78,6 @@ function UploadDocModal({ setIsDocModalOpen, isDocModalOpen, currentComplain, ge
     const [updateModuleReportFn, updateStatus] = useMutation(UPDATE_MODULE_REPORT, { client })
 
 
-    console.log(currentComplain, 'currentComplain99999999999')
 
     //handle close modal
     function closeModal() {
