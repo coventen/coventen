@@ -7,6 +7,7 @@ import AssignmentModal from '../../projects/AssignmentModal';
 import Pagination from '@/components/Pagination';
 import TableSkeleton from '@/components/TableSkeleton';
 import TicketReassignModal from './TicketReassignModal';
+import ViewReportModal from './ViewReportModal';
 
 const GET_MODULE_TICKETS = `
 query ModuleTickets($where: ModuleTicketWhere, $options: ModuleTicketOptions) {
@@ -14,6 +15,8 @@ query ModuleTickets($where: ModuleTicketWhere, $options: ModuleTicketOptions) {
       id
       ticket
       status
+      reports
+      rejectedReason
       clientHas {
         userIs {
         companyName
@@ -163,6 +166,7 @@ const Main = () => {
         }
         <TicketTable data={moduleTicketData} setIsOpen={setIsOpen} setCurrentModuleTicket={setCurrentModuleTicket} />
         <TicketReassignModal setIsOpen={setIsOpen} isOpen={isOpen} currentModuleTicket={currentModuleTicket} refetchModuleTickets={getModuleTicketData} />
+
       </div>
 
 

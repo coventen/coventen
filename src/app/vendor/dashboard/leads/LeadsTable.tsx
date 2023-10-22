@@ -38,11 +38,11 @@ const LeadsTable = ({ data, setIsModalOpen, setCurrentLead }: ILeadsTableProps) 
                                 <p className=" whitespace-no-wrap">L-{index + 1}</p>
                             </td>
                             <td className="px-5 py-5  bg-white lowercase text-xs dark:bg-darkBg dark:border-darkBorder">
-                                <p className=" whitespace-no-wrap">{lead?.email}</p>
+                                <p className=" whitespace-no-wrap">{lead?.email && lead?.email.replace(/(?<=.{3})./g, '*')}</p>
                             </td>
                             <td className="px-5 py-5  bg-white text-xs dark:bg-darkBg dark:border-darkBorder">
                                 <p className=" whitespace-no-wrap">
-                                    {lead?.phone}
+                                    {lead?.phone && lead?.phone.replace(/(?<=.{4})./g, '*')}
                                 </p>
                             </td>
                             <td className="px-5 py-5 cursor-pointer  bg-white text-xs dark:bg-darkBg dark:border-darkBorder rounded-xl font-semibold">

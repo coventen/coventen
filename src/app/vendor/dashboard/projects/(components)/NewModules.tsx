@@ -10,6 +10,7 @@ import { toast } from 'react-hot-toast';
 import Pagination from '@/components/Pagination';
 import GetModules from '@/shared/graphQl/queries/modules';
 import { getEmployerEmail } from '@/shared/getEmployerEmail';
+import RejectModal from './RejectModal';
 
 
 
@@ -46,7 +47,9 @@ const NewModules = () => {
     //states
     const [modules, setModules] = useState([])
     const [isModalOpen, setIsModalOpen] = useState(false)
+    const [isRejectModalOpen, setIsRejectModalOpen] = useState(false)
     const [currentModuleId, setCurrentModuleId] = useState('')
+    const [currentTicket, setCurrentTicket] = useState('')
     const [loading, setLoading] = useState(false)
     const [labEmail, setLabEmail] = useState('')
     const [clientId, setClientId] = useState('')
@@ -87,27 +90,18 @@ const NewModules = () => {
 
 
     // update module status
-    const updateModule = async (status: string, id: string) => {
-
+    const updateModule = async (status: string, id: string, message?: string) => {
+        console.log('rejected', id, status)
         if (status === 'REJECTED') {
+            console.log('rejected', id, status)
             const { data } = await updateModuleStatusFn({
                 variables: {
                     where: {
                         id: id
                     },
                     update: {
-                        status: status
-                    },
-                    disconnect: {
-                        vendorHas: {
-                            where: {
-                                node: {
-                                    userIs: {
-                                        email: labEmail || "no email"
-                                    }
-                                }
-                            }
-                        }
+                        status: status,
+                        rejectedReason: message
                     }
                 }
             })
@@ -115,8 +109,9 @@ const NewModules = () => {
                 console.log('updated')
                 getModulesData()
                 sendNotificationToVendor('REJECTED')
+                toast.error('REJECTED successfully')
+                setIsRejectModalOpen(false)
 
-                toast.success('Module updated successfully')
             }
         }
         else {
@@ -126,7 +121,7 @@ const NewModules = () => {
                         id: id
                     },
                     update: {
-                        status: status
+                        status: status,
                     }
                 }
             })
@@ -137,11 +132,6 @@ const NewModules = () => {
                 toast.success('Module updated successfully')
             }
         }
-
-
-
-
-
 
 
     }
@@ -273,8 +263,9 @@ const NewModules = () => {
                                 <td className="px-4 py-3 text-sm space-x-2 text-center">
                                     <button
                                         onClick={() => {
-                                            setIsModalOpen(true)
                                             setCurrentModuleId(module?.forModule?.id)
+                                            setIsModalOpen(true)
+
                                         }}
                                         className='px-3 py-1 bg-primary text-white rounded'>
                                         View
@@ -290,7 +281,9 @@ const NewModules = () => {
                                     </button>
                                     <button
                                         onClick={() => {
-                                            updateModule('REJECTED', module?.id)
+                                            setCurrentTicket(module?.id)
+                                            setIsRejectModalOpen(true)
+
                                         }}
                                         className='px-3 py-1 bg-red-600 text-white rounded'>
                                         Reject
@@ -312,6 +305,7 @@ const NewModules = () => {
                     }
                 </tbody>
                 <ViewModal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} currentModuleId={currentModuleId} />
+                <RejectModal isRejectModalOpen={isRejectModalOpen} setIsRejectModalOpen={setIsRejectModalOpen} currentModuleId={currentTicket} updateModule={updateModule} />
             </table>
             <div className='w-full flex items-center justify-center'>
                 {totalModules! > pageLimit &&

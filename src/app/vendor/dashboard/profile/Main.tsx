@@ -9,6 +9,7 @@ import React, { useEffect } from 'react';
 import { toast } from 'react-hot-toast';
 import Industries from './Industries';
 import Services from './Services';
+import Documents from './Documents';
 
 const GET_USER = `query Users($where: UserWhere) {
     users(where: $where) {
@@ -24,6 +25,15 @@ const GET_USER = `query Users($where: UserWhere) {
       zip
       city
       state
+      secondAddress
+      mobile
+      panCardNo
+      hasDocuments {
+        hasFiles {
+          id
+          links
+        }
+      }
       isVendor {
         id
         industry
@@ -57,12 +67,18 @@ const Main = () => {
         zip: '',
         city: '',
         state: '',
+        secondAddress: '',
+        mobile: '',
+        panCardNo: '',
     })
 
 
     //hooks
     const client = useGqlClient()
     const { user, authLoading } = AuthConfig()
+
+
+    console.log(user)
 
 
     // fetching data
@@ -79,7 +95,7 @@ const Main = () => {
     // setting the user data  to the state
     useEffect(() => {
         if (previousData) {
-            const { name, user_type, email, address, bio, companyName, companyEmail, gstNumber, image, zip, city, state } = previousData
+            const { name, user_type, email, address, bio, secondAddress, mobile, panCardNo, companyName, companyEmail, gstNumber, image, zip, city, state } = previousData
             setUserInfo({
                 name,
                 user_type,
@@ -93,10 +109,12 @@ const Main = () => {
                 zip,
                 city,
                 state,
+                secondAddress,
+                mobile,
+                panCardNo,
             })
         }
     }, [previousData])
-
 
 
 
@@ -125,7 +143,7 @@ const Main = () => {
     // updating the user node
 
     const updateUser = async () => {
-        const { name, user_type, email, address, bio, companyName, companyEmail, gstNumber, image, zip, city, state } = userInfo
+        const { name, user_type, email, address, bio, companyName, companyEmail, secondAddress, mobile, panCardNo, gstNumber, image, zip, city, state } = userInfo
         const { data, error } = await updateUserFn({
             variables: {
                 where: { email },
@@ -142,6 +160,9 @@ const Main = () => {
                     zip,
                     city,
                     state,
+                    secondAddress,
+                    mobile,
+                    panCardNo,
                 }
             }
         })
@@ -165,32 +186,29 @@ const Main = () => {
         <div className="container flex flex-col mx-auto space-y-12">
             <fieldset className="grid grid-cols-3 gap-6 p-6 rounded-md shadow-sm dark:bg-gray-900">
 
-                <div className="col-span-full lg:col-span-1">
-                    {/* <div className="flex flex-col justify-center bg-white max-w-xs p-6 shadow-sm rounded-xl sm:px-12 dark:bg-gray-900 dark:text-gray-100">
-                        <img src={userInfo.image || '/assets/no_user.png'} className='w-32 mx-auto' />
-                        <div className="space-y-4 text-center divide-y divide-gray-700">
-                            <div className="my-2 space-y-1">
-                                <h2 className="text-xl font-semibold sm:text-2xl">{userInfo.name}</h2>
-                                <p className="px-5 text-[10px] capitalize sm:text-base dark:text-gray-400">{userInfo.user_type}</p>
-                            </div>
+                {
+                    previousData?.user_type !== "LAB_ASSISTANT" &&
+                    <div className="col-span-full lg:col-span-1">
+                        {
+                            previousData?.user_type !== "LAB_ASSISTANT" && <Industries data={previousData?.isVendor?.industry} refetch={getUser} />
+                        }
+                        {
+                            previousData?.user_type !== "LAB_ASSISTANT" && <Services data={previousData?.isVendor?.service} refetch={getUser} />
+                        }
+                        {
+                            previousData?.hasDocuments?.hasFiles?.links?.length ? <Documents data={previousData?.hasDocuments?.hasFiles} refetch={getUser} /> : <></>
+                        }
 
-                        </div>
-                    </div> */}
+                    </div>
+                }
 
-                    {
-                        previousData?.user_type !== "LAB_ASSISTANT" && <Industries data={previousData?.isVendor?.industry} refetch={getUser} />
-                    }
-                    {
-                        previousData?.user_type !== "LAB_ASSISTANT" && <Services data={previousData?.isVendor?.service} refetch={getUser} />
-                    }
-
-                </div>
                 <form className="grid grid-cols-6 gap-4 col-span-full lg:col-span-2">
 
                     <div className="col-span-full sm:col-span-3">
                         <label htmlFor="lastname" className="text-sm" >Username</label>
                         <input
                             type="text"
+                            required
                             value={userInfo?.name || ''}
                             onChange={(e) => setUserInfo({ ...userInfo, name: e.target.value })}
                             placeholder="Last name" className="w-full rounded-md focus:ring ring-primary dark:border-gray-700 dark:text-gray-900" />
@@ -211,6 +229,7 @@ const Main = () => {
                             <div className="col-span-full">
                                 <label htmlFor="address" className="text-sm">Company Name</label>
                                 <input
+                                    required
                                     value={userInfo.companyName || ''}
                                     onChange={(e) => setUserInfo({ ...userInfo, companyName: e.target.value })}
                                     id="address" type="text" placeholder="" className="w-full rounded-md focus:ring ring-primary dark:border-gray-700 dark:text-gray-900" />
@@ -225,6 +244,7 @@ const Main = () => {
                             <div className="col-span-full sm:col-span-3">
                                 <label htmlFor="website" className="text-sm">Gst no.</label>
                                 <input
+                                    required
                                     value={userInfo.gstNumber || ''}
                                     onChange={(e) => setUserInfo({ ...userInfo, gstNumber: e.target.value })}
                                     id="website" type="text" placeholder="Gst no." className="w-full rounded-md focus:ring ring-primary dark:border-gray-700 dark:text-gray-900" />
@@ -238,15 +258,41 @@ const Main = () => {
 
 
                     <div className="col-span-full">
+                        <label htmlFor="address" className="text-sm">Pan Card No</label>
+                        <input
+                            required
+                            value={userInfo.panCardNo || ''}
+                            onChange={(e) => setUserInfo({ ...userInfo, panCardNo: e.target.value })}
+                            id="address" type="text" placeholder="" className="w-full rounded-md focus:ring ring-primary dark:border-gray-700 dark:text-gray-900" />
+                    </div>
+                    <div className="col-span-full">
+                        <label htmlFor="address" className="text-sm">Mobile Number</label>
+                        <input
+                            required
+                            value={userInfo.mobile || ''}
+                            onChange={(e) => setUserInfo({ ...userInfo, mobile: e.target.value })}
+                            id="address" type="text" placeholder="" className="w-full rounded-md focus:ring ring-primary dark:border-gray-700 dark:text-gray-900" />
+                    </div>
+                    <div className="col-span-full">
                         <label htmlFor="address" className="text-sm">Address</label>
                         <input
+                            required
                             value={userInfo.address || ''}
                             onChange={(e) => setUserInfo({ ...userInfo, address: e.target.value })}
+                            id="address" type="text" placeholder="" className="w-full rounded-md focus:ring ring-primary dark:border-gray-700 dark:text-gray-900" />
+                    </div>
+                    <div className="col-span-full">
+                        <label htmlFor="address" className="text-sm">Second Address</label>
+                        <input
+                            required
+                            value={userInfo.secondAddress || ''}
+                            onChange={(e) => setUserInfo({ ...userInfo, secondAddress: e.target.value })}
                             id="address" type="text" placeholder="" className="w-full rounded-md focus:ring ring-primary dark:border-gray-700 dark:text-gray-900" />
                     </div>
                     <div className="col-span-full sm:col-span-2">
                         <label htmlFor="city" className="text-sm">City</label>
                         <input
+                            required
                             value={userInfo.city || ''}
                             onChange={(e) => setUserInfo({ ...userInfo, city: e.target.value })}
                             id="city" type="text" placeholder="" className="w-full rounded-md focus:ring ring-primary dark:border-gray-700 dark:text-gray-900" />
@@ -254,6 +300,7 @@ const Main = () => {
                     <div className="col-span-full sm:col-span-2">
                         <label htmlFor="state" className="text-sm">State / Province</label>
                         <input
+                            required
                             value={userInfo.state || ''}
                             onChange={(e) => setUserInfo({ ...userInfo, state: e.target.value })}
                             id="state" type="text" placeholder="" className="w-full rounded-md focus:ring ring-primary dark:border-gray-700 dark:text-gray-900" />

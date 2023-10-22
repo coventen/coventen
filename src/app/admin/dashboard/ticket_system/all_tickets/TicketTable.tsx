@@ -5,6 +5,8 @@ import { AiTwotoneDelete } from 'react-icons/ai';
 import { BiSolidEditAlt } from 'react-icons/bi';
 import TicketModal from './TicketReassignModal';
 import { ModuleTicket } from '@/gql/graphql';
+import ViewReportModal from './ViewReportModal';
+import RejectReasonModal from './RejectReasonModal';
 
 
 interface ITicketTable {
@@ -16,6 +18,11 @@ interface ITicketTable {
 
 const TicketTable = ({ data, setIsOpen, setCurrentModuleTicket }: ITicketTable) => {
 
+    //states
+    const [isReportModalOpen, setIsReportModalOpen] = React.useState(false);
+    const [isRejectModalOpen, setIsRejectModalOpen] = React.useState(false);
+    const [currentReports, setCurrentReports] = React.useState<string[]>([]);
+    const [reason, setReason] = React.useState<string>('');
 
     return (
         <table className="min-w-full leading-normal">
@@ -87,29 +94,52 @@ const TicketTable = ({ data, setIsOpen, setCurrentModuleTicket }: ITicketTable) 
                             </td>
                             <td className="px-5 py-5 border-b border-gray-200 bg-white text-xs">
                                 <div className="relative flex items-center justify-around  space-x-3 px-8 ">
+                                    <button
+                                        onClick={() => {
+                                            setCurrentReports(item?.reports as string[])
+                                            setIsReportModalOpen(true)
+                                        }}
+                                        className="py-1.5  text-xs  px-3 bg-primary text-white duration-150 uppercase border rounded"
+                                    >
+                                        Reports
+                                    </button>
+
                                     {
-                                        ((item?.status as string) === 'ACCEPTED' || (item?.status as string) === 'COMPLAINED' || (item?.status as string) === 'UNDER_REVIEW' || (item?.status as string) === 'DRAFT')
+                                        ((item?.status as string) === 'ACCEPTED' || (item?.status as string) === 'COMPLAINED' || (item?.status as string) === 'ASSIGNED' || (item?.status as string) === 'UNDER_REVIEW' || (item?.status as string) === 'DRAFT')
                                             ? (
                                                 <button
                                                     disabled
                                                     onClick={() => setIsOpen(true)}
-                                                    className="py-1.5 bg-gray-600 px-3 text-white duration-150 uppercase border rounded"
+                                                    className="py-1.5 text-xs  bg-gray-600 px-3 text-white duration-150 uppercase border rounded"
                                                 >
                                                     Reassign
                                                 </button>
                                             ) : (
-                                                <button
-                                                    onClick={() => {
-                                                        setIsOpen(true)
-                                                        setCurrentModuleTicket({
-                                                            moduleTicketId: item.id,
-                                                            vendorId: item.vendorHas?.userIs?.id
-                                                        })
-                                                    }}
-                                                    className="py-1.5 bg-red-600 px-3 text-white duration-150 uppercase border rounded"
-                                                >
-                                                    Reassign
-                                                </button>
+                                                <>
+                                                    <button
+                                                        onClick={() => {
+                                                            setReason(item?.rejectedReason as string || 'N/A')
+                                                            setIsRejectModalOpen(true)
+                                                        }}
+                                                        className="py-1.5 text-xs  px-3 bg-primary text-white duration-150 uppercase border rounded"
+                                                    >
+                                                        Reason
+                                                    </button>
+                                                    <button
+                                                        onClick={() => {
+                                                            setIsOpen(true)
+                                                            setCurrentModuleTicket({
+                                                                moduleTicketId: item.id,
+                                                                vendorId: item.vendorHas?.userIs?.id
+                                                            })
+                                                        }}
+                                                        className="py-1.5 text-xs  bg-red-600 px-3 text-white duration-150 uppercase border rounded"
+                                                    >
+                                                        Reassign
+                                                    </button>
+
+                                                </>
+
                                             )
                                     }
 
@@ -117,6 +147,7 @@ const TicketTable = ({ data, setIsOpen, setCurrentModuleTicket }: ITicketTable) 
 
                                 </div>
                             </td>
+                            <RejectReasonModal isOpen={isRejectModalOpen} setIsOpen={setIsRejectModalOpen} reason={reason} />
                         </tr>
 
                     )
@@ -127,6 +158,7 @@ const TicketTable = ({ data, setIsOpen, setCurrentModuleTicket }: ITicketTable) 
 
 
             </tbody>
+            <ViewReportModal setIsOpen={setIsReportModalOpen} isOpen={isReportModalOpen} reports={currentReports} />
             {/* <TicketModal isOpen={isOpen} setIsOpen={setIsOpen} /> */}
         </table>
     );

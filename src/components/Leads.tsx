@@ -114,6 +114,7 @@ const Leads = () => {
                         name: name,
                         phone: phone,
                         type: 'TEST',
+                        industry: selectedIndustry,
                         interest: `industry: ${selectedIndustry}, service: ${selectedService}`,
                         createdAt: new Date().toISOString(),
                         message: message

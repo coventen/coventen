@@ -175,10 +175,10 @@ function UserSelect({ selectedUserType, selectedOptions, setSelectedOptions }: P
             </Transition>
 
 
-            <div className='grid grid-cols-1 lg:grid-cols-6 gap-2 w-full'>
+            <div className='grid grid-cols-1 lg:grid-cols-3 gap-2 w-full'>
                 {selectedOptions.length > 0 && (
                     selectedOptions.map((option: User, i: number) => (
-                        <div key={i} className=" pr-2 flex items-center justify-center text-xs pointer-events-none mt-3 mb-2 border border-gray-300 px-1 py-1 rounded-lg">
+                        <div key={i} className=" pr-2 flex items-center justify-center text-xs pointer-events-none mt-3 mb-2 border border-gray-300 px-1 py-1 rounded-sm">
                             {option.email}
                         </div>
                     ))

@@ -4,8 +4,10 @@ import Button from '@/components/Button';
 import AuthConfig from '@/firebase/oauth.config';
 import { useGqlClient } from '@/hooks/UseGqlClient';
 import { useMutation, useQuery } from 'graphql-hooks';
+import Link from 'next/link';
 import React, { useEffect } from 'react';
 import { toast } from 'react-hot-toast';
+import { BiMessageSquareEdit } from 'react-icons/bi';
 
 const GET_USER = `query Users($where: UserWhere) {
     users(where: $where) {
@@ -21,6 +23,15 @@ const GET_USER = `query Users($where: UserWhere) {
       zip
       city
       state
+      panCardNo
+      mobile
+      secondAddress
+      hasDocuments {
+        hasFiles {
+          id
+          links
+        }
+      }
     }
   }`
 
@@ -48,6 +59,9 @@ const Main = () => {
         zip: '',
         city: '',
         state: '',
+        secondAddress: '',
+        mobile: '',
+        panCardNo: '',
     })
 
 
@@ -72,7 +86,7 @@ const Main = () => {
     // setting the user data  to the state
     useEffect(() => {
         if (userData) {
-            const { name, user_type, email, address, bio, companyName, companyEmail, gstNumber, image, zip, city, state } = userData
+            const { name, user_type, email, address, bio, companyName, companyEmail, secondAddress, mobile, panCardNo, gstNumber, image, zip, city, state } = userData
             setUserInfo({
                 name,
                 user_type,
@@ -86,17 +100,20 @@ const Main = () => {
                 zip,
                 city,
                 state,
+                secondAddress,
+                mobile,
+                panCardNo,
             })
         }
     }, [userData])
 
 
-    console.log(userData)
+
 
     // updating the user node
 
     const updateUser = async () => {
-        const { name, user_type, email, address, bio, companyName, companyEmail, gstNumber, image, zip, city, state } = userInfo
+        const { name, user_type, email, address, bio, companyName, secondAddress, mobile, panCardNo, companyEmail, gstNumber, image, zip, city, state } = userInfo
         const { data, error } = await updateUserFn({
             variables: {
                 where: { email },
@@ -113,6 +130,9 @@ const Main = () => {
                     zip,
                     city,
                     state,
+                    secondAddress,
+                    mobile,
+                    panCardNo,
                 }
             }
         })
@@ -129,20 +149,46 @@ const Main = () => {
 
 
     return (
-        <form className="container flex flex-col mx-auto space-y-12">
+        <div className="container flex flex-col mx-auto space-y-12">
             <fieldset className="grid grid-cols-3 gap-6 p-6 rounded-md shadow-sm dark:bg-gray-900">
-                {/* <div className="space-y-2 col-span-full lg:col-span-1">
-                    <div className="flex flex-col justify-center bg-white max-w-xs p-6 shadow-md rounded-xl sm:px-12 dark:bg-gray-900 dark:text-gray-100">
-                        <img src={userInfo.image || '/assets/no_user.png'} className='w-32 mx-auto' />
-                        <div className="space-y-4 text-center divide-y divide-gray-700">
+                <div className="space-y-2 col-span-full lg:col-span-1">
+                    <div className="relative flex flex-col mt-6 justify-center bg-white max-w-xs py-4 px-1  shadow-sm rounded-xl sm:px-7 dark:bg-gray-900 dark:text-gray-100">
+
+
+                        <div className="space-y-4 text-gray-800 mt-2">
                             <div className="my-2 space-y-1">
-                                <h2 className="text-xl font-semibold sm:text-2xl">{userInfo.name}</h2>
-                                <p className="px-5 text-[10px] capitalize sm:text-base dark:text-gray-400">{userInfo.user_type}</p>
+                                <h2 className="text-xl font-semibold text-center sm:text-2xl">Documents</h2>
+                            </div>
+                            <div className='mt-3 grid grid-cols-1 lg:grid-cols-2 gap-2 lg:gap-6'>
+                                {
+                                    data?.users[0]?.hasDocuments?.hasFiles?.links ?
+                                        data?.users[0]?.hasDocuments?.hasFiles?.links?.map((item: any, index: number) =>
+                                            <Link href={item || '#'}
+                                                key={index}
+                                                style={{
+                                                    backgroundImage: `url(${'/assets/file.svg'})`,
+                                                    backgroundRepeat: 'no-repeat',
+                                                    backgroundPosition: 'center',
+                                                    backgroundSize: "cover"
+
+                                                }}
+                                                className=' h-28 w-24 text-xs flex items-center justify-center text-gray-800  font-semibold'>
+                                                document-{index + 1}
+                                            </Link>
+
+                                        )
+                                        :
+
+                                        <p className='mt-3 text-sm col-span-full'>No Document Found</p>
+                                }
+
+
                             </div>
 
                         </div>
+                        {/* <AddServiceModal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} addService={addService} /> */}
                     </div>
-                </div> */}
+                </div>
                 <div className="grid grid-cols-6 gap-4 col-span-full lg:col-span-2">
 
                     <div className="col-span-full sm:col-span-3">
@@ -184,12 +230,38 @@ const Main = () => {
                             id="address" type="text" placeholder="" className="w-full rounded-md focus:ring ring-primary dark:border-gray-700 dark:text-gray-900" />
                     </div>
                     <div className="col-span-full">
+                        <label htmlFor="address" className="text-sm">Pan Card No</label>
+                        <input
+                            required
+                            value={userInfo.panCardNo || ''}
+                            onChange={(e) => setUserInfo({ ...userInfo, panCardNo: e.target.value })}
+                            id="address" type="text" placeholder="" className="w-full rounded-md focus:ring ring-primary dark:border-gray-700 dark:text-gray-900" />
+                    </div>
+                    <div className="col-span-full">
+                        <label htmlFor="address" className="text-sm">Mobile Number</label>
+                        <input
+                            required
+                            value={userInfo.mobile || ''}
+                            onChange={(e) => setUserInfo({ ...userInfo, mobile: e.target.value })}
+                            id="address" type="text" placeholder="" className="w-full rounded-md focus:ring ring-primary dark:border-gray-700 dark:text-gray-900" />
+                    </div>
+                    <div className="col-span-full">
                         <label htmlFor="address" className="text-sm">Address</label>
                         <input
                             value={userInfo.address}
                             onChange={(e) => setUserInfo({ ...userInfo, address: e.target.value })}
                             id="address" type="text" placeholder="" className="w-full rounded-md focus:ring ring-primary dark:border-gray-700 dark:text-gray-900" />
                     </div>
+
+                    <div className="col-span-full">
+                        <label htmlFor="address" className="text-sm">Second Address</label>
+                        <input
+                            required
+                            value={userInfo.secondAddress || ''}
+                            onChange={(e) => setUserInfo({ ...userInfo, secondAddress: e.target.value })}
+                            id="address" type="text" placeholder="" className="w-full rounded-md focus:ring ring-primary dark:border-gray-700 dark:text-gray-900" />
+                    </div>
+
                     <div className="col-span-full sm:col-span-2">
                         <label htmlFor="city" className="text-sm">City</label>
                         <input
@@ -225,9 +297,11 @@ const Main = () => {
                         </div>
                     </div>
                 </div>
+
+
             </fieldset>
 
-        </form>
+        </div>
     );
 };
 

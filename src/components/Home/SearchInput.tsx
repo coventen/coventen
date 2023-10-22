@@ -121,7 +121,7 @@ const SearchInput = () => {
     const isSearchActive = searchText.trim() !== ''; // Check if there's text in the search input
 
     return (
-        <div className="max-w-3xl mx-auto relative">
+        <div className="max-w-xl  lg:max-w-3xl mx-auto relative">
             <div className="relative flex p-1 rounded-full h-14 lg:h-20 bg-white shadow-md md:p-2">
                 <select
                     className="w-24 lg:w-32 bg-transparent text-[10px] lg:text-base pl-5 py-2 border-none focus:ring-0 font-semibold rounded-l-md focus:outline-none focus:border-none"

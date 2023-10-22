@@ -54,7 +54,7 @@ export default function Services({ services }: { services: any[] }) {
                                 delay: 2500,
                                 disableOnInteraction: false,
                             }}
-                            navigation={true}
+                            // navigation={true}
                             pagination={{
                                 clickable: true,
                             }}

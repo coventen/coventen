@@ -10,6 +10,7 @@ import Image from 'next/image';
 import { User } from '@/gql/graphql';
 import { data } from 'autoprefixer';
 import { HiOutlineDocumentDownload } from 'react-icons/hi';
+import Link from 'next/link';
 
 //props interface
 interface IUserModalProps {
@@ -115,16 +116,21 @@ function UserModal({ setIsModalOpen, isModalOpen, data, updateUser, updateUserLo
                                         <div className=''>
                                             <p className='text-xs lg:text-sm font-bold text-gray-700'>Documents</p>
 
-                                            <div className='mt-3 grid grid-cols-3 lg:grid-cols-6 gap-2 lg:gap-6'>
+                                            <div className='mt-3 grid grid-cols-3 lg:grid-cols-3 gap-2 lg:gap-6'>
                                                 {
                                                     data?.hasDocuments?.hasFiles?.links ?
                                                         data?.hasDocuments?.hasFiles?.links?.map((item, index) =>
-                                                            <div key={index} className=' h-14 w-full bg-gray-200 rounded-md lg:h-20 lg:w-full '>
-                                                                <div className='flex items-center text-xl  justify-center space-x-2'>
-                                                                    <p className='mt-5'><HiOutlineDocumentDownload /></p>
-                                                                    {/* <p className='text-[9px]'> Document-{index + 1}</p> */}
-                                                                </div>
-                                                            </div>
+                                                            <Link href={item || '#'}
+                                                                key={index}
+                                                                style={{
+                                                                    backgroundImage: `url(${'/assets/file.svg'})`,
+                                                                    backgroundRepeat: 'no-repeat',
+                                                                    backgroundPosition: 'center',
+
+                                                                }}
+                                                                className=' h-28 w-24 text-sm flex items-center justify-center text-gray-800 font-semibold'>
+                                                                document-{index + 1}
+                                                            </Link>
 
                                                         )
                                                         :

@@ -7,6 +7,7 @@ import { useGqlClient } from '@/hooks/UseGqlClient';
 import { useMutation } from 'graphql-hooks';
 import AuthConfig from '@/firebase/oauth.config';
 import { toast } from 'react-hot-toast';
+import Loading from '@/app/loading';
 
 
 const UPDATE_USER = `mutation UpdateVendors($where: VendorWhere, $update: VendorUpdateInput) {
@@ -85,6 +86,9 @@ const Industries = ({ data, refetch }: { data: string[], refetch: any }) => {
 
     }
 
+    if (updateUserState.loading) {
+        return <Loading />
+    }
 
     // render
     return (

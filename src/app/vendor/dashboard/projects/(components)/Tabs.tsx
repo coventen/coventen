@@ -61,7 +61,7 @@ const Tabs = () => {
                         >
                             Completed
                         </Tab>
-                        <Tab
+                        {/* <Tab
                             className={({ selected }) =>
                                 classNames(
                                     ' py-2 px-8   mr-3',
@@ -73,7 +73,7 @@ const Tabs = () => {
                             }
                         >
                             Rejected
-                        </Tab>
+                        </Tab> */}
                     </div>
                 </Tab.List>
                 <Tab.Panels className='mt-10'>
@@ -86,9 +86,9 @@ const Tabs = () => {
                     <Tab.Panel>
                         <CompletedModules />
                     </Tab.Panel>
-                    <Tab.Panel>
+                    {/* <Tab.Panel>
                         <RejectedModules />
-                    </Tab.Panel>
+                    </Tab.Panel> */}
                 </Tab.Panels>
             </Tab.Group>
         </div>

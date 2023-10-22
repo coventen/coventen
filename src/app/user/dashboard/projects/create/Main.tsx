@@ -1,6 +1,6 @@
 'use client'
 import AutoComplete from '@/components/AutoComplete';
-import { useForm, SubmitHandler } from "react-hook-form"
+import { useForm, SubmitHandler, set } from "react-hook-form"
 import React, { useEffect } from 'react';
 import ModuleFrom from './ModuleFrom';
 import { IModuleInput, IProjectInput } from './createProject.interface';
@@ -128,9 +128,10 @@ const Main = () => {
 
     //handle project creation 
     const createProject = async (projectData: IProjectInput) => {
-        const { state, country, city, address, projectDescription, projectName } = projectData
+        setUploading(true)
+        const { projectDescription, projectName } = projectData
         const projectId = await generateProjectTicket()
-
+        setUploading(false)
 
         // uploading files -> create module data
         const moduleDataPromise = await modules.map(async (module, i) => {
@@ -286,7 +287,7 @@ const Main = () => {
 
 
 
-    if (loading) return <div><Loading /></div>
+    if (loading || uploading || state.loading || counterState.loading) return <div><Loading /></div>
 
     //render
     return (
@@ -301,27 +302,6 @@ const Main = () => {
 
                             <div className="lg:col-span-2">
                                 <div className="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-5">
-
-
-                                    {/* <div className="md:col-span-3">
-                                        <label htmlFor="address">Address / Street</label>
-                                        <input defaultValue={userInfo.address || ''} type="text" id="address" className="h-10 border border-gray-300 mt-1 rounded px-4 w-full " placeholder=""
-                                            {...register("address")} />
-                                    </div>
-
-                                    <div className="md:col-span-2">
-                                        <label htmlFor="city">City</label>
-                                        <input type="text" id="city"
-                                            defaultValue={userInfo.city || ''} className="h-10 border border-gray-300 mt-1 rounded px-4 w-full " placeholder=""
-                                            {...register("city")} />
-                                    </div>
-                                    <div className="md:col-span-2">
-                                        <label htmlFor="State">State</label>
-                                        <input type="text" id="State"
-                                            defaultValue={userInfo.state || ''} className="h-10 border border-gray-300 mt-1 rounded px-4 w-full " placeholder=""
-                                            {...register("state")} />
-                                    </div> */}
-
 
 
 
@@ -345,11 +325,11 @@ const Main = () => {
                                             {/* modules title */}
                                             <div className='flex  justify-between'>
                                                 <p className='text-xl font-semibold text-gray-800'>
-                                                    Modules
+                                                    Services
                                                 </p>
 
                                                 <div>
-                                                    <label >Add More Modules</label>
+                                                    <label >Add More Services</label>
                                                     <div className="h-10 w-28  flex border border-gray-300  rounded items-center mt-1">
                                                         <button
                                                             type='button'

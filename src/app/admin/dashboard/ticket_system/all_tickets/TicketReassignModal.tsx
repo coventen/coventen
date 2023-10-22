@@ -157,7 +157,7 @@ function TicketReassignModal({ isOpen, setIsOpen, currentModuleTicket, refetchMo
     }
 
 
-    console.log(currentModuleTicket, selected, selected.companyName, currentModuleTicket.projectTicket)
+
 
 
     //handle close modal

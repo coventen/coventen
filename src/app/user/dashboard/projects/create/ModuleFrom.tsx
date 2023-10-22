@@ -8,6 +8,7 @@ import { IModuleInput } from './createProject.interface';
 import { HiOutlineTrash } from 'react-icons/hi';
 import FilePreview from '@/app/vendor/dashboard/projects/(components)/FilePreview';
 import AutoSelectService from '@/components/AutoSelectService';
+import toast, { Toaster } from 'react-hot-toast';
 
 //interface props
 interface IModuleFrom {
@@ -49,6 +50,11 @@ const ModuleFrom = ({ index, setModules, modules }: IModuleFrom) => {
     const handleModule: SubmitHandler<any> = (data) => {
         //getting the dynamic data
         // const title = data[`moduleTitle${index}`];
+
+        if (!selected.length) {
+            toast.error('Please select a service')
+        }
+
         const title = selected.title;
         const description = data[`moduleDescription${index}`];
         console.log(data)
@@ -107,7 +113,7 @@ const ModuleFrom = ({ index, setModules, modules }: IModuleFrom) => {
     return (
         <form onChange={handleSubmit(handleModule)}>
             <div className="">
-                <label htmlFor="address">Module-{index}</label>
+                <label htmlFor="address">Service-{index}</label>
                 <div className='relative mb-4'>
 
                     <AutoSelectService selected={selected} setSelected={setSelected} />
@@ -117,7 +123,7 @@ const ModuleFrom = ({ index, setModules, modules }: IModuleFrom) => {
 
             <div className="mt-16">
                 <label htmlFor="city">Description</label>
-                <textarea rows={4} id="city" className=" border border-gray-300 mt-1 rounded px-4 w-full " placeholder="" {...register(`moduleDescription${index}`)} />
+                <textarea required rows={4} id="city" className=" border border-gray-300 mt-1 rounded px-4 w-full " placeholder="" {...register(`moduleDescription${index}`)} />
             </div>
             <div>
 
@@ -153,7 +159,9 @@ const ModuleFrom = ({ index, setModules, modules }: IModuleFrom) => {
                                     Upload or darg & drop your file Images, doc, pdf, excel{' '}
                                 </p>
 
-                                <input {...getInputProps()}
+                                <input
+
+                                    {...getInputProps()}
                                     accept=".pdf, .docx, .doc, .xlsx, .xls, image/*"
                                     {...register(`file`)}
                                 />
@@ -207,6 +215,10 @@ const ModuleFrom = ({ index, setModules, modules }: IModuleFrom) => {
                 </div>
 
             </div>
+            <Toaster
+                position="top-center"
+                reverseOrder={false}
+            />
         </form>
     );
 };

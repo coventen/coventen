@@ -79,6 +79,7 @@ const Main = () => {
 
 
 
+    console.log(industries?.vendors[0]?.industry, ' this is industries')
 
 
 
@@ -131,7 +132,7 @@ const Main = () => {
         let where
         if (searchQuery && industries?.vendors[0]?.industry) {
             where = {
-                industry_IN: industries?.vendors[0]?.industry,
+                industry_IN: industries?.vendors[0]?.industry.map((item: string) => item?.toLowerCase()),
                 OR: [
                     {
                         email_CONTAINS: searchQuery.toLocaleLowerCase(),
@@ -172,15 +173,27 @@ const Main = () => {
         setUserDetails(userData[0]);
     }
 
+
+
     //getting total modules
     const getTotalLeadsCount = async () => {
-        const leads = await GetLeads();
+        let where
+        if (industries?.vendors[0]?.industry) {
+            where = { industry_IN: industries?.vendors[0]?.industry }
+        } else {
+            where = { industry_IN: ['no industry'] }
+        }
+
+
+        const leads = await GetLeads(where);
         if (leads?.length) {
             setTotalModules(leads?.length)
             setTotalPages(Math.ceil(leads?.length / pageLimit))
         }
 
     }
+
+    console.log(totalModules, ' this is total modules')
 
 
     if (industryLoading) return <Loading />
@@ -220,7 +233,7 @@ const Main = () => {
                 updateLeads={updateLeads}
             />
             <div className='w-full flex items-center justify-center'>
-                {totalModules! > pageLimit &&
+                {totalModules > pageLimit &&
                     <Pagination currentPage={currentPage} setCurrentPage={setCurrentPage} totalPages={totalPages} />}
 
             </div>

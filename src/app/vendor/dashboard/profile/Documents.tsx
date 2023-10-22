@@ -8,7 +8,7 @@ import { useMutation } from 'graphql-hooks';
 import AuthConfig from '@/firebase/oauth.config';
 import { toast } from 'react-hot-toast';
 import AddServiceModal from './AddServiceModal';
-import Loading from '@/app/loading';
+import Link from 'next/link';
 
 
 
@@ -23,7 +23,7 @@ const UPDATE_USER = `mutation UpdateVendors($where: VendorWhere, $update: Vendor
 
 
 // component
-const Services = ({ data, refetch }: { data: string[], refetch: any }) => {
+const Documents = ({ data, refetch }: { data: any, refetch: any }) => {
     // states
     const [isModalOpen, setIsModalOpen] = React.useState(false);
 
@@ -111,40 +111,44 @@ const Services = ({ data, refetch }: { data: string[], refetch: any }) => {
     }
 
 
-    if (updateUserState.loading) {
-        return <Loading />
-    }
-
     // render
     return (
         <div className="relative flex flex-col mt-6 justify-center bg-white max-w-xs py-4 px-1  shadow-sm rounded-xl sm:px-7 dark:bg-gray-900 dark:text-gray-100">
             {/* edit button */}
-            <div>
+            {/* <div>
                 <button type='button' onClick={() => setIsModalOpen(true)} className="absolute top-3 right-0 p-2 hover:bg-gray-200 rounded-full  dark:bg-gray-900 dark:text-gray-100">
                     <BiMessageSquareEdit />
                 </button>
-            </div>
+            </div> */}
 
             <div className="space-y-4 text-gray-800 mt-2">
                 <div className="my-2 space-y-1">
-                    <h2 className="text-xl font-semibold text-center sm:text-2xl">Services</h2>
+                    <h2 className="text-xl font-semibold text-center sm:text-2xl">Documents</h2>
                 </div>
-                <ul className="my-2 space-y-2 ">
+                <div className='mt-3 grid grid-cols-3 lg:grid-cols-3 gap-2 lg:gap-6'>
                     {
-                        data && data.map((item, i) =>
-                            <li key={item}
-                                className=" text-xs md:text-sm font-normal sm:text-2xl flex items-center justify-between">
-                                <p className='capitalize'>
-                                    {item}
-                                </p>
-                                <button type='button' onClick={() => deleteService(item)} className='text-gray-700 text-lg'><MdDelete /></button>
-                            </li>
+                        data?.links ?
+                            data?.links?.map((item: any, index: number) =>
+                                <Link href={item || '#'}
+                                    key={index}
+                                    style={{
+                                        backgroundImage: `url(${'/assets/file.svg'})`,
+                                        backgroundRepeat: 'no-repeat',
+                                        backgroundPosition: 'center',
 
-                        )
+                                    }}
+                                    className=' h-28 w-24 text-sm flex items-center justify-center text-gray-800 font-semibold'>
+                                    document-{index + 1}
+                                </Link>
+
+                            )
+                            :
+
+                            <p className='mt-3 text-xs col-span-full'>No Document Found</p>
                     }
 
 
-                </ul>
+                </div>
 
             </div>
             <AddServiceModal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} addService={addService} />
@@ -152,4 +156,4 @@ const Services = ({ data, refetch }: { data: string[], refetch: any }) => {
     );
 };
 
-export default Services;
+export default Documents;

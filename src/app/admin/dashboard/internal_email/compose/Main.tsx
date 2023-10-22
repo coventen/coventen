@@ -1,8 +1,8 @@
 'use client'
 
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import { useGqlClient } from '@/hooks/UseGqlClient';
-import { useMutation } from 'graphql-hooks';
+import { useMutation, useQuery } from 'graphql-hooks';
 
 import Loading from '@/app/loading';
 import { toast } from 'react-hot-toast';
@@ -15,6 +15,8 @@ import { HiOutlineTrash } from 'react-icons/hi';
 import UserSelect from './UserSelect';
 import createLog from '@/shared/graphQl/mutations/createLog';
 import PageTextEditor from '@/components/PageTextEditor';
+import AuthConfig from '@/firebase/oauth.config';
+
 
 
 
@@ -41,6 +43,12 @@ const SEND_NOTIFICATION = `
         }
       }
     }`
+const GET_USER_TYPE = `
+query Users($where: UserWhere) {
+    users(where: $where) {
+      user_type
+    }
+  }`
 
 
 
@@ -53,6 +61,7 @@ const Main = () => {
     const [selectedUsers, setSelectedUsers] = useState<any[]>([])
     const [selectedUserType, setSelectedUserType] = useState<string>("CONSUMER")
     const [subject, setSubject] = useState<string>("")
+    const [userType, setUserType] = useState<string>("")
     const [editorState, setEditorState] = useState(''
     );
 
@@ -60,10 +69,38 @@ const Main = () => {
     const client = useGqlClient()
     const router = useRouter()
     const { uploadFile } = HandleFileUpload()
+    const { user } = AuthConfig()
 
     // mutation query
+
+    const [getUserType, getState] = useMutation(GET_USER_TYPE, { client })
     const [createCommunicationFn, createState, resetFn] = useMutation(CREATE_NEW_COMMUNICATION, { client })
     const [sendNotificationFn, notificationState] = useMutation(SEND_NOTIFICATION, { client })
+
+
+
+
+    useEffect(() => {
+        getUserData(user?.email)
+
+    }, [user?.email])
+
+
+
+    const getUserData = async (email: string) => {
+        const { data } = await getUserType({
+            variables: {
+                "where": {
+                    "email": email
+                }
+            }
+        })
+
+        if (data?.users) {
+            setUserType(data?.users[0]?.user_type)
+        }
+    }
+
 
 
     // initializing the  communication creation
@@ -122,6 +159,41 @@ const Main = () => {
                             date: dateTime,
                             files: fileLinks,
                             sender: "ADMIN",
+                            forVendor: {
+                                connect: selectedUsers.map(user => {
+                                    return {
+                                        where: {
+                                            node: {
+                                                userIs: {
+                                                    email: user.email
+                                                }
+                                            }
+                                        }
+                                    }
+                                })
+                            }
+                        }
+                    ]
+                }
+            })
+
+            if (data?.createCommunicationTickets?.info?.nodesCreated) {
+                toast.success("Message sent successfully")
+                sendNotification()
+                router.push('/admin/dashboard/internal_email/sent')
+            }
+
+        }
+        else if (selectedUserType === "COVENTEN_EMPLOYEE") {
+            let { data } = await createCommunicationFn({
+                variables: {
+                    input: [
+                        {
+                            sub: subject,
+                            message: contentString,
+                            date: dateTime,
+                            files: fileLinks,
+                            sender: userType === "COVENTEN_EMPLOYEE" ? "EMPLOYEE" : "ADMIN",
                             forVendor: {
                                 connect: selectedUsers.map(user => {
                                     return {
@@ -280,6 +352,7 @@ const Main = () => {
                         <option value="" disabled>Select an option</option>
                         <option value="SERVICE_PROVIDER" >VENDOR</option>
                         <option value="CONSUMER" >CLIENT</option>
+                        {/* <option value="COVENTEN_EMPLOYEE" >EMPLOYEE</option> */}
 
                     </select>
 

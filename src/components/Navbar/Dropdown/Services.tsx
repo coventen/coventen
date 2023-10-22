@@ -71,7 +71,7 @@ const Services = ({ servicesData }: ServicePage) => {
                                             ?
                                             servicesData?.find((service: any) => service.name === currentService)?.hasService.map((sub: any) =>
                                                 <li key={sub?.id}>
-                                                    <Link href={`/services/${sub?.slug}`} className="block p-3 hover:bg-gray-100 rounded text-primaryText hover:text-primaryText hover:underline" > {sub?.title}</Link>
+                                                    <Link href={`/services/${sub?.slug}`} className="block p-3 hover:bg-gray-100 rounded uppercase text-primaryText hover:text-primaryText hover:underline" > {sub?.title}</Link>
                                                 </li>
                                             )
                                             :

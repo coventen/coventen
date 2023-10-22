@@ -26,10 +26,6 @@ query Users($where: UserWhere, $options: UserOptions) {
     status
     user_type
     hasDocuments {
-      hasImages {
-        id
-        links
-      }
       hasFiles {
         id
         links

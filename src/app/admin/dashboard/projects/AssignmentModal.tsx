@@ -10,6 +10,7 @@ import { generateUniqueId } from '@/shared/genarateUniqueId';
 import AutoSelectVendor from '@/components/AutoSelectVendor';
 import createLog from '@/shared/graphQl/mutations/createLog';
 import AuthConfig from '@/firebase/oauth.config';
+import Loading from '@/app/loading';
 
 
 
@@ -264,7 +265,7 @@ function AssignmentModal({ isOpen, setIsOpen, currentProject, refetchProjects }:
     // }
 
 
-
+    if (loading || counterState.loading || updateState.loading || state.loading) return <Loading />
 
 
     //render
