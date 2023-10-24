@@ -106,6 +106,7 @@ const spacialProducts = async () => {
           shortDescription
           image
           id
+          price
         }
       }
       `,

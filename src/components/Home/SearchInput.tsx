@@ -144,7 +144,7 @@ const SearchInput = () => {
                 <button
                     type="button"
                     title="Start buying"
-                    className="ml-auto py-4 px-6 rounded-full text-center transition bg-primary md:px-12"
+                    className="ml-auto py-4 px-6 rounded-full text-center transition gradient-bg md:px-12"
                 >
                     <span className="hidden text-white font-semibold md:block">Search</span>
                     <svg

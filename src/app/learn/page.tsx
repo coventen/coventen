@@ -9,12 +9,18 @@ const Accordion = () => {
 
     return (
         <>
-            <section className="relative min-h-screen z-0 overflow-hidden bg-white pt-14 pb-12 lg:pt-[120px] lg:pb-[90px]">
-                <div className="container mx-auto">
-                    <div className="-mx-4 flex flex-wrap">
+            <section className="relative  min-h-screen z-0 overflow-hidden bg-white  pb-12  lg:pb-[90px]">
+                <div style={{
+                    backgroundImage: `linear-gradient( rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5) ), url('/assets/learn.png')`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                }}
+
+                    className=" h-[470px] flex items-center justify-center text-white">
+                    <div className="-mx-4 flex flex-wrap w-full">
                         <div className="w-full px-4">
                             <div className="mx-auto mb-[60px] max-w-[520px] text-center lg:mb-20">
-                                <span className="mb-2 block text-lg font-semibold text-primary">
+                                <span className="mb-2 block text-lg font-semibold text-white">
                                     LEARN
                                 </span>
                                 <h2 className="mb-4 text-3xl font-bold text-dark sm:text-4xl md:text-[40px]">
@@ -28,6 +34,8 @@ const Accordion = () => {
                         </div>
                     </div>
 
+                </div>
+                <div className="container mx-auto">
                     <Main />
                 </div>
 

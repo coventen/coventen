@@ -159,7 +159,7 @@ const Main = () => {
 
                                     <div>
                                         <Link href={item?.url} >
-                                            <button className="relative group inline-block flex-shrink-0  py-3.5 px-5 text-sm font-semibold text-orange-50 bg-primary  overflow-hidden" type="submit">
+                                            <button className="relative group inline-block flex-shrink-0  py-3.5 px-5 text-sm font-semibold text-orange-50 gradient-bg  overflow-hidden" type="submit">
                                                 <div className="absolute top-0 right-full w-full h-full bg-gray-900 transform group-hover:translate-x-full group-hover:scale-102 transition duration-500"></div>
                                                 <div className="relative flex items-center justify-center">
                                                     <span className="">Learn More</span>
@@ -175,7 +175,7 @@ const Main = () => {
                                             setCurrentEvent(item?.title)
                                         }}
                                         className="relative group inline-block flex-shrink-0   py-3 px-5 text-sm font-semibold text-primary hover:text-white bg-transparent border border-primary  overflow-hidden" type="submit">
-                                        <div className="absolute top-0 right-full w-full h-full bg-primary transform group-hover:translate-x-full group-hover:scale-102 transition duration-500"></div>
+                                        <div className="absolute top-0 right-full w-full h-full gradient-bg transform group-hover:translate-x-full group-hover:scale-102 transition duration-500"></div>
                                         <div className="relative flex items-center justify-center">
                                             <span className="">Interested</span>
                                         </div>

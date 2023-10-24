@@ -152,7 +152,7 @@ const ChatBody = ({ messages, supportTicket, handleSupportTicket }: Props) => {
 
 
                                                         <div key={i} onClick={() => handleDownload(image, i)}>
-                                                            <img src={image} alt="" className='' />
+                                                            <img src={image} alt="" className='h-32 w-32' />
                                                         </div>
 
 

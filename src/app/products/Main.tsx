@@ -136,7 +136,7 @@ const Main = () => {
                                                     <div className="flex items-center w-full mt-3 justify-between">
                                                         <span className="text-lg flex items-center justify-center space-x-2 font-semibold  dark:text-white  text-gray-900">Price: {product?.price}</span>
 
-                                                        <Link href={`/products/details/${product?.id}`} className="text-white bg-primary font-medium  text-sm px-4 py-1.5 text-center ">View Details</Link>
+                                                        <Link href={`/products/details/${product?.id}`} className="text-white gradient-bg font-semibold rounded  text-sm px-4 py-1.5 text-center ">View Details</Link>
                                                     </div>
 
 

@@ -35,6 +35,14 @@ query Users($where: UserWhere, $options: UserOptions) {
 }
 `
 
+const GET_USER_COUNT = `
+query Counters {
+  counters {
+    userCount
+  }
+}
+`
+
 const UPDATE_USER = `
 mutation UpdateUsers($where: UserWhere, $update: UserUpdateInput) {
   updateUsers(where: $where, update: $update) {
@@ -42,6 +50,16 @@ mutation UpdateUsers($where: UserWhere, $update: UserUpdateInput) {
       nodesCreated
       nodesDeleted
       relationshipsCreated
+    }
+  }
+}
+`
+
+const UPDATE_COUNTER = `
+mutation UpdateCounters($update: CounterUpdateInput) {
+  updateCounters(update: $update) {
+    info {
+      nodesCreated
     }
   }
 }
@@ -71,10 +89,12 @@ const Main = () => {
   const { user } = AuthConfig()
 
   //quires 
+  const { data: userCountData, loading } = useQuery(GET_USER_COUNT, { client })
   const [getUserFn, userDataState] = useManualQuery(GET_USER, { client })
 
 
   //mutations
+  const [updateCounterFn, updateCounterState] = useMutation(UPDATE_COUNTER, { client })
   const [updateUserFn, updateUserState] = useMutation(UPDATE_USER, { client })
 
 
@@ -159,11 +179,21 @@ const Main = () => {
 
 
 
-
+  console.log(userCountData, 'this is user count data')
 
   // initializing update user mutation
 
   const updateUser = async (email: string, status: string) => {
+    let userCount: number
+
+    if (userCountData?.counters[0]?.userCount == 1 || userCountData?.counters[0]?.userCount == null) {
+      userCount = 1001
+    } else {
+      userCount = userCountData?.counters[0]?.userCount + 1
+    }
+
+    await updateUserCount(userCount)
+    console.log(userCount, 'this is user count')
 
     const { data } = await updateUserFn({
       variables: {
@@ -171,7 +201,8 @@ const Main = () => {
           email: email
         },
         update: {
-          status: status
+          status: status,
+          "userId": `U-${userCount}`
         }
       }
     })
@@ -187,6 +218,18 @@ const Main = () => {
 
     }
 
+  }
+
+
+
+  const updateUserCount = async (count: number) => {
+    const { data } = await updateCounterFn({
+      variables: {
+        update: {
+          userCount: count
+        }
+      }
+    })
   }
 
 

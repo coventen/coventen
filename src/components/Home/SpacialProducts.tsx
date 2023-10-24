@@ -5,6 +5,9 @@ import Link from "next/link"
 import { FaComment } from "react-icons/fa"
 import { Navigation, Pagination, Scrollbar, A11y, Autoplay, Grid } from 'swiper/modules';
 import AnimatedButton from '../AnimatedButton';
+import { LuArrowRight } from 'react-icons/lu';
+import { Suspense } from 'react';
+import ProductSkeleton from './ProductSkeleton';
 
 
 
@@ -28,67 +31,76 @@ export default function SpacialProducts({ products }: { products: any }) {
                     {/* <div className="absolute inset-0 max-w-xs mx-auto h-96 blur-[100px]" style={{ background: "linear-gradient(152.92deg, rgba(192, 132, 252, 0.2) 4.54%, rgba(232, 121, 249, 0.26) 34.2%, rgba(192, 132, 252, 0.1) 77.55%)" }}></div> */}
                 </div>
                 <div className="relative mt-12">
-                    <ul className="">
-                        <Swiper
-                            modules={[Navigation, Pagination, A11y, Autoplay]}
-                            spaceBetween={10}
-                            loop={true}
-                            autoplay={{
-                                delay: 1500,
-                                disableOnInteraction: false,
-                            }}
-                            pagination={{
-                                clickable: true,
-                            }}
-                            slidesPerView={1}
-                            breakpoints={{
-                                640: {
-                                    slidesPerView: 2,
-                                    spaceBetween: 10,
-                                },
-                                768: {
-                                    slidesPerView: 2,
-                                    spaceBetween: 10,
-                                },
-                                900: {
-                                    slidesPerView: 3,
-                                    spaceBetween: 18,
-                                },
-                            }}
-                        >
+                    <Suspense fallback={<ProductSkeleton />}>
+                        <ul className="">
+                            <Swiper
+                                modules={[Navigation, Pagination, A11y, Autoplay]}
+                                spaceBetween={10}
+                                loop={true}
+                                autoplay={{
+                                    delay: 1500,
+                                    disableOnInteraction: false,
+                                }}
+                                pagination={{
+                                    clickable: true,
+                                }}
+                                slidesPerView={1}
+                                breakpoints={{
+                                    640: {
+                                        slidesPerView: 2,
+                                        spaceBetween: 10,
+                                    },
+                                    768: {
+                                        slidesPerView: 2,
+                                        spaceBetween: 10,
+                                    },
+                                    900: {
+                                        slidesPerView: 3,
+                                        spaceBetween: 18,
+                                    },
+                                }}
+                            >
 
 
-                            {
-                                products && products.map((item: any, idx: number) =>
-                                    <SwiperSlide key={item} className="pb-10">
-                                        <div key={idx} className="group relative my-10 flex w-full h-[450px] flex-col overflow-hidden  border rounded dark:bg-darkBgLight dark:border-darkBorder bg-white/30 cursor-pointer ">
-                                            <div className="relative mx-3 mt-3 flex h-60 overflow-hidden rounded group" >
-                                                <img className="peer absolute top-0 right-0 h-full w-full object-cover transition-all duration-500 group-hover:scale-125" src={item?.image || '/assets/no_image.png'} alt="product image" />
+                                {
+                                    products && products.map((item: any, idx: number) =>
+                                        <SwiperSlide key={item} className="pb-10">
+                                            <Link href={`/products/details/${item?.id}`}  >
+                                                <div style={{
+                                                    backgroundImage: `linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(${item?.image})`,
+                                                    backgroundSize: 'cover',
+                                                    backgroundPosition: 'center',
+                                                }} className="productCard">
+                                                    <div className="productCard-front">
+                                                        <p className="productTitle uppercase">{item?.title}</p>
+                                                        <p className="subtitle">{item?.price}</p>
+                                                    </div>
+                                                    <div className="productCard-back">
+                                                        <div className="mt-4 px-5 pb-5 w-full h-full grid place-content-center ">
 
+                                                            <h5 className="text-2xl font-bold  uppercase ">{item?.title}</h5>
+                                                            <p className="mt-2  mb-5 text-white dark:text-gray-300">
+                                                                {item?.shortDescription.slice(0, 180) || 'N/A'}
+                                                            </p>
 
-                                                <svg className="pointer-events-none absolute inset-x-0 bottom-5 mx-auto text-3xl text-white  transition-opacity group-hover:animate-ping group-hover:opacity-30 peer-hover:opacity-0" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32"><path fill="currentColor" d="M2 10a4 4 0 0 1 4-4h20a4 4 0 0 1 4 4v10a4 4 0 0 1-2.328 3.635a2.996 2.996 0 0 0-.55-.756l-8-8A3 3 0 0 0 14 17v7H6a4 4 0 0 1-4-4V10Zm14 19a1 1 0 0 0 1.8.6l2.7-3.6H25a1 1 0 0 0 .707-1.707l-8-8A1 1 0 0 0 16 17v12Z" /></svg>
+                                                            <Link href={`/products/details/${item?.id}`} className=' w-full text-3xl ' >
+                                                                <p className='border w-14 h-14  border-white rounded-full  flex items-center justify-center'>
+                                                                    <LuArrowRight />
+                                                                </p>
 
-                                            </div>
-                                            <div className="mt-4 px-5 pb-5">
+                                                            </Link>
 
-                                                <h5 className="text-lg font-normal uppercase text-gray-950 tracking-tight ">{item?.title}</h5>
-                                                <p className="mt-2 text-sm mb-5 text-dimText dark:text-gray-300">
-                                                    {item?.shortDescription.slice(0, 150) || 'N/A'}...
-                                                </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </Link>
+                                        </SwiperSlide>
+                                    )
+                                }
+                            </Swiper>
 
-                                                <Link href={`/products/details/${item?.id}`} className='absolute bottom-4 w-full' >
-                                                    <AnimatedButton title="View Details" />
-
-                                                </Link>
-
-                                            </div>
-                                        </div>
-                                    </SwiperSlide>
-                                )
-                            }
-                        </Swiper>
-
-                    </ul>
+                        </ul>
+                    </Suspense>
                 </div>
             </div>
         </section>

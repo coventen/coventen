@@ -153,10 +153,10 @@ const Leads = () => {
             <div className={`transition-all duration-500 transform ${isLeadFromOpen ? 'translate-x-0' : 'translate-x-[42%]'
                 } `}>
                 <div className="flex  ">
-                    <button onClick={() => setIsLeadFromOpen(!isLeadFromOpen)} className="bg-primary text-white text-4xl rounded-sm hidden lg:block h-28 ">
+                    <button onClick={() => setIsLeadFromOpen(!isLeadFromOpen)} className="gradient-bg text-white text-4xl rounded-sm hidden lg:block h-28 ">
 
                         {
-                            isLeadFromOpen ? <HiChevronRight /> : <p className='text-[10px] font-bold' style={{ textOrientation: "upright", writingMode: 'vertical-lr' }}>INQUIRY</p>
+                            isLeadFromOpen ? <HiChevronRight /> : <p className='text-[10px]  w-full font-bold' style={{ textOrientation: "upright", writingMode: 'vertical-lr' }}>INQUIRY</p>
                         }
 
 
@@ -253,7 +253,7 @@ const Leads = () => {
                                                 />
                                             </div>
                                             <div className="mt-3">
-                                                <button type='submit' className='bg-primary font-bold text-white px-7 py-2 '>
+                                                <button type='submit' className='gradient-bg font-bold text-white px-7 py-2 '>
                                                     {createState.loading ? 'Loading..' : 'Submit'}
                                                 </button>
                                             </div>
