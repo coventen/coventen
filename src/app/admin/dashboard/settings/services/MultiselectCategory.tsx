@@ -84,7 +84,7 @@ function MultiSelect({ selectedCategory, setSelectedCategory }: Props) {
     };
 
     return (
-        <div onBlur={() => setIsOpen(false)} className="relative w-full">
+        <div className="relative w-full">
 
             <input
                 type="text"
@@ -107,30 +107,35 @@ function MultiSelect({ selectedCategory, setSelectedCategory }: Props) {
                 leaveFrom="transform opacity-100 scale-100"
                 leaveTo="transform opacity-0 scale-95"
             >
-                <div className="absolute z-[80000000000000000] mt-1 w-full bg-white shadow-lg rounded-md py-1 text-base ring-1 ring-black ring-opacity-5  focus:outline-none sm:text-sm h-40 overflow-scroll">
-                    {
-                        state.loading && <p>loading ....</p>
-                    }
+                <div className="absolute z-[80000000000000000] mt-1 w-full bg-white shadow-lg rounded-md py-1 text-base ring-1 ring-black ring-opacity-5  focus:outline-none sm:text-sm h-60 ">
+                    <div className='h-full relative'>
+                        <div className='h-full mb-6 overflow-scroll'>
+                            {
+                                state.loading && <p>loading ....</p>
+                            }
 
-                    {filteredOptions && filteredOptions?.map((option: Option) => (
-                        <div
-                            key={option.id}
-                            className={`${selectedCategory?.find((item) => item.id === option.id)
-                                ? 'text-amber-900 bg-amber-100'
-                                : 'text-gray-900'
-                                } cursor-default select-none relative py-2 pl-8 pr-4 `}
-                            onClick={() => toggleOption(option)}
-                        >
-                            <span className="block truncate">{option?.name}</span>
-                            {selectedCategory?.find((item) => item.id === option.id) && (
-                                <span className="absolute inset-y-0 left-0 flex items-center pl-3">
-                                    <HiCheck className="w-5 h-5" />
-                                </span>
-                            )}
+                            {filteredOptions && filteredOptions?.map((option: Option) => (
+                                <div
+                                    key={option.id}
+                                    className={`${selectedCategory?.find((item) => item.id === option.id)
+                                        ? 'text-amber-900 bg-amber-100'
+                                        : 'text-gray-900'
+                                        } cursor-default select-none relative py-2 pl-8 pr-4 `}
+                                    onClick={() => toggleOption(option)}
+                                >
+                                    <span className="block truncate">{option?.name}</span>
+                                    {selectedCategory?.find((item) => item.id === option.id) && (
+                                        <span className="absolute inset-y-0 left-0 flex items-center pl-3">
+                                            <HiCheck className="w-5 h-5" />
+                                        </span>
+                                    )}
+                                </div>
+                            ))}
                         </div>
-                    ))}
-                    {filteredOptions && filteredOptions?.length > 6 && (
-                        <div className="flex justify-center py-2 text-teal-600 cursor-pointer">
+
+
+
+                        <div className="flex justify-center absolute bottom-0 w-full py-3 bg-gray-100 text-primary cursor-pointer">
                             <button
                                 type="button"
                                 onClick={() => setIsOpen(false)}
@@ -138,7 +143,7 @@ function MultiSelect({ selectedCategory, setSelectedCategory }: Props) {
                                 Close
                             </button>
                         </div>
-                    )}
+                    </div>
                 </div>
             </Transition>
 
