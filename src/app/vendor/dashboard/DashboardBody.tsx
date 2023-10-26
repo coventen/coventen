@@ -24,7 +24,7 @@ const DashboardBody = (props: PropsWithChildren) => {
 
 
     useEffect(() => {
-        console.log(newNotificationCount)
+        // console.log(newNotificationCount)
     }, [newNotificationCount])
 
 

@@ -168,9 +168,9 @@ const Main = () => {
         return isoLastDate;
     }
 
-    console.log('totalLearnItem', pageLimit, 'pageLimit', currentPage, 'currentPage', totalPages, 'totalPages')
 
-    useEffect(() => { console.log(eventData?.events, 'these are events') }, [eventData?.events?.length])
+
+    useEffect(() => { console.log('') }, [eventData?.events?.length])
 
 
     if (state.loading) return <Loading />

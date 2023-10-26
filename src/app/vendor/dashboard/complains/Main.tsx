@@ -68,8 +68,10 @@ const Main = () => {
         getTotalComplains()
     }, [currentPage, user?.email, labEmail]);
 
-    // reloading component after data changes
-    useEffect(() => { }, [data.length])
+    // // reloading component after data changes
+    useEffect(() => {
+        console.log('uploded 3333333333...........')
+    }, [data.length, isDocModalOpen])
 
     // getting lab email if employee is logged in
     const getLabEmail = async () => {
@@ -103,6 +105,7 @@ const Main = () => {
     }
 
     const getComplainData = async () => {
+        console.log('i am inside')
         setLoading(true)
         const { data } = await getComplainFn({
             variables: {

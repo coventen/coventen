@@ -75,7 +75,7 @@ const Sidebar = ({
     }, [user?.email, authLoading])
 
 
-    console.log("SERVICE_PROVIDER00000000", data?.users[0]?.user_type)
+
 
     const getUserAndAuthenticate = async (email: string) => {
         const { data, error } = await getDataFn({
@@ -93,7 +93,7 @@ const Sidebar = ({
             setAccessibleNavItems(filteredItems)
         }
         else if (data?.users[0]?.user_type === "SERVICE_PROVIDER") {
-            console.log("SERVICE_PROVIDER", data?.users[0]?.user_type)
+
             setAccessibleNavItems(controlledNavItems)
         } else {
             setAccessibleNavItems([])
@@ -106,7 +106,7 @@ const Sidebar = ({
 
 
     useEffect(() => {
-        console.log(accessibleNavItems, "")
+        console.log("")
     }, [accessibleNavItems.length])
 
     if (loading) return <Loading />
@@ -117,11 +117,11 @@ const Sidebar = ({
         return <UnAuthorized />
     }
 
-    console.log(accessibleNavItems, "accessibleNavItems")
+    // console.log(accessibleNavItems, "accessibleNavItems")
 
-    accessibleNavItems.map((item, index) => {
-        console.log(item, "item")
-    })
+    // accessibleNavItems.map((item, index) => {
+    //     console.log(item, "item")
+    // })
 
 
 
