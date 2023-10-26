@@ -51,9 +51,9 @@ const ModuleFrom = ({ index, setModules, modules }: IModuleFrom) => {
         //getting the dynamic data
         // const title = data[`moduleTitle${index}`];
 
-        if (!selected.length) {
-            toast.error('Please select a service')
-        }
+        // if (!selected.length) {
+        //     toast.error('Please select a service')
+        // }
 
         const title = selected.title;
         const description = data[`moduleDescription${index}`];

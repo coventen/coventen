@@ -79,12 +79,13 @@ const Main = () => {
     const [sendNotificationFn, notificationState] = useMutation(SEND_NOTIFICATION, { client })
 
     // initializing add complain function
-    const updateInvoice = async (complain: string, status: string) => {
+    const updateInvoice = async (complain: string, status: string, id?: string) => {
+        console.log(complain, status, id)
 
         const { data } = await updateInvoiceFn({
             variables: {
                 where: {
-                    id: currentInvoiceId
+                    id: currentInvoiceId || id
                 },
                 update: {
                     complain: complain,
@@ -96,7 +97,7 @@ const Main = () => {
             setIsOpen(false)
             refetch()
             toast.success('Updated successfully')
-            sendNotification('complained')
+            // sendNotification('complained')
             createLog(
                 `Invoice complained`,
                 `Invoice complained with id ${currentInvoiceTicketId} by ${user?.email}`
@@ -163,8 +164,7 @@ const Main = () => {
                                             <button onClick={() => {
                                                 setCurrentInvoiceId(invoice?.id)
                                                 setCurrentInvoiceTicketId(invoice?.ticket)
-                                                updateInvoice('', "CONFIRMED")
-                                                sendNotification('confirmed')
+                                                updateInvoice('', "CONFIRMED", invoice?.id)
 
                                             }} className='font-semibold border border-dimTetext-dimText px-3  py-1.5 rounded'>Confirm</button>
 
