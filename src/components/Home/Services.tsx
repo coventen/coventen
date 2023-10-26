@@ -39,7 +39,7 @@ export default function Services({ services }: { services: any[] }) {
                             Popular Services
                         </h3>
 
-                        <p className="mx-auto max-w-screen-md text-center text-dimText dark:text-darkDimText md:text-sm">We’re India’s leading quality consciousness and test service providers, perhaps we are first in the domain to bring these services for manufacturers in India connecting global quality standards and labs</p>
+                        <p className="mx-auto max-w-screen-md text-center text-dimText dark:text-darkDimText ">We’re India’s leading quality consciousness and test service providers, perhaps we are first in the domain to bring these services for manufacturers in India connecting global quality standards and labs</p>
                     </div>
 
                 </div>

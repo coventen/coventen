@@ -24,7 +24,7 @@ export default function Products({ products }: { products: any }) {
                             Popular Products
                         </h3>
 
-                        <p className="mx-auto max-w-screen-md text-center text-dimText dark:text-darkDimText md:text-sm">We’re India’s leading quality consciousness and test service providers, perhaps we are first in the domain to bring these services for manufacturers in India connecting global quality standards and labs</p>
+                        <p className="mx-auto max-w-screen-md text-center text-dimText dark:text-darkDimText ">We’re India’s leading quality consciousness and test service providers, perhaps we are first in the domain to bring these services for manufacturers in India connecting global quality standards and labs</p>
                     </div>
                     {/* <div aria-hidden="true" className="absolute inset-0 my-auto max-w-xsh-32 rotate-45 bg-gradient-to-r from-[#00b1fd] to-[#71faca] blur-[90px] opacity-50 dark:opacity-20">
                     </div> */}
@@ -75,7 +75,7 @@ export default function Products({ products }: { products: any }) {
                                                 }} className="productCard">
                                                     <div className="productCard-front">
                                                         <p className="productTitle uppercase">{item?.title}</p>
-                                                        <p className="subtitle">{item?.price}</p>
+                                                        {/* <p className="subtitle">{item?.price}</p> */}
                                                     </div>
                                                     <div className="productCard-back">
                                                         <div className="mt-4 px-5 pb-5 w-full h-full grid place-content-center ">

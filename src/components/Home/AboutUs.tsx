@@ -30,7 +30,7 @@ const AboutUs = ({ data }: any) => {
                             {/* <p className="my-3 text-gray-600 dark:text-gray-300 md:text-sm">
                                 We create best in class product designs, validation and manufacturing support for automotive, aerospace, electrical and electronics industries globally at present and more services are on its way to simplify your manufacturing needs
                             </p> */}
-                            <p className="my-3 text-dimText dark:text-darkDimText md:text-sm">
+                            <p className="my-3 text-dimText dark:text-darkDimText ">
                                 {
                                     data?.description
                                 }
