@@ -75,7 +75,7 @@ const Footer = () => {
                     </div>
                     <div className="w-full lg:w-[60%] px-4  ">
                         <div className="flex flex-wrap items-top mb-6">
-                            <div className="w-full lg:w-4/12 px-4  mb-12">
+                            <div className="w-full lg:w-[25%] px-4  mb-12">
                                 <ul className="list-unstyled">
                                     <li>
                                         <Link className="text-dimText hover:underline cursor-pointer block pb-2 text-sm" href="/about_us">About Us</Link>
@@ -84,23 +84,23 @@ const Footer = () => {
                                         <Link className="text-dimText cursor-pointer hover:underline block pb-2 text-sm" href="/products">Products</Link>
                                     </li>
                                     <li>
-                                        <a className="text-dimText cursor-pointer  hover:underline  block pb-2 text-sm" href="/learn">Learn</a>
+                                        <Link className="text-dimText cursor-pointer  hover:underline  block pb-2 text-sm" href="/learn">Learn</Link>
                                     </li>
                                     <li>
-                                        <a className="text-dimText cursor-pointer  hover:underline  block pb-2 text-sm" href="/events">Events</a>
+                                        <Link className="text-dimText cursor-pointer  hover:underline  block pb-2 text-sm" href="/events">Events</Link>
                                     </li>
 
                                 </ul>
                             </div>
                             {
                                 terms?.map((term: any, index: number) =>
-                                    <div key={index} className="w-full lg:w-4/12 px-4  mb-12">
+                                    <div key={index} className="w-full lg:w-[25%] px-4  mb-12">
                                         <ul className="list-unstyled">
 
                                             {
                                                 term?.map((item: any, index: number) =>
                                                     <li key={index}>
-                                                        <Link className="text-dimText capitalize cursor-pointer  hover:underline  block pb-2 text-sm" href={`/terms/${item.slug}`}>{item?.title}</Link>
+                                                        <Link className="text-dimText capitalize cursor-pointer  hover:underline  block pb-2 text-sm" href={`/terms/${item?.slug}`}>{item?.title}</Link>
                                                     </li>
 
                                                 )

@@ -7,7 +7,7 @@ import { Toaster } from 'react-hot-toast';
 
 // meta data api
 export const metadata = {
-  title: 'Coventen',
+  title: 'Coveten',
   description: 'We believe in best manufacturing practices will bring out best products',
 }
 
