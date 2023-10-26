@@ -71,28 +71,27 @@ const Main = () => {
 
     return (
         <>
-            <div className="px-2 lg:px-16 py-10">
-                <div className="w-full  rounded bg-white  mx-auto text-gray-800 relative md:text-left">
-                    <div className="md:flex  -mx-10">
-                        <div className="w-full md:w-1/2 px-10 mb-10 md:mb-0">
-                            <div className="relative">
-                                <Carousel>
-                                    <div>
-                                        <img src={data?.products[0].image || '/assets/no_image.png'} />
-                                        {/* <p className="legend">Legend 1</p> */}
+            <div className="lg:px-16 px-2  w-full py-10">
+                <div className="w-full  rounded bg-white   text-gray-800 relative md:text-left">
+                    <div className="md:flex w-full   lg:-mx-10">
+                        <div className="w-full md:w-1/2  lg:px-10 mb-10 md:mb-0">
+                            <div className="relative w-full overflow-hidden  ">
+                                <Carousel className='w-full overflow-hidden'>
+                                    <div className='w-full overflow-hidden'>
+                                        <img src={data?.products[0].image || '/assets/no_image.png'} className='w-full' />
+
                                     </div>
-                                    <div>
-                                        <img src={data?.products[0].sideImage || '/assets/no_image.png'} />
-                                        {/* <p className="legend">Legend 2</p> */}
+                                    <div className='w-full overflow-hidden'>
+                                        <img src={data?.products[0].sideImage || '/assets/no_image.png'} className='w-full' />
+
                                     </div>
 
                                 </Carousel>
-                                {/* <img src={data?.products[0].image || '/assets/no_image.png'} className="w-full relative z-10" alt="" /> */}
-                                {/* <div className="border-4 border-primary/30 absolute top-10 bottom-10 left-10 right-10 z-0"></div> */}
+
                             </div>
-                        </div>
-                        <div className="w-full md:w-1/2 px-6 mt-5">
-                            <div className="mb-10">
+                        </div >
+                        <div className="w-full md:w-1/2 mt-5" >
+                            <div className="mb-10 ">
                                 <h1 className="font-bold uppercase text-2xl mb-5 text-secondary">{data?.products[0].title}</h1>
                                 <p className="text-sm">{data?.products[0].shortDescription}</p>
                                 <div className='text-sm text-primary  space-x-2 mt-3'>
@@ -111,14 +110,14 @@ const Main = () => {
                                     <Button title='Inquiry' />
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
+                        </div >
+                    </div >
+                </div >
                 <Modal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} product={data?.products[0].title} />
-            </div>
+            </div >
 
             {/* features */}
-            <div className='w-full px-2 lg:px-16 py-10'>
+            < div className='w-full px-2 lg:px-16 py-10' >
                 < div >
                     <h3 className="text-xl mb-4 font-bold text-secondary">Features</h3>
 
@@ -142,7 +141,7 @@ const Main = () => {
                 </div>
 
 
-            </div>
+            </div >
         </ >
     );
 };
