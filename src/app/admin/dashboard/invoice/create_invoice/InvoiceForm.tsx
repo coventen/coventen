@@ -34,7 +34,7 @@ const InvoiceForm = ({ createInvoice }: IInvoiceForm) => {
     const [services, setServices] = React.useState<any[]>([]);
     const [selectedTerms, setSelectedTerms] = React.useState<any>('');
 
-    console.log(selectedTerms, 'this is seleted')
+
 
 
 

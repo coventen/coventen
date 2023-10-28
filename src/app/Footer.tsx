@@ -11,10 +11,10 @@ import { FaFacebook, FaReddit } from 'react-icons/fa';
 
 
 const GET_TERMS = `
-query TermsPages {
-    termsPages {
-      slug
-      title
+query TermsPages($where: TermsPageWhere) {
+    termsPages(where: $where) {
+        slug
+        title
     }
   }
 `
@@ -31,8 +31,17 @@ const Footer = () => {
     const client = useGqlClient()
 
     // QUERY
-    const { data, error, loading } = useQuery(GET_TERMS, { client })
+    const { data, error, loading } = useQuery(GET_TERMS, {
+        client,
+        variables: {
+            "where": {
+                "forInvoice": false
+            }
+        }
+    })
 
+
+    console.log(data, ' this is data666666666666666')
 
     useEffect(() => {
         if (data?.termsPages) {
