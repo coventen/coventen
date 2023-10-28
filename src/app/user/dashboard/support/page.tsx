@@ -5,8 +5,10 @@ import Main from './Main';
 
 const SupportPage = () => {
     return (
-        <div className="flex h-screen antialiased text-gray-800">
-            <Main />
+        <div className="flex h-full w-full antialiased text-gray-800 ">
+            <div className='h-full w-full '>
+                <Main />
+            </div>
         </div>
     );
 };

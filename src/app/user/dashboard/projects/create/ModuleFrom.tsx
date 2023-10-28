@@ -111,7 +111,7 @@ const ModuleFrom = ({ index, setModules, modules }: IModuleFrom) => {
         });
     }, [setFiles]);
     return (
-        <form onChange={handleSubmit(handleModule)}>
+        <div >
             <div className="">
                 <label htmlFor="address">Service-{index}</label>
                 <div className='relative mb-4'>
@@ -219,7 +219,7 @@ const ModuleFrom = ({ index, setModules, modules }: IModuleFrom) => {
                 position="top-center"
                 reverseOrder={false}
             />
-        </form>
+        </div>
     );
 };
 

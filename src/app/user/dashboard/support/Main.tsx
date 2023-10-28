@@ -101,11 +101,7 @@ const Main = () => {
 
     // checking if user has a support ticket and if not create one or update the date
     const handleSupportTicket = async () => {
-        if (!supportTicketData.supportTickets[0]?.id && !loading && !error) {
-            await createTicket()
-        } else {
-            await updateTicket()
-        }
+        updateTicket()
     }
 
     // CREATES A SUPPORT TICKET
@@ -175,7 +171,7 @@ const Main = () => {
     }
 
 
-    if (loading || updateState.loading || createState.loading) return <Loading />
+    if (createState.loading || loading) return <Loading />
 
     if (error || updateState.error || createState.error) return <Error />
 
@@ -202,10 +198,28 @@ const Main = () => {
 
     }
 
+    console.log(supportTicketData?.supportTickets[0]?.id, ' this is support ticket id')
+
 
     return (
+
         <>
-            <ChatBody messages={messages} supportTicket={supportTicketData?.supportTickets[0]?.id} handleSupportTicket={handleSupportTicket} />
+            {
+                !loading && supportTicketData?.supportTickets[0]?.id ?
+                    <ChatBody
+                        messages={messages}
+                        supportTicket={supportTicketData?.supportTickets[0]?.id} handleSupportTicket={handleSupportTicket}
+                    />
+                    :
+                    <div className="flex justify-center items-center w-full h-screen">
+                        <button onClick={createTicket} className='gradient-bg rounded-md text-white px-10 py-2 font-semibold'>
+                            Continue
+                        </button>
+                    </div>
+
+            }
+
+
         </>
     );
 };

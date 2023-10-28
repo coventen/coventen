@@ -23,7 +23,7 @@ const Sidebar = ({ data, setCurrentModule }: { data: any, setCurrentModule: any 
                         ></path>
                     </svg>
                 </div>
-                <div className="ml-2 font-bold text-2xl">All Tickets</div>
+                <div className="ml-2 font-bold text-2xl">All Chats</div>
             </div>
 
 
