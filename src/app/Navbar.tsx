@@ -27,6 +27,7 @@ import AuthConfig from '@/firebase/oauth.config';
 import { useRouter } from 'next/navigation';
 import DropdownIndustry from '@/components/Navbar/Dropdown/DropdownIndusty';
 import Solution from '@/components/Navbar/Dropdown/Solution';
+import { LuPlusCircle } from 'react-icons/lu';
 
 
 
@@ -159,16 +160,18 @@ export default function Navbar({ services, industries, solutions, features }: an
                                 <div className=' flex items-center justify-center space-x-3'>
                                     {
                                         currentUserType === 'CONSUMER' ?
-                                            <Link href='/user/dashboard/projects/create' className='text-sm font-semibold leading-6 text-primaryText'>
-                                                Create Project
+                                            <Link href='/user/dashboard/projects/create'
+                                                className='text-sm  flex items-center justify-center  font-semibold leading-6 gradient-bg text-white px-2 py-1.5 rounded-md'>
+                                                <span className='mr-1 text-lg'><LuPlusCircle /></span>
+                                                <span>New Project</span>
                                             </Link>
                                             : <p></p>
                                     }
 
-                                    <Menu as="div" className="relative inline-block text-left">
+                                    <Menu as="div" className="relative inline-block  text-left ">
                                         <div>
                                             <Menu.Button className="">
-                                                <div className="w-8 h-8 rounded-full overflow-hidden border-2 dark:border-white border-gray-900">
+                                                <div className="w-9 h-9 rounded-full overflow-hidden border-2 dark:border-white border-gray-900">
                                                     <img src="/assets/no_user.png" alt="" className="w-full h-full object-cover" />
                                                 </div>
                                             </Menu.Button>
@@ -238,7 +241,7 @@ export default function Navbar({ services, industries, solutions, features }: an
 
                                 </div>
                                 :
-                                <div className='space-x-4 flex items-center'>
+                                <div className='space-x-4 flex items-center justify-center'>
 
                                     <Link
                                         href="/auth/login"

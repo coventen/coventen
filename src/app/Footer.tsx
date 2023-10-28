@@ -41,7 +41,7 @@ const Footer = () => {
     })
 
 
-    console.log(data, ' this is data666666666666666')
+
 
     useEffect(() => {
         if (data?.termsPages) {

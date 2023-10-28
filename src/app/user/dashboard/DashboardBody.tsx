@@ -10,6 +10,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import AuthConfig from "@/firebase/oauth.config";
 import CheckNotification from "./CheckNotification";
+import { LuDownload } from "react-icons/lu";
 
 const DashboardBody = (props: PropsWithChildren) => {
 
@@ -46,23 +47,37 @@ const DashboardBody = (props: PropsWithChildren) => {
             <div className="relative  max-h-screen overflow-y-auto scrollbar-thumb-blue scrollbar-thumb-rounded scrollbar-track-blue-lighter scrollbar-w-2 scrolling-touch">
                 <div className="sticky top-0 h-16 z-[300000000]  bg-white dark:bg-gray-800  lg:py-2.5 border-b shadow-sm">
                     <div className="flex items-center justify-between space-x-4 px-6 2xl:container">
-                        <h5 hidden className="text-2xl font-medium text-gray-600 lg:block dark:text-white"></h5>
-                        <button onClick={() => setShowSidebar(!showSidebar)} className="-mr-2 h-16 w-12 border-r lg:hidden dark:border-gray-700 dark:text-gray-300">
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                className="my-auto h-6 w-6"
-                                fill="none"
-                                viewBox="0 0 24 24"
-                                stroke="currentColor"
-                            >
-                                <path
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    strokeWidth="2"
-                                    d="M4 6h16M4 12h16M4 18h16"
-                                />
-                            </svg>
-                        </button>
+                        <div>
+                            <h5 hidden className="text-2xl font-medium text-gray-600 lg:block dark:text-white"></h5>
+                            <button onClick={() => setShowSidebar(!showSidebar)} className="-mr-2 h-16 w-12 border-r lg:hidden dark:border-gray-700 dark:text-gray-300">
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    className="my-auto h-6 w-6"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke="currentColor"
+                                >
+                                    <path
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                        strokeWidth="2"
+                                        d="M4 6h16M4 12h16M4 18h16"
+                                    />
+                                </svg>
+                            </button>
+
+                            <div className="hidden lg:flex gradient-bg px-2 py-2 rounded-md font-semibold text-white text-sm  items-center justify-center space-x-2">
+                                <span>
+                                    Get Our Application
+                                </span>
+                                <span className="text-lg">
+                                    <LuDownload />
+                                </span>
+                            </div>
+                        </div>
+
+
+
                         <div className="flex space-x-4">
 
 
