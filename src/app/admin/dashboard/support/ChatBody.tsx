@@ -131,7 +131,6 @@ const ChatBody = ({ messages, currentSupportTicket }: Props) => {
     const handleUploadImage = async (e: any) => {
         const files = e.target.files
         const filesArray = Array.from(files);
-        console.log(filesArray, 'file array')
         uploadFiles(filesArray as File[])
     }
 
