@@ -19,15 +19,24 @@ const AddTerms = ({ setTab, addNewTermsFn }: IAddProductProps) => {
 
     const [title, setTitle] = useState('')
     const [termsEditorState, setTermsEditorState] = useState('');
+    const [selectedUrlType, setSelectedUrlType] = useState('general')
 
 
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
 
+        let forInvoice = false
+        if (selectedUrlType === 'general') {
+            forInvoice = false
+        } else if (selectedUrlType === 'invoice') {
+            forInvoice = true
+        }
+
         const inputData = {
             title: title.toLowerCase(),
             content: JSON.stringify(termsEditorState),
+            forInvoice: forInvoice
         }
 
         addNewTermsFn(inputData)
@@ -54,6 +63,19 @@ const AddTerms = ({ setTab, addNewTermsFn }: IAddProductProps) => {
                                 placeholder="title"
                                 className="mt-2 w-full block  placeholder-gray-400/70 rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-gray-700 focus:primary focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:primary/10"
                             />
+                        </div>
+                        <div className="p-1  col-span-2">
+                            <label htmlFor="title" className="block  text-gray-700 text-sm mb-1">
+                                Select Type
+                            </label>
+                            <select
+                                defaultValue={selectedUrlType}
+                                onChange={(e) => setSelectedUrlType(e.target.value)}
+                                className="mt-2 w-full block  placeholder-gray-400/70 rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-gray-700 focus:primary focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:primary/10" >
+                                <option value='general'>General</option>
+                                <option value='invoice'>For Invoice</option>
+                            </select>
+
                         </div>
 
 

@@ -44,6 +44,10 @@ const getInvoiceData = async (id: string) => {
                     address
                   }
                 }
+                hasTermspage {
+                  id
+                  content
+                }
                 vendorCreated {
                   userIs {
                     companyName

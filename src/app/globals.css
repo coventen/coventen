@@ -87,6 +87,9 @@ example:
   background: linear-gradient(-45deg, #0f62fe 0%, #0f9efe 100% )
 }
 
+.border-gradient {
+  border-image-source: linear-gradient(-45deg, #0f62fe 0%, #0f9efe 100% );
+}
 
 
 
@@ -128,6 +131,7 @@ example:
     align-items: center;
     justify-content: center;
     width: 100%;
+    height: 100%;
     box-shadow: 0 0 3px 0px rgba(0, 0, 0, 0.2);
     padding: 32px;
     overflow: hidden;

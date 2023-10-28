@@ -9,10 +9,48 @@ import 'react-photo-view/dist/react-photo-view.css';
 import { toast } from 'react-hot-toast';
 import { saveAs } from 'file-saver';
 import { v4 as uuidv4 } from 'uuid';
+import ChatInfoSlideOver from './ChatInfoSlideOver';
+import { ModuleTicket } from '@/gql/graphql';
+import { useManualQuery } from 'graphql-hooks';
+import { useGqlClient } from '@/hooks/UseGqlClient';
+
 interface Props {
     messages: any[];
     currentModule: string;
 }
+
+
+
+const GET_MODULE_TICKETS = `
+query ModuleTickets($where: ModuleTicketWhere, $options: ModuleTicketOptions) {
+  moduleTickets(where: $where, options: $options) {
+    ticket
+    forModule {
+        title
+        description
+        files
+      }
+    vendorHas {
+      userIs {
+        companyName
+        email
+        phone
+        state
+        city
+      }
+    }
+    clientHas {
+      userIs {
+        companyName
+        email
+        phone
+        state
+        city
+      }
+    }
+  }
+}
+`
 
 
 const ChatBody = ({ messages, currentModule }: Props) => {
@@ -22,6 +60,8 @@ const ChatBody = ({ messages, currentModule }: Props) => {
     const [text, setText] = useState('')
     const [fileLinks, setFileLinks] = useState<any>('')
     const [uploading, setUploading] = useState(false);
+    const [isSlideOverOpen, setIsSlideOverOpen] = useState(false)
+    const [data, setData] = useState<any>(null)
 
     // refs
     const latestMessageRef = useRef(null)
@@ -29,6 +69,28 @@ const ChatBody = ({ messages, currentModule }: Props) => {
     //hooks
     const { user } = AuthConfig()
     const { uploadFile } = HandleFileUpload()
+    const client = useGqlClient();
+
+    //quires 
+    const [getUserDataFn, userState] = useManualQuery(GET_MODULE_TICKETS, { client })
+
+
+
+
+    const getData = async () => {
+        const { data } = await getUserDataFn({
+            variables: {
+                "where": {
+                    "ticket": currentModule
+                }
+            }
+        })
+        if (data) {
+
+            setData(data.moduleTickets[0])
+
+        }
+    }
 
 
     // handling scroll to the latest message
@@ -116,7 +178,10 @@ const ChatBody = ({ messages, currentModule }: Props) => {
             >
                 <div className='bg-white shadow-sm px-4 py-5 rounded-lg flex items-center'>
                     <p className='bg-green-500 w-3 h-3 rounded-full mr-2'></p>
-                    <p className='font-bold'> {user?.email}</p>
+                    <p onClick={() => {
+                        getData()
+                        setIsSlideOverOpen(true)
+                    }} className='font-bold cursor-pointer'> {currentModule}</p>
 
                 </div>
 
@@ -133,6 +198,7 @@ const ChatBody = ({ messages, currentModule }: Props) => {
                                     <div key={message?.id} className={`${message?.senderId == user?.email ? "col-start-6 " : "col-start-1"}  col-end-13 p-3 rounded-lg`}>
                                         <div className="flex items-center justify-start flex-row-reverse">
                                             <div
+
                                                 className="flex items-center justify-center h-10 w-10 rounded-full bg-primary text-white font-bold flex-shrink-0"
                                             >
                                                 {message?.senderId?.slice(0, 1).toUpperCase()}
@@ -236,6 +302,7 @@ const ChatBody = ({ messages, currentModule }: Props) => {
                     </div>
                 </form>
             </div >
+            <ChatInfoSlideOver open={isSlideOverOpen} setOpen={setIsSlideOverOpen} data={data} loading={userState.loading} />
         </div >
     );
 };

@@ -7,7 +7,7 @@ import React from 'react';
 const AboutUs = ({ data }: any) => {
 
     return (
-        <section className='py-16'>
+        <section className='pt-12'>
             <div className=" relative z-10">
                 {/* <div className="absolute inset-0 max-w-xs mx-auto h-96 blur-[90px] bg-gradient-to-br from-primary/30 to-slate-400" ></div> */}
 

@@ -15,6 +15,7 @@ query Query($where: InvoiceWhere, $options: InvoiceOptions) {
       clientEmail
       totalPrice
       priceWithTax
+      expiryDate
       status
       ticket
       sentBy

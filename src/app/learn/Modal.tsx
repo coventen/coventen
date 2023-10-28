@@ -3,7 +3,7 @@ import { Fragment, useEffect, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { Dialog, Transition } from '@headlessui/react';
 import { useGqlClient } from '@/hooks/UseGqlClient';
-import { useMutation } from 'graphql-hooks';
+import { useManualQuery, useMutation } from 'graphql-hooks';
 import { toast } from 'react-hot-toast';
 import Button from '@/components/Button';
 import { HiOutlineCalendar } from 'react-icons/hi';
@@ -26,6 +26,16 @@ mutation CreateLeads($input: [LeadsCreateInput!]!) {
     }
   }
 `
+const GET_USER_INFO = `
+query Users($where: UserWhere) {
+    users(where: $where) {
+      name
+      email
+      phone
+    }
+  }
+`
+
 
 //component
 function Modal({ isModalOpen, setIsModalOpen, learn }: IModalProps) {
@@ -46,9 +56,36 @@ function Modal({ isModalOpen, setIsModalOpen, learn }: IModalProps) {
     const { user } = AuthConfig()
 
     // queries and mutations
+    const [getUserFn, userState] = useManualQuery(GET_USER_INFO, {
+        client
+    })
     const [createLead, createState] = useMutation(CREATE_LEAD, { client })
 
 
+    // get user info after login
+    useEffect(() => {
+        if (user?.email) {
+            getUserFn({
+                variables: {
+                    "where": {
+                        "email": user?.email
+                    }
+                }
+            })
+        }
+    }, [user?.email])
+
+
+    // set user info after data fetch
+
+    useEffect(() => {
+        if (userState?.data?.users?.length) {
+            const { name, email, phone } = userState?.data?.users[0]
+            setName(name)
+            setEmail(email)
+            setPhone(phone)
+        }
+    }, [userState.data?.users?.length])
 
 
     // functions
@@ -109,11 +146,6 @@ function Modal({ isModalOpen, setIsModalOpen, learn }: IModalProps) {
     };
 
 
-    useEffect(() => {
-        if (user?.email) {
-            setEmail(user?.email)
-        }
-    }, [user?.email])
 
 
     const closeModal = () => {

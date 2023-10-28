@@ -255,7 +255,7 @@ const SignUpFrom = ({ createUser, setLoading, setError, loading, error }: ISignU
                 <div>
                     <button
                         type='submit'
-                        className="w-full px-4 mt-10 py-2 text-white font-medium bg-primary hover:bg-primary active:bg-primary rounded duration-150"
+                        className="w-full px-4 mt-10 py-2 text-white font-medium gradient-bg rounded "
                     >
                         {loading ? "loading" : 'Create account'}
                     </button>

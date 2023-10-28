@@ -50,7 +50,8 @@ const Main = () => {
         if (search) {
             where = {
                 "categoryHas": {
-                    "id": search
+                    "id": search,
+                    "isPopular": true
                 }
             }
         } else {

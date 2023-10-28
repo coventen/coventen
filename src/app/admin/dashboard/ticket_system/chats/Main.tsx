@@ -1,6 +1,6 @@
 'use client'
 import { useGqlClient } from '@/hooks/UseGqlClient';
-import { useQuery } from 'graphql-hooks';
+import { useManualQuery, useQuery } from 'graphql-hooks';
 import React, { useEffect } from 'react';
 import Sidebar from './Sidebar';
 import ChatBody from './ChatBody';
@@ -32,6 +32,8 @@ const Main = () => {
   //states
   const [currentModule, setCurrentModule] = React.useState('');
   const [messages, setMessages] = React.useState<any>([]);
+  const [data, setData] = React.useState<any>([]);
+  const [query, setQuery] = React.useState('');
 
 
 
@@ -41,32 +43,52 @@ const Main = () => {
 
 
   // fetching data
-  const { data, loading, error } = useQuery(GET_MODULE_TICKETS, {
-    client,
-    variables: {
-      options: {
-        sort: [
-          {
-            createdAt: "DESC"
-          }
-        ]
+  const [getModuleTicketFn, getState] = useManualQuery(GET_MODULE_TICKETS, { client })
+
+
+
+  //getting data
+  const getTickets = async (query: string = '') => {
+    console.log('i am getting', query)
+    const { data } = await getModuleTicketFn({
+      variables: {
+        "where": {
+          "ticket_CONTAINS": query ? query.toUpperCase() : ''
+        },
+        "options": {
+          "sort": [
+            {
+              "createdAt": "DESC"
+            }
+          ]
+        },
       }
-
+    })
+    if (data) {
+      console.log(data, 'data')
+      setData(data?.moduleTickets)
     }
-  });
+  }
 
 
-  console.log(messages)
+
+  //fetching data first time and after query change
+  useEffect(() => {
+    console.log(query, 'dfklll')
+    getTickets(query)
+  }, [query]);
+
 
 
 
   // setting  the latest module as current module
   useEffect(() => {
-    if (data?.moduleTickets) {
-      setCurrentModule(data?.moduleTickets[0]?.ticket)
+    if (data) {
+      console.log('i am here')
+      setCurrentModule(data[0]?.ticket)
     }
 
-  }, [data?.moduleTickets]);
+  }, [data?.length]);
 
 
   // getting data based on current module
@@ -108,13 +130,13 @@ const Main = () => {
 
 
 
-  if (loading) return <Loading />;
+  // if (getState.loading) return <Loading />;
 
-  if (error) return <Error />
+  if (getState.error) return <Error />
 
   return (
     <>
-      <Sidebar data={data?.moduleTickets} setCurrentModule={setCurrentModule} />
+      <Sidebar data={data} setCurrentModule={setCurrentModule} setQuery={setQuery} />
       <ChatBody messages={messages} currentModule={currentModule} />
 
     </>

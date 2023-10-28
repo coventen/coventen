@@ -27,7 +27,7 @@ const UserTable = ({ data, setIsModalOpen, setCurrentData, loading }: IUserTable
                 <tr className='border-b border-gray-200'>
                     <th
                         className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-dimText dark:text-darkDimText uppercase tracking-wider dark:bg-darkBg dark:border-darkBorder">
-                        User
+                        User Id
                     </th>
                     <th
                         className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-dimText dark:text-darkDimText uppercase tracking-wider dark:bg-darkBg dark:border-darkBorder">
@@ -55,21 +55,10 @@ const UserTable = ({ data, setIsModalOpen, setCurrentData, loading }: IUserTable
                     data && data.map((user, index) =>
                         <tr key={user?.id} className='border-b border-gray-200'>
                             <td className="px-5 py-5  bg-white text-xs dark:bg-darkBg dark:border-darkBorder">
-                                <div className="flex items-center">
-                                    <div className="flex-shrink-0 w-10 h-10">
-                                        <Image height={200} width={200} className="w-full h-full rounded-full"
-                                            src={user?.image || '/assets/no_user.png'}
-                                            alt="" />
-                                    </div>
-                                    <div className="ml-3">
-                                        <p className=" whitespace-no-wrap">
-                                            {user?.name}
-                                        </p>
-                                    </div>
-                                </div>
+                                <p className=" whitespace-no-wrap">{user?.userId || 'N/A'}</p>
                             </td>
                             <td className="px-5 py-5  bg-white text-xs dark:bg-darkBg dark:border-darkBorder">
-                                <p className=" whitespace-no-wrap">{user?.email}</p>
+                                <p className=" whitespace-no-wrap lowercase">{user?.email}</p>
                             </td>
                             <td className="px-5 py-5  bg-white text-xs dark:bg-darkBg dark:border-darkBorder">
                                 <p className=" whitespace-no-wrap">
@@ -93,7 +82,7 @@ const UserTable = ({ data, setIsModalOpen, setCurrentData, loading }: IUserTable
                                     relative inline-block  px-4 py-1 rounded-md  leading-tight`}>
                                     <span
                                         className="absolute  "></span>
-                                    <span className="relative font-bold">{user.status === "APPROVED" ? 'Approved' : 'Approve'}</span>
+                                    <span className="relative font-bold uppercase">{user.status === "APPROVED" ? 'Approved' : 'Approve'}</span>
                                 </button>
                             </td>
 

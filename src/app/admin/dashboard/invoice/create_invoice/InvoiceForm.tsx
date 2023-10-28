@@ -9,11 +9,21 @@ import AutoSelect from '@/components/AutoSelect';
 import { useGqlClient } from '@/hooks/UseGqlClient';
 import { useQuery } from 'graphql-hooks';
 import AutoSelectConsumer from '@/components/AutoSelectConsumer';
+import Loading from '@/app/loading';
 
 interface IInvoiceForm {
-    createInvoice: (invoiceData: Invoice, services: Purchase[], company: string) => void
+    createInvoice: (invoiceData: Invoice, services: Purchase[], company: string, selectedTerms: string) => void
 }
 
+const GET_TERMS = `
+query TermsPages($where: TermsPageWhere) {
+    termsPages(where: $where) {
+      id
+      title
+    }
+  }
+
+`
 
 
 const InvoiceForm = ({ createInvoice }: IInvoiceForm) => {
@@ -22,8 +32,9 @@ const InvoiceForm = ({ createInvoice }: IInvoiceForm) => {
     const [serviceCount, setServiceCount] = React.useState(3)
     const [selected, setSelected] = React.useState<any>(null);
     const [services, setServices] = React.useState<any[]>([]);
+    const [selectedTerms, setSelectedTerms] = React.useState<any>('');
 
-
+    console.log(selectedTerms, 'this is seleted')
 
 
 
@@ -37,12 +48,24 @@ const InvoiceForm = ({ createInvoice }: IInvoiceForm) => {
         formState: { errors },
     } = useForm<any>()
 
+    const client = useGqlClient()
+
+    // QUERY
+    const { data: TermsData, loading, error, refetch } = useQuery(GET_TERMS, {
+        client,
+        variables: {
+            "where": {
+                "forInvoice": true
+            }
+        }
+    })
+
 
 
 
     // handle creating invoice
     const handleCreating: SubmitHandler<any> = (data) => {
-        createInvoice(data, services, selected ? selected.companyName : '')
+        createInvoice(data, services, selected ? selected.companyName : '', selectedTerms)
     }
 
 
@@ -51,6 +74,7 @@ const InvoiceForm = ({ createInvoice }: IInvoiceForm) => {
         setServiceCount(1)
     }
 
+    if (loading) return <Loading />
 
     return (
 
@@ -94,7 +118,7 @@ const InvoiceForm = ({ createInvoice }: IInvoiceForm) => {
                                                 </span>
                                                 <input placeholder="Tax rate"
                                                     type='number'
-                                                    className="    border border-gray-300 border-b block pl-8 pr-6 py-2 w-full bg-white text-sm placeholder-gray-400 text-gray-700 focus:bg-white focus:placeholder-gray-600 focus:text-gray-700 focus:outline-none" {...register("taxRate")} />
+                                                    className="    border border-gray-300 border-b block pl-8 pr-6 py-2.5 w-full bg-white text-sm placeholder-gray-400 text-gray-700 focus:bg-white focus:placeholder-gray-600 focus:text-gray-700 focus:outline-none" {...register("taxRate")} />
                                             </div>
                                         </div>
                                     </div>
@@ -107,6 +131,27 @@ const InvoiceForm = ({ createInvoice }: IInvoiceForm) => {
                                             className="border border-gray-300 border-b block pl-8 pr-6 py-2 w-full bg-white text-sm placeholder-gray-400 text-gray-700 focus:bg-white focus:placeholder-gray-600 focus:text-gray-700 focus:outline-none" {...register("expiryDate")} />
 
                                     </div>
+
+                                    <div className="col-span-full  w-full mt-3">
+                                        <label htmlFor="title" className="block  text-gray-700 text-sm mb-1">
+                                            Select Terms
+                                        </label>
+                                        <select
+                                            defaultValue={selectedTerms}
+                                            onChange={(e) => setSelectedTerms(e.target.value)}
+                                            className="mt-2 w-full block  placeholder-gray-400/70 rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-gray-700 focus:primary focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:primary/10" >
+                                            <option value='url'>Select Terms</option>
+                                            {
+                                                TermsData.termsPages.map((term: any) =>
+                                                    <option className='capitalize' key={term?.id} value={term?.id}>
+                                                        {term?.title}
+                                                    </option>
+                                                )
+                                            }
+                                        </select>
+
+                                    </div>
+
                                     <div className='col-span-full  w-full mt-3'>
                                         <p >HSN/SAC Code</p>
 
@@ -200,7 +245,7 @@ const InvoiceForm = ({ createInvoice }: IInvoiceForm) => {
 
                                     <div className="md:col-span-5 text-right mt-8">
                                         <div className="inline-flex items-end">
-                                            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4  ">Submit</button>
+                                            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4  ">Send Estimation</button>
                                         </div>
                                     </div>
 

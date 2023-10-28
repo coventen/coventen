@@ -9,6 +9,9 @@ import 'react-photo-view/dist/react-photo-view.css';
 import { toast } from 'react-hot-toast';
 import { saveAs } from 'file-saver';
 import { v4 as uuidv4 } from 'uuid';
+import ChatInfoSlideOver from './ChatInfoSlideOver';
+import { useManualQuery } from 'graphql-hooks';
+import { useGqlClient } from '@/hooks/UseGqlClient';
 interface Props {
     messages: any[];
     currentSupportTicket: {
@@ -18,6 +21,36 @@ interface Props {
 }
 
 
+
+const GET_TICKETS_DETAILS = `
+query SupportTickets($options: SupportTicketOptions, $where: SupportTicketWhere) {
+    supportTickets(options: $options, where: $where) {
+      clientHas {
+        userIs {
+         companyName
+          email
+          phone
+          state
+          city  
+        }
+      }
+      vendorHas {
+         userIs {
+         companyName
+          email
+          phone
+          state
+          city  
+        }
+      }
+    }
+    }
+`
+
+
+
+
+
 const ChatBody = ({ messages, currentSupportTicket }: Props) => {
 
     //states
@@ -25,6 +58,8 @@ const ChatBody = ({ messages, currentSupportTicket }: Props) => {
     const [text, setText] = useState('')
     const [fileLinks, setFileLinks] = useState<any>('')
     const [uploading, setUploading] = useState(false);
+    const [isSlideOverOpen, setIsSlideOverOpen] = useState(false)
+    const [data, setData] = useState<any>(null)
 
     // refs
     const latestMessageRef = useRef(null)
@@ -32,7 +67,7 @@ const ChatBody = ({ messages, currentSupportTicket }: Props) => {
     //hooks
     const { user } = AuthConfig()
     const { uploadFile } = HandleFileUpload()
-
+    const client = useGqlClient();
 
     // handling scroll to the latest message
     useEffect(() => {
@@ -41,6 +76,30 @@ const ChatBody = ({ messages, currentSupportTicket }: Props) => {
             latestMessageRef.current.scrollIntoView({ behavior: "smooth" })
         }
     }, [messages])
+
+
+    //quires 
+    const [getUserDataFn, userState] = useManualQuery(GET_TICKETS_DETAILS, { client })
+
+
+
+
+
+    // get ticket details
+    const getData = async (id: string) => {
+        const { data } = await getUserDataFn({
+            variables: {
+                "where": {
+                    "ticket": id
+                }
+            }
+        })
+        if (data) {
+
+            setData(data.supportTickets[0])
+
+        }
+    }
 
 
 
@@ -119,7 +178,10 @@ const ChatBody = ({ messages, currentSupportTicket }: Props) => {
             >
                 <div onClick={() => setOnClose(true)} className='bg-white shadow-sm px-4 py-5 rounded-lg flex items-center'>
                     <p className='bg-green-500 w-3 h-3 rounded-full mr-2'></p>
-                    <p className='font-bold'> {currentSupportTicket?.ticket}</p>
+                    <p onClick={() => {
+                        getData(currentSupportTicket?.ticket)
+                        setIsSlideOverOpen(true)
+                    }} className='font-bold cursor-pointer'> {currentSupportTicket?.ticket}</p>
 
                 </div>
                 {/* <Scrollbars style={{ width: 500, height: 300 }}>
@@ -244,6 +306,7 @@ const ChatBody = ({ messages, currentSupportTicket }: Props) => {
                     </div>
                 </form>
             </div>
+            <ChatInfoSlideOver open={isSlideOverOpen} setOpen={setIsSlideOverOpen} data={data} loading={userState.loading} />
         </div>
     );
 };

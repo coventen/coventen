@@ -43,13 +43,13 @@ const page = async ({ params, searchParams }: any) => {
 
 
     return (
-        <section className='relative  lg:px-16'>
+        <section className='relative  '>
             <div>
-                <img className="z-0 absolute lg:px-16 top-0 left-0 h-[450px] w-full object-cover" src={details?.coverImageUrl || "/assets/heor.jpg"} alt="" />
+                <img className="z-0 absolute w-full  top-0 left-0 h-[450px] w-full object-cover" src={details?.coverImageUrl || "/assets/heor.jpg"} alt="" />
             </div>
             <main className=' relative z-0'>
                 <article className='bg-transparent pt-80 w-full '>
-                    <header className="mx-auto    max-w-screen-lg rounded-t-lg bg-white pt-16 text-center shadow-lg w-full">
+                    <header className="mx-auto max-w-screen-lg  rounded-t-lg bg-white pt-16 text-center shadow-lg w-full">
 
                         <h1 className="mt-2 text-4xl font-bold text-secondary sm:text-5xl uppercase">{details?.title}</h1>
 
@@ -57,7 +57,7 @@ const page = async ({ params, searchParams }: any) => {
 
                     </header>
 
-                    <div className="mx-auto max-w-screen-lg space-y-12 leading-10 rounded-b-lg bg-white px-8 pt-20 pb-20 font-serif text-lg tracking-wide text-gray-700 sm:shadow-lg w-full ">
+                    <div className="mx-auto max-w-screen-lg   space-y-12 leading-10 rounded-b-lg bg-white px-8 pt-20 pb-20 font-serif text-lg tracking-wide text-gray-700 sm:shadow-lg w-full ">
                         <Content content={JSON.parse(details?.pageContent)} />
 
 

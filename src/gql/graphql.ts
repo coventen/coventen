@@ -5674,6 +5674,21 @@ export type AdminUserIsNodeAggregationWhereInput = {
   state_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
   state_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
   state_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  userId_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  userId_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  userId_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  userId_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  userId_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  userId_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  userId_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  userId_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  userId_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  userId_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  userId_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  userId_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  userId_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  userId_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  userId_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
   zip_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
   zip_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
   zip_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
@@ -5735,6 +5750,7 @@ export type AdminUserUserIsNodeAggregateSelection = {
   phone: StringAggregateSelectionNullable;
   secondAddress: StringAggregateSelectionNullable;
   state: StringAggregateSelectionNullable;
+  userId: StringAggregateSelectionNullable;
   zip: StringAggregateSelectionNullable;
 };
 
@@ -9536,6 +9552,21 @@ export type ClientUserIsNodeAggregationWhereInput = {
   state_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
   state_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
   state_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  userId_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  userId_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  userId_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  userId_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  userId_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  userId_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  userId_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  userId_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  userId_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  userId_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  userId_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  userId_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  userId_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  userId_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  userId_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
   zip_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
   zip_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
   zip_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
@@ -9597,6 +9628,7 @@ export type ClientUserUserIsNodeAggregateSelection = {
   phone: StringAggregateSelectionNullable;
   secondAddress: StringAggregateSelectionNullable;
   state: StringAggregateSelectionNullable;
+  userId: StringAggregateSelectionNullable;
   zip: StringAggregateSelectionNullable;
 };
 
@@ -10388,6 +10420,21 @@ export type CommunicationTicketForUserNodeAggregationWhereInput = {
   state_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
   state_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
   state_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  userId_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  userId_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  userId_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  userId_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  userId_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  userId_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  userId_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  userId_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  userId_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  userId_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  userId_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  userId_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  userId_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  userId_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  userId_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
   zip_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
   zip_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
   zip_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
@@ -10757,6 +10804,7 @@ export type CommunicationTicketUserForUserNodeAggregateSelection = {
   phone: StringAggregateSelectionNullable;
   secondAddress: StringAggregateSelectionNullable;
   state: StringAggregateSelectionNullable;
+  userId: StringAggregateSelectionNullable;
   zip: StringAggregateSelectionNullable;
 };
 
@@ -10877,7 +10925,9 @@ export type Counter = {
   invoiceCount?: Maybe<Scalars['Int']['output']>;
   moduleCount?: Maybe<Scalars['Int']['output']>;
   projectCount?: Maybe<Scalars['Int']['output']>;
+  supportCount?: Maybe<Scalars['Int']['output']>;
   testCount?: Maybe<Scalars['Int']['output']>;
+  userCount?: Maybe<Scalars['Int']['output']>;
 };
 
 export type CounterAggregateSelection = {
@@ -10886,14 +10936,18 @@ export type CounterAggregateSelection = {
   invoiceCount: IntAggregateSelectionNullable;
   moduleCount: IntAggregateSelectionNullable;
   projectCount: IntAggregateSelectionNullable;
+  supportCount: IntAggregateSelectionNullable;
   testCount: IntAggregateSelectionNullable;
+  userCount: IntAggregateSelectionNullable;
 };
 
 export type CounterCreateInput = {
   invoiceCount?: InputMaybe<Scalars['Int']['input']>;
   moduleCount?: InputMaybe<Scalars['Int']['input']>;
   projectCount?: InputMaybe<Scalars['Int']['input']>;
+  supportCount?: InputMaybe<Scalars['Int']['input']>;
   testCount?: InputMaybe<Scalars['Int']['input']>;
+  userCount?: InputMaybe<Scalars['Int']['input']>;
 };
 
 export type CounterEdge = {
@@ -10914,7 +10968,9 @@ export type CounterSort = {
   invoiceCount?: InputMaybe<SortDirection>;
   moduleCount?: InputMaybe<SortDirection>;
   projectCount?: InputMaybe<SortDirection>;
+  supportCount?: InputMaybe<SortDirection>;
   testCount?: InputMaybe<SortDirection>;
+  userCount?: InputMaybe<SortDirection>;
 };
 
 export type CounterUpdateInput = {
@@ -10927,9 +10983,15 @@ export type CounterUpdateInput = {
   projectCount?: InputMaybe<Scalars['Int']['input']>;
   projectCount_DECREMENT?: InputMaybe<Scalars['Int']['input']>;
   projectCount_INCREMENT?: InputMaybe<Scalars['Int']['input']>;
+  supportCount?: InputMaybe<Scalars['Int']['input']>;
+  supportCount_DECREMENT?: InputMaybe<Scalars['Int']['input']>;
+  supportCount_INCREMENT?: InputMaybe<Scalars['Int']['input']>;
   testCount?: InputMaybe<Scalars['Int']['input']>;
   testCount_DECREMENT?: InputMaybe<Scalars['Int']['input']>;
   testCount_INCREMENT?: InputMaybe<Scalars['Int']['input']>;
+  userCount?: InputMaybe<Scalars['Int']['input']>;
+  userCount_DECREMENT?: InputMaybe<Scalars['Int']['input']>;
+  userCount_INCREMENT?: InputMaybe<Scalars['Int']['input']>;
 };
 
 export type CounterWhere = {
@@ -10954,12 +11016,24 @@ export type CounterWhere = {
   projectCount_IN?: InputMaybe<Array<InputMaybe<Scalars['Int']['input']>>>;
   projectCount_LT?: InputMaybe<Scalars['Int']['input']>;
   projectCount_LTE?: InputMaybe<Scalars['Int']['input']>;
+  supportCount?: InputMaybe<Scalars['Int']['input']>;
+  supportCount_GT?: InputMaybe<Scalars['Int']['input']>;
+  supportCount_GTE?: InputMaybe<Scalars['Int']['input']>;
+  supportCount_IN?: InputMaybe<Array<InputMaybe<Scalars['Int']['input']>>>;
+  supportCount_LT?: InputMaybe<Scalars['Int']['input']>;
+  supportCount_LTE?: InputMaybe<Scalars['Int']['input']>;
   testCount?: InputMaybe<Scalars['Int']['input']>;
   testCount_GT?: InputMaybe<Scalars['Int']['input']>;
   testCount_GTE?: InputMaybe<Scalars['Int']['input']>;
   testCount_IN?: InputMaybe<Array<InputMaybe<Scalars['Int']['input']>>>;
   testCount_LT?: InputMaybe<Scalars['Int']['input']>;
   testCount_LTE?: InputMaybe<Scalars['Int']['input']>;
+  userCount?: InputMaybe<Scalars['Int']['input']>;
+  userCount_GT?: InputMaybe<Scalars['Int']['input']>;
+  userCount_GTE?: InputMaybe<Scalars['Int']['input']>;
+  userCount_IN?: InputMaybe<Array<InputMaybe<Scalars['Int']['input']>>>;
+  userCount_LT?: InputMaybe<Scalars['Int']['input']>;
+  userCount_LTE?: InputMaybe<Scalars['Int']['input']>;
 };
 
 export type CountersConnection = {
@@ -12135,6 +12209,21 @@ export type DocumentsUserHasNodeAggregationWhereInput = {
   state_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
   state_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
   state_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  userId_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  userId_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  userId_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  userId_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  userId_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  userId_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  userId_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  userId_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  userId_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  userId_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  userId_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  userId_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  userId_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  userId_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  userId_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
   zip_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
   zip_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
   zip_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
@@ -12196,6 +12285,7 @@ export type DocumentsUserUserHasNodeAggregateSelection = {
   phone: StringAggregateSelectionNullable;
   secondAddress: StringAggregateSelectionNullable;
   state: StringAggregateSelectionNullable;
+  userId: StringAggregateSelectionNullable;
   zip: StringAggregateSelectionNullable;
 };
 
@@ -12623,6 +12713,21 @@ export type EmployeeUserHasNodeAggregationWhereInput = {
   state_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
   state_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
   state_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  userId_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  userId_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  userId_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  userId_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  userId_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  userId_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  userId_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  userId_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  userId_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  userId_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  userId_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  userId_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  userId_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  userId_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  userId_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
   zip_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
   zip_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
   zip_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
@@ -12684,6 +12789,7 @@ export type EmployeeUserUserHasNodeAggregateSelection = {
   phone: StringAggregateSelectionNullable;
   secondAddress: StringAggregateSelectionNullable;
   state: StringAggregateSelectionNullable;
+  userId: StringAggregateSelectionNullable;
   zip: StringAggregateSelectionNullable;
 };
 
@@ -15892,6 +15998,9 @@ export type Invoice = {
   hasPurchase: Array<Purchase>;
   hasPurchaseAggregate?: Maybe<InvoicePurchaseHasPurchaseAggregationSelection>;
   hasPurchaseConnection: InvoiceHasPurchaseConnection;
+  hasTermspage?: Maybe<TermsPage>;
+  hasTermspageAggregate?: Maybe<InvoiceTermsPageHasTermspageAggregationSelection>;
+  hasTermspageConnection: InvoiceHasTermspageConnection;
   hsn?: Maybe<Scalars['String']['output']>;
   id: Scalars['ID']['output'];
   placeOfSupply?: Maybe<Scalars['String']['output']>;
@@ -15994,6 +16103,28 @@ export type InvoiceHasPurchaseConnectionArgs = {
   first?: InputMaybe<Scalars['Int']['input']>;
   sort?: InputMaybe<Array<InvoiceHasPurchaseConnectionSort>>;
   where?: InputMaybe<InvoiceHasPurchaseConnectionWhere>;
+};
+
+
+export type InvoiceHasTermspageArgs = {
+  directed?: InputMaybe<Scalars['Boolean']['input']>;
+  options?: InputMaybe<TermsPageOptions>;
+  where?: InputMaybe<TermsPageWhere>;
+};
+
+
+export type InvoiceHasTermspageAggregateArgs = {
+  directed?: InputMaybe<Scalars['Boolean']['input']>;
+  where?: InputMaybe<TermsPageWhere>;
+};
+
+
+export type InvoiceHasTermspageConnectionArgs = {
+  after?: InputMaybe<Scalars['String']['input']>;
+  directed?: InputMaybe<Scalars['Boolean']['input']>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  sort?: InputMaybe<Array<InvoiceHasTermspageConnectionSort>>;
+  where?: InputMaybe<InvoiceHasTermspageConnectionWhere>;
 };
 
 
@@ -16169,6 +16300,7 @@ export type InvoiceConnectInput = {
   hasAdmin?: InputMaybe<InvoiceHasAdminConnectFieldInput>;
   hasClient?: InputMaybe<InvoiceHasClientConnectFieldInput>;
   hasPurchase?: InputMaybe<Array<InvoiceHasPurchaseConnectFieldInput>>;
+  hasTermspage?: InputMaybe<InvoiceHasTermspageConnectFieldInput>;
   vendorCreated?: InputMaybe<InvoiceVendorCreatedConnectFieldInput>;
 };
 
@@ -16176,6 +16308,7 @@ export type InvoiceConnectOrCreateInput = {
   adminCreated?: InputMaybe<InvoiceAdminCreatedConnectOrCreateFieldInput>;
   hasAdmin?: InputMaybe<InvoiceHasAdminConnectOrCreateFieldInput>;
   hasClient?: InputMaybe<InvoiceHasClientConnectOrCreateFieldInput>;
+  hasTermspage?: InputMaybe<InvoiceHasTermspageConnectOrCreateFieldInput>;
   vendorCreated?: InputMaybe<InvoiceVendorCreatedConnectOrCreateFieldInput>;
 };
 
@@ -16198,6 +16331,7 @@ export type InvoiceCreateInput = {
   hasAdmin?: InputMaybe<InvoiceHasAdminFieldInput>;
   hasClient?: InputMaybe<InvoiceHasClientFieldInput>;
   hasPurchase?: InputMaybe<InvoiceHasPurchaseFieldInput>;
+  hasTermspage?: InputMaybe<InvoiceHasTermspageFieldInput>;
   hsn?: InputMaybe<Scalars['String']['input']>;
   placeOfSupply?: InputMaybe<Scalars['String']['input']>;
   priceWithTax?: InputMaybe<Scalars['Int']['input']>;
@@ -16216,6 +16350,7 @@ export type InvoiceDeleteInput = {
   hasAdmin?: InputMaybe<InvoiceHasAdminDeleteFieldInput>;
   hasClient?: InputMaybe<InvoiceHasClientDeleteFieldInput>;
   hasPurchase?: InputMaybe<Array<InvoiceHasPurchaseDeleteFieldInput>>;
+  hasTermspage?: InputMaybe<InvoiceHasTermspageDeleteFieldInput>;
   vendorCreated?: InputMaybe<InvoiceVendorCreatedDeleteFieldInput>;
 };
 
@@ -16224,6 +16359,7 @@ export type InvoiceDisconnectInput = {
   hasAdmin?: InputMaybe<InvoiceHasAdminDisconnectFieldInput>;
   hasClient?: InputMaybe<InvoiceHasClientDisconnectFieldInput>;
   hasPurchase?: InputMaybe<Array<InvoiceHasPurchaseDisconnectFieldInput>>;
+  hasTermspage?: InputMaybe<InvoiceHasTermspageDisconnectFieldInput>;
   vendorCreated?: InputMaybe<InvoiceVendorCreatedDisconnectFieldInput>;
 };
 
@@ -16583,6 +16719,143 @@ export type InvoiceHasPurchaseUpdateFieldInput = {
   where?: InputMaybe<InvoiceHasPurchaseConnectionWhere>;
 };
 
+export type InvoiceHasTermspageAggregateInput = {
+  AND?: InputMaybe<Array<InvoiceHasTermspageAggregateInput>>;
+  NOT?: InputMaybe<InvoiceHasTermspageAggregateInput>;
+  OR?: InputMaybe<Array<InvoiceHasTermspageAggregateInput>>;
+  count?: InputMaybe<Scalars['Int']['input']>;
+  count_GT?: InputMaybe<Scalars['Int']['input']>;
+  count_GTE?: InputMaybe<Scalars['Int']['input']>;
+  count_LT?: InputMaybe<Scalars['Int']['input']>;
+  count_LTE?: InputMaybe<Scalars['Int']['input']>;
+  node?: InputMaybe<InvoiceHasTermspageNodeAggregationWhereInput>;
+};
+
+export type InvoiceHasTermspageConnectFieldInput = {
+  connect?: InputMaybe<TermsPageConnectInput>;
+  /** Whether or not to overwrite any matching relationship with the new properties. Will default to `false` in 4.0.0. */
+  overwrite?: Scalars['Boolean']['input'];
+  where?: InputMaybe<TermsPageConnectWhere>;
+};
+
+export type InvoiceHasTermspageConnectOrCreateFieldInput = {
+  onCreate: InvoiceHasTermspageConnectOrCreateFieldInputOnCreate;
+  where: TermsPageConnectOrCreateWhere;
+};
+
+export type InvoiceHasTermspageConnectOrCreateFieldInputOnCreate = {
+  node: TermsPageOnCreateInput;
+};
+
+export type InvoiceHasTermspageConnection = {
+  __typename?: 'InvoiceHasTermspageConnection';
+  edges: Array<InvoiceHasTermspageRelationship>;
+  pageInfo: PageInfo;
+  totalCount: Scalars['Int']['output'];
+};
+
+export type InvoiceHasTermspageConnectionSort = {
+  node?: InputMaybe<TermsPageSort>;
+};
+
+export type InvoiceHasTermspageConnectionWhere = {
+  AND?: InputMaybe<Array<InvoiceHasTermspageConnectionWhere>>;
+  NOT?: InputMaybe<InvoiceHasTermspageConnectionWhere>;
+  OR?: InputMaybe<Array<InvoiceHasTermspageConnectionWhere>>;
+  node?: InputMaybe<TermsPageWhere>;
+};
+
+export type InvoiceHasTermspageCreateFieldInput = {
+  node: TermsPageCreateInput;
+};
+
+export type InvoiceHasTermspageDeleteFieldInput = {
+  delete?: InputMaybe<TermsPageDeleteInput>;
+  where?: InputMaybe<InvoiceHasTermspageConnectionWhere>;
+};
+
+export type InvoiceHasTermspageDisconnectFieldInput = {
+  disconnect?: InputMaybe<TermsPageDisconnectInput>;
+  where?: InputMaybe<InvoiceHasTermspageConnectionWhere>;
+};
+
+export type InvoiceHasTermspageFieldInput = {
+  connect?: InputMaybe<InvoiceHasTermspageConnectFieldInput>;
+  connectOrCreate?: InputMaybe<InvoiceHasTermspageConnectOrCreateFieldInput>;
+  create?: InputMaybe<InvoiceHasTermspageCreateFieldInput>;
+};
+
+export type InvoiceHasTermspageNodeAggregationWhereInput = {
+  AND?: InputMaybe<Array<InvoiceHasTermspageNodeAggregationWhereInput>>;
+  NOT?: InputMaybe<InvoiceHasTermspageNodeAggregationWhereInput>;
+  OR?: InputMaybe<Array<InvoiceHasTermspageNodeAggregationWhereInput>>;
+  content_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  content_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  content_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  content_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  content_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  content_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  content_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  content_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  content_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  content_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  content_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  content_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  content_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  content_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  content_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  slug_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  slug_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  slug_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  slug_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  slug_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  slug_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  slug_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  slug_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  slug_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  slug_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  slug_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  slug_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  slug_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  slug_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  slug_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  title_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  title_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  title_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  title_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  title_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  title_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  title_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  title_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  title_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  title_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  title_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  title_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  title_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  title_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  title_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+};
+
+export type InvoiceHasTermspageRelationship = {
+  __typename?: 'InvoiceHasTermspageRelationship';
+  cursor: Scalars['String']['output'];
+  node: TermsPage;
+};
+
+export type InvoiceHasTermspageUpdateConnectionInput = {
+  node?: InputMaybe<TermsPageUpdateInput>;
+};
+
+export type InvoiceHasTermspageUpdateFieldInput = {
+  connect?: InputMaybe<InvoiceHasTermspageConnectFieldInput>;
+  connectOrCreate?: InputMaybe<InvoiceHasTermspageConnectOrCreateFieldInput>;
+  create?: InputMaybe<InvoiceHasTermspageCreateFieldInput>;
+  delete?: InputMaybe<InvoiceHasTermspageDeleteFieldInput>;
+  disconnect?: InputMaybe<InvoiceHasTermspageDisconnectFieldInput>;
+  update?: InputMaybe<InvoiceHasTermspageUpdateConnectionInput>;
+  where?: InputMaybe<InvoiceHasTermspageConnectionWhere>;
+};
+
 export type InvoiceOnCreateInput = {
   clientAddress?: InputMaybe<Scalars['String']['input']>;
   clientEmail?: InputMaybe<Scalars['String']['input']>;
@@ -16628,6 +16901,7 @@ export type InvoiceRelationInput = {
   hasAdmin?: InputMaybe<InvoiceHasAdminCreateFieldInput>;
   hasClient?: InputMaybe<InvoiceHasClientCreateFieldInput>;
   hasPurchase?: InputMaybe<Array<InvoiceHasPurchaseCreateFieldInput>>;
+  hasTermspage?: InputMaybe<InvoiceHasTermspageCreateFieldInput>;
   vendorCreated?: InputMaybe<InvoiceVendorCreatedCreateFieldInput>;
 };
 
@@ -16658,6 +16932,20 @@ export enum InvoiceStatus {
   Sent = 'SENT'
 }
 
+export type InvoiceTermsPageHasTermspageAggregationSelection = {
+  __typename?: 'InvoiceTermsPageHasTermspageAggregationSelection';
+  count: Scalars['Int']['output'];
+  node?: Maybe<InvoiceTermsPageHasTermspageNodeAggregateSelection>;
+};
+
+export type InvoiceTermsPageHasTermspageNodeAggregateSelection = {
+  __typename?: 'InvoiceTermsPageHasTermspageNodeAggregateSelection';
+  content: StringAggregateSelectionNullable;
+  id: IdAggregateSelectionNonNullable;
+  slug: StringAggregateSelectionNullable;
+  title: StringAggregateSelectionNullable;
+};
+
 export type InvoiceUniqueWhere = {
   id?: InputMaybe<Scalars['ID']['input']>;
 };
@@ -16673,6 +16961,7 @@ export type InvoiceUpdateInput = {
   hasAdmin?: InputMaybe<InvoiceHasAdminUpdateFieldInput>;
   hasClient?: InputMaybe<InvoiceHasClientUpdateFieldInput>;
   hasPurchase?: InputMaybe<Array<InvoiceHasPurchaseUpdateFieldInput>>;
+  hasTermspage?: InputMaybe<InvoiceHasTermspageUpdateFieldInput>;
   hsn?: InputMaybe<Scalars['String']['input']>;
   placeOfSupply?: InputMaybe<Scalars['String']['input']>;
   priceWithTax?: InputMaybe<Scalars['Int']['input']>;
@@ -16895,6 +17184,11 @@ export type InvoiceWhere = {
   hasPurchase_SINGLE?: InputMaybe<PurchaseWhere>;
   /** Return Invoices where some of the related Purchases match this filter */
   hasPurchase_SOME?: InputMaybe<PurchaseWhere>;
+  hasTermspage?: InputMaybe<TermsPageWhere>;
+  hasTermspageAggregate?: InputMaybe<InvoiceHasTermspageAggregateInput>;
+  hasTermspageConnection?: InputMaybe<InvoiceHasTermspageConnectionWhere>;
+  hasTermspageConnection_NOT?: InputMaybe<InvoiceHasTermspageConnectionWhere>;
+  hasTermspage_NOT?: InputMaybe<TermsPageWhere>;
   hsn?: InputMaybe<Scalars['String']['input']>;
   hsn_CONTAINS?: InputMaybe<Scalars['String']['input']>;
   hsn_ENDS_WITH?: InputMaybe<Scalars['String']['input']>;
@@ -19326,6 +19620,21 @@ export type ModuleForUserNodeAggregationWhereInput = {
   state_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
   state_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
   state_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  userId_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  userId_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  userId_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  userId_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  userId_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  userId_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  userId_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  userId_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  userId_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  userId_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  userId_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  userId_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  userId_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  userId_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  userId_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
   zip_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
   zip_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
   zip_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
@@ -21397,6 +21706,21 @@ export type ModuleTicketUserHasNodeAggregationWhereInput = {
   state_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
   state_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
   state_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  userId_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  userId_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  userId_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  userId_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  userId_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  userId_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  userId_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  userId_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  userId_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  userId_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  userId_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  userId_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  userId_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  userId_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  userId_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
   zip_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
   zip_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
   zip_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
@@ -21458,6 +21782,7 @@ export type ModuleTicketUserUserHasNodeAggregateSelection = {
   phone: StringAggregateSelectionNullable;
   secondAddress: StringAggregateSelectionNullable;
   state: StringAggregateSelectionNullable;
+  userId: StringAggregateSelectionNullable;
   zip: StringAggregateSelectionNullable;
 };
 
@@ -21730,6 +22055,7 @@ export type ModuleUserForUserNodeAggregateSelection = {
   phone: StringAggregateSelectionNullable;
   secondAddress: StringAggregateSelectionNullable;
   state: StringAggregateSelectionNullable;
+  userId: StringAggregateSelectionNullable;
   zip: StringAggregateSelectionNullable;
 };
 
@@ -22023,6 +22349,21 @@ export type ModuleUserHasNodeAggregationWhereInput = {
   state_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
   state_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
   state_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  userId_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  userId_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  userId_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  userId_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  userId_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  userId_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  userId_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  userId_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  userId_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  userId_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  userId_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  userId_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  userId_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  userId_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  userId_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
   zip_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
   zip_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
   zip_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
@@ -22084,6 +22425,7 @@ export type ModuleUserUserHasNodeAggregateSelection = {
   phone: StringAggregateSelectionNullable;
   secondAddress: StringAggregateSelectionNullable;
   state: StringAggregateSelectionNullable;
+  userId: StringAggregateSelectionNullable;
   zip: StringAggregateSelectionNullable;
 };
 
@@ -29082,6 +29424,21 @@ export type RoleUserHasNodeAggregationWhereInput = {
   state_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
   state_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
   state_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  userId_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  userId_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  userId_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  userId_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  userId_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  userId_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  userId_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  userId_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  userId_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  userId_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  userId_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  userId_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  userId_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  userId_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  userId_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
   zip_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
   zip_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
   zip_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
@@ -29143,6 +29500,7 @@ export type RoleUserUserHasNodeAggregateSelection = {
   phone: StringAggregateSelectionNullable;
   secondAddress: StringAggregateSelectionNullable;
   state: StringAggregateSelectionNullable;
+  userId: StringAggregateSelectionNullable;
   zip: StringAggregateSelectionNullable;
 };
 
@@ -31137,7 +31495,11 @@ export type TermsPage = {
   adminHasAggregate?: Maybe<TermsPageAdminAdminHasAggregationSelection>;
   adminHasConnection: TermsPageAdminHasConnection;
   content?: Maybe<Scalars['String']['output']>;
+  forInvoice?: Maybe<Scalars['Boolean']['output']>;
   id: Scalars['ID']['output'];
+  invoiceHas?: Maybe<Invoice>;
+  invoiceHasAggregate?: Maybe<TermsPageInvoiceInvoiceHasAggregationSelection>;
+  invoiceHasConnection: TermsPageInvoiceHasConnection;
   slug?: Maybe<Scalars['String']['output']>;
   title?: Maybe<Scalars['String']['output']>;
 };
@@ -31162,6 +31524,28 @@ export type TermsPageAdminHasConnectionArgs = {
   first?: InputMaybe<Scalars['Int']['input']>;
   sort?: InputMaybe<Array<TermsPageAdminHasConnectionSort>>;
   where?: InputMaybe<TermsPageAdminHasConnectionWhere>;
+};
+
+
+export type TermsPageInvoiceHasArgs = {
+  directed?: InputMaybe<Scalars['Boolean']['input']>;
+  options?: InputMaybe<InvoiceOptions>;
+  where?: InputMaybe<InvoiceWhere>;
+};
+
+
+export type TermsPageInvoiceHasAggregateArgs = {
+  directed?: InputMaybe<Scalars['Boolean']['input']>;
+  where?: InputMaybe<InvoiceWhere>;
+};
+
+
+export type TermsPageInvoiceHasConnectionArgs = {
+  after?: InputMaybe<Scalars['String']['input']>;
+  directed?: InputMaybe<Scalars['Boolean']['input']>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  sort?: InputMaybe<Array<TermsPageInvoiceHasConnectionSort>>;
+  where?: InputMaybe<TermsPageInvoiceHasConnectionWhere>;
 };
 
 export type TermsPageAdminAdminHasAggregationSelection = {
@@ -31278,10 +31662,12 @@ export type TermsPageAggregateSelection = {
 
 export type TermsPageConnectInput = {
   adminHas?: InputMaybe<TermsPageAdminHasConnectFieldInput>;
+  invoiceHas?: InputMaybe<TermsPageInvoiceHasConnectFieldInput>;
 };
 
 export type TermsPageConnectOrCreateInput = {
   adminHas?: InputMaybe<TermsPageAdminHasConnectOrCreateFieldInput>;
+  invoiceHas?: InputMaybe<TermsPageInvoiceHasConnectOrCreateFieldInput>;
 };
 
 export type TermsPageConnectOrCreateWhere = {
@@ -31295,16 +31681,20 @@ export type TermsPageConnectWhere = {
 export type TermsPageCreateInput = {
   adminHas?: InputMaybe<TermsPageAdminHasFieldInput>;
   content?: InputMaybe<Scalars['String']['input']>;
+  forInvoice?: InputMaybe<Scalars['Boolean']['input']>;
+  invoiceHas?: InputMaybe<TermsPageInvoiceHasFieldInput>;
   slug?: InputMaybe<Scalars['String']['input']>;
   title?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type TermsPageDeleteInput = {
   adminHas?: InputMaybe<TermsPageAdminHasDeleteFieldInput>;
+  invoiceHas?: InputMaybe<TermsPageInvoiceHasDeleteFieldInput>;
 };
 
 export type TermsPageDisconnectInput = {
   adminHas?: InputMaybe<TermsPageAdminHasDisconnectFieldInput>;
+  invoiceHas?: InputMaybe<TermsPageInvoiceHasDisconnectFieldInput>;
 };
 
 export type TermsPageEdge = {
@@ -31313,8 +31703,341 @@ export type TermsPageEdge = {
   node: TermsPage;
 };
 
+export type TermsPageInvoiceHasAggregateInput = {
+  AND?: InputMaybe<Array<TermsPageInvoiceHasAggregateInput>>;
+  NOT?: InputMaybe<TermsPageInvoiceHasAggregateInput>;
+  OR?: InputMaybe<Array<TermsPageInvoiceHasAggregateInput>>;
+  count?: InputMaybe<Scalars['Int']['input']>;
+  count_GT?: InputMaybe<Scalars['Int']['input']>;
+  count_GTE?: InputMaybe<Scalars['Int']['input']>;
+  count_LT?: InputMaybe<Scalars['Int']['input']>;
+  count_LTE?: InputMaybe<Scalars['Int']['input']>;
+  node?: InputMaybe<TermsPageInvoiceHasNodeAggregationWhereInput>;
+};
+
+export type TermsPageInvoiceHasConnectFieldInput = {
+  connect?: InputMaybe<InvoiceConnectInput>;
+  /** Whether or not to overwrite any matching relationship with the new properties. Will default to `false` in 4.0.0. */
+  overwrite?: Scalars['Boolean']['input'];
+  where?: InputMaybe<InvoiceConnectWhere>;
+};
+
+export type TermsPageInvoiceHasConnectOrCreateFieldInput = {
+  onCreate: TermsPageInvoiceHasConnectOrCreateFieldInputOnCreate;
+  where: InvoiceConnectOrCreateWhere;
+};
+
+export type TermsPageInvoiceHasConnectOrCreateFieldInputOnCreate = {
+  node: InvoiceOnCreateInput;
+};
+
+export type TermsPageInvoiceHasConnection = {
+  __typename?: 'TermsPageInvoiceHasConnection';
+  edges: Array<TermsPageInvoiceHasRelationship>;
+  pageInfo: PageInfo;
+  totalCount: Scalars['Int']['output'];
+};
+
+export type TermsPageInvoiceHasConnectionSort = {
+  node?: InputMaybe<InvoiceSort>;
+};
+
+export type TermsPageInvoiceHasConnectionWhere = {
+  AND?: InputMaybe<Array<TermsPageInvoiceHasConnectionWhere>>;
+  NOT?: InputMaybe<TermsPageInvoiceHasConnectionWhere>;
+  OR?: InputMaybe<Array<TermsPageInvoiceHasConnectionWhere>>;
+  node?: InputMaybe<InvoiceWhere>;
+};
+
+export type TermsPageInvoiceHasCreateFieldInput = {
+  node: InvoiceCreateInput;
+};
+
+export type TermsPageInvoiceHasDeleteFieldInput = {
+  delete?: InputMaybe<InvoiceDeleteInput>;
+  where?: InputMaybe<TermsPageInvoiceHasConnectionWhere>;
+};
+
+export type TermsPageInvoiceHasDisconnectFieldInput = {
+  disconnect?: InputMaybe<InvoiceDisconnectInput>;
+  where?: InputMaybe<TermsPageInvoiceHasConnectionWhere>;
+};
+
+export type TermsPageInvoiceHasFieldInput = {
+  connect?: InputMaybe<TermsPageInvoiceHasConnectFieldInput>;
+  connectOrCreate?: InputMaybe<TermsPageInvoiceHasConnectOrCreateFieldInput>;
+  create?: InputMaybe<TermsPageInvoiceHasCreateFieldInput>;
+};
+
+export type TermsPageInvoiceHasNodeAggregationWhereInput = {
+  AND?: InputMaybe<Array<TermsPageInvoiceHasNodeAggregationWhereInput>>;
+  NOT?: InputMaybe<TermsPageInvoiceHasNodeAggregationWhereInput>;
+  OR?: InputMaybe<Array<TermsPageInvoiceHasNodeAggregationWhereInput>>;
+  clientAddress_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  clientAddress_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  clientAddress_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  clientAddress_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  clientAddress_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  clientAddress_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  clientAddress_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  clientAddress_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  clientAddress_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  clientAddress_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  clientAddress_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  clientAddress_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  clientAddress_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  clientAddress_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  clientAddress_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  clientEmail_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  clientEmail_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  clientEmail_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  clientEmail_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  clientEmail_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  clientEmail_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  clientEmail_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  clientEmail_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  clientEmail_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  clientEmail_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  clientEmail_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  clientEmail_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  clientEmail_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  clientEmail_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  clientEmail_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  clientName_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  clientName_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  clientName_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  clientName_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  clientName_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  clientName_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  clientName_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  clientName_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  clientName_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  clientName_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  clientName_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  clientName_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  clientName_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  clientName_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  clientName_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  complain_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  complain_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  complain_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  complain_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  complain_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  complain_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  complain_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  complain_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  complain_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  complain_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  complain_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  complain_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  complain_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  complain_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  complain_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  createdAt_MAX_EQUAL?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_MAX_GT?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_MAX_GTE?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_MAX_LT?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_MAX_LTE?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_MIN_EQUAL?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_MIN_GT?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_MIN_GTE?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_MIN_LT?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_MIN_LTE?: InputMaybe<Scalars['DateTime']['input']>;
+  expiryDate_MAX_EQUAL?: InputMaybe<Scalars['DateTime']['input']>;
+  expiryDate_MAX_GT?: InputMaybe<Scalars['DateTime']['input']>;
+  expiryDate_MAX_GTE?: InputMaybe<Scalars['DateTime']['input']>;
+  expiryDate_MAX_LT?: InputMaybe<Scalars['DateTime']['input']>;
+  expiryDate_MAX_LTE?: InputMaybe<Scalars['DateTime']['input']>;
+  expiryDate_MIN_EQUAL?: InputMaybe<Scalars['DateTime']['input']>;
+  expiryDate_MIN_GT?: InputMaybe<Scalars['DateTime']['input']>;
+  expiryDate_MIN_GTE?: InputMaybe<Scalars['DateTime']['input']>;
+  expiryDate_MIN_LT?: InputMaybe<Scalars['DateTime']['input']>;
+  expiryDate_MIN_LTE?: InputMaybe<Scalars['DateTime']['input']>;
+  hsn_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  hsn_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  hsn_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  hsn_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  hsn_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  hsn_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  hsn_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  hsn_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  hsn_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  hsn_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  hsn_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  hsn_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  hsn_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  hsn_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  hsn_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  placeOfSupply_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  placeOfSupply_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  placeOfSupply_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  placeOfSupply_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  placeOfSupply_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  placeOfSupply_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  placeOfSupply_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  placeOfSupply_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  placeOfSupply_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  placeOfSupply_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  placeOfSupply_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  placeOfSupply_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  placeOfSupply_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  placeOfSupply_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  placeOfSupply_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  priceWithTax_AVERAGE_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  priceWithTax_AVERAGE_GT?: InputMaybe<Scalars['Float']['input']>;
+  priceWithTax_AVERAGE_GTE?: InputMaybe<Scalars['Float']['input']>;
+  priceWithTax_AVERAGE_LT?: InputMaybe<Scalars['Float']['input']>;
+  priceWithTax_AVERAGE_LTE?: InputMaybe<Scalars['Float']['input']>;
+  priceWithTax_MAX_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  priceWithTax_MAX_GT?: InputMaybe<Scalars['Int']['input']>;
+  priceWithTax_MAX_GTE?: InputMaybe<Scalars['Int']['input']>;
+  priceWithTax_MAX_LT?: InputMaybe<Scalars['Int']['input']>;
+  priceWithTax_MAX_LTE?: InputMaybe<Scalars['Int']['input']>;
+  priceWithTax_MIN_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  priceWithTax_MIN_GT?: InputMaybe<Scalars['Int']['input']>;
+  priceWithTax_MIN_GTE?: InputMaybe<Scalars['Int']['input']>;
+  priceWithTax_MIN_LT?: InputMaybe<Scalars['Int']['input']>;
+  priceWithTax_MIN_LTE?: InputMaybe<Scalars['Int']['input']>;
+  priceWithTax_SUM_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  priceWithTax_SUM_GT?: InputMaybe<Scalars['Int']['input']>;
+  priceWithTax_SUM_GTE?: InputMaybe<Scalars['Int']['input']>;
+  priceWithTax_SUM_LT?: InputMaybe<Scalars['Int']['input']>;
+  priceWithTax_SUM_LTE?: InputMaybe<Scalars['Int']['input']>;
+  subject_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  subject_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  subject_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  subject_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  subject_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  subject_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  subject_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  subject_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  subject_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  subject_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  subject_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  subject_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  subject_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  subject_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  subject_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  taxRate_AVERAGE_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  taxRate_AVERAGE_GT?: InputMaybe<Scalars['Float']['input']>;
+  taxRate_AVERAGE_GTE?: InputMaybe<Scalars['Float']['input']>;
+  taxRate_AVERAGE_LT?: InputMaybe<Scalars['Float']['input']>;
+  taxRate_AVERAGE_LTE?: InputMaybe<Scalars['Float']['input']>;
+  taxRate_MAX_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  taxRate_MAX_GT?: InputMaybe<Scalars['Int']['input']>;
+  taxRate_MAX_GTE?: InputMaybe<Scalars['Int']['input']>;
+  taxRate_MAX_LT?: InputMaybe<Scalars['Int']['input']>;
+  taxRate_MAX_LTE?: InputMaybe<Scalars['Int']['input']>;
+  taxRate_MIN_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  taxRate_MIN_GT?: InputMaybe<Scalars['Int']['input']>;
+  taxRate_MIN_GTE?: InputMaybe<Scalars['Int']['input']>;
+  taxRate_MIN_LT?: InputMaybe<Scalars['Int']['input']>;
+  taxRate_MIN_LTE?: InputMaybe<Scalars['Int']['input']>;
+  taxRate_SUM_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  taxRate_SUM_GT?: InputMaybe<Scalars['Int']['input']>;
+  taxRate_SUM_GTE?: InputMaybe<Scalars['Int']['input']>;
+  taxRate_SUM_LT?: InputMaybe<Scalars['Int']['input']>;
+  taxRate_SUM_LTE?: InputMaybe<Scalars['Int']['input']>;
+  taxType_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  taxType_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  taxType_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  taxType_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  taxType_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  taxType_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  taxType_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  taxType_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  taxType_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  taxType_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  taxType_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  taxType_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  taxType_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  taxType_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  taxType_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  ticket_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  ticket_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  ticket_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  ticket_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  ticket_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  ticket_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  ticket_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  ticket_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  ticket_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  ticket_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  ticket_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  ticket_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  ticket_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  ticket_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  ticket_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  totalPrice_AVERAGE_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  totalPrice_AVERAGE_GT?: InputMaybe<Scalars['Float']['input']>;
+  totalPrice_AVERAGE_GTE?: InputMaybe<Scalars['Float']['input']>;
+  totalPrice_AVERAGE_LT?: InputMaybe<Scalars['Float']['input']>;
+  totalPrice_AVERAGE_LTE?: InputMaybe<Scalars['Float']['input']>;
+  totalPrice_MAX_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  totalPrice_MAX_GT?: InputMaybe<Scalars['Int']['input']>;
+  totalPrice_MAX_GTE?: InputMaybe<Scalars['Int']['input']>;
+  totalPrice_MAX_LT?: InputMaybe<Scalars['Int']['input']>;
+  totalPrice_MAX_LTE?: InputMaybe<Scalars['Int']['input']>;
+  totalPrice_MIN_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  totalPrice_MIN_GT?: InputMaybe<Scalars['Int']['input']>;
+  totalPrice_MIN_GTE?: InputMaybe<Scalars['Int']['input']>;
+  totalPrice_MIN_LT?: InputMaybe<Scalars['Int']['input']>;
+  totalPrice_MIN_LTE?: InputMaybe<Scalars['Int']['input']>;
+  totalPrice_SUM_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  totalPrice_SUM_GT?: InputMaybe<Scalars['Int']['input']>;
+  totalPrice_SUM_GTE?: InputMaybe<Scalars['Int']['input']>;
+  totalPrice_SUM_LT?: InputMaybe<Scalars['Int']['input']>;
+  totalPrice_SUM_LTE?: InputMaybe<Scalars['Int']['input']>;
+};
+
+export type TermsPageInvoiceHasRelationship = {
+  __typename?: 'TermsPageInvoiceHasRelationship';
+  cursor: Scalars['String']['output'];
+  node: Invoice;
+};
+
+export type TermsPageInvoiceHasUpdateConnectionInput = {
+  node?: InputMaybe<InvoiceUpdateInput>;
+};
+
+export type TermsPageInvoiceHasUpdateFieldInput = {
+  connect?: InputMaybe<TermsPageInvoiceHasConnectFieldInput>;
+  connectOrCreate?: InputMaybe<TermsPageInvoiceHasConnectOrCreateFieldInput>;
+  create?: InputMaybe<TermsPageInvoiceHasCreateFieldInput>;
+  delete?: InputMaybe<TermsPageInvoiceHasDeleteFieldInput>;
+  disconnect?: InputMaybe<TermsPageInvoiceHasDisconnectFieldInput>;
+  update?: InputMaybe<TermsPageInvoiceHasUpdateConnectionInput>;
+  where?: InputMaybe<TermsPageInvoiceHasConnectionWhere>;
+};
+
+export type TermsPageInvoiceInvoiceHasAggregationSelection = {
+  __typename?: 'TermsPageInvoiceInvoiceHasAggregationSelection';
+  count: Scalars['Int']['output'];
+  node?: Maybe<TermsPageInvoiceInvoiceHasNodeAggregateSelection>;
+};
+
+export type TermsPageInvoiceInvoiceHasNodeAggregateSelection = {
+  __typename?: 'TermsPageInvoiceInvoiceHasNodeAggregateSelection';
+  clientAddress: StringAggregateSelectionNullable;
+  clientEmail: StringAggregateSelectionNullable;
+  clientName: StringAggregateSelectionNullable;
+  complain: StringAggregateSelectionNullable;
+  createdAt: DateTimeAggregateSelectionNullable;
+  expiryDate: DateTimeAggregateSelectionNullable;
+  hsn: StringAggregateSelectionNullable;
+  id: IdAggregateSelectionNonNullable;
+  placeOfSupply: StringAggregateSelectionNullable;
+  priceWithTax: IntAggregateSelectionNullable;
+  subject: StringAggregateSelectionNullable;
+  taxRate: IntAggregateSelectionNullable;
+  taxType: StringAggregateSelectionNullable;
+  ticket: StringAggregateSelectionNullable;
+  totalPrice: IntAggregateSelectionNullable;
+};
+
 export type TermsPageOnCreateInput = {
   content?: InputMaybe<Scalars['String']['input']>;
+  forInvoice?: InputMaybe<Scalars['Boolean']['input']>;
   slug?: InputMaybe<Scalars['String']['input']>;
   title?: InputMaybe<Scalars['String']['input']>;
 };
@@ -31328,11 +32051,13 @@ export type TermsPageOptions = {
 
 export type TermsPageRelationInput = {
   adminHas?: InputMaybe<TermsPageAdminHasCreateFieldInput>;
+  invoiceHas?: InputMaybe<TermsPageInvoiceHasCreateFieldInput>;
 };
 
 /** Fields to sort TermsPages by. The order in which sorts are applied is not guaranteed when specifying many fields in one TermsPageSort object. */
 export type TermsPageSort = {
   content?: InputMaybe<SortDirection>;
+  forInvoice?: InputMaybe<SortDirection>;
   id?: InputMaybe<SortDirection>;
   slug?: InputMaybe<SortDirection>;
   title?: InputMaybe<SortDirection>;
@@ -31345,6 +32070,8 @@ export type TermsPageUniqueWhere = {
 export type TermsPageUpdateInput = {
   adminHas?: InputMaybe<TermsPageAdminHasUpdateFieldInput>;
   content?: InputMaybe<Scalars['String']['input']>;
+  forInvoice?: InputMaybe<Scalars['Boolean']['input']>;
+  invoiceHas?: InputMaybe<TermsPageInvoiceHasUpdateFieldInput>;
   slug?: InputMaybe<Scalars['String']['input']>;
   title?: InputMaybe<Scalars['String']['input']>;
 };
@@ -31363,11 +32090,17 @@ export type TermsPageWhere = {
   content_ENDS_WITH?: InputMaybe<Scalars['String']['input']>;
   content_IN?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   content_STARTS_WITH?: InputMaybe<Scalars['String']['input']>;
+  forInvoice?: InputMaybe<Scalars['Boolean']['input']>;
   id?: InputMaybe<Scalars['ID']['input']>;
   id_CONTAINS?: InputMaybe<Scalars['ID']['input']>;
   id_ENDS_WITH?: InputMaybe<Scalars['ID']['input']>;
   id_IN?: InputMaybe<Array<Scalars['ID']['input']>>;
   id_STARTS_WITH?: InputMaybe<Scalars['ID']['input']>;
+  invoiceHas?: InputMaybe<InvoiceWhere>;
+  invoiceHasAggregate?: InputMaybe<TermsPageInvoiceHasAggregateInput>;
+  invoiceHasConnection?: InputMaybe<TermsPageInvoiceHasConnectionWhere>;
+  invoiceHasConnection_NOT?: InputMaybe<TermsPageInvoiceHasConnectionWhere>;
+  invoiceHas_NOT?: InputMaybe<InvoiceWhere>;
   slug?: InputMaybe<Scalars['String']['input']>;
   slug_CONTAINS?: InputMaybe<Scalars['String']['input']>;
   slug_ENDS_WITH?: InputMaybe<Scalars['String']['input']>;
@@ -32198,6 +32931,21 @@ export type TestTicketUserHasNodeAggregationWhereInput = {
   state_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
   state_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
   state_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  userId_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  userId_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  userId_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  userId_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  userId_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  userId_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  userId_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  userId_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  userId_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  userId_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  userId_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  userId_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  userId_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  userId_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  userId_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
   zip_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
   zip_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
   zip_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
@@ -32259,6 +33007,7 @@ export type TestTicketUserUserHasNodeAggregateSelection = {
   phone: StringAggregateSelectionNullable;
   secondAddress: StringAggregateSelectionNullable;
   state: StringAggregateSelectionNullable;
+  userId: StringAggregateSelectionNullable;
   zip: StringAggregateSelectionNullable;
 };
 
@@ -32863,6 +33612,7 @@ export type User = {
   secondAddress?: Maybe<Scalars['String']['output']>;
   state?: Maybe<Scalars['String']['output']>;
   status?: Maybe<Status>;
+  userId?: Maybe<Scalars['String']['output']>;
   user_type?: Maybe<UserType>;
   zip?: Maybe<Scalars['String']['output']>;
 };
@@ -33117,6 +33867,7 @@ export type UserAggregateSelection = {
   phone: StringAggregateSelectionNullable;
   secondAddress: StringAggregateSelectionNullable;
   state: StringAggregateSelectionNullable;
+  userId: StringAggregateSelectionNullable;
   zip: StringAggregateSelectionNullable;
 };
 
@@ -33339,6 +34090,7 @@ export type UserCreateInput = {
   secondAddress?: InputMaybe<Scalars['String']['input']>;
   state?: InputMaybe<Scalars['String']['input']>;
   status?: InputMaybe<Status>;
+  userId?: InputMaybe<Scalars['String']['input']>;
   user_type?: InputMaybe<UserType>;
   zip?: InputMaybe<Scalars['String']['input']>;
 };
@@ -34560,6 +35312,7 @@ export type UserOnCreateInput = {
   secondAddress?: InputMaybe<Scalars['String']['input']>;
   state?: InputMaybe<Scalars['String']['input']>;
   status?: InputMaybe<Status>;
+  userId?: InputMaybe<Scalars['String']['input']>;
   user_type?: InputMaybe<UserType>;
   zip?: InputMaybe<Scalars['String']['input']>;
 };
@@ -34616,6 +35369,7 @@ export type UserSort = {
   secondAddress?: InputMaybe<SortDirection>;
   state?: InputMaybe<SortDirection>;
   status?: InputMaybe<SortDirection>;
+  userId?: InputMaybe<SortDirection>;
   user_type?: InputMaybe<SortDirection>;
   zip?: InputMaybe<SortDirection>;
 };
@@ -34678,6 +35432,7 @@ export type UserUpdateInput = {
   secondAddress?: InputMaybe<Scalars['String']['input']>;
   state?: InputMaybe<Scalars['String']['input']>;
   status?: InputMaybe<Status>;
+  userId?: InputMaybe<Scalars['String']['input']>;
   user_type?: InputMaybe<UserType>;
   zip?: InputMaybe<Scalars['String']['input']>;
 };
@@ -34834,6 +35589,11 @@ export type UserWhere = {
   state_STARTS_WITH?: InputMaybe<Scalars['String']['input']>;
   status?: InputMaybe<Status>;
   status_IN?: InputMaybe<Array<InputMaybe<Status>>>;
+  userId?: InputMaybe<Scalars['String']['input']>;
+  userId_CONTAINS?: InputMaybe<Scalars['String']['input']>;
+  userId_ENDS_WITH?: InputMaybe<Scalars['String']['input']>;
+  userId_IN?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  userId_STARTS_WITH?: InputMaybe<Scalars['String']['input']>;
   user_type?: InputMaybe<UserType>;
   user_type_IN?: InputMaybe<Array<InputMaybe<UserType>>>;
   zip?: InputMaybe<Scalars['String']['input']>;
@@ -37547,6 +38307,21 @@ export type VendorUserIsNodeAggregationWhereInput = {
   state_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
   state_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
   state_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  userId_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  userId_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  userId_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  userId_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  userId_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  userId_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  userId_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  userId_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  userId_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  userId_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  userId_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  userId_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  userId_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  userId_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  userId_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
   zip_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
   zip_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
   zip_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
@@ -37608,6 +38383,7 @@ export type VendorUserUserIsNodeAggregateSelection = {
   phone: StringAggregateSelectionNullable;
   secondAddress: StringAggregateSelectionNullable;
   state: StringAggregateSelectionNullable;
+  userId: StringAggregateSelectionNullable;
   zip: StringAggregateSelectionNullable;
 };
 

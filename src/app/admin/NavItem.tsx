@@ -57,7 +57,7 @@ export const controlledNavItems = [
                 icon: <LuCalculator className="" />,
             },
             {
-                label: "Estimation Complains",
+                label: "Estimation complaints",
                 href: "/admin/dashboard/complains",
                 icon: <LuCalculator className="" />,
             },

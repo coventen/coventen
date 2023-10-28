@@ -14,6 +14,7 @@ import slugify from 'slugify';
 export interface addTermsVariables {
     title: string,
     content: string,
+    forInvoice: boolean
 }
 
 
@@ -76,6 +77,7 @@ const Main = () => {
                         "title": input.title,
                         slug: slugify(input.title, { replacement: '_', remove: / [* +~.()'"!:@]/g }),
                         "content": input.content,
+                        forInvoice: input.forInvoice
                     }
                 ]
             }

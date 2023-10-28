@@ -83,15 +83,6 @@ const Main = () => {
 
 
 
-
-
-
-
-
-
-
-
-
     // initializing the mutation and  quires
     const updateterms = async (input: any) => {
         const { data } = await updatetermsFn({
@@ -102,7 +93,8 @@ const Main = () => {
                 "update": {
                     "title": input.title,
                     slug: slugify(input.title, { replacement: '_', remove: / [* +~.()'"!:@]/g }),
-                    "content": input.content
+                    "content": input.content,
+                    forInvoice: input.forInvoice
                 }
             }
         })

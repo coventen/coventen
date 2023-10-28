@@ -24,18 +24,36 @@ const DataFrom = ({ currentData, setCurrentData, updateItem }: IAddProductProps)
     // states
     const [image, setImage] = useState<File | null>(null)
     const [uploading, setUploading] = useState(false)
+    const [selectedUrlType, setSelectedUrlType] = useState('url')
+    const [document, setDocument] = useState<File | null>(null)
+
 
 
     // hooks
     const { uploadFile } = HandleFileUpload()
 
 
+    const handleDocument = async (e: React.ChangeEvent<HTMLInputElement>) => {
+        if (e?.target?.files && e.target.files.length > 0) {
+            const selectedFile = e.target.files[0];
+            const maxFileSizeMB = 5; // 5MB
 
+            if (selectedFile.type === "application/pdf" && selectedFile.size <= maxFileSizeMB * 1024 * 1024) {
+                setDocument(selectedFile);
+            } else {
+                // Invalid file format or size
+                // You can display an error message or take appropriate action here
+                toast.error("Please select a PDF file that is 5MB or smaller.");
+                e.target.value = ""; // Clear the file input
+            }
+        }
+    }
 
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
         let imageLink
+        let documentLink
         if (image) {
             setUploading(true)
             imageLink = await uploadFile(image, `learn-${uuidv4()}`, 'Learn_Images')
@@ -44,8 +62,21 @@ const DataFrom = ({ currentData, setCurrentData, updateItem }: IAddProductProps)
                 deleteImage(currentData?.imageUrl)
             }
         }
+
+        if (document && selectedUrlType === 'pdf') {
+            setUploading(true)
+            documentLink = await uploadFile(document, `learn-${uuidv4()}`, 'Learn_Documents')
+            setUploading(false)
+            if (currentData?.url) {
+                deleteImage(currentData?.url)
+            }
+        } else {
+            documentLink = currentData?.url
+        }
+
         const inputData = {
-            imageUrl: imageLink || currentData?.imageUrl
+            imageUrl: imageLink || currentData?.imageUrl,
+            documentUrl: documentLink || currentData?.url
         }
         updateItem(inputData)
 
@@ -72,18 +103,54 @@ const DataFrom = ({ currentData, setCurrentData, updateItem }: IAddProductProps)
                                 className="mt-2 w-full block  placeholder-gray-400/70 rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-gray-700 focus:primary focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:primary/10"
                             />
                         </div>
-                        <div className=" p-1 col-span-2">
-                            <label htmlFor="">Url</label>
-                            <input
-                                required
-                                type="text"
-                                name="url"
-                                defaultValue={currentData?.url}
-                                onChange={(e) => setCurrentData({ ...currentData, url: e.target.value })}
+                        <div className="p-1  col-span-2">
+                            <label htmlFor="title" className="block  text-gray-700 text-sm mb-1">
+                                Select Url Type
+                            </label>
+                            <select
+                                defaultValue={selectedUrlType}
+                                onChange={(e) => setSelectedUrlType(e.target.value)}
+                                className="mt-2 w-full block  placeholder-gray-400/70 rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-gray-700 focus:primary focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:primary/10" >
+                                <option value='url'>Add External Url</option>
+                                <option value='pdf'>Add Document</option>
+                            </select>
 
-                                className="mt-2 w-full block  placeholder-gray-400/70 rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-gray-700 focus:primary focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:primary/10"
-                            />
                         </div>
+                        {
+                            selectedUrlType === 'url' ?
+                                <div className=" p-1  col-span-2">
+                                    <label htmlFor="title" className="block  text-gray-700 text-sm mb-1">
+                                        Url
+                                    </label>
+                                    <input
+                                        required
+                                        type="text"
+                                        defaultValue={currentData?.url}
+                                        onChange={(e) => setCurrentData({ ...currentData, url: e.target.value })}
+
+                                        className="mt-2 w-full block  placeholder-gray-400/70 rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-gray-700 focus:primary focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:primary/10"
+                                    />
+                                </div>
+                                :
+                                <>
+                                    <div className=" p-1  col-span-2">
+                                        <label htmlFor="title" className="block  text-gray-700 text-sm mb-1">
+                                            Upload Document
+                                        </label>
+                                        <input
+                                            required
+                                            type="file"
+                                            name="Image"
+                                            accept=".pdf"
+                                            onChange={handleDocument}
+                                            placeholder="Image"
+                                            className="mt-2 w-full block placeholder-gray-400/70 rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-gray-700 focus:primary focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:primary/10"
+                                        />
+
+                                    </div>
+
+                                </>
+                        }
                         <div className=" p-1  col-span-2">
                             <label htmlFor="title" className="block  text-gray-700 text-sm mb-1">
                                 Image

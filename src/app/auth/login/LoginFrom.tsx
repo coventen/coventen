@@ -125,7 +125,7 @@ const LoginFrom = () => {
                 {/* <Link href='/auth/verify '> */}
                 <button
                     type='submit'
-                    className="w-full px-4 mt-8 py-2 text-white font-medium bg-primary hover:bg-primary active:bg-primary rounded-lg duration-150"
+                    className="w-full px-4 mt-8 py-2 text-white font-medium gradient-bg rounded-lg duration-150"
                 >
                     {loading ? 'Loading...' : 'Login'}
                 </button>

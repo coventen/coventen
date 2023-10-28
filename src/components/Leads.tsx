@@ -1,11 +1,12 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { HiChevronLeft, HiChevronRight, HiOutlineCalendar } from 'react-icons/hi';
 import industries from '@/utlts/InductiresData.json'
 import { useGqlClient } from '@/hooks/UseGqlClient';
 
 import { toast } from 'react-hot-toast';
-import { useMutation, useQuery } from 'graphql-hooks';
+import { useManualQuery, useMutation, useQuery } from 'graphql-hooks';
+import AuthConfig from '@/firebase/oauth.config';
 
 
 // interface
@@ -45,6 +46,15 @@ query Services($where: ServiceWhere, $options: ServiceOptions) {
     }
   }
 `
+const GET_USER_INFO = `
+query Users($where: UserWhere) {
+    users(where: $where) {
+      name
+      email
+      phone
+    }
+  }
+`
 
 
 //component
@@ -63,9 +73,13 @@ const Leads = () => {
 
     // hooks
     const client = useGqlClient()
+    const { user } = AuthConfig()
 
     // queries and mutations
     const { data, loading, error: industryError } = useQuery(GET_INDUSTRY, { client })
+    const [getUserFn, userState] = useManualQuery(GET_USER_INFO, {
+        client
+    })
     const { data: serviceData, loading: serviceLoading, error: serviceError } = useQuery(GET_SERVICE, {
         client,
         variables: {
@@ -77,8 +91,30 @@ const Leads = () => {
     const [createLead, createState] = useMutation(CREATE_LEAD, { client })
 
 
+    // get user info after login
+    useEffect(() => {
+        if (user?.email) {
+            getUserFn({
+                variables: {
+                    "where": {
+                        "email": user?.email
+                    }
+                }
+            })
+        }
+    }, [user?.email])
 
 
+    // set user info after data fetch
+
+    useEffect(() => {
+        if (userState?.data?.users?.length) {
+            const { name, email, phone } = userState?.data?.users[0]
+            setName(name)
+            setEmail(email)
+            setPhone(phone)
+        }
+    }, [userState.data?.users?.length])
 
 
 
@@ -99,7 +135,7 @@ const Leads = () => {
         }
     };
 
-    console.log(selectedService, selectedIndustry)
+
 
 
     // functions

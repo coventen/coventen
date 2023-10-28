@@ -1,7 +1,7 @@
 'use client'
 import React from 'react';
 
-const Sidebar = ({ data, setCurrentModule }: { data: any, setCurrentModule: any }) => {
+const Sidebar = ({ data, setCurrentModule, setQuery }: { data: any, setCurrentModule: any, setQuery: any }) => {
     return (
         <div className="flex flex-col py-8 pl-6 pr-2 w-80 rounded-lg bg-white flex-shrink-0">
             <div className="flex flex-row items-center  h-12 w-full">
@@ -23,14 +23,16 @@ const Sidebar = ({ data, setCurrentModule }: { data: any, setCurrentModule: any 
                         ></path>
                     </svg>
                 </div>
-                <div className="ml-2 font-bold text-2xl text-desktopPrimary">All Tickets</div>
+                <div className="ml-2 font-bold text-2xl text-center text-desktopPrimary">All Tickets</div>
             </div>
 
 
             <div className="flex flex-col mt-8 max-h-screen overflow-hidden">
 
+                <div className='w-full'>
+                    <input onChange={(e) => setQuery(e.target.value)} type="text" placeholder='search' className='py-1 rounded-md w-full px-4 border border-gray-300' />
+                </div>
                 <div className="flex flex-col max-h-screen space-y-1 mt-4 -mx-2 h-full overflow-y-auto scrollbar-thumb-blue scrollbar-thumb-rounded scrollbar-track-blue-lighter scrollbar-w-2 scrolling-touch">
-
 
                     {
                         data && data?.map((item: any) =>

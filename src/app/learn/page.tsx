@@ -1,6 +1,5 @@
 'use client'
 import React, { useState } from "react";
-import AccordionItem from "./AccordionItem";
 import Navbar from "../Navbar";
 import Main from "./Main";
 

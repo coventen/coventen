@@ -1,6 +1,6 @@
 'use client'
 import { useGqlClient } from '@/hooks/UseGqlClient';
-import { useQuery } from 'graphql-hooks';
+import { useManualQuery, useQuery } from 'graphql-hooks';
 import React, { useEffect } from 'react';
 import Sidebar from './Sidebar';
 import ChatBody from './ChatBody';
@@ -16,8 +16,8 @@ type CurrentModule = {
 }
 
 const GET_SUPPORT_TICKETS = `
-query SupportTickets($options: SupportTicketOptions) {
-  supportTickets(options: $options) {
+query SupportTickets($options: SupportTicketOptions, $where: SupportTicketWhere) {
+  supportTickets(options: $options, where: $where) {
       id
       ticket
     }
@@ -32,41 +32,66 @@ const Main = () => {
     id: ""
   });
   const [messages, setMessages] = React.useState<any>([]);
+  const [data, setData] = React.useState<any>([]);
+  const [query, setQuery] = React.useState('');
 
 
 
   //hooks 
   const client = useGqlClient();
 
-
+  const [getTicketFn, getState] = useManualQuery(GET_SUPPORT_TICKETS, { client })
 
   // fetching data
-  const { data, loading, error } = useQuery(GET_SUPPORT_TICKETS, {
-    client,
-    variables: {
-      options: {
-        sort: [
-          {
-            createdAt: "DESC"
-          }
-        ]
+  // const { data, loading, error } = useQuery(GET_SUPPORT_TICKETS, {
+  //   client,
+  //   variables: {
+  //     options: {
+  //       sort: [
+  //         {
+  //           createdAt: "DESC"
+  //         }
+  //       ]
+  //     }
+
+  //   }
+  // });
+
+  const getTickets = async (query: string = '') => {
+    const { data } = await getTicketFn({
+      variables: {
+        "where": {
+          "ticket_CONTAINS": query ? query.toUpperCase() : ''
+        },
+        "options": {
+          "sort": [
+            {
+              "createdAt": "DESC"
+            }
+          ]
+        },
       }
-
+    })
+    if (data) {
+      console.log(data, 'data')
+      setData(data?.supportTickets)
     }
-  });
+  }
 
-
-  console.log(messages)
-
+  //fetching data first time and after query change
+  useEffect(() => {
+    console.log(query, 'dfklll')
+    getTickets(query)
+  }, [query]);
 
 
   // setting  the latest module as current module
   useEffect(() => {
-    if (data?.moduleTickets) {
-      setCurrentSupportTicket(data?.moduleTickets[0]?.ticket)
+    if (data?.length) {
+      setCurrentSupportTicket(data?.ticket)
     }
 
-  }, [data?.moduleTickets]);
+  }, [data?.length]);
 
 
   // getting data based on current module
@@ -108,13 +133,13 @@ const Main = () => {
 
 
 
-  if (loading) return <Loading />;
+  // if (getState ? loading) return <Loading />;
 
-  if (error) return <Error />
+  // if (error) return <Error />
 
   return (
     <>
-      <Sidebar data={data?.supportTickets} setCurrentSupportTicket={setCurrentSupportTicket} />
+      <Sidebar data={data} setCurrentSupportTicket={setCurrentSupportTicket} setQuery={setQuery} />
       <ChatBody messages={messages} currentSupportTicket={currentSupportTicket} />
 
     </>

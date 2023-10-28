@@ -238,14 +238,26 @@ export default function Navbar({ services, industries, solutions, features }: an
 
                                 </div>
                                 :
-                                <Link
-                                    href="/auth/login"
-                                    className="-mx-3 block rounded-lg py-2.5 px-3 text-base font-semibold leading-7 text-primaryText hover:bg-gray-50"
-                                //  onClick={() => signInWithRedirectGoogle()}
-                                >
-                                    Log in
-                                    <span aria-hidden="true">&rarr;</span>
-                                </Link>
+                                <div className='space-x-4 flex items-center'>
+
+                                    <Link
+                                        href="/auth/login"
+                                        className="-mx-3 block rounded-lg py-2.5 px-3 text-sm font-semibold leading-6  text-primaryText hover:bg-gray-50"
+                                    //  onClick={() => signInWithRedirectGoogle()}
+                                    >
+                                        Log in
+
+                                    </Link>
+                                    <Link
+                                        href="/auth/signup"
+                                        className="block rounded-md py-1.5  px-3 text-sm font-semibold leading-6  text-white gradient-bg"
+                                    //  onClick={() => signInWithRedirectGoogle()}
+                                    >
+                                        Sign Up
+
+                                    </Link>
+                                </div>
+
                         }
 
 

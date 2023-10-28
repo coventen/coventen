@@ -126,7 +126,7 @@ const Main = () => {
                 "update": {
                     "title": currentData.title,
                     "description": currentData.description,
-                    "url": currentData.url,
+                    "url": input.documentUrl,
                     imageUrl: input.imageUrl,
                     "mode": currentData.mode,
                     "seats": currentData.seats,

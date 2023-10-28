@@ -81,8 +81,8 @@ const Main = () => {
 
 
     // initializing invoice creation function
-    const createInvoice = async (invoiceData: any, purchases: any, company: any) => {
-
+    const createInvoice = async (invoiceData: any, purchases: any, company: any, terms: string) => {
+        console.log(terms, ' this is id')
         const taxRate = parseInt(invoiceData?.taxRate)
         const { totalPriceWithTax, totalPrice } = calculateTotalPrice(purchases, taxRate)
         const ticketId = await generateModuleTicket()
@@ -129,7 +129,16 @@ const Main = () => {
                                 }
                             }
                             )
-                        }
+                        },
+                        "hasTermspage": {
+                            "connect": {
+                                "where": {
+                                    "node": {
+                                        "id": terms
+                                    }
+                                }
+                            }
+                        },
 
                     }
                 ]
@@ -155,7 +164,7 @@ const Main = () => {
 
         if (counter?.invoiceCount) {
             const invoiceCount = counter?.invoiceCount + 1
-            const ticket = generateUniqueId("E-", invoiceCount)
+            const ticket = generateUniqueId("", invoiceCount)
             // updating project counter
             updateCounterFn({
                 variables: {

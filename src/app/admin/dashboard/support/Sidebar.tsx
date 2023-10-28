@@ -1,7 +1,7 @@
 'use client'
 import React from 'react';
 
-const Sidebar = ({ data, setCurrentSupportTicket }: { data: any, setCurrentSupportTicket: any }) => {
+const Sidebar = ({ data, setCurrentSupportTicket, setQuery }: { data: any, setCurrentSupportTicket: any, setQuery: any }) => {
     return (
         <div className="flex flex-col py-8 pl-6 pr-2 w-80 rounded-lg bg-white flex-shrink-0">
             <div className="flex flex-row items-center  h-12 w-full">
@@ -28,12 +28,8 @@ const Sidebar = ({ data, setCurrentSupportTicket }: { data: any, setCurrentSuppo
 
 
             <div className="flex flex-col mt-8 max-h-screen overflow-hidden">
-                <div className="flex flex-row items-center justify-between text-xs">
-                    <span className="font-bold">All Conversations</span>
-                    <span
-                        className="flex items-center justify-center bg-gray-300 h-4 w-4 rounded-full"
-                    >{data?.length}</span
-                    >
+                <div className='w-full'>
+                    <input onChange={(e) => setQuery(e.target.value)} type="text" placeholder='search' className='py-1 rounded-md w-full px-4 border border-gray-300' />
                 </div>
                 <div className="flex flex-col max-h-screen space-y-1 mt-4 -mx-2 h-full overflow-y-auto scrollbar-thumb-blue scrollbar-thumb-rounded scrollbar-track-blue-lighter scrollbar-w-2 scrolling-touch">
 
@@ -50,7 +46,7 @@ const Sidebar = ({ data, setCurrentSupportTicket }: { data: any, setCurrentSuppo
 
                                 <div>
 
-                                    <div className="  ">
+                                    <div className=" flex items-center space-x-2 py-2 ">
                                         <p className='text-primaryText font-semibold  text-xs text-left'>Ticket Id:</p>
                                         <p className='text-primary  text-xs text-left'>#{item.ticket}</p>
 

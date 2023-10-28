@@ -11,7 +11,7 @@ import SearchInput from './SearchInput';
 
 export default function Hero({ heroData }: any) {
 
-    console.log(heroData, ' this is hero')
+
 
     return (
         <div className="w-full ">

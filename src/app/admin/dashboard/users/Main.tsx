@@ -24,6 +24,7 @@ query Users($where: UserWhere, $options: UserOptions) {
     createdAt
     gstNumber
     status
+    userId
     user_type
     hasDocuments {
       hasFiles {

@@ -158,7 +158,7 @@ const Main = () => {
                                 <div className=' absolute bottom-4 flex space-x-3'>
 
                                     <div>
-                                        <Link href={item?.url} >
+                                        <Link href={item?.url} target="_blank">
                                             <button className="relative group inline-block flex-shrink-0  py-3.5 px-5 text-sm font-semibold text-orange-50 gradient-bg  overflow-hidden" type="submit">
                                                 <div className="absolute top-0 right-full w-full h-full bg-gray-900 transform group-hover:translate-x-full group-hover:scale-102 transition duration-500"></div>
                                                 <div className="relative flex items-center justify-center">

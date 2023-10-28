@@ -31,10 +31,10 @@ export default function Services({ services }: { services: any[] }) {
 
 
     return (
-        <section className="py-14">
+        <section className="pt-12">
             <div className="max-w-screen-2xl mx-auto px-2 lg:px-12  md:px-8">
                 <div className="relative max-w-2xl mx-auto sm:text-center">
-                    <div className="relative z-10 mt-16">
+                    <div className="relative z-10 ">
                         <h3 className=" text-3xl font-semibold text-center  sm:text-4xl mb-3">
                             Popular Services
                         </h3>
@@ -48,17 +48,15 @@ export default function Services({ services }: { services: any[] }) {
                     <ul className="w-full ">
                         <Swiper
                             className="w-full  "
-                            modules={[Navigation, Pagination, A11y, Autoplay]}
+                            modules={[Navigation, A11y, Autoplay]}
                             spaceBetween={10}
                             loop={true}
                             autoplay={{
                                 delay: 4000,
-                                disableOnInteraction: true,
+                                disableOnInteraction: false,
+                                pauseOnMouseEnter: true,
                             }}
                             // navigation={true}
-                            pagination={{
-                                clickable: true,
-                            }}
                             slidesPerView={1}
                             breakpoints={{
                                 640: {
@@ -79,11 +77,11 @@ export default function Services({ services }: { services: any[] }) {
                             {
                                 servicesDataChunk.map((item: any, idx: number) =>
                                     <SwiperSlide key={idx} >
-                                        <div className='grid mt-8 grid-cols-1 lg:grid-cols-3 gap-6 mb-12 lg:mx-12 '>
+                                        <div className='grid mt-8 grid-cols-1 lg:grid-cols-3 gap-6  lg:mx-12 '>
                                             {
                                                 item?.map((item: any, idx: number) => (
 
-                                                    <Link href={`/services/${item?.slug}`} key={idx} className="card relative">
+                                                    <Link href={`/services/${item?.slug}`} key={idx} className="card h-full relative">
                                                         <div className="content">
                                                             <p className="heading uppercase">{item?.title}
                                                             </p>
@@ -94,21 +92,6 @@ export default function Services({ services }: { services: any[] }) {
                                                             </button>
                                                         </div>
                                                     </Link>
-
-                                                    // <Link href={`/services/${item?.slug}`} key={idx} className="bg-white/30  space-y-3 p-4 border rounded-lg dark:bg-darkBgLight dark:border-darkBorder">
-                                                    //     <div className="text-primary pb-3">
-                                                    //         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-                                                    //             <path strokeLinecap="round" strokeLinejoin="round" d="M6.429 9.75L2.25 12l4.179 2.25m0-4.5l5.571 3 5.571-3m-11.142 0L2.25 7.5 12 2.25l9.75 5.25-4.179 2.25m0 0L21.75 12l-4.179 2.25m0 0l4.179 2.25L12 21.75 2.25 16.5l4.179-2.25m11.142 0l-5.571 3-5.571-3" />
-                                                    //         </svg>
-                                                    //     </div>
-                                                    //     <h4 className="text-lg uppercase  font-semibold">
-                                                    //         {item?.title}
-                                                    //     </h4>
-                                                    //     <p className="text-dimText text-sm dark:text-darkDimText text-justify">
-                                                    //         {item?.description || 'N/A'
-                                                    //         }
-                                                    //     </p>
-                                                    // </Link>
 
                                                 ))
                                             }
