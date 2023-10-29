@@ -8,6 +8,7 @@ import { db } from '@/firebase/fireabase.config';
 import ChatBody from './ChatBody';
 import Loading from '@/app/loading';
 import Error from '@/components/Error';
+import { getEmployerEmail } from '@/shared/getEmployerEmail';
 
 
 
@@ -62,10 +63,30 @@ query Counters {
 const Main = () => {
     //states
     const [messages, setMessages] = React.useState<any>([]);
+    const [labEmail, setLabEmail] = React.useState('')
 
     //hooks
     const { user } = AuthConfig()
     const client = useGqlClient()
+
+
+
+    useEffect(() => {
+        if (user?.email) {
+            getLabEmail(user?.email)
+        }
+
+    }, [user?.email])
+
+
+
+    // getting lab email if employee is logged in
+    const getLabEmail = async (em: string) => {
+        const email = await getEmployerEmail(em)
+        setLabEmail(email)
+    }
+
+
 
     // queries
     const { data: countData, loading: counterLoading } = useQuery(GET_USER_COUNT, { client })
@@ -73,9 +94,9 @@ const Main = () => {
         client,
         variables: {
             where: {
-                clientHas: {
+                vendorHas: {
                     userIs: {
-                        email: user?.email
+                        email: labEmail || 'no email'
                     }
                 }
             }
@@ -101,11 +122,7 @@ const Main = () => {
 
     // checking if user has a support ticket and if not create one or update the date
     const handleSupportTicket = async () => {
-        if (!supportTicketData.supportTickets[0]?.id && !loading && !error) {
-            await createTicket()
-        } else {
-            await updateTicket()
-        }
+        updateTicket()
     }
 
     // CREATES A SUPPORT TICKET
@@ -128,12 +145,12 @@ const Main = () => {
                     {
                         ticket: `S-${supportCount}`,
                         createdAt: new Date().toISOString(),
-                        clientHas: {
+                        vendorHas: {
                             connect: {
                                 where: {
                                     node: {
                                         userIs: {
-                                            email: user?.email
+                                            email: labEmail
                                         }
                                     }
                                 }
@@ -175,7 +192,7 @@ const Main = () => {
     }
 
 
-    if (loading || updateState.loading || createState.loading) return <Loading />
+    if (createState.loading || loading) return <Loading />
 
     if (error || updateState.error || createState.error) return <Error />
 
@@ -203,9 +220,27 @@ const Main = () => {
     }
 
 
+    console.log(supportTicketData?.supportTickets[0]?.id, labEmail)
+
     return (
+
         <>
-            <ChatBody messages={messages} supportTicket={supportTicketData?.supportTickets[0]?.id} handleSupportTicket={handleSupportTicket} />
+            {
+                !loading && supportTicketData?.supportTickets[0]?.id ?
+                    <ChatBody
+                        messages={messages}
+                        supportTicket={supportTicketData?.supportTickets[0]?.id} handleSupportTicket={handleSupportTicket}
+                    />
+                    :
+                    <div className="flex justify-center items-center w-full h-screen">
+                        <button onClick={createTicket} className='gradient-bg rounded-md text-white px-10 py-2 font-semibold'>
+                            Continue
+                        </button>
+                    </div>
+
+            }
+
+
         </>
     );
 };

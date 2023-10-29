@@ -49,7 +49,7 @@ const ChatBody = ({ messages, supportTicket, handleSupportTicket }: Props) => {
         e.target.reset()
 
         if (text) {
-            await handleSupportTicket()
+            handleSupportTicket()
             await updateDoc(doc(db, "support", supportTicket), {
                 messages: arrayUnion({
                     id: uuidv4(),
@@ -66,12 +66,10 @@ const ChatBody = ({ messages, supportTicket, handleSupportTicket }: Props) => {
     }
 
 
-
     // handling file upload
     const handleUploadImage = async (e: any) => {
         const files = e.target.files
         const filesArray = Array.from(files);
-        console.log(filesArray, 'file array')
         uploadFiles(filesArray as File[])
     }
 
@@ -80,14 +78,13 @@ const ChatBody = ({ messages, supportTicket, handleSupportTicket }: Props) => {
     const uploadFiles = async (files: File[]) => {
         setUploading(true)
         const filePromise = files.map(async (file) => {
-            const data = await uploadFile(file, `support-${uuidv4()}`, "support_Images");
+            const data = await uploadFile(file, `${file.name}-${uuidv4()}`, "ChatImages");
             return data;
 
         });
         const fileLinks = await Promise.all(filePromise);
         if (fileLinks.length) {
-            await handleSupportTicket()
-            await updateDoc(doc(db, "chats", supportTicket), {
+            await updateDoc(doc(db, "support", supportTicket), {
                 messages: arrayUnion({
                     id: uuidv4(),
                     text: "",
@@ -110,20 +107,18 @@ const ChatBody = ({ messages, supportTicket, handleSupportTicket }: Props) => {
     };
 
 
-
-
     return (
-        <div className="flex flex-col flex-auto h-full  ml-6 shadow-md bg-white pb-2 rounded-lg border border-gray-100">
+        <div className="flex flex-col flex-auto min-h-[80vh] h-full   shadow-md bg-white pb-2 rounded-lg ">
             <div
-                className="flex flex-col flex-auto flex-shrink-0  bg-white h-full "
+                className="flex flex-col  flex-auto flex-shrink-0  bg-white h-full "
             >
                 <div className='bg-desktopBgLight px-5 shadow-sm  py-5  flex items-center'>
                     <p className='bg-green-500 w-3 h-3 rounded-full mr-2'></p>
-                    <p className='font-bold text-primary'> {user?.email}</p>
+                    <p className='font-bold '> {user?.email}</p>
 
                 </div>
 
-                <div className="flex flex-col px-5 h-full overflow-y-auto scrollbar-thumb-blue scrollbar-thumb-rounded scrollbar-track-blue-lighter scrollbar-w-2 scrolling-touch mb-4  p-4">
+                <div className="flex flex-col  px-5 min-h-[60vh] h-full overflow-y-auto scrollbar-thumb-blue scrollbar-thumb-rounded scrollbar-track-blue-lighter scrollbar-w-2 scrolling-touch mb-4  p-4">
 
                     <div className="flex flex-col h-full ">
                         <div className="grid grid-cols-12 gap-y-2">
@@ -210,7 +205,7 @@ const ChatBody = ({ messages, supportTicket, handleSupportTicket }: Props) => {
 
                 </div>
                 {/* send button input */}
-                <form onSubmit={handleSubmit} className=" h-16 mx-6  sm:mb-0 ">
+                <form onSubmit={handleSubmit} className=" h-16  sm:mb-0 ">
                     <div className="relative flex border-none h-full">
 
                         <input onChange={(e) => setText(e.target.value)} type="text" placeholder="Write your message!" className="w-full outline-none focus:outline-none focus:border-none focus:ring-0 text-gray-600 placeholder-gray-600 pl-12 bg-primary/20 border-none shadow-md rounded-md py-3" />
@@ -227,7 +222,9 @@ const ChatBody = ({ messages, supportTicket, handleSupportTicket }: Props) => {
 
 
 
-                                    <input onChange={handleUploadImage} id="dropzone-file" type="file" multiple accept="image/*" className="hidden" />
+                                    <input onChange={handleUploadImage} id="dropzone-file" type="file" multiple
+                                        accept="image/*"
+                                        className="hidden" />
                                 </label>
                             </div>
 

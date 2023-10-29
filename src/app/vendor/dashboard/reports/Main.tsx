@@ -163,13 +163,12 @@ const Main = () => {
 
 
 
-  console.log(reportData, "666666666666666666")
+
 
 
   // useEffect(() => { }, [reportData])
 
   useEffect(() => {
-    console.log('called0000000000000000', user?.email)
     getLabEmail()
     if (user?.email) {
 
