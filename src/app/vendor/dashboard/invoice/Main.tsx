@@ -61,7 +61,7 @@ const Main = () => {
       sentBy: "VENDOR",
       vendorCreated: {
         userIs: {
-          email: labEmail
+          email: labEmail || 'no email'
         }
       }
     }

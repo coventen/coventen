@@ -198,7 +198,7 @@ const Main = () => {
 
         if (counter?.invoiceCount) {
             const invoiceCount = counter?.invoiceCount + 1
-            const ticket = generateUniqueId("E-", invoiceCount)
+            const ticket = generateUniqueId("", invoiceCount)
             // updating project counter
             updateCounterFn({
                 variables: {
