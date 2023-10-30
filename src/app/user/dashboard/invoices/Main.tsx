@@ -146,7 +146,11 @@ const Main = () => {
                     data?.invoices && data?.invoices?.map((invoice: any, i: number) =>
                         <div key={i} className='bg-white  border-b px-4 py-5 text-sm border-gray-200  text-dimText grid grid-cols-7 min-w-[700px] overflow-x-scroll lg:overflow-hidden'>
                             <p>{i + 1}</p>
-                            <p className='col-span-2'>{invoice?.ticket}</p>
+                            <p className='col-span-2'>
+                                {
+                                    invoice?.status === "CONFIRMED" ? `CIS/IN${invoice?.ticket}` : `CIS/QN${invoice?.ticket}`
+                                }
+                            </p>
                             <p>{invoice.priceWithTax}</p>
                             <p>{invoice?.status === "SENT" ? "PENDING" : invoice?.status === "COMPLAINED" ? "COMMENTED" : invoice?.status || 'N/A'}</p>
                             <div className='space-x-3 col-span-2 flex items-center justify-center'>

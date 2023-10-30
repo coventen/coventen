@@ -11,6 +11,7 @@ query ModuleTickets($where: ModuleTicketWhere) {
       id
       reports
       ticket
+      status
     }
   }
 `
@@ -70,20 +71,28 @@ const DocCards = ({ currentModule, setIsOpen, confirmComplete, setVendorId }: { 
                         <p className='bg-green-500 w-3 h-3 rounded-full mr-2'></p>
                         <p className='font-bold'> {data?.moduleTickets[0]?.ticket}</p>
                     </div>
-                    <div className='space-x-3'>
-                        <button onClick={() => {
-                            setIsOpen(true)
-                            setVendorId(data?.moduleTickets[0]?.forModule?.vendor?.id)
-                        }} className='bg-primary text-white font-semibold px-4 py-1'>
-                            Comment
-                        </button>
-                        <button onClick={() => {
-                            confirmComplete()
-                            setVendorId(data?.moduleTickets[0]?.vendorHas?.userIs?.id)
-                        }} className='bg-primary  text-white font-semibold px-4 py-1'>
-                            Confirm
-                        </button>
-                    </div>
+
+                    {
+                        data?.moduleTickets[0]?.status === "COMPLETED" ? <></>
+                            :
+                            <>
+                                <div className='space-x-3'>
+                                    <button onClick={() => {
+                                        setIsOpen(true)
+                                        setVendorId(data?.moduleTickets[0]?.forModule?.vendor?.id)
+                                    }} className='bg-primary text-white font-semibold px-4 py-1'>
+                                        Comment
+                                    </button>
+                                    <button onClick={() => {
+                                        confirmComplete()
+                                        setVendorId(data?.moduleTickets[0]?.vendorHas?.userIs?.id)
+                                    }} className='bg-primary  text-white font-semibold px-4 py-1'>
+                                        Confirm
+                                    </button>
+                                </div>
+                            </>
+                    }
+
 
                 </div>
 
