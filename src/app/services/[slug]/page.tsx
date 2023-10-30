@@ -51,20 +51,21 @@ const page = async ({ params, searchParams }: any) => {
     return (
         <>
             {/* <!-- Page Title --> */}
-            {/* <section className="w-full h-[450px] flex items-center justify-center flex-col"
+            <section className="w-full h-[450px] flex items-center justify-center flex-col"
                 style={{
                     background: `linear-gradient( rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.5) ), url(${'/assets/services.jpg'})`,
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
                 }}>
-                <div className="auto-container">
-                    <h2>Service Detail</h2>
-                    <ul className="bread-crumb clearfix">
+                <div className="text-white">
+                    <h2 className='text-3xl font-bold'>Service Detail</h2>
+                    <ul className="flex items-center justify-center space-x-3">
                         <li><a href="index.html">Home</a></li>
+                        <li><>&#x3e</></li>
                         <li>Service Detail</li>
                     </ul>
                 </div>
-            </section> */}
+            </section>
             {/* <!-- End Page Title --> */}
             <section className='relative  '>
                 <div>
