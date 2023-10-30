@@ -68,7 +68,7 @@ const Footer = () => {
             <div className="container mx-auto px-4">
                 <div className="flex flex-wrap text-left lg:text-left">
                     <div className="w-full lg:w-[40%] px-4">
-                        <img src="/assets/logo.png" alt=" " className='w-40' />
+                        <img src="/assets/footerlogo.png" alt=" " className='w-40' />
                         <h5 className="text-sm mt-0 mb-2 text-white">
                             Empowering Automotive Excellence Through Meticulous <br /> Machinery Forensic Testing
                         </h5>
