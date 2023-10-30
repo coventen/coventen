@@ -51,7 +51,7 @@ const page = async ({ params, searchParams }: any) => {
     return (
         <>
             {/* <!-- Page Title --> */}
-            <section className="w-full h-[450px] flex items-center justify-center flex-col"
+            {/* <section className="w-full h-[450px] flex items-center justify-center flex-col"
                 style={{
                     background: `linear-gradient( rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.5) ), url(${'/assets/services.jpg'})`,
                     backgroundSize: 'cover',
@@ -65,7 +65,7 @@ const page = async ({ params, searchParams }: any) => {
                         <li>Service Detail</li>
                     </ul>
                 </div>
-            </section>
+            </section> */}
             {/* <!-- End Page Title --> */}
             <section className='relative  '>
                 <div>
