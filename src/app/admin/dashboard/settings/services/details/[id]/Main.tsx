@@ -62,7 +62,7 @@ const Main = () => {
     const params = useParams()
     const router = useRouter()
 
-    console.log(params?.id, ' this is id')
+
 
     // QUERY
     const { data: previousServiceData, loading, error } = useQuery(GET_DATA, { client, variables: { where: { id: params?.id } } })
