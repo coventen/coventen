@@ -14,7 +14,7 @@ const LeadCard = ({ interest }: { interest: string }) => {
             }}>
             <div className="text-[#08d9ff]">Contact us now</div>
             <div className="text-white text-4xl font-semibold">If need help!</div>
-            <a className="text-white text-4xl font-semibold border-t border-gray-200" href="tel:+557-3452-234">557-3452-234</a>
+            <a className="text-white text-4xl font-semibold border-t border-gray-200" href="tel:+7899558406">789-9558-406</a>
             <div className="text-white">or complete the contact form:</div>
             <div className="gradient-bg text-white font-semibold px-4 py-2 mt-6 rounded-md">
                 <button className="button" onClick={() => setIsModalOpen(true)}>Reach out </button>

@@ -18,13 +18,13 @@ export default function Products({ products }: { products: any }) {
     return (
         <section className="pt-12">
             <div className="max-w-screen-2xl mx-auto px-2 lg:px-12  md:px-8">
-                <div className="relative max-w-2xl mx-auto sm:text-center">
+                <div className="relative max-w-screen-xl mx-auto sm:text-center">
                     <div className="relative z-10">
                         <h3 className=" text-3xl font-semibold text-center sm:text-4xl mb-3">
                             Popular Products
                         </h3>
 
-                        <p className="mx-auto max-w-screen-md text-center text-dimText dark:text-darkDimText ">We’re India’s leading quality consciousness and test service providers, perhaps we are first in the domain to bring these services for manufacturers in India connecting global quality standards and labs</p>
+                        <p className="mx-auto max-w-screen-md text-center text-dimText dark:text-darkDimText ">Where we offer you a carefully chosen range of products intended to improve your working style. Our goal is to deliver excellent solutions that satisfy your requirements and tastes. Look through our wide selection of items to discover the ideal fit for your working style.</p>
                     </div>
                     {/* <div aria-hidden="true" className="absolute inset-0 my-auto max-w-xsh-32 rotate-45 bg-gradient-to-r from-[#00b1fd] to-[#71faca] blur-[90px] opacity-50 dark:opacity-20">
                     </div> */}

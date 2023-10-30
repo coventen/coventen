@@ -65,9 +65,9 @@ const Footer = () => {
 
 
         <footer className="relative bg-[#000080] pt-8 pb-6 ">
-            <div className="container mx-auto px-4">
+            <div className="container mx-auto px-3 lg:px-4">
                 <div className="flex flex-wrap text-left lg:text-left">
-                    <div className="w-full lg:w-[40%] px-4">
+                    <div className="w-full lg:w-[40%] px-4 mb-8 lg:mb-0">
                         <img src="/assets/footerlogo.png" alt=" " className='w-40' />
                         <h5 className="text-sm mt-0 mb-2 text-white">
                             Empowering Automotive Excellence Through Meticulous <br /> Machinery Forensic Testing
@@ -82,9 +82,9 @@ const Footer = () => {
                         </div>
 
                     </div>
-                    <div className="w-full lg:w-[60%] px-4  ">
-                        <div className="flex flex-wrap items-top mb-6">
-                            <div className="w-full lg:w-[25%] px-4  mb-12">
+                    <div className="w-full lg:w-[60%] lg:px-4  ">
+                        <div className="flex flex-wrap items-top ">
+                            <div className="w-full lg:w-[25%] px-4  ">
                                 <ul className="list-unstyled">
                                     <li>
                                         <Link className="text-white hover:underline cursor-pointer block pb-2 text-sm" href="/about_us">About Us</Link>
@@ -103,7 +103,7 @@ const Footer = () => {
                             </div>
                             {
                                 terms?.map((term: any, index: number) =>
-                                    <div key={index} className="w-full lg:w-[25%] px-4  mb-12">
+                                    <div key={index} className="w-full lg:w-[25%] px-4  mb-5">
                                         <ul className="list-unstyled">
 
                                             {

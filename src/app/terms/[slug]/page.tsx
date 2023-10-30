@@ -39,16 +39,16 @@ const page = async ({ params, searchParams }: any) => {
 
     const details = await subServiceDetails(params.slug || 'no slug')
 
-    console.log(details?.content, ' this is details0 quil;l content000000000000000000000000000000000000000')
+
 
 
 
     return (
-        <section className='relative px-16'>
+        <section className='relative px-2 lg:px-16'>
 
             <main className=' relative z-0'>
                 <article className='bg-transparent pt-6 w-full '>
-                    <header className="mx-auto    max-w-screen-lg rounded-t-lg bg-white pt-16 text-center  w-full">
+                    <header className="mx-auto    max-w-screen-lg rounded-t-lg bg-white lg:pt-16 text-center  w-full">
 
                         <h1 className="mt-2 text-4xl capitalize font-bold text-secondary sm:text-5xl">{details?.title}</h1>
 
