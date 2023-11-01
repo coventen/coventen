@@ -5,8 +5,9 @@
 import AuthConfig from '@/firebase/oauth.config';
 // Import required modules and components
 import { useGqlClient } from '@/hooks/UseGqlClient';
+import { getEmployerEmail } from '@/shared/getEmployerEmail';
 import getNotifications from '@/shared/graphQl/queries/getNotifications';
-import { useQuery } from 'graphql-hooks';
+import { useMutation, useQuery } from 'graphql-hooks';
 import React, { useEffect, useState } from 'react';
 
 interface Props {
@@ -14,17 +15,101 @@ interface Props {
 }
 
 
+const UPDATE_NOTIFICATION = `
+mutation UpdateNotifications($where: NotificationWhere, $update: NotificationUpdateInput) {
+    updateNotifications(where: $where, update: $update) {
+      notifications {
+        id
+      }
+    }
+  }
+  `
 
 //component
 const CheckPushNotification = () => {
 
+    // states
     const [data, setData] = useState<any>([])
     const { user, authLoading } = AuthConfig()
+    const [labEmail, setLabEmail] = useState<string>('')
 
 
+    //hooks
+    const client = useGqlClient()
+
+
+
+    //useEffects
+
+
+    // getting lab data if employee is logged in
+    useEffect(() => {
+        getLabEmail()
+    }, [user?.email]) //eslint-disable-line
+
+
+    // getting notification data
     useEffect(() => {
         getClinetNotification()
-    }, [authLoading, user?.email, authLoading]) //eslint-disable-line
+    }, [labEmail]) //eslint-disable-line
+
+
+    //refreshing notification after 10 minutes
+    useEffect(() => {
+        const intervalId = setInterval(getClinetNotification, 50000)
+        return () => {
+            clearInterval(intervalId);
+        };
+    }, []);
+
+
+    // managing notification view
+    useEffect(() => {
+        if (data?.length) {
+            const unViewedNotification = data.filter((item: any) => !item?.isViewed)
+            const result = unViewedNotification?.map(async (item: any) => {
+                handleNotify(item?.title, item?.description, item?.image);
+                await updateNotification(item?.id)
+
+            })
+        }
+
+    }, [data?.length]); //eslint-disable-line
+
+
+    console.log(data)
+
+
+
+    // mutation
+    const [updateNotificationFn, updateState] = useMutation(UPDATE_NOTIFICATION, { client })
+
+
+
+    const updateNotification = async (id: string) => {
+        const { data } = await updateNotificationFn({
+            variables: {
+                where: {
+                    id
+                },
+                update: {
+                    isViewed: true
+                }
+            }
+        })
+        console.log(data)
+    }
+
+    // getting lab email if employee is logged in
+    const getLabEmail = async () => {
+        if (user?.email) {
+            const email = await getEmployerEmail(user?.email)
+            setLabEmail(email)
+        }
+    }
+
+
+
 
 
     // Access Electron APIs and custom functions exposed by the preload script
@@ -37,10 +122,11 @@ const CheckPushNotification = () => {
 
 
 
+
     const getClinetNotification = async () => {
         const variables = {
             "where": {
-                "notificationFor_IN": ["GENERAL"],
+                // "notificationFor_IN": ["GENERAL"],
                 "createdAt_GTE": fiveDaysAgo(),
                 "isViewed": false,
                 "OR": [
@@ -48,7 +134,7 @@ const CheckPushNotification = () => {
                         "notificationFor": "VENDOR",
                         "vendorHas": {
                             "userIs": {
-                                "email": user?.email || 'no email'
+                                "email": labEmail || 'no email'
                             }
                         }
                     },
@@ -70,6 +156,8 @@ const CheckPushNotification = () => {
         const data = await getNotifications(variables)
         setData(data)
     }
+
+
 
 
 
@@ -100,21 +188,7 @@ const CheckPushNotification = () => {
         }
     };
 
-    useEffect(() => {
-        if (!localDataStorage) return;
-        // Retrieve viewed notification IDs from local storage
-        const viewedNotification = localDataStorage.getSavedData('viewedNotification');
-        if (data?.length) {
-            data?.forEach((item: any) => {
-                if (viewedNotification?.includes(item?.id)) {
-                    return;
-                }
 
-                handleNotify(item?.title, item?.description, item?.image);
-                handleNotificationView(item?.id);
-            });
-        }
-    }, [data?.length]); //eslint-disable-line
 
 
 

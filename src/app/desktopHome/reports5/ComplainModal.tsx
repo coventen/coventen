@@ -2,7 +2,9 @@
 import { Fragment, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { Dialog, Transition } from '@headlessui/react';
-
+import { useGqlClient } from '@/hooks/UseGqlClient';
+import { useMutation } from 'graphql-hooks';
+import { toast } from 'react-hot-toast';
 
 //props interface
 interface IComplainModal {
@@ -101,7 +103,7 @@ function ComplainModal({ isOpen, setIsOpen, addComplain }: IComplainModal) {
                                     <div className="mt-10">
                                         <button
                                             type="submit"
-                                            className="px-4 py-2 bg-primary text-white  "
+                                            className="px-4 py-2 bg-desktopPrimary text-white  "
                                         >
                                             Submit
                                         </button>

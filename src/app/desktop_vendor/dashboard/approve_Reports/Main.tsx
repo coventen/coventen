@@ -72,7 +72,15 @@ const Main = () => {
     }, [currentPage, user?.email]);
 
 
-
+    //refreshing notification after 10 minutes
+    useEffect(() => {
+        if (user?.email) {
+            const intervalId = setInterval(getModulesData, 1200000)
+            return () => {
+                clearInterval(intervalId);
+            };
+        }
+    }, []);
 
 
     // get module data

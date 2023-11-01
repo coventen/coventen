@@ -69,14 +69,30 @@ const NewModules = () => {
     const [sendNotificationFn, notificationState] = useMutation(SEND_NOTIFICATION, { client })
 
 
-    // getting module data
+
+    //get lab email
     useEffect(() => {
         getLabEmail()
+    }, [user?.email]) //eslint-disable-line
+
+
+
+    // getting module data
+    useEffect(() => {
         getModulesData()
         getTotalModulesCount()
-    }, [currentPage, labEmail, user?.email]);
+    }, [currentPage, labEmail]);
 
 
+    //refreshing notification after 10 minutes
+    useEffect(() => {
+        if (labEmail) {
+            const intervalId = setInterval(getModulesData, 1200000)
+            return () => {
+                clearInterval(intervalId);
+            };
+        }
+    }, []);
 
 
     // getting lab email if employee is logged in

@@ -26,7 +26,8 @@ const getNotifications = async (variables: any) => {
               }`,
               variables: variables,
         }),
-        next: {revalidate: 10}
+        next: {revalidate: 2},
+        cache: 'no-cache',
     })
 
     const {data} = await res.then(res => res.json())

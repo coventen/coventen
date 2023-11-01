@@ -123,8 +123,9 @@ const DashboardBody = (props: PropsWithChildren) => {
                                                     <button
                                                         type="submit"
                                                         onClick={() => {
-                                                            router.push('/desktop_vendor/auth/login')
+                                                            router.replace('/desktop_vendor/auth/login')
                                                             logout()
+                                                            return <></>
                                                         }}
                                                         className={classNames(
                                                             active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',

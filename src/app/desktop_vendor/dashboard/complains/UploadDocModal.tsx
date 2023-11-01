@@ -17,6 +17,7 @@ import HandleFileUpload from '@/shared/HandleFileUpload';
 import FilePreview from '../projects/(components)/FilePreview';
 import { toast } from 'react-hot-toast';
 import deleteImage from '@/shared/deleteImage';
+import { set } from 'react-hook-form';
 
 //props interface
 interface IUserModalProps {
@@ -115,6 +116,7 @@ function UploadDocModal({ setIsDocModalOpen, isDocModalOpen, currentComplain, ge
             const previousFiles = previousData?.moduleTickets[0]?.reports
             if (!previousFiles?.length) {
                 toast.error('Something went wrong, please try again later')
+                setUploading(false)
             }
             else {
                 setUploading(true)
@@ -127,8 +129,6 @@ function UploadDocModal({ setIsDocModalOpen, isDocModalOpen, currentComplain, ge
                 const uploadedFilesData = await Promise.all(uploadPromises);
 
                 if (uploadedFilesData) {
-
-                    setUploading(false)
                     const { data } = await updateModuleReportFn({
                         variables: {
                             where: {
@@ -141,11 +141,13 @@ function UploadDocModal({ setIsDocModalOpen, isDocModalOpen, currentComplain, ge
                         },
                     })
 
-                    if (data.updateModuleTickets.moduleTickets.length) {
+                    if (data?.updateModuleTickets?.moduleTickets.length) {
+                        setUploading(false)
                         getComplainData()
                         closeModal()
                     }
                 } else {
+                    setUploading(false)
                     toast.error('Something went wrong, please try again later')
                 }
 
@@ -172,7 +174,7 @@ function UploadDocModal({ setIsDocModalOpen, isDocModalOpen, currentComplain, ge
 
 
 
-    if (loading) return <Loading />
+    if (loading || uploading) return <Loading />
 
     //render
     return (

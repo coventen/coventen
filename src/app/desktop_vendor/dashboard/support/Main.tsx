@@ -64,6 +64,7 @@ const Main = () => {
     //states
     const [messages, setMessages] = React.useState<any>([]);
     const [labEmail, setLabEmail] = React.useState('')
+    const [messageLoading, setessageLoading] = React.useState(false)
 
     //hooks
     const { user } = AuthConfig()
@@ -191,14 +192,6 @@ const Main = () => {
         })
     }
 
-
-    if (createState.loading || loading) return <Loading />
-
-    if (error || updateState.error || createState.error) return <Error />
-
-
-
-
     // creating chat in firebase if not exist
     const getData = async () => {
         const docRef = doc(db, "support", supportTicketData?.supportTickets[0]?.id);
@@ -218,6 +211,21 @@ const Main = () => {
         }
 
     }
+
+
+
+
+
+
+
+    if (createState.loading || loading) return <Loading />
+
+    if (error || updateState.error || createState.error) return <Error />
+
+
+
+
+
 
 
     console.log(supportTicketData?.supportTickets[0]?.id, labEmail)

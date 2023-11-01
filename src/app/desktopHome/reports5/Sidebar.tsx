@@ -30,7 +30,7 @@ const Sidebar = ({ data, setCurrentModule }: ISidebar) => {
                                     className="flex flex-row items-center hover:bg-gray-100 rounded-xl p-2 border-b"
                                 >
                                     <div
-                                        className="flex items-center justify-center mr-1 h-10 w-10 bg-primary/20 text-primary font-bold rounded-lg"
+                                        className="flex items-center justify-center h-10 w-10 bg-desktopPrimary/20 text-desktopPrimary font-bold rounded-lg"
                                     >
                                         M
                                     </div>
@@ -44,7 +44,7 @@ const Sidebar = ({ data, setCurrentModule }: ISidebar) => {
 
                                         </div>
                                         <div className=" flex text-[10px] text-gray-600">
-                                            <p className='text-primary text-xs ml-2'>#{item?.ticket}</p>
+                                            <p className='text-desktopPrimary text-xs ml-2'>#{item?.ticket}</p>
 
                                         </div>
                                     </div>

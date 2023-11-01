@@ -208,7 +208,7 @@ function AssignmentModal({ isOpen, setIsOpen, currentProject, refetchProjects }:
     }
 
 
-    console.log(selected, 'this is selected')
+
 
     const sendNotificationToVendor = async () => {
         const { data } = await sendNotificationFn({

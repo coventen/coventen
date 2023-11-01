@@ -61,6 +61,16 @@ mutation UpdateModuleTickets($where: ModuleTicketWhere, $disconnect: ModuleTicke
   }
 `
 
+const SEND_NOTIFICATION = `
+mutation CreateNotifications($input: [NotificationCreateInput!]!) {
+    createNotifications(input: $input) {
+      info {
+        nodesCreated
+      }
+    }
+  }`
+
+
 
 //component
 function TicketReassignModal({ isOpen, setIsOpen, currentModuleTicket, refetchModuleTickets }: IModalProps) {
@@ -90,6 +100,7 @@ function TicketReassignModal({ isOpen, setIsOpen, currentModuleTicket, refetchMo
     //  mutations
     const [assignModuleFn, state] = useMutation(ASSIGN_MODULE, { client });
     const [updateCounterFn, updateState] = useMutation(UPDATE_COUNTER, { client })
+    const [sendNotificationFn, notificationState] = useMutation(SEND_NOTIFICATION, { client })
 
 
     // initializing  assign module
@@ -128,6 +139,7 @@ function TicketReassignModal({ isOpen, setIsOpen, currentModuleTicket, refetchMo
 
         if (data) {
             setIsOpen(false);
+            sendNotificationToVendor()
             toast.success('Module assigned successfully');
             console.log('success')
             refetchModuleTickets()
@@ -157,7 +169,32 @@ function TicketReassignModal({ isOpen, setIsOpen, currentModuleTicket, refetchMo
     }
 
 
+    const sendNotificationToVendor = async () => {
+        const { data } = await sendNotificationFn({
+            variables: {
+                "input": [
+                    {
+                        "title": "You Have a New Module",
+                        "description": "You have been assigned a new module. Please check the module details and If you have any questions, please contact us.",
+                        "createdAt": new Date().toISOString(),
+                        "notificationFor": "VENDOR",
+                        "vendorHas": {
+                            "connect": {
+                                "where": {
+                                    "node": {
+                                        "userIs": {
+                                            "id": selected.id
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                ]
+            }
+        })
 
+    }
 
 
     //handle close modal

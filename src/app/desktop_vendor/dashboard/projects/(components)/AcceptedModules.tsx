@@ -64,14 +64,18 @@ const AcceptedModules = () => {
     const [sendNotificationFn, notificationState] = useMutation(SEND_NOTIFICATION, { client })
 
 
+    // get lab data
+    useEffect(() => {
+        getLabEmail()
+    }, [user?.email]) //eslint-disable-line
+
 
 
     // getting module data
     useEffect(() => {
-        getLabEmail()
         getModulesData()
         getTotalModulesCount()
-    }, [currentPage, user?.email, authLoading, labEmail]);
+    }, [currentPage, authLoading, labEmail]);
 
 
 
@@ -171,7 +175,7 @@ const AcceptedModules = () => {
 
     }
 
-    console.log('lab email', labEmail)
+
 
 
 

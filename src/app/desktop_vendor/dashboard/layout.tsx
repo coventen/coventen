@@ -1,4 +1,4 @@
-'use client'
+
 
 // components/Layout.tsx
 import classNames from "classnames";

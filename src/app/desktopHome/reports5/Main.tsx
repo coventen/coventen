@@ -60,7 +60,7 @@ const Main = () => {
   const { user } = AuthConfig()
 
   // fetching data
-  const { data, loading, error, refetch } = useQuery(GET_MODULE_TICKETS, {
+  const { data, loading, error } = useQuery(GET_MODULE_TICKETS, {
     client,
     variables: {
       where: {
@@ -69,7 +69,7 @@ const Main = () => {
             email: user?.email || 'no email'
           }
         },
-        "status_IN": ["DRAFT", "COMPLETED"]
+        status: "DRAFT"
       }
     }
 
@@ -101,7 +101,6 @@ const Main = () => {
       setIsOpen(false)
       resetFn()
       console.log('updated')
-      refetch()
       sendNotification('commented')
       toast.success('Complain Added Successfully')
       createLog(
@@ -126,9 +125,8 @@ const Main = () => {
     if (data.updateModuleTickets.moduleTickets[0].id) {
       setIsOpen(false)
       resetFn()
-      refetch()
       console.log('updated')
-      toast.success(' Project Completed')
+      toast.success('Complain Added Successfully')
       sendNotification('confirmed')
       createLog(
         `Module Report`,
