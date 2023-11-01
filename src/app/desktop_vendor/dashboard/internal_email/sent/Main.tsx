@@ -182,7 +182,7 @@ const Main = () => {
                                             >
 
                                                 <div className=" flex items-center justify-between p-1 my-1 cursor-pointer  w-full">
-                                                    <Link href={`/vendor/dashboard/internal_email/message_preview/${item?.id}`} className="flex items-center ">
+                                                    <Link href={`/desktop_vendor/dashboard/internal_email/message_preview/${item?.id}`} className="flex items-center ">
                                                         <div className="flex items-center mr-4 ml-1 space-x-1">
 
                                                             <button title="Read">

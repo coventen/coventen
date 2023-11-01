@@ -1,6 +1,6 @@
 'use client'
 import AutoComplete from '@/components/AutoComplete';
-import { useForm, SubmitHandler, set } from "react-hook-form"
+import { useForm, SubmitHandler } from "react-hook-form"
 import React, { useEffect } from 'react';
 import ModuleFrom from './ModuleFrom';
 import { IModuleInput, IProjectInput } from './createProject.interface';
@@ -83,8 +83,6 @@ const Main = () => {
 
 
 
-    console.log(modules, 'this is modules')
-
     //hooks
     const { user } = AuthConfig()
     const router = useRouter()
@@ -128,10 +126,9 @@ const Main = () => {
 
     //handle project creation 
     const createProject = async (projectData: IProjectInput) => {
-        setUploading(true)
-        const { projectDescription, projectName } = projectData
+        const { state, country, city, address, projectDescription, projectName } = projectData
         const projectId = await generateProjectTicket()
-        setUploading(false)
+
 
         // uploading files -> create module data
         const moduleDataPromise = await modules.map(async (module, i) => {
@@ -158,9 +155,9 @@ const Main = () => {
                         description: projectDescription,
                         email: user?.email,
                         companyName: userInfo.companyName,
-                        // country: country,
-                        // city: city,
-                        // address: address,
+                        country: country,
+                        city: city,
+                        address: address,
                         createdAt: new Date().toISOString(),
                         projectticketFor: {
                             create: {
@@ -189,7 +186,7 @@ const Main = () => {
         })
         if (data.createProjects.info.nodesCreated) {
             toast.success('Project created successfully')
-            router.push('/desktopHome/projects')
+            router.push('/user/dashboard/projects')
             sendNotification(projectId as string)
             createLog(
                 `Project Creation`,
@@ -287,7 +284,8 @@ const Main = () => {
 
 
 
-    if (loading || uploading || state.loading || counterState.loading) return <div><Loading /></div>
+
+    if (loading) return <div><Loading /></div>
 
     //render
     return (
@@ -302,6 +300,27 @@ const Main = () => {
 
                             <div className="lg:col-span-2">
                                 <div className="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-5">
+
+
+                                    <div className="md:col-span-3">
+                                        <label htmlFor="address">Address / Street</label>
+                                        <input defaultValue={userInfo.address || ''} type="text" id="address" className="h-10 border border-gray-300 mt-1 rounded px-4 w-full " placeholder=""
+                                            {...register("address")} />
+                                    </div>
+
+                                    <div className="md:col-span-2">
+                                        <label htmlFor="city">City</label>
+                                        <input type="text" id="city"
+                                            defaultValue={userInfo.city || ''} className="h-10 border border-gray-300 mt-1 rounded px-4 w-full " placeholder=""
+                                            {...register("city")} />
+                                    </div>
+                                    <div className="md:col-span-2">
+                                        <label htmlFor="State">State</label>
+                                        <input type="text" id="State"
+                                            defaultValue={userInfo.state || ''} className="h-10 border border-gray-300 mt-1 rounded px-4 w-full " placeholder=""
+                                            {...register("state")} />
+                                    </div>
+
 
 
 
@@ -325,11 +344,11 @@ const Main = () => {
                                             {/* modules title */}
                                             <div className='flex  justify-between'>
                                                 <p className='text-xl font-semibold text-gray-800'>
-                                                    Services
+                                                    Modules
                                                 </p>
 
                                                 <div>
-                                                    <label >Add More Services</label>
+                                                    <label >Add More Modules</label>
                                                     <div className="h-10 w-28  flex border border-gray-300  rounded items-center mt-1">
                                                         <button
                                                             type='button'
@@ -340,9 +359,9 @@ const Main = () => {
                                                             </svg>
                                                         </button>
                                                         <input name="soda" id="soda" placeholder="0"
-                                                            className="px-2 text-center appearance-none outline-none border-none text-gray-800 w-full bg-transparent"
+                                                            className="px-2 text-center appearance-none outline-none text-gray-800 w-full bg-transparent"
                                                             readOnly
-                                                            value={moduleCount}
+                                                            defaultValue={moduleCount}
                                                         />
                                                         <button type='button' onClick={() => setModuleCount(moduleCount + 1)} className="cursor-pointer outline-none focus:outline-none border-l border-gray-300 transition-all text-gray-500 hover:text-desktopPrimary">
                                                             <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mx-2 fill-current" viewBox="0 0 20 20" fill="currentColor">
@@ -371,7 +390,7 @@ const Main = () => {
 
                                     <div className=" mt-8">
                                         <div className="">
-                                            <button type='submit' className="bg-desktopPrimary  text-white font-bold py-3 px-12 text-lg  rounded-md">{state.loading || uploading ? "loading" : 'Submit'}</button>
+                                            <button type='submit' className="bg-desktopPrimary  text-white font-bold py-3 px-12 text-lg rounded">{updateState.loading || state.loading || uploading ? "loading..." : 'Submit'}</button>
                                         </div>
                                     </div>
 

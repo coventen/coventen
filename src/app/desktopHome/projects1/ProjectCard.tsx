@@ -1,11 +1,10 @@
 'use client'
 
-import { Module } from '@/gql/graphql';
-import Link from 'next/link';
 import React, { useState } from 'react';
-import { HiChevronDown, HiChevronUp, HiOutlineDocumentDownload } from 'react-icons/hi';
+import ModuleCards from './ModuleCards';
+import { Module, Project } from '@/gql/graphql';
 
-const ModuleCards = ({ data, deleteModuleById }: { data: Module[], deleteModuleById: any }) => {
+const ProjectCard = ({ data, deleteProjectById, deleteModuleById }: { data: Project[], deleteProjectById: (id: string, module: string[]) => void, deleteModuleById: any }) => {
 
     //states
     const [expandedIndex, setExpandedIndex] = useState(null);
@@ -19,38 +18,50 @@ const ModuleCards = ({ data, deleteModuleById }: { data: Module[], deleteModuleB
 
 
 
+    const checkStatus = (modules: any) => {
+        const result = modules.map((module: Module) => module.moduleticketFor?.status)
+        if (result.includes('PENDING')) {
+            return true
+        } else {
+            return false
+        }
+    }
+
+
 
 
     return (
         <div>
             {
-                data && data.map((module, index) =>
+                data && data.map((project, index) =>
                     <>
                         <div className="transition-all duration-500 my-2 hover:bg-white border text-gray-600 border-gray-200 rounded-md">
                             <>
 
                                 <div
-                                    key={module?.id}
+                                    key={project?.id}
 
                                     className={`accordion-header    cursor-pointer transition flex space-x-5 px-2 xl:px-3 items-center h-auto ${expandedIndex === index ? "bg-white" : ""
                                         }`}
                                     onClick={() => handleAccordionClick(index)}
                                 >
                                     <i className={`fas ${expandedIndex === index ? "fa-minus" : "fa-plus"}`}></i>
-                                    <div className="flex items-center justify-between w-full   p-3 ">
+                                    <div className="flex items-center justify-between w-full  p-3 ">
                                         <div className='flex  flex-col space-y-3 w-80% xl:w-[70%]'>
-                                            <p className='text-primaryText font-semibold text-[10px] xl:text-sm'>
-                                                Module-{index + 1}
+                                            <p className="text-sm lg:text-2xl text-desktopPrimary font-bold xl:font-semibold ">
+                                                {project?.title?.slice(0, 50)}
                                             </p>
+                                            <p className='text-xs xl:text-sm text-desktopTextLight'>{project?.description?.slice(0, 300)}</p>
+                                            <p className='text-primary text-[10px] xl:text-sm    '>Created: {project.createdAt.slice(0, 10)}</p>
                                         </div>
 
 
                                         <div className='flex items-center justify-center ml-3'>
                                             <button
-                                                className=" bg-white  text-primaryText font-bold text-sm xl:text-base rounded-lg "
+                                                className=" bg-white border-2 border-desktopPrimary text-desktopPrimary font-bold text-sm xl:text-base rounded-lg px-4 xl:px-6 py-2 xl:py-3"
                                             // onClick={() => handleOpen(1)}
                                             >
-                                                {expandedIndex === index ? <HiChevronUp /> : <HiChevronDown />}
+                                                {expandedIndex === index ? 'Hide Details' : 'View'}
                                             </button>
                                         </div>
                                     </div>
@@ -65,42 +76,23 @@ const ModuleCards = ({ data, deleteModuleById }: { data: Module[], deleteModuleB
                                 >
                                     <div className='py-8 my-5 px-2 lg:px-12 border border-gray-200 rounded-lg'>
 
-
+                                        {/* modules section */}
                                         <div className="">
                                             <div className="pb-10 relative">
-                                                <h5 className="text-primaryText font-bold text-md  mb-2">
-                                                    Ticket Id: {module?.moduleticketFor?.ticket || 'Not Assigned Yet'}
+                                                <h5 className="text-desktopPrimary font-bold text-lg  mb-3">
+                                                    Ticket Id: #{project?.projectticketFor?.projectTicket}
                                                 </h5>
-                                                <h5 className="text-desktopText font-semibold text-sm  mb-3">
-                                                    {module?.title}
+                                                <h5 className="text-desktopText font-semibold text-md  mb-3">
+                                                    Project name: {project?.title}
                                                 </h5>
                                                 <p className='text-desktopTextLight text-sm'>
-                                                    {
-                                                        module?.description
-                                                    }
+                                                    {project?.description}
                                                 </p>
-                                                <div className='grid grid-cols-4 gap-6 mt-5'>
+
+                                                <ModuleCards data={project?.hasModule} deleteModuleById={deleteModuleById} />
 
 
-                                                    {
-                                                        module?.files ?
-                                                            module?.files?.map((item, index) =>
-                                                                <Link href={item || '#'} key={index} className=' h-14 w-full bg-gray-200 rounded-md lg:h-20 lg:w-full '>
-                                                                    <div className='flex items-center text-xl  justify-center space-x-2'>
-                                                                        <p className='mt-5'><HiOutlineDocumentDownload /></p>
 
-                                                                    </div>
-                                                                </Link>
-
-                                                            )
-                                                            :
-
-                                                            <p className='mt-3 text-sm col-span-full'>No Document Found</p>
-                                                    }
-                                                </div>
-
-
-                                                {/* <button onClick={() => setIsOpen(true)} className='absolute -top-1 right-2 py-[3px] px-3 lg:px-4 lg:py-2 bg-green-600 text-white rounded-lg text-xs'>Start</button> */}
                                             </div>
 
                                         </div>
@@ -108,18 +100,18 @@ const ModuleCards = ({ data, deleteModuleById }: { data: Module[], deleteModuleB
                                         {/*  delete button */}
                                         <div className='w-full flex items-center justify-end'>
                                             {
-                                                !module?.moduleticketFor || module?.moduleticketFor?.status === "PENDING" ? <button
+                                                !checkStatus(project?.hasModule) || project?.status === "PENDING" && <button
                                                     onClick={() => {
-                                                        deleteModuleById(module?.id)
+                                                        let modules = project?.hasModule?.map((module) => module?.id)
+                                                        deleteProjectById(project?.id, modules)
 
                                                     }}
                                                     className='bg-red-200 text-red-600 font-semibold text-xs px-3 py-1 rounded text-right'>
-                                                    Delete Module
+                                                    Delete Project
                                                 </button>
-                                                    :
-                                                    <></>
                                             }
                                         </div>
+
 
                                     </div>
                                 </div>
@@ -134,4 +126,4 @@ const ModuleCards = ({ data, deleteModuleById }: { data: Module[], deleteModuleB
     );
 };
 
-export default ModuleCards;
+export default ProjectCard;

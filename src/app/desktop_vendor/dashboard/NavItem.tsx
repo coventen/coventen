@@ -15,12 +15,12 @@ export const defaultNavItems = [
         links: [
             {
                 label: "Dashboard",
-                href: "/vendor/dashboard",
+                href: "/desktop_vendor/dashboard",
                 icon: <LuAppWindow className="" />,
             },
             {
                 label: "Notifications",
-                href: "/vendor/dashboard/notification",
+                href: "/desktop_vendor/dashboard/notification",
                 icon: <LuBellRing className="" />,
             },
         ]
@@ -37,42 +37,42 @@ export const controlledNavItems = [
         links: [
             {
                 label: "Projects",
-                href: "/vendor/dashboard/projects",
+                href: "/desktop_vendor/dashboard/projects",
                 icon: <LuSchool2 className="" />,
             },
             {
                 label: "Approve Projects",
-                href: "/vendor/dashboard/approve_Reports",
+                href: "/desktop_vendor/dashboard/approve_Reports",
                 icon: <LuSchool2 className="" />,
             },
             // {
             //     label: "Tests",
-            //     href: "/vendor/dashboard/tests",
+            //     href: "/desktop_vendor/dashboard/tests",
             //     icon: <LuSchool2 className="" />,
             // },
             // {
             //     label: "Reports",
-            //     href: "/vendor/dashboard/reports",
+            //     href: "/desktop_vendor/dashboard/reports",
             //     icon: <LuSchool2 className="" />,
             // },
             {
                 label: "Project Samples",
-                href: "/vendor/dashboard/sample",
+                href: "/desktop_vendor/dashboard/sample",
                 icon: <LuSchool2 className="" />,
             },
             {
                 label: "Complains",
-                href: "/vendor/dashboard/complains",
+                href: "/desktop_vendor/dashboard/complains",
                 icon: <LuSchool2 className="" />,
             },
             {
                 label: "Leads",
-                href: "/vendor/dashboard/leads",
+                href: "/desktop_vendor/dashboard/leads",
                 icon: <LuUser className="" />,
             },
             {
                 label: "All Tickets",
-                href: "/vendor/dashboard/ticket_system/all_tickets",
+                href: "/desktop_vendor/dashboard/ticket_system/all_tickets",
                 icon: <LuBookKey className="" />,
             },
         ]
@@ -82,12 +82,12 @@ export const controlledNavItems = [
         links: [
             {
                 label: "Internal Email",
-                href: "/vendor/dashboard/internal_email",
+                href: "/desktop_vendor/dashboard/internal_email",
                 icon: <LuCopySlash />,
             },
             {
                 label: "Ongoing Chats",
-                href: "/vendor/dashboard/chats",
+                href: "/desktop_vendor/dashboard/chats",
                 icon: <LuMessagesSquare className="" />,
             },
         ]
@@ -97,12 +97,12 @@ export const controlledNavItems = [
         links: [
             {
                 label: "Employees",
-                href: "/vendor/dashboard/employees",
+                href: "/desktop_vendor/dashboard/employees",
                 icon: <LuSchool2 className="" />,
             },
             {
                 label: "Estimations",
-                href: "/vendor/dashboard/invoice",
+                href: "/desktop_vendor/dashboard/invoice",
                 icon: <LuSchool2 className="" />,
             },
         ]
@@ -112,7 +112,7 @@ export const controlledNavItems = [
         links: [
             {
                 label: "Support",
-                href: "/vendor/dashboard/support/",
+                href: "/desktop_vendor/dashboard/support/",
                 icon: <LuHeadphones className="" />,
             },
 

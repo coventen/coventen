@@ -99,7 +99,7 @@ const Main = () => {
         })
         if (data.createCommunicationTickets.info.nodesCreated) {
             toast.success("Message sent successfully")
-            router.push('/vendor/dashboard/internal_email/sent')
+            router.push('/desktop_vendor/dashboard/internal_email/sent')
             sendNotification()
             createLog(
                 `Internal Email`,

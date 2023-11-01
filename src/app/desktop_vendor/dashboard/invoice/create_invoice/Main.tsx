@@ -163,7 +163,7 @@ const Main = () => {
 
         if (data.createInvoices.info.nodesCreated) {
             toast.success('Invoice created successfully')
-            router.push('/vendor/dashboard/invoice')
+            router.push('/desktop_vendor/dashboard/invoice')
             sendNotification()
             createLog(
                 `Invoice Creation`,

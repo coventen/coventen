@@ -98,7 +98,7 @@ const Main = () => {
         if (data.createCommunicationTickets.info.nodesCreated) {
             toast.success("Message sent successfully")
             sendNotification()
-            router.push('/user/dashboard/internal_email/sent')
+            router.push('/desktopHome/internal_email/sent')
         }
 
 
@@ -175,7 +175,7 @@ const Main = () => {
 
     //render
     return (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className='mb-20'>
 
             <div className="mb-5 mt-16">
                 <label htmlFor="title" className="block  text-gray-700 text-sm mb-1">
@@ -299,8 +299,8 @@ const Main = () => {
                 </div>
             </div>
 
-            <div>
-                <button type='submit' className='px-4 py-2 bg-primary text-white font-semibold'>Submit</button>
+            <div className='mb-10'>
+                <button type='submit' className='px-6 mb-20 rounded-md py-2 bg-desktopPrimary text-white font-semibold'>Submit</button>
             </div>
         </form>
     );

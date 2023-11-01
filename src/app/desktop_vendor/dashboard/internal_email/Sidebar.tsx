@@ -8,7 +8,7 @@ const Sidebar = () => {
     return (
         <div className="w-64 px-4">
             <div className="h-16 flex items-center">
-                <Link href="/vendor/dashboard/internal_email/compose"
+                <Link href="/desktop_vendor/dashboard/internal_email/compose"
                     className={`w-48 mx-auto bg-blue-600 hover:bg-blue-700 flex items-center justify-center text-gray-100 py-2 rounded space-x-2 transition duration-150`}>
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
@@ -19,9 +19,9 @@ const Sidebar = () => {
             <div className="px-2 pt-4 pb-8 border-r border-gray-300">
                 <ul className="space-y-2">
                     <li>
-                        <Link href="/vendor/dashboard/internal_email"
+                        <Link href="/desktop_vendor/dashboard/internal_email"
                             className={`
-                            ${pathname === "/vendor/dashboard/internal_email" ? "bg-gray-400 bg-opacity-30 text-blue-600" : " bg-opacity-30 text-primaryText"}
+                            ${pathname === "/desktop_vendor/dashboard/internal_email" ? "bg-gray-400 bg-opacity-30 text-blue-600" : " bg-opacity-30 text-primaryText"}
                              flex items-center justify-between py-1.5 px-4 rounded cursor-pointer`}>
                             <span className="flex items-center space-x-2">
                                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -34,9 +34,9 @@ const Sidebar = () => {
                     </li>
 
                     <li>
-                        <Link href="/vendor/dashboard/internal_email/sent"
+                        <Link href="/desktop_vendor/dashboard/internal_email/sent"
                             className={`
-                            ${pathname === "/vendor/dashboard/internal_email/sent" ? "bg-gray-400 bg-opacity-30 text-blue-600" : "bg-opacity-30 text-primaryText"}
+                            ${pathname === "/desktop_vendor/dashboard/internal_email/sent" ? "bg-gray-400 bg-opacity-30 text-blue-600" : "bg-opacity-30 text-primaryText"}
                              flex items-center space-x-2 py-1.5 px-4 rounded cursor-pointer`}>
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 rotate-90" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>

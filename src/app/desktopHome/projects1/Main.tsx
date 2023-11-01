@@ -40,6 +40,7 @@ mutation Mutation($where: ProjectWhere) {
   }
 }
 `
+
 const DELETE_MODULE = `
 mutation DeleteModules($where: ModuleWhere) {
     deleteModules(where: $where) {
@@ -47,7 +48,6 @@ mutation DeleteModules($where: ModuleWhere) {
     }
   }
 `
-
 
 //component
 const Main = () => {
@@ -59,13 +59,14 @@ const Main = () => {
     const [ProjectData, setProjectData] = useState<any>([])
 
 
+
+
     //hooks
     const client = useGqlClient()
     const { user } = AuthConfig()
 
     //quires 
     const [getProjectFn, ProjectDataState] = useManualQuery(GET_ALL_PROJECTS_OVERVIEW, { client })
-
     // mutation
     const [deleteProjectFn, state, resetFn] = useMutation(DELETE_PROJECT, { client });
     const [deleteModuleFn, moduleDeleteState,] = useMutation(DELETE_MODULE, { client });
@@ -77,7 +78,8 @@ const Main = () => {
         getProjectCount()
     }, [currentPage, user?.email]);
 
-
+    console.log(ProjectData, 'this is project data')
+    console.log(user?.email, 'this is user email')
 
     // initializing query and mutations
 
@@ -130,20 +132,6 @@ const Main = () => {
     }
 
 
-    const deleteModuleById = async (id: string) => {
-        const { data } = await deleteModuleFn({
-            variables: {
-                where: {
-                    id
-                }
-            }
-        })
-        if (data.deleteModules.nodesDeleted) {
-            getProjectData()
-            toast.error('module Deleted ')
-        }
-    }
-
 
 
 
@@ -162,6 +150,22 @@ const Main = () => {
             modules.map((module) => deleteModuleById(module))
         }
     }
+
+    const deleteModuleById = async (id: string) => {
+        const { data } = await deleteModuleFn({
+            variables: {
+                where: {
+                    id
+                }
+            }
+        })
+        if (data.deleteModules.nodesDeleted) {
+            getProjectData()
+            toast.error('module Deleted ')
+        }
+    }
+
+
 
 
     //error handling
