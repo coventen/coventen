@@ -36,7 +36,7 @@ const Layout = (props: PropsWithChildren) => {
                     setCollapsed={() => setSidebarCollapsed((prev) => !prev)}
                 />
                 {/* content */}
-                <div className=""> {props.children}</div>
+                <div className="h-screen overflow-y-auto scrollbar-thumb-blue scrollbar-thumb-rounded scrollbar-track-blue-lighter scrollbar-w-2 scrolling-touch"> {props.children}</div>
             </div>
             <Toaster
                 position="bottom-right"

@@ -2,6 +2,7 @@
 'use client'
 
 
+import AuthConfig from '@/firebase/oauth.config';
 // Import required modules and components
 import { useGqlClient } from '@/hooks/UseGqlClient';
 import getNotifications from '@/shared/graphQl/queries/getNotifications';
@@ -13,26 +14,17 @@ interface Props {
 }
 
 
-// GraphQL query to fetch notifications
-const GET_NOTIFICATION = `
-query Notifications($where: NotificationWhere, $options: NotificationOptions) {
-    notifications(where: $where, options: $options) {
-      id
-      image
-      title
-      type
-      description
-      createdAt
-    }
-  }
-`;
-
 
 //component
 const CheckPushNotification = () => {
 
     const [data, setData] = useState<any>([])
+    const { user, authLoading } = AuthConfig()
 
+
+    useEffect(() => {
+        getClinetNotification()
+    }, [authLoading, user?.email, authLoading]) //eslint-disable-line
 
 
     // Access Electron APIs and custom functions exposed by the preload script
@@ -43,17 +35,27 @@ const CheckPushNotification = () => {
 
 
 
-    useEffect(() => {
-        getClinetNotification()
-    }, [])
 
 
     const getClinetNotification = async () => {
         const variables = {
-
             "where": {
-                "type_IN": ["CLIENT", "GENERAL"],
-                "createdAt_GTE": fiveDaysAgo()
+                "notificationFor_IN": ["GENERAL"],
+                "createdAt_GTE": fiveDaysAgo(),
+                "isViewed": false,
+                "OR": [
+                    {
+                        "notificationFor": "CLIENT",
+                        "clientHas": {
+                            "userIs": {
+                                "email": user?.email || 'no email'
+                            }
+                        }
+                    },
+                    {
+                        "notificationFor": "GENERAL",
+                    },
+                ]
             },
             "options": {
                 limit: 3,
@@ -63,7 +65,7 @@ const CheckPushNotification = () => {
                     }
                 ]
             }
-        }
+        };
 
         const data = await getNotifications(variables)
         setData(data)

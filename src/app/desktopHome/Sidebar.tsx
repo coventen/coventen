@@ -36,7 +36,7 @@ const Sidebar = ({
     return (
         <div
             className={classNames({
-                "bg-white text-desktopText z-20 border-r ": true,
+                "bg-white text-desktopText h-screen overflow-y-auto scrollbar-thumb-blue scrollbar-thumb-rounded scrollbar-track-blue-lighter scrollbar-w-2 scrolling-touch z-20 border-r ": true,
             })}
         >
             <div
