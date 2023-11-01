@@ -9,7 +9,16 @@ import { Toaster } from "react-hot-toast";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import AuthConfig from "@/firebase/oauth.config";
-import CheckNotification from "./CheckNotification";
+import dynamic from "next/dynamic";
+
+
+
+const CheckNotification = dynamic(
+    () => import("./CheckNotification").then((mod) => mod.default),
+    { ssr: false }
+);
+
+
 
 const DashboardBody = (props: PropsWithChildren) => {
 

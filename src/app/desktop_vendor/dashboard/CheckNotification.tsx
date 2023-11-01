@@ -10,7 +10,7 @@ import { useQuery } from 'graphql-hooks';
 import React, { useEffect, useState } from 'react';
 
 interface Props {
-    setSlideOverOpen: (value: boolean) => void;
+    setNewNotificationCount: any
 }
 
 
