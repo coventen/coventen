@@ -18,6 +18,7 @@ import FilePreview from '../projects/(components)/FilePreview';
 import { toast } from 'react-hot-toast';
 import deleteImage from '@/shared/deleteImage';
 import { set } from 'react-hook-form';
+import { useRouter } from 'next/navigation';
 
 //props interface
 interface IUserModalProps {
@@ -62,6 +63,7 @@ function UploadDocModal({ setIsDocModalOpen, isDocModalOpen, currentComplain, ge
     //hooks
     const client = useGqlClient();
     const { uploadFile } = HandleFileUpload()
+    const router = useRouter()
 
 
 
@@ -145,6 +147,8 @@ function UploadDocModal({ setIsDocModalOpen, isDocModalOpen, currentComplain, ge
                         setUploading(false)
                         getComplainData()
                         closeModal()
+                        router.push('/desktop_vendor/dashboard');
+                        toast.success('Report Uploaded Successfully')
                     }
                 } else {
                     setUploading(false)

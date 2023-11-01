@@ -60,18 +60,25 @@ const Main = () => {
     const [getComplainFn, state] = useManualQuery(GET_COMPLAIN, { client })
 
 
+    //get lab data
+    useEffect(() => {
+        getLabEmail()
+    }, [user?.email])
+
+
+
 
     // refetching data based on pagination and search query
     useEffect(() => {
-        getLabEmail()
+
         getComplainData()
         getTotalComplains()
-    }, [currentPage, user?.email, labEmail]);
+    }, [currentPage, labEmail]);
 
     // // reloading component after data changes
     useEffect(() => {
         console.log('uploded 3333333333...........')
-    }, [data.length, isDocModalOpen])
+    }, [data.length, totalComplain])
 
     // getting lab email if employee is logged in
     const getLabEmail = async () => {
@@ -105,7 +112,6 @@ const Main = () => {
     }
 
     const getComplainData = async () => {
-        console.log('i am inside')
         setLoading(true)
         const { data } = await getComplainFn({
             variables: {

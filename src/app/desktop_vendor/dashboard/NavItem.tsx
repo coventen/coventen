@@ -70,11 +70,11 @@ export const controlledNavItems = [
                 href: "/desktop_vendor/dashboard/leads",
                 icon: <LuUser className="" />,
             },
-            {
-                label: "All Tickets",
-                href: "/desktop_vendor/dashboard/ticket_system/all_tickets",
-                icon: <LuBookKey className="" />,
-            },
+            // {
+            //     label: "All Tickets",
+            //     href: "/desktop_vendor/dashboard/ticket_system/all_tickets",
+            //     icon: <LuBookKey className="" />,
+            // },
         ]
     },
     {

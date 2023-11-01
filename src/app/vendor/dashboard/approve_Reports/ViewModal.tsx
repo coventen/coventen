@@ -139,7 +139,7 @@ function ViewModal({ isViewModalOpen, setIsViewModalOpen, currentModuleId }: IUs
                                                         data?.modules[0]?.moduleticketFor?.reports?.map((item: string, index: number) =>
                                                             <div key={index} className=' h-14 w-full bg-gray-200 rounded-md lg:h-20 lg:w-full '>
                                                                 <div className='flex items-center text-xl  justify-center space-x-2'>
-                                                                    <Link href={item} className='mt-5'><HiOutlineDocumentDownload /></Link>
+                                                                    <Link href={item} target={"_blank"} className='mt-5'><HiOutlineDocumentDownload /></Link>
 
                                                                 </div>
                                                             </div>

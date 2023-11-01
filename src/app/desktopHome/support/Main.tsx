@@ -165,7 +165,7 @@ const Main = () => {
 
     return (
         <>
-            <ChatBody messages={messages} supportTicket={supportTicketData?.supportTickets[0]?.id} handleSupportTicket={handleSupportTicket} />
+            <ChatBody messages={messages} supportTicket={supportTicketData?.supportTickets[0]?.id} handleSupportTicket={handleSupportTicket} getData={getData} />
         </>
     );
 };

@@ -64,7 +64,6 @@ const Main = () => {
     //states
     const [messages, setMessages] = React.useState<any>([]);
     const [labEmail, setLabEmail] = React.useState('')
-    const [messageLoading, setessageLoading] = React.useState(false)
 
     //hooks
     const { user } = AuthConfig()
@@ -85,7 +84,10 @@ const Main = () => {
     const getLabEmail = async (em: string) => {
         const email = await getEmployerEmail(em)
         setLabEmail(email)
+        refetch()
     }
+
+
 
 
 
@@ -117,7 +119,7 @@ const Main = () => {
         if (supportTicketData?.supportTickets[0]?.id) {
             getData()
         }
-    }, [supportTicketData?.supportTickets, user?.email]);
+    }, [supportTicketData?.supportTickets, labEmail]);
 
 
 
@@ -192,6 +194,14 @@ const Main = () => {
         })
     }
 
+
+    if (createState.loading || loading) return <Loading />
+
+    if (error || updateState.error || createState.error) return <Error />
+
+
+
+
     // creating chat in firebase if not exist
     const getData = async () => {
         const docRef = doc(db, "support", supportTicketData?.supportTickets[0]?.id);
@@ -215,21 +225,6 @@ const Main = () => {
 
 
 
-
-
-
-    if (createState.loading || loading) return <Loading />
-
-    if (error || updateState.error || createState.error) return <Error />
-
-
-
-
-
-
-
-    console.log(supportTicketData?.supportTickets[0]?.id, labEmail)
-
     return (
 
         <>
@@ -237,7 +232,7 @@ const Main = () => {
                 !loading && supportTicketData?.supportTickets[0]?.id ?
                     <ChatBody
                         messages={messages}
-                        supportTicket={supportTicketData?.supportTickets[0]?.id} handleSupportTicket={handleSupportTicket}
+                        supportTicket={supportTicketData?.supportTickets[0]?.id} getData={getData} handleSupportTicket={handleSupportTicket}
                     />
                     :
                     <div className="flex justify-center items-center w-full h-screen">

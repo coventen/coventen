@@ -13,10 +13,11 @@ interface Props {
     messages: any[];
     supportTicket: string;
     handleSupportTicket: () => void;
+    getData: () => void;
 }
 
 
-const ChatBody = ({ messages, supportTicket, handleSupportTicket }: Props) => {
+const ChatBody = ({ messages, supportTicket, handleSupportTicket, getData }: Props) => {
 
     //states
     const [onClose, setOnClose] = useState(false)
@@ -47,7 +48,7 @@ const ChatBody = ({ messages, supportTicket, handleSupportTicket }: Props) => {
         e.preventDefault()
 
         e.target.reset()
-
+        console.log(supportTicket)
         if (text) {
             handleSupportTicket()
             await updateDoc(doc(db, "support", supportTicket), {
@@ -59,6 +60,7 @@ const ChatBody = ({ messages, supportTicket, handleSupportTicket }: Props) => {
                     date: Timestamp.now(),
                 })
             })
+            getData()
         }
 
 

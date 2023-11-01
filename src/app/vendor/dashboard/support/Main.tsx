@@ -84,7 +84,10 @@ const Main = () => {
     const getLabEmail = async (em: string) => {
         const email = await getEmployerEmail(em)
         setLabEmail(email)
+        refetch()
     }
+
+
 
 
 
@@ -116,7 +119,7 @@ const Main = () => {
         if (supportTicketData?.supportTickets[0]?.id) {
             getData()
         }
-    }, [supportTicketData?.supportTickets, user?.email]);
+    }, [supportTicketData?.supportTickets, labEmail]);
 
 
 
@@ -220,7 +223,7 @@ const Main = () => {
     }
 
 
-    console.log(supportTicketData?.supportTickets[0]?.id, labEmail)
+
 
     return (
 
@@ -229,7 +232,7 @@ const Main = () => {
                 !loading && supportTicketData?.supportTickets[0]?.id ?
                     <ChatBody
                         messages={messages}
-                        supportTicket={supportTicketData?.supportTickets[0]?.id} handleSupportTicket={handleSupportTicket}
+                        supportTicket={supportTicketData?.supportTickets[0]?.id} getData={getData} handleSupportTicket={handleSupportTicket}
                     />
                     :
                     <div className="flex justify-center items-center w-full h-screen">

@@ -17,6 +17,8 @@ import HandleFileUpload from '@/shared/HandleFileUpload';
 import FilePreview from '../projects/(components)/FilePreview';
 import { toast } from 'react-hot-toast';
 import deleteImage from '@/shared/deleteImage';
+import { FaBullseye } from 'react-icons/fa';
+import { useRouter } from 'next/navigation';
 
 //props interface
 interface IUserModalProps {
@@ -61,7 +63,7 @@ function UploadDocModal({ setIsDocModalOpen, isDocModalOpen, currentComplain, ge
     //hooks
     const client = useGqlClient();
     const { uploadFile } = HandleFileUpload()
-
+    const router = useRouter();
 
 
     // QUERIES
@@ -75,7 +77,7 @@ function UploadDocModal({ setIsDocModalOpen, isDocModalOpen, currentComplain, ge
     })
 
     // MUTATIONS
-    const [updateModuleReportFn, updateStatus] = useMutation(UPDATE_MODULE_REPORT, { client })
+    const [updateModuleReportFn, updateStatus, resetFn] = useMutation(UPDATE_MODULE_REPORT, { client })
 
 
 
@@ -114,6 +116,7 @@ function UploadDocModal({ setIsDocModalOpen, isDocModalOpen, currentComplain, ge
 
             const previousFiles = previousData?.moduleTickets[0]?.reports
             if (!previousFiles?.length) {
+                setUploading(false)
                 toast.error('Something went wrong, please try again later')
             }
             else {
@@ -121,6 +124,7 @@ function UploadDocModal({ setIsDocModalOpen, isDocModalOpen, currentComplain, ge
 
                 // delete previous files
                 previousFiles?.map((item: string) => {
+                    console.log(item, 'item')
                     deleteImage(item)
                 })
 
@@ -128,7 +132,7 @@ function UploadDocModal({ setIsDocModalOpen, isDocModalOpen, currentComplain, ge
 
                 if (uploadedFilesData) {
 
-                    setUploading(false)
+
                     const { data } = await updateModuleReportFn({
                         variables: {
                             where: {
@@ -142,10 +146,15 @@ function UploadDocModal({ setIsDocModalOpen, isDocModalOpen, currentComplain, ge
                     })
 
                     if (data.updateModuleTickets.moduleTickets.length) {
-                        getComplainData()
+                        // getComplainData()
                         closeModal()
+                        setUploading(false)
+                        router.push('/vendor/dashboard');
+                        toast.success('Report Uploaded Successfully')
+
                     }
                 } else {
+                    setUploading(false)
                     toast.error('Something went wrong, please try again later')
                 }
 
@@ -172,7 +181,7 @@ function UploadDocModal({ setIsDocModalOpen, isDocModalOpen, currentComplain, ge
 
 
 
-    if (loading) return <Loading />
+    if (loading || uploading) return <Loading />
 
     //render
     return (
