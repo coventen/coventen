@@ -56,7 +56,7 @@ const CheckPushNotification = () => {
 
     //refreshing notification after 10 minutes
     useEffect(() => {
-        const intervalId = setInterval(getClinetNotification, 50000)
+        const intervalId = setInterval(getClinetNotification, 1200000)
         return () => {
             clearInterval(intervalId);
         };
