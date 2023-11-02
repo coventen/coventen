@@ -45,7 +45,7 @@ const Main = () => {
       where: {
         vendorHas: {
           userIs: {
-            email: user?.email || 'no email'
+            email: labEmail || 'no email'
           }
         }
       },
@@ -67,10 +67,11 @@ const Main = () => {
 
   // setting  the latest module as current module
   useEffect(() => {
+    getLabEmail()
     if (data?.moduleTickets) {
       setCurrentModule(data?.moduleTickets[0]?.ticket)
     }
-    getLabEmail()
+
 
   }, [data?.moduleTickets, user?.email]);
 
