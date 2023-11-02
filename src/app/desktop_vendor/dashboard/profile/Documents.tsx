@@ -129,7 +129,7 @@ const Documents = ({ data, refetch }: { data: any, refetch: any }) => {
                     {
                         data?.links ?
                             data?.links?.map((item: any, index: number) =>
-                                <Link href={item || '#'}
+                                <Link href={item || '#'} target='_blank'
                                     key={index}
                                     style={{
                                         backgroundImage: `url(${'/assets/file.svg'})`,
