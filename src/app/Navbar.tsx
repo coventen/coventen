@@ -62,7 +62,6 @@ export default function Navbar({ services, industries, solutions, features }: an
 
     const getUserData = async () => {
         const userDta = await getUserStatus(user?.email || 'no email')
-        console.log(userDta, userDta[0]?.status, ' thjis is user data')
         if (userDta) {
             setUserStatus(userDta[0]?.status)
             setCurrentUserType(userDta[0]?.user_type)
