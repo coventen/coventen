@@ -30,7 +30,7 @@ const homeClient = async () => {
 
   })
   const { data } = await res.then(res => res.json())
-  return data.homeClients
+  return data?.homeClients
 }
 const homeServices = async () => {
   const res = fetch('https://coventenapp.el.r.appspot.com/', {
@@ -59,7 +59,7 @@ const homeServices = async () => {
 
   })
   const { data } = await res.then(res => res.json())
-  return data.services
+  return data?.services
 }
 
 const popularProducts = async () => {
@@ -90,7 +90,7 @@ const popularProducts = async () => {
 
   })
   const { data } = await res.then(res => res.json())
-  return data.products
+  return data?.products
 }
 const spacialProducts = async () => {
   const res = fetch('https://coventenapp.el.r.appspot.com/', {
@@ -121,7 +121,7 @@ const spacialProducts = async () => {
 
   })
   const { data } = await res.then(res => res.json())
-  return data.products
+  return data?.products
 }
 
 const heroDataFn = async () => {
@@ -145,7 +145,7 @@ const heroDataFn = async () => {
     next: { revalidate: 10 }
   })
   const { data } = await res.then(res => res.json())
-  return data.heroes
+  return data?.heroes
 }
 const aboutCompanyFn = async () => {
   const res = fetch('https://coventenapp.el.r.appspot.com/', {
@@ -177,7 +177,7 @@ const aboutCompanyFn = async () => {
 
   })
   const { data } = await res.then(res => res.json())
-  return data.aboutUsSections[0]
+  return data?.aboutUsSections[0]
 }
 
 
