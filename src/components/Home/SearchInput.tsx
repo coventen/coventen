@@ -114,7 +114,7 @@ const SearchInput = () => {
     }
 
 
-    console.log(searchResult, 'slfldsfjlds', selectedValue)
+
 
 
 
@@ -122,7 +122,7 @@ const SearchInput = () => {
 
     return (
         <div className="max-w-xl  lg:max-w-3xl mx-auto relative">
-            <div className="relative flex p-1 rounded-full h-14 lg:h-20 bg-white shadow-md md:p-2">
+            <div className="relative flex p-1 rounded-full h-12 lg:h-20 bg-white shadow-md md:p-2">
                 <select
                     className="w-24 lg:w-32 bg-transparent text-[10px] lg:text-base pl-5 py-2 border-none focus:ring-0 font-semibold rounded-l-md focus:outline-none focus:border-none"
                     value={selectedValue}
@@ -144,12 +144,12 @@ const SearchInput = () => {
                 <button
                     type="button"
                     title="Start buying"
-                    className="ml-auto py-4 px-6 rounded-full text-center transition gradient-bg md:px-12"
+                    className="ml-auto py-2 lg:py-4 px-6 rounded-full text-center transition gradient-bg md:px-12"
                 >
                     <span className="hidden text-white font-semibold md:block">Search</span>
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
-                        className="w-5 mx-auto text-white md:hidden"
+                        className="w-3 lg:w-5 mx-auto text-white md:hidden"
                         fill="currentColor"
                         viewBox="0 0 16 16"
                     >
