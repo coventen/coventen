@@ -73,7 +73,7 @@ const Sidebar = ({
 
                         })}
                     >
-                        {!collapsed && <Link href='/' className="whitespace-nowrap  font-bold w-full ">
+                        {!collapsed && <Link href='/' className="whitespace-nowrap hidden lg:block  font-bold w-full ">
                             <img src="/assets/log.png" className="h-8 " alt="logo" />
                         </Link>}
 
