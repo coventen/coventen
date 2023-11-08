@@ -18,16 +18,17 @@ const Accordion = () => {
                     className=" h-[470px] flex items-center justify-center text-white">
                     <div className="-mx-4 flex flex-wrap w-full">
                         <div className="w-full px-4">
-                            <div className="mx-auto mb-[60px] max-w-[520px] text-center lg:mb-20">
-                                <span className="mb-2 block text-lg font-semibold text-white">
+                            <div className="mx-auto mb-[60px] max-w-[680px] text-center lg:mb-20">
+                                {/* <span className="mb-2 block text-lg font-semibold text-white">
                                     LEARN
-                                </span>
-                                <h2 className="mb-4 text-3xl font-bold text-dark sm:text-4xl md:text-[40px]">
-                                    Learn more about our company
+                                </span> */}
+                                <h2 className="mb-4  leading-3 font-bold text-dark sm:text-3xl ">
+                                    Our learn page provides you with all the information you need to develop
+                                    <br /> your career.
                                 </h2>
                                 <p className="text-base text-body-color">
-                                    There are many variations of passages of Lorem Ipsum available
-                                    but the majority have suffered alteration in some form.
+                                    Knowledge and Wisdom is not the products of schooling
+                                    <br />but of the lifelong attempt to acquire it.
                                 </p>
                             </div>
                         </div>
