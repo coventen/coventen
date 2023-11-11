@@ -158,27 +158,27 @@ const Sidebar = ({
                                                                 <p>{item.label}</p>
 
                                                                 {
-                                                                    item.label === "Internal Email" && counterData?.emailCounter && <span className="relative inline-flex text-[9px] bg-red-500 text-white rounded-full py-0.5 px-1.5">
+                                                                    item.label === "Internal Email" && counterData?.emailCounter as number > 0 && <span className="relative inline-flex text-[9px] bg-red-500 text-white rounded-full py-0.5 px-1.5">
                                                                         {counterData?.emailCounter}
                                                                     </span>
                                                                 }
                                                                 {
-                                                                    item.label === "Estimation" && counterData?.invoiceCounter && <span className="relative inline-flex text-[9px] bg-red-500 text-white rounded-full py-0.5 px-1.5">
+                                                                    item.label === "Estimation" && counterData?.invoiceCounter as number > 0 && <span className="relative inline-flex text-[9px] bg-red-500 text-white rounded-full py-0.5 px-1.5">
                                                                         {counterData?.invoiceCounter}
                                                                     </span>
                                                                 }
                                                                 {
-                                                                    item.label === "Projects" && counterData?.projectCounter && <span className="relative inline-flex text-[9px] bg-red-500 text-white rounded-full py-0.5 px-1.5">
+                                                                    item.label === "Projects" && counterData?.projectCounter as number > 0 && <span className="relative inline-flex text-[9px] bg-red-500 text-white rounded-full py-0.5 px-1.5">
                                                                         {counterData?.projectCounter}
                                                                     </span>
                                                                 }
                                                                 {
-                                                                    item.label === "Leads" && counterData?.leadCounter && <span className="relative inline-flex text-[9px] bg-red-500 text-white rounded-full py-0.5 px-1.5">
+                                                                    item.label === "Leads" && counterData?.leadCounter as number > 0 && <span className="relative inline-flex text-[9px] bg-red-500 text-white rounded-full py-0.5 px-1.5">
                                                                         {counterData?.leadCounter}
                                                                     </span>
                                                                 }
                                                                 {
-                                                                    item.label === "Users" && counterData?.leadCounter && <span className="relative inline-flex text-[9px] bg-red-500 text-white rounded-full py-0.5 px-1.5">
+                                                                    item.label === "Users" && counterData?.leadCounter as number > 0 && <span className="relative inline-flex text-[9px] bg-red-500 text-white rounded-full py-0.5 px-1.5">
                                                                         {counterData?.newUserCounter}
                                                                     </span>
                                                                 }
