@@ -69,7 +69,8 @@ const Main = () => {
             email: user?.email || 'no email'
           }
         },
-        "status_IN": ["DRAFT", "COMPLETED"]
+        "status_IN": ["DRAFT", "COMPLETED"],
+        "isApprovedByAdmin": true
       }
     }
 

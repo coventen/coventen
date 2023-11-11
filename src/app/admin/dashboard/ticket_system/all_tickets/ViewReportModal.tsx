@@ -18,13 +18,15 @@ interface IModalProps {
     isOpen: boolean;
     setIsOpen: (value: boolean) => void;
     reports: string[]
+    moduleDetails: any
+    handleUpdateModuleTicket: (value: any) => void
 }
 
 
 
 
 //component
-function ViewReportModal({ isOpen, setIsOpen, reports }: IModalProps) {
+function ViewReportModal({ isOpen, setIsOpen, reports, moduleDetails, handleUpdateModuleTicket }: IModalProps) {
 
 
 
@@ -33,6 +35,7 @@ function ViewReportModal({ isOpen, setIsOpen, reports }: IModalProps) {
         setIsOpen(false);
     }
 
+    console.log(moduleDetails, 'lllllllllllllllllllllllll')
 
     //render
     return (
@@ -78,7 +81,15 @@ function ViewReportModal({ isOpen, setIsOpen, reports }: IModalProps) {
                             <div className="inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-xl sm:w-full sm:p-6">
                                 <p className="focus:outline-none pt-4 pb-8 text-base text-center sm:text-lg md:text-xl lg:text-2xl font-bold leading-normal text-gray-800">Reports</p>
 
-                                <div className='flex items-center justify-center flex-wrap'>
+                                <div>
+                                    <div className=''>
+                                        <p className='text-gray-800 font-semibold'>Title:
+                                            {moduleDetails?.forModule?.title} </p>
+                                        <p className='text-gray-800 font-semibold'>Description:  {moduleDetails?.forModule?.description} </p>
+                                        <p>Status: {moduleDetails?.isApprovedByAdmin ? "Approved" : "Not Approved"}</p>
+                                    </div>
+                                </div>
+                                <div className='flex items-center mt-6  flex-wrap'>
                                     {
                                         reports?.length ?
                                             reports.map((report, index) =>
@@ -106,6 +117,17 @@ function ViewReportModal({ isOpen, setIsOpen, reports }: IModalProps) {
 
                                 <div className="mt-10 flex justify-end">
 
+                                    <button
+                                        disabled={moduleDetails.isApprovedByAdmin}
+                                        type="button"
+                                        className={`ml-2 px-4 py-2 y text-white  rounded-md ${moduleDetails.isApprovedByAdmin ? 'cursor-not-allowed bg-gray-600' : 'bg-primary'}`}
+                                        onClick={() => handleUpdateModuleTicket(moduleDetails?.id)}
+                                    >
+                                        {
+                                            moduleDetails.isApprovedByAdmin ? 'Approved' : 'Approve'
+                                        }
+
+                                    </button>
                                     <button
                                         type="button"
                                         className="ml-2 px-4 py-2 text-gray-500  hover:bg-gray-200"

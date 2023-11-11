@@ -17,6 +17,12 @@ query ModuleTickets($where: ModuleTicketWhere, $options: ModuleTicketOptions) {
       status
       reports
       rejectedReason
+      isApprovedByAdmin
+      forModule {
+        title
+        description
+        files
+      }
       clientHas {
         userIs {
         companyName
@@ -53,7 +59,7 @@ const Main = () => {
   const client = useGqlClient()
 
   //quires 
-  const [getModuleTicketFn, moduleTicketDataState] = useManualQuery(GET_MODULE_TICKETS, { client })
+  const [getModuleTicketFn, moduleTicketDataState,] = useManualQuery(GET_MODULE_TICKETS, { client })
 
 
   // refetching data based on pagination and search query
@@ -121,7 +127,7 @@ const Main = () => {
           offset: (currentPage - 1) * pageLimit,
           sort: [
             {
-              createdAt: "DESC"
+              createdAt: "ASC"
             }
           ]
         }
@@ -134,6 +140,9 @@ const Main = () => {
 
 
 
+  useEffect(() => {
+    console.log('')
+  }, [moduleTicketDataState.loading, moduleTicketDataState.data])
 
 
 
@@ -164,7 +173,7 @@ const Main = () => {
         {
           moduleTicketDataState.loading && <TableSkeleton />
         }
-        <TicketTable data={moduleTicketData} setIsOpen={setIsOpen} setCurrentModuleTicket={setCurrentModuleTicket} />
+        <TicketTable getModuleTicketData={getModuleTicketData} data={moduleTicketData} setIsOpen={setIsOpen} setCurrentModuleTicket={setCurrentModuleTicket} />
         <TicketReassignModal setIsOpen={setIsOpen} isOpen={isOpen} currentModuleTicket={currentModuleTicket} refetchModuleTickets={getModuleTicketData} />
 
       </div>

@@ -7,22 +7,74 @@ import TicketModal from './TicketReassignModal';
 import { ModuleTicket } from '@/gql/graphql';
 import ViewReportModal from './ViewReportModal';
 import RejectReasonModal from './RejectReasonModal';
+import { useGqlClient } from '@/hooks/UseGqlClient';
+import { useMutation } from 'graphql-hooks';
+import toast from 'react-hot-toast';
+import Loading from '@/app/loading';
 
 
 interface ITicketTable {
     data: ModuleTicket[],
     setIsOpen: (value: boolean) => void,
     setCurrentModuleTicket: (value: any) => void
+    getModuleTicketData: () => void
 }
 
 
-const TicketTable = ({ data, setIsOpen, setCurrentModuleTicket }: ITicketTable) => {
+
+
+const UPDATE_MODULE_TICKET = `
+mutation UpdateModuleTickets($where: ModuleTicketWhere, $update: ModuleTicketUpdateInput) {
+    updateModuleTickets(where: $where, update: $update) {
+      info {
+        nodesCreated
+      }
+    }
+  }
+`
+
+
+
+
+
+const TicketTable = ({ data, setIsOpen, setCurrentModuleTicket, getModuleTicketData }: ITicketTable) => {
 
     //states
     const [isReportModalOpen, setIsReportModalOpen] = React.useState(false);
     const [isRejectModalOpen, setIsRejectModalOpen] = React.useState(false);
     const [currentReports, setCurrentReports] = React.useState<string[]>([]);
+    const [selectedTicket, setSelectedTicket] = React.useState<ModuleTicket>({} as ModuleTicket);
     const [reason, setReason] = React.useState<string>('');
+
+    //hooks
+    const client = useGqlClient()
+
+    //mutations
+    const [updateModuleTicketFn, state] = useMutation(UPDATE_MODULE_TICKET, { client })
+
+
+
+    const handleUpdateModuleTicket = async (id: string) => {
+        const { data } = await updateModuleTicketFn({
+            variables: {
+                where: {
+                    id: id
+                },
+                "update": {
+                    "isApprovedByAdmin": true
+                }
+            }
+        })
+        if (data) {
+            getModuleTicketData()
+            toast.success('Ticket Approved')
+            setIsReportModalOpen(false)
+
+        }
+    }
+
+
+    if (state.loading) return <Loading />
 
     return (
         <table className="min-w-full leading-normal">
@@ -96,6 +148,7 @@ const TicketTable = ({ data, setIsOpen, setCurrentModuleTicket }: ITicketTable) 
                                 <div className="relative flex items-center justify-around  space-x-3 px-8 ">
                                     <button
                                         onClick={() => {
+                                            setSelectedTicket(item)
                                             setCurrentReports(item?.reports as string[])
                                             setIsReportModalOpen(true)
                                         }}
@@ -158,7 +211,7 @@ const TicketTable = ({ data, setIsOpen, setCurrentModuleTicket }: ITicketTable) 
 
 
             </tbody>
-            <ViewReportModal setIsOpen={setIsReportModalOpen} isOpen={isReportModalOpen} reports={currentReports} />
+            <ViewReportModal handleUpdateModuleTicket={handleUpdateModuleTicket} moduleDetails={selectedTicket} setIsOpen={setIsReportModalOpen} isOpen={isReportModalOpen} reports={currentReports} />
             {/* <TicketModal isOpen={isOpen} setIsOpen={setIsOpen} /> */}
         </table>
     );
