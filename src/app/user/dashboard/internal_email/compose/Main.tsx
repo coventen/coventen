@@ -75,7 +75,7 @@ const Main = () => {
                     {
                         sub: subject,
                         message: contentString,
-                        date: dateTime,
+                        date: new Date().toISOString(),
                         files: fileLinks,
                         sender: "CONSUMER",
                         forClient: {

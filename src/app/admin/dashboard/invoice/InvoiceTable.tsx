@@ -5,6 +5,7 @@ import convertISODateToDDMMYear from '@/shared/convertISODateToDDMMYear';
 import Link from 'next/link';
 import React, { useState } from 'react';
 import { AiFillEye, AiTwotoneDelete } from 'react-icons/ai';
+import { useCounterData } from '../../CounterProvider';
 interface ITableItem {
     data: Invoice[]
     deleteInvoice: (id: any) => void
@@ -13,6 +14,17 @@ interface ITableItem {
 
 const InvoiceTable = ({ data, deleteInvoice }: ITableItem) => {
     const [isOpen, setIsOpen] = useState(false);
+
+    const counterData = useCounterData()
+
+    const handleClick = async (id: string, isViewed: boolean) => {
+        if (!isViewed) {
+            counterData?.handleUpdateView(id, "invoice")
+            counterData?.invoiceRefetch()
+        }
+    }
+
+
 
     return (
         <table className="w-full table-auto text-sm text-left">
@@ -51,8 +63,10 @@ const InvoiceTable = ({ data, deleteInvoice }: ITableItem) => {
                             <td className="pr-6 py-4 whitespace-nowrap">{convertISODateToDDMMYear(item?.expiryDate) || 'N/A'}</td>
                             <td className=" whitespace-nowrap ">
                                 <div className="relative flex items-center justify-end  space-x-4 px-8 ">
-                                    <Link href={`/admin/dashboard/invoice/preview/${item?.id}`} className="focus:ring-2 focus:ring-offset-2  text-sm leading-none text-green-600 py-2 px-2 bg-gray-100 rounded hover:bg-gray-200 focus:outline-none"><AiFillEye />
-                                    </Link>
+                                    <div onClick={() => handleClick(item?.id, item?.isViewed as boolean)} >
+                                        <Link href={`/admin/dashboard/invoice/preview/${item?.id}`} className="focus:ring-2 focus:ring-offset-2  text-sm leading-none text-green-600 py-2 px-2 bg-gray-100 rounded hover:bg-gray-200 focus:outline-none"><AiFillEye />
+                                        </Link>
+                                    </div>
                                     <button
                                         onClick={() => deleteInvoice(item?.id)}
                                         className="focus:ring-2 focus:ring-offset-2  text-sm leading-none text-red-600 py-2 px-2 bg-gray-100 rounded hover:bg-gray-200 focus:outline-none">

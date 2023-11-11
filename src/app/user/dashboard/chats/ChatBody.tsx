@@ -9,6 +9,7 @@ import 'react-photo-view/dist/react-photo-view.css';
 import { toast } from 'react-hot-toast';
 import { saveAs } from 'file-saver';
 import { v4 as uuidv4 } from 'uuid';
+import { useAuth } from '@/firebase/AuthProvider';
 interface Props {
     messages: any[];
     currentModule: string;
@@ -27,7 +28,7 @@ const ChatBody = ({ messages, currentModule }: Props) => {
     const latestMessageRef = useRef(null)
 
     //hooks
-    const { user } = AuthConfig()
+    const { user }: { user: any } = useAuth()
     const { uploadFile } = HandleFileUpload()
 
 
@@ -54,6 +55,7 @@ const ChatBody = ({ messages, currentModule }: Props) => {
                     text,
                     senderId: user?.email,
                     image: null,
+                    senderName: user?.name,
                     date: Timestamp.now(),
                 })
             })
@@ -90,6 +92,7 @@ const ChatBody = ({ messages, currentModule }: Props) => {
                     text: "",
                     senderId: user?.email,
                     image: fileLinks,
+                    senderName: user?.name,
                     date: Timestamp.now(),
                 })
             })
@@ -151,13 +154,17 @@ const ChatBody = ({ messages, currentModule }: Props) => {
 
                                                         <div key={i} onClick={() => handleDownload(image, i)}>
                                                             <img src={image} alt="" className='' />
+                                                            <p className='text-[8px] text-gray-600 mt-1'>send by {message?.senderName === user.name ? 'you' : message?.senderName} </p>
                                                         </div>
 
 
                                                     ))
                                                 }
                                                 {
-                                                    message.text && <div>{message.text}</div>
+                                                    message.text &&
+                                                    <div>{message.text}
+                                                        <p className='text-[8px] text-gray-600 mt-1'>send by {message?.senderName === user.name ? 'you' : message?.senderName} </p>
+                                                    </div>
                                                 }
 
 

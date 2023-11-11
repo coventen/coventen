@@ -103,7 +103,8 @@ const Main = () => {
                             "update": {
                                 "node": {
                                     "itemName": item.itemName,
-                                    "price": item.price
+                                    "price": item.price,
+                                    quantity: item.quantity
                                 }
                             },
                             "where": {

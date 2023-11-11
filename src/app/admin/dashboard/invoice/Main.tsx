@@ -19,6 +19,7 @@ query Query($where: InvoiceWhere, $options: InvoiceOptions) {
       status
       ticket
       sentBy
+      isViewed
       
     }
   }`

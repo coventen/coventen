@@ -190,6 +190,7 @@ const AcceptedModules = () => {
                         <th className="px-4 py-3">Serial</th>
                         <th className="px-4 py-3">Ticket-Id</th>
                         <th className="px-4 py-3">Module Title</th>
+                        <th className="px-4 py-3 text-center">Status</th>
                         <th className="px-4 py-3 text-center">Action</th>
                     </tr>
                 </thead>
@@ -203,22 +204,19 @@ const AcceptedModules = () => {
                             <td className="px-4 py-3 text-sm">{module?.ticket}</td>
                             <td className="px-4 py-3 text-sm">{module?.forModule
                                 ?.title || 'N/A'}</td>
-                            <td className="px-4 py-3 text-sm space-x-2 flex items-center justify-center">
-                                <div className="relative w-40 ">
-                                    <select
-                                        value={module?.status || 'ACCEPTED'}
-                                        onChange={(e) => {
-                                            handleStatusChange(e, module?.id)
-                                            setClientId(module?.clientHas?.userIs?.id)
-                                        }
-
-                                        }
-                                        className=" h-full rounded-r block  w-full bg-white border text-sm pr-8 border-gray-300  py-1 px-3  leading-tight focus:outline-none  dark:bg-darkBg dark:border-darkBorder">
-                                        <option value='ACCEPTED'>IN DEVELOPMENT</option>
-                                        <option value='UNDER_REVIEW'>UNDER REVIEW</option>
-                                    </select>
-
-                                </div>
+                            <td className="px-4 py-3 text-sm">{module?.status || 'N/A'}</td>
+                            <td >
+                                <button
+                                    onClick={(e) => {
+                                        handleStatusChange(e, module?.id)
+                                        setClientId(module?.clientHas?.userIs?.id)
+                                    }
+                                    }
+                                    disabled={module?.status !== "ACCEPTED"}
+                                    className={`${module?.status !== "ACCEPTED" ? ' bg-gray-700' : 'bg-primary'} px-3 py-1 text-white text-sm rounded-md  cursor-pointer  flex items-center justify-center`}
+                                >
+                                    {module?.status === "ACCEPTED" ? "Submit Document" : 'Submitted'}
+                                </button>
 
                             </td>
 

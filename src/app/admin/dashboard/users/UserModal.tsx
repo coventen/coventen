@@ -122,6 +122,7 @@ function UserModal({ setIsModalOpen, isModalOpen, data, updateUser, updateUserLo
                                                         data?.hasDocuments?.hasFiles?.links?.map((item, index) =>
                                                             <Link href={item || '#'}
                                                                 key={index}
+                                                                target='_blank'
                                                                 style={{
                                                                     backgroundImage: `url(${'/assets/file.svg'})`,
                                                                     backgroundRepeat: 'no-repeat',

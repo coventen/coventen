@@ -14,6 +14,7 @@ import { useGqlClient } from "@/hooks/UseGqlClient";
 import { useQuery } from "graphql-hooks";
 import { LuLogOut } from "react-icons/lu";
 import AuthConfig from "@/firebase/oauth.config";
+import { useCounterData } from "./CounterProvider";
 
 
 
@@ -49,6 +50,7 @@ const Sidebar = ({
     const { user, logout } = AuthConfig();
     const pathname = usePathname();
     const router = useRouter()
+    const counterData = useCounterData()
 
 
 
@@ -150,9 +152,39 @@ const Sidebar = ({
                                                             "bg-primary text-white hover:bg-primary": pathname === item.href,
                                                         })}
                                                     >
-                                                        <p className="flex gap-2 items-center justify-center ">
-                                                            <span className="text-lg">  {item.icon}</span> <span className=" font-semibold text-sm">{!collapsed && item.label}</span>
-                                                        </p>
+                                                        <div className="flex gap-2 items-center justify-center w-full ">
+                                                            <span className="text-lg">  {item.icon}</span>
+                                                            <div className="flex  flex-grow  items-center justify-between font-semibold text-sm">
+                                                                <p>{item.label}</p>
+
+                                                                {
+                                                                    item.label === "Internal Email" && counterData?.emailCounter > 0 && <span className="relative inline-flex text-[9px] bg-red-500 text-white rounded-full py-0.5 px-1.5">
+                                                                        {counterData?.emailCounter}
+                                                                    </span>
+                                                                }
+                                                                {
+                                                                    item.label === "Estimation" && counterData?.invoiceCounter > 0 && <span className="relative inline-flex text-[9px] bg-red-500 text-white rounded-full py-0.5 px-1.5">
+                                                                        {counterData?.invoiceCounter}
+                                                                    </span>
+                                                                }
+                                                                {
+                                                                    item.label === "Projects" && counterData?.projectCounter > 0 && <span className="relative inline-flex text-[9px] bg-red-500 text-white rounded-full py-0.5 px-1.5">
+                                                                        {counterData?.projectCounter}
+                                                                    </span>
+                                                                }
+                                                                {
+                                                                    item.label === "Leads" && counterData?.leadCounter > 0 && <span className="relative inline-flex text-[9px] bg-red-500 text-white rounded-full py-0.5 px-1.5">
+                                                                        {counterData?.leadCounter}
+                                                                    </span>
+                                                                }
+                                                                {
+                                                                    item.label === "Users" && counterData?.leadCounter > 0 && <span className="relative inline-flex text-[9px] bg-red-500 text-white rounded-full py-0.5 px-1.5">
+                                                                        {counterData?.newUserCounter}
+                                                                    </span>
+                                                                }
+
+                                                            </div>
+                                                        </div>
                                                     </li>
                                                 </Link>
                                             );

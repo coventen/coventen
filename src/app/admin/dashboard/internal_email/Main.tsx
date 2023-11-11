@@ -12,6 +12,7 @@ import React, { useState, useEffect } from 'react';
 import { toast } from 'react-hot-toast';
 import { HiChevronLeft, HiChevronRight } from 'react-icons/hi';
 import { TfiReload } from 'react-icons/tfi';
+import { useCounterData } from '../../CounterProvider';
 
 
 const GET_SET_MESSAGES = `
@@ -21,6 +22,7 @@ query CommunicationTickets($where: CommunicationTicketWhere, $options: Communica
       sub
       date
       files
+      isViewed
     }
   }
 
@@ -46,6 +48,7 @@ const Main = () => {
     // hooks
     const client = useGqlClient()
     const { user } = AuthConfig()
+    const counterData = useCounterData()
 
     //quires 
     const [getInternalEmailFn, internalEmailState] = useManualQuery(GET_SET_MESSAGES, { client })
@@ -127,6 +130,16 @@ const Main = () => {
     }
 
 
+    const handleClick = async (id: string, isViewed: boolean) => {
+        console.log('outside', isViewed)
+
+        if (!isViewed) {
+            console.log('inside')
+            await counterData?.handleUpdateView(id, "email")
+            counterData?.emailRefetch()
+        }
+    }
+
 
     if (internalEmailState.loading || deleteState.loading) return <Loading />
 
@@ -167,7 +180,9 @@ const Main = () => {
                                 emailData.length ?
                                     emailData?.map((item: any) =>
 
-                                        <li key={item?.id} >
+                                        <li
+                                            onClick={() => handleClick(item?.id, item?.isViewed)}
+                                            key={item?.id} >
                                             <div
                                                 className="flex items-center border-b hover:bg-gray-200 px-2 py-1 w-full"
                                             >

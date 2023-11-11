@@ -85,7 +85,7 @@ const ModuleCards = ({ data, deleteModuleById }: { data: Module[], deleteModuleB
                                                     {
                                                         module?.files ?
                                                             module?.files?.map((item, index) =>
-                                                                <Link href={item || '#'} key={index} className=' h-14 w-full bg-gray-200 rounded-md lg:h-20 lg:w-full '>
+                                                                <Link href={item || '#'} target='_blank' key={index} className=' h-14 w-full bg-gray-200 rounded-md lg:h-20 lg:w-full '>
                                                                     <div className='flex items-center text-xl  justify-center space-x-2'>
                                                                         <p className='mt-5'><HiOutlineDocumentDownload /></p>
 

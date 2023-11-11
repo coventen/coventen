@@ -1490,36 +1490,6 @@ export type AdminApprovedVendorNodeAggregationWhereInput = {
   AND?: InputMaybe<Array<AdminApprovedVendorNodeAggregationWhereInput>>;
   NOT?: InputMaybe<AdminApprovedVendorNodeAggregationWhereInput>;
   OR?: InputMaybe<Array<AdminApprovedVendorNodeAggregationWhereInput>>;
-  labImage_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
-  labImage_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
-  labImage_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
-  labImage_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
-  labImage_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
-  labImage_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  labImage_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  labImage_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  labImage_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  labImage_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  labImage_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  labImage_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  labImage_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  labImage_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  labImage_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  sub_type_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
-  sub_type_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
-  sub_type_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
-  sub_type_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
-  sub_type_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
-  sub_type_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  sub_type_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  sub_type_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  sub_type_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  sub_type_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  sub_type_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  sub_type_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  sub_type_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  sub_type_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  sub_type_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
 };
 
 export type AdminApprovedVendorRelationship = {
@@ -3506,6 +3476,66 @@ export type AdminHasLeadsNodeAggregationWhereInput = {
   AND?: InputMaybe<Array<AdminHasLeadsNodeAggregationWhereInput>>;
   NOT?: InputMaybe<AdminHasLeadsNodeAggregationWhereInput>;
   OR?: InputMaybe<Array<AdminHasLeadsNodeAggregationWhereInput>>;
+  Phone_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  Phone_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  Phone_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  Phone_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  Phone_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  Phone_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  Phone_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  Phone_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  Phone_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  Phone_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  Phone_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  Phone_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  Phone_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  Phone_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  Phone_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  Title_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  Title_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  Title_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  Title_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  Title_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  Title_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  Title_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  Title_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  Title_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  Title_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  Title_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  Title_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  Title_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  Title_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  Title_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  annualRevenue_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  annualRevenue_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  annualRevenue_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  annualRevenue_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  annualRevenue_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  annualRevenue_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  annualRevenue_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  annualRevenue_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  annualRevenue_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  annualRevenue_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  annualRevenue_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  annualRevenue_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  annualRevenue_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  annualRevenue_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  annualRevenue_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  company_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  company_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  company_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  company_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  company_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  company_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  company_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  company_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  company_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  company_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  company_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  company_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  company_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  company_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  company_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
   condition_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
   condition_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
   condition_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
@@ -3521,21 +3551,46 @@ export type AdminHasLeadsNodeAggregationWhereInput = {
   condition_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
   condition_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
   condition_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  createdAt_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
-  createdAt_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
-  createdAt_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
-  createdAt_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
-  createdAt_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
-  createdAt_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  createdAt_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  createdAt_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  createdAt_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  createdAt_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  createdAt_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  createdAt_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  createdAt_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  createdAt_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  createdAt_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  createdAt_MAX_EQUAL?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_MAX_GT?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_MAX_GTE?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_MAX_LT?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_MAX_LTE?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_MIN_EQUAL?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_MIN_GT?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_MIN_GTE?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_MIN_LT?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_MIN_LTE?: InputMaybe<Scalars['DateTime']['input']>;
+  createdBy_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  createdBy_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  createdBy_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  createdBy_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  createdBy_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  createdBy_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  createdBy_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  createdBy_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  createdBy_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  createdBy_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  createdBy_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  createdBy_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  createdBy_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  createdBy_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  createdBy_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  description_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  description_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  description_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  description_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  description_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  description_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  description_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  description_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  description_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  description_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  description_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  description_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  description_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  description_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  description_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
   duration_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
   duration_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
   duration_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
@@ -3566,6 +3621,21 @@ export type AdminHasLeadsNodeAggregationWhereInput = {
   email_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
   email_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
   email_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  employeeCount_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  employeeCount_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  employeeCount_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  employeeCount_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  employeeCount_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  employeeCount_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  employeeCount_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  employeeCount_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  employeeCount_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  employeeCount_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  employeeCount_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  employeeCount_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  employeeCount_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  employeeCount_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  employeeCount_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
   gstNumber_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
   gstNumber_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
   gstNumber_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
@@ -3611,6 +3681,36 @@ export type AdminHasLeadsNodeAggregationWhereInput = {
   interest_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
   interest_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
   interest_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  leadOwner_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  leadOwner_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  leadOwner_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  leadOwner_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  leadOwner_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  leadOwner_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  leadOwner_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  leadOwner_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  leadOwner_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  leadOwner_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  leadOwner_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  leadOwner_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  leadOwner_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  leadOwner_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  leadOwner_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  linkedin_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  linkedin_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  linkedin_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  linkedin_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  linkedin_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
   message_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
   message_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
   message_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
@@ -3641,6 +3741,21 @@ export type AdminHasLeadsNodeAggregationWhereInput = {
   name_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
   name_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
   name_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  officePhone_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  officePhone_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  officePhone_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  officePhone_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  officePhone_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  officePhone_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  officePhone_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  officePhone_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  officePhone_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  officePhone_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  officePhone_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  officePhone_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  officePhone_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  officePhone_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  officePhone_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
   phone_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
   phone_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
   phone_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
@@ -3676,6 +3791,51 @@ export type AdminHasLeadsNodeAggregationWhereInput = {
   price_SUM_GTE?: InputMaybe<Scalars['Int']['input']>;
   price_SUM_LT?: InputMaybe<Scalars['Int']['input']>;
   price_SUM_LTE?: InputMaybe<Scalars['Int']['input']>;
+  secondaryEmail_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  secondaryEmail_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  secondaryEmail_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  secondaryEmail_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  secondaryEmail_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  secondaryEmail_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  secondaryEmail_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  secondaryEmail_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  secondaryEmail_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  secondaryEmail_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  secondaryEmail_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  secondaryEmail_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  secondaryEmail_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  secondaryEmail_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  secondaryEmail_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  skypeId_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  skypeId_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  skypeId_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  skypeId_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  skypeId_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  twitter_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  twitter_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  twitter_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  twitter_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  twitter_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  twitter_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  twitter_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  twitter_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  twitter_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  twitter_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  twitter_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  twitter_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  twitter_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  twitter_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  twitter_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
   type_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
   type_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
   type_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
@@ -3691,6 +3851,31 @@ export type AdminHasLeadsNodeAggregationWhereInput = {
   type_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
   type_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
   type_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  updatedAt_MAX_EQUAL?: InputMaybe<Scalars['DateTime']['input']>;
+  updatedAt_MAX_GT?: InputMaybe<Scalars['DateTime']['input']>;
+  updatedAt_MAX_GTE?: InputMaybe<Scalars['DateTime']['input']>;
+  updatedAt_MAX_LT?: InputMaybe<Scalars['DateTime']['input']>;
+  updatedAt_MAX_LTE?: InputMaybe<Scalars['DateTime']['input']>;
+  updatedAt_MIN_EQUAL?: InputMaybe<Scalars['DateTime']['input']>;
+  updatedAt_MIN_GT?: InputMaybe<Scalars['DateTime']['input']>;
+  updatedAt_MIN_GTE?: InputMaybe<Scalars['DateTime']['input']>;
+  updatedAt_MIN_LT?: InputMaybe<Scalars['DateTime']['input']>;
+  updatedAt_MIN_LTE?: InputMaybe<Scalars['DateTime']['input']>;
+  updatedBy_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  updatedBy_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  updatedBy_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  updatedBy_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  updatedBy_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  updatedBy_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  updatedBy_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  updatedBy_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  updatedBy_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  updatedBy_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  updatedBy_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  updatedBy_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  updatedBy_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  updatedBy_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  updatedBy_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
   vendorAddress_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
   vendorAddress_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
   vendorAddress_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
@@ -3706,6 +3891,21 @@ export type AdminHasLeadsNodeAggregationWhereInput = {
   vendorAddress_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
   vendorAddress_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
   vendorAddress_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  website_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  website_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  website_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  website_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  website_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  website_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  website_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  website_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  website_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  website_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  website_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  website_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  website_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  website_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  website_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
 };
 
 export type AdminHasLeadsRelationship = {
@@ -5123,20 +5323,36 @@ export type AdminLeadsHasLeadsAggregationSelection = {
 
 export type AdminLeadsHasLeadsNodeAggregateSelection = {
   __typename?: 'AdminLeadsHasLeadsNodeAggregateSelection';
+  Phone: StringAggregateSelectionNullable;
+  Title: StringAggregateSelectionNullable;
+  annualRevenue: StringAggregateSelectionNullable;
+  company: StringAggregateSelectionNullable;
   condition: StringAggregateSelectionNullable;
-  createdAt: StringAggregateSelectionNullable;
+  createdAt: DateTimeAggregateSelectionNullable;
+  createdBy: StringAggregateSelectionNullable;
+  description: StringAggregateSelectionNullable;
   duration: StringAggregateSelectionNullable;
   email: StringAggregateSelectionNullable;
+  employeeCount: StringAggregateSelectionNullable;
   gstNumber: StringAggregateSelectionNullable;
   id: IdAggregateSelectionNonNullable;
   industry: StringAggregateSelectionNullable;
   interest: StringAggregateSelectionNullable;
+  leadOwner: StringAggregateSelectionNullable;
+  linkedin: StringAggregateSelectionNullable;
   message: StringAggregateSelectionNullable;
   name: StringAggregateSelectionNullable;
+  officePhone: StringAggregateSelectionNullable;
   phone: StringAggregateSelectionNullable;
   price: IntAggregateSelectionNullable;
+  secondaryEmail: StringAggregateSelectionNullable;
+  skypeId: StringAggregateSelectionNullable;
+  twitter: StringAggregateSelectionNullable;
   type: StringAggregateSelectionNullable;
+  updatedAt: DateTimeAggregateSelectionNullable;
+  updatedBy: StringAggregateSelectionNullable;
   vendorAddress: StringAggregateSelectionNullable;
+  website: StringAggregateSelectionNullable;
 };
 
 export type AdminLearnItemHasLearnitemAggregationSelection = {
@@ -5454,21 +5670,6 @@ export type AdminUserIsNodeAggregationWhereInput = {
   AND?: InputMaybe<Array<AdminUserIsNodeAggregationWhereInput>>;
   NOT?: InputMaybe<AdminUserIsNodeAggregationWhereInput>;
   OR?: InputMaybe<Array<AdminUserIsNodeAggregationWhereInput>>;
-  address_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
-  address_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
-  address_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
-  address_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
-  address_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
-  address_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  address_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  address_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  address_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  address_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  address_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  address_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  address_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  address_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  address_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
   bio_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
   bio_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
   bio_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
@@ -5484,21 +5685,21 @@ export type AdminUserIsNodeAggregationWhereInput = {
   bio_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
   bio_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
   bio_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  city_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
-  city_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
-  city_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
-  city_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
-  city_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
-  city_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  city_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  city_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  city_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  city_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  city_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  city_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  city_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  city_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  city_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  companyDescription_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  companyDescription_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  companyDescription_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  companyDescription_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  companyDescription_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  companyDescription_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  companyDescription_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  companyDescription_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  companyDescription_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  companyDescription_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  companyDescription_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  companyDescription_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  companyDescription_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  companyDescription_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  companyDescription_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
   companyEmail_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
   companyEmail_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
   companyEmail_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
@@ -5529,6 +5730,21 @@ export type AdminUserIsNodeAggregationWhereInput = {
   companyName_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
   companyName_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
   companyName_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  companyPhone_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  companyPhone_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  companyPhone_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  companyPhone_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  companyPhone_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  companyPhone_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  companyPhone_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  companyPhone_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  companyPhone_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  companyPhone_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  companyPhone_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  companyPhone_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  companyPhone_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  companyPhone_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  companyPhone_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
   createdAt_MAX_EQUAL?: InputMaybe<Scalars['DateTime']['input']>;
   createdAt_MAX_GT?: InputMaybe<Scalars['DateTime']['input']>;
   createdAt_MAX_GTE?: InputMaybe<Scalars['DateTime']['input']>;
@@ -5539,6 +5755,36 @@ export type AdminUserIsNodeAggregationWhereInput = {
   createdAt_MIN_GTE?: InputMaybe<Scalars['DateTime']['input']>;
   createdAt_MIN_LT?: InputMaybe<Scalars['DateTime']['input']>;
   createdAt_MIN_LTE?: InputMaybe<Scalars['DateTime']['input']>;
+  department_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  department_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  department_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  department_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  department_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  department_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  department_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  department_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  department_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  department_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  department_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  department_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  department_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  department_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  department_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  education_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  education_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  education_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  education_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  education_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  education_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  education_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  education_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  education_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  education_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  education_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  education_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  education_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  education_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  education_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
   email_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
   email_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
   email_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
@@ -5554,6 +5800,21 @@ export type AdminUserIsNodeAggregationWhereInput = {
   email_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
   email_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
   email_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  experience_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  experience_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  experience_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  experience_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  experience_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  experience_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  experience_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  experience_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  experience_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  experience_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  experience_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  experience_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  experience_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  experience_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  experience_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
   gstNumber_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
   gstNumber_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
   gstNumber_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
@@ -5584,21 +5845,36 @@ export type AdminUserIsNodeAggregationWhereInput = {
   image_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
   image_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
   image_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  mobile_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
-  mobile_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
-  mobile_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
-  mobile_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
-  mobile_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
-  mobile_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  mobile_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  mobile_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  mobile_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  mobile_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  mobile_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  mobile_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  mobile_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  mobile_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  mobile_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  interest_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  interest_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  interest_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  interest_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  interest_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  interest_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  interest_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  interest_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  interest_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  interest_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  interest_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  interest_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  interest_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  interest_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  interest_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  linkedin_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  linkedin_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  linkedin_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  linkedin_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  linkedin_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
   name_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
   name_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
   name_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
@@ -5629,6 +5905,21 @@ export type AdminUserIsNodeAggregationWhereInput = {
   panCardNo_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
   panCardNo_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
   panCardNo_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  phoneNumber_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  phoneNumber_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  phoneNumber_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  phoneNumber_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  phoneNumber_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  phoneNumber_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  phoneNumber_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  phoneNumber_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  phoneNumber_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  phoneNumber_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  phoneNumber_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  phoneNumber_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  phoneNumber_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  phoneNumber_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  phoneNumber_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
   phone_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
   phone_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
   phone_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
@@ -5644,36 +5935,66 @@ export type AdminUserIsNodeAggregationWhereInput = {
   phone_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
   phone_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
   phone_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  secondAddress_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
-  secondAddress_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
-  secondAddress_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
-  secondAddress_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
-  secondAddress_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
-  secondAddress_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  secondAddress_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  secondAddress_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  secondAddress_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  secondAddress_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  secondAddress_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  secondAddress_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  secondAddress_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  secondAddress_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  secondAddress_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  state_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
-  state_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
-  state_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
-  state_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
-  state_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
-  state_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  state_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  state_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  state_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  state_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  state_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  state_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  state_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  state_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  state_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  skypeId_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  skypeId_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  skypeId_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  skypeId_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  skypeId_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  specialty_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  specialty_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  specialty_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  specialty_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  specialty_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  specialty_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  specialty_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  specialty_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  specialty_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  specialty_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  specialty_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  specialty_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  specialty_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  specialty_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  specialty_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  title_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  title_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  title_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  title_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  title_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  title_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  title_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  title_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  title_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  title_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  title_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  title_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  title_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  title_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  title_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  twitter_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  twitter_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  twitter_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  twitter_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  twitter_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  twitter_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  twitter_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  twitter_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  twitter_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  twitter_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  twitter_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  twitter_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  twitter_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  twitter_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  twitter_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
   userId_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
   userId_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
   userId_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
@@ -5689,21 +6010,6 @@ export type AdminUserIsNodeAggregationWhereInput = {
   userId_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
   userId_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
   userId_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  zip_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
-  zip_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
-  zip_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
-  zip_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
-  zip_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
-  zip_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  zip_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  zip_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  zip_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  zip_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  zip_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  zip_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  zip_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  zip_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  zip_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
 };
 
 export type AdminUserIsRelationship = {
@@ -5734,24 +6040,30 @@ export type AdminUserUserIsAggregationSelection = {
 
 export type AdminUserUserIsNodeAggregateSelection = {
   __typename?: 'AdminUserUserIsNodeAggregateSelection';
-  address: StringAggregateSelectionNullable;
   bio: StringAggregateSelectionNullable;
-  city: StringAggregateSelectionNullable;
+  companyDescription: StringAggregateSelectionNullable;
   companyEmail: StringAggregateSelectionNullable;
   companyName: StringAggregateSelectionNullable;
+  companyPhone: StringAggregateSelectionNullable;
   createdAt: DateTimeAggregateSelectionNullable;
+  department: StringAggregateSelectionNullable;
+  education: StringAggregateSelectionNullable;
   email: StringAggregateSelectionNullable;
+  experience: StringAggregateSelectionNullable;
   gstNumber: StringAggregateSelectionNullable;
   id: IdAggregateSelectionNonNullable;
   image: StringAggregateSelectionNullable;
-  mobile: StringAggregateSelectionNullable;
+  interest: StringAggregateSelectionNullable;
+  linkedin: StringAggregateSelectionNullable;
   name: StringAggregateSelectionNullable;
   panCardNo: StringAggregateSelectionNullable;
   phone: StringAggregateSelectionNullable;
-  secondAddress: StringAggregateSelectionNullable;
-  state: StringAggregateSelectionNullable;
+  phoneNumber: StringAggregateSelectionNullable;
+  skypeId: StringAggregateSelectionNullable;
+  specialty: StringAggregateSelectionNullable;
+  title: StringAggregateSelectionNullable;
+  twitter: StringAggregateSelectionNullable;
   userId: StringAggregateSelectionNullable;
-  zip: StringAggregateSelectionNullable;
 };
 
 export type AdminVendorApprovedVendorAggregationSelection = {
@@ -5763,8 +6075,6 @@ export type AdminVendorApprovedVendorAggregationSelection = {
 export type AdminVendorApprovedVendorNodeAggregateSelection = {
   __typename?: 'AdminVendorApprovedVendorNodeAggregateSelection';
   id: IdAggregateSelectionNonNullable;
-  labImage: StringAggregateSelectionNullable;
-  sub_type: StringAggregateSelectionNullable;
 };
 
 export type AdminWhere = {
@@ -7805,6 +8115,66 @@ export type ClientHasLeadsNodeAggregationWhereInput = {
   AND?: InputMaybe<Array<ClientHasLeadsNodeAggregationWhereInput>>;
   NOT?: InputMaybe<ClientHasLeadsNodeAggregationWhereInput>;
   OR?: InputMaybe<Array<ClientHasLeadsNodeAggregationWhereInput>>;
+  Phone_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  Phone_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  Phone_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  Phone_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  Phone_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  Phone_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  Phone_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  Phone_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  Phone_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  Phone_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  Phone_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  Phone_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  Phone_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  Phone_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  Phone_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  Title_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  Title_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  Title_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  Title_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  Title_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  Title_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  Title_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  Title_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  Title_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  Title_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  Title_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  Title_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  Title_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  Title_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  Title_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  annualRevenue_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  annualRevenue_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  annualRevenue_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  annualRevenue_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  annualRevenue_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  annualRevenue_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  annualRevenue_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  annualRevenue_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  annualRevenue_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  annualRevenue_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  annualRevenue_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  annualRevenue_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  annualRevenue_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  annualRevenue_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  annualRevenue_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  company_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  company_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  company_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  company_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  company_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  company_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  company_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  company_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  company_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  company_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  company_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  company_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  company_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  company_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  company_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
   condition_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
   condition_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
   condition_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
@@ -7820,21 +8190,46 @@ export type ClientHasLeadsNodeAggregationWhereInput = {
   condition_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
   condition_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
   condition_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  createdAt_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
-  createdAt_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
-  createdAt_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
-  createdAt_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
-  createdAt_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
-  createdAt_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  createdAt_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  createdAt_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  createdAt_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  createdAt_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  createdAt_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  createdAt_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  createdAt_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  createdAt_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  createdAt_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  createdAt_MAX_EQUAL?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_MAX_GT?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_MAX_GTE?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_MAX_LT?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_MAX_LTE?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_MIN_EQUAL?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_MIN_GT?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_MIN_GTE?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_MIN_LT?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_MIN_LTE?: InputMaybe<Scalars['DateTime']['input']>;
+  createdBy_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  createdBy_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  createdBy_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  createdBy_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  createdBy_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  createdBy_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  createdBy_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  createdBy_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  createdBy_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  createdBy_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  createdBy_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  createdBy_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  createdBy_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  createdBy_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  createdBy_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  description_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  description_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  description_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  description_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  description_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  description_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  description_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  description_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  description_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  description_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  description_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  description_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  description_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  description_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  description_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
   duration_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
   duration_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
   duration_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
@@ -7865,6 +8260,21 @@ export type ClientHasLeadsNodeAggregationWhereInput = {
   email_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
   email_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
   email_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  employeeCount_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  employeeCount_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  employeeCount_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  employeeCount_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  employeeCount_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  employeeCount_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  employeeCount_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  employeeCount_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  employeeCount_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  employeeCount_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  employeeCount_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  employeeCount_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  employeeCount_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  employeeCount_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  employeeCount_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
   gstNumber_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
   gstNumber_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
   gstNumber_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
@@ -7910,6 +8320,36 @@ export type ClientHasLeadsNodeAggregationWhereInput = {
   interest_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
   interest_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
   interest_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  leadOwner_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  leadOwner_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  leadOwner_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  leadOwner_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  leadOwner_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  leadOwner_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  leadOwner_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  leadOwner_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  leadOwner_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  leadOwner_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  leadOwner_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  leadOwner_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  leadOwner_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  leadOwner_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  leadOwner_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  linkedin_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  linkedin_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  linkedin_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  linkedin_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  linkedin_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
   message_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
   message_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
   message_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
@@ -7940,6 +8380,21 @@ export type ClientHasLeadsNodeAggregationWhereInput = {
   name_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
   name_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
   name_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  officePhone_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  officePhone_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  officePhone_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  officePhone_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  officePhone_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  officePhone_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  officePhone_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  officePhone_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  officePhone_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  officePhone_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  officePhone_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  officePhone_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  officePhone_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  officePhone_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  officePhone_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
   phone_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
   phone_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
   phone_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
@@ -7975,6 +8430,51 @@ export type ClientHasLeadsNodeAggregationWhereInput = {
   price_SUM_GTE?: InputMaybe<Scalars['Int']['input']>;
   price_SUM_LT?: InputMaybe<Scalars['Int']['input']>;
   price_SUM_LTE?: InputMaybe<Scalars['Int']['input']>;
+  secondaryEmail_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  secondaryEmail_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  secondaryEmail_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  secondaryEmail_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  secondaryEmail_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  secondaryEmail_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  secondaryEmail_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  secondaryEmail_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  secondaryEmail_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  secondaryEmail_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  secondaryEmail_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  secondaryEmail_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  secondaryEmail_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  secondaryEmail_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  secondaryEmail_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  skypeId_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  skypeId_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  skypeId_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  skypeId_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  skypeId_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  twitter_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  twitter_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  twitter_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  twitter_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  twitter_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  twitter_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  twitter_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  twitter_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  twitter_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  twitter_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  twitter_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  twitter_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  twitter_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  twitter_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  twitter_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
   type_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
   type_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
   type_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
@@ -7990,6 +8490,31 @@ export type ClientHasLeadsNodeAggregationWhereInput = {
   type_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
   type_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
   type_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  updatedAt_MAX_EQUAL?: InputMaybe<Scalars['DateTime']['input']>;
+  updatedAt_MAX_GT?: InputMaybe<Scalars['DateTime']['input']>;
+  updatedAt_MAX_GTE?: InputMaybe<Scalars['DateTime']['input']>;
+  updatedAt_MAX_LT?: InputMaybe<Scalars['DateTime']['input']>;
+  updatedAt_MAX_LTE?: InputMaybe<Scalars['DateTime']['input']>;
+  updatedAt_MIN_EQUAL?: InputMaybe<Scalars['DateTime']['input']>;
+  updatedAt_MIN_GT?: InputMaybe<Scalars['DateTime']['input']>;
+  updatedAt_MIN_GTE?: InputMaybe<Scalars['DateTime']['input']>;
+  updatedAt_MIN_LT?: InputMaybe<Scalars['DateTime']['input']>;
+  updatedAt_MIN_LTE?: InputMaybe<Scalars['DateTime']['input']>;
+  updatedBy_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  updatedBy_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  updatedBy_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  updatedBy_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  updatedBy_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  updatedBy_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  updatedBy_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  updatedBy_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  updatedBy_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  updatedBy_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  updatedBy_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  updatedBy_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  updatedBy_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  updatedBy_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  updatedBy_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
   vendorAddress_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
   vendorAddress_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
   vendorAddress_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
@@ -8005,6 +8530,21 @@ export type ClientHasLeadsNodeAggregationWhereInput = {
   vendorAddress_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
   vendorAddress_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
   vendorAddress_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  website_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  website_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  website_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  website_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  website_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  website_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  website_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  website_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  website_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  website_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  website_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  website_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  website_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  website_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  website_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
 };
 
 export type ClientHasLeadsRelationship = {
@@ -8900,20 +9440,36 @@ export type ClientLeadsHasLeadsAggregationSelection = {
 
 export type ClientLeadsHasLeadsNodeAggregateSelection = {
   __typename?: 'ClientLeadsHasLeadsNodeAggregateSelection';
+  Phone: StringAggregateSelectionNullable;
+  Title: StringAggregateSelectionNullable;
+  annualRevenue: StringAggregateSelectionNullable;
+  company: StringAggregateSelectionNullable;
   condition: StringAggregateSelectionNullable;
-  createdAt: StringAggregateSelectionNullable;
+  createdAt: DateTimeAggregateSelectionNullable;
+  createdBy: StringAggregateSelectionNullable;
+  description: StringAggregateSelectionNullable;
   duration: StringAggregateSelectionNullable;
   email: StringAggregateSelectionNullable;
+  employeeCount: StringAggregateSelectionNullable;
   gstNumber: StringAggregateSelectionNullable;
   id: IdAggregateSelectionNonNullable;
   industry: StringAggregateSelectionNullable;
   interest: StringAggregateSelectionNullable;
+  leadOwner: StringAggregateSelectionNullable;
+  linkedin: StringAggregateSelectionNullable;
   message: StringAggregateSelectionNullable;
   name: StringAggregateSelectionNullable;
+  officePhone: StringAggregateSelectionNullable;
   phone: StringAggregateSelectionNullable;
   price: IntAggregateSelectionNullable;
+  secondaryEmail: StringAggregateSelectionNullable;
+  skypeId: StringAggregateSelectionNullable;
+  twitter: StringAggregateSelectionNullable;
   type: StringAggregateSelectionNullable;
+  updatedAt: DateTimeAggregateSelectionNullable;
+  updatedBy: StringAggregateSelectionNullable;
   vendorAddress: StringAggregateSelectionNullable;
+  website: StringAggregateSelectionNullable;
 };
 
 export type ClientModuleTicketHasModuleticketAggregationSelection = {
@@ -9332,21 +9888,6 @@ export type ClientUserIsNodeAggregationWhereInput = {
   AND?: InputMaybe<Array<ClientUserIsNodeAggregationWhereInput>>;
   NOT?: InputMaybe<ClientUserIsNodeAggregationWhereInput>;
   OR?: InputMaybe<Array<ClientUserIsNodeAggregationWhereInput>>;
-  address_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
-  address_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
-  address_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
-  address_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
-  address_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
-  address_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  address_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  address_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  address_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  address_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  address_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  address_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  address_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  address_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  address_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
   bio_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
   bio_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
   bio_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
@@ -9362,21 +9903,21 @@ export type ClientUserIsNodeAggregationWhereInput = {
   bio_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
   bio_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
   bio_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  city_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
-  city_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
-  city_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
-  city_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
-  city_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
-  city_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  city_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  city_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  city_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  city_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  city_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  city_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  city_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  city_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  city_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  companyDescription_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  companyDescription_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  companyDescription_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  companyDescription_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  companyDescription_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  companyDescription_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  companyDescription_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  companyDescription_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  companyDescription_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  companyDescription_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  companyDescription_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  companyDescription_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  companyDescription_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  companyDescription_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  companyDescription_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
   companyEmail_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
   companyEmail_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
   companyEmail_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
@@ -9407,6 +9948,21 @@ export type ClientUserIsNodeAggregationWhereInput = {
   companyName_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
   companyName_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
   companyName_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  companyPhone_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  companyPhone_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  companyPhone_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  companyPhone_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  companyPhone_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  companyPhone_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  companyPhone_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  companyPhone_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  companyPhone_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  companyPhone_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  companyPhone_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  companyPhone_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  companyPhone_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  companyPhone_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  companyPhone_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
   createdAt_MAX_EQUAL?: InputMaybe<Scalars['DateTime']['input']>;
   createdAt_MAX_GT?: InputMaybe<Scalars['DateTime']['input']>;
   createdAt_MAX_GTE?: InputMaybe<Scalars['DateTime']['input']>;
@@ -9417,6 +9973,36 @@ export type ClientUserIsNodeAggregationWhereInput = {
   createdAt_MIN_GTE?: InputMaybe<Scalars['DateTime']['input']>;
   createdAt_MIN_LT?: InputMaybe<Scalars['DateTime']['input']>;
   createdAt_MIN_LTE?: InputMaybe<Scalars['DateTime']['input']>;
+  department_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  department_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  department_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  department_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  department_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  department_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  department_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  department_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  department_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  department_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  department_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  department_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  department_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  department_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  department_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  education_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  education_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  education_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  education_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  education_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  education_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  education_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  education_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  education_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  education_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  education_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  education_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  education_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  education_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  education_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
   email_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
   email_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
   email_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
@@ -9432,6 +10018,21 @@ export type ClientUserIsNodeAggregationWhereInput = {
   email_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
   email_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
   email_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  experience_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  experience_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  experience_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  experience_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  experience_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  experience_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  experience_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  experience_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  experience_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  experience_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  experience_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  experience_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  experience_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  experience_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  experience_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
   gstNumber_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
   gstNumber_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
   gstNumber_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
@@ -9462,21 +10063,36 @@ export type ClientUserIsNodeAggregationWhereInput = {
   image_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
   image_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
   image_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  mobile_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
-  mobile_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
-  mobile_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
-  mobile_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
-  mobile_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
-  mobile_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  mobile_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  mobile_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  mobile_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  mobile_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  mobile_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  mobile_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  mobile_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  mobile_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  mobile_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  interest_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  interest_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  interest_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  interest_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  interest_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  interest_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  interest_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  interest_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  interest_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  interest_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  interest_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  interest_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  interest_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  interest_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  interest_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  linkedin_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  linkedin_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  linkedin_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  linkedin_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  linkedin_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
   name_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
   name_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
   name_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
@@ -9507,6 +10123,21 @@ export type ClientUserIsNodeAggregationWhereInput = {
   panCardNo_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
   panCardNo_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
   panCardNo_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  phoneNumber_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  phoneNumber_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  phoneNumber_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  phoneNumber_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  phoneNumber_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  phoneNumber_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  phoneNumber_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  phoneNumber_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  phoneNumber_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  phoneNumber_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  phoneNumber_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  phoneNumber_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  phoneNumber_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  phoneNumber_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  phoneNumber_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
   phone_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
   phone_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
   phone_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
@@ -9522,36 +10153,66 @@ export type ClientUserIsNodeAggregationWhereInput = {
   phone_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
   phone_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
   phone_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  secondAddress_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
-  secondAddress_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
-  secondAddress_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
-  secondAddress_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
-  secondAddress_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
-  secondAddress_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  secondAddress_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  secondAddress_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  secondAddress_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  secondAddress_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  secondAddress_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  secondAddress_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  secondAddress_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  secondAddress_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  secondAddress_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  state_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
-  state_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
-  state_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
-  state_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
-  state_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
-  state_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  state_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  state_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  state_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  state_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  state_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  state_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  state_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  state_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  state_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  skypeId_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  skypeId_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  skypeId_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  skypeId_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  skypeId_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  specialty_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  specialty_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  specialty_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  specialty_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  specialty_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  specialty_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  specialty_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  specialty_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  specialty_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  specialty_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  specialty_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  specialty_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  specialty_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  specialty_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  specialty_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  title_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  title_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  title_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  title_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  title_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  title_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  title_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  title_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  title_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  title_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  title_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  title_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  title_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  title_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  title_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  twitter_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  twitter_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  twitter_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  twitter_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  twitter_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  twitter_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  twitter_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  twitter_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  twitter_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  twitter_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  twitter_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  twitter_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  twitter_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  twitter_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  twitter_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
   userId_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
   userId_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
   userId_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
@@ -9567,21 +10228,6 @@ export type ClientUserIsNodeAggregationWhereInput = {
   userId_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
   userId_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
   userId_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  zip_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
-  zip_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
-  zip_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
-  zip_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
-  zip_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
-  zip_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  zip_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  zip_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  zip_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  zip_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  zip_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  zip_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  zip_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  zip_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  zip_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
 };
 
 export type ClientUserIsRelationship = {
@@ -9612,24 +10258,30 @@ export type ClientUserUserIsAggregationSelection = {
 
 export type ClientUserUserIsNodeAggregateSelection = {
   __typename?: 'ClientUserUserIsNodeAggregateSelection';
-  address: StringAggregateSelectionNullable;
   bio: StringAggregateSelectionNullable;
-  city: StringAggregateSelectionNullable;
+  companyDescription: StringAggregateSelectionNullable;
   companyEmail: StringAggregateSelectionNullable;
   companyName: StringAggregateSelectionNullable;
+  companyPhone: StringAggregateSelectionNullable;
   createdAt: DateTimeAggregateSelectionNullable;
+  department: StringAggregateSelectionNullable;
+  education: StringAggregateSelectionNullable;
   email: StringAggregateSelectionNullable;
+  experience: StringAggregateSelectionNullable;
   gstNumber: StringAggregateSelectionNullable;
   id: IdAggregateSelectionNonNullable;
   image: StringAggregateSelectionNullable;
-  mobile: StringAggregateSelectionNullable;
+  interest: StringAggregateSelectionNullable;
+  linkedin: StringAggregateSelectionNullable;
   name: StringAggregateSelectionNullable;
   panCardNo: StringAggregateSelectionNullable;
   phone: StringAggregateSelectionNullable;
-  secondAddress: StringAggregateSelectionNullable;
-  state: StringAggregateSelectionNullable;
+  phoneNumber: StringAggregateSelectionNullable;
+  skypeId: StringAggregateSelectionNullable;
+  specialty: StringAggregateSelectionNullable;
+  title: StringAggregateSelectionNullable;
+  twitter: StringAggregateSelectionNullable;
   userId: StringAggregateSelectionNullable;
-  zip: StringAggregateSelectionNullable;
 };
 
 export type ClientWhere = {
@@ -9725,6 +10377,7 @@ export type CommunicationTicket = {
   hasReplyAggregate?: Maybe<CommunicationTicketReplyHasReplyAggregationSelection>;
   hasReplyConnection: CommunicationTicketHasReplyConnection;
   id: Scalars['ID']['output'];
+  isViewed?: Maybe<Scalars['Boolean']['output']>;
   message?: Maybe<Scalars['String']['output']>;
   sender?: Maybe<UserType>;
   sub?: Maybe<Scalars['String']['output']>;
@@ -9996,6 +10649,7 @@ export type CommunicationTicketCreateInput = {
   forUser?: InputMaybe<CommunicationTicketForUserFieldInput>;
   forVendor?: InputMaybe<CommunicationTicketForVendorFieldInput>;
   hasReply?: InputMaybe<CommunicationTicketHasReplyFieldInput>;
+  isViewed?: InputMaybe<Scalars['Boolean']['input']>;
   message?: InputMaybe<Scalars['String']['input']>;
   sender?: InputMaybe<UserType>;
   sub?: InputMaybe<Scalars['String']['input']>;
@@ -10200,21 +10854,6 @@ export type CommunicationTicketForUserNodeAggregationWhereInput = {
   AND?: InputMaybe<Array<CommunicationTicketForUserNodeAggregationWhereInput>>;
   NOT?: InputMaybe<CommunicationTicketForUserNodeAggregationWhereInput>;
   OR?: InputMaybe<Array<CommunicationTicketForUserNodeAggregationWhereInput>>;
-  address_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
-  address_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
-  address_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
-  address_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
-  address_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
-  address_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  address_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  address_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  address_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  address_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  address_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  address_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  address_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  address_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  address_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
   bio_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
   bio_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
   bio_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
@@ -10230,21 +10869,21 @@ export type CommunicationTicketForUserNodeAggregationWhereInput = {
   bio_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
   bio_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
   bio_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  city_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
-  city_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
-  city_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
-  city_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
-  city_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
-  city_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  city_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  city_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  city_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  city_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  city_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  city_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  city_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  city_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  city_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  companyDescription_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  companyDescription_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  companyDescription_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  companyDescription_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  companyDescription_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  companyDescription_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  companyDescription_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  companyDescription_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  companyDescription_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  companyDescription_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  companyDescription_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  companyDescription_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  companyDescription_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  companyDescription_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  companyDescription_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
   companyEmail_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
   companyEmail_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
   companyEmail_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
@@ -10275,6 +10914,21 @@ export type CommunicationTicketForUserNodeAggregationWhereInput = {
   companyName_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
   companyName_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
   companyName_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  companyPhone_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  companyPhone_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  companyPhone_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  companyPhone_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  companyPhone_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  companyPhone_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  companyPhone_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  companyPhone_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  companyPhone_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  companyPhone_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  companyPhone_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  companyPhone_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  companyPhone_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  companyPhone_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  companyPhone_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
   createdAt_MAX_EQUAL?: InputMaybe<Scalars['DateTime']['input']>;
   createdAt_MAX_GT?: InputMaybe<Scalars['DateTime']['input']>;
   createdAt_MAX_GTE?: InputMaybe<Scalars['DateTime']['input']>;
@@ -10285,6 +10939,36 @@ export type CommunicationTicketForUserNodeAggregationWhereInput = {
   createdAt_MIN_GTE?: InputMaybe<Scalars['DateTime']['input']>;
   createdAt_MIN_LT?: InputMaybe<Scalars['DateTime']['input']>;
   createdAt_MIN_LTE?: InputMaybe<Scalars['DateTime']['input']>;
+  department_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  department_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  department_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  department_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  department_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  department_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  department_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  department_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  department_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  department_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  department_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  department_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  department_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  department_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  department_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  education_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  education_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  education_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  education_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  education_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  education_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  education_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  education_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  education_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  education_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  education_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  education_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  education_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  education_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  education_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
   email_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
   email_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
   email_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
@@ -10300,6 +10984,21 @@ export type CommunicationTicketForUserNodeAggregationWhereInput = {
   email_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
   email_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
   email_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  experience_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  experience_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  experience_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  experience_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  experience_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  experience_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  experience_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  experience_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  experience_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  experience_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  experience_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  experience_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  experience_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  experience_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  experience_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
   gstNumber_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
   gstNumber_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
   gstNumber_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
@@ -10330,21 +11029,36 @@ export type CommunicationTicketForUserNodeAggregationWhereInput = {
   image_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
   image_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
   image_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  mobile_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
-  mobile_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
-  mobile_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
-  mobile_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
-  mobile_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
-  mobile_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  mobile_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  mobile_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  mobile_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  mobile_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  mobile_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  mobile_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  mobile_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  mobile_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  mobile_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  interest_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  interest_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  interest_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  interest_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  interest_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  interest_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  interest_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  interest_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  interest_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  interest_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  interest_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  interest_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  interest_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  interest_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  interest_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  linkedin_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  linkedin_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  linkedin_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  linkedin_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  linkedin_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
   name_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
   name_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
   name_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
@@ -10375,6 +11089,21 @@ export type CommunicationTicketForUserNodeAggregationWhereInput = {
   panCardNo_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
   panCardNo_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
   panCardNo_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  phoneNumber_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  phoneNumber_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  phoneNumber_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  phoneNumber_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  phoneNumber_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  phoneNumber_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  phoneNumber_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  phoneNumber_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  phoneNumber_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  phoneNumber_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  phoneNumber_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  phoneNumber_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  phoneNumber_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  phoneNumber_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  phoneNumber_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
   phone_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
   phone_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
   phone_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
@@ -10390,36 +11119,66 @@ export type CommunicationTicketForUserNodeAggregationWhereInput = {
   phone_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
   phone_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
   phone_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  secondAddress_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
-  secondAddress_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
-  secondAddress_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
-  secondAddress_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
-  secondAddress_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
-  secondAddress_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  secondAddress_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  secondAddress_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  secondAddress_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  secondAddress_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  secondAddress_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  secondAddress_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  secondAddress_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  secondAddress_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  secondAddress_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  state_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
-  state_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
-  state_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
-  state_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
-  state_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
-  state_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  state_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  state_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  state_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  state_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  state_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  state_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  state_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  state_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  state_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  skypeId_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  skypeId_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  skypeId_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  skypeId_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  skypeId_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  specialty_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  specialty_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  specialty_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  specialty_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  specialty_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  specialty_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  specialty_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  specialty_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  specialty_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  specialty_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  specialty_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  specialty_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  specialty_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  specialty_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  specialty_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  title_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  title_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  title_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  title_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  title_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  title_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  title_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  title_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  title_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  title_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  title_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  title_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  title_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  title_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  title_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  twitter_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  twitter_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  twitter_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  twitter_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  twitter_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  twitter_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  twitter_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  twitter_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  twitter_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  twitter_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  twitter_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  twitter_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  twitter_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  twitter_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  twitter_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
   userId_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
   userId_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
   userId_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
@@ -10435,21 +11194,6 @@ export type CommunicationTicketForUserNodeAggregationWhereInput = {
   userId_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
   userId_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
   userId_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  zip_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
-  zip_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
-  zip_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
-  zip_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
-  zip_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
-  zip_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  zip_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  zip_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  zip_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  zip_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  zip_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  zip_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  zip_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  zip_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  zip_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
 };
 
 export type CommunicationTicketForUserRelationship = {
@@ -10542,36 +11286,6 @@ export type CommunicationTicketForVendorNodeAggregationWhereInput = {
   AND?: InputMaybe<Array<CommunicationTicketForVendorNodeAggregationWhereInput>>;
   NOT?: InputMaybe<CommunicationTicketForVendorNodeAggregationWhereInput>;
   OR?: InputMaybe<Array<CommunicationTicketForVendorNodeAggregationWhereInput>>;
-  labImage_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
-  labImage_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
-  labImage_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
-  labImage_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
-  labImage_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
-  labImage_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  labImage_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  labImage_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  labImage_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  labImage_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  labImage_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  labImage_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  labImage_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  labImage_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  labImage_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  sub_type_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
-  sub_type_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
-  sub_type_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
-  sub_type_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
-  sub_type_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
-  sub_type_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  sub_type_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  sub_type_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  sub_type_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  sub_type_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  sub_type_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  sub_type_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  sub_type_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  sub_type_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  sub_type_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
 };
 
 export type CommunicationTicketForVendorRelationship = {
@@ -10719,6 +11433,7 @@ export type CommunicationTicketHasReplyUpdateFieldInput = {
 export type CommunicationTicketOnCreateInput = {
   date?: InputMaybe<Scalars['DateTime']['input']>;
   files?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  isViewed?: InputMaybe<Scalars['Boolean']['input']>;
   message?: InputMaybe<Scalars['String']['input']>;
   sender?: InputMaybe<UserType>;
   sub?: InputMaybe<Scalars['String']['input']>;
@@ -10756,6 +11471,7 @@ export type CommunicationTicketReplyHasReplyNodeAggregateSelection = {
 export type CommunicationTicketSort = {
   date?: InputMaybe<SortDirection>;
   id?: InputMaybe<SortDirection>;
+  isViewed?: InputMaybe<SortDirection>;
   message?: InputMaybe<SortDirection>;
   sender?: InputMaybe<SortDirection>;
   sub?: InputMaybe<SortDirection>;
@@ -10775,6 +11491,7 @@ export type CommunicationTicketUpdateInput = {
   forUser?: InputMaybe<CommunicationTicketForUserUpdateFieldInput>;
   forVendor?: InputMaybe<Array<CommunicationTicketForVendorUpdateFieldInput>>;
   hasReply?: InputMaybe<Array<CommunicationTicketHasReplyUpdateFieldInput>>;
+  isViewed?: InputMaybe<Scalars['Boolean']['input']>;
   message?: InputMaybe<Scalars['String']['input']>;
   sender?: InputMaybe<UserType>;
   sub?: InputMaybe<Scalars['String']['input']>;
@@ -10788,24 +11505,30 @@ export type CommunicationTicketUserForUserAggregationSelection = {
 
 export type CommunicationTicketUserForUserNodeAggregateSelection = {
   __typename?: 'CommunicationTicketUserForUserNodeAggregateSelection';
-  address: StringAggregateSelectionNullable;
   bio: StringAggregateSelectionNullable;
-  city: StringAggregateSelectionNullable;
+  companyDescription: StringAggregateSelectionNullable;
   companyEmail: StringAggregateSelectionNullable;
   companyName: StringAggregateSelectionNullable;
+  companyPhone: StringAggregateSelectionNullable;
   createdAt: DateTimeAggregateSelectionNullable;
+  department: StringAggregateSelectionNullable;
+  education: StringAggregateSelectionNullable;
   email: StringAggregateSelectionNullable;
+  experience: StringAggregateSelectionNullable;
   gstNumber: StringAggregateSelectionNullable;
   id: IdAggregateSelectionNonNullable;
   image: StringAggregateSelectionNullable;
-  mobile: StringAggregateSelectionNullable;
+  interest: StringAggregateSelectionNullable;
+  linkedin: StringAggregateSelectionNullable;
   name: StringAggregateSelectionNullable;
   panCardNo: StringAggregateSelectionNullable;
   phone: StringAggregateSelectionNullable;
-  secondAddress: StringAggregateSelectionNullable;
-  state: StringAggregateSelectionNullable;
+  phoneNumber: StringAggregateSelectionNullable;
+  skypeId: StringAggregateSelectionNullable;
+  specialty: StringAggregateSelectionNullable;
+  title: StringAggregateSelectionNullable;
+  twitter: StringAggregateSelectionNullable;
   userId: StringAggregateSelectionNullable;
-  zip: StringAggregateSelectionNullable;
 };
 
 export type CommunicationTicketVendorForVendorAggregationSelection = {
@@ -10817,8 +11540,6 @@ export type CommunicationTicketVendorForVendorAggregationSelection = {
 export type CommunicationTicketVendorForVendorNodeAggregateSelection = {
   __typename?: 'CommunicationTicketVendorForVendorNodeAggregateSelection';
   id: IdAggregateSelectionNonNullable;
-  labImage: StringAggregateSelectionNullable;
-  sub_type: StringAggregateSelectionNullable;
 };
 
 export type CommunicationTicketWhere = {
@@ -10899,6 +11620,7 @@ export type CommunicationTicketWhere = {
   id_ENDS_WITH?: InputMaybe<Scalars['ID']['input']>;
   id_IN?: InputMaybe<Array<Scalars['ID']['input']>>;
   id_STARTS_WITH?: InputMaybe<Scalars['ID']['input']>;
+  isViewed?: InputMaybe<Scalars['Boolean']['input']>;
   message?: InputMaybe<Scalars['String']['input']>;
   message_CONTAINS?: InputMaybe<Scalars['String']['input']>;
   message_ENDS_WITH?: InputMaybe<Scalars['String']['input']>;
@@ -11103,6 +11825,12 @@ export type CreateEmployeesMutationResponse = {
   info: CreateInfo;
 };
 
+export type CreateEquipmentMutationResponse = {
+  __typename?: 'CreateEquipmentMutationResponse';
+  equipment: Array<Equipment>;
+  info: CreateInfo;
+};
+
 export type CreateEventsMutationResponse = {
   __typename?: 'CreateEventsMutationResponse';
   events: Array<Event>;
@@ -11218,6 +11946,12 @@ export type CreatePointsMutationResponse = {
   points: Array<Points>;
 };
 
+export type CreatePrimaryAddressesMutationResponse = {
+  __typename?: 'CreatePrimaryAddressesMutationResponse';
+  info: CreateInfo;
+  primaryAddresses: Array<PrimaryAddress>;
+};
+
 export type CreateProductsMutationResponse = {
   __typename?: 'CreateProductsMutationResponse';
   info: CreateInfo;
@@ -11252,6 +11986,12 @@ export type CreateRolesMutationResponse = {
   __typename?: 'CreateRolesMutationResponse';
   info: CreateInfo;
   roles: Array<Role>;
+};
+
+export type CreateSecondaryAddressesMutationResponse = {
+  __typename?: 'CreateSecondaryAddressesMutationResponse';
+  info: CreateInfo;
+  secondaryAddresses: Array<SecondaryAddress>;
 };
 
 export type CreateServicesMutationResponse = {
@@ -11989,21 +12729,6 @@ export type DocumentsUserHasNodeAggregationWhereInput = {
   AND?: InputMaybe<Array<DocumentsUserHasNodeAggregationWhereInput>>;
   NOT?: InputMaybe<DocumentsUserHasNodeAggregationWhereInput>;
   OR?: InputMaybe<Array<DocumentsUserHasNodeAggregationWhereInput>>;
-  address_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
-  address_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
-  address_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
-  address_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
-  address_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
-  address_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  address_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  address_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  address_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  address_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  address_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  address_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  address_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  address_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  address_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
   bio_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
   bio_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
   bio_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
@@ -12019,21 +12744,21 @@ export type DocumentsUserHasNodeAggregationWhereInput = {
   bio_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
   bio_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
   bio_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  city_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
-  city_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
-  city_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
-  city_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
-  city_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
-  city_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  city_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  city_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  city_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  city_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  city_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  city_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  city_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  city_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  city_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  companyDescription_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  companyDescription_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  companyDescription_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  companyDescription_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  companyDescription_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  companyDescription_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  companyDescription_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  companyDescription_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  companyDescription_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  companyDescription_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  companyDescription_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  companyDescription_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  companyDescription_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  companyDescription_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  companyDescription_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
   companyEmail_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
   companyEmail_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
   companyEmail_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
@@ -12064,6 +12789,21 @@ export type DocumentsUserHasNodeAggregationWhereInput = {
   companyName_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
   companyName_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
   companyName_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  companyPhone_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  companyPhone_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  companyPhone_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  companyPhone_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  companyPhone_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  companyPhone_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  companyPhone_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  companyPhone_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  companyPhone_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  companyPhone_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  companyPhone_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  companyPhone_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  companyPhone_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  companyPhone_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  companyPhone_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
   createdAt_MAX_EQUAL?: InputMaybe<Scalars['DateTime']['input']>;
   createdAt_MAX_GT?: InputMaybe<Scalars['DateTime']['input']>;
   createdAt_MAX_GTE?: InputMaybe<Scalars['DateTime']['input']>;
@@ -12074,6 +12814,36 @@ export type DocumentsUserHasNodeAggregationWhereInput = {
   createdAt_MIN_GTE?: InputMaybe<Scalars['DateTime']['input']>;
   createdAt_MIN_LT?: InputMaybe<Scalars['DateTime']['input']>;
   createdAt_MIN_LTE?: InputMaybe<Scalars['DateTime']['input']>;
+  department_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  department_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  department_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  department_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  department_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  department_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  department_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  department_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  department_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  department_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  department_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  department_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  department_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  department_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  department_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  education_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  education_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  education_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  education_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  education_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  education_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  education_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  education_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  education_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  education_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  education_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  education_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  education_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  education_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  education_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
   email_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
   email_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
   email_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
@@ -12089,6 +12859,21 @@ export type DocumentsUserHasNodeAggregationWhereInput = {
   email_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
   email_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
   email_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  experience_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  experience_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  experience_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  experience_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  experience_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  experience_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  experience_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  experience_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  experience_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  experience_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  experience_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  experience_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  experience_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  experience_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  experience_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
   gstNumber_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
   gstNumber_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
   gstNumber_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
@@ -12119,21 +12904,36 @@ export type DocumentsUserHasNodeAggregationWhereInput = {
   image_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
   image_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
   image_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  mobile_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
-  mobile_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
-  mobile_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
-  mobile_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
-  mobile_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
-  mobile_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  mobile_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  mobile_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  mobile_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  mobile_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  mobile_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  mobile_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  mobile_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  mobile_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  mobile_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  interest_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  interest_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  interest_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  interest_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  interest_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  interest_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  interest_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  interest_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  interest_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  interest_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  interest_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  interest_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  interest_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  interest_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  interest_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  linkedin_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  linkedin_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  linkedin_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  linkedin_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  linkedin_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
   name_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
   name_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
   name_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
@@ -12164,6 +12964,21 @@ export type DocumentsUserHasNodeAggregationWhereInput = {
   panCardNo_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
   panCardNo_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
   panCardNo_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  phoneNumber_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  phoneNumber_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  phoneNumber_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  phoneNumber_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  phoneNumber_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  phoneNumber_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  phoneNumber_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  phoneNumber_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  phoneNumber_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  phoneNumber_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  phoneNumber_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  phoneNumber_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  phoneNumber_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  phoneNumber_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  phoneNumber_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
   phone_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
   phone_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
   phone_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
@@ -12179,36 +12994,66 @@ export type DocumentsUserHasNodeAggregationWhereInput = {
   phone_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
   phone_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
   phone_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  secondAddress_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
-  secondAddress_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
-  secondAddress_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
-  secondAddress_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
-  secondAddress_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
-  secondAddress_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  secondAddress_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  secondAddress_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  secondAddress_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  secondAddress_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  secondAddress_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  secondAddress_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  secondAddress_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  secondAddress_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  secondAddress_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  state_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
-  state_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
-  state_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
-  state_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
-  state_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
-  state_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  state_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  state_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  state_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  state_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  state_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  state_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  state_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  state_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  state_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  skypeId_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  skypeId_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  skypeId_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  skypeId_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  skypeId_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  specialty_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  specialty_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  specialty_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  specialty_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  specialty_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  specialty_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  specialty_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  specialty_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  specialty_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  specialty_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  specialty_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  specialty_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  specialty_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  specialty_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  specialty_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  title_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  title_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  title_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  title_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  title_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  title_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  title_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  title_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  title_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  title_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  title_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  title_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  title_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  title_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  title_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  twitter_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  twitter_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  twitter_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  twitter_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  twitter_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  twitter_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  twitter_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  twitter_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  twitter_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  twitter_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  twitter_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  twitter_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  twitter_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  twitter_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  twitter_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
   userId_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
   userId_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
   userId_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
@@ -12224,21 +13069,6 @@ export type DocumentsUserHasNodeAggregationWhereInput = {
   userId_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
   userId_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
   userId_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  zip_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
-  zip_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
-  zip_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
-  zip_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
-  zip_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
-  zip_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  zip_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  zip_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  zip_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  zip_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  zip_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  zip_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  zip_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  zip_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  zip_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
 };
 
 export type DocumentsUserHasRelationship = {
@@ -12269,24 +13099,30 @@ export type DocumentsUserUserHasAggregationSelection = {
 
 export type DocumentsUserUserHasNodeAggregateSelection = {
   __typename?: 'DocumentsUserUserHasNodeAggregateSelection';
-  address: StringAggregateSelectionNullable;
   bio: StringAggregateSelectionNullable;
-  city: StringAggregateSelectionNullable;
+  companyDescription: StringAggregateSelectionNullable;
   companyEmail: StringAggregateSelectionNullable;
   companyName: StringAggregateSelectionNullable;
+  companyPhone: StringAggregateSelectionNullable;
   createdAt: DateTimeAggregateSelectionNullable;
+  department: StringAggregateSelectionNullable;
+  education: StringAggregateSelectionNullable;
   email: StringAggregateSelectionNullable;
+  experience: StringAggregateSelectionNullable;
   gstNumber: StringAggregateSelectionNullable;
   id: IdAggregateSelectionNonNullable;
   image: StringAggregateSelectionNullable;
-  mobile: StringAggregateSelectionNullable;
+  interest: StringAggregateSelectionNullable;
+  linkedin: StringAggregateSelectionNullable;
   name: StringAggregateSelectionNullable;
   panCardNo: StringAggregateSelectionNullable;
   phone: StringAggregateSelectionNullable;
-  secondAddress: StringAggregateSelectionNullable;
-  state: StringAggregateSelectionNullable;
+  phoneNumber: StringAggregateSelectionNullable;
+  skypeId: StringAggregateSelectionNullable;
+  specialty: StringAggregateSelectionNullable;
+  title: StringAggregateSelectionNullable;
+  twitter: StringAggregateSelectionNullable;
   userId: StringAggregateSelectionNullable;
-  zip: StringAggregateSelectionNullable;
 };
 
 export type DocumentsWhere = {
@@ -12493,21 +13329,6 @@ export type EmployeeUserHasNodeAggregationWhereInput = {
   AND?: InputMaybe<Array<EmployeeUserHasNodeAggregationWhereInput>>;
   NOT?: InputMaybe<EmployeeUserHasNodeAggregationWhereInput>;
   OR?: InputMaybe<Array<EmployeeUserHasNodeAggregationWhereInput>>;
-  address_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
-  address_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
-  address_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
-  address_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
-  address_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
-  address_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  address_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  address_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  address_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  address_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  address_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  address_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  address_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  address_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  address_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
   bio_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
   bio_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
   bio_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
@@ -12523,21 +13344,21 @@ export type EmployeeUserHasNodeAggregationWhereInput = {
   bio_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
   bio_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
   bio_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  city_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
-  city_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
-  city_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
-  city_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
-  city_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
-  city_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  city_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  city_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  city_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  city_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  city_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  city_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  city_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  city_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  city_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  companyDescription_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  companyDescription_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  companyDescription_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  companyDescription_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  companyDescription_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  companyDescription_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  companyDescription_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  companyDescription_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  companyDescription_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  companyDescription_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  companyDescription_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  companyDescription_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  companyDescription_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  companyDescription_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  companyDescription_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
   companyEmail_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
   companyEmail_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
   companyEmail_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
@@ -12568,6 +13389,21 @@ export type EmployeeUserHasNodeAggregationWhereInput = {
   companyName_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
   companyName_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
   companyName_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  companyPhone_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  companyPhone_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  companyPhone_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  companyPhone_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  companyPhone_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  companyPhone_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  companyPhone_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  companyPhone_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  companyPhone_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  companyPhone_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  companyPhone_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  companyPhone_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  companyPhone_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  companyPhone_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  companyPhone_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
   createdAt_MAX_EQUAL?: InputMaybe<Scalars['DateTime']['input']>;
   createdAt_MAX_GT?: InputMaybe<Scalars['DateTime']['input']>;
   createdAt_MAX_GTE?: InputMaybe<Scalars['DateTime']['input']>;
@@ -12578,6 +13414,36 @@ export type EmployeeUserHasNodeAggregationWhereInput = {
   createdAt_MIN_GTE?: InputMaybe<Scalars['DateTime']['input']>;
   createdAt_MIN_LT?: InputMaybe<Scalars['DateTime']['input']>;
   createdAt_MIN_LTE?: InputMaybe<Scalars['DateTime']['input']>;
+  department_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  department_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  department_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  department_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  department_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  department_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  department_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  department_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  department_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  department_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  department_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  department_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  department_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  department_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  department_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  education_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  education_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  education_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  education_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  education_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  education_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  education_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  education_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  education_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  education_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  education_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  education_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  education_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  education_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  education_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
   email_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
   email_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
   email_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
@@ -12593,6 +13459,21 @@ export type EmployeeUserHasNodeAggregationWhereInput = {
   email_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
   email_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
   email_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  experience_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  experience_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  experience_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  experience_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  experience_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  experience_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  experience_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  experience_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  experience_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  experience_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  experience_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  experience_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  experience_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  experience_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  experience_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
   gstNumber_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
   gstNumber_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
   gstNumber_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
@@ -12623,21 +13504,36 @@ export type EmployeeUserHasNodeAggregationWhereInput = {
   image_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
   image_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
   image_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  mobile_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
-  mobile_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
-  mobile_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
-  mobile_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
-  mobile_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
-  mobile_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  mobile_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  mobile_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  mobile_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  mobile_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  mobile_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  mobile_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  mobile_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  mobile_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  mobile_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  interest_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  interest_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  interest_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  interest_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  interest_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  interest_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  interest_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  interest_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  interest_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  interest_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  interest_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  interest_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  interest_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  interest_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  interest_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  linkedin_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  linkedin_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  linkedin_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  linkedin_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  linkedin_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
   name_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
   name_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
   name_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
@@ -12668,6 +13564,21 @@ export type EmployeeUserHasNodeAggregationWhereInput = {
   panCardNo_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
   panCardNo_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
   panCardNo_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  phoneNumber_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  phoneNumber_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  phoneNumber_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  phoneNumber_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  phoneNumber_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  phoneNumber_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  phoneNumber_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  phoneNumber_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  phoneNumber_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  phoneNumber_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  phoneNumber_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  phoneNumber_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  phoneNumber_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  phoneNumber_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  phoneNumber_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
   phone_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
   phone_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
   phone_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
@@ -12683,36 +13594,66 @@ export type EmployeeUserHasNodeAggregationWhereInput = {
   phone_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
   phone_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
   phone_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  secondAddress_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
-  secondAddress_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
-  secondAddress_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
-  secondAddress_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
-  secondAddress_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
-  secondAddress_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  secondAddress_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  secondAddress_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  secondAddress_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  secondAddress_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  secondAddress_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  secondAddress_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  secondAddress_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  secondAddress_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  secondAddress_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  state_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
-  state_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
-  state_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
-  state_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
-  state_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
-  state_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  state_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  state_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  state_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  state_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  state_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  state_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  state_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  state_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  state_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  skypeId_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  skypeId_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  skypeId_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  skypeId_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  skypeId_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  specialty_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  specialty_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  specialty_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  specialty_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  specialty_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  specialty_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  specialty_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  specialty_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  specialty_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  specialty_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  specialty_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  specialty_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  specialty_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  specialty_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  specialty_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  title_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  title_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  title_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  title_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  title_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  title_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  title_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  title_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  title_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  title_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  title_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  title_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  title_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  title_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  title_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  twitter_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  twitter_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  twitter_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  twitter_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  twitter_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  twitter_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  twitter_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  twitter_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  twitter_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  twitter_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  twitter_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  twitter_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  twitter_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  twitter_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  twitter_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
   userId_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
   userId_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
   userId_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
@@ -12728,21 +13669,6 @@ export type EmployeeUserHasNodeAggregationWhereInput = {
   userId_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
   userId_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
   userId_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  zip_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
-  zip_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
-  zip_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
-  zip_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
-  zip_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
-  zip_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  zip_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  zip_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  zip_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  zip_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  zip_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  zip_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  zip_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  zip_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  zip_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
 };
 
 export type EmployeeUserHasRelationship = {
@@ -12773,24 +13699,30 @@ export type EmployeeUserUserHasAggregationSelection = {
 
 export type EmployeeUserUserHasNodeAggregateSelection = {
   __typename?: 'EmployeeUserUserHasNodeAggregateSelection';
-  address: StringAggregateSelectionNullable;
   bio: StringAggregateSelectionNullable;
-  city: StringAggregateSelectionNullable;
+  companyDescription: StringAggregateSelectionNullable;
   companyEmail: StringAggregateSelectionNullable;
   companyName: StringAggregateSelectionNullable;
+  companyPhone: StringAggregateSelectionNullable;
   createdAt: DateTimeAggregateSelectionNullable;
+  department: StringAggregateSelectionNullable;
+  education: StringAggregateSelectionNullable;
   email: StringAggregateSelectionNullable;
+  experience: StringAggregateSelectionNullable;
   gstNumber: StringAggregateSelectionNullable;
   id: IdAggregateSelectionNonNullable;
   image: StringAggregateSelectionNullable;
-  mobile: StringAggregateSelectionNullable;
+  interest: StringAggregateSelectionNullable;
+  linkedin: StringAggregateSelectionNullable;
   name: StringAggregateSelectionNullable;
   panCardNo: StringAggregateSelectionNullable;
   phone: StringAggregateSelectionNullable;
-  secondAddress: StringAggregateSelectionNullable;
-  state: StringAggregateSelectionNullable;
+  phoneNumber: StringAggregateSelectionNullable;
+  skypeId: StringAggregateSelectionNullable;
+  specialty: StringAggregateSelectionNullable;
+  title: StringAggregateSelectionNullable;
+  twitter: StringAggregateSelectionNullable;
   userId: StringAggregateSelectionNullable;
-  zip: StringAggregateSelectionNullable;
 };
 
 export type EmployeeWhere = {
@@ -12819,6 +13751,303 @@ export type EmployeesConnection = {
   edges: Array<EmployeeEdge>;
   pageInfo: PageInfo;
   totalCount: Scalars['Int']['output'];
+};
+
+export type Equipment = {
+  __typename?: 'Equipment';
+  attachment?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  calibrationDetails?: Maybe<Scalars['String']['output']>;
+  id: Scalars['ID']['output'];
+  make?: Maybe<Scalars['String']['output']>;
+  model?: Maybe<Scalars['String']['output']>;
+  name?: Maybe<Scalars['String']['output']>;
+  vendorHasMany?: Maybe<Vendor>;
+  vendorHasManyAggregate?: Maybe<EquipmentVendorVendorHasManyAggregationSelection>;
+  vendorHasManyConnection: EquipmentVendorHasManyConnection;
+  warranty?: Maybe<Scalars['String']['output']>;
+  yearOfInstallation?: Maybe<Scalars['String']['output']>;
+};
+
+
+export type EquipmentVendorHasManyArgs = {
+  directed?: InputMaybe<Scalars['Boolean']['input']>;
+  options?: InputMaybe<VendorOptions>;
+  where?: InputMaybe<VendorWhere>;
+};
+
+
+export type EquipmentVendorHasManyAggregateArgs = {
+  directed?: InputMaybe<Scalars['Boolean']['input']>;
+  where?: InputMaybe<VendorWhere>;
+};
+
+
+export type EquipmentVendorHasManyConnectionArgs = {
+  after?: InputMaybe<Scalars['String']['input']>;
+  directed?: InputMaybe<Scalars['Boolean']['input']>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  sort?: InputMaybe<Array<EquipmentVendorHasManyConnectionSort>>;
+  where?: InputMaybe<EquipmentVendorHasManyConnectionWhere>;
+};
+
+export type EquipmentAggregateSelection = {
+  __typename?: 'EquipmentAggregateSelection';
+  calibrationDetails: StringAggregateSelectionNullable;
+  count: Scalars['Int']['output'];
+  id: IdAggregateSelectionNonNullable;
+  make: StringAggregateSelectionNullable;
+  model: StringAggregateSelectionNullable;
+  name: StringAggregateSelectionNullable;
+  warranty: StringAggregateSelectionNullable;
+  yearOfInstallation: StringAggregateSelectionNullable;
+};
+
+export type EquipmentConnectInput = {
+  vendorHasMany?: InputMaybe<EquipmentVendorHasManyConnectFieldInput>;
+};
+
+export type EquipmentConnectOrCreateInput = {
+  vendorHasMany?: InputMaybe<EquipmentVendorHasManyConnectOrCreateFieldInput>;
+};
+
+export type EquipmentConnectOrCreateWhere = {
+  node: EquipmentUniqueWhere;
+};
+
+export type EquipmentConnectWhere = {
+  node: EquipmentWhere;
+};
+
+export type EquipmentConnection = {
+  __typename?: 'EquipmentConnection';
+  edges: Array<EquipmentEdge>;
+  pageInfo: PageInfo;
+  totalCount: Scalars['Int']['output'];
+};
+
+export type EquipmentCreateInput = {
+  attachment?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  calibrationDetails?: InputMaybe<Scalars['String']['input']>;
+  make?: InputMaybe<Scalars['String']['input']>;
+  model?: InputMaybe<Scalars['String']['input']>;
+  name?: InputMaybe<Scalars['String']['input']>;
+  vendorHasMany?: InputMaybe<EquipmentVendorHasManyFieldInput>;
+  warranty?: InputMaybe<Scalars['String']['input']>;
+  yearOfInstallation?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type EquipmentDeleteInput = {
+  vendorHasMany?: InputMaybe<EquipmentVendorHasManyDeleteFieldInput>;
+};
+
+export type EquipmentDisconnectInput = {
+  vendorHasMany?: InputMaybe<EquipmentVendorHasManyDisconnectFieldInput>;
+};
+
+export type EquipmentEdge = {
+  __typename?: 'EquipmentEdge';
+  cursor: Scalars['String']['output'];
+  node: Equipment;
+};
+
+export type EquipmentOnCreateInput = {
+  attachment?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  calibrationDetails?: InputMaybe<Scalars['String']['input']>;
+  make?: InputMaybe<Scalars['String']['input']>;
+  model?: InputMaybe<Scalars['String']['input']>;
+  name?: InputMaybe<Scalars['String']['input']>;
+  warranty?: InputMaybe<Scalars['String']['input']>;
+  yearOfInstallation?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type EquipmentOptions = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  /** Specify one or more EquipmentSort objects to sort Equipment by. The sorts will be applied in the order in which they are arranged in the array. */
+  sort?: InputMaybe<Array<EquipmentSort>>;
+};
+
+export type EquipmentRelationInput = {
+  vendorHasMany?: InputMaybe<EquipmentVendorHasManyCreateFieldInput>;
+};
+
+/** Fields to sort Equipment by. The order in which sorts are applied is not guaranteed when specifying many fields in one EquipmentSort object. */
+export type EquipmentSort = {
+  calibrationDetails?: InputMaybe<SortDirection>;
+  id?: InputMaybe<SortDirection>;
+  make?: InputMaybe<SortDirection>;
+  model?: InputMaybe<SortDirection>;
+  name?: InputMaybe<SortDirection>;
+  warranty?: InputMaybe<SortDirection>;
+  yearOfInstallation?: InputMaybe<SortDirection>;
+};
+
+export type EquipmentUniqueWhere = {
+  id?: InputMaybe<Scalars['ID']['input']>;
+};
+
+export type EquipmentUpdateInput = {
+  attachment?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  attachment_POP?: InputMaybe<Scalars['Int']['input']>;
+  attachment_PUSH?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  calibrationDetails?: InputMaybe<Scalars['String']['input']>;
+  make?: InputMaybe<Scalars['String']['input']>;
+  model?: InputMaybe<Scalars['String']['input']>;
+  name?: InputMaybe<Scalars['String']['input']>;
+  vendorHasMany?: InputMaybe<EquipmentVendorHasManyUpdateFieldInput>;
+  warranty?: InputMaybe<Scalars['String']['input']>;
+  yearOfInstallation?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type EquipmentVendorHasManyAggregateInput = {
+  AND?: InputMaybe<Array<EquipmentVendorHasManyAggregateInput>>;
+  NOT?: InputMaybe<EquipmentVendorHasManyAggregateInput>;
+  OR?: InputMaybe<Array<EquipmentVendorHasManyAggregateInput>>;
+  count?: InputMaybe<Scalars['Int']['input']>;
+  count_GT?: InputMaybe<Scalars['Int']['input']>;
+  count_GTE?: InputMaybe<Scalars['Int']['input']>;
+  count_LT?: InputMaybe<Scalars['Int']['input']>;
+  count_LTE?: InputMaybe<Scalars['Int']['input']>;
+  node?: InputMaybe<EquipmentVendorHasManyNodeAggregationWhereInput>;
+};
+
+export type EquipmentVendorHasManyConnectFieldInput = {
+  connect?: InputMaybe<VendorConnectInput>;
+  /** Whether or not to overwrite any matching relationship with the new properties. Will default to `false` in 4.0.0. */
+  overwrite?: Scalars['Boolean']['input'];
+  where?: InputMaybe<VendorConnectWhere>;
+};
+
+export type EquipmentVendorHasManyConnectOrCreateFieldInput = {
+  onCreate: EquipmentVendorHasManyConnectOrCreateFieldInputOnCreate;
+  where: VendorConnectOrCreateWhere;
+};
+
+export type EquipmentVendorHasManyConnectOrCreateFieldInputOnCreate = {
+  node: VendorOnCreateInput;
+};
+
+export type EquipmentVendorHasManyConnection = {
+  __typename?: 'EquipmentVendorHasManyConnection';
+  edges: Array<EquipmentVendorHasManyRelationship>;
+  pageInfo: PageInfo;
+  totalCount: Scalars['Int']['output'];
+};
+
+export type EquipmentVendorHasManyConnectionSort = {
+  node?: InputMaybe<VendorSort>;
+};
+
+export type EquipmentVendorHasManyConnectionWhere = {
+  AND?: InputMaybe<Array<EquipmentVendorHasManyConnectionWhere>>;
+  NOT?: InputMaybe<EquipmentVendorHasManyConnectionWhere>;
+  OR?: InputMaybe<Array<EquipmentVendorHasManyConnectionWhere>>;
+  node?: InputMaybe<VendorWhere>;
+};
+
+export type EquipmentVendorHasManyCreateFieldInput = {
+  node: VendorCreateInput;
+};
+
+export type EquipmentVendorHasManyDeleteFieldInput = {
+  delete?: InputMaybe<VendorDeleteInput>;
+  where?: InputMaybe<EquipmentVendorHasManyConnectionWhere>;
+};
+
+export type EquipmentVendorHasManyDisconnectFieldInput = {
+  disconnect?: InputMaybe<VendorDisconnectInput>;
+  where?: InputMaybe<EquipmentVendorHasManyConnectionWhere>;
+};
+
+export type EquipmentVendorHasManyFieldInput = {
+  connect?: InputMaybe<EquipmentVendorHasManyConnectFieldInput>;
+  connectOrCreate?: InputMaybe<EquipmentVendorHasManyConnectOrCreateFieldInput>;
+  create?: InputMaybe<EquipmentVendorHasManyCreateFieldInput>;
+};
+
+export type EquipmentVendorHasManyNodeAggregationWhereInput = {
+  AND?: InputMaybe<Array<EquipmentVendorHasManyNodeAggregationWhereInput>>;
+  NOT?: InputMaybe<EquipmentVendorHasManyNodeAggregationWhereInput>;
+  OR?: InputMaybe<Array<EquipmentVendorHasManyNodeAggregationWhereInput>>;
+};
+
+export type EquipmentVendorHasManyRelationship = {
+  __typename?: 'EquipmentVendorHasManyRelationship';
+  cursor: Scalars['String']['output'];
+  node: Vendor;
+};
+
+export type EquipmentVendorHasManyUpdateConnectionInput = {
+  node?: InputMaybe<VendorUpdateInput>;
+};
+
+export type EquipmentVendorHasManyUpdateFieldInput = {
+  connect?: InputMaybe<EquipmentVendorHasManyConnectFieldInput>;
+  connectOrCreate?: InputMaybe<EquipmentVendorHasManyConnectOrCreateFieldInput>;
+  create?: InputMaybe<EquipmentVendorHasManyCreateFieldInput>;
+  delete?: InputMaybe<EquipmentVendorHasManyDeleteFieldInput>;
+  disconnect?: InputMaybe<EquipmentVendorHasManyDisconnectFieldInput>;
+  update?: InputMaybe<EquipmentVendorHasManyUpdateConnectionInput>;
+  where?: InputMaybe<EquipmentVendorHasManyConnectionWhere>;
+};
+
+export type EquipmentVendorVendorHasManyAggregationSelection = {
+  __typename?: 'EquipmentVendorVendorHasManyAggregationSelection';
+  count: Scalars['Int']['output'];
+  node?: Maybe<EquipmentVendorVendorHasManyNodeAggregateSelection>;
+};
+
+export type EquipmentVendorVendorHasManyNodeAggregateSelection = {
+  __typename?: 'EquipmentVendorVendorHasManyNodeAggregateSelection';
+  id: IdAggregateSelectionNonNullable;
+};
+
+export type EquipmentWhere = {
+  AND?: InputMaybe<Array<EquipmentWhere>>;
+  NOT?: InputMaybe<EquipmentWhere>;
+  OR?: InputMaybe<Array<EquipmentWhere>>;
+  attachment?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  attachment_INCLUDES?: InputMaybe<Scalars['String']['input']>;
+  calibrationDetails?: InputMaybe<Scalars['String']['input']>;
+  calibrationDetails_CONTAINS?: InputMaybe<Scalars['String']['input']>;
+  calibrationDetails_ENDS_WITH?: InputMaybe<Scalars['String']['input']>;
+  calibrationDetails_IN?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  calibrationDetails_STARTS_WITH?: InputMaybe<Scalars['String']['input']>;
+  id?: InputMaybe<Scalars['ID']['input']>;
+  id_CONTAINS?: InputMaybe<Scalars['ID']['input']>;
+  id_ENDS_WITH?: InputMaybe<Scalars['ID']['input']>;
+  id_IN?: InputMaybe<Array<Scalars['ID']['input']>>;
+  id_STARTS_WITH?: InputMaybe<Scalars['ID']['input']>;
+  make?: InputMaybe<Scalars['String']['input']>;
+  make_CONTAINS?: InputMaybe<Scalars['String']['input']>;
+  make_ENDS_WITH?: InputMaybe<Scalars['String']['input']>;
+  make_IN?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  make_STARTS_WITH?: InputMaybe<Scalars['String']['input']>;
+  model?: InputMaybe<Scalars['String']['input']>;
+  model_CONTAINS?: InputMaybe<Scalars['String']['input']>;
+  model_ENDS_WITH?: InputMaybe<Scalars['String']['input']>;
+  model_IN?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  model_STARTS_WITH?: InputMaybe<Scalars['String']['input']>;
+  name?: InputMaybe<Scalars['String']['input']>;
+  name_CONTAINS?: InputMaybe<Scalars['String']['input']>;
+  name_ENDS_WITH?: InputMaybe<Scalars['String']['input']>;
+  name_IN?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  name_STARTS_WITH?: InputMaybe<Scalars['String']['input']>;
+  vendorHasMany?: InputMaybe<VendorWhere>;
+  vendorHasManyAggregate?: InputMaybe<EquipmentVendorHasManyAggregateInput>;
+  vendorHasManyConnection?: InputMaybe<EquipmentVendorHasManyConnectionWhere>;
+  vendorHasManyConnection_NOT?: InputMaybe<EquipmentVendorHasManyConnectionWhere>;
+  vendorHasMany_NOT?: InputMaybe<VendorWhere>;
+  warranty?: InputMaybe<Scalars['String']['input']>;
+  warranty_CONTAINS?: InputMaybe<Scalars['String']['input']>;
+  warranty_ENDS_WITH?: InputMaybe<Scalars['String']['input']>;
+  warranty_IN?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  warranty_STARTS_WITH?: InputMaybe<Scalars['String']['input']>;
+  yearOfInstallation?: InputMaybe<Scalars['String']['input']>;
+  yearOfInstallation_CONTAINS?: InputMaybe<Scalars['String']['input']>;
+  yearOfInstallation_ENDS_WITH?: InputMaybe<Scalars['String']['input']>;
+  yearOfInstallation_IN?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  yearOfInstallation_STARTS_WITH?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type Event = {
@@ -16003,6 +17232,7 @@ export type Invoice = {
   hasTermspageConnection: InvoiceHasTermspageConnection;
   hsn?: Maybe<Scalars['String']['output']>;
   id: Scalars['ID']['output'];
+  isViewed?: Maybe<Scalars['Boolean']['output']>;
   placeOfSupply?: Maybe<Scalars['String']['output']>;
   priceWithTax?: Maybe<Scalars['Int']['output']>;
   sentBy?: Maybe<SentBy>;
@@ -16333,6 +17563,7 @@ export type InvoiceCreateInput = {
   hasPurchase?: InputMaybe<InvoiceHasPurchaseFieldInput>;
   hasTermspage?: InputMaybe<InvoiceHasTermspageFieldInput>;
   hsn?: InputMaybe<Scalars['String']['input']>;
+  isViewed?: InputMaybe<Scalars['Boolean']['input']>;
   placeOfSupply?: InputMaybe<Scalars['String']['input']>;
   priceWithTax?: InputMaybe<Scalars['Int']['input']>;
   sentBy?: InputMaybe<SentBy>;
@@ -16864,6 +18095,7 @@ export type InvoiceOnCreateInput = {
   createdAt?: InputMaybe<Scalars['DateTime']['input']>;
   expiryDate?: InputMaybe<Scalars['DateTime']['input']>;
   hsn?: InputMaybe<Scalars['String']['input']>;
+  isViewed?: InputMaybe<Scalars['Boolean']['input']>;
   placeOfSupply?: InputMaybe<Scalars['String']['input']>;
   priceWithTax?: InputMaybe<Scalars['Int']['input']>;
   sentBy?: InputMaybe<SentBy>;
@@ -16915,6 +18147,7 @@ export type InvoiceSort = {
   expiryDate?: InputMaybe<SortDirection>;
   hsn?: InputMaybe<SortDirection>;
   id?: InputMaybe<SortDirection>;
+  isViewed?: InputMaybe<SortDirection>;
   placeOfSupply?: InputMaybe<SortDirection>;
   priceWithTax?: InputMaybe<SortDirection>;
   sentBy?: InputMaybe<SortDirection>;
@@ -16963,6 +18196,7 @@ export type InvoiceUpdateInput = {
   hasPurchase?: InputMaybe<Array<InvoiceHasPurchaseUpdateFieldInput>>;
   hasTermspage?: InputMaybe<InvoiceHasTermspageUpdateFieldInput>;
   hsn?: InputMaybe<Scalars['String']['input']>;
+  isViewed?: InputMaybe<Scalars['Boolean']['input']>;
   placeOfSupply?: InputMaybe<Scalars['String']['input']>;
   priceWithTax?: InputMaybe<Scalars['Int']['input']>;
   priceWithTax_DECREMENT?: InputMaybe<Scalars['Int']['input']>;
@@ -17051,36 +18285,6 @@ export type InvoiceVendorCreatedNodeAggregationWhereInput = {
   AND?: InputMaybe<Array<InvoiceVendorCreatedNodeAggregationWhereInput>>;
   NOT?: InputMaybe<InvoiceVendorCreatedNodeAggregationWhereInput>;
   OR?: InputMaybe<Array<InvoiceVendorCreatedNodeAggregationWhereInput>>;
-  labImage_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
-  labImage_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
-  labImage_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
-  labImage_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
-  labImage_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
-  labImage_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  labImage_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  labImage_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  labImage_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  labImage_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  labImage_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  labImage_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  labImage_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  labImage_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  labImage_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  sub_type_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
-  sub_type_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
-  sub_type_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
-  sub_type_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
-  sub_type_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
-  sub_type_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  sub_type_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  sub_type_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  sub_type_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  sub_type_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  sub_type_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  sub_type_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  sub_type_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  sub_type_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  sub_type_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
 };
 
 export type InvoiceVendorCreatedRelationship = {
@@ -17112,8 +18316,6 @@ export type InvoiceVendorVendorCreatedAggregationSelection = {
 export type InvoiceVendorVendorCreatedNodeAggregateSelection = {
   __typename?: 'InvoiceVendorVendorCreatedNodeAggregateSelection';
   id: IdAggregateSelectionNonNullable;
-  labImage: StringAggregateSelectionNullable;
-  sub_type: StringAggregateSelectionNullable;
 };
 
 export type InvoiceWhere = {
@@ -17199,6 +18401,7 @@ export type InvoiceWhere = {
   id_ENDS_WITH?: InputMaybe<Scalars['ID']['input']>;
   id_IN?: InputMaybe<Array<Scalars['ID']['input']>>;
   id_STARTS_WITH?: InputMaybe<Scalars['ID']['input']>;
+  isViewed?: InputMaybe<Scalars['Boolean']['input']>;
   placeOfSupply?: InputMaybe<Scalars['String']['input']>;
   placeOfSupply_CONTAINS?: InputMaybe<Scalars['String']['input']>;
   placeOfSupply_ENDS_WITH?: InputMaybe<Scalars['String']['input']>;
@@ -17255,32 +18458,88 @@ export type InvoicesConnection = {
   totalCount: Scalars['Int']['output'];
 };
 
+export enum LeadSourceEnum {
+  Advertisement = 'ADVERTISEMENT',
+  Chat = 'CHAT',
+  ColdCall = 'COLD_CALL',
+  EmployeeReferral = 'EMPLOYEE_REFERRAL',
+  ExternalReferral = 'EXTERNAL_REFERRAL',
+  Facebook = 'FACEBOOK',
+  GooglePlus = 'GOOGLE_PLUS',
+  InternalSeminar = 'INTERNAL_SEMINAR',
+  Linkedin = 'LINKEDIN',
+  OnlineStore = 'ONLINE_STORE',
+  Partner = 'PARTNER',
+  PublicRelations = 'PUBLIC_RELATIONS',
+  SalesEmailAlias = 'SALES_EMAIL_ALIAS',
+  SeminarPartner = 'SEMINAR_PARTNER',
+  TradeShow = 'TRADE_SHOW',
+  Twitter = 'TWITTER',
+  Website = 'WEBSITE',
+  WebDownload = 'WEB_DOWNLOAD',
+  WebResearch = 'WEB_RESEARCH'
+}
+
+export enum LeadStatusEnum {
+  AttemptedToContact = 'ATTEMPTED_TO_CONTACT',
+  Contacted = 'CONTACTED',
+  ContactInFuture = 'CONTACT_IN_FUTURE',
+  JunkLead = 'JUNK_LEAD',
+  LostLead = 'LOST_LEAD',
+  NotContacted = 'NOT_CONTACTED',
+  NotQualified = 'NOT_QUALIFIED',
+  PreQualified = 'PRE_QUALIFIED'
+}
+
 export type Leads = {
   __typename?: 'Leads';
+  Phone?: Maybe<Scalars['String']['output']>;
+  Title?: Maybe<Scalars['String']['output']>;
   adminHas?: Maybe<Admin>;
   adminHasAggregate?: Maybe<LeadsAdminAdminHasAggregationSelection>;
   adminHasConnection: LeadsAdminHasConnection;
+  annualRevenue?: Maybe<Scalars['String']['output']>;
   clientHas?: Maybe<Client>;
   clientHasAggregate?: Maybe<LeadsClientClientHasAggregationSelection>;
   clientHasConnection: LeadsClientHasConnection;
+  company?: Maybe<Scalars['String']['output']>;
   condition?: Maybe<Scalars['String']['output']>;
-  createdAt?: Maybe<Scalars['String']['output']>;
+  createdAt?: Maybe<Scalars['DateTime']['output']>;
+  createdBy?: Maybe<Scalars['String']['output']>;
+  description?: Maybe<Scalars['String']['output']>;
   duration?: Maybe<Scalars['String']['output']>;
   email?: Maybe<Scalars['String']['output']>;
+  employeeCount?: Maybe<Scalars['String']['output']>;
   gstNumber?: Maybe<Scalars['String']['output']>;
+  hasPrimaryaddress?: Maybe<PrimaryAddress>;
+  hasPrimaryaddressAggregate?: Maybe<LeadsPrimaryAddressHasPrimaryaddressAggregationSelection>;
+  hasPrimaryaddressConnection: LeadsHasPrimaryaddressConnection;
   id: Scalars['ID']['output'];
   industry?: Maybe<Scalars['String']['output']>;
   interest?: Maybe<Scalars['String']['output']>;
+  isViewed?: Maybe<Scalars['Boolean']['output']>;
+  leadOwner?: Maybe<Scalars['String']['output']>;
+  leadSource?: Maybe<LeadSourceEnum>;
+  leadStatus?: Maybe<LeadStatusEnum>;
+  linkedin?: Maybe<Scalars['String']['output']>;
   message?: Maybe<Scalars['String']['output']>;
   name?: Maybe<Scalars['String']['output']>;
+  officePhone?: Maybe<Scalars['String']['output']>;
   phone?: Maybe<Scalars['String']['output']>;
   price?: Maybe<Scalars['Int']['output']>;
+  ratting?: Maybe<LeadStatusEnum>;
+  secondaryEmail?: Maybe<Scalars['String']['output']>;
+  skypeId?: Maybe<Scalars['String']['output']>;
   status?: Maybe<Status>;
+  twitter?: Maybe<Scalars['String']['output']>;
   type?: Maybe<Scalars['String']['output']>;
+  updatedAt?: Maybe<Scalars['DateTime']['output']>;
+  updatedBy?: Maybe<Scalars['String']['output']>;
   vendorAddress?: Maybe<Scalars['String']['output']>;
   vendorHas?: Maybe<Vendor>;
   vendorHasAggregate?: Maybe<LeadsVendorVendorHasAggregationSelection>;
   vendorHasConnection: LeadsVendorHasConnection;
+  website?: Maybe<Scalars['String']['output']>;
 };
 
 
@@ -17325,6 +18584,28 @@ export type LeadsClientHasConnectionArgs = {
   first?: InputMaybe<Scalars['Int']['input']>;
   sort?: InputMaybe<Array<LeadsClientHasConnectionSort>>;
   where?: InputMaybe<LeadsClientHasConnectionWhere>;
+};
+
+
+export type LeadsHasPrimaryaddressArgs = {
+  directed?: InputMaybe<Scalars['Boolean']['input']>;
+  options?: InputMaybe<PrimaryAddressOptions>;
+  where?: InputMaybe<PrimaryAddressWhere>;
+};
+
+
+export type LeadsHasPrimaryaddressAggregateArgs = {
+  directed?: InputMaybe<Scalars['Boolean']['input']>;
+  where?: InputMaybe<PrimaryAddressWhere>;
+};
+
+
+export type LeadsHasPrimaryaddressConnectionArgs = {
+  after?: InputMaybe<Scalars['String']['input']>;
+  directed?: InputMaybe<Scalars['Boolean']['input']>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  sort?: InputMaybe<Array<LeadsHasPrimaryaddressConnectionSort>>;
+  where?: InputMaybe<LeadsHasPrimaryaddressConnectionWhere>;
 };
 
 
@@ -17454,21 +18735,37 @@ export type LeadsAdminHasUpdateFieldInput = {
 
 export type LeadsAggregateSelection = {
   __typename?: 'LeadsAggregateSelection';
+  Phone: StringAggregateSelectionNullable;
+  Title: StringAggregateSelectionNullable;
+  annualRevenue: StringAggregateSelectionNullable;
+  company: StringAggregateSelectionNullable;
   condition: StringAggregateSelectionNullable;
   count: Scalars['Int']['output'];
-  createdAt: StringAggregateSelectionNullable;
+  createdAt: DateTimeAggregateSelectionNullable;
+  createdBy: StringAggregateSelectionNullable;
+  description: StringAggregateSelectionNullable;
   duration: StringAggregateSelectionNullable;
   email: StringAggregateSelectionNullable;
+  employeeCount: StringAggregateSelectionNullable;
   gstNumber: StringAggregateSelectionNullable;
   id: IdAggregateSelectionNonNullable;
   industry: StringAggregateSelectionNullable;
   interest: StringAggregateSelectionNullable;
+  leadOwner: StringAggregateSelectionNullable;
+  linkedin: StringAggregateSelectionNullable;
   message: StringAggregateSelectionNullable;
   name: StringAggregateSelectionNullable;
+  officePhone: StringAggregateSelectionNullable;
   phone: StringAggregateSelectionNullable;
   price: IntAggregateSelectionNullable;
+  secondaryEmail: StringAggregateSelectionNullable;
+  skypeId: StringAggregateSelectionNullable;
+  twitter: StringAggregateSelectionNullable;
   type: StringAggregateSelectionNullable;
+  updatedAt: DateTimeAggregateSelectionNullable;
+  updatedBy: StringAggregateSelectionNullable;
   vendorAddress: StringAggregateSelectionNullable;
+  website: StringAggregateSelectionNullable;
 };
 
 export type LeadsClientClientHasAggregationSelection = {
@@ -17593,12 +18890,14 @@ export type LeadsClientHasUpdateFieldInput = {
 export type LeadsConnectInput = {
   adminHas?: InputMaybe<LeadsAdminHasConnectFieldInput>;
   clientHas?: InputMaybe<LeadsClientHasConnectFieldInput>;
+  hasPrimaryaddress?: InputMaybe<LeadsHasPrimaryaddressConnectFieldInput>;
   vendorHas?: InputMaybe<LeadsVendorHasConnectFieldInput>;
 };
 
 export type LeadsConnectOrCreateInput = {
   adminHas?: InputMaybe<LeadsAdminHasConnectOrCreateFieldInput>;
   clientHas?: InputMaybe<LeadsClientHasConnectOrCreateFieldInput>;
+  hasPrimaryaddress?: InputMaybe<LeadsHasPrimaryaddressConnectOrCreateFieldInput>;
   vendorHas?: InputMaybe<LeadsVendorHasConnectOrCreateFieldInput>;
 };
 
@@ -17618,34 +18917,57 @@ export type LeadsConnection = {
 };
 
 export type LeadsCreateInput = {
+  Phone?: InputMaybe<Scalars['String']['input']>;
+  Title?: InputMaybe<Scalars['String']['input']>;
   adminHas?: InputMaybe<LeadsAdminHasFieldInput>;
+  annualRevenue?: InputMaybe<Scalars['String']['input']>;
   clientHas?: InputMaybe<LeadsClientHasFieldInput>;
+  company?: InputMaybe<Scalars['String']['input']>;
   condition?: InputMaybe<Scalars['String']['input']>;
-  createdAt?: InputMaybe<Scalars['String']['input']>;
+  createdAt?: InputMaybe<Scalars['DateTime']['input']>;
+  createdBy?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
   duration?: InputMaybe<Scalars['String']['input']>;
   email?: InputMaybe<Scalars['String']['input']>;
+  employeeCount?: InputMaybe<Scalars['String']['input']>;
   gstNumber?: InputMaybe<Scalars['String']['input']>;
+  hasPrimaryaddress?: InputMaybe<LeadsHasPrimaryaddressFieldInput>;
   industry?: InputMaybe<Scalars['String']['input']>;
   interest?: InputMaybe<Scalars['String']['input']>;
+  isViewed?: InputMaybe<Scalars['Boolean']['input']>;
+  leadOwner?: InputMaybe<Scalars['String']['input']>;
+  leadSource?: InputMaybe<LeadSourceEnum>;
+  leadStatus?: InputMaybe<LeadStatusEnum>;
+  linkedin?: InputMaybe<Scalars['String']['input']>;
   message?: InputMaybe<Scalars['String']['input']>;
   name?: InputMaybe<Scalars['String']['input']>;
+  officePhone?: InputMaybe<Scalars['String']['input']>;
   phone?: InputMaybe<Scalars['String']['input']>;
   price?: InputMaybe<Scalars['Int']['input']>;
+  ratting?: InputMaybe<LeadStatusEnum>;
+  secondaryEmail?: InputMaybe<Scalars['String']['input']>;
+  skypeId?: InputMaybe<Scalars['String']['input']>;
   status?: InputMaybe<Status>;
+  twitter?: InputMaybe<Scalars['String']['input']>;
   type?: InputMaybe<Scalars['String']['input']>;
+  updatedAt?: InputMaybe<Scalars['DateTime']['input']>;
+  updatedBy?: InputMaybe<Scalars['String']['input']>;
   vendorAddress?: InputMaybe<Scalars['String']['input']>;
   vendorHas?: InputMaybe<LeadsVendorHasFieldInput>;
+  website?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type LeadsDeleteInput = {
   adminHas?: InputMaybe<LeadsAdminHasDeleteFieldInput>;
   clientHas?: InputMaybe<LeadsClientHasDeleteFieldInput>;
+  hasPrimaryaddress?: InputMaybe<LeadsHasPrimaryaddressDeleteFieldInput>;
   vendorHas?: InputMaybe<LeadsVendorHasDeleteFieldInput>;
 };
 
 export type LeadsDisconnectInput = {
   adminHas?: InputMaybe<LeadsAdminHasDisconnectFieldInput>;
   clientHas?: InputMaybe<LeadsClientHasDisconnectFieldInput>;
+  hasPrimaryaddress?: InputMaybe<LeadsHasPrimaryaddressDisconnectFieldInput>;
   vendorHas?: InputMaybe<LeadsVendorHasDisconnectFieldInput>;
 };
 
@@ -17655,21 +18977,208 @@ export type LeadsEdge = {
   node: Leads;
 };
 
+export type LeadsHasPrimaryaddressAggregateInput = {
+  AND?: InputMaybe<Array<LeadsHasPrimaryaddressAggregateInput>>;
+  NOT?: InputMaybe<LeadsHasPrimaryaddressAggregateInput>;
+  OR?: InputMaybe<Array<LeadsHasPrimaryaddressAggregateInput>>;
+  count?: InputMaybe<Scalars['Int']['input']>;
+  count_GT?: InputMaybe<Scalars['Int']['input']>;
+  count_GTE?: InputMaybe<Scalars['Int']['input']>;
+  count_LT?: InputMaybe<Scalars['Int']['input']>;
+  count_LTE?: InputMaybe<Scalars['Int']['input']>;
+  node?: InputMaybe<LeadsHasPrimaryaddressNodeAggregationWhereInput>;
+};
+
+export type LeadsHasPrimaryaddressConnectFieldInput = {
+  connect?: InputMaybe<PrimaryAddressConnectInput>;
+  /** Whether or not to overwrite any matching relationship with the new properties. Will default to `false` in 4.0.0. */
+  overwrite?: Scalars['Boolean']['input'];
+  where?: InputMaybe<PrimaryAddressConnectWhere>;
+};
+
+export type LeadsHasPrimaryaddressConnectOrCreateFieldInput = {
+  onCreate: LeadsHasPrimaryaddressConnectOrCreateFieldInputOnCreate;
+  where: PrimaryAddressConnectOrCreateWhere;
+};
+
+export type LeadsHasPrimaryaddressConnectOrCreateFieldInputOnCreate = {
+  node: PrimaryAddressOnCreateInput;
+};
+
+export type LeadsHasPrimaryaddressConnection = {
+  __typename?: 'LeadsHasPrimaryaddressConnection';
+  edges: Array<LeadsHasPrimaryaddressRelationship>;
+  pageInfo: PageInfo;
+  totalCount: Scalars['Int']['output'];
+};
+
+export type LeadsHasPrimaryaddressConnectionSort = {
+  node?: InputMaybe<PrimaryAddressSort>;
+};
+
+export type LeadsHasPrimaryaddressConnectionWhere = {
+  AND?: InputMaybe<Array<LeadsHasPrimaryaddressConnectionWhere>>;
+  NOT?: InputMaybe<LeadsHasPrimaryaddressConnectionWhere>;
+  OR?: InputMaybe<Array<LeadsHasPrimaryaddressConnectionWhere>>;
+  node?: InputMaybe<PrimaryAddressWhere>;
+};
+
+export type LeadsHasPrimaryaddressCreateFieldInput = {
+  node: PrimaryAddressCreateInput;
+};
+
+export type LeadsHasPrimaryaddressDeleteFieldInput = {
+  delete?: InputMaybe<PrimaryAddressDeleteInput>;
+  where?: InputMaybe<LeadsHasPrimaryaddressConnectionWhere>;
+};
+
+export type LeadsHasPrimaryaddressDisconnectFieldInput = {
+  disconnect?: InputMaybe<PrimaryAddressDisconnectInput>;
+  where?: InputMaybe<LeadsHasPrimaryaddressConnectionWhere>;
+};
+
+export type LeadsHasPrimaryaddressFieldInput = {
+  connect?: InputMaybe<LeadsHasPrimaryaddressConnectFieldInput>;
+  connectOrCreate?: InputMaybe<LeadsHasPrimaryaddressConnectOrCreateFieldInput>;
+  create?: InputMaybe<LeadsHasPrimaryaddressCreateFieldInput>;
+};
+
+export type LeadsHasPrimaryaddressNodeAggregationWhereInput = {
+  AND?: InputMaybe<Array<LeadsHasPrimaryaddressNodeAggregationWhereInput>>;
+  Country_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  Country_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  Country_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  Country_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  Country_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  Country_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  Country_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  Country_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  Country_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  Country_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  Country_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  Country_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  Country_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  Country_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  Country_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  NOT?: InputMaybe<LeadsHasPrimaryaddressNodeAggregationWhereInput>;
+  OR?: InputMaybe<Array<LeadsHasPrimaryaddressNodeAggregationWhereInput>>;
+  city_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  city_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  city_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  city_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  city_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  city_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  city_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  city_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  city_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  city_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  city_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  city_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  city_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  city_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  city_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  state_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  state_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  state_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  state_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  state_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  state_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  state_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  state_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  state_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  state_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  state_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  state_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  state_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  state_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  state_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  street_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  street_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  street_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  street_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  street_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  street_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  street_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  street_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  street_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  street_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  street_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  street_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  street_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  street_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  street_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  zipCode_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  zipCode_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  zipCode_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  zipCode_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  zipCode_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  zipCode_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  zipCode_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  zipCode_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  zipCode_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  zipCode_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  zipCode_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  zipCode_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  zipCode_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  zipCode_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  zipCode_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+};
+
+export type LeadsHasPrimaryaddressRelationship = {
+  __typename?: 'LeadsHasPrimaryaddressRelationship';
+  cursor: Scalars['String']['output'];
+  node: PrimaryAddress;
+};
+
+export type LeadsHasPrimaryaddressUpdateConnectionInput = {
+  node?: InputMaybe<PrimaryAddressUpdateInput>;
+};
+
+export type LeadsHasPrimaryaddressUpdateFieldInput = {
+  connect?: InputMaybe<LeadsHasPrimaryaddressConnectFieldInput>;
+  connectOrCreate?: InputMaybe<LeadsHasPrimaryaddressConnectOrCreateFieldInput>;
+  create?: InputMaybe<LeadsHasPrimaryaddressCreateFieldInput>;
+  delete?: InputMaybe<LeadsHasPrimaryaddressDeleteFieldInput>;
+  disconnect?: InputMaybe<LeadsHasPrimaryaddressDisconnectFieldInput>;
+  update?: InputMaybe<LeadsHasPrimaryaddressUpdateConnectionInput>;
+  where?: InputMaybe<LeadsHasPrimaryaddressConnectionWhere>;
+};
+
 export type LeadsOnCreateInput = {
+  Phone?: InputMaybe<Scalars['String']['input']>;
+  Title?: InputMaybe<Scalars['String']['input']>;
+  annualRevenue?: InputMaybe<Scalars['String']['input']>;
+  company?: InputMaybe<Scalars['String']['input']>;
   condition?: InputMaybe<Scalars['String']['input']>;
-  createdAt?: InputMaybe<Scalars['String']['input']>;
+  createdAt?: InputMaybe<Scalars['DateTime']['input']>;
+  createdBy?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
   duration?: InputMaybe<Scalars['String']['input']>;
   email?: InputMaybe<Scalars['String']['input']>;
+  employeeCount?: InputMaybe<Scalars['String']['input']>;
   gstNumber?: InputMaybe<Scalars['String']['input']>;
   industry?: InputMaybe<Scalars['String']['input']>;
   interest?: InputMaybe<Scalars['String']['input']>;
+  isViewed?: InputMaybe<Scalars['Boolean']['input']>;
+  leadOwner?: InputMaybe<Scalars['String']['input']>;
+  leadSource?: InputMaybe<LeadSourceEnum>;
+  leadStatus?: InputMaybe<LeadStatusEnum>;
+  linkedin?: InputMaybe<Scalars['String']['input']>;
   message?: InputMaybe<Scalars['String']['input']>;
   name?: InputMaybe<Scalars['String']['input']>;
+  officePhone?: InputMaybe<Scalars['String']['input']>;
   phone?: InputMaybe<Scalars['String']['input']>;
   price?: InputMaybe<Scalars['Int']['input']>;
+  ratting?: InputMaybe<LeadStatusEnum>;
+  secondaryEmail?: InputMaybe<Scalars['String']['input']>;
+  skypeId?: InputMaybe<Scalars['String']['input']>;
   status?: InputMaybe<Status>;
+  twitter?: InputMaybe<Scalars['String']['input']>;
   type?: InputMaybe<Scalars['String']['input']>;
+  updatedAt?: InputMaybe<Scalars['DateTime']['input']>;
+  updatedBy?: InputMaybe<Scalars['String']['input']>;
   vendorAddress?: InputMaybe<Scalars['String']['input']>;
+  website?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type LeadsOptions = {
@@ -17679,29 +19188,66 @@ export type LeadsOptions = {
   sort?: InputMaybe<Array<LeadsSort>>;
 };
 
+export type LeadsPrimaryAddressHasPrimaryaddressAggregationSelection = {
+  __typename?: 'LeadsPrimaryAddressHasPrimaryaddressAggregationSelection';
+  count: Scalars['Int']['output'];
+  node?: Maybe<LeadsPrimaryAddressHasPrimaryaddressNodeAggregateSelection>;
+};
+
+export type LeadsPrimaryAddressHasPrimaryaddressNodeAggregateSelection = {
+  __typename?: 'LeadsPrimaryAddressHasPrimaryaddressNodeAggregateSelection';
+  Country: StringAggregateSelectionNullable;
+  city: StringAggregateSelectionNullable;
+  id: IdAggregateSelectionNonNullable;
+  state: StringAggregateSelectionNullable;
+  street: StringAggregateSelectionNullable;
+  zipCode: StringAggregateSelectionNullable;
+};
+
 export type LeadsRelationInput = {
   adminHas?: InputMaybe<LeadsAdminHasCreateFieldInput>;
   clientHas?: InputMaybe<LeadsClientHasCreateFieldInput>;
+  hasPrimaryaddress?: InputMaybe<LeadsHasPrimaryaddressCreateFieldInput>;
   vendorHas?: InputMaybe<LeadsVendorHasCreateFieldInput>;
 };
 
 /** Fields to sort Leads by. The order in which sorts are applied is not guaranteed when specifying many fields in one LeadsSort object. */
 export type LeadsSort = {
+  Phone?: InputMaybe<SortDirection>;
+  Title?: InputMaybe<SortDirection>;
+  annualRevenue?: InputMaybe<SortDirection>;
+  company?: InputMaybe<SortDirection>;
   condition?: InputMaybe<SortDirection>;
   createdAt?: InputMaybe<SortDirection>;
+  createdBy?: InputMaybe<SortDirection>;
+  description?: InputMaybe<SortDirection>;
   duration?: InputMaybe<SortDirection>;
   email?: InputMaybe<SortDirection>;
+  employeeCount?: InputMaybe<SortDirection>;
   gstNumber?: InputMaybe<SortDirection>;
   id?: InputMaybe<SortDirection>;
   industry?: InputMaybe<SortDirection>;
   interest?: InputMaybe<SortDirection>;
+  isViewed?: InputMaybe<SortDirection>;
+  leadOwner?: InputMaybe<SortDirection>;
+  leadSource?: InputMaybe<SortDirection>;
+  leadStatus?: InputMaybe<SortDirection>;
+  linkedin?: InputMaybe<SortDirection>;
   message?: InputMaybe<SortDirection>;
   name?: InputMaybe<SortDirection>;
+  officePhone?: InputMaybe<SortDirection>;
   phone?: InputMaybe<SortDirection>;
   price?: InputMaybe<SortDirection>;
+  ratting?: InputMaybe<SortDirection>;
+  secondaryEmail?: InputMaybe<SortDirection>;
+  skypeId?: InputMaybe<SortDirection>;
   status?: InputMaybe<SortDirection>;
+  twitter?: InputMaybe<SortDirection>;
   type?: InputMaybe<SortDirection>;
+  updatedAt?: InputMaybe<SortDirection>;
+  updatedBy?: InputMaybe<SortDirection>;
   vendorAddress?: InputMaybe<SortDirection>;
+  website?: InputMaybe<SortDirection>;
 };
 
 export type LeadsUniqueWhere = {
@@ -17709,25 +19255,46 @@ export type LeadsUniqueWhere = {
 };
 
 export type LeadsUpdateInput = {
+  Phone?: InputMaybe<Scalars['String']['input']>;
+  Title?: InputMaybe<Scalars['String']['input']>;
   adminHas?: InputMaybe<LeadsAdminHasUpdateFieldInput>;
+  annualRevenue?: InputMaybe<Scalars['String']['input']>;
   clientHas?: InputMaybe<LeadsClientHasUpdateFieldInput>;
+  company?: InputMaybe<Scalars['String']['input']>;
   condition?: InputMaybe<Scalars['String']['input']>;
-  createdAt?: InputMaybe<Scalars['String']['input']>;
+  createdAt?: InputMaybe<Scalars['DateTime']['input']>;
+  createdBy?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
   duration?: InputMaybe<Scalars['String']['input']>;
   email?: InputMaybe<Scalars['String']['input']>;
+  employeeCount?: InputMaybe<Scalars['String']['input']>;
   gstNumber?: InputMaybe<Scalars['String']['input']>;
+  hasPrimaryaddress?: InputMaybe<LeadsHasPrimaryaddressUpdateFieldInput>;
   industry?: InputMaybe<Scalars['String']['input']>;
   interest?: InputMaybe<Scalars['String']['input']>;
+  isViewed?: InputMaybe<Scalars['Boolean']['input']>;
+  leadOwner?: InputMaybe<Scalars['String']['input']>;
+  leadSource?: InputMaybe<LeadSourceEnum>;
+  leadStatus?: InputMaybe<LeadStatusEnum>;
+  linkedin?: InputMaybe<Scalars['String']['input']>;
   message?: InputMaybe<Scalars['String']['input']>;
   name?: InputMaybe<Scalars['String']['input']>;
+  officePhone?: InputMaybe<Scalars['String']['input']>;
   phone?: InputMaybe<Scalars['String']['input']>;
   price?: InputMaybe<Scalars['Int']['input']>;
   price_DECREMENT?: InputMaybe<Scalars['Int']['input']>;
   price_INCREMENT?: InputMaybe<Scalars['Int']['input']>;
+  ratting?: InputMaybe<LeadStatusEnum>;
+  secondaryEmail?: InputMaybe<Scalars['String']['input']>;
+  skypeId?: InputMaybe<Scalars['String']['input']>;
   status?: InputMaybe<Status>;
+  twitter?: InputMaybe<Scalars['String']['input']>;
   type?: InputMaybe<Scalars['String']['input']>;
+  updatedAt?: InputMaybe<Scalars['DateTime']['input']>;
+  updatedBy?: InputMaybe<Scalars['String']['input']>;
   vendorAddress?: InputMaybe<Scalars['String']['input']>;
   vendorHas?: InputMaybe<LeadsVendorHasUpdateFieldInput>;
+  website?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type LeadsVendorHasAggregateInput = {
@@ -17800,36 +19367,6 @@ export type LeadsVendorHasNodeAggregationWhereInput = {
   AND?: InputMaybe<Array<LeadsVendorHasNodeAggregationWhereInput>>;
   NOT?: InputMaybe<LeadsVendorHasNodeAggregationWhereInput>;
   OR?: InputMaybe<Array<LeadsVendorHasNodeAggregationWhereInput>>;
-  labImage_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
-  labImage_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
-  labImage_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
-  labImage_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
-  labImage_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
-  labImage_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  labImage_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  labImage_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  labImage_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  labImage_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  labImage_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  labImage_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  labImage_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  labImage_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  labImage_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  sub_type_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
-  sub_type_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
-  sub_type_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
-  sub_type_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
-  sub_type_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
-  sub_type_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  sub_type_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  sub_type_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  sub_type_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  sub_type_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  sub_type_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  sub_type_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  sub_type_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  sub_type_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  sub_type_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
 };
 
 export type LeadsVendorHasRelationship = {
@@ -17861,34 +19398,63 @@ export type LeadsVendorVendorHasAggregationSelection = {
 export type LeadsVendorVendorHasNodeAggregateSelection = {
   __typename?: 'LeadsVendorVendorHasNodeAggregateSelection';
   id: IdAggregateSelectionNonNullable;
-  labImage: StringAggregateSelectionNullable;
-  sub_type: StringAggregateSelectionNullable;
 };
 
 export type LeadsWhere = {
   AND?: InputMaybe<Array<LeadsWhere>>;
   NOT?: InputMaybe<LeadsWhere>;
   OR?: InputMaybe<Array<LeadsWhere>>;
+  Phone?: InputMaybe<Scalars['String']['input']>;
+  Phone_CONTAINS?: InputMaybe<Scalars['String']['input']>;
+  Phone_ENDS_WITH?: InputMaybe<Scalars['String']['input']>;
+  Phone_IN?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  Phone_STARTS_WITH?: InputMaybe<Scalars['String']['input']>;
+  Title?: InputMaybe<Scalars['String']['input']>;
+  Title_CONTAINS?: InputMaybe<Scalars['String']['input']>;
+  Title_ENDS_WITH?: InputMaybe<Scalars['String']['input']>;
+  Title_IN?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  Title_STARTS_WITH?: InputMaybe<Scalars['String']['input']>;
   adminHas?: InputMaybe<AdminWhere>;
   adminHasAggregate?: InputMaybe<LeadsAdminHasAggregateInput>;
   adminHasConnection?: InputMaybe<LeadsAdminHasConnectionWhere>;
   adminHasConnection_NOT?: InputMaybe<LeadsAdminHasConnectionWhere>;
   adminHas_NOT?: InputMaybe<AdminWhere>;
+  annualRevenue?: InputMaybe<Scalars['String']['input']>;
+  annualRevenue_CONTAINS?: InputMaybe<Scalars['String']['input']>;
+  annualRevenue_ENDS_WITH?: InputMaybe<Scalars['String']['input']>;
+  annualRevenue_IN?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  annualRevenue_STARTS_WITH?: InputMaybe<Scalars['String']['input']>;
   clientHas?: InputMaybe<ClientWhere>;
   clientHasAggregate?: InputMaybe<LeadsClientHasAggregateInput>;
   clientHasConnection?: InputMaybe<LeadsClientHasConnectionWhere>;
   clientHasConnection_NOT?: InputMaybe<LeadsClientHasConnectionWhere>;
   clientHas_NOT?: InputMaybe<ClientWhere>;
+  company?: InputMaybe<Scalars['String']['input']>;
+  company_CONTAINS?: InputMaybe<Scalars['String']['input']>;
+  company_ENDS_WITH?: InputMaybe<Scalars['String']['input']>;
+  company_IN?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  company_STARTS_WITH?: InputMaybe<Scalars['String']['input']>;
   condition?: InputMaybe<Scalars['String']['input']>;
   condition_CONTAINS?: InputMaybe<Scalars['String']['input']>;
   condition_ENDS_WITH?: InputMaybe<Scalars['String']['input']>;
   condition_IN?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   condition_STARTS_WITH?: InputMaybe<Scalars['String']['input']>;
-  createdAt?: InputMaybe<Scalars['String']['input']>;
-  createdAt_CONTAINS?: InputMaybe<Scalars['String']['input']>;
-  createdAt_ENDS_WITH?: InputMaybe<Scalars['String']['input']>;
-  createdAt_IN?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  createdAt_STARTS_WITH?: InputMaybe<Scalars['String']['input']>;
+  createdAt?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_GT?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_GTE?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_IN?: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
+  createdAt_LT?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_LTE?: InputMaybe<Scalars['DateTime']['input']>;
+  createdBy?: InputMaybe<Scalars['String']['input']>;
+  createdBy_CONTAINS?: InputMaybe<Scalars['String']['input']>;
+  createdBy_ENDS_WITH?: InputMaybe<Scalars['String']['input']>;
+  createdBy_IN?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  createdBy_STARTS_WITH?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
+  description_CONTAINS?: InputMaybe<Scalars['String']['input']>;
+  description_ENDS_WITH?: InputMaybe<Scalars['String']['input']>;
+  description_IN?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  description_STARTS_WITH?: InputMaybe<Scalars['String']['input']>;
   duration?: InputMaybe<Scalars['String']['input']>;
   duration_CONTAINS?: InputMaybe<Scalars['String']['input']>;
   duration_ENDS_WITH?: InputMaybe<Scalars['String']['input']>;
@@ -17899,11 +19465,21 @@ export type LeadsWhere = {
   email_ENDS_WITH?: InputMaybe<Scalars['String']['input']>;
   email_IN?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   email_STARTS_WITH?: InputMaybe<Scalars['String']['input']>;
+  employeeCount?: InputMaybe<Scalars['String']['input']>;
+  employeeCount_CONTAINS?: InputMaybe<Scalars['String']['input']>;
+  employeeCount_ENDS_WITH?: InputMaybe<Scalars['String']['input']>;
+  employeeCount_IN?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  employeeCount_STARTS_WITH?: InputMaybe<Scalars['String']['input']>;
   gstNumber?: InputMaybe<Scalars['String']['input']>;
   gstNumber_CONTAINS?: InputMaybe<Scalars['String']['input']>;
   gstNumber_ENDS_WITH?: InputMaybe<Scalars['String']['input']>;
   gstNumber_IN?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   gstNumber_STARTS_WITH?: InputMaybe<Scalars['String']['input']>;
+  hasPrimaryaddress?: InputMaybe<PrimaryAddressWhere>;
+  hasPrimaryaddressAggregate?: InputMaybe<LeadsHasPrimaryaddressAggregateInput>;
+  hasPrimaryaddressConnection?: InputMaybe<LeadsHasPrimaryaddressConnectionWhere>;
+  hasPrimaryaddressConnection_NOT?: InputMaybe<LeadsHasPrimaryaddressConnectionWhere>;
+  hasPrimaryaddress_NOT?: InputMaybe<PrimaryAddressWhere>;
   id?: InputMaybe<Scalars['ID']['input']>;
   id_CONTAINS?: InputMaybe<Scalars['ID']['input']>;
   id_ENDS_WITH?: InputMaybe<Scalars['ID']['input']>;
@@ -17919,6 +19495,21 @@ export type LeadsWhere = {
   interest_ENDS_WITH?: InputMaybe<Scalars['String']['input']>;
   interest_IN?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   interest_STARTS_WITH?: InputMaybe<Scalars['String']['input']>;
+  isViewed?: InputMaybe<Scalars['Boolean']['input']>;
+  leadOwner?: InputMaybe<Scalars['String']['input']>;
+  leadOwner_CONTAINS?: InputMaybe<Scalars['String']['input']>;
+  leadOwner_ENDS_WITH?: InputMaybe<Scalars['String']['input']>;
+  leadOwner_IN?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  leadOwner_STARTS_WITH?: InputMaybe<Scalars['String']['input']>;
+  leadSource?: InputMaybe<LeadSourceEnum>;
+  leadSource_IN?: InputMaybe<Array<InputMaybe<LeadSourceEnum>>>;
+  leadStatus?: InputMaybe<LeadStatusEnum>;
+  leadStatus_IN?: InputMaybe<Array<InputMaybe<LeadStatusEnum>>>;
+  linkedin?: InputMaybe<Scalars['String']['input']>;
+  linkedin_CONTAINS?: InputMaybe<Scalars['String']['input']>;
+  linkedin_ENDS_WITH?: InputMaybe<Scalars['String']['input']>;
+  linkedin_IN?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  linkedin_STARTS_WITH?: InputMaybe<Scalars['String']['input']>;
   message?: InputMaybe<Scalars['String']['input']>;
   message_CONTAINS?: InputMaybe<Scalars['String']['input']>;
   message_ENDS_WITH?: InputMaybe<Scalars['String']['input']>;
@@ -17929,6 +19520,11 @@ export type LeadsWhere = {
   name_ENDS_WITH?: InputMaybe<Scalars['String']['input']>;
   name_IN?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   name_STARTS_WITH?: InputMaybe<Scalars['String']['input']>;
+  officePhone?: InputMaybe<Scalars['String']['input']>;
+  officePhone_CONTAINS?: InputMaybe<Scalars['String']['input']>;
+  officePhone_ENDS_WITH?: InputMaybe<Scalars['String']['input']>;
+  officePhone_IN?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  officePhone_STARTS_WITH?: InputMaybe<Scalars['String']['input']>;
   phone?: InputMaybe<Scalars['String']['input']>;
   phone_CONTAINS?: InputMaybe<Scalars['String']['input']>;
   phone_ENDS_WITH?: InputMaybe<Scalars['String']['input']>;
@@ -17940,13 +19536,41 @@ export type LeadsWhere = {
   price_IN?: InputMaybe<Array<InputMaybe<Scalars['Int']['input']>>>;
   price_LT?: InputMaybe<Scalars['Int']['input']>;
   price_LTE?: InputMaybe<Scalars['Int']['input']>;
+  ratting?: InputMaybe<LeadStatusEnum>;
+  ratting_IN?: InputMaybe<Array<InputMaybe<LeadStatusEnum>>>;
+  secondaryEmail?: InputMaybe<Scalars['String']['input']>;
+  secondaryEmail_CONTAINS?: InputMaybe<Scalars['String']['input']>;
+  secondaryEmail_ENDS_WITH?: InputMaybe<Scalars['String']['input']>;
+  secondaryEmail_IN?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  secondaryEmail_STARTS_WITH?: InputMaybe<Scalars['String']['input']>;
+  skypeId?: InputMaybe<Scalars['String']['input']>;
+  skypeId_CONTAINS?: InputMaybe<Scalars['String']['input']>;
+  skypeId_ENDS_WITH?: InputMaybe<Scalars['String']['input']>;
+  skypeId_IN?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  skypeId_STARTS_WITH?: InputMaybe<Scalars['String']['input']>;
   status?: InputMaybe<Status>;
   status_IN?: InputMaybe<Array<InputMaybe<Status>>>;
+  twitter?: InputMaybe<Scalars['String']['input']>;
+  twitter_CONTAINS?: InputMaybe<Scalars['String']['input']>;
+  twitter_ENDS_WITH?: InputMaybe<Scalars['String']['input']>;
+  twitter_IN?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  twitter_STARTS_WITH?: InputMaybe<Scalars['String']['input']>;
   type?: InputMaybe<Scalars['String']['input']>;
   type_CONTAINS?: InputMaybe<Scalars['String']['input']>;
   type_ENDS_WITH?: InputMaybe<Scalars['String']['input']>;
   type_IN?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   type_STARTS_WITH?: InputMaybe<Scalars['String']['input']>;
+  updatedAt?: InputMaybe<Scalars['DateTime']['input']>;
+  updatedAt_GT?: InputMaybe<Scalars['DateTime']['input']>;
+  updatedAt_GTE?: InputMaybe<Scalars['DateTime']['input']>;
+  updatedAt_IN?: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
+  updatedAt_LT?: InputMaybe<Scalars['DateTime']['input']>;
+  updatedAt_LTE?: InputMaybe<Scalars['DateTime']['input']>;
+  updatedBy?: InputMaybe<Scalars['String']['input']>;
+  updatedBy_CONTAINS?: InputMaybe<Scalars['String']['input']>;
+  updatedBy_ENDS_WITH?: InputMaybe<Scalars['String']['input']>;
+  updatedBy_IN?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  updatedBy_STARTS_WITH?: InputMaybe<Scalars['String']['input']>;
   vendorAddress?: InputMaybe<Scalars['String']['input']>;
   vendorAddress_CONTAINS?: InputMaybe<Scalars['String']['input']>;
   vendorAddress_ENDS_WITH?: InputMaybe<Scalars['String']['input']>;
@@ -17957,6 +19581,11 @@ export type LeadsWhere = {
   vendorHasConnection?: InputMaybe<LeadsVendorHasConnectionWhere>;
   vendorHasConnection_NOT?: InputMaybe<LeadsVendorHasConnectionWhere>;
   vendorHas_NOT?: InputMaybe<VendorWhere>;
+  website?: InputMaybe<Scalars['String']['input']>;
+  website_CONTAINS?: InputMaybe<Scalars['String']['input']>;
+  website_ENDS_WITH?: InputMaybe<Scalars['String']['input']>;
+  website_IN?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  website_STARTS_WITH?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type LearnItem = {
@@ -18594,7 +20223,7 @@ export type LogsConnection = {
 export type Management = {
   __typename?: 'Management';
   id: Scalars['ID']['output'];
-  moduelid: Scalars['String']['output'];
+  moduelid: Scalars['ID']['output'];
   moduleTitle: Scalars['String']['output'];
   reports?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   sentReportsModuleticket?: Maybe<ModuleTicket>;
@@ -18653,7 +20282,7 @@ export type ManagementAggregateSelection = {
   __typename?: 'ManagementAggregateSelection';
   count: Scalars['Int']['output'];
   id: IdAggregateSelectionNonNullable;
-  moduelid: StringAggregateSelectionNonNullable;
+  moduelid: IdAggregateSelectionNonNullable;
   moduleTitle: StringAggregateSelectionNonNullable;
 };
 
@@ -18676,7 +20305,6 @@ export type ManagementConnectWhere = {
 };
 
 export type ManagementCreateInput = {
-  moduelid: Scalars['String']['input'];
   moduleTitle: Scalars['String']['input'];
   reports?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   sentReportsModuleticket?: InputMaybe<ManagementSentReportsModuleticketFieldInput>;
@@ -18715,7 +20343,6 @@ export type ManagementModuleTicketSentReportsModuleticketNodeAggregateSelection 
 };
 
 export type ManagementOnCreateInput = {
-  moduelid: Scalars['String']['input'];
   moduleTitle: Scalars['String']['input'];
   reports?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
 };
@@ -18888,10 +20515,10 @@ export type ManagementSort = {
 
 export type ManagementUniqueWhere = {
   id?: InputMaybe<Scalars['ID']['input']>;
+  moduelid?: InputMaybe<Scalars['ID']['input']>;
 };
 
 export type ManagementUpdateInput = {
-  moduelid?: InputMaybe<Scalars['String']['input']>;
   moduleTitle?: InputMaybe<Scalars['String']['input']>;
   reports?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   reports_POP?: InputMaybe<Scalars['Int']['input']>;
@@ -18970,36 +20597,6 @@ export type ManagementVendorHasNodeAggregationWhereInput = {
   AND?: InputMaybe<Array<ManagementVendorHasNodeAggregationWhereInput>>;
   NOT?: InputMaybe<ManagementVendorHasNodeAggregationWhereInput>;
   OR?: InputMaybe<Array<ManagementVendorHasNodeAggregationWhereInput>>;
-  labImage_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
-  labImage_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
-  labImage_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
-  labImage_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
-  labImage_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
-  labImage_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  labImage_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  labImage_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  labImage_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  labImage_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  labImage_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  labImage_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  labImage_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  labImage_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  labImage_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  sub_type_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
-  sub_type_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
-  sub_type_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
-  sub_type_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
-  sub_type_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
-  sub_type_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  sub_type_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  sub_type_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  sub_type_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  sub_type_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  sub_type_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  sub_type_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  sub_type_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  sub_type_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  sub_type_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
 };
 
 export type ManagementVendorHasRelationship = {
@@ -19031,8 +20628,6 @@ export type ManagementVendorVendorHasAggregationSelection = {
 export type ManagementVendorVendorHasNodeAggregateSelection = {
   __typename?: 'ManagementVendorVendorHasNodeAggregateSelection';
   id: IdAggregateSelectionNonNullable;
-  labImage: StringAggregateSelectionNullable;
-  sub_type: StringAggregateSelectionNullable;
 };
 
 export type ManagementWhere = {
@@ -19044,11 +20639,11 @@ export type ManagementWhere = {
   id_ENDS_WITH?: InputMaybe<Scalars['ID']['input']>;
   id_IN?: InputMaybe<Array<Scalars['ID']['input']>>;
   id_STARTS_WITH?: InputMaybe<Scalars['ID']['input']>;
-  moduelid?: InputMaybe<Scalars['String']['input']>;
-  moduelid_CONTAINS?: InputMaybe<Scalars['String']['input']>;
-  moduelid_ENDS_WITH?: InputMaybe<Scalars['String']['input']>;
-  moduelid_IN?: InputMaybe<Array<Scalars['String']['input']>>;
-  moduelid_STARTS_WITH?: InputMaybe<Scalars['String']['input']>;
+  moduelid?: InputMaybe<Scalars['ID']['input']>;
+  moduelid_CONTAINS?: InputMaybe<Scalars['ID']['input']>;
+  moduelid_ENDS_WITH?: InputMaybe<Scalars['ID']['input']>;
+  moduelid_IN?: InputMaybe<Array<Scalars['ID']['input']>>;
+  moduelid_STARTS_WITH?: InputMaybe<Scalars['ID']['input']>;
   moduleTitle?: InputMaybe<Scalars['String']['input']>;
   moduleTitle_CONTAINS?: InputMaybe<Scalars['String']['input']>;
   moduleTitle_ENDS_WITH?: InputMaybe<Scalars['String']['input']>;
@@ -19400,21 +20995,6 @@ export type ModuleForUserNodeAggregationWhereInput = {
   AND?: InputMaybe<Array<ModuleForUserNodeAggregationWhereInput>>;
   NOT?: InputMaybe<ModuleForUserNodeAggregationWhereInput>;
   OR?: InputMaybe<Array<ModuleForUserNodeAggregationWhereInput>>;
-  address_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
-  address_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
-  address_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
-  address_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
-  address_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
-  address_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  address_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  address_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  address_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  address_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  address_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  address_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  address_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  address_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  address_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
   bio_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
   bio_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
   bio_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
@@ -19430,21 +21010,21 @@ export type ModuleForUserNodeAggregationWhereInput = {
   bio_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
   bio_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
   bio_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  city_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
-  city_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
-  city_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
-  city_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
-  city_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
-  city_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  city_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  city_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  city_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  city_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  city_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  city_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  city_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  city_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  city_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  companyDescription_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  companyDescription_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  companyDescription_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  companyDescription_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  companyDescription_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  companyDescription_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  companyDescription_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  companyDescription_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  companyDescription_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  companyDescription_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  companyDescription_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  companyDescription_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  companyDescription_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  companyDescription_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  companyDescription_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
   companyEmail_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
   companyEmail_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
   companyEmail_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
@@ -19475,6 +21055,21 @@ export type ModuleForUserNodeAggregationWhereInput = {
   companyName_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
   companyName_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
   companyName_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  companyPhone_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  companyPhone_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  companyPhone_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  companyPhone_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  companyPhone_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  companyPhone_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  companyPhone_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  companyPhone_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  companyPhone_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  companyPhone_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  companyPhone_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  companyPhone_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  companyPhone_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  companyPhone_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  companyPhone_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
   createdAt_MAX_EQUAL?: InputMaybe<Scalars['DateTime']['input']>;
   createdAt_MAX_GT?: InputMaybe<Scalars['DateTime']['input']>;
   createdAt_MAX_GTE?: InputMaybe<Scalars['DateTime']['input']>;
@@ -19485,6 +21080,36 @@ export type ModuleForUserNodeAggregationWhereInput = {
   createdAt_MIN_GTE?: InputMaybe<Scalars['DateTime']['input']>;
   createdAt_MIN_LT?: InputMaybe<Scalars['DateTime']['input']>;
   createdAt_MIN_LTE?: InputMaybe<Scalars['DateTime']['input']>;
+  department_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  department_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  department_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  department_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  department_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  department_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  department_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  department_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  department_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  department_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  department_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  department_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  department_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  department_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  department_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  education_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  education_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  education_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  education_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  education_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  education_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  education_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  education_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  education_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  education_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  education_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  education_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  education_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  education_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  education_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
   email_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
   email_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
   email_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
@@ -19500,6 +21125,21 @@ export type ModuleForUserNodeAggregationWhereInput = {
   email_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
   email_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
   email_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  experience_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  experience_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  experience_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  experience_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  experience_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  experience_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  experience_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  experience_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  experience_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  experience_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  experience_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  experience_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  experience_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  experience_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  experience_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
   gstNumber_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
   gstNumber_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
   gstNumber_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
@@ -19530,21 +21170,36 @@ export type ModuleForUserNodeAggregationWhereInput = {
   image_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
   image_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
   image_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  mobile_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
-  mobile_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
-  mobile_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
-  mobile_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
-  mobile_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
-  mobile_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  mobile_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  mobile_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  mobile_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  mobile_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  mobile_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  mobile_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  mobile_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  mobile_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  mobile_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  interest_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  interest_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  interest_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  interest_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  interest_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  interest_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  interest_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  interest_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  interest_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  interest_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  interest_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  interest_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  interest_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  interest_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  interest_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  linkedin_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  linkedin_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  linkedin_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  linkedin_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  linkedin_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
   name_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
   name_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
   name_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
@@ -19575,6 +21230,21 @@ export type ModuleForUserNodeAggregationWhereInput = {
   panCardNo_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
   panCardNo_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
   panCardNo_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  phoneNumber_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  phoneNumber_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  phoneNumber_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  phoneNumber_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  phoneNumber_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  phoneNumber_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  phoneNumber_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  phoneNumber_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  phoneNumber_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  phoneNumber_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  phoneNumber_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  phoneNumber_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  phoneNumber_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  phoneNumber_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  phoneNumber_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
   phone_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
   phone_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
   phone_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
@@ -19590,36 +21260,66 @@ export type ModuleForUserNodeAggregationWhereInput = {
   phone_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
   phone_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
   phone_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  secondAddress_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
-  secondAddress_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
-  secondAddress_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
-  secondAddress_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
-  secondAddress_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
-  secondAddress_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  secondAddress_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  secondAddress_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  secondAddress_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  secondAddress_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  secondAddress_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  secondAddress_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  secondAddress_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  secondAddress_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  secondAddress_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  state_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
-  state_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
-  state_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
-  state_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
-  state_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
-  state_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  state_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  state_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  state_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  state_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  state_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  state_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  state_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  state_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  state_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  skypeId_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  skypeId_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  skypeId_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  skypeId_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  skypeId_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  specialty_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  specialty_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  specialty_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  specialty_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  specialty_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  specialty_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  specialty_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  specialty_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  specialty_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  specialty_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  specialty_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  specialty_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  specialty_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  specialty_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  specialty_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  title_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  title_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  title_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  title_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  title_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  title_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  title_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  title_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  title_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  title_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  title_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  title_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  title_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  title_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  title_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  twitter_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  twitter_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  twitter_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  twitter_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  twitter_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  twitter_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  twitter_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  twitter_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  twitter_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  twitter_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  twitter_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  twitter_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  twitter_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  twitter_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  twitter_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
   userId_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
   userId_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
   userId_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
@@ -19635,21 +21335,6 @@ export type ModuleForUserNodeAggregationWhereInput = {
   userId_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
   userId_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
   userId_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  zip_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
-  zip_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
-  zip_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
-  zip_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
-  zip_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
-  zip_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  zip_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  zip_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  zip_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  zip_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  zip_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  zip_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  zip_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  zip_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  zip_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
 };
 
 export type ModuleForUserRelationship = {
@@ -21082,7 +22767,7 @@ export type ModuleTicketManagementManagementSentReportsAggregationSelection = {
 export type ModuleTicketManagementManagementSentReportsNodeAggregateSelection = {
   __typename?: 'ModuleTicketManagementManagementSentReportsNodeAggregateSelection';
   id: IdAggregateSelectionNonNullable;
-  moduelid: StringAggregateSelectionNonNullable;
+  moduelid: IdAggregateSelectionNonNullable;
   moduleTitle: StringAggregateSelectionNonNullable;
 };
 
@@ -21156,21 +22841,6 @@ export type ModuleTicketManagementSentReportsNodeAggregationWhereInput = {
   AND?: InputMaybe<Array<ModuleTicketManagementSentReportsNodeAggregationWhereInput>>;
   NOT?: InputMaybe<ModuleTicketManagementSentReportsNodeAggregationWhereInput>;
   OR?: InputMaybe<Array<ModuleTicketManagementSentReportsNodeAggregationWhereInput>>;
-  moduelid_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
-  moduelid_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
-  moduelid_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
-  moduelid_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
-  moduelid_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
-  moduelid_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  moduelid_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  moduelid_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  moduelid_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  moduelid_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  moduelid_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  moduelid_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  moduelid_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  moduelid_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  moduelid_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
   moduleTitle_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
   moduleTitle_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
   moduleTitle_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
@@ -21486,21 +23156,6 @@ export type ModuleTicketUserHasNodeAggregationWhereInput = {
   AND?: InputMaybe<Array<ModuleTicketUserHasNodeAggregationWhereInput>>;
   NOT?: InputMaybe<ModuleTicketUserHasNodeAggregationWhereInput>;
   OR?: InputMaybe<Array<ModuleTicketUserHasNodeAggregationWhereInput>>;
-  address_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
-  address_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
-  address_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
-  address_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
-  address_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
-  address_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  address_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  address_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  address_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  address_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  address_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  address_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  address_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  address_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  address_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
   bio_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
   bio_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
   bio_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
@@ -21516,21 +23171,21 @@ export type ModuleTicketUserHasNodeAggregationWhereInput = {
   bio_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
   bio_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
   bio_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  city_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
-  city_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
-  city_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
-  city_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
-  city_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
-  city_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  city_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  city_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  city_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  city_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  city_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  city_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  city_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  city_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  city_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  companyDescription_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  companyDescription_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  companyDescription_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  companyDescription_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  companyDescription_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  companyDescription_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  companyDescription_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  companyDescription_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  companyDescription_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  companyDescription_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  companyDescription_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  companyDescription_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  companyDescription_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  companyDescription_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  companyDescription_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
   companyEmail_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
   companyEmail_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
   companyEmail_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
@@ -21561,6 +23216,21 @@ export type ModuleTicketUserHasNodeAggregationWhereInput = {
   companyName_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
   companyName_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
   companyName_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  companyPhone_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  companyPhone_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  companyPhone_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  companyPhone_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  companyPhone_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  companyPhone_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  companyPhone_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  companyPhone_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  companyPhone_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  companyPhone_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  companyPhone_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  companyPhone_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  companyPhone_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  companyPhone_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  companyPhone_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
   createdAt_MAX_EQUAL?: InputMaybe<Scalars['DateTime']['input']>;
   createdAt_MAX_GT?: InputMaybe<Scalars['DateTime']['input']>;
   createdAt_MAX_GTE?: InputMaybe<Scalars['DateTime']['input']>;
@@ -21571,6 +23241,36 @@ export type ModuleTicketUserHasNodeAggregationWhereInput = {
   createdAt_MIN_GTE?: InputMaybe<Scalars['DateTime']['input']>;
   createdAt_MIN_LT?: InputMaybe<Scalars['DateTime']['input']>;
   createdAt_MIN_LTE?: InputMaybe<Scalars['DateTime']['input']>;
+  department_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  department_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  department_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  department_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  department_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  department_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  department_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  department_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  department_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  department_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  department_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  department_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  department_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  department_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  department_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  education_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  education_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  education_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  education_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  education_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  education_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  education_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  education_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  education_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  education_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  education_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  education_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  education_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  education_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  education_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
   email_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
   email_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
   email_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
@@ -21586,6 +23286,21 @@ export type ModuleTicketUserHasNodeAggregationWhereInput = {
   email_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
   email_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
   email_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  experience_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  experience_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  experience_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  experience_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  experience_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  experience_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  experience_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  experience_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  experience_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  experience_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  experience_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  experience_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  experience_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  experience_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  experience_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
   gstNumber_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
   gstNumber_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
   gstNumber_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
@@ -21616,21 +23331,36 @@ export type ModuleTicketUserHasNodeAggregationWhereInput = {
   image_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
   image_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
   image_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  mobile_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
-  mobile_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
-  mobile_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
-  mobile_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
-  mobile_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
-  mobile_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  mobile_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  mobile_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  mobile_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  mobile_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  mobile_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  mobile_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  mobile_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  mobile_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  mobile_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  interest_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  interest_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  interest_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  interest_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  interest_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  interest_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  interest_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  interest_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  interest_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  interest_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  interest_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  interest_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  interest_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  interest_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  interest_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  linkedin_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  linkedin_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  linkedin_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  linkedin_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  linkedin_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
   name_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
   name_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
   name_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
@@ -21661,6 +23391,21 @@ export type ModuleTicketUserHasNodeAggregationWhereInput = {
   panCardNo_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
   panCardNo_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
   panCardNo_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  phoneNumber_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  phoneNumber_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  phoneNumber_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  phoneNumber_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  phoneNumber_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  phoneNumber_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  phoneNumber_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  phoneNumber_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  phoneNumber_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  phoneNumber_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  phoneNumber_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  phoneNumber_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  phoneNumber_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  phoneNumber_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  phoneNumber_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
   phone_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
   phone_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
   phone_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
@@ -21676,36 +23421,66 @@ export type ModuleTicketUserHasNodeAggregationWhereInput = {
   phone_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
   phone_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
   phone_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  secondAddress_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
-  secondAddress_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
-  secondAddress_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
-  secondAddress_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
-  secondAddress_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
-  secondAddress_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  secondAddress_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  secondAddress_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  secondAddress_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  secondAddress_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  secondAddress_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  secondAddress_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  secondAddress_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  secondAddress_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  secondAddress_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  state_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
-  state_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
-  state_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
-  state_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
-  state_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
-  state_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  state_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  state_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  state_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  state_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  state_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  state_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  state_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  state_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  state_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  skypeId_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  skypeId_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  skypeId_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  skypeId_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  skypeId_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  specialty_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  specialty_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  specialty_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  specialty_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  specialty_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  specialty_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  specialty_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  specialty_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  specialty_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  specialty_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  specialty_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  specialty_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  specialty_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  specialty_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  specialty_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  title_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  title_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  title_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  title_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  title_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  title_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  title_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  title_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  title_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  title_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  title_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  title_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  title_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  title_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  title_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  twitter_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  twitter_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  twitter_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  twitter_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  twitter_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  twitter_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  twitter_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  twitter_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  twitter_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  twitter_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  twitter_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  twitter_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  twitter_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  twitter_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  twitter_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
   userId_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
   userId_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
   userId_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
@@ -21721,21 +23496,6 @@ export type ModuleTicketUserHasNodeAggregationWhereInput = {
   userId_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
   userId_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
   userId_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  zip_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
-  zip_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
-  zip_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
-  zip_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
-  zip_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
-  zip_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  zip_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  zip_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  zip_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  zip_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  zip_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  zip_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  zip_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  zip_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  zip_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
 };
 
 export type ModuleTicketUserHasRelationship = {
@@ -21766,24 +23526,30 @@ export type ModuleTicketUserUserHasAggregationSelection = {
 
 export type ModuleTicketUserUserHasNodeAggregateSelection = {
   __typename?: 'ModuleTicketUserUserHasNodeAggregateSelection';
-  address: StringAggregateSelectionNullable;
   bio: StringAggregateSelectionNullable;
-  city: StringAggregateSelectionNullable;
+  companyDescription: StringAggregateSelectionNullable;
   companyEmail: StringAggregateSelectionNullable;
   companyName: StringAggregateSelectionNullable;
+  companyPhone: StringAggregateSelectionNullable;
   createdAt: DateTimeAggregateSelectionNullable;
+  department: StringAggregateSelectionNullable;
+  education: StringAggregateSelectionNullable;
   email: StringAggregateSelectionNullable;
+  experience: StringAggregateSelectionNullable;
   gstNumber: StringAggregateSelectionNullable;
   id: IdAggregateSelectionNonNullable;
   image: StringAggregateSelectionNullable;
-  mobile: StringAggregateSelectionNullable;
+  interest: StringAggregateSelectionNullable;
+  linkedin: StringAggregateSelectionNullable;
   name: StringAggregateSelectionNullable;
   panCardNo: StringAggregateSelectionNullable;
   phone: StringAggregateSelectionNullable;
-  secondAddress: StringAggregateSelectionNullable;
-  state: StringAggregateSelectionNullable;
+  phoneNumber: StringAggregateSelectionNullable;
+  skypeId: StringAggregateSelectionNullable;
+  specialty: StringAggregateSelectionNullable;
+  title: StringAggregateSelectionNullable;
+  twitter: StringAggregateSelectionNullable;
   userId: StringAggregateSelectionNullable;
-  zip: StringAggregateSelectionNullable;
 };
 
 export type ModuleTicketVendorHasAggregateInput = {
@@ -21856,36 +23622,6 @@ export type ModuleTicketVendorHasNodeAggregationWhereInput = {
   AND?: InputMaybe<Array<ModuleTicketVendorHasNodeAggregationWhereInput>>;
   NOT?: InputMaybe<ModuleTicketVendorHasNodeAggregationWhereInput>;
   OR?: InputMaybe<Array<ModuleTicketVendorHasNodeAggregationWhereInput>>;
-  labImage_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
-  labImage_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
-  labImage_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
-  labImage_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
-  labImage_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
-  labImage_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  labImage_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  labImage_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  labImage_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  labImage_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  labImage_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  labImage_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  labImage_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  labImage_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  labImage_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  sub_type_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
-  sub_type_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
-  sub_type_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
-  sub_type_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
-  sub_type_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
-  sub_type_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  sub_type_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  sub_type_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  sub_type_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  sub_type_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  sub_type_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  sub_type_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  sub_type_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  sub_type_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  sub_type_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
 };
 
 export type ModuleTicketVendorHasRelationship = {
@@ -21917,8 +23653,6 @@ export type ModuleTicketVendorVendorHasAggregationSelection = {
 export type ModuleTicketVendorVendorHasNodeAggregateSelection = {
   __typename?: 'ModuleTicketVendorVendorHasNodeAggregateSelection';
   id: IdAggregateSelectionNonNullable;
-  labImage: StringAggregateSelectionNullable;
-  sub_type: StringAggregateSelectionNullable;
 };
 
 export type ModuleTicketWhere = {
@@ -22039,24 +23773,30 @@ export type ModuleUserForUserAggregationSelection = {
 
 export type ModuleUserForUserNodeAggregateSelection = {
   __typename?: 'ModuleUserForUserNodeAggregateSelection';
-  address: StringAggregateSelectionNullable;
   bio: StringAggregateSelectionNullable;
-  city: StringAggregateSelectionNullable;
+  companyDescription: StringAggregateSelectionNullable;
   companyEmail: StringAggregateSelectionNullable;
   companyName: StringAggregateSelectionNullable;
+  companyPhone: StringAggregateSelectionNullable;
   createdAt: DateTimeAggregateSelectionNullable;
+  department: StringAggregateSelectionNullable;
+  education: StringAggregateSelectionNullable;
   email: StringAggregateSelectionNullable;
+  experience: StringAggregateSelectionNullable;
   gstNumber: StringAggregateSelectionNullable;
   id: IdAggregateSelectionNonNullable;
   image: StringAggregateSelectionNullable;
-  mobile: StringAggregateSelectionNullable;
+  interest: StringAggregateSelectionNullable;
+  linkedin: StringAggregateSelectionNullable;
   name: StringAggregateSelectionNullable;
   panCardNo: StringAggregateSelectionNullable;
   phone: StringAggregateSelectionNullable;
-  secondAddress: StringAggregateSelectionNullable;
-  state: StringAggregateSelectionNullable;
+  phoneNumber: StringAggregateSelectionNullable;
+  skypeId: StringAggregateSelectionNullable;
+  specialty: StringAggregateSelectionNullable;
+  title: StringAggregateSelectionNullable;
+  twitter: StringAggregateSelectionNullable;
   userId: StringAggregateSelectionNullable;
-  zip: StringAggregateSelectionNullable;
 };
 
 export type ModuleUserHasAggregateInput = {
@@ -22129,21 +23869,6 @@ export type ModuleUserHasNodeAggregationWhereInput = {
   AND?: InputMaybe<Array<ModuleUserHasNodeAggregationWhereInput>>;
   NOT?: InputMaybe<ModuleUserHasNodeAggregationWhereInput>;
   OR?: InputMaybe<Array<ModuleUserHasNodeAggregationWhereInput>>;
-  address_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
-  address_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
-  address_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
-  address_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
-  address_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
-  address_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  address_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  address_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  address_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  address_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  address_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  address_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  address_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  address_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  address_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
   bio_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
   bio_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
   bio_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
@@ -22159,21 +23884,21 @@ export type ModuleUserHasNodeAggregationWhereInput = {
   bio_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
   bio_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
   bio_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  city_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
-  city_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
-  city_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
-  city_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
-  city_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
-  city_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  city_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  city_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  city_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  city_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  city_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  city_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  city_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  city_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  city_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  companyDescription_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  companyDescription_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  companyDescription_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  companyDescription_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  companyDescription_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  companyDescription_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  companyDescription_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  companyDescription_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  companyDescription_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  companyDescription_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  companyDescription_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  companyDescription_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  companyDescription_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  companyDescription_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  companyDescription_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
   companyEmail_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
   companyEmail_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
   companyEmail_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
@@ -22204,6 +23929,21 @@ export type ModuleUserHasNodeAggregationWhereInput = {
   companyName_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
   companyName_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
   companyName_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  companyPhone_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  companyPhone_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  companyPhone_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  companyPhone_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  companyPhone_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  companyPhone_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  companyPhone_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  companyPhone_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  companyPhone_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  companyPhone_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  companyPhone_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  companyPhone_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  companyPhone_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  companyPhone_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  companyPhone_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
   createdAt_MAX_EQUAL?: InputMaybe<Scalars['DateTime']['input']>;
   createdAt_MAX_GT?: InputMaybe<Scalars['DateTime']['input']>;
   createdAt_MAX_GTE?: InputMaybe<Scalars['DateTime']['input']>;
@@ -22214,6 +23954,36 @@ export type ModuleUserHasNodeAggregationWhereInput = {
   createdAt_MIN_GTE?: InputMaybe<Scalars['DateTime']['input']>;
   createdAt_MIN_LT?: InputMaybe<Scalars['DateTime']['input']>;
   createdAt_MIN_LTE?: InputMaybe<Scalars['DateTime']['input']>;
+  department_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  department_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  department_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  department_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  department_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  department_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  department_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  department_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  department_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  department_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  department_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  department_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  department_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  department_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  department_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  education_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  education_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  education_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  education_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  education_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  education_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  education_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  education_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  education_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  education_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  education_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  education_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  education_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  education_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  education_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
   email_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
   email_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
   email_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
@@ -22229,6 +23999,21 @@ export type ModuleUserHasNodeAggregationWhereInput = {
   email_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
   email_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
   email_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  experience_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  experience_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  experience_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  experience_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  experience_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  experience_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  experience_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  experience_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  experience_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  experience_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  experience_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  experience_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  experience_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  experience_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  experience_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
   gstNumber_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
   gstNumber_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
   gstNumber_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
@@ -22259,21 +24044,36 @@ export type ModuleUserHasNodeAggregationWhereInput = {
   image_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
   image_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
   image_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  mobile_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
-  mobile_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
-  mobile_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
-  mobile_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
-  mobile_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
-  mobile_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  mobile_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  mobile_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  mobile_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  mobile_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  mobile_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  mobile_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  mobile_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  mobile_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  mobile_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  interest_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  interest_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  interest_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  interest_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  interest_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  interest_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  interest_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  interest_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  interest_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  interest_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  interest_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  interest_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  interest_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  interest_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  interest_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  linkedin_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  linkedin_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  linkedin_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  linkedin_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  linkedin_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
   name_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
   name_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
   name_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
@@ -22304,6 +24104,21 @@ export type ModuleUserHasNodeAggregationWhereInput = {
   panCardNo_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
   panCardNo_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
   panCardNo_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  phoneNumber_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  phoneNumber_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  phoneNumber_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  phoneNumber_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  phoneNumber_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  phoneNumber_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  phoneNumber_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  phoneNumber_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  phoneNumber_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  phoneNumber_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  phoneNumber_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  phoneNumber_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  phoneNumber_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  phoneNumber_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  phoneNumber_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
   phone_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
   phone_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
   phone_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
@@ -22319,36 +24134,66 @@ export type ModuleUserHasNodeAggregationWhereInput = {
   phone_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
   phone_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
   phone_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  secondAddress_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
-  secondAddress_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
-  secondAddress_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
-  secondAddress_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
-  secondAddress_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
-  secondAddress_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  secondAddress_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  secondAddress_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  secondAddress_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  secondAddress_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  secondAddress_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  secondAddress_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  secondAddress_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  secondAddress_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  secondAddress_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  state_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
-  state_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
-  state_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
-  state_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
-  state_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
-  state_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  state_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  state_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  state_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  state_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  state_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  state_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  state_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  state_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  state_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  skypeId_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  skypeId_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  skypeId_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  skypeId_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  skypeId_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  specialty_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  specialty_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  specialty_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  specialty_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  specialty_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  specialty_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  specialty_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  specialty_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  specialty_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  specialty_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  specialty_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  specialty_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  specialty_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  specialty_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  specialty_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  title_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  title_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  title_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  title_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  title_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  title_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  title_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  title_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  title_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  title_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  title_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  title_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  title_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  title_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  title_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  twitter_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  twitter_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  twitter_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  twitter_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  twitter_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  twitter_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  twitter_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  twitter_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  twitter_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  twitter_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  twitter_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  twitter_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  twitter_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  twitter_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  twitter_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
   userId_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
   userId_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
   userId_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
@@ -22364,21 +24209,6 @@ export type ModuleUserHasNodeAggregationWhereInput = {
   userId_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
   userId_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
   userId_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  zip_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
-  zip_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
-  zip_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
-  zip_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
-  zip_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
-  zip_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  zip_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  zip_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  zip_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  zip_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  zip_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  zip_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  zip_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  zip_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  zip_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
 };
 
 export type ModuleUserHasRelationship = {
@@ -22409,24 +24239,30 @@ export type ModuleUserUserHasAggregationSelection = {
 
 export type ModuleUserUserHasNodeAggregateSelection = {
   __typename?: 'ModuleUserUserHasNodeAggregateSelection';
-  address: StringAggregateSelectionNullable;
   bio: StringAggregateSelectionNullable;
-  city: StringAggregateSelectionNullable;
+  companyDescription: StringAggregateSelectionNullable;
   companyEmail: StringAggregateSelectionNullable;
   companyName: StringAggregateSelectionNullable;
+  companyPhone: StringAggregateSelectionNullable;
   createdAt: DateTimeAggregateSelectionNullable;
+  department: StringAggregateSelectionNullable;
+  education: StringAggregateSelectionNullable;
   email: StringAggregateSelectionNullable;
+  experience: StringAggregateSelectionNullable;
   gstNumber: StringAggregateSelectionNullable;
   id: IdAggregateSelectionNonNullable;
   image: StringAggregateSelectionNullable;
-  mobile: StringAggregateSelectionNullable;
+  interest: StringAggregateSelectionNullable;
+  linkedin: StringAggregateSelectionNullable;
   name: StringAggregateSelectionNullable;
   panCardNo: StringAggregateSelectionNullable;
   phone: StringAggregateSelectionNullable;
-  secondAddress: StringAggregateSelectionNullable;
-  state: StringAggregateSelectionNullable;
+  phoneNumber: StringAggregateSelectionNullable;
+  skypeId: StringAggregateSelectionNullable;
+  specialty: StringAggregateSelectionNullable;
+  title: StringAggregateSelectionNullable;
+  twitter: StringAggregateSelectionNullable;
   userId: StringAggregateSelectionNullable;
-  zip: StringAggregateSelectionNullable;
 };
 
 export type ModuleWhere = {
@@ -22525,6 +24361,7 @@ export type Mutation = {
   createCounters: CreateCountersMutationResponse;
   createDocuments: CreateDocumentsMutationResponse;
   createEmployees: CreateEmployeesMutationResponse;
+  createEquipment: CreateEquipmentMutationResponse;
   createEvents: CreateEventsMutationResponse;
   createFeaturesPages: CreateFeaturesPagesMutationResponse;
   createFiles: CreateFilesMutationResponse;
@@ -22543,12 +24380,14 @@ export type Mutation = {
   createModules: CreateModulesMutationResponse;
   createNotifications: CreateNotificationsMutationResponse;
   createPoints: CreatePointsMutationResponse;
+  createPrimaryAddresses: CreatePrimaryAddressesMutationResponse;
   createProducts: CreateProductsMutationResponse;
   createProjectTickets: CreateProjectTicketsMutationResponse;
   createProjects: CreateProjectsMutationResponse;
   createPurchases: CreatePurchasesMutationResponse;
   createReplies: CreateRepliesMutationResponse;
   createRoles: CreateRolesMutationResponse;
+  createSecondaryAddresses: CreateSecondaryAddressesMutationResponse;
   createServices: CreateServicesMutationResponse;
   createSolutionPages: CreateSolutionPagesMutationResponse;
   createSubSolutions: CreateSubSolutionsMutationResponse;
@@ -22569,6 +24408,7 @@ export type Mutation = {
   deleteCounters: DeleteInfo;
   deleteDocuments: DeleteInfo;
   deleteEmployees: DeleteInfo;
+  deleteEquipment: DeleteInfo;
   deleteEvents: DeleteInfo;
   deleteFeaturesPages: DeleteInfo;
   deleteFiles: DeleteInfo;
@@ -22587,12 +24427,14 @@ export type Mutation = {
   deleteModules: DeleteInfo;
   deleteNotifications: DeleteInfo;
   deletePoints: DeleteInfo;
+  deletePrimaryAddresses: DeleteInfo;
   deleteProducts: DeleteInfo;
   deleteProjectTickets: DeleteInfo;
   deleteProjects: DeleteInfo;
   deletePurchases: DeleteInfo;
   deleteReplies: DeleteInfo;
   deleteRoles: DeleteInfo;
+  deleteSecondaryAddresses: DeleteInfo;
   deleteServices: DeleteInfo;
   deleteSolutionPages: DeleteInfo;
   deleteSubSolutions: DeleteInfo;
@@ -22615,6 +24457,7 @@ export type Mutation = {
   updateCounters: UpdateCountersMutationResponse;
   updateDocuments: UpdateDocumentsMutationResponse;
   updateEmployees: UpdateEmployeesMutationResponse;
+  updateEquipment: UpdateEquipmentMutationResponse;
   updateEvents: UpdateEventsMutationResponse;
   updateFeaturesPages: UpdateFeaturesPagesMutationResponse;
   updateFiles: UpdateFilesMutationResponse;
@@ -22633,12 +24476,14 @@ export type Mutation = {
   updateModules: UpdateModulesMutationResponse;
   updateNotifications: UpdateNotificationsMutationResponse;
   updatePoints: UpdatePointsMutationResponse;
+  updatePrimaryAddresses: UpdatePrimaryAddressesMutationResponse;
   updateProducts: UpdateProductsMutationResponse;
   updateProjectTickets: UpdateProjectTicketsMutationResponse;
   updateProjects: UpdateProjectsMutationResponse;
   updatePurchases: UpdatePurchasesMutationResponse;
   updateReplies: UpdateRepliesMutationResponse;
   updateRoles: UpdateRolesMutationResponse;
+  updateSecondaryAddresses: UpdateSecondaryAddressesMutationResponse;
   updateServices: UpdateServicesMutationResponse;
   updateSolutionPages: UpdateSolutionPagesMutationResponse;
   updateSubSolutions: UpdateSubSolutionsMutationResponse;
@@ -22699,6 +24544,11 @@ export type MutationCreateDocumentsArgs = {
 
 export type MutationCreateEmployeesArgs = {
   input: Array<EmployeeCreateInput>;
+};
+
+
+export type MutationCreateEquipmentArgs = {
+  input: Array<EquipmentCreateInput>;
 };
 
 
@@ -22792,6 +24642,11 @@ export type MutationCreatePointsArgs = {
 };
 
 
+export type MutationCreatePrimaryAddressesArgs = {
+  input: Array<PrimaryAddressCreateInput>;
+};
+
+
 export type MutationCreateProductsArgs = {
   input: Array<ProductCreateInput>;
 };
@@ -22819,6 +24674,11 @@ export type MutationCreateRepliesArgs = {
 
 export type MutationCreateRolesArgs = {
   input: Array<RoleCreateInput>;
+};
+
+
+export type MutationCreateSecondaryAddressesArgs = {
+  input: Array<SecondaryAddressCreateInput>;
 };
 
 
@@ -22931,6 +24791,12 @@ export type MutationDeleteEmployeesArgs = {
 };
 
 
+export type MutationDeleteEquipmentArgs = {
+  delete?: InputMaybe<EquipmentDeleteInput>;
+  where?: InputMaybe<EquipmentWhere>;
+};
+
+
 export type MutationDeleteEventsArgs = {
   delete?: InputMaybe<EventDeleteInput>;
   where?: InputMaybe<EventWhere>;
@@ -23039,6 +24905,12 @@ export type MutationDeletePointsArgs = {
 };
 
 
+export type MutationDeletePrimaryAddressesArgs = {
+  delete?: InputMaybe<PrimaryAddressDeleteInput>;
+  where?: InputMaybe<PrimaryAddressWhere>;
+};
+
+
 export type MutationDeleteProductsArgs = {
   delete?: InputMaybe<ProductDeleteInput>;
   where?: InputMaybe<ProductWhere>;
@@ -23072,6 +24944,12 @@ export type MutationDeleteRepliesArgs = {
 export type MutationDeleteRolesArgs = {
   delete?: InputMaybe<RoleDeleteInput>;
   where?: InputMaybe<RoleWhere>;
+};
+
+
+export type MutationDeleteSecondaryAddressesArgs = {
+  delete?: InputMaybe<SecondaryAddressDeleteInput>;
+  where?: InputMaybe<SecondaryAddressWhere>;
 };
 
 
@@ -23248,6 +25126,17 @@ export type MutationUpdateEmployeesArgs = {
   disconnect?: InputMaybe<EmployeeDisconnectInput>;
   update?: InputMaybe<EmployeeUpdateInput>;
   where?: InputMaybe<EmployeeWhere>;
+};
+
+
+export type MutationUpdateEquipmentArgs = {
+  connect?: InputMaybe<EquipmentConnectInput>;
+  connectOrCreate?: InputMaybe<EquipmentConnectOrCreateInput>;
+  create?: InputMaybe<EquipmentRelationInput>;
+  delete?: InputMaybe<EquipmentDeleteInput>;
+  disconnect?: InputMaybe<EquipmentDisconnectInput>;
+  update?: InputMaybe<EquipmentUpdateInput>;
+  where?: InputMaybe<EquipmentWhere>;
 };
 
 
@@ -23449,6 +25338,17 @@ export type MutationUpdatePointsArgs = {
 };
 
 
+export type MutationUpdatePrimaryAddressesArgs = {
+  connect?: InputMaybe<PrimaryAddressConnectInput>;
+  connectOrCreate?: InputMaybe<PrimaryAddressConnectOrCreateInput>;
+  create?: InputMaybe<PrimaryAddressRelationInput>;
+  delete?: InputMaybe<PrimaryAddressDeleteInput>;
+  disconnect?: InputMaybe<PrimaryAddressDisconnectInput>;
+  update?: InputMaybe<PrimaryAddressUpdateInput>;
+  where?: InputMaybe<PrimaryAddressWhere>;
+};
+
+
 export type MutationUpdateProductsArgs = {
   connect?: InputMaybe<ProductConnectInput>;
   connectOrCreate?: InputMaybe<ProductConnectOrCreateInput>;
@@ -23512,6 +25412,17 @@ export type MutationUpdateRolesArgs = {
   disconnect?: InputMaybe<RoleDisconnectInput>;
   update?: InputMaybe<RoleUpdateInput>;
   where?: InputMaybe<RoleWhere>;
+};
+
+
+export type MutationUpdateSecondaryAddressesArgs = {
+  connect?: InputMaybe<SecondaryAddressConnectInput>;
+  connectOrCreate?: InputMaybe<SecondaryAddressConnectOrCreateInput>;
+  create?: InputMaybe<SecondaryAddressRelationInput>;
+  delete?: InputMaybe<SecondaryAddressDeleteInput>;
+  disconnect?: InputMaybe<SecondaryAddressDisconnectInput>;
+  update?: InputMaybe<SecondaryAddressUpdateInput>;
+  where?: InputMaybe<SecondaryAddressWhere>;
 };
 
 
@@ -24113,36 +26024,6 @@ export type NotificationVendorHasNodeAggregationWhereInput = {
   AND?: InputMaybe<Array<NotificationVendorHasNodeAggregationWhereInput>>;
   NOT?: InputMaybe<NotificationVendorHasNodeAggregationWhereInput>;
   OR?: InputMaybe<Array<NotificationVendorHasNodeAggregationWhereInput>>;
-  labImage_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
-  labImage_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
-  labImage_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
-  labImage_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
-  labImage_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
-  labImage_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  labImage_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  labImage_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  labImage_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  labImage_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  labImage_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  labImage_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  labImage_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  labImage_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  labImage_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  sub_type_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
-  sub_type_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
-  sub_type_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
-  sub_type_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
-  sub_type_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
-  sub_type_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  sub_type_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  sub_type_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  sub_type_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  sub_type_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  sub_type_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  sub_type_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  sub_type_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  sub_type_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  sub_type_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
 };
 
 export type NotificationVendorHasRelationship = {
@@ -24174,8 +26055,6 @@ export type NotificationVendorVendorHasAggregationSelection = {
 export type NotificationVendorVendorHasNodeAggregateSelection = {
   __typename?: 'NotificationVendorVendorHasNodeAggregateSelection';
   id: IdAggregateSelectionNonNullable;
-  labImage: StringAggregateSelectionNullable;
-  sub_type: StringAggregateSelectionNullable;
 };
 
 export type NotificationWhere = {
@@ -24557,6 +26436,1246 @@ export type PointsWhere = {
   url_ENDS_WITH?: InputMaybe<Scalars['String']['input']>;
   url_IN?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   url_STARTS_WITH?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type PrimaryAddress = {
+  __typename?: 'PrimaryAddress';
+  Country?: Maybe<Scalars['String']['output']>;
+  city?: Maybe<Scalars['String']['output']>;
+  id: Scalars['ID']['output'];
+  leadsHas?: Maybe<Leads>;
+  leadsHasAggregate?: Maybe<PrimaryAddressLeadsLeadsHasAggregationSelection>;
+  leadsHasConnection: PrimaryAddressLeadsHasConnection;
+  state?: Maybe<Scalars['String']['output']>;
+  street?: Maybe<Scalars['String']['output']>;
+  userHas?: Maybe<User>;
+  userHasAggregate?: Maybe<PrimaryAddressUserUserHasAggregationSelection>;
+  userHasConnection: PrimaryAddressUserHasConnection;
+  zipCode?: Maybe<Scalars['String']['output']>;
+};
+
+
+export type PrimaryAddressLeadsHasArgs = {
+  directed?: InputMaybe<Scalars['Boolean']['input']>;
+  options?: InputMaybe<LeadsOptions>;
+  where?: InputMaybe<LeadsWhere>;
+};
+
+
+export type PrimaryAddressLeadsHasAggregateArgs = {
+  directed?: InputMaybe<Scalars['Boolean']['input']>;
+  where?: InputMaybe<LeadsWhere>;
+};
+
+
+export type PrimaryAddressLeadsHasConnectionArgs = {
+  after?: InputMaybe<Scalars['String']['input']>;
+  directed?: InputMaybe<Scalars['Boolean']['input']>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  sort?: InputMaybe<Array<PrimaryAddressLeadsHasConnectionSort>>;
+  where?: InputMaybe<PrimaryAddressLeadsHasConnectionWhere>;
+};
+
+
+export type PrimaryAddressUserHasArgs = {
+  directed?: InputMaybe<Scalars['Boolean']['input']>;
+  options?: InputMaybe<UserOptions>;
+  where?: InputMaybe<UserWhere>;
+};
+
+
+export type PrimaryAddressUserHasAggregateArgs = {
+  directed?: InputMaybe<Scalars['Boolean']['input']>;
+  where?: InputMaybe<UserWhere>;
+};
+
+
+export type PrimaryAddressUserHasConnectionArgs = {
+  after?: InputMaybe<Scalars['String']['input']>;
+  directed?: InputMaybe<Scalars['Boolean']['input']>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  sort?: InputMaybe<Array<PrimaryAddressUserHasConnectionSort>>;
+  where?: InputMaybe<PrimaryAddressUserHasConnectionWhere>;
+};
+
+export type PrimaryAddressAggregateSelection = {
+  __typename?: 'PrimaryAddressAggregateSelection';
+  Country: StringAggregateSelectionNullable;
+  city: StringAggregateSelectionNullable;
+  count: Scalars['Int']['output'];
+  id: IdAggregateSelectionNonNullable;
+  state: StringAggregateSelectionNullable;
+  street: StringAggregateSelectionNullable;
+  zipCode: StringAggregateSelectionNullable;
+};
+
+export type PrimaryAddressConnectInput = {
+  leadsHas?: InputMaybe<PrimaryAddressLeadsHasConnectFieldInput>;
+  userHas?: InputMaybe<PrimaryAddressUserHasConnectFieldInput>;
+};
+
+export type PrimaryAddressConnectOrCreateInput = {
+  leadsHas?: InputMaybe<PrimaryAddressLeadsHasConnectOrCreateFieldInput>;
+  userHas?: InputMaybe<PrimaryAddressUserHasConnectOrCreateFieldInput>;
+};
+
+export type PrimaryAddressConnectOrCreateWhere = {
+  node: PrimaryAddressUniqueWhere;
+};
+
+export type PrimaryAddressConnectWhere = {
+  node: PrimaryAddressWhere;
+};
+
+export type PrimaryAddressCreateInput = {
+  Country?: InputMaybe<Scalars['String']['input']>;
+  city?: InputMaybe<Scalars['String']['input']>;
+  leadsHas?: InputMaybe<PrimaryAddressLeadsHasFieldInput>;
+  state?: InputMaybe<Scalars['String']['input']>;
+  street?: InputMaybe<Scalars['String']['input']>;
+  userHas?: InputMaybe<PrimaryAddressUserHasFieldInput>;
+  zipCode?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type PrimaryAddressDeleteInput = {
+  leadsHas?: InputMaybe<PrimaryAddressLeadsHasDeleteFieldInput>;
+  userHas?: InputMaybe<PrimaryAddressUserHasDeleteFieldInput>;
+};
+
+export type PrimaryAddressDisconnectInput = {
+  leadsHas?: InputMaybe<PrimaryAddressLeadsHasDisconnectFieldInput>;
+  userHas?: InputMaybe<PrimaryAddressUserHasDisconnectFieldInput>;
+};
+
+export type PrimaryAddressEdge = {
+  __typename?: 'PrimaryAddressEdge';
+  cursor: Scalars['String']['output'];
+  node: PrimaryAddress;
+};
+
+export type PrimaryAddressLeadsHasAggregateInput = {
+  AND?: InputMaybe<Array<PrimaryAddressLeadsHasAggregateInput>>;
+  NOT?: InputMaybe<PrimaryAddressLeadsHasAggregateInput>;
+  OR?: InputMaybe<Array<PrimaryAddressLeadsHasAggregateInput>>;
+  count?: InputMaybe<Scalars['Int']['input']>;
+  count_GT?: InputMaybe<Scalars['Int']['input']>;
+  count_GTE?: InputMaybe<Scalars['Int']['input']>;
+  count_LT?: InputMaybe<Scalars['Int']['input']>;
+  count_LTE?: InputMaybe<Scalars['Int']['input']>;
+  node?: InputMaybe<PrimaryAddressLeadsHasNodeAggregationWhereInput>;
+};
+
+export type PrimaryAddressLeadsHasConnectFieldInput = {
+  connect?: InputMaybe<LeadsConnectInput>;
+  /** Whether or not to overwrite any matching relationship with the new properties. Will default to `false` in 4.0.0. */
+  overwrite?: Scalars['Boolean']['input'];
+  where?: InputMaybe<LeadsConnectWhere>;
+};
+
+export type PrimaryAddressLeadsHasConnectOrCreateFieldInput = {
+  onCreate: PrimaryAddressLeadsHasConnectOrCreateFieldInputOnCreate;
+  where: LeadsConnectOrCreateWhere;
+};
+
+export type PrimaryAddressLeadsHasConnectOrCreateFieldInputOnCreate = {
+  node: LeadsOnCreateInput;
+};
+
+export type PrimaryAddressLeadsHasConnection = {
+  __typename?: 'PrimaryAddressLeadsHasConnection';
+  edges: Array<PrimaryAddressLeadsHasRelationship>;
+  pageInfo: PageInfo;
+  totalCount: Scalars['Int']['output'];
+};
+
+export type PrimaryAddressLeadsHasConnectionSort = {
+  node?: InputMaybe<LeadsSort>;
+};
+
+export type PrimaryAddressLeadsHasConnectionWhere = {
+  AND?: InputMaybe<Array<PrimaryAddressLeadsHasConnectionWhere>>;
+  NOT?: InputMaybe<PrimaryAddressLeadsHasConnectionWhere>;
+  OR?: InputMaybe<Array<PrimaryAddressLeadsHasConnectionWhere>>;
+  node?: InputMaybe<LeadsWhere>;
+};
+
+export type PrimaryAddressLeadsHasCreateFieldInput = {
+  node: LeadsCreateInput;
+};
+
+export type PrimaryAddressLeadsHasDeleteFieldInput = {
+  delete?: InputMaybe<LeadsDeleteInput>;
+  where?: InputMaybe<PrimaryAddressLeadsHasConnectionWhere>;
+};
+
+export type PrimaryAddressLeadsHasDisconnectFieldInput = {
+  disconnect?: InputMaybe<LeadsDisconnectInput>;
+  where?: InputMaybe<PrimaryAddressLeadsHasConnectionWhere>;
+};
+
+export type PrimaryAddressLeadsHasFieldInput = {
+  connect?: InputMaybe<PrimaryAddressLeadsHasConnectFieldInput>;
+  connectOrCreate?: InputMaybe<PrimaryAddressLeadsHasConnectOrCreateFieldInput>;
+  create?: InputMaybe<PrimaryAddressLeadsHasCreateFieldInput>;
+};
+
+export type PrimaryAddressLeadsHasNodeAggregationWhereInput = {
+  AND?: InputMaybe<Array<PrimaryAddressLeadsHasNodeAggregationWhereInput>>;
+  NOT?: InputMaybe<PrimaryAddressLeadsHasNodeAggregationWhereInput>;
+  OR?: InputMaybe<Array<PrimaryAddressLeadsHasNodeAggregationWhereInput>>;
+  Phone_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  Phone_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  Phone_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  Phone_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  Phone_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  Phone_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  Phone_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  Phone_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  Phone_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  Phone_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  Phone_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  Phone_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  Phone_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  Phone_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  Phone_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  Title_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  Title_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  Title_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  Title_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  Title_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  Title_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  Title_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  Title_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  Title_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  Title_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  Title_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  Title_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  Title_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  Title_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  Title_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  annualRevenue_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  annualRevenue_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  annualRevenue_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  annualRevenue_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  annualRevenue_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  annualRevenue_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  annualRevenue_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  annualRevenue_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  annualRevenue_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  annualRevenue_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  annualRevenue_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  annualRevenue_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  annualRevenue_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  annualRevenue_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  annualRevenue_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  company_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  company_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  company_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  company_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  company_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  company_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  company_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  company_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  company_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  company_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  company_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  company_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  company_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  company_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  company_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  condition_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  condition_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  condition_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  condition_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  condition_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  condition_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  condition_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  condition_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  condition_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  condition_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  condition_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  condition_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  condition_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  condition_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  condition_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  createdAt_MAX_EQUAL?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_MAX_GT?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_MAX_GTE?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_MAX_LT?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_MAX_LTE?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_MIN_EQUAL?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_MIN_GT?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_MIN_GTE?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_MIN_LT?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_MIN_LTE?: InputMaybe<Scalars['DateTime']['input']>;
+  createdBy_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  createdBy_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  createdBy_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  createdBy_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  createdBy_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  createdBy_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  createdBy_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  createdBy_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  createdBy_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  createdBy_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  createdBy_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  createdBy_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  createdBy_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  createdBy_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  createdBy_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  description_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  description_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  description_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  description_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  description_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  description_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  description_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  description_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  description_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  description_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  description_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  description_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  description_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  description_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  description_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  duration_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  duration_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  duration_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  duration_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  duration_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  duration_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  duration_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  duration_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  duration_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  duration_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  duration_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  duration_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  duration_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  duration_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  duration_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  email_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  email_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  email_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  email_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  email_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  email_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  email_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  email_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  email_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  email_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  email_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  email_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  email_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  email_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  email_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  employeeCount_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  employeeCount_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  employeeCount_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  employeeCount_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  employeeCount_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  employeeCount_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  employeeCount_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  employeeCount_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  employeeCount_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  employeeCount_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  employeeCount_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  employeeCount_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  employeeCount_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  employeeCount_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  employeeCount_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  gstNumber_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  gstNumber_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  gstNumber_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  gstNumber_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  gstNumber_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  gstNumber_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  gstNumber_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  gstNumber_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  gstNumber_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  gstNumber_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  gstNumber_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  gstNumber_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  gstNumber_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  gstNumber_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  gstNumber_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  industry_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  industry_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  industry_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  industry_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  industry_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  industry_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  industry_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  industry_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  industry_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  industry_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  industry_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  industry_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  industry_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  industry_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  industry_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  interest_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  interest_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  interest_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  interest_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  interest_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  interest_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  interest_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  interest_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  interest_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  interest_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  interest_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  interest_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  interest_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  interest_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  interest_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  leadOwner_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  leadOwner_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  leadOwner_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  leadOwner_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  leadOwner_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  leadOwner_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  leadOwner_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  leadOwner_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  leadOwner_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  leadOwner_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  leadOwner_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  leadOwner_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  leadOwner_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  leadOwner_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  leadOwner_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  linkedin_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  linkedin_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  linkedin_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  linkedin_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  linkedin_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  message_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  message_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  message_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  message_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  message_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  message_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  message_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  message_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  message_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  message_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  message_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  message_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  message_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  message_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  message_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  name_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  name_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  name_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  name_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  name_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  name_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  name_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  name_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  name_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  name_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  name_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  name_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  name_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  name_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  name_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  officePhone_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  officePhone_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  officePhone_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  officePhone_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  officePhone_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  officePhone_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  officePhone_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  officePhone_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  officePhone_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  officePhone_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  officePhone_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  officePhone_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  officePhone_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  officePhone_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  officePhone_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  phone_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  phone_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  phone_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  phone_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  phone_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  phone_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  phone_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  phone_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  phone_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  phone_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  phone_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  phone_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  phone_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  phone_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  phone_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  price_AVERAGE_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  price_AVERAGE_GT?: InputMaybe<Scalars['Float']['input']>;
+  price_AVERAGE_GTE?: InputMaybe<Scalars['Float']['input']>;
+  price_AVERAGE_LT?: InputMaybe<Scalars['Float']['input']>;
+  price_AVERAGE_LTE?: InputMaybe<Scalars['Float']['input']>;
+  price_MAX_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  price_MAX_GT?: InputMaybe<Scalars['Int']['input']>;
+  price_MAX_GTE?: InputMaybe<Scalars['Int']['input']>;
+  price_MAX_LT?: InputMaybe<Scalars['Int']['input']>;
+  price_MAX_LTE?: InputMaybe<Scalars['Int']['input']>;
+  price_MIN_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  price_MIN_GT?: InputMaybe<Scalars['Int']['input']>;
+  price_MIN_GTE?: InputMaybe<Scalars['Int']['input']>;
+  price_MIN_LT?: InputMaybe<Scalars['Int']['input']>;
+  price_MIN_LTE?: InputMaybe<Scalars['Int']['input']>;
+  price_SUM_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  price_SUM_GT?: InputMaybe<Scalars['Int']['input']>;
+  price_SUM_GTE?: InputMaybe<Scalars['Int']['input']>;
+  price_SUM_LT?: InputMaybe<Scalars['Int']['input']>;
+  price_SUM_LTE?: InputMaybe<Scalars['Int']['input']>;
+  secondaryEmail_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  secondaryEmail_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  secondaryEmail_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  secondaryEmail_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  secondaryEmail_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  secondaryEmail_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  secondaryEmail_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  secondaryEmail_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  secondaryEmail_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  secondaryEmail_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  secondaryEmail_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  secondaryEmail_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  secondaryEmail_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  secondaryEmail_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  secondaryEmail_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  skypeId_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  skypeId_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  skypeId_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  skypeId_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  skypeId_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  twitter_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  twitter_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  twitter_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  twitter_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  twitter_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  twitter_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  twitter_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  twitter_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  twitter_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  twitter_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  twitter_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  twitter_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  twitter_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  twitter_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  twitter_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  type_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  type_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  type_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  type_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  type_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  type_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  type_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  type_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  type_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  type_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  type_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  type_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  type_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  type_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  type_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  updatedAt_MAX_EQUAL?: InputMaybe<Scalars['DateTime']['input']>;
+  updatedAt_MAX_GT?: InputMaybe<Scalars['DateTime']['input']>;
+  updatedAt_MAX_GTE?: InputMaybe<Scalars['DateTime']['input']>;
+  updatedAt_MAX_LT?: InputMaybe<Scalars['DateTime']['input']>;
+  updatedAt_MAX_LTE?: InputMaybe<Scalars['DateTime']['input']>;
+  updatedAt_MIN_EQUAL?: InputMaybe<Scalars['DateTime']['input']>;
+  updatedAt_MIN_GT?: InputMaybe<Scalars['DateTime']['input']>;
+  updatedAt_MIN_GTE?: InputMaybe<Scalars['DateTime']['input']>;
+  updatedAt_MIN_LT?: InputMaybe<Scalars['DateTime']['input']>;
+  updatedAt_MIN_LTE?: InputMaybe<Scalars['DateTime']['input']>;
+  updatedBy_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  updatedBy_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  updatedBy_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  updatedBy_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  updatedBy_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  updatedBy_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  updatedBy_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  updatedBy_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  updatedBy_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  updatedBy_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  updatedBy_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  updatedBy_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  updatedBy_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  updatedBy_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  updatedBy_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  vendorAddress_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  vendorAddress_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  vendorAddress_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  vendorAddress_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  vendorAddress_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  vendorAddress_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  vendorAddress_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  vendorAddress_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  vendorAddress_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  vendorAddress_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  vendorAddress_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  vendorAddress_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  vendorAddress_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  vendorAddress_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  vendorAddress_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  website_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  website_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  website_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  website_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  website_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  website_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  website_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  website_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  website_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  website_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  website_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  website_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  website_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  website_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  website_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+};
+
+export type PrimaryAddressLeadsHasRelationship = {
+  __typename?: 'PrimaryAddressLeadsHasRelationship';
+  cursor: Scalars['String']['output'];
+  node: Leads;
+};
+
+export type PrimaryAddressLeadsHasUpdateConnectionInput = {
+  node?: InputMaybe<LeadsUpdateInput>;
+};
+
+export type PrimaryAddressLeadsHasUpdateFieldInput = {
+  connect?: InputMaybe<PrimaryAddressLeadsHasConnectFieldInput>;
+  connectOrCreate?: InputMaybe<PrimaryAddressLeadsHasConnectOrCreateFieldInput>;
+  create?: InputMaybe<PrimaryAddressLeadsHasCreateFieldInput>;
+  delete?: InputMaybe<PrimaryAddressLeadsHasDeleteFieldInput>;
+  disconnect?: InputMaybe<PrimaryAddressLeadsHasDisconnectFieldInput>;
+  update?: InputMaybe<PrimaryAddressLeadsHasUpdateConnectionInput>;
+  where?: InputMaybe<PrimaryAddressLeadsHasConnectionWhere>;
+};
+
+export type PrimaryAddressLeadsLeadsHasAggregationSelection = {
+  __typename?: 'PrimaryAddressLeadsLeadsHasAggregationSelection';
+  count: Scalars['Int']['output'];
+  node?: Maybe<PrimaryAddressLeadsLeadsHasNodeAggregateSelection>;
+};
+
+export type PrimaryAddressLeadsLeadsHasNodeAggregateSelection = {
+  __typename?: 'PrimaryAddressLeadsLeadsHasNodeAggregateSelection';
+  Phone: StringAggregateSelectionNullable;
+  Title: StringAggregateSelectionNullable;
+  annualRevenue: StringAggregateSelectionNullable;
+  company: StringAggregateSelectionNullable;
+  condition: StringAggregateSelectionNullable;
+  createdAt: DateTimeAggregateSelectionNullable;
+  createdBy: StringAggregateSelectionNullable;
+  description: StringAggregateSelectionNullable;
+  duration: StringAggregateSelectionNullable;
+  email: StringAggregateSelectionNullable;
+  employeeCount: StringAggregateSelectionNullable;
+  gstNumber: StringAggregateSelectionNullable;
+  id: IdAggregateSelectionNonNullable;
+  industry: StringAggregateSelectionNullable;
+  interest: StringAggregateSelectionNullable;
+  leadOwner: StringAggregateSelectionNullable;
+  linkedin: StringAggregateSelectionNullable;
+  message: StringAggregateSelectionNullable;
+  name: StringAggregateSelectionNullable;
+  officePhone: StringAggregateSelectionNullable;
+  phone: StringAggregateSelectionNullable;
+  price: IntAggregateSelectionNullable;
+  secondaryEmail: StringAggregateSelectionNullable;
+  skypeId: StringAggregateSelectionNullable;
+  twitter: StringAggregateSelectionNullable;
+  type: StringAggregateSelectionNullable;
+  updatedAt: DateTimeAggregateSelectionNullable;
+  updatedBy: StringAggregateSelectionNullable;
+  vendorAddress: StringAggregateSelectionNullable;
+  website: StringAggregateSelectionNullable;
+};
+
+export type PrimaryAddressOnCreateInput = {
+  Country?: InputMaybe<Scalars['String']['input']>;
+  city?: InputMaybe<Scalars['String']['input']>;
+  state?: InputMaybe<Scalars['String']['input']>;
+  street?: InputMaybe<Scalars['String']['input']>;
+  zipCode?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type PrimaryAddressOptions = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  /** Specify one or more PrimaryAddressSort objects to sort PrimaryAddresses by. The sorts will be applied in the order in which they are arranged in the array. */
+  sort?: InputMaybe<Array<PrimaryAddressSort>>;
+};
+
+export type PrimaryAddressRelationInput = {
+  leadsHas?: InputMaybe<PrimaryAddressLeadsHasCreateFieldInput>;
+  userHas?: InputMaybe<PrimaryAddressUserHasCreateFieldInput>;
+};
+
+/** Fields to sort PrimaryAddresses by. The order in which sorts are applied is not guaranteed when specifying many fields in one PrimaryAddressSort object. */
+export type PrimaryAddressSort = {
+  Country?: InputMaybe<SortDirection>;
+  city?: InputMaybe<SortDirection>;
+  id?: InputMaybe<SortDirection>;
+  state?: InputMaybe<SortDirection>;
+  street?: InputMaybe<SortDirection>;
+  zipCode?: InputMaybe<SortDirection>;
+};
+
+export type PrimaryAddressUniqueWhere = {
+  id?: InputMaybe<Scalars['ID']['input']>;
+};
+
+export type PrimaryAddressUpdateInput = {
+  Country?: InputMaybe<Scalars['String']['input']>;
+  city?: InputMaybe<Scalars['String']['input']>;
+  leadsHas?: InputMaybe<PrimaryAddressLeadsHasUpdateFieldInput>;
+  state?: InputMaybe<Scalars['String']['input']>;
+  street?: InputMaybe<Scalars['String']['input']>;
+  userHas?: InputMaybe<PrimaryAddressUserHasUpdateFieldInput>;
+  zipCode?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type PrimaryAddressUserHasAggregateInput = {
+  AND?: InputMaybe<Array<PrimaryAddressUserHasAggregateInput>>;
+  NOT?: InputMaybe<PrimaryAddressUserHasAggregateInput>;
+  OR?: InputMaybe<Array<PrimaryAddressUserHasAggregateInput>>;
+  count?: InputMaybe<Scalars['Int']['input']>;
+  count_GT?: InputMaybe<Scalars['Int']['input']>;
+  count_GTE?: InputMaybe<Scalars['Int']['input']>;
+  count_LT?: InputMaybe<Scalars['Int']['input']>;
+  count_LTE?: InputMaybe<Scalars['Int']['input']>;
+  node?: InputMaybe<PrimaryAddressUserHasNodeAggregationWhereInput>;
+};
+
+export type PrimaryAddressUserHasConnectFieldInput = {
+  connect?: InputMaybe<UserConnectInput>;
+  /** Whether or not to overwrite any matching relationship with the new properties. Will default to `false` in 4.0.0. */
+  overwrite?: Scalars['Boolean']['input'];
+  where?: InputMaybe<UserConnectWhere>;
+};
+
+export type PrimaryAddressUserHasConnectOrCreateFieldInput = {
+  onCreate: PrimaryAddressUserHasConnectOrCreateFieldInputOnCreate;
+  where: UserConnectOrCreateWhere;
+};
+
+export type PrimaryAddressUserHasConnectOrCreateFieldInputOnCreate = {
+  node: UserOnCreateInput;
+};
+
+export type PrimaryAddressUserHasConnection = {
+  __typename?: 'PrimaryAddressUserHasConnection';
+  edges: Array<PrimaryAddressUserHasRelationship>;
+  pageInfo: PageInfo;
+  totalCount: Scalars['Int']['output'];
+};
+
+export type PrimaryAddressUserHasConnectionSort = {
+  node?: InputMaybe<UserSort>;
+};
+
+export type PrimaryAddressUserHasConnectionWhere = {
+  AND?: InputMaybe<Array<PrimaryAddressUserHasConnectionWhere>>;
+  NOT?: InputMaybe<PrimaryAddressUserHasConnectionWhere>;
+  OR?: InputMaybe<Array<PrimaryAddressUserHasConnectionWhere>>;
+  node?: InputMaybe<UserWhere>;
+};
+
+export type PrimaryAddressUserHasCreateFieldInput = {
+  node: UserCreateInput;
+};
+
+export type PrimaryAddressUserHasDeleteFieldInput = {
+  delete?: InputMaybe<UserDeleteInput>;
+  where?: InputMaybe<PrimaryAddressUserHasConnectionWhere>;
+};
+
+export type PrimaryAddressUserHasDisconnectFieldInput = {
+  disconnect?: InputMaybe<UserDisconnectInput>;
+  where?: InputMaybe<PrimaryAddressUserHasConnectionWhere>;
+};
+
+export type PrimaryAddressUserHasFieldInput = {
+  connect?: InputMaybe<PrimaryAddressUserHasConnectFieldInput>;
+  connectOrCreate?: InputMaybe<PrimaryAddressUserHasConnectOrCreateFieldInput>;
+  create?: InputMaybe<PrimaryAddressUserHasCreateFieldInput>;
+};
+
+export type PrimaryAddressUserHasNodeAggregationWhereInput = {
+  AND?: InputMaybe<Array<PrimaryAddressUserHasNodeAggregationWhereInput>>;
+  NOT?: InputMaybe<PrimaryAddressUserHasNodeAggregationWhereInput>;
+  OR?: InputMaybe<Array<PrimaryAddressUserHasNodeAggregationWhereInput>>;
+  bio_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  bio_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  bio_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  bio_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  bio_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  bio_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  bio_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  bio_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  bio_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  bio_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  bio_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  bio_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  bio_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  bio_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  bio_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  companyDescription_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  companyDescription_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  companyDescription_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  companyDescription_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  companyDescription_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  companyDescription_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  companyDescription_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  companyDescription_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  companyDescription_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  companyDescription_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  companyDescription_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  companyDescription_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  companyDescription_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  companyDescription_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  companyDescription_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  companyEmail_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  companyEmail_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  companyEmail_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  companyEmail_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  companyEmail_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  companyEmail_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  companyEmail_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  companyEmail_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  companyEmail_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  companyEmail_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  companyEmail_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  companyEmail_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  companyEmail_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  companyEmail_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  companyEmail_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  companyName_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  companyName_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  companyName_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  companyName_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  companyName_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  companyName_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  companyName_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  companyName_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  companyName_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  companyName_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  companyName_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  companyName_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  companyName_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  companyName_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  companyName_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  companyPhone_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  companyPhone_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  companyPhone_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  companyPhone_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  companyPhone_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  companyPhone_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  companyPhone_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  companyPhone_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  companyPhone_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  companyPhone_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  companyPhone_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  companyPhone_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  companyPhone_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  companyPhone_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  companyPhone_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  createdAt_MAX_EQUAL?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_MAX_GT?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_MAX_GTE?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_MAX_LT?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_MAX_LTE?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_MIN_EQUAL?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_MIN_GT?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_MIN_GTE?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_MIN_LT?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_MIN_LTE?: InputMaybe<Scalars['DateTime']['input']>;
+  department_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  department_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  department_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  department_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  department_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  department_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  department_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  department_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  department_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  department_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  department_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  department_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  department_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  department_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  department_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  education_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  education_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  education_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  education_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  education_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  education_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  education_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  education_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  education_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  education_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  education_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  education_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  education_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  education_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  education_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  email_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  email_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  email_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  email_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  email_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  email_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  email_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  email_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  email_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  email_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  email_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  email_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  email_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  email_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  email_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  experience_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  experience_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  experience_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  experience_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  experience_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  experience_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  experience_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  experience_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  experience_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  experience_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  experience_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  experience_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  experience_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  experience_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  experience_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  gstNumber_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  gstNumber_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  gstNumber_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  gstNumber_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  gstNumber_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  gstNumber_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  gstNumber_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  gstNumber_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  gstNumber_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  gstNumber_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  gstNumber_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  gstNumber_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  gstNumber_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  gstNumber_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  gstNumber_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  image_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  image_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  image_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  image_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  image_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  image_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  image_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  image_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  image_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  image_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  image_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  image_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  image_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  image_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  image_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  interest_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  interest_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  interest_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  interest_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  interest_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  interest_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  interest_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  interest_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  interest_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  interest_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  interest_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  interest_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  interest_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  interest_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  interest_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  linkedin_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  linkedin_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  linkedin_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  linkedin_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  linkedin_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  name_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  name_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  name_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  name_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  name_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  name_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  name_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  name_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  name_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  name_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  name_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  name_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  name_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  name_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  name_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  panCardNo_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  panCardNo_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  panCardNo_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  panCardNo_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  panCardNo_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  panCardNo_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  panCardNo_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  panCardNo_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  panCardNo_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  panCardNo_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  panCardNo_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  panCardNo_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  panCardNo_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  panCardNo_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  panCardNo_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  phoneNumber_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  phoneNumber_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  phoneNumber_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  phoneNumber_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  phoneNumber_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  phoneNumber_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  phoneNumber_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  phoneNumber_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  phoneNumber_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  phoneNumber_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  phoneNumber_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  phoneNumber_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  phoneNumber_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  phoneNumber_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  phoneNumber_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  phone_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  phone_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  phone_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  phone_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  phone_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  phone_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  phone_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  phone_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  phone_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  phone_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  phone_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  phone_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  phone_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  phone_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  phone_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  skypeId_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  skypeId_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  skypeId_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  skypeId_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  skypeId_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  specialty_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  specialty_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  specialty_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  specialty_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  specialty_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  specialty_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  specialty_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  specialty_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  specialty_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  specialty_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  specialty_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  specialty_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  specialty_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  specialty_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  specialty_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  title_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  title_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  title_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  title_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  title_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  title_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  title_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  title_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  title_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  title_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  title_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  title_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  title_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  title_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  title_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  twitter_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  twitter_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  twitter_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  twitter_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  twitter_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  twitter_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  twitter_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  twitter_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  twitter_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  twitter_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  twitter_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  twitter_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  twitter_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  twitter_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  twitter_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  userId_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  userId_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  userId_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  userId_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  userId_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  userId_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  userId_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  userId_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  userId_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  userId_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  userId_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  userId_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  userId_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  userId_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  userId_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+};
+
+export type PrimaryAddressUserHasRelationship = {
+  __typename?: 'PrimaryAddressUserHasRelationship';
+  cursor: Scalars['String']['output'];
+  node: User;
+};
+
+export type PrimaryAddressUserHasUpdateConnectionInput = {
+  node?: InputMaybe<UserUpdateInput>;
+};
+
+export type PrimaryAddressUserHasUpdateFieldInput = {
+  connect?: InputMaybe<PrimaryAddressUserHasConnectFieldInput>;
+  connectOrCreate?: InputMaybe<PrimaryAddressUserHasConnectOrCreateFieldInput>;
+  create?: InputMaybe<PrimaryAddressUserHasCreateFieldInput>;
+  delete?: InputMaybe<PrimaryAddressUserHasDeleteFieldInput>;
+  disconnect?: InputMaybe<PrimaryAddressUserHasDisconnectFieldInput>;
+  update?: InputMaybe<PrimaryAddressUserHasUpdateConnectionInput>;
+  where?: InputMaybe<PrimaryAddressUserHasConnectionWhere>;
+};
+
+export type PrimaryAddressUserUserHasAggregationSelection = {
+  __typename?: 'PrimaryAddressUserUserHasAggregationSelection';
+  count: Scalars['Int']['output'];
+  node?: Maybe<PrimaryAddressUserUserHasNodeAggregateSelection>;
+};
+
+export type PrimaryAddressUserUserHasNodeAggregateSelection = {
+  __typename?: 'PrimaryAddressUserUserHasNodeAggregateSelection';
+  bio: StringAggregateSelectionNullable;
+  companyDescription: StringAggregateSelectionNullable;
+  companyEmail: StringAggregateSelectionNullable;
+  companyName: StringAggregateSelectionNullable;
+  companyPhone: StringAggregateSelectionNullable;
+  createdAt: DateTimeAggregateSelectionNullable;
+  department: StringAggregateSelectionNullable;
+  education: StringAggregateSelectionNullable;
+  email: StringAggregateSelectionNullable;
+  experience: StringAggregateSelectionNullable;
+  gstNumber: StringAggregateSelectionNullable;
+  id: IdAggregateSelectionNonNullable;
+  image: StringAggregateSelectionNullable;
+  interest: StringAggregateSelectionNullable;
+  linkedin: StringAggregateSelectionNullable;
+  name: StringAggregateSelectionNullable;
+  panCardNo: StringAggregateSelectionNullable;
+  phone: StringAggregateSelectionNullable;
+  phoneNumber: StringAggregateSelectionNullable;
+  skypeId: StringAggregateSelectionNullable;
+  specialty: StringAggregateSelectionNullable;
+  title: StringAggregateSelectionNullable;
+  twitter: StringAggregateSelectionNullable;
+  userId: StringAggregateSelectionNullable;
+};
+
+export type PrimaryAddressWhere = {
+  AND?: InputMaybe<Array<PrimaryAddressWhere>>;
+  Country?: InputMaybe<Scalars['String']['input']>;
+  Country_CONTAINS?: InputMaybe<Scalars['String']['input']>;
+  Country_ENDS_WITH?: InputMaybe<Scalars['String']['input']>;
+  Country_IN?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  Country_STARTS_WITH?: InputMaybe<Scalars['String']['input']>;
+  NOT?: InputMaybe<PrimaryAddressWhere>;
+  OR?: InputMaybe<Array<PrimaryAddressWhere>>;
+  city?: InputMaybe<Scalars['String']['input']>;
+  city_CONTAINS?: InputMaybe<Scalars['String']['input']>;
+  city_ENDS_WITH?: InputMaybe<Scalars['String']['input']>;
+  city_IN?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  city_STARTS_WITH?: InputMaybe<Scalars['String']['input']>;
+  id?: InputMaybe<Scalars['ID']['input']>;
+  id_CONTAINS?: InputMaybe<Scalars['ID']['input']>;
+  id_ENDS_WITH?: InputMaybe<Scalars['ID']['input']>;
+  id_IN?: InputMaybe<Array<Scalars['ID']['input']>>;
+  id_STARTS_WITH?: InputMaybe<Scalars['ID']['input']>;
+  leadsHas?: InputMaybe<LeadsWhere>;
+  leadsHasAggregate?: InputMaybe<PrimaryAddressLeadsHasAggregateInput>;
+  leadsHasConnection?: InputMaybe<PrimaryAddressLeadsHasConnectionWhere>;
+  leadsHasConnection_NOT?: InputMaybe<PrimaryAddressLeadsHasConnectionWhere>;
+  leadsHas_NOT?: InputMaybe<LeadsWhere>;
+  state?: InputMaybe<Scalars['String']['input']>;
+  state_CONTAINS?: InputMaybe<Scalars['String']['input']>;
+  state_ENDS_WITH?: InputMaybe<Scalars['String']['input']>;
+  state_IN?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  state_STARTS_WITH?: InputMaybe<Scalars['String']['input']>;
+  street?: InputMaybe<Scalars['String']['input']>;
+  street_CONTAINS?: InputMaybe<Scalars['String']['input']>;
+  street_ENDS_WITH?: InputMaybe<Scalars['String']['input']>;
+  street_IN?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  street_STARTS_WITH?: InputMaybe<Scalars['String']['input']>;
+  userHas?: InputMaybe<UserWhere>;
+  userHasAggregate?: InputMaybe<PrimaryAddressUserHasAggregateInput>;
+  userHasConnection?: InputMaybe<PrimaryAddressUserHasConnectionWhere>;
+  userHasConnection_NOT?: InputMaybe<PrimaryAddressUserHasConnectionWhere>;
+  userHas_NOT?: InputMaybe<UserWhere>;
+  zipCode?: InputMaybe<Scalars['String']['input']>;
+  zipCode_CONTAINS?: InputMaybe<Scalars['String']['input']>;
+  zipCode_ENDS_WITH?: InputMaybe<Scalars['String']['input']>;
+  zipCode_IN?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  zipCode_STARTS_WITH?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type PrimaryAddressesConnection = {
+  __typename?: 'PrimaryAddressesConnection';
+  edges: Array<PrimaryAddressEdge>;
+  pageInfo: PageInfo;
+  totalCount: Scalars['Int']['output'];
 };
 
 export type Product = {
@@ -25256,6 +28375,7 @@ export type Project = {
   hasModuleAggregate?: Maybe<ProjectModuleHasModuleAggregationSelection>;
   hasModuleConnection: ProjectHasModuleConnection;
   id: Scalars['ID']['output'];
+  isViewed?: Maybe<Scalars['Boolean']['output']>;
   projectticketFor?: Maybe<ProjectTicket>;
   projectticketForAggregate?: Maybe<ProjectProjectTicketProjectticketForAggregationSelection>;
   projectticketForConnection: ProjectProjectticketForConnection;
@@ -25622,6 +28742,7 @@ export type ProjectCreateInput = {
   email?: InputMaybe<Scalars['String']['input']>;
   gst?: InputMaybe<Scalars['String']['input']>;
   hasModule?: InputMaybe<ProjectHasModuleFieldInput>;
+  isViewed?: InputMaybe<Scalars['Boolean']['input']>;
   projectticketFor?: InputMaybe<ProjectProjectticketForFieldInput>;
   status?: InputMaybe<Status>;
   title?: InputMaybe<Scalars['String']['input']>;
@@ -25834,6 +28955,7 @@ export type ProjectOnCreateInput = {
   description?: InputMaybe<Scalars['String']['input']>;
   email?: InputMaybe<Scalars['String']['input']>;
   gst?: InputMaybe<Scalars['String']['input']>;
+  isViewed?: InputMaybe<Scalars['Boolean']['input']>;
   status?: InputMaybe<Status>;
   title?: InputMaybe<Scalars['String']['input']>;
 };
@@ -25982,6 +29104,7 @@ export type ProjectSort = {
   email?: InputMaybe<SortDirection>;
   gst?: InputMaybe<SortDirection>;
   id?: InputMaybe<SortDirection>;
+  isViewed?: InputMaybe<SortDirection>;
   status?: InputMaybe<SortDirection>;
   title?: InputMaybe<SortDirection>;
 };
@@ -26714,6 +29837,7 @@ export type ProjectUpdateInput = {
   email?: InputMaybe<Scalars['String']['input']>;
   gst?: InputMaybe<Scalars['String']['input']>;
   hasModule?: InputMaybe<Array<ProjectHasModuleUpdateFieldInput>>;
+  isViewed?: InputMaybe<Scalars['Boolean']['input']>;
   projectticketFor?: InputMaybe<ProjectProjectticketForUpdateFieldInput>;
   status?: InputMaybe<Status>;
   title?: InputMaybe<Scalars['String']['input']>;
@@ -26796,6 +29920,7 @@ export type ProjectWhere = {
   id_ENDS_WITH?: InputMaybe<Scalars['ID']['input']>;
   id_IN?: InputMaybe<Array<Scalars['ID']['input']>>;
   id_STARTS_WITH?: InputMaybe<Scalars['ID']['input']>;
+  isViewed?: InputMaybe<Scalars['Boolean']['input']>;
   projectticketFor?: InputMaybe<ProjectTicketWhere>;
   projectticketForAggregate?: InputMaybe<ProjectProjectticketForAggregateInput>;
   projectticketForConnection?: InputMaybe<ProjectProjectticketForConnectionWhere>;
@@ -27328,6 +30453,9 @@ export type Query = {
   employees: Array<Employee>;
   employeesAggregate: EmployeeAggregateSelection;
   employeesConnection: EmployeesConnection;
+  equipment: Array<Equipment>;
+  equipmentAggregate: EquipmentAggregateSelection;
+  equipmentConnection: EquipmentConnection;
   events: Array<Event>;
   eventsAggregate: EventAggregateSelection;
   eventsConnection: EventsConnection;
@@ -27382,6 +30510,9 @@ export type Query = {
   points: Array<Points>;
   pointsAggregate: PointsAggregateSelection;
   pointsConnection: PointsConnection;
+  primaryAddresses: Array<PrimaryAddress>;
+  primaryAddressesAggregate: PrimaryAddressAggregateSelection;
+  primaryAddressesConnection: PrimaryAddressesConnection;
   products: Array<Product>;
   productsAggregate: ProductAggregateSelection;
   productsConnection: ProductsConnection;
@@ -27400,6 +30531,9 @@ export type Query = {
   roles: Array<Role>;
   rolesAggregate: RoleAggregateSelection;
   rolesConnection: RolesConnection;
+  secondaryAddresses: Array<SecondaryAddress>;
+  secondaryAddressesAggregate: SecondaryAddressAggregateSelection;
+  secondaryAddressesConnection: SecondaryAddressesConnection;
   services: Array<Service>;
   servicesAggregate: ServiceAggregateSelection;
   servicesConnection: ServicesConnection;
@@ -27620,6 +30754,25 @@ export type QueryEmployeesConnectionArgs = {
   first?: InputMaybe<Scalars['Int']['input']>;
   sort?: InputMaybe<Array<InputMaybe<EmployeeSort>>>;
   where?: InputMaybe<EmployeeWhere>;
+};
+
+
+export type QueryEquipmentArgs = {
+  options?: InputMaybe<EquipmentOptions>;
+  where?: InputMaybe<EquipmentWhere>;
+};
+
+
+export type QueryEquipmentAggregateArgs = {
+  where?: InputMaybe<EquipmentWhere>;
+};
+
+
+export type QueryEquipmentConnectionArgs = {
+  after?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  sort?: InputMaybe<Array<InputMaybe<EquipmentSort>>>;
+  where?: InputMaybe<EquipmentWhere>;
 };
 
 
@@ -27965,6 +31118,25 @@ export type QueryPointsConnectionArgs = {
 };
 
 
+export type QueryPrimaryAddressesArgs = {
+  options?: InputMaybe<PrimaryAddressOptions>;
+  where?: InputMaybe<PrimaryAddressWhere>;
+};
+
+
+export type QueryPrimaryAddressesAggregateArgs = {
+  where?: InputMaybe<PrimaryAddressWhere>;
+};
+
+
+export type QueryPrimaryAddressesConnectionArgs = {
+  after?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  sort?: InputMaybe<Array<InputMaybe<PrimaryAddressSort>>>;
+  where?: InputMaybe<PrimaryAddressWhere>;
+};
+
+
 export type QueryProductsArgs = {
   options?: InputMaybe<ProductOptions>;
   where?: InputMaybe<ProductWhere>;
@@ -28076,6 +31248,25 @@ export type QueryRolesConnectionArgs = {
   first?: InputMaybe<Scalars['Int']['input']>;
   sort?: InputMaybe<Array<InputMaybe<RoleSort>>>;
   where?: InputMaybe<RoleWhere>;
+};
+
+
+export type QuerySecondaryAddressesArgs = {
+  options?: InputMaybe<SecondaryAddressOptions>;
+  where?: InputMaybe<SecondaryAddressWhere>;
+};
+
+
+export type QuerySecondaryAddressesAggregateArgs = {
+  where?: InputMaybe<SecondaryAddressWhere>;
+};
+
+
+export type QuerySecondaryAddressesConnectionArgs = {
+  after?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  sort?: InputMaybe<Array<InputMaybe<SecondaryAddressSort>>>;
+  where?: InputMaybe<SecondaryAddressWhere>;
 };
 
 
@@ -28783,36 +31974,6 @@ export type ReplyVendorHasNodeAggregationWhereInput = {
   AND?: InputMaybe<Array<ReplyVendorHasNodeAggregationWhereInput>>;
   NOT?: InputMaybe<ReplyVendorHasNodeAggregationWhereInput>;
   OR?: InputMaybe<Array<ReplyVendorHasNodeAggregationWhereInput>>;
-  labImage_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
-  labImage_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
-  labImage_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
-  labImage_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
-  labImage_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
-  labImage_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  labImage_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  labImage_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  labImage_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  labImage_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  labImage_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  labImage_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  labImage_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  labImage_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  labImage_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  sub_type_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
-  sub_type_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
-  sub_type_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
-  sub_type_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
-  sub_type_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
-  sub_type_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  sub_type_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  sub_type_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  sub_type_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  sub_type_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  sub_type_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  sub_type_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  sub_type_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  sub_type_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  sub_type_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
 };
 
 export type ReplyVendorHasRelationship = {
@@ -28844,8 +32005,6 @@ export type ReplyVendorVendorHasAggregationSelection = {
 export type ReplyVendorVendorHasNodeAggregateSelection = {
   __typename?: 'ReplyVendorVendorHasNodeAggregateSelection';
   id: IdAggregateSelectionNonNullable;
-  labImage: StringAggregateSelectionNullable;
-  sub_type: StringAggregateSelectionNullable;
 };
 
 export type ReplyWhere = {
@@ -29204,21 +32363,6 @@ export type RoleUserHasNodeAggregationWhereInput = {
   AND?: InputMaybe<Array<RoleUserHasNodeAggregationWhereInput>>;
   NOT?: InputMaybe<RoleUserHasNodeAggregationWhereInput>;
   OR?: InputMaybe<Array<RoleUserHasNodeAggregationWhereInput>>;
-  address_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
-  address_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
-  address_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
-  address_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
-  address_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
-  address_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  address_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  address_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  address_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  address_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  address_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  address_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  address_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  address_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  address_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
   bio_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
   bio_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
   bio_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
@@ -29234,21 +32378,21 @@ export type RoleUserHasNodeAggregationWhereInput = {
   bio_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
   bio_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
   bio_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  city_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
-  city_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
-  city_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
-  city_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
-  city_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
-  city_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  city_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  city_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  city_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  city_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  city_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  city_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  city_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  city_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  city_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  companyDescription_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  companyDescription_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  companyDescription_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  companyDescription_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  companyDescription_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  companyDescription_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  companyDescription_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  companyDescription_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  companyDescription_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  companyDescription_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  companyDescription_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  companyDescription_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  companyDescription_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  companyDescription_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  companyDescription_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
   companyEmail_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
   companyEmail_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
   companyEmail_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
@@ -29279,6 +32423,21 @@ export type RoleUserHasNodeAggregationWhereInput = {
   companyName_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
   companyName_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
   companyName_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  companyPhone_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  companyPhone_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  companyPhone_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  companyPhone_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  companyPhone_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  companyPhone_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  companyPhone_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  companyPhone_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  companyPhone_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  companyPhone_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  companyPhone_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  companyPhone_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  companyPhone_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  companyPhone_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  companyPhone_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
   createdAt_MAX_EQUAL?: InputMaybe<Scalars['DateTime']['input']>;
   createdAt_MAX_GT?: InputMaybe<Scalars['DateTime']['input']>;
   createdAt_MAX_GTE?: InputMaybe<Scalars['DateTime']['input']>;
@@ -29289,6 +32448,36 @@ export type RoleUserHasNodeAggregationWhereInput = {
   createdAt_MIN_GTE?: InputMaybe<Scalars['DateTime']['input']>;
   createdAt_MIN_LT?: InputMaybe<Scalars['DateTime']['input']>;
   createdAt_MIN_LTE?: InputMaybe<Scalars['DateTime']['input']>;
+  department_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  department_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  department_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  department_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  department_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  department_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  department_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  department_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  department_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  department_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  department_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  department_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  department_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  department_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  department_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  education_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  education_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  education_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  education_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  education_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  education_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  education_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  education_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  education_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  education_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  education_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  education_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  education_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  education_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  education_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
   email_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
   email_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
   email_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
@@ -29304,6 +32493,21 @@ export type RoleUserHasNodeAggregationWhereInput = {
   email_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
   email_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
   email_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  experience_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  experience_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  experience_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  experience_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  experience_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  experience_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  experience_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  experience_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  experience_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  experience_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  experience_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  experience_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  experience_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  experience_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  experience_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
   gstNumber_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
   gstNumber_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
   gstNumber_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
@@ -29334,21 +32538,36 @@ export type RoleUserHasNodeAggregationWhereInput = {
   image_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
   image_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
   image_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  mobile_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
-  mobile_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
-  mobile_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
-  mobile_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
-  mobile_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
-  mobile_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  mobile_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  mobile_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  mobile_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  mobile_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  mobile_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  mobile_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  mobile_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  mobile_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  mobile_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  interest_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  interest_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  interest_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  interest_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  interest_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  interest_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  interest_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  interest_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  interest_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  interest_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  interest_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  interest_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  interest_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  interest_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  interest_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  linkedin_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  linkedin_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  linkedin_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  linkedin_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  linkedin_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
   name_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
   name_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
   name_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
@@ -29379,6 +32598,21 @@ export type RoleUserHasNodeAggregationWhereInput = {
   panCardNo_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
   panCardNo_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
   panCardNo_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  phoneNumber_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  phoneNumber_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  phoneNumber_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  phoneNumber_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  phoneNumber_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  phoneNumber_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  phoneNumber_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  phoneNumber_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  phoneNumber_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  phoneNumber_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  phoneNumber_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  phoneNumber_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  phoneNumber_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  phoneNumber_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  phoneNumber_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
   phone_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
   phone_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
   phone_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
@@ -29394,36 +32628,66 @@ export type RoleUserHasNodeAggregationWhereInput = {
   phone_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
   phone_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
   phone_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  secondAddress_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
-  secondAddress_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
-  secondAddress_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
-  secondAddress_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
-  secondAddress_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
-  secondAddress_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  secondAddress_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  secondAddress_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  secondAddress_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  secondAddress_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  secondAddress_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  secondAddress_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  secondAddress_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  secondAddress_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  secondAddress_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  state_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
-  state_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
-  state_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
-  state_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
-  state_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
-  state_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  state_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  state_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  state_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  state_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  state_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  state_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  state_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  state_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  state_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  skypeId_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  skypeId_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  skypeId_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  skypeId_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  skypeId_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  specialty_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  specialty_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  specialty_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  specialty_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  specialty_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  specialty_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  specialty_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  specialty_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  specialty_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  specialty_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  specialty_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  specialty_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  specialty_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  specialty_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  specialty_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  title_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  title_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  title_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  title_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  title_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  title_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  title_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  title_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  title_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  title_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  title_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  title_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  title_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  title_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  title_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  twitter_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  twitter_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  twitter_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  twitter_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  twitter_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  twitter_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  twitter_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  twitter_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  twitter_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  twitter_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  twitter_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  twitter_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  twitter_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  twitter_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  twitter_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
   userId_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
   userId_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
   userId_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
@@ -29439,21 +32703,6 @@ export type RoleUserHasNodeAggregationWhereInput = {
   userId_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
   userId_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
   userId_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  zip_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
-  zip_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
-  zip_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
-  zip_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
-  zip_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
-  zip_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  zip_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  zip_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  zip_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  zip_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  zip_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  zip_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  zip_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  zip_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  zip_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
 };
 
 export type RoleUserHasRelationship = {
@@ -29484,24 +32733,30 @@ export type RoleUserUserHasAggregationSelection = {
 
 export type RoleUserUserHasNodeAggregateSelection = {
   __typename?: 'RoleUserUserHasNodeAggregateSelection';
-  address: StringAggregateSelectionNullable;
   bio: StringAggregateSelectionNullable;
-  city: StringAggregateSelectionNullable;
+  companyDescription: StringAggregateSelectionNullable;
   companyEmail: StringAggregateSelectionNullable;
   companyName: StringAggregateSelectionNullable;
+  companyPhone: StringAggregateSelectionNullable;
   createdAt: DateTimeAggregateSelectionNullable;
+  department: StringAggregateSelectionNullable;
+  education: StringAggregateSelectionNullable;
   email: StringAggregateSelectionNullable;
+  experience: StringAggregateSelectionNullable;
   gstNumber: StringAggregateSelectionNullable;
   id: IdAggregateSelectionNonNullable;
   image: StringAggregateSelectionNullable;
-  mobile: StringAggregateSelectionNullable;
+  interest: StringAggregateSelectionNullable;
+  linkedin: StringAggregateSelectionNullable;
   name: StringAggregateSelectionNullable;
   panCardNo: StringAggregateSelectionNullable;
   phone: StringAggregateSelectionNullable;
-  secondAddress: StringAggregateSelectionNullable;
-  state: StringAggregateSelectionNullable;
+  phoneNumber: StringAggregateSelectionNullable;
+  skypeId: StringAggregateSelectionNullable;
+  specialty: StringAggregateSelectionNullable;
+  title: StringAggregateSelectionNullable;
+  twitter: StringAggregateSelectionNullable;
   userId: StringAggregateSelectionNullable;
-  zip: StringAggregateSelectionNullable;
 };
 
 export type RoleWhere = {
@@ -29550,6 +32805,647 @@ export enum SampleStatus {
   OnWay = 'ON_WAY',
   Received = 'RECEIVED'
 }
+
+export type SecondaryAddress = {
+  __typename?: 'SecondaryAddress';
+  Country?: Maybe<Scalars['String']['output']>;
+  city?: Maybe<Scalars['String']['output']>;
+  id: Scalars['ID']['output'];
+  state?: Maybe<Scalars['String']['output']>;
+  street?: Maybe<Scalars['String']['output']>;
+  userHas?: Maybe<User>;
+  userHasAggregate?: Maybe<SecondaryAddressUserUserHasAggregationSelection>;
+  userHasConnection: SecondaryAddressUserHasConnection;
+  zipCode?: Maybe<Scalars['String']['output']>;
+};
+
+
+export type SecondaryAddressUserHasArgs = {
+  directed?: InputMaybe<Scalars['Boolean']['input']>;
+  options?: InputMaybe<UserOptions>;
+  where?: InputMaybe<UserWhere>;
+};
+
+
+export type SecondaryAddressUserHasAggregateArgs = {
+  directed?: InputMaybe<Scalars['Boolean']['input']>;
+  where?: InputMaybe<UserWhere>;
+};
+
+
+export type SecondaryAddressUserHasConnectionArgs = {
+  after?: InputMaybe<Scalars['String']['input']>;
+  directed?: InputMaybe<Scalars['Boolean']['input']>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  sort?: InputMaybe<Array<SecondaryAddressUserHasConnectionSort>>;
+  where?: InputMaybe<SecondaryAddressUserHasConnectionWhere>;
+};
+
+export type SecondaryAddressAggregateSelection = {
+  __typename?: 'SecondaryAddressAggregateSelection';
+  Country: StringAggregateSelectionNullable;
+  city: StringAggregateSelectionNullable;
+  count: Scalars['Int']['output'];
+  id: IdAggregateSelectionNonNullable;
+  state: StringAggregateSelectionNullable;
+  street: StringAggregateSelectionNullable;
+  zipCode: StringAggregateSelectionNullable;
+};
+
+export type SecondaryAddressConnectInput = {
+  userHas?: InputMaybe<SecondaryAddressUserHasConnectFieldInput>;
+};
+
+export type SecondaryAddressConnectOrCreateInput = {
+  userHas?: InputMaybe<SecondaryAddressUserHasConnectOrCreateFieldInput>;
+};
+
+export type SecondaryAddressConnectOrCreateWhere = {
+  node: SecondaryAddressUniqueWhere;
+};
+
+export type SecondaryAddressConnectWhere = {
+  node: SecondaryAddressWhere;
+};
+
+export type SecondaryAddressCreateInput = {
+  Country?: InputMaybe<Scalars['String']['input']>;
+  city?: InputMaybe<Scalars['String']['input']>;
+  state?: InputMaybe<Scalars['String']['input']>;
+  street?: InputMaybe<Scalars['String']['input']>;
+  userHas?: InputMaybe<SecondaryAddressUserHasFieldInput>;
+  zipCode?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type SecondaryAddressDeleteInput = {
+  userHas?: InputMaybe<SecondaryAddressUserHasDeleteFieldInput>;
+};
+
+export type SecondaryAddressDisconnectInput = {
+  userHas?: InputMaybe<SecondaryAddressUserHasDisconnectFieldInput>;
+};
+
+export type SecondaryAddressEdge = {
+  __typename?: 'SecondaryAddressEdge';
+  cursor: Scalars['String']['output'];
+  node: SecondaryAddress;
+};
+
+export type SecondaryAddressOnCreateInput = {
+  Country?: InputMaybe<Scalars['String']['input']>;
+  city?: InputMaybe<Scalars['String']['input']>;
+  state?: InputMaybe<Scalars['String']['input']>;
+  street?: InputMaybe<Scalars['String']['input']>;
+  zipCode?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type SecondaryAddressOptions = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  /** Specify one or more SecondaryAddressSort objects to sort SecondaryAddresses by. The sorts will be applied in the order in which they are arranged in the array. */
+  sort?: InputMaybe<Array<SecondaryAddressSort>>;
+};
+
+export type SecondaryAddressRelationInput = {
+  userHas?: InputMaybe<SecondaryAddressUserHasCreateFieldInput>;
+};
+
+/** Fields to sort SecondaryAddresses by. The order in which sorts are applied is not guaranteed when specifying many fields in one SecondaryAddressSort object. */
+export type SecondaryAddressSort = {
+  Country?: InputMaybe<SortDirection>;
+  city?: InputMaybe<SortDirection>;
+  id?: InputMaybe<SortDirection>;
+  state?: InputMaybe<SortDirection>;
+  street?: InputMaybe<SortDirection>;
+  zipCode?: InputMaybe<SortDirection>;
+};
+
+export type SecondaryAddressUniqueWhere = {
+  id?: InputMaybe<Scalars['ID']['input']>;
+};
+
+export type SecondaryAddressUpdateInput = {
+  Country?: InputMaybe<Scalars['String']['input']>;
+  city?: InputMaybe<Scalars['String']['input']>;
+  state?: InputMaybe<Scalars['String']['input']>;
+  street?: InputMaybe<Scalars['String']['input']>;
+  userHas?: InputMaybe<SecondaryAddressUserHasUpdateFieldInput>;
+  zipCode?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type SecondaryAddressUserHasAggregateInput = {
+  AND?: InputMaybe<Array<SecondaryAddressUserHasAggregateInput>>;
+  NOT?: InputMaybe<SecondaryAddressUserHasAggregateInput>;
+  OR?: InputMaybe<Array<SecondaryAddressUserHasAggregateInput>>;
+  count?: InputMaybe<Scalars['Int']['input']>;
+  count_GT?: InputMaybe<Scalars['Int']['input']>;
+  count_GTE?: InputMaybe<Scalars['Int']['input']>;
+  count_LT?: InputMaybe<Scalars['Int']['input']>;
+  count_LTE?: InputMaybe<Scalars['Int']['input']>;
+  node?: InputMaybe<SecondaryAddressUserHasNodeAggregationWhereInput>;
+};
+
+export type SecondaryAddressUserHasConnectFieldInput = {
+  connect?: InputMaybe<UserConnectInput>;
+  /** Whether or not to overwrite any matching relationship with the new properties. Will default to `false` in 4.0.0. */
+  overwrite?: Scalars['Boolean']['input'];
+  where?: InputMaybe<UserConnectWhere>;
+};
+
+export type SecondaryAddressUserHasConnectOrCreateFieldInput = {
+  onCreate: SecondaryAddressUserHasConnectOrCreateFieldInputOnCreate;
+  where: UserConnectOrCreateWhere;
+};
+
+export type SecondaryAddressUserHasConnectOrCreateFieldInputOnCreate = {
+  node: UserOnCreateInput;
+};
+
+export type SecondaryAddressUserHasConnection = {
+  __typename?: 'SecondaryAddressUserHasConnection';
+  edges: Array<SecondaryAddressUserHasRelationship>;
+  pageInfo: PageInfo;
+  totalCount: Scalars['Int']['output'];
+};
+
+export type SecondaryAddressUserHasConnectionSort = {
+  node?: InputMaybe<UserSort>;
+};
+
+export type SecondaryAddressUserHasConnectionWhere = {
+  AND?: InputMaybe<Array<SecondaryAddressUserHasConnectionWhere>>;
+  NOT?: InputMaybe<SecondaryAddressUserHasConnectionWhere>;
+  OR?: InputMaybe<Array<SecondaryAddressUserHasConnectionWhere>>;
+  node?: InputMaybe<UserWhere>;
+};
+
+export type SecondaryAddressUserHasCreateFieldInput = {
+  node: UserCreateInput;
+};
+
+export type SecondaryAddressUserHasDeleteFieldInput = {
+  delete?: InputMaybe<UserDeleteInput>;
+  where?: InputMaybe<SecondaryAddressUserHasConnectionWhere>;
+};
+
+export type SecondaryAddressUserHasDisconnectFieldInput = {
+  disconnect?: InputMaybe<UserDisconnectInput>;
+  where?: InputMaybe<SecondaryAddressUserHasConnectionWhere>;
+};
+
+export type SecondaryAddressUserHasFieldInput = {
+  connect?: InputMaybe<SecondaryAddressUserHasConnectFieldInput>;
+  connectOrCreate?: InputMaybe<SecondaryAddressUserHasConnectOrCreateFieldInput>;
+  create?: InputMaybe<SecondaryAddressUserHasCreateFieldInput>;
+};
+
+export type SecondaryAddressUserHasNodeAggregationWhereInput = {
+  AND?: InputMaybe<Array<SecondaryAddressUserHasNodeAggregationWhereInput>>;
+  NOT?: InputMaybe<SecondaryAddressUserHasNodeAggregationWhereInput>;
+  OR?: InputMaybe<Array<SecondaryAddressUserHasNodeAggregationWhereInput>>;
+  bio_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  bio_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  bio_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  bio_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  bio_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  bio_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  bio_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  bio_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  bio_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  bio_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  bio_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  bio_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  bio_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  bio_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  bio_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  companyDescription_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  companyDescription_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  companyDescription_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  companyDescription_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  companyDescription_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  companyDescription_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  companyDescription_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  companyDescription_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  companyDescription_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  companyDescription_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  companyDescription_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  companyDescription_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  companyDescription_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  companyDescription_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  companyDescription_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  companyEmail_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  companyEmail_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  companyEmail_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  companyEmail_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  companyEmail_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  companyEmail_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  companyEmail_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  companyEmail_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  companyEmail_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  companyEmail_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  companyEmail_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  companyEmail_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  companyEmail_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  companyEmail_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  companyEmail_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  companyName_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  companyName_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  companyName_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  companyName_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  companyName_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  companyName_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  companyName_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  companyName_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  companyName_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  companyName_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  companyName_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  companyName_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  companyName_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  companyName_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  companyName_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  companyPhone_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  companyPhone_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  companyPhone_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  companyPhone_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  companyPhone_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  companyPhone_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  companyPhone_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  companyPhone_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  companyPhone_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  companyPhone_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  companyPhone_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  companyPhone_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  companyPhone_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  companyPhone_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  companyPhone_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  createdAt_MAX_EQUAL?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_MAX_GT?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_MAX_GTE?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_MAX_LT?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_MAX_LTE?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_MIN_EQUAL?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_MIN_GT?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_MIN_GTE?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_MIN_LT?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_MIN_LTE?: InputMaybe<Scalars['DateTime']['input']>;
+  department_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  department_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  department_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  department_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  department_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  department_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  department_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  department_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  department_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  department_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  department_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  department_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  department_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  department_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  department_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  education_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  education_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  education_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  education_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  education_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  education_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  education_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  education_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  education_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  education_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  education_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  education_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  education_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  education_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  education_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  email_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  email_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  email_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  email_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  email_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  email_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  email_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  email_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  email_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  email_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  email_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  email_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  email_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  email_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  email_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  experience_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  experience_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  experience_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  experience_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  experience_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  experience_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  experience_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  experience_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  experience_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  experience_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  experience_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  experience_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  experience_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  experience_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  experience_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  gstNumber_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  gstNumber_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  gstNumber_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  gstNumber_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  gstNumber_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  gstNumber_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  gstNumber_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  gstNumber_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  gstNumber_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  gstNumber_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  gstNumber_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  gstNumber_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  gstNumber_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  gstNumber_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  gstNumber_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  image_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  image_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  image_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  image_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  image_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  image_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  image_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  image_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  image_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  image_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  image_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  image_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  image_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  image_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  image_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  interest_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  interest_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  interest_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  interest_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  interest_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  interest_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  interest_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  interest_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  interest_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  interest_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  interest_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  interest_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  interest_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  interest_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  interest_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  linkedin_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  linkedin_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  linkedin_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  linkedin_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  linkedin_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  name_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  name_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  name_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  name_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  name_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  name_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  name_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  name_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  name_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  name_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  name_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  name_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  name_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  name_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  name_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  panCardNo_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  panCardNo_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  panCardNo_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  panCardNo_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  panCardNo_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  panCardNo_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  panCardNo_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  panCardNo_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  panCardNo_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  panCardNo_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  panCardNo_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  panCardNo_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  panCardNo_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  panCardNo_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  panCardNo_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  phoneNumber_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  phoneNumber_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  phoneNumber_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  phoneNumber_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  phoneNumber_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  phoneNumber_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  phoneNumber_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  phoneNumber_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  phoneNumber_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  phoneNumber_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  phoneNumber_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  phoneNumber_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  phoneNumber_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  phoneNumber_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  phoneNumber_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  phone_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  phone_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  phone_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  phone_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  phone_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  phone_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  phone_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  phone_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  phone_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  phone_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  phone_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  phone_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  phone_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  phone_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  phone_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  skypeId_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  skypeId_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  skypeId_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  skypeId_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  skypeId_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  specialty_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  specialty_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  specialty_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  specialty_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  specialty_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  specialty_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  specialty_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  specialty_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  specialty_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  specialty_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  specialty_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  specialty_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  specialty_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  specialty_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  specialty_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  title_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  title_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  title_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  title_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  title_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  title_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  title_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  title_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  title_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  title_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  title_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  title_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  title_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  title_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  title_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  twitter_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  twitter_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  twitter_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  twitter_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  twitter_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  twitter_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  twitter_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  twitter_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  twitter_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  twitter_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  twitter_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  twitter_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  twitter_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  twitter_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  twitter_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  userId_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  userId_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  userId_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  userId_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  userId_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  userId_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  userId_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  userId_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  userId_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  userId_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  userId_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  userId_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  userId_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  userId_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  userId_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+};
+
+export type SecondaryAddressUserHasRelationship = {
+  __typename?: 'SecondaryAddressUserHasRelationship';
+  cursor: Scalars['String']['output'];
+  node: User;
+};
+
+export type SecondaryAddressUserHasUpdateConnectionInput = {
+  node?: InputMaybe<UserUpdateInput>;
+};
+
+export type SecondaryAddressUserHasUpdateFieldInput = {
+  connect?: InputMaybe<SecondaryAddressUserHasConnectFieldInput>;
+  connectOrCreate?: InputMaybe<SecondaryAddressUserHasConnectOrCreateFieldInput>;
+  create?: InputMaybe<SecondaryAddressUserHasCreateFieldInput>;
+  delete?: InputMaybe<SecondaryAddressUserHasDeleteFieldInput>;
+  disconnect?: InputMaybe<SecondaryAddressUserHasDisconnectFieldInput>;
+  update?: InputMaybe<SecondaryAddressUserHasUpdateConnectionInput>;
+  where?: InputMaybe<SecondaryAddressUserHasConnectionWhere>;
+};
+
+export type SecondaryAddressUserUserHasAggregationSelection = {
+  __typename?: 'SecondaryAddressUserUserHasAggregationSelection';
+  count: Scalars['Int']['output'];
+  node?: Maybe<SecondaryAddressUserUserHasNodeAggregateSelection>;
+};
+
+export type SecondaryAddressUserUserHasNodeAggregateSelection = {
+  __typename?: 'SecondaryAddressUserUserHasNodeAggregateSelection';
+  bio: StringAggregateSelectionNullable;
+  companyDescription: StringAggregateSelectionNullable;
+  companyEmail: StringAggregateSelectionNullable;
+  companyName: StringAggregateSelectionNullable;
+  companyPhone: StringAggregateSelectionNullable;
+  createdAt: DateTimeAggregateSelectionNullable;
+  department: StringAggregateSelectionNullable;
+  education: StringAggregateSelectionNullable;
+  email: StringAggregateSelectionNullable;
+  experience: StringAggregateSelectionNullable;
+  gstNumber: StringAggregateSelectionNullable;
+  id: IdAggregateSelectionNonNullable;
+  image: StringAggregateSelectionNullable;
+  interest: StringAggregateSelectionNullable;
+  linkedin: StringAggregateSelectionNullable;
+  name: StringAggregateSelectionNullable;
+  panCardNo: StringAggregateSelectionNullable;
+  phone: StringAggregateSelectionNullable;
+  phoneNumber: StringAggregateSelectionNullable;
+  skypeId: StringAggregateSelectionNullable;
+  specialty: StringAggregateSelectionNullable;
+  title: StringAggregateSelectionNullable;
+  twitter: StringAggregateSelectionNullable;
+  userId: StringAggregateSelectionNullable;
+};
+
+export type SecondaryAddressWhere = {
+  AND?: InputMaybe<Array<SecondaryAddressWhere>>;
+  Country?: InputMaybe<Scalars['String']['input']>;
+  Country_CONTAINS?: InputMaybe<Scalars['String']['input']>;
+  Country_ENDS_WITH?: InputMaybe<Scalars['String']['input']>;
+  Country_IN?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  Country_STARTS_WITH?: InputMaybe<Scalars['String']['input']>;
+  NOT?: InputMaybe<SecondaryAddressWhere>;
+  OR?: InputMaybe<Array<SecondaryAddressWhere>>;
+  city?: InputMaybe<Scalars['String']['input']>;
+  city_CONTAINS?: InputMaybe<Scalars['String']['input']>;
+  city_ENDS_WITH?: InputMaybe<Scalars['String']['input']>;
+  city_IN?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  city_STARTS_WITH?: InputMaybe<Scalars['String']['input']>;
+  id?: InputMaybe<Scalars['ID']['input']>;
+  id_CONTAINS?: InputMaybe<Scalars['ID']['input']>;
+  id_ENDS_WITH?: InputMaybe<Scalars['ID']['input']>;
+  id_IN?: InputMaybe<Array<Scalars['ID']['input']>>;
+  id_STARTS_WITH?: InputMaybe<Scalars['ID']['input']>;
+  state?: InputMaybe<Scalars['String']['input']>;
+  state_CONTAINS?: InputMaybe<Scalars['String']['input']>;
+  state_ENDS_WITH?: InputMaybe<Scalars['String']['input']>;
+  state_IN?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  state_STARTS_WITH?: InputMaybe<Scalars['String']['input']>;
+  street?: InputMaybe<Scalars['String']['input']>;
+  street_CONTAINS?: InputMaybe<Scalars['String']['input']>;
+  street_ENDS_WITH?: InputMaybe<Scalars['String']['input']>;
+  street_IN?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  street_STARTS_WITH?: InputMaybe<Scalars['String']['input']>;
+  userHas?: InputMaybe<UserWhere>;
+  userHasAggregate?: InputMaybe<SecondaryAddressUserHasAggregateInput>;
+  userHasConnection?: InputMaybe<SecondaryAddressUserHasConnectionWhere>;
+  userHasConnection_NOT?: InputMaybe<SecondaryAddressUserHasConnectionWhere>;
+  userHas_NOT?: InputMaybe<UserWhere>;
+  zipCode?: InputMaybe<Scalars['String']['input']>;
+  zipCode_CONTAINS?: InputMaybe<Scalars['String']['input']>;
+  zipCode_ENDS_WITH?: InputMaybe<Scalars['String']['input']>;
+  zipCode_IN?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  zipCode_STARTS_WITH?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type SecondaryAddressesConnection = {
+  __typename?: 'SecondaryAddressesConnection';
+  edges: Array<SecondaryAddressEdge>;
+  pageInfo: PageInfo;
+  totalCount: Scalars['Int']['output'];
+};
 
 export enum SentBy {
   Admin = 'ADMIN',
@@ -31380,36 +35276,6 @@ export type SupportTicketVendorHasNodeAggregationWhereInput = {
   AND?: InputMaybe<Array<SupportTicketVendorHasNodeAggregationWhereInput>>;
   NOT?: InputMaybe<SupportTicketVendorHasNodeAggregationWhereInput>;
   OR?: InputMaybe<Array<SupportTicketVendorHasNodeAggregationWhereInput>>;
-  labImage_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
-  labImage_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
-  labImage_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
-  labImage_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
-  labImage_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
-  labImage_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  labImage_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  labImage_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  labImage_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  labImage_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  labImage_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  labImage_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  labImage_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  labImage_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  labImage_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  sub_type_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
-  sub_type_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
-  sub_type_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
-  sub_type_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
-  sub_type_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
-  sub_type_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  sub_type_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  sub_type_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  sub_type_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  sub_type_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  sub_type_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  sub_type_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  sub_type_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  sub_type_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  sub_type_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
 };
 
 export type SupportTicketVendorHasRelationship = {
@@ -31441,8 +35307,6 @@ export type SupportTicketVendorVendorHasAggregationSelection = {
 export type SupportTicketVendorVendorHasNodeAggregateSelection = {
   __typename?: 'SupportTicketVendorVendorHasNodeAggregateSelection';
   id: IdAggregateSelectionNonNullable;
-  labImage: StringAggregateSelectionNullable;
-  sub_type: StringAggregateSelectionNullable;
 };
 
 export type SupportTicketWhere = {
@@ -32711,21 +36575,6 @@ export type TestTicketUserHasNodeAggregationWhereInput = {
   AND?: InputMaybe<Array<TestTicketUserHasNodeAggregationWhereInput>>;
   NOT?: InputMaybe<TestTicketUserHasNodeAggregationWhereInput>;
   OR?: InputMaybe<Array<TestTicketUserHasNodeAggregationWhereInput>>;
-  address_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
-  address_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
-  address_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
-  address_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
-  address_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
-  address_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  address_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  address_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  address_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  address_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  address_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  address_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  address_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  address_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  address_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
   bio_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
   bio_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
   bio_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
@@ -32741,21 +36590,21 @@ export type TestTicketUserHasNodeAggregationWhereInput = {
   bio_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
   bio_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
   bio_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  city_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
-  city_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
-  city_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
-  city_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
-  city_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
-  city_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  city_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  city_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  city_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  city_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  city_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  city_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  city_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  city_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  city_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  companyDescription_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  companyDescription_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  companyDescription_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  companyDescription_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  companyDescription_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  companyDescription_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  companyDescription_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  companyDescription_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  companyDescription_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  companyDescription_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  companyDescription_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  companyDescription_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  companyDescription_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  companyDescription_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  companyDescription_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
   companyEmail_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
   companyEmail_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
   companyEmail_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
@@ -32786,6 +36635,21 @@ export type TestTicketUserHasNodeAggregationWhereInput = {
   companyName_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
   companyName_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
   companyName_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  companyPhone_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  companyPhone_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  companyPhone_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  companyPhone_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  companyPhone_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  companyPhone_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  companyPhone_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  companyPhone_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  companyPhone_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  companyPhone_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  companyPhone_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  companyPhone_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  companyPhone_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  companyPhone_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  companyPhone_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
   createdAt_MAX_EQUAL?: InputMaybe<Scalars['DateTime']['input']>;
   createdAt_MAX_GT?: InputMaybe<Scalars['DateTime']['input']>;
   createdAt_MAX_GTE?: InputMaybe<Scalars['DateTime']['input']>;
@@ -32796,6 +36660,36 @@ export type TestTicketUserHasNodeAggregationWhereInput = {
   createdAt_MIN_GTE?: InputMaybe<Scalars['DateTime']['input']>;
   createdAt_MIN_LT?: InputMaybe<Scalars['DateTime']['input']>;
   createdAt_MIN_LTE?: InputMaybe<Scalars['DateTime']['input']>;
+  department_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  department_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  department_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  department_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  department_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  department_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  department_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  department_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  department_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  department_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  department_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  department_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  department_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  department_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  department_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  education_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  education_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  education_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  education_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  education_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  education_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  education_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  education_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  education_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  education_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  education_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  education_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  education_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  education_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  education_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
   email_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
   email_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
   email_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
@@ -32811,6 +36705,21 @@ export type TestTicketUserHasNodeAggregationWhereInput = {
   email_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
   email_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
   email_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  experience_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  experience_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  experience_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  experience_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  experience_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  experience_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  experience_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  experience_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  experience_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  experience_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  experience_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  experience_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  experience_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  experience_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  experience_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
   gstNumber_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
   gstNumber_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
   gstNumber_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
@@ -32841,21 +36750,36 @@ export type TestTicketUserHasNodeAggregationWhereInput = {
   image_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
   image_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
   image_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  mobile_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
-  mobile_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
-  mobile_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
-  mobile_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
-  mobile_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
-  mobile_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  mobile_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  mobile_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  mobile_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  mobile_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  mobile_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  mobile_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  mobile_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  mobile_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  mobile_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  interest_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  interest_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  interest_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  interest_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  interest_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  interest_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  interest_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  interest_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  interest_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  interest_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  interest_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  interest_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  interest_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  interest_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  interest_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  linkedin_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  linkedin_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  linkedin_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  linkedin_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  linkedin_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
   name_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
   name_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
   name_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
@@ -32886,6 +36810,21 @@ export type TestTicketUserHasNodeAggregationWhereInput = {
   panCardNo_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
   panCardNo_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
   panCardNo_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  phoneNumber_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  phoneNumber_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  phoneNumber_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  phoneNumber_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  phoneNumber_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  phoneNumber_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  phoneNumber_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  phoneNumber_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  phoneNumber_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  phoneNumber_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  phoneNumber_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  phoneNumber_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  phoneNumber_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  phoneNumber_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  phoneNumber_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
   phone_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
   phone_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
   phone_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
@@ -32901,36 +36840,66 @@ export type TestTicketUserHasNodeAggregationWhereInput = {
   phone_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
   phone_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
   phone_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  secondAddress_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
-  secondAddress_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
-  secondAddress_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
-  secondAddress_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
-  secondAddress_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
-  secondAddress_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  secondAddress_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  secondAddress_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  secondAddress_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  secondAddress_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  secondAddress_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  secondAddress_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  secondAddress_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  secondAddress_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  secondAddress_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  state_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
-  state_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
-  state_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
-  state_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
-  state_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
-  state_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  state_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  state_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  state_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  state_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  state_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  state_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  state_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  state_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  state_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  skypeId_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  skypeId_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  skypeId_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  skypeId_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  skypeId_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  specialty_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  specialty_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  specialty_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  specialty_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  specialty_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  specialty_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  specialty_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  specialty_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  specialty_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  specialty_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  specialty_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  specialty_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  specialty_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  specialty_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  specialty_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  title_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  title_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  title_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  title_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  title_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  title_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  title_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  title_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  title_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  title_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  title_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  title_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  title_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  title_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  title_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  twitter_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  twitter_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  twitter_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  twitter_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  twitter_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  twitter_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  twitter_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  twitter_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  twitter_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  twitter_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  twitter_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  twitter_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  twitter_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  twitter_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  twitter_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
   userId_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
   userId_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
   userId_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
@@ -32946,21 +36915,6 @@ export type TestTicketUserHasNodeAggregationWhereInput = {
   userId_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
   userId_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
   userId_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  zip_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
-  zip_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
-  zip_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
-  zip_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
-  zip_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
-  zip_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  zip_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  zip_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  zip_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  zip_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  zip_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  zip_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  zip_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  zip_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  zip_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
 };
 
 export type TestTicketUserHasRelationship = {
@@ -32991,24 +36945,30 @@ export type TestTicketUserUserHasAggregationSelection = {
 
 export type TestTicketUserUserHasNodeAggregateSelection = {
   __typename?: 'TestTicketUserUserHasNodeAggregateSelection';
-  address: StringAggregateSelectionNullable;
   bio: StringAggregateSelectionNullable;
-  city: StringAggregateSelectionNullable;
+  companyDescription: StringAggregateSelectionNullable;
   companyEmail: StringAggregateSelectionNullable;
   companyName: StringAggregateSelectionNullable;
+  companyPhone: StringAggregateSelectionNullable;
   createdAt: DateTimeAggregateSelectionNullable;
+  department: StringAggregateSelectionNullable;
+  education: StringAggregateSelectionNullable;
   email: StringAggregateSelectionNullable;
+  experience: StringAggregateSelectionNullable;
   gstNumber: StringAggregateSelectionNullable;
   id: IdAggregateSelectionNonNullable;
   image: StringAggregateSelectionNullable;
-  mobile: StringAggregateSelectionNullable;
+  interest: StringAggregateSelectionNullable;
+  linkedin: StringAggregateSelectionNullable;
   name: StringAggregateSelectionNullable;
   panCardNo: StringAggregateSelectionNullable;
   phone: StringAggregateSelectionNullable;
-  secondAddress: StringAggregateSelectionNullable;
-  state: StringAggregateSelectionNullable;
+  phoneNumber: StringAggregateSelectionNullable;
+  skypeId: StringAggregateSelectionNullable;
+  specialty: StringAggregateSelectionNullable;
+  title: StringAggregateSelectionNullable;
+  twitter: StringAggregateSelectionNullable;
   userId: StringAggregateSelectionNullable;
-  zip: StringAggregateSelectionNullable;
 };
 
 export type TestTicketWhere = {
@@ -33349,6 +37309,12 @@ export type UpdateEmployeesMutationResponse = {
   info: UpdateInfo;
 };
 
+export type UpdateEquipmentMutationResponse = {
+  __typename?: 'UpdateEquipmentMutationResponse';
+  equipment: Array<Equipment>;
+  info: UpdateInfo;
+};
+
 export type UpdateEventsMutationResponse = {
   __typename?: 'UpdateEventsMutationResponse';
   events: Array<Event>;
@@ -33466,6 +37432,12 @@ export type UpdatePointsMutationResponse = {
   points: Array<Points>;
 };
 
+export type UpdatePrimaryAddressesMutationResponse = {
+  __typename?: 'UpdatePrimaryAddressesMutationResponse';
+  info: UpdateInfo;
+  primaryAddresses: Array<PrimaryAddress>;
+};
+
 export type UpdateProductsMutationResponse = {
   __typename?: 'UpdateProductsMutationResponse';
   info: UpdateInfo;
@@ -33500,6 +37472,12 @@ export type UpdateRolesMutationResponse = {
   __typename?: 'UpdateRolesMutationResponse';
   info: UpdateInfo;
   roles: Array<Role>;
+};
+
+export type UpdateSecondaryAddressesMutationResponse = {
+  __typename?: 'UpdateSecondaryAddressesMutationResponse';
+  info: UpdateInfo;
+  secondaryAddresses: Array<SecondaryAddress>;
 };
 
 export type UpdateServicesMutationResponse = {
@@ -33564,16 +37542,20 @@ export type UpdateVendorsMutationResponse = {
 
 export type User = {
   __typename?: 'User';
-  address?: Maybe<Scalars['String']['output']>;
   bio?: Maybe<Scalars['String']['output']>;
-  city?: Maybe<Scalars['String']['output']>;
   communicationticketFor?: Maybe<CommunicationTicket>;
   communicationticketForAggregate?: Maybe<UserCommunicationTicketCommunicationticketForAggregationSelection>;
   communicationticketForConnection: UserCommunicationticketForConnection;
+  companyDescription?: Maybe<Scalars['String']['output']>;
   companyEmail?: Maybe<Scalars['String']['output']>;
   companyName?: Maybe<Scalars['String']['output']>;
+  companyPhone?: Maybe<Scalars['String']['output']>;
   createdAt?: Maybe<Scalars['DateTime']['output']>;
+  createdBy?: Maybe<UserCreatedByEnum>;
+  department?: Maybe<Scalars['String']['output']>;
+  education?: Maybe<Scalars['String']['output']>;
   email?: Maybe<Scalars['String']['output']>;
+  experience?: Maybe<Scalars['String']['output']>;
   gstNumber?: Maybe<Scalars['String']['output']>;
   hasDocuments?: Maybe<Documents>;
   hasDocumentsAggregate?: Maybe<UserDocumentsHasDocumentsAggregationSelection>;
@@ -33584,14 +37566,21 @@ export type User = {
   hasModule?: Maybe<Module>;
   hasModuleAggregate?: Maybe<UserModuleHasModuleAggregationSelection>;
   hasModuleConnection: UserHasModuleConnection;
+  hasPrimaryaddress?: Maybe<PrimaryAddress>;
+  hasPrimaryaddressAggregate?: Maybe<UserPrimaryAddressHasPrimaryaddressAggregationSelection>;
+  hasPrimaryaddressConnection: UserHasPrimaryaddressConnection;
   hasRole?: Maybe<Role>;
   hasRoleAggregate?: Maybe<UserRoleHasRoleAggregationSelection>;
   hasRoleConnection: UserHasRoleConnection;
+  hasSecondaryaddress?: Maybe<SecondaryAddress>;
+  hasSecondaryaddressAggregate?: Maybe<UserSecondaryAddressHasSecondaryaddressAggregationSelection>;
+  hasSecondaryaddressConnection: UserHasSecondaryaddressConnection;
   hasTestticket?: Maybe<TestTicket>;
   hasTestticketAggregate?: Maybe<UserTestTicketHasTestticketAggregationSelection>;
   hasTestticketConnection: UserHasTestticketConnection;
   id: Scalars['ID']['output'];
   image?: Maybe<Scalars['String']['output']>;
+  interest?: Maybe<Scalars['String']['output']>;
   isAdmin?: Maybe<Admin>;
   isAdminAggregate?: Maybe<UserAdminIsAdminAggregationSelection>;
   isAdminConnection: UserIsAdminConnection;
@@ -33601,7 +37590,8 @@ export type User = {
   isVendor?: Maybe<Vendor>;
   isVendorAggregate?: Maybe<UserVendorIsVendorAggregationSelection>;
   isVendorConnection: UserIsVendorConnection;
-  mobile?: Maybe<Scalars['String']['output']>;
+  isViewed?: Maybe<Scalars['Boolean']['output']>;
+  linkedin?: Maybe<Scalars['String']['output']>;
   moduleFor?: Maybe<Module>;
   moduleForAggregate?: Maybe<UserModuleModuleForAggregationSelection>;
   moduleForConnection: UserModuleForConnection;
@@ -33609,12 +37599,14 @@ export type User = {
   panCardNo?: Maybe<Scalars['String']['output']>;
   permissions?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   phone?: Maybe<Scalars['String']['output']>;
-  secondAddress?: Maybe<Scalars['String']['output']>;
-  state?: Maybe<Scalars['String']['output']>;
+  phoneNumber?: Maybe<Scalars['String']['output']>;
+  skypeId?: Maybe<Scalars['String']['output']>;
+  specialty?: Maybe<Scalars['String']['output']>;
   status?: Maybe<Status>;
+  title?: Maybe<Scalars['String']['output']>;
+  twitter?: Maybe<Scalars['String']['output']>;
   userId?: Maybe<Scalars['String']['output']>;
   user_type?: Maybe<UserType>;
-  zip?: Maybe<Scalars['String']['output']>;
 };
 
 
@@ -33706,6 +37698,28 @@ export type UserHasModuleConnectionArgs = {
 };
 
 
+export type UserHasPrimaryaddressArgs = {
+  directed?: InputMaybe<Scalars['Boolean']['input']>;
+  options?: InputMaybe<PrimaryAddressOptions>;
+  where?: InputMaybe<PrimaryAddressWhere>;
+};
+
+
+export type UserHasPrimaryaddressAggregateArgs = {
+  directed?: InputMaybe<Scalars['Boolean']['input']>;
+  where?: InputMaybe<PrimaryAddressWhere>;
+};
+
+
+export type UserHasPrimaryaddressConnectionArgs = {
+  after?: InputMaybe<Scalars['String']['input']>;
+  directed?: InputMaybe<Scalars['Boolean']['input']>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  sort?: InputMaybe<Array<UserHasPrimaryaddressConnectionSort>>;
+  where?: InputMaybe<UserHasPrimaryaddressConnectionWhere>;
+};
+
+
 export type UserHasRoleArgs = {
   directed?: InputMaybe<Scalars['Boolean']['input']>;
   options?: InputMaybe<RoleOptions>;
@@ -33725,6 +37739,28 @@ export type UserHasRoleConnectionArgs = {
   first?: InputMaybe<Scalars['Int']['input']>;
   sort?: InputMaybe<Array<UserHasRoleConnectionSort>>;
   where?: InputMaybe<UserHasRoleConnectionWhere>;
+};
+
+
+export type UserHasSecondaryaddressArgs = {
+  directed?: InputMaybe<Scalars['Boolean']['input']>;
+  options?: InputMaybe<SecondaryAddressOptions>;
+  where?: InputMaybe<SecondaryAddressWhere>;
+};
+
+
+export type UserHasSecondaryaddressAggregateArgs = {
+  directed?: InputMaybe<Scalars['Boolean']['input']>;
+  where?: InputMaybe<SecondaryAddressWhere>;
+};
+
+
+export type UserHasSecondaryaddressConnectionArgs = {
+  after?: InputMaybe<Scalars['String']['input']>;
+  directed?: InputMaybe<Scalars['Boolean']['input']>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  sort?: InputMaybe<Array<UserHasSecondaryaddressConnectionSort>>;
+  where?: InputMaybe<UserHasSecondaryaddressConnectionWhere>;
 };
 
 
@@ -33850,25 +37886,31 @@ export type UserAdminIsAdminNodeAggregateSelection = {
 
 export type UserAggregateSelection = {
   __typename?: 'UserAggregateSelection';
-  address: StringAggregateSelectionNullable;
   bio: StringAggregateSelectionNullable;
-  city: StringAggregateSelectionNullable;
+  companyDescription: StringAggregateSelectionNullable;
   companyEmail: StringAggregateSelectionNullable;
   companyName: StringAggregateSelectionNullable;
+  companyPhone: StringAggregateSelectionNullable;
   count: Scalars['Int']['output'];
   createdAt: DateTimeAggregateSelectionNullable;
+  department: StringAggregateSelectionNullable;
+  education: StringAggregateSelectionNullable;
   email: StringAggregateSelectionNullable;
+  experience: StringAggregateSelectionNullable;
   gstNumber: StringAggregateSelectionNullable;
   id: IdAggregateSelectionNonNullable;
   image: StringAggregateSelectionNullable;
-  mobile: StringAggregateSelectionNullable;
+  interest: StringAggregateSelectionNullable;
+  linkedin: StringAggregateSelectionNullable;
   name: StringAggregateSelectionNullable;
   panCardNo: StringAggregateSelectionNullable;
   phone: StringAggregateSelectionNullable;
-  secondAddress: StringAggregateSelectionNullable;
-  state: StringAggregateSelectionNullable;
+  phoneNumber: StringAggregateSelectionNullable;
+  skypeId: StringAggregateSelectionNullable;
+  specialty: StringAggregateSelectionNullable;
+  title: StringAggregateSelectionNullable;
+  twitter: StringAggregateSelectionNullable;
   userId: StringAggregateSelectionNullable;
-  zip: StringAggregateSelectionNullable;
 };
 
 export type UserClientIsClientAggregationSelection = {
@@ -34034,7 +38076,9 @@ export type UserConnectInput = {
   hasDocuments?: InputMaybe<UserHasDocumentsConnectFieldInput>;
   hasEmployee?: InputMaybe<UserHasEmployeeConnectFieldInput>;
   hasModule?: InputMaybe<UserHasModuleConnectFieldInput>;
+  hasPrimaryaddress?: InputMaybe<UserHasPrimaryaddressConnectFieldInput>;
   hasRole?: InputMaybe<UserHasRoleConnectFieldInput>;
+  hasSecondaryaddress?: InputMaybe<UserHasSecondaryaddressConnectFieldInput>;
   hasTestticket?: InputMaybe<UserHasTestticketConnectFieldInput>;
   isAdmin?: InputMaybe<UserIsAdminConnectFieldInput>;
   isClient?: InputMaybe<UserIsClientConnectFieldInput>;
@@ -34047,7 +38091,9 @@ export type UserConnectOrCreateInput = {
   hasDocuments?: InputMaybe<UserHasDocumentsConnectOrCreateFieldInput>;
   hasEmployee?: InputMaybe<UserHasEmployeeConnectOrCreateFieldInput>;
   hasModule?: InputMaybe<UserHasModuleConnectOrCreateFieldInput>;
+  hasPrimaryaddress?: InputMaybe<UserHasPrimaryaddressConnectOrCreateFieldInput>;
   hasRole?: InputMaybe<UserHasRoleConnectOrCreateFieldInput>;
+  hasSecondaryaddress?: InputMaybe<UserHasSecondaryaddressConnectOrCreateFieldInput>;
   isAdmin?: InputMaybe<UserIsAdminConnectOrCreateFieldInput>;
   isClient?: InputMaybe<UserIsClientConnectOrCreateFieldInput>;
   isVendor?: InputMaybe<UserIsVendorConnectOrCreateFieldInput>;
@@ -34063,44 +38109,61 @@ export type UserConnectWhere = {
 };
 
 export type UserCreateInput = {
-  address?: InputMaybe<Scalars['String']['input']>;
   bio?: InputMaybe<Scalars['String']['input']>;
-  city?: InputMaybe<Scalars['String']['input']>;
   communicationticketFor?: InputMaybe<UserCommunicationticketForFieldInput>;
+  companyDescription?: InputMaybe<Scalars['String']['input']>;
   companyEmail?: InputMaybe<Scalars['String']['input']>;
   companyName?: InputMaybe<Scalars['String']['input']>;
+  companyPhone?: InputMaybe<Scalars['String']['input']>;
   createdAt?: InputMaybe<Scalars['DateTime']['input']>;
+  createdBy?: InputMaybe<UserCreatedByEnum>;
+  department?: InputMaybe<Scalars['String']['input']>;
+  education?: InputMaybe<Scalars['String']['input']>;
   email?: InputMaybe<Scalars['String']['input']>;
+  experience?: InputMaybe<Scalars['String']['input']>;
   gstNumber?: InputMaybe<Scalars['String']['input']>;
   hasDocuments?: InputMaybe<UserHasDocumentsFieldInput>;
   hasEmployee?: InputMaybe<UserHasEmployeeFieldInput>;
   hasModule?: InputMaybe<UserHasModuleFieldInput>;
+  hasPrimaryaddress?: InputMaybe<UserHasPrimaryaddressFieldInput>;
   hasRole?: InputMaybe<UserHasRoleFieldInput>;
+  hasSecondaryaddress?: InputMaybe<UserHasSecondaryaddressFieldInput>;
   hasTestticket?: InputMaybe<UserHasTestticketFieldInput>;
   image?: InputMaybe<Scalars['String']['input']>;
+  interest?: InputMaybe<Scalars['String']['input']>;
   isAdmin?: InputMaybe<UserIsAdminFieldInput>;
   isClient?: InputMaybe<UserIsClientFieldInput>;
   isVendor?: InputMaybe<UserIsVendorFieldInput>;
-  mobile?: InputMaybe<Scalars['String']['input']>;
+  isViewed?: InputMaybe<Scalars['Boolean']['input']>;
+  linkedin?: InputMaybe<Scalars['String']['input']>;
   moduleFor?: InputMaybe<UserModuleForFieldInput>;
   name?: InputMaybe<Scalars['String']['input']>;
   panCardNo?: InputMaybe<Scalars['String']['input']>;
   permissions?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   phone?: InputMaybe<Scalars['String']['input']>;
-  secondAddress?: InputMaybe<Scalars['String']['input']>;
-  state?: InputMaybe<Scalars['String']['input']>;
+  phoneNumber?: InputMaybe<Scalars['String']['input']>;
+  skypeId?: InputMaybe<Scalars['String']['input']>;
+  specialty?: InputMaybe<Scalars['String']['input']>;
   status?: InputMaybe<Status>;
+  title?: InputMaybe<Scalars['String']['input']>;
+  twitter?: InputMaybe<Scalars['String']['input']>;
   userId?: InputMaybe<Scalars['String']['input']>;
   user_type?: InputMaybe<UserType>;
-  zip?: InputMaybe<Scalars['String']['input']>;
 };
+
+export enum UserCreatedByEnum {
+  Admin = 'ADMIN',
+  Self = 'SELF'
+}
 
 export type UserDeleteInput = {
   communicationticketFor?: InputMaybe<UserCommunicationticketForDeleteFieldInput>;
   hasDocuments?: InputMaybe<UserHasDocumentsDeleteFieldInput>;
   hasEmployee?: InputMaybe<UserHasEmployeeDeleteFieldInput>;
   hasModule?: InputMaybe<UserHasModuleDeleteFieldInput>;
+  hasPrimaryaddress?: InputMaybe<UserHasPrimaryaddressDeleteFieldInput>;
   hasRole?: InputMaybe<UserHasRoleDeleteFieldInput>;
+  hasSecondaryaddress?: InputMaybe<UserHasSecondaryaddressDeleteFieldInput>;
   hasTestticket?: InputMaybe<UserHasTestticketDeleteFieldInput>;
   isAdmin?: InputMaybe<UserIsAdminDeleteFieldInput>;
   isClient?: InputMaybe<UserIsClientDeleteFieldInput>;
@@ -34113,7 +38176,9 @@ export type UserDisconnectInput = {
   hasDocuments?: InputMaybe<UserHasDocumentsDisconnectFieldInput>;
   hasEmployee?: InputMaybe<UserHasEmployeeDisconnectFieldInput>;
   hasModule?: InputMaybe<UserHasModuleDisconnectFieldInput>;
+  hasPrimaryaddress?: InputMaybe<UserHasPrimaryaddressDisconnectFieldInput>;
   hasRole?: InputMaybe<UserHasRoleDisconnectFieldInput>;
+  hasSecondaryaddress?: InputMaybe<UserHasSecondaryaddressDisconnectFieldInput>;
   hasTestticket?: InputMaybe<UserHasTestticketDisconnectFieldInput>;
   isAdmin?: InputMaybe<UserIsAdminDisconnectFieldInput>;
   isClient?: InputMaybe<UserIsClientDisconnectFieldInput>;
@@ -34511,6 +38576,173 @@ export type UserHasModuleUpdateFieldInput = {
   where?: InputMaybe<UserHasModuleConnectionWhere>;
 };
 
+export type UserHasPrimaryaddressAggregateInput = {
+  AND?: InputMaybe<Array<UserHasPrimaryaddressAggregateInput>>;
+  NOT?: InputMaybe<UserHasPrimaryaddressAggregateInput>;
+  OR?: InputMaybe<Array<UserHasPrimaryaddressAggregateInput>>;
+  count?: InputMaybe<Scalars['Int']['input']>;
+  count_GT?: InputMaybe<Scalars['Int']['input']>;
+  count_GTE?: InputMaybe<Scalars['Int']['input']>;
+  count_LT?: InputMaybe<Scalars['Int']['input']>;
+  count_LTE?: InputMaybe<Scalars['Int']['input']>;
+  node?: InputMaybe<UserHasPrimaryaddressNodeAggregationWhereInput>;
+};
+
+export type UserHasPrimaryaddressConnectFieldInput = {
+  connect?: InputMaybe<PrimaryAddressConnectInput>;
+  /** Whether or not to overwrite any matching relationship with the new properties. Will default to `false` in 4.0.0. */
+  overwrite?: Scalars['Boolean']['input'];
+  where?: InputMaybe<PrimaryAddressConnectWhere>;
+};
+
+export type UserHasPrimaryaddressConnectOrCreateFieldInput = {
+  onCreate: UserHasPrimaryaddressConnectOrCreateFieldInputOnCreate;
+  where: PrimaryAddressConnectOrCreateWhere;
+};
+
+export type UserHasPrimaryaddressConnectOrCreateFieldInputOnCreate = {
+  node: PrimaryAddressOnCreateInput;
+};
+
+export type UserHasPrimaryaddressConnection = {
+  __typename?: 'UserHasPrimaryaddressConnection';
+  edges: Array<UserHasPrimaryaddressRelationship>;
+  pageInfo: PageInfo;
+  totalCount: Scalars['Int']['output'];
+};
+
+export type UserHasPrimaryaddressConnectionSort = {
+  node?: InputMaybe<PrimaryAddressSort>;
+};
+
+export type UserHasPrimaryaddressConnectionWhere = {
+  AND?: InputMaybe<Array<UserHasPrimaryaddressConnectionWhere>>;
+  NOT?: InputMaybe<UserHasPrimaryaddressConnectionWhere>;
+  OR?: InputMaybe<Array<UserHasPrimaryaddressConnectionWhere>>;
+  node?: InputMaybe<PrimaryAddressWhere>;
+};
+
+export type UserHasPrimaryaddressCreateFieldInput = {
+  node: PrimaryAddressCreateInput;
+};
+
+export type UserHasPrimaryaddressDeleteFieldInput = {
+  delete?: InputMaybe<PrimaryAddressDeleteInput>;
+  where?: InputMaybe<UserHasPrimaryaddressConnectionWhere>;
+};
+
+export type UserHasPrimaryaddressDisconnectFieldInput = {
+  disconnect?: InputMaybe<PrimaryAddressDisconnectInput>;
+  where?: InputMaybe<UserHasPrimaryaddressConnectionWhere>;
+};
+
+export type UserHasPrimaryaddressFieldInput = {
+  connect?: InputMaybe<UserHasPrimaryaddressConnectFieldInput>;
+  connectOrCreate?: InputMaybe<UserHasPrimaryaddressConnectOrCreateFieldInput>;
+  create?: InputMaybe<UserHasPrimaryaddressCreateFieldInput>;
+};
+
+export type UserHasPrimaryaddressNodeAggregationWhereInput = {
+  AND?: InputMaybe<Array<UserHasPrimaryaddressNodeAggregationWhereInput>>;
+  Country_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  Country_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  Country_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  Country_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  Country_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  Country_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  Country_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  Country_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  Country_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  Country_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  Country_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  Country_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  Country_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  Country_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  Country_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  NOT?: InputMaybe<UserHasPrimaryaddressNodeAggregationWhereInput>;
+  OR?: InputMaybe<Array<UserHasPrimaryaddressNodeAggregationWhereInput>>;
+  city_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  city_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  city_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  city_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  city_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  city_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  city_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  city_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  city_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  city_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  city_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  city_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  city_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  city_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  city_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  state_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  state_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  state_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  state_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  state_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  state_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  state_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  state_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  state_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  state_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  state_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  state_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  state_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  state_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  state_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  street_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  street_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  street_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  street_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  street_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  street_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  street_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  street_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  street_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  street_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  street_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  street_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  street_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  street_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  street_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  zipCode_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  zipCode_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  zipCode_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  zipCode_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  zipCode_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  zipCode_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  zipCode_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  zipCode_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  zipCode_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  zipCode_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  zipCode_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  zipCode_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  zipCode_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  zipCode_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  zipCode_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+};
+
+export type UserHasPrimaryaddressRelationship = {
+  __typename?: 'UserHasPrimaryaddressRelationship';
+  cursor: Scalars['String']['output'];
+  node: PrimaryAddress;
+};
+
+export type UserHasPrimaryaddressUpdateConnectionInput = {
+  node?: InputMaybe<PrimaryAddressUpdateInput>;
+};
+
+export type UserHasPrimaryaddressUpdateFieldInput = {
+  connect?: InputMaybe<UserHasPrimaryaddressConnectFieldInput>;
+  connectOrCreate?: InputMaybe<UserHasPrimaryaddressConnectOrCreateFieldInput>;
+  create?: InputMaybe<UserHasPrimaryaddressCreateFieldInput>;
+  delete?: InputMaybe<UserHasPrimaryaddressDeleteFieldInput>;
+  disconnect?: InputMaybe<UserHasPrimaryaddressDisconnectFieldInput>;
+  update?: InputMaybe<UserHasPrimaryaddressUpdateConnectionInput>;
+  where?: InputMaybe<UserHasPrimaryaddressConnectionWhere>;
+};
+
 export type UserHasRoleAggregateInput = {
   AND?: InputMaybe<Array<UserHasRoleAggregateInput>>;
   NOT?: InputMaybe<UserHasRoleAggregateInput>;
@@ -34626,6 +38858,173 @@ export type UserHasRoleUpdateFieldInput = {
   disconnect?: InputMaybe<UserHasRoleDisconnectFieldInput>;
   update?: InputMaybe<UserHasRoleUpdateConnectionInput>;
   where?: InputMaybe<UserHasRoleConnectionWhere>;
+};
+
+export type UserHasSecondaryaddressAggregateInput = {
+  AND?: InputMaybe<Array<UserHasSecondaryaddressAggregateInput>>;
+  NOT?: InputMaybe<UserHasSecondaryaddressAggregateInput>;
+  OR?: InputMaybe<Array<UserHasSecondaryaddressAggregateInput>>;
+  count?: InputMaybe<Scalars['Int']['input']>;
+  count_GT?: InputMaybe<Scalars['Int']['input']>;
+  count_GTE?: InputMaybe<Scalars['Int']['input']>;
+  count_LT?: InputMaybe<Scalars['Int']['input']>;
+  count_LTE?: InputMaybe<Scalars['Int']['input']>;
+  node?: InputMaybe<UserHasSecondaryaddressNodeAggregationWhereInput>;
+};
+
+export type UserHasSecondaryaddressConnectFieldInput = {
+  connect?: InputMaybe<SecondaryAddressConnectInput>;
+  /** Whether or not to overwrite any matching relationship with the new properties. Will default to `false` in 4.0.0. */
+  overwrite?: Scalars['Boolean']['input'];
+  where?: InputMaybe<SecondaryAddressConnectWhere>;
+};
+
+export type UserHasSecondaryaddressConnectOrCreateFieldInput = {
+  onCreate: UserHasSecondaryaddressConnectOrCreateFieldInputOnCreate;
+  where: SecondaryAddressConnectOrCreateWhere;
+};
+
+export type UserHasSecondaryaddressConnectOrCreateFieldInputOnCreate = {
+  node: SecondaryAddressOnCreateInput;
+};
+
+export type UserHasSecondaryaddressConnection = {
+  __typename?: 'UserHasSecondaryaddressConnection';
+  edges: Array<UserHasSecondaryaddressRelationship>;
+  pageInfo: PageInfo;
+  totalCount: Scalars['Int']['output'];
+};
+
+export type UserHasSecondaryaddressConnectionSort = {
+  node?: InputMaybe<SecondaryAddressSort>;
+};
+
+export type UserHasSecondaryaddressConnectionWhere = {
+  AND?: InputMaybe<Array<UserHasSecondaryaddressConnectionWhere>>;
+  NOT?: InputMaybe<UserHasSecondaryaddressConnectionWhere>;
+  OR?: InputMaybe<Array<UserHasSecondaryaddressConnectionWhere>>;
+  node?: InputMaybe<SecondaryAddressWhere>;
+};
+
+export type UserHasSecondaryaddressCreateFieldInput = {
+  node: SecondaryAddressCreateInput;
+};
+
+export type UserHasSecondaryaddressDeleteFieldInput = {
+  delete?: InputMaybe<SecondaryAddressDeleteInput>;
+  where?: InputMaybe<UserHasSecondaryaddressConnectionWhere>;
+};
+
+export type UserHasSecondaryaddressDisconnectFieldInput = {
+  disconnect?: InputMaybe<SecondaryAddressDisconnectInput>;
+  where?: InputMaybe<UserHasSecondaryaddressConnectionWhere>;
+};
+
+export type UserHasSecondaryaddressFieldInput = {
+  connect?: InputMaybe<UserHasSecondaryaddressConnectFieldInput>;
+  connectOrCreate?: InputMaybe<UserHasSecondaryaddressConnectOrCreateFieldInput>;
+  create?: InputMaybe<UserHasSecondaryaddressCreateFieldInput>;
+};
+
+export type UserHasSecondaryaddressNodeAggregationWhereInput = {
+  AND?: InputMaybe<Array<UserHasSecondaryaddressNodeAggregationWhereInput>>;
+  Country_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  Country_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  Country_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  Country_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  Country_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  Country_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  Country_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  Country_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  Country_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  Country_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  Country_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  Country_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  Country_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  Country_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  Country_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  NOT?: InputMaybe<UserHasSecondaryaddressNodeAggregationWhereInput>;
+  OR?: InputMaybe<Array<UserHasSecondaryaddressNodeAggregationWhereInput>>;
+  city_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  city_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  city_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  city_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  city_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  city_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  city_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  city_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  city_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  city_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  city_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  city_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  city_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  city_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  city_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  state_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  state_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  state_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  state_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  state_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  state_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  state_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  state_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  state_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  state_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  state_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  state_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  state_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  state_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  state_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  street_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  street_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  street_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  street_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  street_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  street_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  street_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  street_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  street_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  street_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  street_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  street_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  street_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  street_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  street_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  zipCode_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  zipCode_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  zipCode_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  zipCode_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  zipCode_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  zipCode_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  zipCode_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  zipCode_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  zipCode_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  zipCode_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  zipCode_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  zipCode_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  zipCode_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  zipCode_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  zipCode_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+};
+
+export type UserHasSecondaryaddressRelationship = {
+  __typename?: 'UserHasSecondaryaddressRelationship';
+  cursor: Scalars['String']['output'];
+  node: SecondaryAddress;
+};
+
+export type UserHasSecondaryaddressUpdateConnectionInput = {
+  node?: InputMaybe<SecondaryAddressUpdateInput>;
+};
+
+export type UserHasSecondaryaddressUpdateFieldInput = {
+  connect?: InputMaybe<UserHasSecondaryaddressConnectFieldInput>;
+  connectOrCreate?: InputMaybe<UserHasSecondaryaddressConnectOrCreateFieldInput>;
+  create?: InputMaybe<UserHasSecondaryaddressCreateFieldInput>;
+  delete?: InputMaybe<UserHasSecondaryaddressDeleteFieldInput>;
+  disconnect?: InputMaybe<UserHasSecondaryaddressDisconnectFieldInput>;
+  update?: InputMaybe<UserHasSecondaryaddressUpdateConnectionInput>;
+  where?: InputMaybe<UserHasSecondaryaddressConnectionWhere>;
 };
 
 export type UserHasTestticketAggregateInput = {
@@ -35048,36 +39447,6 @@ export type UserIsVendorNodeAggregationWhereInput = {
   AND?: InputMaybe<Array<UserIsVendorNodeAggregationWhereInput>>;
   NOT?: InputMaybe<UserIsVendorNodeAggregationWhereInput>;
   OR?: InputMaybe<Array<UserIsVendorNodeAggregationWhereInput>>;
-  labImage_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
-  labImage_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
-  labImage_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
-  labImage_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
-  labImage_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
-  labImage_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  labImage_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  labImage_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  labImage_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  labImage_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  labImage_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  labImage_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  labImage_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  labImage_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  labImage_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  sub_type_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
-  sub_type_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
-  sub_type_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
-  sub_type_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
-  sub_type_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
-  sub_type_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  sub_type_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  sub_type_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  sub_type_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  sub_type_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  sub_type_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  sub_type_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  sub_type_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  sub_type_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  sub_type_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
 };
 
 export type UserIsVendorRelationship = {
@@ -35295,26 +39664,34 @@ export type UserModuleModuleForNodeAggregateSelection = {
 };
 
 export type UserOnCreateInput = {
-  address?: InputMaybe<Scalars['String']['input']>;
   bio?: InputMaybe<Scalars['String']['input']>;
-  city?: InputMaybe<Scalars['String']['input']>;
+  companyDescription?: InputMaybe<Scalars['String']['input']>;
   companyEmail?: InputMaybe<Scalars['String']['input']>;
   companyName?: InputMaybe<Scalars['String']['input']>;
+  companyPhone?: InputMaybe<Scalars['String']['input']>;
   createdAt?: InputMaybe<Scalars['DateTime']['input']>;
+  createdBy?: InputMaybe<UserCreatedByEnum>;
+  department?: InputMaybe<Scalars['String']['input']>;
+  education?: InputMaybe<Scalars['String']['input']>;
   email?: InputMaybe<Scalars['String']['input']>;
+  experience?: InputMaybe<Scalars['String']['input']>;
   gstNumber?: InputMaybe<Scalars['String']['input']>;
   image?: InputMaybe<Scalars['String']['input']>;
-  mobile?: InputMaybe<Scalars['String']['input']>;
+  interest?: InputMaybe<Scalars['String']['input']>;
+  isViewed?: InputMaybe<Scalars['Boolean']['input']>;
+  linkedin?: InputMaybe<Scalars['String']['input']>;
   name?: InputMaybe<Scalars['String']['input']>;
   panCardNo?: InputMaybe<Scalars['String']['input']>;
   permissions?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   phone?: InputMaybe<Scalars['String']['input']>;
-  secondAddress?: InputMaybe<Scalars['String']['input']>;
-  state?: InputMaybe<Scalars['String']['input']>;
+  phoneNumber?: InputMaybe<Scalars['String']['input']>;
+  skypeId?: InputMaybe<Scalars['String']['input']>;
+  specialty?: InputMaybe<Scalars['String']['input']>;
   status?: InputMaybe<Status>;
+  title?: InputMaybe<Scalars['String']['input']>;
+  twitter?: InputMaybe<Scalars['String']['input']>;
   userId?: InputMaybe<Scalars['String']['input']>;
   user_type?: InputMaybe<UserType>;
-  zip?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type UserOptions = {
@@ -35324,12 +39701,30 @@ export type UserOptions = {
   sort?: InputMaybe<Array<UserSort>>;
 };
 
+export type UserPrimaryAddressHasPrimaryaddressAggregationSelection = {
+  __typename?: 'UserPrimaryAddressHasPrimaryaddressAggregationSelection';
+  count: Scalars['Int']['output'];
+  node?: Maybe<UserPrimaryAddressHasPrimaryaddressNodeAggregateSelection>;
+};
+
+export type UserPrimaryAddressHasPrimaryaddressNodeAggregateSelection = {
+  __typename?: 'UserPrimaryAddressHasPrimaryaddressNodeAggregateSelection';
+  Country: StringAggregateSelectionNullable;
+  city: StringAggregateSelectionNullable;
+  id: IdAggregateSelectionNonNullable;
+  state: StringAggregateSelectionNullable;
+  street: StringAggregateSelectionNullable;
+  zipCode: StringAggregateSelectionNullable;
+};
+
 export type UserRelationInput = {
   communicationticketFor?: InputMaybe<UserCommunicationticketForCreateFieldInput>;
   hasDocuments?: InputMaybe<UserHasDocumentsCreateFieldInput>;
   hasEmployee?: InputMaybe<UserHasEmployeeCreateFieldInput>;
   hasModule?: InputMaybe<UserHasModuleCreateFieldInput>;
+  hasPrimaryaddress?: InputMaybe<UserHasPrimaryaddressCreateFieldInput>;
   hasRole?: InputMaybe<UserHasRoleCreateFieldInput>;
+  hasSecondaryaddress?: InputMaybe<UserHasSecondaryaddressCreateFieldInput>;
   hasTestticket?: InputMaybe<UserHasTestticketCreateFieldInput>;
   isAdmin?: InputMaybe<UserIsAdminCreateFieldInput>;
   isClient?: InputMaybe<UserIsClientCreateFieldInput>;
@@ -35350,28 +39745,52 @@ export type UserRoleHasRoleNodeAggregateSelection = {
   name: StringAggregateSelectionNullable;
 };
 
+export type UserSecondaryAddressHasSecondaryaddressAggregationSelection = {
+  __typename?: 'UserSecondaryAddressHasSecondaryaddressAggregationSelection';
+  count: Scalars['Int']['output'];
+  node?: Maybe<UserSecondaryAddressHasSecondaryaddressNodeAggregateSelection>;
+};
+
+export type UserSecondaryAddressHasSecondaryaddressNodeAggregateSelection = {
+  __typename?: 'UserSecondaryAddressHasSecondaryaddressNodeAggregateSelection';
+  Country: StringAggregateSelectionNullable;
+  city: StringAggregateSelectionNullable;
+  id: IdAggregateSelectionNonNullable;
+  state: StringAggregateSelectionNullable;
+  street: StringAggregateSelectionNullable;
+  zipCode: StringAggregateSelectionNullable;
+};
+
 /** Fields to sort Users by. The order in which sorts are applied is not guaranteed when specifying many fields in one UserSort object. */
 export type UserSort = {
-  address?: InputMaybe<SortDirection>;
   bio?: InputMaybe<SortDirection>;
-  city?: InputMaybe<SortDirection>;
+  companyDescription?: InputMaybe<SortDirection>;
   companyEmail?: InputMaybe<SortDirection>;
   companyName?: InputMaybe<SortDirection>;
+  companyPhone?: InputMaybe<SortDirection>;
   createdAt?: InputMaybe<SortDirection>;
+  createdBy?: InputMaybe<SortDirection>;
+  department?: InputMaybe<SortDirection>;
+  education?: InputMaybe<SortDirection>;
   email?: InputMaybe<SortDirection>;
+  experience?: InputMaybe<SortDirection>;
   gstNumber?: InputMaybe<SortDirection>;
   id?: InputMaybe<SortDirection>;
   image?: InputMaybe<SortDirection>;
-  mobile?: InputMaybe<SortDirection>;
+  interest?: InputMaybe<SortDirection>;
+  isViewed?: InputMaybe<SortDirection>;
+  linkedin?: InputMaybe<SortDirection>;
   name?: InputMaybe<SortDirection>;
   panCardNo?: InputMaybe<SortDirection>;
   phone?: InputMaybe<SortDirection>;
-  secondAddress?: InputMaybe<SortDirection>;
-  state?: InputMaybe<SortDirection>;
+  phoneNumber?: InputMaybe<SortDirection>;
+  skypeId?: InputMaybe<SortDirection>;
+  specialty?: InputMaybe<SortDirection>;
   status?: InputMaybe<SortDirection>;
+  title?: InputMaybe<SortDirection>;
+  twitter?: InputMaybe<SortDirection>;
   userId?: InputMaybe<SortDirection>;
   user_type?: InputMaybe<SortDirection>;
-  zip?: InputMaybe<SortDirection>;
 };
 
 export type UserTestTicketHasTestticketAggregationSelection = {
@@ -35403,25 +39822,33 @@ export type UserUniqueWhere = {
 };
 
 export type UserUpdateInput = {
-  address?: InputMaybe<Scalars['String']['input']>;
   bio?: InputMaybe<Scalars['String']['input']>;
-  city?: InputMaybe<Scalars['String']['input']>;
   communicationticketFor?: InputMaybe<UserCommunicationticketForUpdateFieldInput>;
+  companyDescription?: InputMaybe<Scalars['String']['input']>;
   companyEmail?: InputMaybe<Scalars['String']['input']>;
   companyName?: InputMaybe<Scalars['String']['input']>;
+  companyPhone?: InputMaybe<Scalars['String']['input']>;
   createdAt?: InputMaybe<Scalars['DateTime']['input']>;
+  createdBy?: InputMaybe<UserCreatedByEnum>;
+  department?: InputMaybe<Scalars['String']['input']>;
+  education?: InputMaybe<Scalars['String']['input']>;
   email?: InputMaybe<Scalars['String']['input']>;
+  experience?: InputMaybe<Scalars['String']['input']>;
   gstNumber?: InputMaybe<Scalars['String']['input']>;
   hasDocuments?: InputMaybe<UserHasDocumentsUpdateFieldInput>;
   hasEmployee?: InputMaybe<UserHasEmployeeUpdateFieldInput>;
   hasModule?: InputMaybe<UserHasModuleUpdateFieldInput>;
+  hasPrimaryaddress?: InputMaybe<UserHasPrimaryaddressUpdateFieldInput>;
   hasRole?: InputMaybe<UserHasRoleUpdateFieldInput>;
+  hasSecondaryaddress?: InputMaybe<UserHasSecondaryaddressUpdateFieldInput>;
   hasTestticket?: InputMaybe<UserHasTestticketUpdateFieldInput>;
   image?: InputMaybe<Scalars['String']['input']>;
+  interest?: InputMaybe<Scalars['String']['input']>;
   isAdmin?: InputMaybe<UserIsAdminUpdateFieldInput>;
   isClient?: InputMaybe<UserIsClientUpdateFieldInput>;
   isVendor?: InputMaybe<UserIsVendorUpdateFieldInput>;
-  mobile?: InputMaybe<Scalars['String']['input']>;
+  isViewed?: InputMaybe<Scalars['Boolean']['input']>;
+  linkedin?: InputMaybe<Scalars['String']['input']>;
   moduleFor?: InputMaybe<UserModuleForUpdateFieldInput>;
   name?: InputMaybe<Scalars['String']['input']>;
   panCardNo?: InputMaybe<Scalars['String']['input']>;
@@ -35429,12 +39856,14 @@ export type UserUpdateInput = {
   permissions_POP?: InputMaybe<Scalars['Int']['input']>;
   permissions_PUSH?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   phone?: InputMaybe<Scalars['String']['input']>;
-  secondAddress?: InputMaybe<Scalars['String']['input']>;
-  state?: InputMaybe<Scalars['String']['input']>;
+  phoneNumber?: InputMaybe<Scalars['String']['input']>;
+  skypeId?: InputMaybe<Scalars['String']['input']>;
+  specialty?: InputMaybe<Scalars['String']['input']>;
   status?: InputMaybe<Status>;
+  title?: InputMaybe<Scalars['String']['input']>;
+  twitter?: InputMaybe<Scalars['String']['input']>;
   userId?: InputMaybe<Scalars['String']['input']>;
   user_type?: InputMaybe<UserType>;
-  zip?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type UserVendorIsVendorAggregationSelection = {
@@ -35446,34 +39875,27 @@ export type UserVendorIsVendorAggregationSelection = {
 export type UserVendorIsVendorNodeAggregateSelection = {
   __typename?: 'UserVendorIsVendorNodeAggregateSelection';
   id: IdAggregateSelectionNonNullable;
-  labImage: StringAggregateSelectionNullable;
-  sub_type: StringAggregateSelectionNullable;
 };
 
 export type UserWhere = {
   AND?: InputMaybe<Array<UserWhere>>;
   NOT?: InputMaybe<UserWhere>;
   OR?: InputMaybe<Array<UserWhere>>;
-  address?: InputMaybe<Scalars['String']['input']>;
-  address_CONTAINS?: InputMaybe<Scalars['String']['input']>;
-  address_ENDS_WITH?: InputMaybe<Scalars['String']['input']>;
-  address_IN?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  address_STARTS_WITH?: InputMaybe<Scalars['String']['input']>;
   bio?: InputMaybe<Scalars['String']['input']>;
   bio_CONTAINS?: InputMaybe<Scalars['String']['input']>;
   bio_ENDS_WITH?: InputMaybe<Scalars['String']['input']>;
   bio_IN?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   bio_STARTS_WITH?: InputMaybe<Scalars['String']['input']>;
-  city?: InputMaybe<Scalars['String']['input']>;
-  city_CONTAINS?: InputMaybe<Scalars['String']['input']>;
-  city_ENDS_WITH?: InputMaybe<Scalars['String']['input']>;
-  city_IN?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  city_STARTS_WITH?: InputMaybe<Scalars['String']['input']>;
   communicationticketFor?: InputMaybe<CommunicationTicketWhere>;
   communicationticketForAggregate?: InputMaybe<UserCommunicationticketForAggregateInput>;
   communicationticketForConnection?: InputMaybe<UserCommunicationticketForConnectionWhere>;
   communicationticketForConnection_NOT?: InputMaybe<UserCommunicationticketForConnectionWhere>;
   communicationticketFor_NOT?: InputMaybe<CommunicationTicketWhere>;
+  companyDescription?: InputMaybe<Scalars['String']['input']>;
+  companyDescription_CONTAINS?: InputMaybe<Scalars['String']['input']>;
+  companyDescription_ENDS_WITH?: InputMaybe<Scalars['String']['input']>;
+  companyDescription_IN?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  companyDescription_STARTS_WITH?: InputMaybe<Scalars['String']['input']>;
   companyEmail?: InputMaybe<Scalars['String']['input']>;
   companyEmail_CONTAINS?: InputMaybe<Scalars['String']['input']>;
   companyEmail_ENDS_WITH?: InputMaybe<Scalars['String']['input']>;
@@ -35484,17 +39906,39 @@ export type UserWhere = {
   companyName_ENDS_WITH?: InputMaybe<Scalars['String']['input']>;
   companyName_IN?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   companyName_STARTS_WITH?: InputMaybe<Scalars['String']['input']>;
+  companyPhone?: InputMaybe<Scalars['String']['input']>;
+  companyPhone_CONTAINS?: InputMaybe<Scalars['String']['input']>;
+  companyPhone_ENDS_WITH?: InputMaybe<Scalars['String']['input']>;
+  companyPhone_IN?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  companyPhone_STARTS_WITH?: InputMaybe<Scalars['String']['input']>;
   createdAt?: InputMaybe<Scalars['DateTime']['input']>;
   createdAt_GT?: InputMaybe<Scalars['DateTime']['input']>;
   createdAt_GTE?: InputMaybe<Scalars['DateTime']['input']>;
   createdAt_IN?: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
   createdAt_LT?: InputMaybe<Scalars['DateTime']['input']>;
   createdAt_LTE?: InputMaybe<Scalars['DateTime']['input']>;
+  createdBy?: InputMaybe<UserCreatedByEnum>;
+  createdBy_IN?: InputMaybe<Array<InputMaybe<UserCreatedByEnum>>>;
+  department?: InputMaybe<Scalars['String']['input']>;
+  department_CONTAINS?: InputMaybe<Scalars['String']['input']>;
+  department_ENDS_WITH?: InputMaybe<Scalars['String']['input']>;
+  department_IN?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  department_STARTS_WITH?: InputMaybe<Scalars['String']['input']>;
+  education?: InputMaybe<Scalars['String']['input']>;
+  education_CONTAINS?: InputMaybe<Scalars['String']['input']>;
+  education_ENDS_WITH?: InputMaybe<Scalars['String']['input']>;
+  education_IN?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  education_STARTS_WITH?: InputMaybe<Scalars['String']['input']>;
   email?: InputMaybe<Scalars['String']['input']>;
   email_CONTAINS?: InputMaybe<Scalars['String']['input']>;
   email_ENDS_WITH?: InputMaybe<Scalars['String']['input']>;
   email_IN?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   email_STARTS_WITH?: InputMaybe<Scalars['String']['input']>;
+  experience?: InputMaybe<Scalars['String']['input']>;
+  experience_CONTAINS?: InputMaybe<Scalars['String']['input']>;
+  experience_ENDS_WITH?: InputMaybe<Scalars['String']['input']>;
+  experience_IN?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  experience_STARTS_WITH?: InputMaybe<Scalars['String']['input']>;
   gstNumber?: InputMaybe<Scalars['String']['input']>;
   gstNumber_CONTAINS?: InputMaybe<Scalars['String']['input']>;
   gstNumber_ENDS_WITH?: InputMaybe<Scalars['String']['input']>;
@@ -35515,11 +39959,21 @@ export type UserWhere = {
   hasModuleConnection?: InputMaybe<UserHasModuleConnectionWhere>;
   hasModuleConnection_NOT?: InputMaybe<UserHasModuleConnectionWhere>;
   hasModule_NOT?: InputMaybe<ModuleWhere>;
+  hasPrimaryaddress?: InputMaybe<PrimaryAddressWhere>;
+  hasPrimaryaddressAggregate?: InputMaybe<UserHasPrimaryaddressAggregateInput>;
+  hasPrimaryaddressConnection?: InputMaybe<UserHasPrimaryaddressConnectionWhere>;
+  hasPrimaryaddressConnection_NOT?: InputMaybe<UserHasPrimaryaddressConnectionWhere>;
+  hasPrimaryaddress_NOT?: InputMaybe<PrimaryAddressWhere>;
   hasRole?: InputMaybe<RoleWhere>;
   hasRoleAggregate?: InputMaybe<UserHasRoleAggregateInput>;
   hasRoleConnection?: InputMaybe<UserHasRoleConnectionWhere>;
   hasRoleConnection_NOT?: InputMaybe<UserHasRoleConnectionWhere>;
   hasRole_NOT?: InputMaybe<RoleWhere>;
+  hasSecondaryaddress?: InputMaybe<SecondaryAddressWhere>;
+  hasSecondaryaddressAggregate?: InputMaybe<UserHasSecondaryaddressAggregateInput>;
+  hasSecondaryaddressConnection?: InputMaybe<UserHasSecondaryaddressConnectionWhere>;
+  hasSecondaryaddressConnection_NOT?: InputMaybe<UserHasSecondaryaddressConnectionWhere>;
+  hasSecondaryaddress_NOT?: InputMaybe<SecondaryAddressWhere>;
   hasTestticket?: InputMaybe<TestTicketWhere>;
   hasTestticketAggregate?: InputMaybe<UserHasTestticketAggregateInput>;
   hasTestticketConnection?: InputMaybe<UserHasTestticketConnectionWhere>;
@@ -35535,6 +39989,11 @@ export type UserWhere = {
   image_ENDS_WITH?: InputMaybe<Scalars['String']['input']>;
   image_IN?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   image_STARTS_WITH?: InputMaybe<Scalars['String']['input']>;
+  interest?: InputMaybe<Scalars['String']['input']>;
+  interest_CONTAINS?: InputMaybe<Scalars['String']['input']>;
+  interest_ENDS_WITH?: InputMaybe<Scalars['String']['input']>;
+  interest_IN?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  interest_STARTS_WITH?: InputMaybe<Scalars['String']['input']>;
   isAdmin?: InputMaybe<AdminWhere>;
   isAdminAggregate?: InputMaybe<UserIsAdminAggregateInput>;
   isAdminConnection?: InputMaybe<UserIsAdminConnectionWhere>;
@@ -35550,11 +40009,12 @@ export type UserWhere = {
   isVendorConnection?: InputMaybe<UserIsVendorConnectionWhere>;
   isVendorConnection_NOT?: InputMaybe<UserIsVendorConnectionWhere>;
   isVendor_NOT?: InputMaybe<VendorWhere>;
-  mobile?: InputMaybe<Scalars['String']['input']>;
-  mobile_CONTAINS?: InputMaybe<Scalars['String']['input']>;
-  mobile_ENDS_WITH?: InputMaybe<Scalars['String']['input']>;
-  mobile_IN?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  mobile_STARTS_WITH?: InputMaybe<Scalars['String']['input']>;
+  isViewed?: InputMaybe<Scalars['Boolean']['input']>;
+  linkedin?: InputMaybe<Scalars['String']['input']>;
+  linkedin_CONTAINS?: InputMaybe<Scalars['String']['input']>;
+  linkedin_ENDS_WITH?: InputMaybe<Scalars['String']['input']>;
+  linkedin_IN?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  linkedin_STARTS_WITH?: InputMaybe<Scalars['String']['input']>;
   moduleFor?: InputMaybe<ModuleWhere>;
   moduleForAggregate?: InputMaybe<UserModuleForAggregateInput>;
   moduleForConnection?: InputMaybe<UserModuleForConnectionWhere>;
@@ -35573,22 +40033,37 @@ export type UserWhere = {
   permissions?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   permissions_INCLUDES?: InputMaybe<Scalars['String']['input']>;
   phone?: InputMaybe<Scalars['String']['input']>;
+  phoneNumber?: InputMaybe<Scalars['String']['input']>;
+  phoneNumber_CONTAINS?: InputMaybe<Scalars['String']['input']>;
+  phoneNumber_ENDS_WITH?: InputMaybe<Scalars['String']['input']>;
+  phoneNumber_IN?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  phoneNumber_STARTS_WITH?: InputMaybe<Scalars['String']['input']>;
   phone_CONTAINS?: InputMaybe<Scalars['String']['input']>;
   phone_ENDS_WITH?: InputMaybe<Scalars['String']['input']>;
   phone_IN?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   phone_STARTS_WITH?: InputMaybe<Scalars['String']['input']>;
-  secondAddress?: InputMaybe<Scalars['String']['input']>;
-  secondAddress_CONTAINS?: InputMaybe<Scalars['String']['input']>;
-  secondAddress_ENDS_WITH?: InputMaybe<Scalars['String']['input']>;
-  secondAddress_IN?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  secondAddress_STARTS_WITH?: InputMaybe<Scalars['String']['input']>;
-  state?: InputMaybe<Scalars['String']['input']>;
-  state_CONTAINS?: InputMaybe<Scalars['String']['input']>;
-  state_ENDS_WITH?: InputMaybe<Scalars['String']['input']>;
-  state_IN?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  state_STARTS_WITH?: InputMaybe<Scalars['String']['input']>;
+  skypeId?: InputMaybe<Scalars['String']['input']>;
+  skypeId_CONTAINS?: InputMaybe<Scalars['String']['input']>;
+  skypeId_ENDS_WITH?: InputMaybe<Scalars['String']['input']>;
+  skypeId_IN?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  skypeId_STARTS_WITH?: InputMaybe<Scalars['String']['input']>;
+  specialty?: InputMaybe<Scalars['String']['input']>;
+  specialty_CONTAINS?: InputMaybe<Scalars['String']['input']>;
+  specialty_ENDS_WITH?: InputMaybe<Scalars['String']['input']>;
+  specialty_IN?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  specialty_STARTS_WITH?: InputMaybe<Scalars['String']['input']>;
   status?: InputMaybe<Status>;
   status_IN?: InputMaybe<Array<InputMaybe<Status>>>;
+  title?: InputMaybe<Scalars['String']['input']>;
+  title_CONTAINS?: InputMaybe<Scalars['String']['input']>;
+  title_ENDS_WITH?: InputMaybe<Scalars['String']['input']>;
+  title_IN?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  title_STARTS_WITH?: InputMaybe<Scalars['String']['input']>;
+  twitter?: InputMaybe<Scalars['String']['input']>;
+  twitter_CONTAINS?: InputMaybe<Scalars['String']['input']>;
+  twitter_ENDS_WITH?: InputMaybe<Scalars['String']['input']>;
+  twitter_IN?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  twitter_STARTS_WITH?: InputMaybe<Scalars['String']['input']>;
   userId?: InputMaybe<Scalars['String']['input']>;
   userId_CONTAINS?: InputMaybe<Scalars['String']['input']>;
   userId_ENDS_WITH?: InputMaybe<Scalars['String']['input']>;
@@ -35596,11 +40071,6 @@ export type UserWhere = {
   userId_STARTS_WITH?: InputMaybe<Scalars['String']['input']>;
   user_type?: InputMaybe<UserType>;
   user_type_IN?: InputMaybe<Array<InputMaybe<UserType>>>;
-  zip?: InputMaybe<Scalars['String']['input']>;
-  zip_CONTAINS?: InputMaybe<Scalars['String']['input']>;
-  zip_ENDS_WITH?: InputMaybe<Scalars['String']['input']>;
-  zip_IN?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  zip_STARTS_WITH?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type UsersConnection = {
@@ -35621,6 +40091,7 @@ export type Vendor = {
   createdInvoice: Array<Invoice>;
   createdInvoiceAggregate?: Maybe<VendorInvoiceCreatedInvoiceAggregationSelection>;
   createdInvoiceConnection: VendorCreatedInvoiceConnection;
+  equipmentDocs?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   hasAboutpage?: Maybe<AboutPage>;
   hasAboutpageAggregate?: Maybe<VendorAboutPageHasAboutpageAggregationSelection>;
   hasAboutpageConnection: VendorHasAboutpageConnection;
@@ -35633,6 +40104,9 @@ export type Vendor = {
   hasManagement?: Maybe<Management>;
   hasManagementAggregate?: Maybe<VendorManagementHasManagementAggregationSelection>;
   hasManagementConnection: VendorHasManagementConnection;
+  hasManyEquipment: Array<Equipment>;
+  hasManyEquipmentAggregate?: Maybe<VendorEquipmentHasManyEquipmentAggregationSelection>;
+  hasManyEquipmentConnection: VendorHasManyEquipmentConnection;
   hasModuleticket: Array<ModuleTicket>;
   hasModuleticketAggregate?: Maybe<VendorModuleTicketHasModuleticketAggregationSelection>;
   hasModuleticketConnection: VendorHasModuleticketConnection;
@@ -35647,9 +40121,7 @@ export type Vendor = {
   hasSupportticketConnection: VendorHasSupportticketConnection;
   id: Scalars['ID']['output'];
   industry?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
-  labImage?: Maybe<Scalars['String']['output']>;
   service?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
-  sub_type?: Maybe<Scalars['String']['output']>;
   userIs?: Maybe<User>;
   userIsAggregate?: Maybe<VendorUserUserIsAggregationSelection>;
   userIsConnection: VendorUserIsConnection;
@@ -35807,6 +40279,28 @@ export type VendorHasManagementConnectionArgs = {
   first?: InputMaybe<Scalars['Int']['input']>;
   sort?: InputMaybe<Array<VendorHasManagementConnectionSort>>;
   where?: InputMaybe<VendorHasManagementConnectionWhere>;
+};
+
+
+export type VendorHasManyEquipmentArgs = {
+  directed?: InputMaybe<Scalars['Boolean']['input']>;
+  options?: InputMaybe<EquipmentOptions>;
+  where?: InputMaybe<EquipmentWhere>;
+};
+
+
+export type VendorHasManyEquipmentAggregateArgs = {
+  directed?: InputMaybe<Scalars['Boolean']['input']>;
+  where?: InputMaybe<EquipmentWhere>;
+};
+
+
+export type VendorHasManyEquipmentConnectionArgs = {
+  after?: InputMaybe<Scalars['String']['input']>;
+  directed?: InputMaybe<Scalars['Boolean']['input']>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  sort?: InputMaybe<Array<VendorHasManyEquipmentConnectionSort>>;
+  where?: InputMaybe<VendorHasManyEquipmentConnectionWhere>;
 };
 
 
@@ -36040,8 +40534,6 @@ export type VendorAggregateSelection = {
   __typename?: 'VendorAggregateSelection';
   count: Scalars['Int']['output'];
   id: IdAggregateSelectionNonNullable;
-  labImage: StringAggregateSelectionNullable;
-  sub_type: StringAggregateSelectionNullable;
 };
 
 export type VendorCommunicationTicketCommunicationticketForAggregationSelection = {
@@ -36198,6 +40690,7 @@ export type VendorConnectInput = {
   hasFeaturespage?: InputMaybe<VendorHasFeaturespageConnectFieldInput>;
   hasLeads?: InputMaybe<VendorHasLeadsConnectFieldInput>;
   hasManagement?: InputMaybe<VendorHasManagementConnectFieldInput>;
+  hasManyEquipment?: InputMaybe<Array<VendorHasManyEquipmentConnectFieldInput>>;
   hasModuleticket?: InputMaybe<Array<VendorHasModuleticketConnectFieldInput>>;
   hasNotification?: InputMaybe<Array<VendorHasNotificationConnectFieldInput>>;
   hasReply?: InputMaybe<VendorHasReplyConnectFieldInput>;
@@ -36213,6 +40706,7 @@ export type VendorConnectOrCreateInput = {
   hasFeaturespage?: InputMaybe<VendorHasFeaturespageConnectOrCreateFieldInput>;
   hasLeads?: InputMaybe<VendorHasLeadsConnectOrCreateFieldInput>;
   hasManagement?: InputMaybe<VendorHasManagementConnectOrCreateFieldInput>;
+  hasManyEquipment?: InputMaybe<Array<VendorHasManyEquipmentConnectOrCreateFieldInput>>;
   hasModuleticket?: InputMaybe<Array<VendorHasModuleticketConnectOrCreateFieldInput>>;
   hasNotification?: InputMaybe<Array<VendorHasNotificationConnectOrCreateFieldInput>>;
   hasReply?: InputMaybe<VendorHasReplyConnectOrCreateFieldInput>;
@@ -36232,18 +40726,18 @@ export type VendorCreateInput = {
   adminApproved?: InputMaybe<VendorAdminApprovedFieldInput>;
   communicationticketFor?: InputMaybe<VendorCommunicationticketForFieldInput>;
   createdInvoice?: InputMaybe<VendorCreatedInvoiceFieldInput>;
+  equipmentDocs?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   hasAboutpage?: InputMaybe<VendorHasAboutpageFieldInput>;
   hasFeaturespage?: InputMaybe<VendorHasFeaturespageFieldInput>;
   hasLeads?: InputMaybe<VendorHasLeadsFieldInput>;
   hasManagement?: InputMaybe<VendorHasManagementFieldInput>;
+  hasManyEquipment?: InputMaybe<VendorHasManyEquipmentFieldInput>;
   hasModuleticket?: InputMaybe<VendorHasModuleticketFieldInput>;
   hasNotification?: InputMaybe<VendorHasNotificationFieldInput>;
   hasReply?: InputMaybe<VendorHasReplyFieldInput>;
   hasSupportticket?: InputMaybe<VendorHasSupportticketFieldInput>;
   industry?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  labImage?: InputMaybe<Scalars['String']['input']>;
   service?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  sub_type?: InputMaybe<Scalars['String']['input']>;
   userIs?: InputMaybe<VendorUserIsFieldInput>;
 };
 
@@ -36562,6 +41056,7 @@ export type VendorDeleteInput = {
   hasFeaturespage?: InputMaybe<VendorHasFeaturespageDeleteFieldInput>;
   hasLeads?: InputMaybe<VendorHasLeadsDeleteFieldInput>;
   hasManagement?: InputMaybe<VendorHasManagementDeleteFieldInput>;
+  hasManyEquipment?: InputMaybe<Array<VendorHasManyEquipmentDeleteFieldInput>>;
   hasModuleticket?: InputMaybe<Array<VendorHasModuleticketDeleteFieldInput>>;
   hasNotification?: InputMaybe<Array<VendorHasNotificationDeleteFieldInput>>;
   hasReply?: InputMaybe<VendorHasReplyDeleteFieldInput>;
@@ -36577,6 +41072,7 @@ export type VendorDisconnectInput = {
   hasFeaturespage?: InputMaybe<VendorHasFeaturespageDisconnectFieldInput>;
   hasLeads?: InputMaybe<VendorHasLeadsDisconnectFieldInput>;
   hasManagement?: InputMaybe<VendorHasManagementDisconnectFieldInput>;
+  hasManyEquipment?: InputMaybe<Array<VendorHasManyEquipmentDisconnectFieldInput>>;
   hasModuleticket?: InputMaybe<Array<VendorHasModuleticketDisconnectFieldInput>>;
   hasNotification?: InputMaybe<Array<VendorHasNotificationDisconnectFieldInput>>;
   hasReply?: InputMaybe<VendorHasReplyDisconnectFieldInput>;
@@ -36588,6 +41084,23 @@ export type VendorEdge = {
   __typename?: 'VendorEdge';
   cursor: Scalars['String']['output'];
   node: Vendor;
+};
+
+export type VendorEquipmentHasManyEquipmentAggregationSelection = {
+  __typename?: 'VendorEquipmentHasManyEquipmentAggregationSelection';
+  count: Scalars['Int']['output'];
+  node?: Maybe<VendorEquipmentHasManyEquipmentNodeAggregateSelection>;
+};
+
+export type VendorEquipmentHasManyEquipmentNodeAggregateSelection = {
+  __typename?: 'VendorEquipmentHasManyEquipmentNodeAggregateSelection';
+  calibrationDetails: StringAggregateSelectionNullable;
+  id: IdAggregateSelectionNonNullable;
+  make: StringAggregateSelectionNullable;
+  model: StringAggregateSelectionNullable;
+  name: StringAggregateSelectionNullable;
+  warranty: StringAggregateSelectionNullable;
+  yearOfInstallation: StringAggregateSelectionNullable;
 };
 
 export type VendorFeaturesPageHasFeaturespageAggregationSelection = {
@@ -36959,6 +41472,66 @@ export type VendorHasLeadsNodeAggregationWhereInput = {
   AND?: InputMaybe<Array<VendorHasLeadsNodeAggregationWhereInput>>;
   NOT?: InputMaybe<VendorHasLeadsNodeAggregationWhereInput>;
   OR?: InputMaybe<Array<VendorHasLeadsNodeAggregationWhereInput>>;
+  Phone_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  Phone_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  Phone_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  Phone_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  Phone_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  Phone_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  Phone_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  Phone_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  Phone_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  Phone_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  Phone_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  Phone_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  Phone_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  Phone_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  Phone_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  Title_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  Title_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  Title_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  Title_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  Title_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  Title_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  Title_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  Title_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  Title_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  Title_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  Title_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  Title_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  Title_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  Title_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  Title_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  annualRevenue_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  annualRevenue_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  annualRevenue_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  annualRevenue_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  annualRevenue_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  annualRevenue_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  annualRevenue_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  annualRevenue_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  annualRevenue_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  annualRevenue_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  annualRevenue_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  annualRevenue_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  annualRevenue_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  annualRevenue_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  annualRevenue_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  company_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  company_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  company_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  company_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  company_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  company_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  company_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  company_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  company_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  company_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  company_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  company_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  company_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  company_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  company_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
   condition_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
   condition_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
   condition_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
@@ -36974,21 +41547,46 @@ export type VendorHasLeadsNodeAggregationWhereInput = {
   condition_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
   condition_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
   condition_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  createdAt_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
-  createdAt_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
-  createdAt_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
-  createdAt_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
-  createdAt_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
-  createdAt_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  createdAt_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  createdAt_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  createdAt_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  createdAt_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  createdAt_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  createdAt_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  createdAt_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  createdAt_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  createdAt_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  createdAt_MAX_EQUAL?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_MAX_GT?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_MAX_GTE?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_MAX_LT?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_MAX_LTE?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_MIN_EQUAL?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_MIN_GT?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_MIN_GTE?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_MIN_LT?: InputMaybe<Scalars['DateTime']['input']>;
+  createdAt_MIN_LTE?: InputMaybe<Scalars['DateTime']['input']>;
+  createdBy_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  createdBy_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  createdBy_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  createdBy_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  createdBy_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  createdBy_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  createdBy_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  createdBy_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  createdBy_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  createdBy_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  createdBy_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  createdBy_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  createdBy_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  createdBy_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  createdBy_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  description_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  description_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  description_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  description_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  description_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  description_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  description_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  description_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  description_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  description_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  description_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  description_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  description_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  description_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  description_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
   duration_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
   duration_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
   duration_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
@@ -37019,6 +41617,21 @@ export type VendorHasLeadsNodeAggregationWhereInput = {
   email_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
   email_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
   email_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  employeeCount_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  employeeCount_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  employeeCount_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  employeeCount_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  employeeCount_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  employeeCount_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  employeeCount_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  employeeCount_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  employeeCount_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  employeeCount_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  employeeCount_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  employeeCount_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  employeeCount_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  employeeCount_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  employeeCount_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
   gstNumber_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
   gstNumber_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
   gstNumber_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
@@ -37064,6 +41677,36 @@ export type VendorHasLeadsNodeAggregationWhereInput = {
   interest_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
   interest_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
   interest_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  leadOwner_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  leadOwner_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  leadOwner_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  leadOwner_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  leadOwner_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  leadOwner_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  leadOwner_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  leadOwner_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  leadOwner_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  leadOwner_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  leadOwner_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  leadOwner_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  leadOwner_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  leadOwner_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  leadOwner_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  linkedin_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  linkedin_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  linkedin_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  linkedin_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  linkedin_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
   message_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
   message_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
   message_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
@@ -37094,6 +41737,21 @@ export type VendorHasLeadsNodeAggregationWhereInput = {
   name_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
   name_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
   name_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  officePhone_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  officePhone_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  officePhone_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  officePhone_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  officePhone_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  officePhone_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  officePhone_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  officePhone_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  officePhone_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  officePhone_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  officePhone_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  officePhone_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  officePhone_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  officePhone_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  officePhone_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
   phone_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
   phone_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
   phone_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
@@ -37129,6 +41787,51 @@ export type VendorHasLeadsNodeAggregationWhereInput = {
   price_SUM_GTE?: InputMaybe<Scalars['Int']['input']>;
   price_SUM_LT?: InputMaybe<Scalars['Int']['input']>;
   price_SUM_LTE?: InputMaybe<Scalars['Int']['input']>;
+  secondaryEmail_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  secondaryEmail_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  secondaryEmail_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  secondaryEmail_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  secondaryEmail_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  secondaryEmail_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  secondaryEmail_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  secondaryEmail_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  secondaryEmail_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  secondaryEmail_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  secondaryEmail_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  secondaryEmail_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  secondaryEmail_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  secondaryEmail_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  secondaryEmail_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  skypeId_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  skypeId_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  skypeId_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  skypeId_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  skypeId_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  twitter_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  twitter_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  twitter_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  twitter_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  twitter_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  twitter_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  twitter_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  twitter_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  twitter_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  twitter_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  twitter_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  twitter_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  twitter_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  twitter_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  twitter_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
   type_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
   type_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
   type_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
@@ -37144,6 +41847,31 @@ export type VendorHasLeadsNodeAggregationWhereInput = {
   type_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
   type_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
   type_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  updatedAt_MAX_EQUAL?: InputMaybe<Scalars['DateTime']['input']>;
+  updatedAt_MAX_GT?: InputMaybe<Scalars['DateTime']['input']>;
+  updatedAt_MAX_GTE?: InputMaybe<Scalars['DateTime']['input']>;
+  updatedAt_MAX_LT?: InputMaybe<Scalars['DateTime']['input']>;
+  updatedAt_MAX_LTE?: InputMaybe<Scalars['DateTime']['input']>;
+  updatedAt_MIN_EQUAL?: InputMaybe<Scalars['DateTime']['input']>;
+  updatedAt_MIN_GT?: InputMaybe<Scalars['DateTime']['input']>;
+  updatedAt_MIN_GTE?: InputMaybe<Scalars['DateTime']['input']>;
+  updatedAt_MIN_LT?: InputMaybe<Scalars['DateTime']['input']>;
+  updatedAt_MIN_LTE?: InputMaybe<Scalars['DateTime']['input']>;
+  updatedBy_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  updatedBy_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  updatedBy_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  updatedBy_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  updatedBy_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  updatedBy_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  updatedBy_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  updatedBy_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  updatedBy_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  updatedBy_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  updatedBy_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  updatedBy_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  updatedBy_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  updatedBy_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  updatedBy_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
   vendorAddress_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
   vendorAddress_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
   vendorAddress_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
@@ -37159,6 +41887,21 @@ export type VendorHasLeadsNodeAggregationWhereInput = {
   vendorAddress_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
   vendorAddress_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
   vendorAddress_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  website_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  website_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  website_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  website_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  website_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  website_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  website_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  website_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  website_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  website_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  website_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  website_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  website_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  website_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  website_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
 };
 
 export type VendorHasLeadsRelationship = {
@@ -37251,21 +41994,6 @@ export type VendorHasManagementNodeAggregationWhereInput = {
   AND?: InputMaybe<Array<VendorHasManagementNodeAggregationWhereInput>>;
   NOT?: InputMaybe<VendorHasManagementNodeAggregationWhereInput>;
   OR?: InputMaybe<Array<VendorHasManagementNodeAggregationWhereInput>>;
-  moduelid_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
-  moduelid_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
-  moduelid_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
-  moduelid_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
-  moduelid_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
-  moduelid_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  moduelid_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  moduelid_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  moduelid_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  moduelid_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  moduelid_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  moduelid_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  moduelid_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  moduelid_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  moduelid_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
   moduleTitle_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
   moduleTitle_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
   moduleTitle_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
@@ -37301,6 +42029,188 @@ export type VendorHasManagementUpdateFieldInput = {
   disconnect?: InputMaybe<VendorHasManagementDisconnectFieldInput>;
   update?: InputMaybe<VendorHasManagementUpdateConnectionInput>;
   where?: InputMaybe<VendorHasManagementConnectionWhere>;
+};
+
+export type VendorHasManyEquipmentAggregateInput = {
+  AND?: InputMaybe<Array<VendorHasManyEquipmentAggregateInput>>;
+  NOT?: InputMaybe<VendorHasManyEquipmentAggregateInput>;
+  OR?: InputMaybe<Array<VendorHasManyEquipmentAggregateInput>>;
+  count?: InputMaybe<Scalars['Int']['input']>;
+  count_GT?: InputMaybe<Scalars['Int']['input']>;
+  count_GTE?: InputMaybe<Scalars['Int']['input']>;
+  count_LT?: InputMaybe<Scalars['Int']['input']>;
+  count_LTE?: InputMaybe<Scalars['Int']['input']>;
+  node?: InputMaybe<VendorHasManyEquipmentNodeAggregationWhereInput>;
+};
+
+export type VendorHasManyEquipmentConnectFieldInput = {
+  connect?: InputMaybe<Array<EquipmentConnectInput>>;
+  /** Whether or not to overwrite any matching relationship with the new properties. Will default to `false` in 4.0.0. */
+  overwrite?: Scalars['Boolean']['input'];
+  where?: InputMaybe<EquipmentConnectWhere>;
+};
+
+export type VendorHasManyEquipmentConnectOrCreateFieldInput = {
+  onCreate: VendorHasManyEquipmentConnectOrCreateFieldInputOnCreate;
+  where: EquipmentConnectOrCreateWhere;
+};
+
+export type VendorHasManyEquipmentConnectOrCreateFieldInputOnCreate = {
+  node: EquipmentOnCreateInput;
+};
+
+export type VendorHasManyEquipmentConnection = {
+  __typename?: 'VendorHasManyEquipmentConnection';
+  edges: Array<VendorHasManyEquipmentRelationship>;
+  pageInfo: PageInfo;
+  totalCount: Scalars['Int']['output'];
+};
+
+export type VendorHasManyEquipmentConnectionSort = {
+  node?: InputMaybe<EquipmentSort>;
+};
+
+export type VendorHasManyEquipmentConnectionWhere = {
+  AND?: InputMaybe<Array<VendorHasManyEquipmentConnectionWhere>>;
+  NOT?: InputMaybe<VendorHasManyEquipmentConnectionWhere>;
+  OR?: InputMaybe<Array<VendorHasManyEquipmentConnectionWhere>>;
+  node?: InputMaybe<EquipmentWhere>;
+};
+
+export type VendorHasManyEquipmentCreateFieldInput = {
+  node: EquipmentCreateInput;
+};
+
+export type VendorHasManyEquipmentDeleteFieldInput = {
+  delete?: InputMaybe<EquipmentDeleteInput>;
+  where?: InputMaybe<VendorHasManyEquipmentConnectionWhere>;
+};
+
+export type VendorHasManyEquipmentDisconnectFieldInput = {
+  disconnect?: InputMaybe<EquipmentDisconnectInput>;
+  where?: InputMaybe<VendorHasManyEquipmentConnectionWhere>;
+};
+
+export type VendorHasManyEquipmentFieldInput = {
+  connect?: InputMaybe<Array<VendorHasManyEquipmentConnectFieldInput>>;
+  connectOrCreate?: InputMaybe<Array<VendorHasManyEquipmentConnectOrCreateFieldInput>>;
+  create?: InputMaybe<Array<VendorHasManyEquipmentCreateFieldInput>>;
+};
+
+export type VendorHasManyEquipmentNodeAggregationWhereInput = {
+  AND?: InputMaybe<Array<VendorHasManyEquipmentNodeAggregationWhereInput>>;
+  NOT?: InputMaybe<VendorHasManyEquipmentNodeAggregationWhereInput>;
+  OR?: InputMaybe<Array<VendorHasManyEquipmentNodeAggregationWhereInput>>;
+  calibrationDetails_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  calibrationDetails_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  calibrationDetails_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  calibrationDetails_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  calibrationDetails_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  calibrationDetails_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  calibrationDetails_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  calibrationDetails_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  calibrationDetails_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  calibrationDetails_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  calibrationDetails_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  calibrationDetails_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  calibrationDetails_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  calibrationDetails_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  calibrationDetails_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  make_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  make_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  make_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  make_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  make_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  make_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  make_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  make_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  make_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  make_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  make_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  make_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  make_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  make_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  make_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  model_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  model_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  model_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  model_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  model_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  model_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  model_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  model_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  model_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  model_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  model_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  model_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  model_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  model_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  model_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  name_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  name_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  name_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  name_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  name_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  name_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  name_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  name_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  name_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  name_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  name_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  name_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  name_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  name_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  name_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  warranty_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  warranty_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  warranty_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  warranty_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  warranty_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  warranty_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  warranty_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  warranty_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  warranty_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  warranty_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  warranty_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  warranty_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  warranty_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  warranty_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  warranty_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  yearOfInstallation_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  yearOfInstallation_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  yearOfInstallation_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  yearOfInstallation_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  yearOfInstallation_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  yearOfInstallation_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  yearOfInstallation_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  yearOfInstallation_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  yearOfInstallation_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  yearOfInstallation_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  yearOfInstallation_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  yearOfInstallation_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  yearOfInstallation_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  yearOfInstallation_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  yearOfInstallation_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+};
+
+export type VendorHasManyEquipmentRelationship = {
+  __typename?: 'VendorHasManyEquipmentRelationship';
+  cursor: Scalars['String']['output'];
+  node: Equipment;
+};
+
+export type VendorHasManyEquipmentUpdateConnectionInput = {
+  node?: InputMaybe<EquipmentUpdateInput>;
+};
+
+export type VendorHasManyEquipmentUpdateFieldInput = {
+  connect?: InputMaybe<Array<VendorHasManyEquipmentConnectFieldInput>>;
+  connectOrCreate?: InputMaybe<Array<VendorHasManyEquipmentConnectOrCreateFieldInput>>;
+  create?: InputMaybe<Array<VendorHasManyEquipmentCreateFieldInput>>;
+  delete?: InputMaybe<Array<VendorHasManyEquipmentDeleteFieldInput>>;
+  disconnect?: InputMaybe<Array<VendorHasManyEquipmentDisconnectFieldInput>>;
+  update?: InputMaybe<VendorHasManyEquipmentUpdateConnectionInput>;
+  where?: InputMaybe<VendorHasManyEquipmentConnectionWhere>;
 };
 
 export type VendorHasModuleticketAggregateInput = {
@@ -37869,20 +42779,36 @@ export type VendorLeadsHasLeadsAggregationSelection = {
 
 export type VendorLeadsHasLeadsNodeAggregateSelection = {
   __typename?: 'VendorLeadsHasLeadsNodeAggregateSelection';
+  Phone: StringAggregateSelectionNullable;
+  Title: StringAggregateSelectionNullable;
+  annualRevenue: StringAggregateSelectionNullable;
+  company: StringAggregateSelectionNullable;
   condition: StringAggregateSelectionNullable;
-  createdAt: StringAggregateSelectionNullable;
+  createdAt: DateTimeAggregateSelectionNullable;
+  createdBy: StringAggregateSelectionNullable;
+  description: StringAggregateSelectionNullable;
   duration: StringAggregateSelectionNullable;
   email: StringAggregateSelectionNullable;
+  employeeCount: StringAggregateSelectionNullable;
   gstNumber: StringAggregateSelectionNullable;
   id: IdAggregateSelectionNonNullable;
   industry: StringAggregateSelectionNullable;
   interest: StringAggregateSelectionNullable;
+  leadOwner: StringAggregateSelectionNullable;
+  linkedin: StringAggregateSelectionNullable;
   message: StringAggregateSelectionNullable;
   name: StringAggregateSelectionNullable;
+  officePhone: StringAggregateSelectionNullable;
   phone: StringAggregateSelectionNullable;
   price: IntAggregateSelectionNullable;
+  secondaryEmail: StringAggregateSelectionNullable;
+  skypeId: StringAggregateSelectionNullable;
+  twitter: StringAggregateSelectionNullable;
   type: StringAggregateSelectionNullable;
+  updatedAt: DateTimeAggregateSelectionNullable;
+  updatedBy: StringAggregateSelectionNullable;
   vendorAddress: StringAggregateSelectionNullable;
+  website: StringAggregateSelectionNullable;
 };
 
 export type VendorManagementHasManagementAggregationSelection = {
@@ -37894,7 +42820,7 @@ export type VendorManagementHasManagementAggregationSelection = {
 export type VendorManagementHasManagementNodeAggregateSelection = {
   __typename?: 'VendorManagementHasManagementNodeAggregateSelection';
   id: IdAggregateSelectionNonNullable;
-  moduelid: StringAggregateSelectionNonNullable;
+  moduelid: IdAggregateSelectionNonNullable;
   moduleTitle: StringAggregateSelectionNonNullable;
 };
 
@@ -37929,10 +42855,9 @@ export type VendorNotificationHasNotificationNodeAggregateSelection = {
 };
 
 export type VendorOnCreateInput = {
+  equipmentDocs?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   industry?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  labImage?: InputMaybe<Scalars['String']['input']>;
   service?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  sub_type?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type VendorOptions = {
@@ -37950,6 +42875,7 @@ export type VendorRelationInput = {
   hasFeaturespage?: InputMaybe<VendorHasFeaturespageCreateFieldInput>;
   hasLeads?: InputMaybe<VendorHasLeadsCreateFieldInput>;
   hasManagement?: InputMaybe<VendorHasManagementCreateFieldInput>;
+  hasManyEquipment?: InputMaybe<Array<VendorHasManyEquipmentCreateFieldInput>>;
   hasModuleticket?: InputMaybe<Array<VendorHasModuleticketCreateFieldInput>>;
   hasNotification?: InputMaybe<Array<VendorHasNotificationCreateFieldInput>>;
   hasReply?: InputMaybe<VendorHasReplyCreateFieldInput>;
@@ -37973,8 +42899,6 @@ export type VendorReplyHasReplyNodeAggregateSelection = {
 /** Fields to sort Vendors by. The order in which sorts are applied is not guaranteed when specifying many fields in one VendorSort object. */
 export type VendorSort = {
   id?: InputMaybe<SortDirection>;
-  labImage?: InputMaybe<SortDirection>;
-  sub_type?: InputMaybe<SortDirection>;
 };
 
 export type VendorSupportTicketHasSupportticketAggregationSelection = {
@@ -37998,10 +42922,14 @@ export type VendorUpdateInput = {
   adminApproved?: InputMaybe<VendorAdminApprovedUpdateFieldInput>;
   communicationticketFor?: InputMaybe<Array<VendorCommunicationticketForUpdateFieldInput>>;
   createdInvoice?: InputMaybe<Array<VendorCreatedInvoiceUpdateFieldInput>>;
+  equipmentDocs?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  equipmentDocs_POP?: InputMaybe<Scalars['Int']['input']>;
+  equipmentDocs_PUSH?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   hasAboutpage?: InputMaybe<VendorHasAboutpageUpdateFieldInput>;
   hasFeaturespage?: InputMaybe<VendorHasFeaturespageUpdateFieldInput>;
   hasLeads?: InputMaybe<VendorHasLeadsUpdateFieldInput>;
   hasManagement?: InputMaybe<VendorHasManagementUpdateFieldInput>;
+  hasManyEquipment?: InputMaybe<Array<VendorHasManyEquipmentUpdateFieldInput>>;
   hasModuleticket?: InputMaybe<Array<VendorHasModuleticketUpdateFieldInput>>;
   hasNotification?: InputMaybe<Array<VendorHasNotificationUpdateFieldInput>>;
   hasReply?: InputMaybe<VendorHasReplyUpdateFieldInput>;
@@ -38009,11 +42937,9 @@ export type VendorUpdateInput = {
   industry?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   industry_POP?: InputMaybe<Scalars['Int']['input']>;
   industry_PUSH?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  labImage?: InputMaybe<Scalars['String']['input']>;
   service?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   service_POP?: InputMaybe<Scalars['Int']['input']>;
   service_PUSH?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  sub_type?: InputMaybe<Scalars['String']['input']>;
   userIs?: InputMaybe<VendorUserIsUpdateFieldInput>;
 };
 
@@ -38087,21 +43013,6 @@ export type VendorUserIsNodeAggregationWhereInput = {
   AND?: InputMaybe<Array<VendorUserIsNodeAggregationWhereInput>>;
   NOT?: InputMaybe<VendorUserIsNodeAggregationWhereInput>;
   OR?: InputMaybe<Array<VendorUserIsNodeAggregationWhereInput>>;
-  address_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
-  address_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
-  address_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
-  address_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
-  address_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
-  address_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  address_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  address_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  address_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  address_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  address_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  address_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  address_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  address_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  address_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
   bio_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
   bio_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
   bio_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
@@ -38117,21 +43028,21 @@ export type VendorUserIsNodeAggregationWhereInput = {
   bio_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
   bio_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
   bio_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  city_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
-  city_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
-  city_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
-  city_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
-  city_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
-  city_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  city_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  city_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  city_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  city_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  city_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  city_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  city_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  city_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  city_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  companyDescription_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  companyDescription_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  companyDescription_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  companyDescription_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  companyDescription_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  companyDescription_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  companyDescription_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  companyDescription_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  companyDescription_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  companyDescription_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  companyDescription_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  companyDescription_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  companyDescription_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  companyDescription_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  companyDescription_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
   companyEmail_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
   companyEmail_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
   companyEmail_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
@@ -38162,6 +43073,21 @@ export type VendorUserIsNodeAggregationWhereInput = {
   companyName_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
   companyName_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
   companyName_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  companyPhone_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  companyPhone_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  companyPhone_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  companyPhone_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  companyPhone_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  companyPhone_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  companyPhone_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  companyPhone_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  companyPhone_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  companyPhone_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  companyPhone_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  companyPhone_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  companyPhone_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  companyPhone_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  companyPhone_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
   createdAt_MAX_EQUAL?: InputMaybe<Scalars['DateTime']['input']>;
   createdAt_MAX_GT?: InputMaybe<Scalars['DateTime']['input']>;
   createdAt_MAX_GTE?: InputMaybe<Scalars['DateTime']['input']>;
@@ -38172,6 +43098,36 @@ export type VendorUserIsNodeAggregationWhereInput = {
   createdAt_MIN_GTE?: InputMaybe<Scalars['DateTime']['input']>;
   createdAt_MIN_LT?: InputMaybe<Scalars['DateTime']['input']>;
   createdAt_MIN_LTE?: InputMaybe<Scalars['DateTime']['input']>;
+  department_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  department_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  department_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  department_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  department_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  department_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  department_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  department_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  department_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  department_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  department_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  department_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  department_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  department_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  department_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  education_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  education_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  education_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  education_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  education_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  education_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  education_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  education_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  education_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  education_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  education_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  education_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  education_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  education_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  education_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
   email_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
   email_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
   email_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
@@ -38187,6 +43143,21 @@ export type VendorUserIsNodeAggregationWhereInput = {
   email_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
   email_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
   email_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  experience_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  experience_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  experience_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  experience_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  experience_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  experience_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  experience_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  experience_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  experience_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  experience_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  experience_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  experience_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  experience_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  experience_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  experience_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
   gstNumber_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
   gstNumber_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
   gstNumber_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
@@ -38217,21 +43188,36 @@ export type VendorUserIsNodeAggregationWhereInput = {
   image_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
   image_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
   image_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  mobile_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
-  mobile_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
-  mobile_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
-  mobile_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
-  mobile_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
-  mobile_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  mobile_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  mobile_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  mobile_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  mobile_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  mobile_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  mobile_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  mobile_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  mobile_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  mobile_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  interest_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  interest_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  interest_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  interest_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  interest_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  interest_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  interest_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  interest_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  interest_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  interest_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  interest_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  interest_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  interest_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  interest_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  interest_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  linkedin_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  linkedin_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  linkedin_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  linkedin_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  linkedin_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  linkedin_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
   name_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
   name_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
   name_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
@@ -38262,6 +43248,21 @@ export type VendorUserIsNodeAggregationWhereInput = {
   panCardNo_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
   panCardNo_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
   panCardNo_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  phoneNumber_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  phoneNumber_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  phoneNumber_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  phoneNumber_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  phoneNumber_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  phoneNumber_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  phoneNumber_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  phoneNumber_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  phoneNumber_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  phoneNumber_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  phoneNumber_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  phoneNumber_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  phoneNumber_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  phoneNumber_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  phoneNumber_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
   phone_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
   phone_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
   phone_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
@@ -38277,36 +43278,66 @@ export type VendorUserIsNodeAggregationWhereInput = {
   phone_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
   phone_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
   phone_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  secondAddress_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
-  secondAddress_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
-  secondAddress_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
-  secondAddress_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
-  secondAddress_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
-  secondAddress_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  secondAddress_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  secondAddress_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  secondAddress_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  secondAddress_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  secondAddress_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  secondAddress_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  secondAddress_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  secondAddress_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  secondAddress_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  state_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
-  state_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
-  state_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
-  state_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
-  state_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
-  state_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  state_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  state_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  state_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  state_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  state_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  state_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  state_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  state_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  state_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  skypeId_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  skypeId_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  skypeId_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  skypeId_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  skypeId_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  skypeId_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  specialty_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  specialty_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  specialty_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  specialty_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  specialty_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  specialty_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  specialty_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  specialty_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  specialty_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  specialty_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  specialty_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  specialty_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  specialty_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  specialty_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  specialty_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  title_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  title_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  title_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  title_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  title_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  title_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  title_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  title_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  title_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  title_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  title_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  title_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  title_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  title_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  title_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  twitter_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
+  twitter_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
+  twitter_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
+  twitter_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
+  twitter_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
+  twitter_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  twitter_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  twitter_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  twitter_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  twitter_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
+  twitter_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
+  twitter_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
+  twitter_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
+  twitter_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
+  twitter_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
   userId_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
   userId_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
   userId_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
@@ -38322,21 +43353,6 @@ export type VendorUserIsNodeAggregationWhereInput = {
   userId_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
   userId_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
   userId_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  zip_AVERAGE_LENGTH_EQUAL?: InputMaybe<Scalars['Float']['input']>;
-  zip_AVERAGE_LENGTH_GT?: InputMaybe<Scalars['Float']['input']>;
-  zip_AVERAGE_LENGTH_GTE?: InputMaybe<Scalars['Float']['input']>;
-  zip_AVERAGE_LENGTH_LT?: InputMaybe<Scalars['Float']['input']>;
-  zip_AVERAGE_LENGTH_LTE?: InputMaybe<Scalars['Float']['input']>;
-  zip_LONGEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  zip_LONGEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  zip_LONGEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  zip_LONGEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  zip_LONGEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
-  zip_SHORTEST_LENGTH_EQUAL?: InputMaybe<Scalars['Int']['input']>;
-  zip_SHORTEST_LENGTH_GT?: InputMaybe<Scalars['Int']['input']>;
-  zip_SHORTEST_LENGTH_GTE?: InputMaybe<Scalars['Int']['input']>;
-  zip_SHORTEST_LENGTH_LT?: InputMaybe<Scalars['Int']['input']>;
-  zip_SHORTEST_LENGTH_LTE?: InputMaybe<Scalars['Int']['input']>;
 };
 
 export type VendorUserIsRelationship = {
@@ -38367,24 +43383,30 @@ export type VendorUserUserIsAggregationSelection = {
 
 export type VendorUserUserIsNodeAggregateSelection = {
   __typename?: 'VendorUserUserIsNodeAggregateSelection';
-  address: StringAggregateSelectionNullable;
   bio: StringAggregateSelectionNullable;
-  city: StringAggregateSelectionNullable;
+  companyDescription: StringAggregateSelectionNullable;
   companyEmail: StringAggregateSelectionNullable;
   companyName: StringAggregateSelectionNullable;
+  companyPhone: StringAggregateSelectionNullable;
   createdAt: DateTimeAggregateSelectionNullable;
+  department: StringAggregateSelectionNullable;
+  education: StringAggregateSelectionNullable;
   email: StringAggregateSelectionNullable;
+  experience: StringAggregateSelectionNullable;
   gstNumber: StringAggregateSelectionNullable;
   id: IdAggregateSelectionNonNullable;
   image: StringAggregateSelectionNullable;
-  mobile: StringAggregateSelectionNullable;
+  interest: StringAggregateSelectionNullable;
+  linkedin: StringAggregateSelectionNullable;
   name: StringAggregateSelectionNullable;
   panCardNo: StringAggregateSelectionNullable;
   phone: StringAggregateSelectionNullable;
-  secondAddress: StringAggregateSelectionNullable;
-  state: StringAggregateSelectionNullable;
+  phoneNumber: StringAggregateSelectionNullable;
+  skypeId: StringAggregateSelectionNullable;
+  specialty: StringAggregateSelectionNullable;
+  title: StringAggregateSelectionNullable;
+  twitter: StringAggregateSelectionNullable;
   userId: StringAggregateSelectionNullable;
-  zip: StringAggregateSelectionNullable;
 };
 
 export type VendorWhere = {
@@ -38430,6 +43452,8 @@ export type VendorWhere = {
   createdInvoice_SINGLE?: InputMaybe<InvoiceWhere>;
   /** Return Vendors where some of the related Invoices match this filter */
   createdInvoice_SOME?: InputMaybe<InvoiceWhere>;
+  equipmentDocs?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  equipmentDocs_INCLUDES?: InputMaybe<Scalars['String']['input']>;
   hasAboutpage?: InputMaybe<AboutPageWhere>;
   hasAboutpageAggregate?: InputMaybe<VendorHasAboutpageAggregateInput>;
   hasAboutpageConnection?: InputMaybe<VendorHasAboutpageConnectionWhere>;
@@ -38450,6 +43474,23 @@ export type VendorWhere = {
   hasManagementConnection?: InputMaybe<VendorHasManagementConnectionWhere>;
   hasManagementConnection_NOT?: InputMaybe<VendorHasManagementConnectionWhere>;
   hasManagement_NOT?: InputMaybe<ManagementWhere>;
+  hasManyEquipmentAggregate?: InputMaybe<VendorHasManyEquipmentAggregateInput>;
+  /** Return Vendors where all of the related VendorHasManyEquipmentConnections match this filter */
+  hasManyEquipmentConnection_ALL?: InputMaybe<VendorHasManyEquipmentConnectionWhere>;
+  /** Return Vendors where none of the related VendorHasManyEquipmentConnections match this filter */
+  hasManyEquipmentConnection_NONE?: InputMaybe<VendorHasManyEquipmentConnectionWhere>;
+  /** Return Vendors where one of the related VendorHasManyEquipmentConnections match this filter */
+  hasManyEquipmentConnection_SINGLE?: InputMaybe<VendorHasManyEquipmentConnectionWhere>;
+  /** Return Vendors where some of the related VendorHasManyEquipmentConnections match this filter */
+  hasManyEquipmentConnection_SOME?: InputMaybe<VendorHasManyEquipmentConnectionWhere>;
+  /** Return Vendors where all of the related Equipment match this filter */
+  hasManyEquipment_ALL?: InputMaybe<EquipmentWhere>;
+  /** Return Vendors where none of the related Equipment match this filter */
+  hasManyEquipment_NONE?: InputMaybe<EquipmentWhere>;
+  /** Return Vendors where one of the related Equipment match this filter */
+  hasManyEquipment_SINGLE?: InputMaybe<EquipmentWhere>;
+  /** Return Vendors where some of the related Equipment match this filter */
+  hasManyEquipment_SOME?: InputMaybe<EquipmentWhere>;
   hasModuleticketAggregate?: InputMaybe<VendorHasModuleticketAggregateInput>;
   /** Return Vendors where all of the related VendorHasModuleticketConnections match this filter */
   hasModuleticketConnection_ALL?: InputMaybe<VendorHasModuleticketConnectionWhere>;
@@ -38501,18 +43542,8 @@ export type VendorWhere = {
   id_STARTS_WITH?: InputMaybe<Scalars['ID']['input']>;
   industry?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   industry_INCLUDES?: InputMaybe<Scalars['String']['input']>;
-  labImage?: InputMaybe<Scalars['String']['input']>;
-  labImage_CONTAINS?: InputMaybe<Scalars['String']['input']>;
-  labImage_ENDS_WITH?: InputMaybe<Scalars['String']['input']>;
-  labImage_IN?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  labImage_STARTS_WITH?: InputMaybe<Scalars['String']['input']>;
   service?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   service_INCLUDES?: InputMaybe<Scalars['String']['input']>;
-  sub_type?: InputMaybe<Scalars['String']['input']>;
-  sub_type_CONTAINS?: InputMaybe<Scalars['String']['input']>;
-  sub_type_ENDS_WITH?: InputMaybe<Scalars['String']['input']>;
-  sub_type_IN?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  sub_type_STARTS_WITH?: InputMaybe<Scalars['String']['input']>;
   userIs?: InputMaybe<UserWhere>;
   userIsAggregate?: InputMaybe<VendorUserIsAggregateInput>;
   userIsConnection?: InputMaybe<VendorUserIsConnectionWhere>;

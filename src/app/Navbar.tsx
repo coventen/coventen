@@ -28,6 +28,7 @@ import { useRouter } from 'next/navigation';
 import DropdownIndustry from '@/components/Navbar/Dropdown/DropdownIndusty';
 import Solution from '@/components/Navbar/Dropdown/Solution';
 import { LuPlusCircle } from 'react-icons/lu';
+import { useAuth } from '@/firebase/AuthProvider';
 
 
 
@@ -45,15 +46,15 @@ export default function Navbar({ services, industries, solutions, features }: an
 
 
     //hooks
-    const { user, logout, authLoading } = AuthConfig()
+    // const { user, logout, authLoading } = AuthConfig()
+    const { user, logout, authLoading } = useAuth()
     const router = useRouter()
 
-
+    console.log(user, ' this is user 88888888888888888')
 
     useEffect(() => {
-
         getUserData()
-    }, [user?.email, authLoading])
+    }, [user?.email])
 
 
 

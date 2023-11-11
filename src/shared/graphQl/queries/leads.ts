@@ -15,19 +15,17 @@ const GetLeads = async (where:any = {}, options: any = {})=> {
             query: `query Query($where: LeadsWhere, $options: LeadsOptions) {
               leads(where: $where, options: $options) {
                 id
-                email
                 name
-                createdAt
-                condition
-                industry
+                email
                 phone
-                message
-                type
-                interest
-                status
-                duration
-                  price
-                  vendorAddress
+                createdAt
+                company
+                isViewed
+                leadSource
+                leadStatus
+                hasPrimaryaddress {
+                  zipCode
+                }
               }
             }`,
               variables: {

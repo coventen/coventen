@@ -123,7 +123,7 @@ function ForgotPassModal({ isOpen, setIsOpen }: INotificationModal) {
                                     <div className="mt-10">
                                         <button
                                             type="submit"
-                                            className="px-4 py-2 bg-primary text-white rounded-md hover:bg-blue-600"
+                                            className="px-5 py-3 bg-desktopPrimary text-white rounded-md"
                                         >
                                             {loading ? 'Loading...' : 'Send Email'}
                                         </button>

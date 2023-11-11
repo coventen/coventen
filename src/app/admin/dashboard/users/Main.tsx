@@ -19,12 +19,12 @@ query Users($where: UserWhere, $options: UserOptions) {
     companyName
     companyEmail
     bio
-    address
     email
     createdAt
     gstNumber
     status
     userId
+    isViewed
     user_type
     hasDocuments {
       hasFiles {
@@ -170,7 +170,7 @@ const Main = () => {
 
 
 
-    if (data.users.length) {
+    if (data?.users?.length) {
       setUserData(data?.users)
     }
   }
@@ -180,7 +180,6 @@ const Main = () => {
 
 
 
-  console.log(userCountData, 'this is user count data')
 
   // initializing update user mutation
 
@@ -194,8 +193,6 @@ const Main = () => {
     }
 
     await updateUserCount(userCount)
-    console.log(userCount, 'this is user count')
-
     const { data } = await updateUserFn({
       variables: {
         where: {

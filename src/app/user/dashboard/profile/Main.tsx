@@ -164,6 +164,7 @@ const Main = () => {
                                     data?.users[0]?.hasDocuments?.hasFiles?.links ?
                                         data?.users[0]?.hasDocuments?.hasFiles?.links?.map((item: any, index: number) =>
                                             <Link href={item || '#'}
+                                                target='_blank'
                                                 key={index}
                                                 style={{
                                                     backgroundImage: `url(${'/assets/file.svg'})`,

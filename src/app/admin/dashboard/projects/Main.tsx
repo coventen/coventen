@@ -9,6 +9,8 @@ import Error from '@/components/Error';
 import Pagination from '@/components/Pagination';
 import TableSkeleton from '@/components/TableSkeleton';
 import ModuleCards from './ModuleCards';
+import { useCounterData } from '../../CounterProvider';
+import Link from 'next/link';
 
 interface ICurrentProject {
     clientEmail: string;
@@ -27,9 +29,16 @@ query Projects($where: ProjectWhere, $options: ProjectOptions) {
       description
       createdAt
       country
+      isViewed
       companyName
       projectticketFor {
         projectTicket
+      }
+      clientOrdered {
+        userIs {
+          userId
+          id
+        }
       }
       hasModule {
         title
@@ -65,7 +74,7 @@ const Main = () => {
 
     //hooks 
     const client = useGqlClient()
-
+    const counterData = useCounterData()
 
     //quires 
     const [getProjectFn, ProjectDataState] = useManualQuery(GET_PROJECTS, { client })
@@ -145,6 +154,12 @@ const Main = () => {
 
 
 
+    const handleClick = async (id: string, isViewed: boolean) => {
+        if (!isViewed) {
+            counterData?.handleUpdateView(id, "project")
+            counterData?.projectRefetch()
+        }
+    }
 
 
 
@@ -186,7 +201,7 @@ const Main = () => {
                         :
                         ProjectData && ProjectData.map((project: any, index: number) =>
                             <>
-                                <div className="transition-all duration-500 my-2 hover:bg-white  text-gray-600 ">
+                                <div onClick={() => handleClick(project?.id, project?.isViewed as boolean)} className="transition-all duration-500 my-2 hover:bg-white  text-gray-600 ">
                                     <>
                                         <div className="transition-all duration-500 my-2 hover:bg-white border text-gray-600 border-gray-200 ">
                                             <>
@@ -236,9 +251,9 @@ const Main = () => {
                                                                 <h5 className="text-desktopText font-semibold text-md lg:text-lg mb-1">
                                                                     Client: {project?.companyName}
                                                                 </h5>
-                                                                <h5 className="text-desktopText font-semibold text-sm mb-3">
-                                                                    email: {project?.email}
-                                                                </h5>
+                                                                <Link href={`/admin/dashboard/users/${project?.clientOrdered?.userIs?.id}`} className="text-desktopText font-semibold lg:text-lg mb-3">
+                                                                    UserId: {project?.clientOrdered?.userIs?.userId || 'N/A'}
+                                                                </Link>
                                                                 <h5 className="text-desktopText font-semibold text-md lg:text-lg mb-1">
                                                                     Project name: {project?.title}
                                                                 </h5>

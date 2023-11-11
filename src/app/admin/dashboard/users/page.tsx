@@ -2,6 +2,7 @@ import React from 'react';
 
 import UserTable from './UserTable';
 import Main from './Main';
+import Link from 'next/link';
 
 const page = () => {
     return (
@@ -11,6 +12,9 @@ const page = () => {
                     <div className="py-8">
                         <div>
                             <h2 className="text-2xl font-semibold leading-tight">Users</h2>
+                            <Link href={`/admin/dashboard/users/create`}>
+                                Create user
+                            </Link>
                         </div>
 
                         {/* table start */}

@@ -132,7 +132,7 @@ const LoginFrom = () => {
                 </button>
                 {/* </Link> */}
 
-                {/* <p onClick={() => setIsModalOpen(true)} className='text-desktopDESKbg-desktopPrimary text-sm cursor-pointer hover:underline'>Forgot Password</p> */}
+                <p onClick={() => setIsModalOpen(true)} className='text-desktopDESKbg-desktopPrimary text-sm cursor-pointer hover:underline'>Forgot Password</p>
             </form>
             <ForgotPassModal isOpen={isModalOpen} setIsOpen={setIsModalOpen} />
         </>

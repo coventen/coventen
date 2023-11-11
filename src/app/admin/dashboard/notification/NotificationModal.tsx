@@ -201,30 +201,6 @@ function NotificationModal({ isOpen, setIsOpen, setNewNotification }: INotificat
 
                                         </div>
                                     </div> */}
-                                    {/* notification user select for personalized notifications */}
-                                    {/* {
-                                        selectedOption === 'PERSONALIZED' && (
-                                            <div className="mb-5">
-                                                <label className="block  text-gray-700 text-sm mb-1">
-                                                    User type
-                                                </label>
-                                                <div className="relative inline-flex w-full">
-                                                    <select
-                                                        name='userType'
-                                                        // value={selectedOption}
-                                                        // onChange={handleSelect}
-                                                        className="mt-1 px-4 py-2 border border-gray-200 rounded-md w-full"
-                                                    >
-                                                        <option value="" disabled>Select an option</option>
-                                                        <option >Vendor</option>
-                                                        <option >User</option>
-                                                    </select>
-
-                                                </div>
-                                            </div>
-                                        )
-                                    } */}
-
 
                                     <div className="mb-5">
                                         <div>

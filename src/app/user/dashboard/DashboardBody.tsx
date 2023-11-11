@@ -164,7 +164,7 @@ const DashboardBody = (props: PropsWithChildren) => {
                         </div>
                     </div>
                 </div>
-                <div className="w-full h-[90vh] overflow-y-scroll  bg-bgLight   ">
+                <div className="w-full h-[90vh] overflow-y-scroll  bg-bgLight  lg:p-4  ">
                     {props.children}
                 </div>
 

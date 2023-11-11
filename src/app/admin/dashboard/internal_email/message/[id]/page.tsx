@@ -70,7 +70,7 @@ const page = async ({ params, searchParams }: any) => {
                 <div className='grid grid-cols-1 lg:grid-cols-4 gap-2'>
                     {
                         details?.files?.map((fileLink: any, i: number) =>
-                            <Link href={fileLink} key={i}>
+                            <Link href={fileLink} target='_blank' key={i}>
                                 <div
                                     style={{
                                         backgroundImage: `url(${'/assets/file.svg'})`,

@@ -85,6 +85,7 @@ function ViewReportModal({ isOpen, setIsOpen, reports }: IModalProps) {
 
                                                 <Link href={report}
                                                     key={index}
+                                                    target='_blank'
                                                     style={{
                                                         backgroundImage: `url(${'/assets/file.svg'})`,
                                                         backgroundRepeat: 'no-repeat',

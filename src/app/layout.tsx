@@ -4,6 +4,7 @@ import Navbar from './Navbar'
 import './globals.css'
 import { Inter } from 'next/font/google'
 import { Toaster } from 'react-hot-toast';
+import AuthProvider from '@/firebase/AuthProvider';
 
 // meta data api
 export const metadata = {
@@ -177,15 +178,18 @@ export default async function RootLayout({
       <body >
 
         <main className='bg-white text-gray-800 dark:bg-darkBg dark:text-white '>
-          <Navbar services={services} industries={industries} solutions={solutions} features={features} />
-          {children}
+          <AuthProvider>
+            <Navbar services={services} industries={industries} solutions={solutions} features={features} />
+            {children}
+          </AuthProvider>
         </main>
         <Footer />
+
         <Toaster
           position="bottom-right"
         />
 
       </body>
-    </html>
+    </html >
   )
 }

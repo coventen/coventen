@@ -11,7 +11,7 @@ const page = ({ params, searchParams }: any) => {
     if (success === 'true') {
 
         return (
-            <div className='w-full min-h-screen bg-gray-50 absolute top-0 bottom-0 flex items-center justify-center'>
+            <div className='w-full min-h-screen bg-gray-50 absolute top-0 left-0 z-[8888888888888888] bottom-0 flex items-center justify-center'>
                 <div className="w-full md:w-1/3 mx-auto">
                     <div className="flex flex-col p-5 rounded-lg shadow bg-white ">
                         <div className="flex flex-col items-center text-center">
@@ -24,7 +24,7 @@ const page = ({ params, searchParams }: any) => {
 
                         <div className="flex items-center justify-center mt-3">
 
-                            <Link href='/desktopHome/auth/login' className="flex items-center justify-center px-4 py-2 ml-2 bg-green-500 hover:bg-green-600 text-white text-sm font-medium ">
+                            <Link href='/desktop_vendor' className="flex items-center justify-center px-4 py-2 ml-2 bg-green-500 hover:bg-green-600 text-white text-sm font-medium ">
                                 Go Back
                             </Link>
                         </div>
@@ -35,7 +35,7 @@ const page = ({ params, searchParams }: any) => {
     }
     else {
         return (
-            <div className='w-full min-h-screen bg-gray-50  absolute top-0 bottom-0 flex items-center justify-center'>
+            <div className='w-full min-h-screen bg-gray-50  absolute top-0 bottom-0 left-0 z-[8888888888888888] flex items-center justify-center'>
                 <div className="w-full md:w-1/3 mx-auto">
                     <div className="flex flex-col p-5 rounded-lg shadow bg-white ">
                         <div className="flex flex-col items-center text-center ">
@@ -47,7 +47,7 @@ const page = ({ params, searchParams }: any) => {
                         </div>
 
                         <div className="flex items-center justify-center mt-3">
-                            <Link href='/desktopHome/auth/login' className="flex items-center justify-center px-8 py-2 ml-2 bg-red-500 hover:bg-red-600 text-white text-sm font-medium  ">
+                            <Link href='/desktop_vendor' className="flex items-center justify-center px-8 py-2 ml-2 bg-red-500 hover:bg-red-600 text-white text-sm font-medium  ">
                                 Go Back
                             </Link>
 

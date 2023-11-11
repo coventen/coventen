@@ -72,7 +72,7 @@ const page = async ({ params, searchParams }: any) => {
                     <p className='text-sm text-gray-600 mb-7'>Attachments: </p>
                     {
                         details?.files?.map((fileLink: any, i: number) =>
-                            <Link href={fileLink} key={i}>
+                            <Link href={fileLink} target='_blank' key={i}>
                                 <div
                                     style={{
                                         backgroundImage: `url(${'/assets/file.svg'})`,

@@ -1,12 +1,21 @@
 import { Leads } from '@/gql/graphql';
 import React from 'react';
 import { ILeadsTableProps } from './interface';
+import Link from 'next/link';
+import { useCounterData } from '../../CounterProvider';
 
 
 const LeadsTable = ({ data, setIsModalOpen, setCurrentLead }: ILeadsTableProps) => {
 
+    //hooks
+    const counterData = useCounterData()
 
-
+    const handleClick = async (id: string, isViewed: boolean) => {
+        if (!isViewed) {
+            counterData?.handleUpdateView(id, "lead")
+            counterData?.leadRefetch()
+        }
+    }
 
     return (
         <table className="min-w-full leading-normal uppercase">
@@ -30,7 +39,15 @@ const LeadsTable = ({ data, setIsModalOpen, setCurrentLead }: ILeadsTableProps) 
                     </th>
                     <th
                         className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-dimText dark:text-darkDimText uppercase tracking-wider dark:bg-darkBg dark:border-darkBorder">
-                        Type
+                        Lead Source
+                    </th>
+                    {/* <th
+                        className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-dimText dark:text-darkDimText uppercase tracking-wider dark:bg-darkBg dark:border-darkBorder">
+                        Lead Status
+                    </th> */}
+                    <th
+                        className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-dimText dark:text-darkDimText uppercase tracking-wider dark:bg-darkBg dark:border-darkBorder">
+                        Zip Code
                     </th>
                     <th
                         className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-dimText dark:text-darkDimText uppercase tracking-wider dark:bg-darkBg dark:border-darkBorder">
@@ -52,31 +69,36 @@ const LeadsTable = ({ data, setIsModalOpen, setCurrentLead }: ILeadsTableProps) 
                                 <p className=" whitespace-no-wrap">{lead?.name}</p>
                             </td>
                             <td className="px-5 py-5  bg-white text-xs dark:bg-darkBg dark:border-darkBorder">
-                                <p className=" whitespace-no-wrap">{lead?.email}</p>
+                                <p className=" whitespace-no-wrap lowercase">{lead?.email}</p>
+                            </td>
+                            <td className="px-5 py-5  bg-white text-xs dark:bg-darkBg dark:border-darkBorder">
+                                <p className=" whitespace-no-wrap lowercase">{lead?.phone}</p>
                             </td>
                             <td className="px-5 py-5  bg-white text-xs dark:bg-darkBg dark:border-darkBorder">
                                 <p className=" whitespace-no-wrap">
-                                    {lead?.phone}
+                                    {lead?.leadSource || "N/A"}
                                 </p>
                             </td>
+                            {/* <td className="px-5 py-5  bg-white text-xs dark:bg-darkBg dark:border-darkBorder">
+                                <p className=" whitespace-no-wrap">
+                                    {lead?.leadStatus}
+                                </p>
+                            </td> */}
                             <td className="px-5 py-5  bg-white text-xs dark:bg-darkBg dark:border-darkBorder">
                                 <p className=" whitespace-no-wrap">
-                                    {lead?.type}
+                                    {lead?.hasPrimaryaddress?.zipCode || "N/A"}
                                 </p>
                             </td>
-                            <td className="px-5 py-5 cursor-pointer  bg-white text-xs dark:bg-darkBg dark:border-darkBorder rounded-xl font-semibold">
-                                <button
-                                    onClick={() => {
-                                        setIsModalOpen(true)
-                                        setCurrentLead(lead)
-                                    }}
+                            <td onClick={() => handleClick(lead?.id, lead?.isViewed as boolean)} className="px-5 py-5 cursor-pointer  bg-white text-xs dark:bg-darkBg dark:border-darkBorder rounded-xl font-semibold">
+                                <Link href={`/admin/dashboard/leads/details/${lead?.id}`}
+
                                     className={`   
                                     bg-green-500 text-white
                                 relative inline-block  px-4 py-1 rounded-md  leading-tight`}>
                                     <span
                                         className="absolute  "></span>
                                     <span className="relative font-bold">View Details</span>
-                                </button>
+                                </Link>
                             </td>
 
                         </tr>
