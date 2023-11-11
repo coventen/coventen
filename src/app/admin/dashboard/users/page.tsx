@@ -9,10 +9,10 @@ const page = () => {
         <>
             <div className="antialiased rounded-md bg-white dark:bg-darkBgLight h-full min-h-[80vh]">
                 <div className="container mx-auto px-4 sm:px-8">
-                    <div className="py-8">
-                        <div>
-                            <h2 className="text-2xl font-semibold leading-tight">Users</h2>
-                            <Link href={`/admin/dashboard/users/create`}>
+                    <div className="py-8 ">
+                        <div className='flex items-center justify-between'>
+                            <h2 className="text-2xl font-semibold  leading-tight">Users</h2>
+                            <Link href={`/admin/dashboard/users/create`} className='bg-primary rounded-md text-white px-5 py-2'>
                                 Create user
                             </Link>
                         </div>

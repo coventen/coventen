@@ -52,8 +52,14 @@ const getInvoiceData = async (id: string) => {
                   userIs {
                     companyName
                     companyEmail
-                    address
                     email
+                    gstNumber
+                    hasPrimaryaddress {
+                      street
+                      city
+                      state
+                      Country
+                    }
                   }
                 }
               }

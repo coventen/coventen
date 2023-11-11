@@ -52,7 +52,8 @@ const InvoicePreview = () => {
                                                     <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-200 capitalize">{invoiceData?.vendorCreated?.userIs?.companyName} </h3>
                                                     <h3 className="text-sm  text-gray-600 dark:text-gray-200">{invoiceData?.vendorCreated?.userIs?.email} </h3>
                                                     <address className="mt-1 text-sm not-italic text-gray-500">
-                                                        {invoiceData?.vendorCreated?.userIs?.address}
+                                                        {invoiceData?.vendorCreated?.userIs?.hasPrimaryaddress?.street}<br />
+                                                        {invoiceData?.vendorCreated?.userIs?.hasPrimaryaddress?.city}, {invoiceData?.vendorCreated?.userIs?.hasPrimaryaddress?.state}
 
                                                     </address>
                                                 </div>
@@ -134,7 +135,7 @@ const InvoicePreview = () => {
                                                 <h3 className="text-base  text-gray-600 dark:text-gray-200">{invoiceData?.hasClient?.userIs?.companyName}</h3>
                                                 <address className="mt-1 text-sm not-italic text-gray-500">
                                                     {invoiceData?.hasClient?.userIs?.companyEmail}<br />
-                                                    {invoiceData?.hasClient?.userIs?.address}<br />
+                                                    {invoiceData?.hasClient?.userIs?.hasPrimaryaddress?.street}<br />
 
                                                 </address>
                                             </>

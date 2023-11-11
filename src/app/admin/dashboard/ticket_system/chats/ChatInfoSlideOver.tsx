@@ -79,16 +79,16 @@ export default function ChatInfoSlideOver({ open, setOpen, data, loading }: Prop
                                                         <p className='text-xl font-semibold '>Vendor Details:</p>
                                                         <p className='capitalize'>Company name: {data?.vendorHas?.userIs?.companyName || 'N/A'}</p>
                                                         <p>Email: {data?.vendorHas?.userIs?.email || 'N/A'}</p>
-                                                        <p>City: {data?.vendorHas?.userIs?.city || 'N/A'}</p>
-                                                        <p>State: {data?.vendorHas?.userIs?.state || 'N/A'}</p>
+                                                        <p>City: {data?.vendorHas?.userIs?.hasPrimaryaddress?.city || 'N/A'}</p>
+                                                        <p>State: {data?.vendorHas?.userIs?.hasPrimaryaddress?.state || 'N/A'}</p>
                                                     </div>
 
                                                     <div className="px-4 sm:px-6 mt-8">
                                                         <p className='text-xl font-semibold '>Client Details:</p>
                                                         <p className='capitalize'>Company name: {data?.clientHas?.userIs?.companyName || 'N/A'}</p>
                                                         <p>Email: {data?.clientHas?.userIs?.email || 'N/A'}</p>
-                                                        <p>City: {data?.clientHas?.userIs?.city || 'N/A'}</p>
-                                                        <p>State: {data?.clientHas?.userIs?.state || 'N/A'}</p>
+                                                        <p>City: {data?.clientHas?.userIs?.hasPrimaryaddress?.city || 'N/A'}</p>
+                                                        <p>State: {data?.clientHas?.userIs?.hasPrimaryaddress?.state || 'N/A'}</p>
                                                     </div>
                                                     <div className="px-4 sm:px-6 mt-8">
                                                         <p className='text-xl font-semibold '>Module Details:</p>
