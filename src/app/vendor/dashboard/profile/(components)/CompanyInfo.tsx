@@ -361,60 +361,7 @@ const CompanyInfo = ({ setUserInfo, userInfo, setCurrentTab, updateUser }: IProp
 
                     />
                 </div>
-                <div className="mb-5 col-span-full">
-                    {/* modules add  start */}
-                    <div className="md:col-span-5 mt-8">
-                        <div>
-                            {/* modules title */}
-                            <div className='flex  justify-between'>
-                                <p className='text-xl font-semibold text-gray-800'>
-                                    Equipments
-                                </p>
 
-                                <div>
-                                    <label >Add More Equipment</label>
-                                    <div className="h-10 w-28  flex border border-gray-300  rounded items-center mt-1">
-                                        <button
-                                            type='button'
-                                            onClick={() => setEquipmentCount(equipmentCount - 1)}
-                                            className="cursor-pointer outline-none focus:outline-none border-r border-gray-300 transition-all text-gray-500 hover:text-desktopPrimary">
-                                            <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mx-2" viewBox="0 0 20 20" fill="currentColor">
-                                                <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
-                                            </svg>
-                                        </button>
-                                        <input name="soda" id="soda" placeholder="0"
-                                            className="px-2 text-center appearance-none outline-none border-none text-gray-800 w-full bg-transparent"
-                                            readOnly
-                                            value={equipmentCount}
-                                        />
-                                        <button type='button' onClick={() => setEquipmentCount(equipmentCount + 1)} className="cursor-pointer outline-none focus:outline-none border-l border-gray-300 transition-all text-gray-500 hover:text-desktopPrimary">
-                                            <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mx-2 fill-current" viewBox="0 0 20 20" fill="currentColor">
-                                                <path fillRule="evenodd" d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z" clipRule="evenodd" />
-                                            </svg>
-                                        </button>
-                                    </div>
-                                </div>
-
-                            </div>
-                            {/* service inputs */}
-                            <div className='space-y-5'>
-                                {
-                                    [...Array(equipmentCount)]?.map((item: any, i: number) =>
-                                        <div key={i} className='grid grid-cols-1 gap-4 max-w-2xl'>
-                                            <p className='text-sm font-semibold text-gray-800'>
-                                                Equipment-{i + 1}
-                                            </p>
-                                            <Equipment index={i + 1} setEquipments={setEquipments} equipments={equipments} />
-                                        </div>
-
-                                    )
-                                }
-                            </div>
-
-
-                        </div>
-                    </div>
-                </div>
                 {/* <div className='col-span-full h-full'>
                     <label className="block  text-gray-700 text-sm mb-1">
                         Attachment

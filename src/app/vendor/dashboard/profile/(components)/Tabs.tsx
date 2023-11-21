@@ -7,6 +7,7 @@ import CompanyInfo from './CompanyInfo';
 import AddressInfo from './AddressInfo';
 import ServicesAndIndustryTab from './ServicesAndIndustryTab';
 import EquipmentTab from './EquipmentTab';
+import DocumentTab from './DocumentTab';
 
 
 
@@ -95,6 +96,19 @@ const Tabs = ({ userInfo, setUserInfo, updateUser }: any) => {
                             >
                                 Equipments
                             </Tab>
+                            <Tab
+                                className={({ selected }: any) =>
+                                    classNames(
+                                        'w-full rounded-sm py-2.5 text-sm font-medium leading-5 text-gray-900',
+                                        '',
+                                        selected
+                                            ? 'bg-white shadow'
+                                            : 'text-gray hover:bg-blue/[0.12] hover:text-blue'
+                                    )
+                                }
+                            >
+                                Documents
+                            </Tab>
 
 
                         </Tab.List>
@@ -114,6 +128,9 @@ const Tabs = ({ userInfo, setUserInfo, updateUser }: any) => {
                             </Tab.Panel>
                             <Tab.Panel>
                                 <EquipmentTab setCurrentTab={setCurrentTab} userInfo={userInfo} />
+                            </Tab.Panel>
+                            <Tab.Panel>
+                                <DocumentTab setCurrentTab={setCurrentTab} userInfo={userInfo} />
                             </Tab.Panel>
 
                         </Tab.Panels>
