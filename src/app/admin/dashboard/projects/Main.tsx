@@ -31,6 +31,8 @@ query Projects($where: ProjectWhere, $options: ProjectOptions) {
       createdAt
       country
       isViewed
+      type
+      priority
       companyName
       projectticketFor {
         projectTicket
@@ -283,6 +285,12 @@ const Main = () => {
                                                                 </h5>
                                                                 <h5 className="text-desktopText font-bold text-md lg:text-base  mb-3">
                                                                     Ticket Id: #{project?.projectticketFor?.projectTicket}
+                                                                </h5>
+                                                                <h5 className="text-desktopText font-bold text-md lg:text-base  mb-3">
+                                                                    Priority: {project?.priority}
+                                                                </h5>
+                                                                <h5 className="text-desktopText font-bold text-md lg:text-base  mb-3">
+                                                                    Type: {project?.type}
                                                                 </h5>
                                                                 <p className='text-desktopTextLight text-xs lg:text-sm'>
                                                                     {project?.description}
