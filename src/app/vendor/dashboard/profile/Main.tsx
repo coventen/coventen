@@ -343,7 +343,7 @@ const Main = () => {
   return (
     <div className='bg-white p-4'>
 
-      <Tabs userInfo={userInfo} setUserInfo={setUserInfo} updateUser={updateUser} />
+      <Tabs userInfo={userInfo} setUserInfo={setUserInfo} updateUser={updateUser} getUser={getUser} />
 
     </div>
   );

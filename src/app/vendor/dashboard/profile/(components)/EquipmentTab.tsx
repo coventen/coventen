@@ -1,9 +1,19 @@
 import React from 'react';
 import EquipmentModal from './EquipmentModal';
+import AuthConfig from '@/firebase/oauth.config';
+import { useGqlClient } from '@/hooks/UseGqlClient';
 
-const EquipmentTab = ({ userInfo, setCurrentTab }: any) => {
+
+
+
+
+
+
+const EquipmentTab = ({ userInfo, setCurrentTab, getUser }: any) => {
 
     const [isModalOpen, setIsModalOpen] = React.useState(false);
+
+
 
 
     return (
@@ -67,7 +77,7 @@ const EquipmentTab = ({ userInfo, setCurrentTab }: any) => {
                     </div>
                 </div>
             </div >
-            <EquipmentModal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />
+            <EquipmentModal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} getUser={getUser} setCurrentTab={setCurrentTab} />
         </>
     );
 };

@@ -1,4 +1,5 @@
 
+import Loading from '@/app/loading';
 import React from 'react';
 
 
@@ -39,7 +40,7 @@ const AddressInfo = async ({ setFormData, formData, handleCreateUser }: IProps) 
             otherCountry,
             otherStreet
         }
-
+        console.log(address, ' this is address 00000000000000000')
 
         handleFirebaseUserCreate(formData.email, formData.password, address)
 
@@ -55,7 +56,7 @@ const AddressInfo = async ({ setFormData, formData, handleCreateUser }: IProps) 
 
         try {
             setLoading(true)
-            const res: any = await fetch('http://localhost:3000/api/create_user', {
+            const res: any = await fetch('https://coventen.vercel.app/api/create_user', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -76,7 +77,7 @@ const AddressInfo = async ({ setFormData, formData, handleCreateUser }: IProps) 
             } else {
                 console.log(res, ' this is res')
                 setLoading(true)
-                await handleCreateUser(address)
+                handleCreateUser(address)
                 setLoading(false)
             }
         } catch (err) {
@@ -87,6 +88,7 @@ const AddressInfo = async ({ setFormData, formData, handleCreateUser }: IProps) 
     }
 
 
+    if (loading) return <Loading />
 
 
     return (
@@ -100,7 +102,6 @@ const AddressInfo = async ({ setFormData, formData, handleCreateUser }: IProps) 
                         Street
                     </label>
                     <input
-                        // onChange={(e) => setFormData({ ...formData, street: e.target.value })}
                         name="street"
                         type="text"
                         className="mt-1 px-4 py-2 border border-gray-300 rounded-md w-full"

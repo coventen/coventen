@@ -19,7 +19,7 @@ function classNames(...classes: string[]) {
 
 
 
-const Tabs = ({ userInfo, setUserInfo, updateUser }: any) => {
+const Tabs = ({ userInfo, setUserInfo, updateUser, getUser }: any) => {
 
     //states
     const [currentTab, setCurrentTab] = useState<any>(0);
@@ -127,7 +127,7 @@ const Tabs = ({ userInfo, setUserInfo, updateUser }: any) => {
                                 <ServicesAndIndustryTab setCurrentTab={setCurrentTab} userInfo={userInfo} />
                             </Tab.Panel>
                             <Tab.Panel>
-                                <EquipmentTab setCurrentTab={setCurrentTab} userInfo={userInfo} />
+                                <EquipmentTab getUser={getUser} setCurrentTab={setCurrentTab} userInfo={userInfo} />
                             </Tab.Panel>
                             <Tab.Panel>
                                 <DocumentTab setCurrentTab={setCurrentTab} userInfo={userInfo} />

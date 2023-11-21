@@ -120,6 +120,7 @@ const Main = () => {
 
         setUploading(true)
 
+        console.log(formData, ' this is form data', address, ' this is address')
 
         if (userByEmailData?.users.length > 0) {
             toast.error('User Already Exists')
@@ -136,8 +137,8 @@ const Main = () => {
             await updateUserCount(userCount)
         }
 
-        let docLinks
-        let equipmentAttachmentsLinks
+        let docLinks: any = []
+        let equipmentAttachmentsLinks: any = []
 
 
 
@@ -149,13 +150,14 @@ const Main = () => {
                 return link
             }))
         }
-        if (formData?.equipmentAttachments?.length as number > 0) {
+        if (formData?.equipmentAttachments?.length > 0) {
 
             equipmentAttachmentsLinks = await Promise.all(formData?.equipmentAttachments?.map(async (item: any) => {
                 const link = await uploadFile(item, uuidv4(), 'equipment-documents')
                 return link
             }))
         }
+
 
 
         if (formData.userType == 'CONSUMER') {
@@ -274,7 +276,7 @@ const Main = () => {
                                         "hasFiles": {
                                             "create": {
                                                 "node": {
-                                                    "links": docLinks
+                                                    // "links": docLinks
                                                 }
                                             }
                                         },
@@ -309,7 +311,7 @@ const Main = () => {
                                     "node": {
                                         "industry": formData.industries,
                                         "service": formData.service,
-                                        "equipmentDocs": equipmentAttachmentsLinks,
+                                        // "equipmentDocs": equipmentAttachmentsLinks,
                                         "hasManyEquipment": {
                                             "create": formData.equipments?.map((item: any) => {
                                                 return {

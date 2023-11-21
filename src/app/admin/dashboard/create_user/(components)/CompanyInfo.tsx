@@ -43,7 +43,7 @@ const CompanyInfo = ({ setFormData, formData, setCurrentTab }: IProps) => {
         const { companyName, companyEmail, companyPhone, otherPhone, linkedin, twitter, skypeId, aboutCompany, gst, panCardNo } = e.target
 
         setFormData({
-            ...formData, companyName: companyName.value, companyEmail: companyEmail.value, companyPhone: companyPhone.value, otherPhone: otherPhone.value, linkedin: linkedin.value, twitter: twitter.value, skypeId: skypeId.value, bio: aboutCompany.value, documents: files, gst: gst.value, panCardNo: panCardNo.value,
+            ...formData, companyName: companyName.value, companyEmail: companyEmail.value, companyPhone: companyPhone.value, otherPhone: otherPhone.value, linkedin: linkedin.value, twitter: twitter.value, skypeId: skypeId.value, bio: aboutCompany.value, documents: files, gst: gst.value, panCardNo: panCardNo.value, equipmentAttachments: attachment,
             equipments: equipments.map((item: any, idx: number) => item[`name${idx + 1}`])
         })
 
@@ -369,7 +369,7 @@ const CompanyInfo = ({ setFormData, formData, setCurrentTab }: IProps) => {
                 </div>
 
                 {
-                    formData?.user_type === 'vendor' &&
+                    formData?.user_type === 'SERVICE_PROVIDER' &&
                     <>
                         <div className="mb-5 col-span-full">
                             {/* modules add  start */}

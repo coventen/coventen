@@ -22,7 +22,7 @@ const UPDATE_USER = `mutation UpdateVendors($where: VendorWhere, $update: Vendor
 
 
 // component
-const EquipmentModal = ({ isModalOpen, setIsModalOpen }: any) => {
+const EquipmentModal = ({ isModalOpen, setIsModalOpen, getUser }: any) => {
     // states
 
 
@@ -39,6 +39,7 @@ const EquipmentModal = ({ isModalOpen, setIsModalOpen }: any) => {
         e.preventDefault()
 
         const { name, model, make, calibrationDetails, yearOfInstallation, warranty } = e.target
+
 
         const { data: updateDta } = await updateUserFn({
             variables: {
@@ -72,24 +73,20 @@ const EquipmentModal = ({ isModalOpen, setIsModalOpen }: any) => {
 
         if (updateDta?.updateVendors) {
             toast.success('Industry added')
+            getUser()
             setIsModalOpen(false)
-            //     refetch()
-            // }
 
-        }
 
-        //handle close modal
-        function closeModal() {
-            setIsModalOpen(false);
-        }
 
-        if (updateUserState.loading) {
-            return <Loading />
         }
     }
 
     const closeModal = () => {
         setIsModalOpen(false)
+    }
+
+    if (updateUserState.loading) {
+        return <Loading />
     }
 
     // render
@@ -132,7 +129,7 @@ const EquipmentModal = ({ isModalOpen, setIsModalOpen }: any) => {
 
                         <div className="inline-block  align-bottom bg-white rounded-lg px-4 pt-5 pb-7 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full sm:p-8">
                             <p className="focus:outline-none pt-4 pb-8 text-base text-center sm:text-lg md:text-xl lg:text-2xl font-bold leading-normal text-gray-800 border-b mb-7">Add New Equipment</p>
-                            <form onChange={addEquipment}>
+                            <form onSubmit={addEquipment}>
                                 <div className='grid grid-cols-1 lg:grid-cols-2 gap-4 mb-6'>
                                     <div className="">
                                         <label htmlFor="address">Name</label>
@@ -153,7 +150,7 @@ const EquipmentModal = ({ isModalOpen, setIsModalOpen }: any) => {
                                             type="text" className="h-10 border border-gray-300 mt-1 rounded px-4 w-full " name='make' placeholder="" />
                                     </div>
                                     <div className="">
-                                        <label htmlFor="address">calibrationDetails</label>
+                                        <label htmlFor="address">CalibrationDetails</label>
 
                                         <input
                                             type="text" name='calibrationDetails' className="h-10 border border-gray-300 mt-1 rounded px-4 w-full " placeholder="" />
@@ -164,6 +161,13 @@ const EquipmentModal = ({ isModalOpen, setIsModalOpen }: any) => {
                                         <input
 
                                             type="text" name='yearOfInstallation' className="h-10 border border-gray-300 mt-1 rounded px-4 w-full " placeholder="" />
+                                    </div>
+                                    <div className="">
+                                        <label htmlFor="address">Warranty</label>
+
+                                        <input
+
+                                            type="text" name='warranty' className="h-10 border border-gray-300 mt-1 rounded px-4 w-full " placeholder="" />
                                     </div>
                                     <div className="col-span-full mt-6">
                                         <button type='submit' className=' bg-primary text-white px-4 py-2'>
