@@ -171,6 +171,7 @@ const InvoicePreview = () => {
                             <div className='space-y-3'>
                                 <p className='font-semibold'>Place Of Supply: <span className='text-dimText font-normal'>{invoiceData?.placeOfSupply}</span></p>
                                 <p className='font-semibold'>HSN/SAC: <span className='text-dimText font-normal'>{invoiceData?.hsn}</span></p>
+                                <p className='font-semibold'>Type: <span className='text-dimText font-normal'>{invoiceData?.type || 'N/A'}</span></p>
                                 <p className='font-semibold'>Subject: <span className='text-dimText font-normal'>{invoiceData?.subject}</span></p>
                             </div>
 
