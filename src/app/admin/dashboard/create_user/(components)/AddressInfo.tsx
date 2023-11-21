@@ -12,10 +12,8 @@ interface IProps {
 
 
 
-const AddressInfo = async ({ setFormData, formData, handleCreateUser }: IProps) => {
-
-    const [loading, setLoading] = React.useState(false)
-
+const AddressInfo = ({ setFormData, formData, setCurrentTab, handleCreateUser }: IProps) => {
+    const [loading, setLoading] = React.useState(false);
 
     const handleSubmit = async (e: any) => {
         e.preventDefault();
@@ -29,7 +27,6 @@ const AddressInfo = async ({ setFormData, formData, handleCreateUser }: IProps) 
         const otherCountry = e.target.otherCountry.value;
         const otherStreet = e.target.otherStreet.value;
 
-
         const address = {
             city,
             state,
@@ -39,58 +36,45 @@ const AddressInfo = async ({ setFormData, formData, handleCreateUser }: IProps) 
             otherState,
             otherCountry,
             otherStreet
-        }
-        console.log(address, ' this is address 00000000000000000')
-        // handleCreateUser(address)
+        };
 
-        handleFirebaseUserCreate(formData.email, formData.password, address)
-
-
-    };
-
-
-
-
-
-    const handleFirebaseUserCreate = async (email: string, password: string, address: any) => {
-
+        setLoading(true);
 
         try {
-            setLoading(true)
+            await handleFirebaseUserCreate(formData.email, formData.password, address);
+            setLoading(false);
+        } catch (error) {
+            console.error(error);
+            setLoading(false);
+        }
+    };
+
+    const handleFirebaseUserCreate = async (email: string, password: string, address: any) => {
+        try {
             const res: any = await fetch('https://coveten.com/api/create_user', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({ email, password })
-
-            })
+            });
 
             if (res.status === 201) {
-                setLoading(false)
-
-            }
-
-
-            if (res?.error) {
-                console.log(res.error)
-                setLoading(false)
+                console.log('User created successfully');
             } else {
-                console.log(res, ' this is res')
-                setLoading(true)
-                handleCreateUser(address)
-                setLoading(false)
+                console.log('Failed to create user');
+                throw new Error('User creation failed');
             }
+
+            // Assuming handleCreateUser returns a Promise
+            await handleCreateUser(address);
         } catch (err) {
-            console.log(err, ' this is error')
-            setLoading(false)
+            console.error(err, 'User creation error');
+            throw err;
         }
+    };
 
-    }
-
-
-    if (loading) return <Loading />
-
+    if (loading) return <Loading />;
 
     return (
         <section className='mt-6'>
