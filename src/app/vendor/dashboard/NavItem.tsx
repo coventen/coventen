@@ -61,7 +61,7 @@ export const controlledNavItems = [
                 icon: <LuSchool2 className="" />,
             },
             {
-                label: "Complains",
+                label: "Complaints",
                 href: "/vendor/dashboard/complains",
                 icon: <LuSchool2 className="" />,
             },

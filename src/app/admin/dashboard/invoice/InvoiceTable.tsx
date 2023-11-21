@@ -9,9 +9,12 @@ import { useCounterData } from '../../CounterProvider';
 import { useMutation } from 'graphql-hooks';
 import { useGqlClient } from '@/hooks/UseGqlClient';
 import Loading from '@/app/loading';
+import toast from 'react-hot-toast';
 interface ITableItem {
     data: any[]
     deleteInvoice: (id: any) => void
+    getInvoiceData: any
+    setRefetch: any
 }
 
 
@@ -26,8 +29,9 @@ mutation UpdateInvoices($where: InvoiceWhere, $update: InvoiceUpdateInput) {
 `
 
 
-const InvoiceTable = ({ data, deleteInvoice }: ITableItem) => {
+const InvoiceTable = ({ data, deleteInvoice, getInvoiceData, setRefetch }: ITableItem) => {
     const [isOpen, setIsOpen] = useState(false);
+
 
     // HOOKS
     const counterData = useCounterData()
@@ -50,6 +54,11 @@ const InvoiceTable = ({ data, deleteInvoice }: ITableItem) => {
                 }
             }
         })
+        if (data) {
+            toast.success('updated successfully')
+            setRefetch(true)
+            getInvoiceData()
+        }
 
     }
 
@@ -67,6 +76,8 @@ const InvoiceTable = ({ data, deleteInvoice }: ITableItem) => {
 
 
     if (updateInvoiceState?.loading) return <Loading />
+
+    console.log(data, 'this is data')
 
     return (
         <table className="w-full table-auto text-sm text-left">
@@ -103,31 +114,34 @@ const InvoiceTable = ({ data, deleteInvoice }: ITableItem) => {
                             <td className="pr-2 py-2 whitespace-nowrap uppercase ">
                                 <select
                                     onChange={(e) => updateInvoice(item?.id, e.target.value)}
-                                    defaultValue={item?.paymentStatus}
-                                    name="" className='p-0 m-0' id="">
+                                    value={item?.paymentStatus}
+                                    name=""
+                                    className='p-0 m-0'
+                                    id=""
+                                >
                                     <option value="">Select</option>
-                                    <option value="">Paid</option>
-                                    <option value="">Unpaid</option>
-                                    <option value="">Pending</option>
-                                    <option value="">Partially Paid</option>
-                                    <option value="">Over Due</option>
-                                    <option value="">Overdue</option>
-                                    <option value="">Completed</option>
-                                    <option value="">Processed</option>
-                                    <option value="">Canceled</option>
-                                    <option value="">Cancelled</option>
-                                    <option value="">Refunded</option>
-                                    <option value="">Disputed</option>
-                                    <option value="">Authorized</option>
-                                    <option value="">On Hold</option>
-                                    <option value="">Delinquent</option>
-                                    <option value="">Settled</option>
-                                    <option value="">Cleared</option>
-                                    <option value="">Sent To Collections</option>
-                                    <option value="">Chargeback</option>
-                                    <option value="">Void</option>
-                                    <option value="">Pending Review</option>
-                                    <option value="">Not Applicable</option>
+                                    <option value="Paid">Paid</option>
+                                    <option value="Unpaid">Unpaid</option>
+                                    <option value="Pending">Pending</option>
+                                    <option value="Partially Paid">Partially Paid</option>
+                                    <option value="Over Due">Over Due</option>
+                                    <option value="Overdue">Overdue</option>
+                                    <option value="Completed">Completed</option>
+                                    <option value="Processed">Processed</option>
+                                    <option value="Canceled">Canceled</option>
+                                    <option value="Cancelled">Cancelled</option>
+                                    <option value="Refunded">Refunded</option>
+                                    <option value="Disputed">Disputed</option>
+                                    <option value="Authorized">Authorized</option>
+                                    <option value="On Hold">On Hold</option>
+                                    <option value="Delinquent">Delinquent</option>
+                                    <option value="Settled">Settled</option>
+                                    <option value="Cleared">Cleared</option>
+                                    <option value="Sent To Collections">Sent To Collections</option>
+                                    <option value="Chargeback">Chargeback</option>
+                                    <option value="Void">Void</option>
+                                    <option value="Pending Review">Pending Review</option>
+                                    <option value="Not Applicable">Not Applicable</option>
                                 </select>
                             </td>
 

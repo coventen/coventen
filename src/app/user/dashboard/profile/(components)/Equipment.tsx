@@ -33,7 +33,7 @@ const Equipment = ({ index, setEquipments, equipments }: IModuleFrom) => {
 
 
     // current module index
-    const moduleIndex = equipments.findIndex(module => module.hasOwnProperty(`name${index}`));
+    const moduleIndex = equipments?.findIndex(module => module?.hasOwnProperty(`name${index}`));
 
 
 
@@ -86,32 +86,44 @@ const Equipment = ({ index, setEquipments, equipments }: IModuleFrom) => {
                 <div className="">
                     <label htmlFor="address">Name</label>
 
-                    <input type="text" className="h-10 border border-gray-300 mt-1 rounded px-4 w-full " placeholder=""   {...register(`name${index}`)} />
+                    <input
+                        defaultValue={equipments[moduleIndex]?.[`name${index}`]?.name}
+                        type="text" className="h-10 border border-gray-300 mt-1 rounded px-4 w-full " placeholder=""   {...register(`name${index}`)} />
                 </div>
                 <div className="">
                     <label htmlFor="address">model</label>
 
-                    <input type="text" className="h-10 border border-gray-300 mt-1 rounded px-4 w-full " placeholder=""   {...register(`model${index}`)} />
+                    <input
+                        defaultValue={equipments[moduleIndex]?.[`name${index}`]?.model}
+                        type="text" className="h-10 border border-gray-300 mt-1 rounded px-4 w-full " placeholder=""   {...register(`model${index}`)} />
                 </div>
                 <div className="">
                     <label htmlFor="address">make</label>
 
-                    <input type="text" className="h-10 border border-gray-300 mt-1 rounded px-4 w-full " placeholder=""   {...register(`make${index}`)} />
+                    <input
+                        defaultValue={equipments[moduleIndex]?.[`name${index}`]?.make}
+                        type="text" className="h-10 border border-gray-300 mt-1 rounded px-4 w-full " placeholder=""   {...register(`make${index}`)} />
                 </div>
                 <div className="">
                     <label htmlFor="address">calibrationDetails</label>
 
-                    <input type="text" className="h-10 border border-gray-300 mt-1 rounded px-4 w-full " placeholder=""   {...register(`calibrationDetails${index}`)} />
+                    <input
+                        defaultValue={equipments[moduleIndex]?.[`name${index}`]?.calibrationDetails}
+                        type="text" className="h-10 border border-gray-300 mt-1 rounded px-4 w-full " placeholder=""   {...register(`calibrationDetails${index}`)} />
                 </div>
                 <div className="">
                     <label htmlFor="address">year Of Installation</label>
 
-                    <input type="text" className="h-10 border border-gray-300 mt-1 rounded px-4 w-full " placeholder=""   {...register(`yearOfInstallation${index}`)} />
+                    <input
+                        defaultValue={equipments[moduleIndex]?.[`name${index}`]?.yearOfInstallation}
+                        type="text" className="h-10 border border-gray-300 mt-1 rounded px-4 w-full " placeholder=""   {...register(`yearOfInstallation${index}`)} />
                 </div>
                 <div className="">
                     <label htmlFor="address">warranty</label>
 
-                    <input type="text" className="h-10 border border-gray-300 mt-1 rounded px-4 w-full " placeholder=""   {...register(`warranty${index}`)} />
+                    <input
+                        defaultValue={equipments[moduleIndex]?.[`name${index}`]?.warranty}
+                        type="text" className="h-10 border border-gray-300 mt-1 rounded px-4 w-full " placeholder=""   {...register(`warranty${index}`)} />
                 </div>
             </div>
 

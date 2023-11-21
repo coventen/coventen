@@ -149,7 +149,7 @@ const Main = () => {
 
         if (data.createInvoices.info.nodesCreated) {
             toast.success('Quotation Sent successfully')
-            router.push('/admin/dashboard/quotation/create_quotation')
+            router.push('/admin/dashboard/quotation')
             createLog(
                 `quotation Creation`,
                 `quotation Created with id by ${user?.email}`

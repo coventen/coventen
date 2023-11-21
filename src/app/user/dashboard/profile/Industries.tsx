@@ -8,6 +8,7 @@ import { useMutation } from 'graphql-hooks';
 import AuthConfig from '@/firebase/oauth.config';
 import { toast } from 'react-hot-toast';
 import Loading from '@/app/loading';
+import { useAuth } from '@/firebase/AuthProvider';
 
 
 const UPDATE_USER = `mutation UpdateVendors($where: VendorWhere, $update: VendorUpdateInput) {
@@ -27,7 +28,7 @@ const Industries = ({ data, refetch }: { data: string[], refetch: any }) => {
 
     // hooks
     const client = useGqlClient()
-    const { user } = AuthConfig()
+    const { user } = useAuth()
 
     // updating the user node
     const [updateUserFn, updateUserState] = useMutation(UPDATE_USER, { client })
@@ -38,6 +39,10 @@ const Industries = ({ data, refetch }: { data: string[], refetch: any }) => {
     const deleteIndustry = async (industry: string) => {
         const updatedIndustries = data.filter((item: string) => item !== industry)
 
+
+
+
+        console.log()
 
 
         const { data: updateDta } = await updateUserFn({
@@ -92,7 +97,7 @@ const Industries = ({ data, refetch }: { data: string[], refetch: any }) => {
 
     // render
     return (
-        <div className="relative flex flex-col mt-6 justify-center bg-white max-w-xs py-4 px-1  shadow-sm rounded-xl sm:px-7 dark:bg-gray-900 dark:text-gray-100">
+        <div className="relative border h-full flex flex-col mt-6 justify-center bg-white max-w-xs py-4 px-1  shadow-sm rounded-xl sm:px-7 dark:bg-gray-900 dark:text-gray-100">
             {/* edit button */}
             <div>
                 <button type='button' onClick={() => setIsModalOpen(true)} className="absolute top-3 right-0 p-2 hover:bg-gray-200 rounded-full  dark:bg-gray-900 dark:text-gray-100">

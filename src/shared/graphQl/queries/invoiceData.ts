@@ -25,6 +25,7 @@ const getInvoiceData = async (id: string) => {
                 hsn
                 sentBy
                 status
+                type
                 subject
                 expiryDate
                 hasPurchase {

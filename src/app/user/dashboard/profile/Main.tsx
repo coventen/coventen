@@ -153,6 +153,8 @@ const Main = () => {
     if (previousData) {
       const { isVendor, hasSecondaryaddress, hasPrimaryaddress, hasDocuments, user_type, interest, companyDescription, specialty, experience, skypeId, twitter, linkedin, companyPhone, department, education, title, gstNumber, companyEmail, reportingTo, companyName, phoneNumber, panCardNo, bio, phone, email, name } = previousData
 
+
+
       const primaryStreet = hasSecondaryaddress?.street || ''
       const primaryCity = hasSecondaryaddress?.city || ''
       const primaryState = hasSecondaryaddress?.state || ''
@@ -198,7 +200,7 @@ const Main = () => {
         city: primaryCity,
         state: primaryState,
         country: primaryCountry,
-        zip: primaryZip as string,
+        zip: primaryZip,
         otherStreet: secondaryStreet,
         otherCity: secondaryCity,
         userType: user_type,
@@ -271,15 +273,32 @@ const Main = () => {
           "specialty": specialty,
           "interest": interest,
           "companyDescription": aboutCompany,
-          // "isVendor": {
-          //   "update": {
-          //     "node": {
-          //       "industry": industries,
-          //       "service": service,
-          //       "equipmentDocs": equipmentAttachments
-          //     }
-          //   }
-          // },
+          "isVendor": {
+            "update": {
+              "node": {
+                // "industry": industries,
+                // "service": service,
+                // "equipmentDocs": equipmentAttachments,
+                "hasManyEquipment": equipments.map((equipment: any) => {
+                  return {
+                    "update": {
+                      "node": {
+                        "name": equipment.name,
+                        "model": equipment.model,
+                        "make": equipment?.make,
+                        "yearOfInstallation": equipment?.yearOfInstallation,
+                        "calibrationDetails": equipment?.calibrationDetails,
+                        "warranty": equipment?.warranty,
+                      }
+                    }
+                  }
+                }),
+
+
+
+              }
+            }
+          },
           "hasPrimaryaddress": {
             "update": {
               "node": {
@@ -324,7 +343,7 @@ const Main = () => {
   return (
     <div className='bg-white p-4'>
 
-      <Tabs userInfo={userInfo} setUserInfo={setUserInfo} updateUser={updateUser} />
+      <Tabs userInfo={userInfo} setUserInfo={setUserInfo} updateUser={updateUser} getUser={getUser} />
 
     </div>
   );

@@ -71,7 +71,7 @@ const InvoiceTable = ({ data, deleteInvoice }: ITableItem) => {
                             <td className=" whitespace-nowrap ">
                                 <div className="relative flex items-center justify-end  space-x-4 px-8 ">
                                     <div onClick={() => handleClick(item?.id, item?.isViewed as boolean)} >
-                                        <Link href={`/admin/dashboard/invoice/preview/${item?.id}`} className="focus:ring-2 block focus:ring-offset-2  text-sm leading-none text-green-600 py-2 px-2 bg-gray-100 rounded hover:bg-gray-200 focus:outline-none"><AiFillEye />
+                                        <Link href={`/admin/dashboard/quotation/preview/${item?.id}`} className="focus:ring-2 block focus:ring-offset-2  text-sm leading-none text-green-600 py-2 px-2 bg-gray-100 rounded hover:bg-gray-200 focus:outline-none"><AiFillEye />
                                         </Link>
                                     </div>
                                     <button

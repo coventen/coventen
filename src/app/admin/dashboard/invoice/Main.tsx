@@ -52,6 +52,7 @@ const Main = () => {
   const [totalPages, setTotalPages] = useState(0)
   const [totalInvoice, setTotalInvoice] = useState(0)
   const [invoiceData, setInvoiceData] = useState<any>([])
+  const [refetch, setRefetch] = useState(false)
 
   // hooks
   const client = useGqlClient()
@@ -69,13 +70,11 @@ const Main = () => {
     let where
 
     where = {
-      sentBy_IN: ["ADMIN"],
       "isQuotation": false,
     }
 
     if (searchQuery) {
       where = {
-        sentBy_IN: ["ADMIN"],
         "isQuotation": false,
         "OR": [
           {
@@ -105,7 +104,7 @@ const Main = () => {
 
     getInvoiceData(where)
     getInvoiceCount()
-  }, [currentPage, searchQuery, fetchDirection]);
+  }, [currentPage, searchQuery, fetchDirection, refetch]);
 
 
 
@@ -127,7 +126,9 @@ const Main = () => {
 
   }
 
-  const getInvoiceData = async (where: any) => {
+  const getInvoiceData = async (where: any = {
+    "isQuotation": false,
+  }) => {
     const { data } = await getInvoiceFn({
       variables: {
         where: where,
@@ -165,13 +166,12 @@ const Main = () => {
     if (data?.deleteInvoices?.nodesDeleted > 0) {
       toast.success('Invoice deleted successfully')
       getInvoiceData({
-        sentBy_IN: ["ADMIN"],
         "isQuotation": false,
       })
     }
   }
 
-
+  console.log(invoiceData, 'invoice data')
 
 
   return (
@@ -207,7 +207,7 @@ const Main = () => {
         </div>
       </div>
       <div>
-        <InvoiceTable data={invoiceData} deleteInvoice={deleteInvoice} />
+        <InvoiceTable data={invoiceData} setRefetch={setRefetch} deleteInvoice={deleteInvoice} getInvoiceData={getInvoiceData} />
         <div className='w-full flex items-center justify-center'>
           {totalInvoice! > pageLimit &&
             <Pagination currentPage={currentPage} setCurrentPage={setCurrentPage} totalPages={totalPages} />}

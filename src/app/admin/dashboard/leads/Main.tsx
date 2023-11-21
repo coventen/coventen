@@ -153,6 +153,7 @@ const Main = () => {
                                     <option value={"EVENT"}>EVENT</option>
                                     <option value={"PRODUCT"}>PRODUCT</option>
                                     <option value={"LEARN"}>LEARN</option>
+                                    <option value={"SOLUTION"}>SOLUTION</option>
                                 </select>
 
                             </div>

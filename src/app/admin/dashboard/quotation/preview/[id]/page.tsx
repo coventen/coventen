@@ -25,7 +25,7 @@ const InvoicePreview = () => {
 
 
     const getData = async () => {
-        const invoice: Invoice = await getInvoiceData(params.id)
+        const invoice: any = await getInvoiceData(params.id)
         setInvoiceData(invoice)
     }
 
@@ -86,9 +86,7 @@ const InvoicePreview = () => {
 
                                 <div className="text-right">
                                     <h2 className="text-2xl md:text-3xl font-semibold text-gray-800 dark:text-gray-200">
-                                        {
-                                            invoiceData?.status === "CONFIRMED" ? "Invoice" : "Estimation"
-                                        }
+                                        Quotation
                                     </h2>
                                     <span className="mt-1 block font-semibold text-gray-900">
                                         {
@@ -108,7 +106,7 @@ const InvoicePreview = () => {
                             {/* <!-- Grid --> */}
                             <div className="mt-8 grid sm:grid-cols-2 gap-3">
                                 <div>
-                                    <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-200">Invoice For:</h3>
+                                    <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-200">Quotation For:</h3>
                                     {
                                         invoiceData?.sentBy === "VENDOR" ?
                                             <>
@@ -176,6 +174,7 @@ const InvoicePreview = () => {
                             <div className='space-y-3'>
                                 <p className='font-semibold'>Place Of Supply: <span className='text-dimText font-normal'>{invoiceData?.placeOfSupply}</span></p>
                                 <p className='font-semibold'>HSN/SAC: <span className='text-dimText font-normal'>{invoiceData?.hsn}</span></p>
+                                <p className='font-semibold'>Type: <span className='text-dimText font-normal'>{invoiceData?.type || 'N/A'}</span></p>
                                 <p className='font-semibold'>Subject: <span className='text-dimText font-normal'>{invoiceData?.subject}</span></p>
                             </div>
 

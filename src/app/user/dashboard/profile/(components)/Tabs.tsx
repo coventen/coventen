@@ -5,6 +5,9 @@ import { Tab } from '@headlessui/react';
 import GeneralInfo from './GeneralInfo';
 import CompanyInfo from './CompanyInfo';
 import AddressInfo from './AddressInfo';
+import ServicesAndIndustryTab from './ServicesAndIndustryTab';
+import EquipmentTab from './EquipmentTab';
+import DocumentTab from './DocumentTab';
 
 
 
@@ -16,7 +19,7 @@ function classNames(...classes: string[]) {
 
 
 
-const Tabs = ({ userInfo, setUserInfo, updateUser }: any) => {
+const Tabs = ({ userInfo, setUserInfo, updateUser, getUser }: any) => {
 
     //states
     const [currentTab, setCurrentTab] = useState<any>(0);
@@ -27,7 +30,7 @@ const Tabs = ({ userInfo, setUserInfo, updateUser }: any) => {
             <div className="w-full">
                 <div className="">
                     <Tab.Group selectedIndex={currentTab} onChange={setCurrentTab}>
-                        <Tab.List className="flex space-x-1 rounded-sm bg-gray-100 p-1 max-w-2xl ">
+                        <Tab.List className="flex space-x-1 rounded-sm bg-gray-100 p-1 w-full ">
                             <Tab
                                 className={({ selected }: any) =>
                                     classNames(
@@ -67,6 +70,45 @@ const Tabs = ({ userInfo, setUserInfo, updateUser }: any) => {
                             >
                                 Address
                             </Tab>
+                            {/* <Tab
+                                className={({ selected }: any) =>
+                                    classNames(
+                                        'w-full rounded-sm py-2.5 text-sm font-medium leading-5 text-gray-900',
+                                        '',
+                                        selected
+                                            ? 'bg-white shadow'
+                                            : 'text-gray hover:bg-blue/[0.12] hover:text-blue'
+                                    )
+                                }
+                            >
+                                Service and Industry
+                            </Tab> */}
+                            <Tab
+                                className={({ selected }: any) =>
+                                    classNames(
+                                        'w-full rounded-sm py-2.5 text-sm font-medium leading-5 text-gray-900',
+                                        '',
+                                        selected
+                                            ? 'bg-white shadow'
+                                            : 'text-gray hover:bg-blue/[0.12] hover:text-blue'
+                                    )
+                                }
+                            >
+                                Equipments
+                            </Tab>
+                            <Tab
+                                className={({ selected }: any) =>
+                                    classNames(
+                                        'w-full rounded-sm py-2.5 text-sm font-medium leading-5 text-gray-900',
+                                        '',
+                                        selected
+                                            ? 'bg-white shadow'
+                                            : 'text-gray hover:bg-blue/[0.12] hover:text-blue'
+                                    )
+                                }
+                            >
+                                Documents
+                            </Tab>
 
 
                         </Tab.List>
@@ -80,6 +122,15 @@ const Tabs = ({ userInfo, setUserInfo, updateUser }: any) => {
 
                             <Tab.Panel>
                                 <AddressInfo updateUser={updateUser} setCurrentTab={setCurrentTab} userInfo={userInfo} setUserInfo={setUserInfo} />
+                            </Tab.Panel>
+                            {/* <Tab.Panel>
+                                <ServicesAndIndustryTab setCurrentTab={setCurrentTab} userInfo={userInfo} />
+                            </Tab.Panel> */}
+                            <Tab.Panel>
+                                <EquipmentTab getUser={getUser} setCurrentTab={setCurrentTab} userInfo={userInfo} />
+                            </Tab.Panel>
+                            <Tab.Panel>
+                                <DocumentTab setCurrentTab={setCurrentTab} userInfo={userInfo} />
                             </Tab.Panel>
 
                         </Tab.Panels>
