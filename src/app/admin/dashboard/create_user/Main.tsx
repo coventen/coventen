@@ -57,6 +57,7 @@ const Main = () => {
     //states
 
     const [currentTab, setCurrentTab] = useState<any>(0);
+    const [uploading, setUploading] = useState(false)
     const [formData, setFormData] = useState({
         name: '',
         email: '',
@@ -115,7 +116,9 @@ const Main = () => {
     const [updateCounterFn, updateCounterState] = useMutation(UPDATE_COUNTER, { client })
 
     //handlers
-    const handleCreateUser = async (formData: any) => {
+    const handleCreateUser = async (address: any) => {
+
+        setUploading(true)
 
 
         if (userByEmailData?.users.length > 0) {
@@ -146,7 +149,7 @@ const Main = () => {
                 return link
             }))
         }
-        if (formData?.equipmentAttachments > 0) {
+        if (formData?.equipmentAttachments?.length as number > 0) {
 
             equipmentAttachmentsLinks = await Promise.all(formData?.equipmentAttachments?.map(async (item: any) => {
                 const link = await uploadFile(item, uuidv4(), 'equipment-documents')
@@ -199,10 +202,10 @@ const Main = () => {
                             "hasPrimaryaddress": {
                                 "create": {
                                     "node": {
-                                        "street": formData.street,
-                                        "city": formData.city,
-                                        "state": formData.state,
-                                        "Country": formData.country,
+                                        "street": address.street,
+                                        "city": address.city,
+                                        "state": address.state,
+                                        "Country": address.country,
 
                                     }
                                 }
@@ -210,10 +213,10 @@ const Main = () => {
                             "hasSecondaryaddress": {
                                 "create": {
                                     "node": {
-                                        "street": formData.otherStreet,
-                                        "city": formData.otherCity,
-                                        "state": formData.otherState,
-                                        "Country": formData.otherCountry,
+                                        "street": address.otherStreet,
+                                        "city": address.otherCity,
+                                        "state": address.otherState,
+                                        "Country": address.otherCountry,
 
                                     }
                                 }
@@ -233,6 +236,9 @@ const Main = () => {
             if (data) {
                 toast.success('User Created Successfully')
                 router.push('/admin/dashboard/users')
+                setUploading(false)
+            } else {
+                setUploading(false)
             }
         }
         else if (formData.userType == 'SERVICE_PROVIDER') {
@@ -279,10 +285,10 @@ const Main = () => {
                             "hasPrimaryaddress": {
                                 "create": {
                                     "node": {
-                                        "street": formData.street,
-                                        "city": formData.city,
-                                        "state": formData.state,
-                                        "Country": formData.country,
+                                        "street": address.street,
+                                        "city": address.city,
+                                        "state": address.state,
+                                        "Country": address.country,
 
                                     }
                                 }
@@ -290,10 +296,10 @@ const Main = () => {
                             "hasSecondaryaddress": {
                                 "create": {
                                     "node": {
-                                        "street": formData.otherStreet,
-                                        "city": formData.otherCity,
-                                        "state": formData.otherState,
-                                        "Country": formData.otherCountry,
+                                        "street": address.otherStreet,
+                                        "city": address.otherCity,
+                                        "state": address.otherState,
+                                        "Country": address.otherCountry,
 
                                     }
                                 }
@@ -301,7 +307,7 @@ const Main = () => {
                             "isVendor": {
                                 "create": {
                                     "node": {
-                                        "industry": formData.industry,
+                                        "industry": formData.industries,
                                         "service": formData.service,
                                         "equipmentDocs": equipmentAttachmentsLinks,
                                         "hasManyEquipment": {
@@ -331,11 +337,13 @@ const Main = () => {
             if (data) {
                 toast.success('User Created Successfully')
                 router.push('/admin/dashboard/users')
+                setUploading(false)
+            } else {
+                setUploading(false)
             }
-
         }
 
-
+        setUploading(false)
     }
 
     // [
@@ -373,7 +381,7 @@ const Main = () => {
 
 
 
-    if (createState?.loading || loading) return <Loading />
+    if (createState?.loading || loading || uploading) return <Loading />
 
 
     return (

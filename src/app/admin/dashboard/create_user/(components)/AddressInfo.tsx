@@ -19,21 +19,29 @@ const AddressInfo = async ({ setFormData, formData, handleCreateUser }: IProps) 
     const handleSubmit = async (e: any) => {
         e.preventDefault();
 
-        const { street, city, state, country, otherStreet, otherCity, otherState, otherCountry } = e.target
+        const city = e.target.city.value;
+        const state = e.target.state.value;
+        const country = e.target.country.value;
+        const street = e.target.street.value;
+        const otherCity = e.target.otherCity.value;
+        const otherState = e.target.otherState.value;
+        const otherCountry = e.target.otherCountry.value;
+        const otherStreet = e.target.otherStreet.value;
 
-        setFormData({
-            ...formData,
-            street: street.value,
-            city: city.value,
-            state: state.value,
-            country: country.value,
-            otherStreet: otherStreet.value,
-            otherCity: otherCity.value,
-            otherState: otherState.value,
-            otherCountry: otherCountry.value,
-        })
 
-        handleFirebaseUserCreate(formData.email, formData.password)
+        const address = {
+            city,
+            state,
+            country,
+            street,
+            otherCity,
+            otherState,
+            otherCountry,
+            otherStreet
+        }
+
+
+        handleFirebaseUserCreate(formData.email, formData.password, address)
 
 
     };
@@ -42,7 +50,7 @@ const AddressInfo = async ({ setFormData, formData, handleCreateUser }: IProps) 
 
 
 
-    const handleFirebaseUserCreate = async (email: string, password: string) => {
+    const handleFirebaseUserCreate = async (email: string, password: string, address: any) => {
 
 
         try {
@@ -66,7 +74,9 @@ const AddressInfo = async ({ setFormData, formData, handleCreateUser }: IProps) 
                 console.log(res.error)
                 setLoading(false)
             } else {
-                handleCreateUser(formData)
+                console.log(res, ' this is res')
+                setLoading(true)
+                await handleCreateUser(address)
                 setLoading(false)
             }
         } catch (err) {
@@ -90,6 +100,7 @@ const AddressInfo = async ({ setFormData, formData, handleCreateUser }: IProps) 
                         Street
                     </label>
                     <input
+                        // onChange={(e) => setFormData({ ...formData, street: e.target.value })}
                         name="street"
                         type="text"
                         className="mt-1 px-4 py-2 border border-gray-300 rounded-md w-full"
@@ -100,7 +111,7 @@ const AddressInfo = async ({ setFormData, formData, handleCreateUser }: IProps) 
                         City
                     </label>
                     <input
-
+                        // onChange={(e) => setFormData({ ...formData, city: e.target.value })}
                         name="city"
                         type="text"
                         className="mt-1 px-4 py-2 border border-gray-300 rounded-md w-full"
@@ -111,7 +122,7 @@ const AddressInfo = async ({ setFormData, formData, handleCreateUser }: IProps) 
                         State
                     </label>
                     <input
-
+                        // onChange={(e) => setFormData({ ...formData, state: e.target.value })}
                         name="state"
                         type="text"
                         className="mt-1 px-4 py-2 border border-gray-300 rounded-md w-full"
@@ -122,7 +133,7 @@ const AddressInfo = async ({ setFormData, formData, handleCreateUser }: IProps) 
                         Country
                     </label>
                     <input
-
+                        // onChange={(e) => setFormData({ ...formData, country: e.target.value })}
                         name="country"
                         type="text"
                         className="mt-1 px-4 py-2 border border-gray-300 rounded-md w-full"
@@ -135,7 +146,7 @@ const AddressInfo = async ({ setFormData, formData, handleCreateUser }: IProps) 
                         Street
                     </label>
                     <input
-
+                        // onChange={(e) => setFormData({ ...formData, otherStreet: e.target.value })}
                         name="otherStreet"
                         type="text"
                         className="mt-1 px-4 py-2 border border-gray-300 rounded-md w-full"
@@ -146,7 +157,7 @@ const AddressInfo = async ({ setFormData, formData, handleCreateUser }: IProps) 
                         City
                     </label>
                     <input
-
+                        // onChange={(e) => setFormData({ ...formData, otherCity: e.target.value })}
                         name="otherCity"
                         type="text"
                         className="mt-1 px-4 py-2 border border-gray-300 rounded-md w-full"
@@ -157,7 +168,7 @@ const AddressInfo = async ({ setFormData, formData, handleCreateUser }: IProps) 
                         State
                     </label>
                     <input
-
+                        // onChange={(e) => setFormData({ ...formData, otherState: e.target.value })}
                         name="otherState"
                         type="text"
                         className="mt-1 px-4 py-2 border border-gray-300 rounded-md w-full"
@@ -168,7 +179,7 @@ const AddressInfo = async ({ setFormData, formData, handleCreateUser }: IProps) 
                         Country
                     </label>
                     <input
-
+                        // onChange={(e) => setFormData({ ...formData, otherCountry: e.target.value })}
                         name="otherCountry"
                         type="text"
                         className="mt-1 px-4 py-2 border border-gray-300 rounded-md w-full"
