@@ -73,7 +73,7 @@ const UserTable = ({ data, setIsModalOpen, setCurrentData, loading }: IUserTable
                     data && data.map((user, index) =>
                         <tr key={user?.id} className='border-b border-gray-200'>
                             <td className="px-5 py-5  bg-white text-xs dark:bg-darkBg dark:border-darkBorder">
-                                <p className=" whitespace-no-wrap">{user?.userId || 'N/A'}</p>
+                                <Link href={`/admin/dashboard/users/${user?.id}`} className=" whitespace-no-wrap">{user?.userId || 'N/A'}</Link>
                             </td>
                             <td className="px-5 py-5  bg-white text-xs dark:bg-darkBg dark:border-darkBorder">
                                 <p className=" whitespace-no-wrap lowercase">{user?.email}</p>
