@@ -1,5 +1,6 @@
 import React from 'react';
 import Content from './Content';
+import Link from 'next/link';
 
 
 
@@ -15,6 +16,7 @@ const subServiceDetails = async (slug: string) => {
                   slug
                   title
                   content
+                  downloadUrl
                 }
               }`,
             variables: {
@@ -62,6 +64,11 @@ const page = async ({ params, searchParams }: any) => {
 
                     </div>
                 </article>
+                <div className='w-full flex items-center justify-center'>
+                    <Link target='_blank' href={details?.downloadUrl || '#'} className='px-4 py-2 bg-primary text-white rounded-md'>
+                        Download
+                    </Link>
+                </div>
             </main>
 
             <div className="w-fit mx-auto mt-10 flex space-x-2">

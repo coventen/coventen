@@ -72,7 +72,7 @@ const Main = () => {
                             create: {
                                 node: {
                                     industry: selectedIndustries.map((industry) => industry.title),
-                                    sub_type: sub_type
+                                    // sub_type: sub_type
                                 }
                             }
                         }
