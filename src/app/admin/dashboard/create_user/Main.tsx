@@ -158,6 +158,28 @@ const Main = () => {
             }))
         }
 
+        let equipment: any
+
+        if (formData.equipments?.length > 0) {
+            equipment = {
+                "create": formData.equipments?.map((item: any) => {
+                    return {
+                        "node": {
+                            "name": item?.name,
+                            "model": item?.model,
+                            "make": item?.make,
+                            "calibrationDetails": item?.calibrationDetails,
+                            "warranty": item?.warranty,
+                            "yearOfInstallation": item?.yearOfInstallation
+                        }
+                    }
+                })
+            }
+        }
+        else {
+            equipment = null
+        }
+
 
 
         if (formData.userType == 'CONSUMER') {
@@ -276,7 +298,7 @@ const Main = () => {
                                         "hasFiles": {
                                             "create": {
                                                 "node": {
-                                                    // "links": docLinks
+                                                    "links": docLinks
                                                 }
                                             }
                                         },
@@ -311,22 +333,8 @@ const Main = () => {
                                     "node": {
                                         "industry": formData.industries,
                                         "service": formData.service,
-                                        // "equipmentDocs": equipmentAttachmentsLinks,
-                                        "hasManyEquipment": {
-                                            "create": formData.equipments?.map((item: any) => {
-                                                return {
-                                                    "node": {
-                                                        "name": item?.name,
-                                                        "model": item?.model,
-                                                        "make": item?.make,
-                                                        "calibrationDetails": item?.calibrationDetails,
-                                                        "warranty": item?.warranty,
-                                                        "yearOfInstallation": item?.yearOfInstallation
-                                                    }
-                                                }
-                                            })
-                                        }
-
+                                        "equipmentDocs": equipmentAttachmentsLinks,
+                                        "hasManyEquipment": equipment
                                     }
                                 }
                             },

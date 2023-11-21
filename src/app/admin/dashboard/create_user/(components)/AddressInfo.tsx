@@ -41,6 +41,7 @@ const AddressInfo = async ({ setFormData, formData, handleCreateUser }: IProps) 
             otherStreet
         }
         console.log(address, ' this is address 00000000000000000')
+        // handleCreateUser(address)
 
         handleFirebaseUserCreate(formData.email, formData.password, address)
 
@@ -56,7 +57,7 @@ const AddressInfo = async ({ setFormData, formData, handleCreateUser }: IProps) 
 
         try {
             setLoading(true)
-            const res: any = await fetch('https://coventen.vercel.app/api/create_user', {
+            const res: any = await fetch('https://coveten.com/api/create_user', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
