@@ -1,7 +1,7 @@
 
 'use client';
 
-
+import React, { useState, useEffect } from 'react';
 import Tab from './PageTabs';
 import { useGqlClient } from '@/hooks/UseGqlClient';
 import { useMutation, useQuery } from 'graphql-hooks';
@@ -24,6 +24,9 @@ export interface addVariables {
     endDate: string,
     rating: string,
     courseFor: string,
+    accredited: string,
+    certification: string,
+    duration: string,
 
 }
 
@@ -40,13 +43,15 @@ mutation CreateLearnItems($input: [LearnItemCreateInput!]!) {
 `
 
 const GET_ALL = `
-query LearnItems($where: LearnItemWhere) {
-    learnItems(where: $where) {
+query LearnItems($where: LearnItemWhere, $options: LearnItemOptions) {
+    learnItems(where: $where, options: $options) {
       id
       title
       description
       url
       imageUrl
+      duration
+      certification
     }
   }
 
@@ -63,12 +68,16 @@ mutation DeleteLearnItems($where: LearnItemWhere) {
 
 const Main = () => {
     // STATES
+    const [learnData, setLearnData] = useState<any[]>([])
+    const [searchTerm, setSearchTerm] = useState<string>('')
 
     // HOOKS
     const client = useGqlClient()
 
     // QUERY
-    const { data: learnData, loading, error, refetch } = useQuery(GET_ALL, { client })
+    // const { data: learnData, loading, error, refetch } = useQuery(GET_ALL, { client })
+
+    const [getLearnDataFn, getLearnDataState] = useMutation(GET_ALL, { client, })
 
     // MUTATION
     const [addNewFn, addNewState] = useMutation(ADD_NEW, { client })
@@ -97,6 +106,9 @@ const Main = () => {
                         "credit": input.credit,
                         "startDate": input.startDate,
                         "endDate": input.endDate,
+                        accredited: input.accredited,
+                        certification: input.certification,
+                        duration: input.duration,
                         "createdAt": new Date().toISOString()
                     }
                 ]
@@ -105,7 +117,7 @@ const Main = () => {
 
         if (data.createLearnItems.info.nodesCreated) {
             toast.success('Added successfully')
-            refetch()
+            getData()
         }
     }
 
@@ -120,21 +132,68 @@ const Main = () => {
 
         if (data.deleteLearnItems.nodesDeleted) {
             toast.error('Terms deleted successfully')
-            refetch()
+            getData()
+
         }
     }
 
 
 
 
-    if (loading || addNewState.loading || deleteState.loading) return <Loading />
-    if (error || addNewState.error) return <Error />
+
+
+    const getData = async (where: any = {}) => {
+        const { data } = await getLearnDataFn({
+            variables: {
+                "options": {
+                    "sort": [
+                        {
+                            "createdAt": "ASC"
+                        }
+                    ]
+                },
+                "where": where
+            }
+        })
+
+        if (data?.learnItems) {
+            setLearnData(data?.learnItems)
+        }
+    }
+
+
+
+
+    useEffect(() => {
+
+        let where: any = {}
+
+        if (searchTerm) {
+            where = {
+                "title_CONTAINS": searchTerm
+            }
+        }
+
+        getData(where)
+
+
+    }, [searchTerm])
+
+
+
+
+
+
+
+    if (addNewState.loading || deleteState.loading) return <Loading />
+    if (getLearnDataState?.error || addNewState.error) return <Error />
+
 
 
 
     return (
         <>
-            <Tab learnData={learnData?.learnItems} addNewFn={addNewItem} deleteItem={deleteItem} />
+            <Tab setSearchTerm={setSearchTerm} loading={getLearnDataState?.loading} learnData={learnData} addNewFn={addNewItem} deleteItem={deleteItem} />
         </>
     );
 };

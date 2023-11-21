@@ -21,9 +21,9 @@ const InvoiceTable = ({ data, deleteInvoice, setIsOpen, setCurrentComplain }: IT
             <thead className="text-gray-600 font-medium border-b">
                 <tr>
                     <th className="py-3 pr-6">Serial No.</th>
-                    <th className="py-3 pr-6">Estimation Id</th>
+                    <th className="py-3 pr-6">Id</th>
+                    <th className="py-3 pr-6">User Id</th>
                     <th className="py-3 pr-6">Status</th>
-                    <th className="py-3 pr-6">Price</th>
                     <th className="py-3 pr-6 text-right">Action</th>
                 </tr>
             </thead>
@@ -45,10 +45,14 @@ const InvoiceTable = ({ data, deleteInvoice, setIsOpen, setCurrentComplain }: IT
                             <td className="pr-6 py-4 whitespace-nowrap">
                                 {item?.ticket}
                             </td>
+                            <td className="pr-6 py-4 whitespace-nowrap uppercase">
+                                <Link target='_blank' href={`/admin/dashboard/users/${item?.hasClient?.userIs?.id}`}>
+                                    {item?.hasClient?.userIs?.userId || 'N/A'}
+                                </Link>
+                            </td>
                             <td className="pr-6 py-4 whitespace-nowrap">
                                 {item?.status}
                             </td>
-                            <td className="pr-6 py-4 whitespace-nowrap">{item?.totalPrice || 0}</td>
                             <td className="text-right whitespace-nowrap space-x-3">
 
                                 <button onClick={() => {

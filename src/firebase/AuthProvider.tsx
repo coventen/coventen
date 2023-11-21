@@ -21,7 +21,7 @@ import {
 import { app } from "./fireabase.config";
 import Cookies from "js-cookie";
 
-const auth: Auth = getAuth(app);
+export const auth: Auth = getAuth(app);
 
 export const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
@@ -96,8 +96,11 @@ const AuthProvider = ({ children }: AuthProviderProps) => {
 
 
     useEffect(() => {
+
+
         const unSubscribe = onAuthStateChanged(auth, (currentUser: any) => {
             getUserDetailsFromDB(currentUser?.email).then((res) => {
+                console.log('useEffect 044444444444444', currentUser?.email)
                 setUser({
                     ...currentUser,
                     ...res

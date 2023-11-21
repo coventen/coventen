@@ -3,8 +3,6 @@ import React from 'react';
 import { useGqlClient } from '@/hooks/UseGqlClient';
 import { useManualQuery, useMutation } from 'graphql-hooks';
 import InvoiceForm from './InvoiceForm';
-
-import { parse } from 'path';
 import { toast } from 'react-hot-toast';
 import { useRouter } from 'next/navigation';
 import createLog from '@/shared/graphQl/mutations/createLog';
@@ -38,8 +36,6 @@ mutation UpdateCounters($update: CounterUpdateInput) {
       }
     }
   }
-
-
   `
 
 
@@ -82,7 +78,6 @@ const Main = () => {
 
     // initializing invoice creation function
     const createInvoice = async (invoiceData: any, purchases: any, company: any, terms: string) => {
-        console.log(terms, ' this is id')
         const taxRate = parseInt(invoiceData?.taxRate)
         const { totalPriceWithTax, totalPrice } = calculateTotalPrice(purchases, taxRate)
         const ticketId = await generateModuleTicket()
@@ -96,13 +91,15 @@ const Main = () => {
                         ticket: ticketId,
                         taxRate: taxRate,
                         sentBy: "ADMIN",
-                        status: "SENT",
+                        status: "CONFIRMED",
+                        "isQuotation": false,
                         expiryDate: invoiceData.expiryDate,
                         taxType: invoiceData.taxType,
                         createdAt: new Date().toISOString(),
                         hsn: invoiceData.hns,
                         placeOfSupply: invoiceData.placeOfSupply,
                         subject: invoiceData.subject,
+                        type: invoiceData.type,
                         hasClient: {
                             connect: {
                                 where: {

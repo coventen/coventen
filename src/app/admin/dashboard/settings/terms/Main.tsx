@@ -15,6 +15,7 @@ export interface addTermsVariables {
     title: string,
     content: string,
     forInvoice: boolean
+    docUrl: string
 }
 
 
@@ -77,6 +78,7 @@ const Main = () => {
                         "title": input.title,
                         slug: slugify(input.title, { replacement: '_', remove: / [* +~.()'"!:@]/g }),
                         "content": input.content,
+                        downloadUrl: input.docUrl,
                         forInvoice: input.forInvoice
                     }
                 ]

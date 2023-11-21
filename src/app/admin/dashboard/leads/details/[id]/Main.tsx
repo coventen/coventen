@@ -416,16 +416,23 @@ const Main = ({ id }: { id: string }) => {
                     <select
                         defaultValue={previousData?.leads[0]?.industry as string}
                         className='mt-1 px-4 py-2 border border-gray-300 rounded-md w-full' name="industry">
-                        {
-                            loading && <option>Loading...</option>
-                        }
-                        <option value="">Select </option>
-                        {
-                            industries?.industryPages && industries?.industryPages?.map((item: any, index: number) => (
-                                <option key={index} value={item?.id} >{item?.title}</option>
-                            ))
-                        }
-
+                        <option>-None-</option>
+                        <option>ASP (Application Service Provider)</option>
+                        <option> Data/Telecom OEM</option>
+                        <option>ERP (Enterprise Resource Planning)</option>
+                        <option>Government/Military</option>
+                        <option>Large Enterprise</option>
+                        <option>ManagementISV</option>
+                        <option>MSP (Management Service Provider)</option>
+                        <option>Network Equipment Enterprise</option>
+                        <option>Non-management ISV</option>
+                        <option> Optical Networking</option>
+                        <option>Service Provider</option>
+                        <option>Small/Medium Enterprise</option>
+                        <option>Storage Service Provider</option>
+                        <option>Systems Integrator</option>
+                        <option>Wireless Industry</option>
+                        <option>SEZ – Users/Companies</option>
                     </select>
                 </div>
 

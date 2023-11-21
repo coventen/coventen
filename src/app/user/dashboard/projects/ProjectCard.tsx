@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import ModuleCards from './ModuleCards';
 import { Module, Project } from '@/gql/graphql';
+import { getNormalDateAndTime } from '@/shared/getNormalDateAndTime';
 
 const ProjectCard = ({ data, deleteProjectById, deleteModuleById }: { data: Project[], deleteProjectById: (id: string, module: string[]) => void, deleteModuleById: any }) => {
 
@@ -55,7 +56,7 @@ const ProjectCard = ({ data, deleteProjectById, deleteModuleById }: { data: Proj
                                                 {project?.title?.slice(0, 50)}
                                             </p>
                                             <p className='text-xs xl:text-sm text-dimText'>{project?.description?.slice(0, 300)}</p>
-                                            <p className='text-primary text-[10px] xl:text-sm    '>Created: {project.createdAt.slice(0, 10)}</p>
+                                            <p className='text-primary text-[10px] xl:text-sm    '>Created: {getNormalDateAndTime(project.createdAt)}</p>
                                         </div>
 
 

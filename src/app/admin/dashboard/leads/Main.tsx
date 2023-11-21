@@ -105,7 +105,7 @@ const Main = () => {
         const options = {
             sort: [
                 {
-                    createdAt: "ASC"
+                    createdAt: "DESC"
                 },
             ],
             limit: pageLimit,
@@ -187,7 +187,7 @@ const Main = () => {
                     </div>
                 </div>
 
-                <LeadsTable data={leads} setIsModalOpen={setIsModalOpen} setCurrentLead={setCurrentLead} />
+                <LeadsTable data={leads} setIsModalOpen={setIsModalOpen} setCurrentLead={setCurrentLead} currentPage={currentPage} pageLimit={pageLimit} />
                 <LeadsModal
                     isModalOpen={isModalOpen}
                     setIsModalOpen={setIsModalOpen}

@@ -35,7 +35,7 @@ function ViewReportModal({ isOpen, setIsOpen, reports, moduleDetails, handleUpda
         setIsOpen(false);
     }
 
-    console.log(moduleDetails, 'lllllllllllllllllllllllll')
+
 
     //render
     return (

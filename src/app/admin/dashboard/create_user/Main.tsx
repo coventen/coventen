@@ -11,6 +11,8 @@ import toast from 'react-hot-toast';
 import { useRouter } from 'next/navigation';
 import HandleFileUpload from '@/shared/HandleFileUpload';
 import { v4 as uuidv4 } from 'uuid'
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth, useAuth } from '@/firebase/AuthProvider';
 
 
 const CREATE_USER = `
@@ -41,7 +43,13 @@ mutation UpdateCounters($update: CounterUpdateInput) {
 }
 `
 
-
+const GET_USER_BY_EMAIL = `
+query Users($where: UserWhere) {
+    users(where: $where) {
+      email
+    }
+  }
+`
 
 const Main = () => {
 
@@ -52,7 +60,7 @@ const Main = () => {
     const [formData, setFormData] = useState({
         name: '',
         email: '',
-        password: '',
+        password: '123456',
         phone: '',
         title: '',
         department: '',
@@ -85,18 +93,21 @@ const Main = () => {
         equipments: [],
         service: [],
         industries: [],
+        equipmentAttachments: [],
     })
 
 
     //HOOKS     
     const client = useGqlClient()
     const router = useRouter()
+    const { createUser } = useAuth()
 
     const { uploadFile } = HandleFileUpload()
 
 
     //quires
     const { data: userCountData, loading } = useQuery(GET_USER_COUNT, { client })
+    const { data: userByEmailData } = useQuery(GET_USER_BY_EMAIL, { client, variables: { where: { email: formData.email } } })
 
 
     //mutations
@@ -105,6 +116,13 @@ const Main = () => {
 
     //handlers
     const handleCreateUser = async (formData: any) => {
+
+
+        if (userByEmailData?.users.length > 0) {
+            toast.error('User Already Exists')
+            console.log('user already exists')
+            return
+        }
 
         let userCount: number
         if (userCountData?.counters[0]?.userCount == 1 || userCountData?.counters[0]?.userCount == null) {
@@ -116,6 +134,7 @@ const Main = () => {
         }
 
         let docLinks
+        let equipmentAttachmentsLinks
 
 
 
@@ -127,12 +146,13 @@ const Main = () => {
                 return link
             }))
         }
+        if (formData?.equipmentAttachments > 0) {
 
-
-
-
-
-
+            equipmentAttachmentsLinks = await Promise.all(formData?.equipmentAttachments?.map(async (item: any) => {
+                const link = await uploadFile(item, uuidv4(), 'equipment-documents')
+                return link
+            }))
+        }
 
 
         if (formData.userType == 'CONSUMER') {
@@ -140,7 +160,7 @@ const Main = () => {
                 variables: {
                     "input": [
                         {
-                            "userId": `U-${userCount}`,
+                            "userId": `${userCount}`,
                             "name": formData.name,
                             "email": formData.email,
                             "phone": formData.phone,
@@ -171,7 +191,8 @@ const Main = () => {
                                                     "links": docLinks
                                                 }
                                             }
-                                        }
+                                        },
+
                                     }
                                 }
                             },
@@ -219,7 +240,7 @@ const Main = () => {
                 variables: {
                     "input": [
                         {
-                            "userId": `U-${userCount}`,
+                            "userId": `${userCount}`,
                             "name": formData.name,
                             "email": formData.email,
                             "phone": formData.phone,
@@ -250,7 +271,8 @@ const Main = () => {
                                                     "links": docLinks
                                                 }
                                             }
-                                        }
+                                        },
+
                                     }
                                 }
                             },
@@ -281,7 +303,7 @@ const Main = () => {
                                     "node": {
                                         "industry": formData.industry,
                                         "service": formData.service,
-                                        "equipmentDocs": [],
+                                        "equipmentDocs": equipmentAttachmentsLinks,
                                         "hasManyEquipment": {
                                             "create": formData.equipments?.map((item: any) => {
                                                 return {
@@ -348,6 +370,9 @@ const Main = () => {
 
 
 
+
+
+
     if (createState?.loading || loading) return <Loading />
 
 
@@ -357,7 +382,7 @@ const Main = () => {
                 <Tab.Group selectedIndex={currentTab} onChange={setCurrentTab}>
                     <Tab.List className="flex space-x-1 rounded-sm bg-gray-100 p-1 max-w-2xl ">
                         <Tab
-                            className={({ selected }) =>
+                            className={({ selected }: any) =>
                                 classNames(
                                     'w-full rounded-sm py-2.5 text-sm font-medium leading-5 text-gray-900',
                                     '',
@@ -370,7 +395,7 @@ const Main = () => {
                             General Info
                         </Tab>
                         <Tab
-                            className={({ selected }) =>
+                            className={({ selected }: any) =>
                                 classNames(
                                     'w-full rounded-sm py-2.5 text-sm font-medium leading-5 text-gray-900',
                                     '',
@@ -383,7 +408,7 @@ const Main = () => {
                             Company Info
                         </Tab>
                         <Tab
-                            className={({ selected }) =>
+                            className={({ selected }: any) =>
                                 classNames(
                                     'w-full rounded-sm py-2.5 text-sm font-medium leading-5 text-gray-900',
                                     '',

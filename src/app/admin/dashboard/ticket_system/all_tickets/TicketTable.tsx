@@ -11,10 +11,12 @@ import { useGqlClient } from '@/hooks/UseGqlClient';
 import { useMutation } from 'graphql-hooks';
 import toast from 'react-hot-toast';
 import Loading from '@/app/loading';
+import Link from 'next/link';
+import { getNormalDateAndTime } from '@/shared/getNormalDateAndTime';
 
 
 interface ITicketTable {
-    data: ModuleTicket[],
+    data: any[],
     setIsOpen: (value: boolean) => void,
     setCurrentModuleTicket: (value: any) => void
     getModuleTicketData: () => void
@@ -81,23 +83,31 @@ const TicketTable = ({ data, setIsOpen, setCurrentModuleTicket, getModuleTicketD
             <thead>
                 <tr>
                     <th
-                        className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                        User
+                        className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-[11px] font-semibold text-gray-600 uppercase tracking-wider">
+                        Client
                     </th>
                     <th
-                        className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                        className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-[11px] font-semibold text-gray-600 uppercase tracking-wider">
                         Vendor
                     </th>
                     <th
-                        className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                        className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-[11px] font-semibold text-gray-600 uppercase tracking-wider">
                         Ticket Id
                     </th>
                     <th
-                        className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                        Status
+                        className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-[11px] font-semibold text-gray-600 uppercase tracking-wider">
+                        Module Status
                     </th>
                     <th
-                        className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-center text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                        className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-[11px] font-semibold text-gray-600 uppercase tracking-wider">
+                        Report Status
+                    </th>
+                    <th
+                        className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-[11px] font-semibold text-gray-600 uppercase tracking-wider">
+                        Date
+                    </th>
+                    <th
+                        className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-center text-[11px] font-semibold text-gray-600 uppercase tracking-wider">
                         Action
                     </th>
                 </tr>
@@ -107,36 +117,33 @@ const TicketTable = ({ data, setIsOpen, setCurrentModuleTicket, getModuleTicketD
                 {
                     data && data.map((item, index) =>
                         <tr key={item.id}>
-                            <td className="px-5 py-5 border-b border-gray-200 bg-white text-xs">
+                            <td className="px-5 py-5 border-b border-gray-200 bg-white text-[11px]">
                                 <div className="flex items-center">
 
                                     <div className="ml-3">
-                                        <p className="text-gray-700 font-bold whitespace-no-wrap">
-                                            {item.clientHas?.userIs?.companyName || "N/A"}
-                                        </p>
-                                        <p className="text-gray-700  text-[10px">
-                                            {item.clientHas?.userIs?.email || "N/A"}
-                                        </p>
+                                        <Link href={`/admin/dashboard/users/${item.clientHas?.userIs?.id}`} className="text-gray-700  text-[10px">
+                                            {item.clientHas?.userIs?.userId || "N/A"}
+                                        </Link>
                                     </div>
                                 </div>
                             </td>
-                            <td className="px-5 py-5 border-b border-gray-200 bg-white text-xs">
+                            <td className="px-5 py-5 border-b border-gray-200 bg-white text-[11px]">
                                 <div className="flex items-center">
 
                                     <div className="">
-                                        <p className="text-gray-700 ">
-                                            {item.vendorHas?.userIs?.companyName || "N/A"}
-                                        </p>
+                                        <Link href={`/admin/dashboard/users/${item.vendorHas?.userIs?.id}`} className="text-gray-700 ">
+                                            {item.vendorHas?.userIs?.userId || "N/A"}
+                                        </Link>
 
                                     </div>
                                 </div>
                             </td>
-                            <td className="px-5 py-5 border-b border-gray-200 bg-white text-xs">
+                            <td className="px-5 py-5 border-b border-gray-200 bg-white text-[11px]">
                                 <p className="text-gray-700 whitespace-no-wrap font-bold">
                                     {item.ticket}
                                 </p>
                             </td>
-                            <td className="px-5 py-5 border-b border-gray-200 bg-white text-xs">
+                            <td className="px-5 py-5 border-b border-gray-200 bg-white text-[11px]">
                                 <span
                                     className="relative inline-block px-3 py-1  leading-tight">
                                     <span aria-hidden
@@ -144,7 +151,25 @@ const TicketTable = ({ data, setIsOpen, setCurrentModuleTicket, getModuleTicketD
                                     <span className="relative bg-green-200 text-green-800 px-2 p-1 rounded font-semibold">{item.status || 'PENDING'}</span>
                                 </span>
                             </td>
-                            <td className="px-5 py-5 border-b border-gray-200 bg-white text-xs">
+                            <td className="px-5 py-5 border-b border-gray-200 bg-white text-[11px]">
+                                <span
+                                    className="relative inline-block px-3 py-1  leading-tight">
+                                    <span aria-hidden
+                                        className="absolute inset-0 opacity-50 rounded-full"></span>
+                                    <span
+                                        className={`relative   px-2 p-1 rounded font-semibold
+                                        ${item?.isApprovedByAdmin ? "bg-green-200 text-green-700" : "bg-red-200 text-red-700"}
+                                        `}>
+                                        {item?.isApprovedByAdmin ? "Approved" : "Not Approved"}
+                                    </span>
+                                </span>
+                            </td>
+                            <td className="px-5 py-5 border-b border-gray-200 bg-white text-[11px]">
+                                <p className="text-gray-700 whitespace-no-wrap font-bold">
+                                    {item?.createdAt.slice(0, 10)}
+                                </p>
+                            </td>
+                            <td className="px-5 py-5 border-b border-gray-200 bg-white text-[11px]">
                                 <div className="relative flex items-center justify-around  space-x-3 px-8 ">
                                     <button
                                         onClick={() => {
@@ -152,7 +177,7 @@ const TicketTable = ({ data, setIsOpen, setCurrentModuleTicket, getModuleTicketD
                                             setCurrentReports(item?.reports as string[])
                                             setIsReportModalOpen(true)
                                         }}
-                                        className="py-1.5  text-xs  px-3 bg-primary text-white duration-150 uppercase border rounded"
+                                        className="py-1.5  text-[11px]  px-3 bg-primary text-white duration-150 uppercase border rounded"
                                     >
                                         Reports
                                     </button>
@@ -163,7 +188,7 @@ const TicketTable = ({ data, setIsOpen, setCurrentModuleTicket, getModuleTicketD
                                                 <button
                                                     disabled
                                                     onClick={() => setIsOpen(true)}
-                                                    className="py-1.5 text-xs  bg-gray-600 px-3 text-white duration-150 uppercase border rounded"
+                                                    className="py-1.5 text-[11px]  bg-gray-600 px-3 text-white duration-150 uppercase border rounded"
                                                 >
                                                     Reassign
                                                 </button>
@@ -174,7 +199,7 @@ const TicketTable = ({ data, setIsOpen, setCurrentModuleTicket, getModuleTicketD
                                                             setReason(item?.rejectedReason as string || 'N/A')
                                                             setIsRejectModalOpen(true)
                                                         }}
-                                                        className="py-1.5 text-xs  px-3 bg-primary text-white duration-150 uppercase border rounded"
+                                                        className="py-1.5 text-[11px]  px-3 bg-primary text-white duration-150 uppercase border rounded"
                                                     >
                                                         Reason
                                                     </button>
@@ -186,7 +211,7 @@ const TicketTable = ({ data, setIsOpen, setCurrentModuleTicket, getModuleTicketD
                                                                 vendorId: item.vendorHas?.userIs?.id
                                                             })
                                                         }}
-                                                        className="py-1.5 text-xs  bg-red-600 px-3 text-white duration-150 uppercase border rounded"
+                                                        className="py-1.5 text-[11px]  bg-red-600 px-3 text-white duration-150 uppercase border rounded"
                                                     >
                                                         Reassign
                                                     </button>
@@ -200,6 +225,7 @@ const TicketTable = ({ data, setIsOpen, setCurrentModuleTicket, getModuleTicketD
 
                                 </div>
                             </td>
+
                             <RejectReasonModal isOpen={isRejectModalOpen} setIsOpen={setIsRejectModalOpen} reason={reason} />
                         </tr>
 

@@ -30,6 +30,7 @@ const InvoicePreview = () => {
     }
 
 
+    console.log(invoiceData, '000000000000000000000000000')
 
 
     return (
@@ -86,16 +87,10 @@ const InvoicePreview = () => {
 
                                 <div className="text-right">
                                     <h2 className="text-2xl md:text-3xl font-semibold text-gray-800 dark:text-gray-200">
-                                        {
-                                            invoiceData?.status === "CONFIRMED" ? "Invoice" : "Estimation"
-                                        }
+                                        Invoice
                                     </h2>
                                     <span className="mt-1 block font-semibold text-gray-900">
-                                        {
-                                            invoiceData?.status === "CONFIRMED" ?
-                                                `# CIS/IN${invoiceData?.ticket}` :
-                                                `# CIS/QN${invoiceData?.ticket}`
-                                        }
+                                        {`# CIS/IN${invoiceData?.ticket}`}
 
                                     </span>
 

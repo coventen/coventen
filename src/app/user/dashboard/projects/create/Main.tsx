@@ -28,10 +28,6 @@ const CREATE_PROJECT = `mutation Mutation($input: [ProjectCreateInput!]!) {
 const GET_USER = `query Query($where: UserWhere) {
     users(where: $where) {
       companyName
-      city
-      address
-      zip
-      state
       gstNumber
     }
   }`
@@ -79,6 +75,8 @@ const Main = () => {
         zip: '',
         city: '',
         state: '',
+        priority: '',
+        type: '',
     })
 
 
@@ -158,9 +156,8 @@ const Main = () => {
                         description: projectDescription,
                         email: user?.email,
                         companyName: userInfo.companyName,
-                        // country: country,
-                        // city: city,
-                        // address: address,
+                        type: userInfo.type,
+                        priority: userInfo.priority,
                         createdAt: new Date().toISOString(),
                         projectticketFor: {
                             create: {
@@ -207,7 +204,7 @@ const Main = () => {
     const userData = data?.users[0]
     useEffect(() => {
         if (userData) {
-            const { address, companyName, gstNumber, zip, city, state } = userData
+            const { address, companyName, gstNumber, zip, city, state, type, priority } = userData
             setUserInfo({
                 address,
                 companyName,
@@ -215,6 +212,8 @@ const Main = () => {
                 zip,
                 city,
                 state,
+                type,
+                priority
             })
         }
     }, [userData])
@@ -315,6 +314,29 @@ const Main = () => {
                                     <div className="col-span-full">
                                         <label htmlFor="city">Project Description</label>
                                         <textarea rows={4} id="city" className=" border border-gray-300 mt-1 rounded px-4 w-full " placeholder="" {...register("projectDescription")} />
+                                    </div>
+                                    <div className="col-span-full">
+                                        <label htmlFor="city">Type</label>
+                                        <select id="city" className=" border border-gray-300 mt-1 rounded px-4 w-full " placeholder="" {...register("type")} >
+                                            <option value="web">Service</option>
+                                            <option value="mobile">Product
+                                            </option>
+                                            <option value="both">Solution</option>
+                                            <option value="both">Learn</option>
+                                            <option value="both">Events
+                                            </option>
+                                        </select>
+                                    </div>
+                                    <div className="col-span-full">
+                                        <label htmlFor="city">Priority:</label>
+                                        <select id="city" className=" border border-gray-300 mt-1 rounded px-4 w-full " placeholder="" {...register("priority")} >
+                                            <option value="web">Top Priority – response in 2hrs</option>
+                                            <option value="mobile">High Priority – response in 24hrs
+                                            </option>
+                                            <option value="both">Medium Priority</option>
+                                            <option value="both">Low Priority</option>
+
+                                        </select>
                                     </div>
 
 

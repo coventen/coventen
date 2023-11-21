@@ -11,6 +11,7 @@ import TableSkeleton from '@/components/TableSkeleton';
 import ModuleCards from './ModuleCards';
 import { useCounterData } from '../../CounterProvider';
 import Link from 'next/link';
+import { getNormalDateAndTime } from '@/shared/getNormalDateAndTime';
 
 interface ICurrentProject {
     clientEmail: string;
@@ -47,6 +48,7 @@ query Projects($where: ProjectWhere, $options: ProjectOptions) {
         id
         moduleticketFor {
             ticket
+            status
           }
       }
     }
@@ -95,7 +97,7 @@ const Main = () => {
                     {
                         clientOrdered: {
                             userIs: {
-                                email: searchQuery.toLowerCase(),
+                                userId: searchQuery,
                             }
                         }
                     },
@@ -169,9 +171,20 @@ const Main = () => {
     };
 
 
+
+    function getStatus(modules: any) {
+        if (modules.some((module: any) => module?.moduleticketFor?.status !== 'COMPLETED')) {
+            return 'PENDING';
+        } else {
+            return 'COMPLETED';
+        }
+    }
+
+
+
     // handling loading and error 
     // if (ProjectDataState.loading) return <Loading />
-    if (ProjectDataState.error) return <Error />
+    // if (ProjectDataState.error) return <Error />
 
 
     return (
@@ -216,11 +229,22 @@ const Main = () => {
                                                     <i className={`fas ${expandedIndex === index ? "fa-minus" : "fa-plus"}`}></i>
                                                     <div className="flex items-center justify-between w-full  p-3 ">
                                                         <div className='flex  flex-col space-y-3 w-80% xl:w-[70%]'>
-                                                            <p className="text-base lg:text-lg text-gray-700 font-bold xl:font-semibold ">
+                                                            <p className="text-base lg:text-lg uppercase text-gray-700 font-bold xl:font-semibold ">
                                                                 {project?.title?.slice(0, 50)}
                                                             </p>
 
-                                                            <p className='text-dimText text-sm   '>Created: {project.createdAt.slice(0, 10)}</p>
+                                                            <div className='text-dimText text-sm   '>
+                                                                <Link href={`/admin/dashboard/users/${project?.clientOrdered?.userIs?.id}`} className="uppercase">
+                                                                    User Id: {project?.clientOrdered?.userIs?.userId || 'N/A'}
+                                                                </Link>
+                                                                <span className='px-1'>|</span>
+                                                                <span className='uppercase'>Status:
+                                                                    {
+                                                                        getStatus(project?.hasModule)
+                                                                    }
+                                                                </span>
+                                                            </div>
+                                                            <p className='text-dimText text-sm  uppercase '>Created:  {getNormalDateAndTime(project.createdAt)}</p>
                                                         </div>
 
 
@@ -272,6 +296,18 @@ const Main = () => {
 
 
 
+                                                            </div>
+                                                            <div className='w-full flex items-center justify-end'>
+                                                                {/* <button
+
+                                                        className='bg-green-200 text-green-800 font-semibold text-xs px-3 py-1 rounded text-right'>Assign Project</button> */}
+                                                                <Link target='_blank' href='/admin/dashboard/quotation/create_quotation'
+
+                                                                    className={`bg-green-600 text-white  py-[2px] px-3 lg:px-7 lg:py-1 rounded text-xs`}>
+
+                                                                    Create Quotation
+
+                                                                </Link>
                                                             </div>
 
                                                         </div>

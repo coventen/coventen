@@ -17,6 +17,7 @@ query ModuleTickets($where: ModuleTicketWhere, $options: ModuleTicketOptions) {
       status
       reports
       rejectedReason
+      createdAt
       isApprovedByAdmin
       forModule {
         title
@@ -26,12 +27,13 @@ query ModuleTickets($where: ModuleTicketWhere, $options: ModuleTicketOptions) {
       clientHas {
         userIs {
         companyName
-          email
+        userId
+        id
         }
       }
       vendorHas {
         userIs {
-          companyName
+          userId
           id
         }
       }
@@ -46,6 +48,7 @@ const Main = () => {
   const [currentModuleTicket, setCurrentModuleTicket] = React.useState<any>({});
   // search sates
   const [searchQuery, setSearchQuery] = useState('')
+  const [statusType, setStatusType] = useState('All')
 
   // pagination states
   const [pageLimit, setPageLimit] = useState(10)
@@ -64,7 +67,7 @@ const Main = () => {
 
   // refetching data based on pagination and search query
   useEffect(() => {
-    let where
+    let where = {}
 
     // sending parameters to query based on search query
     if (searchQuery) {
@@ -76,8 +79,7 @@ const Main = () => {
           {
             clientHas: {
               userIs: {
-                email_CONTAINS: searchQuery.toLocaleLowerCase(),
-                companyName_CONTAINS: searchQuery.toLocaleLowerCase()
+                userId_CONTAINS: searchQuery.toLocaleLowerCase(),
               }
             }
           },
@@ -89,21 +91,43 @@ const Main = () => {
           {
             vendorHas: {
               userIs: {
-                companyName_CONTAINS: searchQuery.toLocaleLowerCase()
+                userId_CONTAINS: searchQuery.toLocaleLowerCase()
               }
             }
           }
         ]
       }
-    } else {
-      where = {}
     }
+
+    // sending parameters to query based on status type
+
+    if (statusType !== 'All') {
+
+      if (statusType === 'REPORT_APPROVED') {
+        where = {
+          ...where,
+          isApprovedByAdmin: true
+        }
+      } else if (statusType === 'REPORT_NOT_APPROVED') {
+        where = {
+          ...where,
+          isApprovedByAdmin: false
+        }
+      } else {
+        where = {
+          ...where,
+          status: statusType
+        }
+      }
+
+    }
+
 
 
 
     getModuleTicketData(where)
     getModuleTicketCount()
-  }, [currentPage, searchQuery]);
+  }, [currentPage, searchQuery, statusType]);
 
 
 
@@ -149,8 +173,27 @@ const Main = () => {
 
   return (
     <>
-      <div className="my-2 flex justify-end sm:flex-row flex-col">
+      <div className="my-2 flex justify-end sm:flex-row flex-col mb-5">
+        <div className="flex flex-row mb-1 sm:mb-0">
 
+          <div className="relative">
+            <select
+              value={statusType}
+              onChange={(e) => setStatusType(e.target.value)}
+              className=" h-full rounded-r border-t sm:rounded-r-none sm:border-r-0 border-r border-b block  w-full  bg-white border-gray-300  py-2 px-4 pr-8 leading-tight focus:outline-none focus:border-l focus:border-r text-xs  focus:border-gray-500  dark:bg-darkBg dark:border-darkBorder">
+              <option value={"All"}>All</option>
+              <option value={"PENDING"}>PENDING</option>
+              <option value={"ASSIGNED"}>ASSIGNED</option>
+              <option value={"ACCEPTED"}>ACCEPTED</option>
+              <option value={"COMPLETED"}>COMPLETED</option>
+              <option value={"REJECTED"}>REJECTED</option>
+              <option value={"UNDER_REVIEW"}>UNDER_REVIEW</option>
+              <option value={'REPORT_APPROVED'}>REPORT APPROVED</option>
+              <option value={'REPORT_NOT_APPROVED'}>REPORT NOT APPROVED</option>
+            </select>
+
+          </div>
+        </div>
         <div className="block relative">
           <span className="h-full absolute inset-y-0 left-0 flex items-center pl-2">
             <svg viewBox="0 0 24 24" className="h-4 w-4 fill-current text-gray-500">
@@ -166,6 +209,7 @@ const Main = () => {
             className="  sm:rounded-l-none border border-gray-300 border-b block pl-8 pr-6 py-2 w-full bg-white text-sm placeholder-gray-400 text-gray-700 focus:bg-white focus:placeholder-gray-600 focus:text-gray-700 focus:outline-none" />
         </div>
       </div>
+
 
       {/* search */}
 

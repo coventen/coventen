@@ -50,6 +50,13 @@ query Projects($where: ProjectWhere) {
     }
   }
 `
+const GET_SUPPORT_COUNT = `
+query Query($where: SupportTicketWhere, $options: SupportTicketOptions) {
+  supportTickets(where: $where, options: $options) {
+    id
+  }
+}
+`
 
 const UPDATE_EMAIL_VIEW = `mutation UpdateCommunicationTickets($where: CommunicationTicketWhere, $update: CommunicationTicketUpdateInput) {
     updateCommunicationTickets(where: $where, update: $update) {
@@ -94,6 +101,15 @@ mutation UpdateProjects($where: ProjectWhere, $update: ProjectUpdateInput) {
   }`
 
 
+const UPDATE_SUPPORT_VIEW = `
+mutation UpdateSupportTickets($where: SupportTicketWhere, $update: SupportTicketUpdateInput) {
+  updateSupportTickets(where: $where, update: $update) {
+    info {
+      nodesCreated
+    }
+  }
+}`
+
 
 
 
@@ -118,6 +134,11 @@ type ContextType = {
   newUserCountLoading: boolean;
   invoiceCountLoading: boolean;
   handleUpdateView: (id: string, type: string) => void;
+  supportCounter: number;
+  supportRefetch: any;
+  supportCountLoading: boolean;
+
+
 }
 
 
@@ -132,6 +153,7 @@ const CounterProvider = ({ children }: AuthProviderProps) => {
   const [leadCounter, setLeadCounter] = useState(0);
   const [complainCounter, setComplainCounter] = useState(0);
   const [projectCounter, setProjectCounter] = useState(0);
+  const [supportCounter, setSupportCounter] = useState(0);
 
 
 
@@ -194,6 +216,14 @@ const CounterProvider = ({ children }: AuthProviderProps) => {
       }
     }
   })
+  const { data: supportCountData, error: supportCountError, loading: supportCountLoading, refetch: supportRefetch } = useQuery(GET_SUPPORT_COUNT, {
+    client,
+    variables: {
+      "where": {
+        "isViewedByAdmin": false,
+      }
+    }
+  })
 
 
 
@@ -204,6 +234,7 @@ const CounterProvider = ({ children }: AuthProviderProps) => {
   const [updateLeadView] = useMutation(UPDATE_LEAD_VIEW, { client })
   const [updateInvoiceView] = useMutation(UPDATE_INVOICE_VIEW, { client })
   const [updateNewUserView] = useMutation(UPDATE_NEW_USER_VIEW, { client })
+  const [updateSupportView] = useMutation(UPDATE_SUPPORT_VIEW, { client })
 
 
 
@@ -229,6 +260,8 @@ const CounterProvider = ({ children }: AuthProviderProps) => {
       await updateInvoiceView({ variables })
     } else if (type === "newUser") {
       await updateNewUserView({ variables })
+    } else if (type === "support") {
+      await updateSupportView({ variables })
     }
 
 
@@ -253,49 +286,21 @@ const CounterProvider = ({ children }: AuthProviderProps) => {
     if (invoiceCountData?.invoices.length) {
       setInvoiceCounter(invoiceCountData.invoices.length)
     }
+    if (supportCountData?.supportTickets.length) {
+      setSupportCounter(supportCountData.supportTickets.length)
+    }
 
 
 
-  }, [emailCountData, projectCountData, leadCountData, newUserCountData, invoiceCountData])
-
-
-
-  console.log("emailCountData", emailCountData)
+  }, [emailCountData, projectCountData, leadCountData, newUserCountData, invoiceCountData, supportCountData])
 
 
 
 
-  // const getUserDetailsFromDB = async (email: string) => {
 
-  //     //getting token from cookies
-  //     const token = Cookies.get('conventenToken');
-  //     const res = fetch('https://coventenapp.el.r.appspot.com/', {
-  //         method: 'POST',
-  //         headers: {
-  //             "authorization": `Bearer ${token}`,
-  //             'Content-Type': 'application/json'
-  //         },
-  //         body: JSON.stringify({
-  //             query: `query Users($where: UserWhere) {
-  //                 users(where: $where) {
-  //                   name
-  //                   user_type
-  //                   createdAt
-  //                   permissions
-  //                 }
-  //               }`,
-  //             variables: {
-  //                 where: {
-  //                     email: email
-  //                 },
-  //             },
 
-  //         })
-  //     })
 
-  //     const { data } = await res.then(res => res.json())
-  //     return data?.users[0]
-  // }
+
 
 
 
@@ -316,7 +321,12 @@ const CounterProvider = ({ children }: AuthProviderProps) => {
     leadCountLoading,
     newUserCountLoading,
     invoiceCountLoading,
-    handleUpdateView
+    handleUpdateView,
+    supportCounter,
+    supportRefetch,
+    supportCountLoading
+
+
 
 
 

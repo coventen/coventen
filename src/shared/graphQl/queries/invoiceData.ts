@@ -3,9 +3,6 @@ import { ModuleTicketOptions, ModuleTicketWhere } from "@/gql/graphql"
 import Cookies from "js-cookie";
 
 const getInvoiceData = async (id: string) => {
-
-
-
   const token = Cookies.get('conventenToken');
 
   const res = fetch('https://coventenapp.el.r.appspot.com/', {
@@ -41,7 +38,6 @@ const getInvoiceData = async (id: string) => {
                   userIs {
                     companyName
                     companyEmail
-                    address
                   }
                 }
                 hasTermspage {

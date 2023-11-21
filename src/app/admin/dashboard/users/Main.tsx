@@ -121,7 +121,7 @@ const Main = () => {
     if (searchQuery) {
       where = {
         user_type_IN: user_type,
-        email_CONTAINS: searchQuery.toLowerCase()
+        userId_CONTAINS: searchQuery
 
       }
     }
@@ -200,7 +200,7 @@ const Main = () => {
         },
         update: {
           status: status,
-          "userId": `U-${userCount}`
+          "userId": `${userCount}`
         }
       }
     })

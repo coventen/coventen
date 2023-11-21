@@ -36,6 +36,9 @@ const AddNew = ({
     const [courseFor, setCourseFor] = useState('')
     const [selectedUrlType, setSelectedUrlType] = useState('url')
     const [document, setDocument] = useState<File | null>(null)
+    const [duration, setDuration] = useState('')
+    const [certification, setCertification] = useState('')
+    const [accredited, setAccredited] = useState('')
 
 
     // hooks
@@ -73,6 +76,9 @@ const AddNew = ({
             endDate: endAt,
             rating: rating,
             courseFor: courseFor,
+            accredited,
+            certification,
+            duration,
         }
         addNewFn(inputData)
     }
@@ -196,6 +202,61 @@ const AddNew = ({
 
                                 className="mt-2 w-full block  placeholder-gray-400/70 rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-gray-700 focus:primary focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:primary/10"
                             />
+                        </div>
+                        <div className="p-1  col-span-2">
+                            <label htmlFor="title" className="block  text-gray-700 text-sm mb-1">
+                                Duration
+                            </label>
+                            <select
+                                defaultValue={duration}
+                                onChange={(e) => setDuration(e.target.value)}
+                                className="mt-2 w-full block  placeholder-gray-400/70 rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-gray-700 focus:primary focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:primary/10" >
+                                <option >Select
+                                </option>
+                                <option >Short Term Course
+                                </option>
+                                <option >Long Term Course
+                                </option>
+                            </select>
+
+                        </div>
+                        <div className="p-1  col-span-2">
+                            <label htmlFor="title" className="block  text-gray-700 text-sm mb-1">
+                                Certification
+                            </label>
+                            <select
+                                defaultValue={certification}
+                                onChange={(e) => setCertification(e.target.value)}
+                                className="mt-2 w-full block  placeholder-gray-400/70 rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-gray-700 focus:primary focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:primary/10" >
+                                <option >Select
+                                </option>
+                                <option >Certificate Course
+
+                                </option>
+                                <option >Non Certificate Course
+
+                                </option>
+                            </select>
+
+                        </div>
+                        <div className="p-1  col-span-2">
+                            <label htmlFor="title" className="block  text-gray-700 text-sm mb-1">
+                                Accredited
+                            </label>
+                            <select
+                                defaultValue={accredited}
+                                onChange={(e) => setAccredited(e.target.value)}
+                                className="mt-2 w-full block  placeholder-gray-400/70 rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-gray-700 focus:primary focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:primary/10" >
+                                <option >Select
+                                </option>
+                                <option >National accredited
+
+                                </option>
+                                <option >Internationally accredited
+
+                                </option>
+                            </select>
+
                         </div>
                         <div className=" p-1  col-span-2">
                             <label htmlFor="title" className="block  text-gray-700 text-sm mb-1">

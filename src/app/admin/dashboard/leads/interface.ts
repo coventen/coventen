@@ -15,6 +15,8 @@ export interface ILeadsTableProps {
     data: Leads[]
     setIsModalOpen: (value: boolean) => void;
     setCurrentLead: (value: Leads) => void;
+    currentPage: number
+    pageLimit: number
 
 }
 

@@ -52,12 +52,17 @@ export const controlledNavItems = [
         section: "Services Management",
         links: [
             {
-                label: "Estimation",
+                label: "Invoice",
                 href: "/admin/dashboard/invoice",
                 icon: <LuCalculator className="" />,
             },
             {
-                label: "Estimation complaints",
+                label: "Quotation",
+                href: "/admin/dashboard/quotation",
+                icon: <LuCalculator className="" />,
+            },
+            {
+                label: "Quotation complaints",
                 href: "/admin/dashboard/complains",
                 icon: <LuCalculator className="" />,
             },

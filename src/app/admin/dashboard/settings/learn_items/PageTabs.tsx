@@ -19,6 +19,8 @@ interface IAddProductTabsProps {
     addNewFn: (input: addVariables) => void,
     learnData: any[]
     deleteItem: (id: string) => void
+    setSearchTerm: (term: string) => void
+    loading: boolean
 }
 
 
@@ -29,7 +31,7 @@ function classNames(...classes: string[]) {
 }
 
 // component
-const PageTabs = ({ addNewFn, learnData, deleteItem }: IAddProductTabsProps) => {
+const PageTabs = ({ addNewFn, learnData, deleteItem, setSearchTerm, loading }: IAddProductTabsProps) => {
 
     //states
     const [tab, setTab] = useState(0);
@@ -81,7 +83,7 @@ const PageTabs = ({ addNewFn, learnData, deleteItem }: IAddProductTabsProps) => 
                     <Tab.Panels>
                         <Tab.Panel>
                             <div className="w-full min-h-screen bg-white rounded-xl mt-2 py-2  -md">
-                                <DataTable learnData={learnData} deleteItem={deleteItem} />
+                                <DataTable loading={loading} setSearchTerm={setSearchTerm} learnData={learnData} deleteItem={deleteItem} />
                             </div>
 
                         </Tab.Panel>

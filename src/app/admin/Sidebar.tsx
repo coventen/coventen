@@ -182,6 +182,11 @@ const Sidebar = ({
                                                                         {counterData?.newUserCounter}
                                                                     </span>
                                                                 }
+                                                                {
+                                                                    item.label === "Support" && counterData?.supportCounter as number > 0 && <span className="relative inline-flex text-[9px] bg-red-500 text-white rounded-full py-0.5 px-1.5">
+                                                                        {counterData?.supportCounter}
+                                                                    </span>
+                                                                }
 
                                                             </div>
                                                         </div>

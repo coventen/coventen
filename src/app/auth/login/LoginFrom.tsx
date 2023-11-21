@@ -17,7 +17,7 @@ interface IFormInput {
     password: string;
 }
 const GET_TOKEN = `
-mutation SignIn($email: String!) {
+mutation Mutation($email: String!) {
     signIn(email: $email)
   }
 `
@@ -60,6 +60,7 @@ const LoginFrom = () => {
                         email: data?.email
                     }
                 })
+                console.log(tokenData, '555555555555555555555555555555')
                 if (tokenData.signIn) {
                     // saving token to cookie
                     Cookies.set('conventenToken', tokenData.signIn)
@@ -74,7 +75,7 @@ const LoginFrom = () => {
 
             }
         } catch (error: any) {
-            setError(error.message)
+            // setError(error.message)
             setLoading(false)
         }
 

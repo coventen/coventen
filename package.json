@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "@apollo/client": "^3.8.0",
-    "@headlessui/react": "^1.7.15",
+    "@headlessui/react": "^1.7.17",
     "@heroicons/react": "^2.0.18",
     "@react-pdf/renderer": "^3.1.12",
     "@tailwindcss/forms": "^0.5.3",
@@ -24,7 +24,9 @@
     "eslint-config-next": "13.4.8",
     "file-saver": "^2.0.5",
     "firebase": "^10.1.0",
+    "firebase-admin": "^11.11.0",
     "framer-motion": "^10.16.4",
+    "fs": "^0.0.1-security",
     "graphql": "^16.7.1",
     "graphql-hooks": "^6.3.0",
     "js-cookie": "^3.0.5",
@@ -54,6 +56,7 @@
     "@types/js-cookie": "^3.0.3",
     "@types/react-draft-wysiwyg": "^1.13.4",
     "@types/uuid": "^9.0.2",
+    "server-only": "^0.0.1",
     "ts-node": "^10.9.1",
     "typescript": "^5.1.6"
   }

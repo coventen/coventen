@@ -1,26 +1,76 @@
+import Loading from '@/app/loading';
+import { useGqlClient } from '@/hooks/UseGqlClient';
+import { useManualQuery, useQuery } from 'graphql-hooks';
 import React from 'react';
+import toast from 'react-hot-toast';
 
 interface IProps {
     setFormData: any,
     formData: any,
     setCurrentTab: any,
+
 }
 
+const GET_USER_BY_EMAIL = `
+query Users($where: UserWhere) {
+    users(where: $where) {
+      email
+    }
+  }
+`
+
+const GeneralInfo = ({ setFormData, formData, setCurrentTab, }: IProps) => {
+
+    //states
+    const [error, setError] = React.useState<any>(null);
 
 
-const GeneralInfo = ({ setFormData, formData, setCurrentTab }: IProps) => {
+
+    //HOOKS     
+    const client = useGqlClient()
 
 
-    const handleSubmit = (e: any) => {
+
+    //quires
+    const [isUserExistsFn, state] = useManualQuery(GET_USER_BY_EMAIL, { client })
+
+
+    //function
+
+    const isUserExists = async (email: string) => {
+        const { data } = await isUserExistsFn({ variables: { where: { email: email } } })
+        if (data?.users.length > 0) {
+            return true
+        } else {
+            return false
+        }
+    }
+
+
+
+
+    const handleSubmit = async (e: any) => {
         e.preventDefault();
-        const { name, email, password, phone, title, department, education, experience, specialty, interest, reportingTo, bio, userType } = e.target
+        const { name, email, phone, title, department, education, experience, specialty, interest, reportingTo, bio, userType } = e.target
+
+
+
+
+        const isExists = await isUserExists(email.value)
+
+        if (isExists) {
+            toast.error('User already exists')
+            console.log('User already exists')
+            setError('User already exists')
+            return
+        }
 
 
         setFormData({
             ...formData,
             name: name.value,
             email: email.value,
-            password: password.value,
+            // password: password.value,
             phone: phone.value,
             title: title.value,
             department: department.value,
@@ -35,6 +85,8 @@ const GeneralInfo = ({ setFormData, formData, setCurrentTab }: IProps) => {
         })
         setCurrentTab(1)
     };
+
+    if (state.loading) return <Loading />
 
     return (
         <section className='mt-6'>
@@ -72,12 +124,19 @@ const GeneralInfo = ({ setFormData, formData, setCurrentTab }: IProps) => {
                     </label>
                     <input
                         defaultValue={formData.email}
+                        required
                         name="email"
                         type="text"
                         className="mt-1 px-4 py-2 border border-gray-300 rounded-md w-full"
                     />
+                    {
+                        error && <p className='text-sm mt-1 text-red-600'>
+                            {error}
+                        </p>
+                    }
+
                 </div>
-                <div className="mb-5">
+                {/* <div className="mb-5">
                     <label className="block  text-gray-700 text-sm mb-1">
                         password
                     </label>
@@ -87,7 +146,7 @@ const GeneralInfo = ({ setFormData, formData, setCurrentTab }: IProps) => {
                         type="text"
                         className="mt-1 px-4 py-2 border border-gray-300 rounded-md w-full"
                     />
-                </div>
+                </div> */}
                 <div className="mb-5">
                     <label className="block  text-gray-700 text-sm mb-1">
                         Phone

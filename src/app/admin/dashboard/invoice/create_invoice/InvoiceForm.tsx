@@ -89,7 +89,7 @@ const InvoiceForm = ({ createInvoice }: IInvoiceForm) => {
                             <div className="lg:col-span-2">
                                 <form onSubmit={handleSubmit(handleCreating)} className=" md:grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-5">
                                     <div className="md:col-span-5 mb-10">
-                                        <label htmlFor="full_name">Company Name</label>
+                                        <label htmlFor="full_name">Select Company</label>
                                         <div className='relative z-[50000]'>
 
                                             <AutoSelectConsumer setSelected={setSelected} selected={selected} />
@@ -126,7 +126,7 @@ const InvoiceForm = ({ createInvoice }: IInvoiceForm) => {
                                         <p >Expiry Date</p>
                                         <input
                                             type="date"
-
+                                            required
                                             placeholder="ends At"
                                             className="border border-gray-300 border-b block pl-8 pr-6 py-2 w-full bg-white text-sm placeholder-gray-400 text-gray-700 focus:bg-white focus:placeholder-gray-600 focus:text-gray-700 focus:outline-none" {...register("expiryDate")} />
 
@@ -191,6 +191,23 @@ const InvoiceForm = ({ createInvoice }: IInvoiceForm) => {
                                             </div>
                                         </div>
                                     </div>
+                                    <div className='col-span-full w-full mt-3'>
+                                        <p >Type</p>
+
+                                        <div className="flex  sm:flex-row w-full ">
+
+                                            <div className="block relative w-full">
+                                                <select className="    border border-gray-300 border-b block pl-8 pr-6 py-2.5 w-full bg-white text-sm placeholder-gray-400 text-gray-700 focus:bg-white focus:placeholder-gray-600 focus:text-gray-700 focus:outline-none" id="" {...register("type")}>
+                                                    <option >Select Type</option>
+                                                    <option defaultChecked value="SERVICE">SERVICE</option>
+                                                    <option value="PRODUCT">PRODUCT</option>
+                                                    <option value="SOLUTION">SOLUTION</option>
+                                                    <option value="LEARN">LEARN</option>
+                                                    <option value="EVENT">EVENT</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
 
 
                                     {/* services */}
@@ -245,7 +262,7 @@ const InvoiceForm = ({ createInvoice }: IInvoiceForm) => {
 
                                     <div className="md:col-span-5 text-right mt-8">
                                         <div className="inline-flex items-end">
-                                            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4  ">Send Estimation</button>
+                                            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4  ">Send Invoice</button>
                                         </div>
                                     </div>
 

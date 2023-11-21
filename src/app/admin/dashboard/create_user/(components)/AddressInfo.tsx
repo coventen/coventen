@@ -1,4 +1,6 @@
+
 import React from 'react';
+
 
 interface IProps {
     setFormData: any,
@@ -9,10 +11,12 @@ interface IProps {
 
 
 
-const AddressInfo = ({ setFormData, formData, handleCreateUser }: IProps) => {
+const AddressInfo = async ({ setFormData, formData, handleCreateUser }: IProps) => {
+
+    const [loading, setLoading] = React.useState(false)
 
 
-    const handleSubmit = (e: any) => {
+    const handleSubmit = async (e: any) => {
         e.preventDefault();
 
         const { street, city, state, country, otherStreet, otherCity, otherState, otherCountry } = e.target
@@ -29,10 +33,49 @@ const AddressInfo = ({ setFormData, formData, handleCreateUser }: IProps) => {
             otherCountry: otherCountry.value,
         })
 
-        handleCreateUser(formData)
+        handleFirebaseUserCreate(formData.email, formData.password)
 
 
     };
+
+
+
+
+
+    const handleFirebaseUserCreate = async (email: string, password: string) => {
+
+
+        try {
+            setLoading(true)
+            const res: any = await fetch('http://localhost:3000/api/create_user', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ email, password })
+
+            })
+
+            if (res.status === 201) {
+                setLoading(false)
+
+            }
+
+
+            if (res?.error) {
+                console.log(res.error)
+                setLoading(false)
+            } else {
+                handleCreateUser(formData)
+                setLoading(false)
+            }
+        } catch (err) {
+            console.log(err, ' this is error')
+            setLoading(false)
+        }
+
+    }
+
 
 
 
