@@ -47,6 +47,18 @@ const GeneralInfo = ({ setUserInfo, userInfo, setCurrentTab, updateUser }: IProp
 
                 <div className="mb-5">
                     <label className="block  text-gray-700 text-sm mb-1">
+                        User Id
+                    </label>
+                    <input
+                        readOnly
+                        defaultValue={userInfo.userId}
+                        name="name"
+                        type="text"
+                        className="mt-1 px-4 py-2 border border-gray-300 rounded-md w-full"
+                    />
+                </div>
+                <div className="mb-5">
+                    <label className="block  text-gray-700 text-sm mb-1">
                         Name
                     </label>
                     <input

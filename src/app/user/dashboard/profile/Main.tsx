@@ -90,6 +90,7 @@ const Main = () => {
   const [previousData, setPreviousData] = React.useState<any>(null)
   const [userInfo, setUserInfo] = React.useState<any>({
     name: '',
+    userId: '',
     email: '',
     phone: '',
     title: '',
@@ -151,7 +152,7 @@ const Main = () => {
   // setting the user data  to the state
   useEffect(() => {
     if (previousData) {
-      const { isVendor, hasSecondaryaddress, hasPrimaryaddress, hasDocuments, user_type, interest, companyDescription, specialty, experience, skypeId, twitter, linkedin, companyPhone, department, education, title, gstNumber, companyEmail, reportingTo, companyName, phoneNumber, panCardNo, bio, phone, email, name } = previousData
+      const { isVendor, hasSecondaryaddress, hasPrimaryaddress, hasDocuments, user_type, interest, companyDescription, specialty, experience, skypeId, twitter, linkedin, companyPhone, department, education, title, gstNumber, companyEmail, reportingTo, companyName, phoneNumber, panCardNo, bio, phone, email, name, userId } = previousData
 
 
 
@@ -178,6 +179,7 @@ const Main = () => {
         name,
         email,
         phone,
+        userId,
         title,
         department,
         education,

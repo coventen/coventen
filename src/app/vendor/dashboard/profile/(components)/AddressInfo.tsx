@@ -33,7 +33,7 @@ const AddressInfo = async ({ setUserInfo, userInfo, updateUser }: IProps) => {
         })
 
 
-        updateUser()
+        await updateUser()
 
     };
 
