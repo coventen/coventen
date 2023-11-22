@@ -22,10 +22,7 @@ const CompanyInfo = ({ setUserInfo, userInfo, setCurrentTab, updateUser }: IProp
     // const [files, setFiles] = useState<File[]>([]);
     // const [attachment, setAttachment] = useState<File[]>([]);
     const [error, setError] = useState<string>('');
-    // const [selectedIndustry, setSelectedIndustry] = useState([])
-    // const [selectedService, setSelectedService] = useState([])
-    const [equipmentCount, setEquipmentCount] = useState<number>(1)
-    const [equipments, setEquipments] = useState<any[]>([])
+
 
 
 
@@ -45,11 +42,11 @@ const CompanyInfo = ({ setUserInfo, userInfo, setCurrentTab, updateUser }: IProp
             'i am inside'
         )
 
-        const { companyName, companyEmail, companyPhone, otherPhone, linkedin, twitter, skypeId, aboutCompany, gst, panCardNo } = e.target
+        const { companyName, companyEmail, companyPhone, otherPhone, linkedin, twitter, skypeId, aboutCompany, gst, panCardNo, street, country, state, city, otherState, otherCountry, otherCity, otherStreet } = e.target
 
         const updatedData =
         {
-            ...userInfo, companyName: companyName.value, companyEmail: companyEmail.value, companyPhone: companyPhone.value, otherPhone: otherPhone.value, linkedin: linkedin.value, twitter: twitter.value, skypeId: skypeId.value, aboutCompany: aboutCompany.value, gst: gst.value, panCardNo: panCardNo.value
+            ...userInfo, companyName: companyName.value, companyEmail: companyEmail.value, companyPhone: companyPhone.value, otherPhone: otherPhone.value, linkedin: linkedin.value, twitter: twitter.value, skypeId: skypeId.value, aboutCompany: aboutCompany.value, gst: gst.value, panCardNo: panCardNo.value, street: street.value, country: country.value, state: state.value, city: city.value, otherCity: otherCity.value, otherCountry: otherCountry.value, otherState: otherState.value, otherStreet: otherStreet.value,
         }
 
 
@@ -57,24 +54,6 @@ const CompanyInfo = ({ setUserInfo, userInfo, setCurrentTab, updateUser }: IProp
 
         updateUser(updatedData)
     };
-
-
-    useEffect(() => {
-
-        if (userInfo?.equipments?.length > 0) {
-            setEquipmentCount(userInfo?.equipments?.length)
-            setEquipments(userInfo?.equipments)
-        } else {
-            setEquipmentCount(1)
-            setEquipments([])
-        }
-
-    }, [userInfo?.equipments])
-
-
-
-
-
 
 
 
@@ -93,7 +72,7 @@ const CompanyInfo = ({ setUserInfo, userInfo, setCurrentTab, updateUser }: IProp
                         Company Name
                     </label>
                     <input
-                        defaultValue={userInfo.companyName}
+                        defaultValue={userInfo?.companyName}
                         name="companyName"
                         type="text"
                         className="mt-1 px-4 py-2 border border-gray-300 rounded-md w-full"
@@ -104,7 +83,7 @@ const CompanyInfo = ({ setUserInfo, userInfo, setCurrentTab, updateUser }: IProp
                         Company Email
                     </label>
                     <input
-                        defaultValue={userInfo.companyEmail}
+                        defaultValue={userInfo?.companyEmail}
                         name="companyEmail"
                         type="text"
                         className="mt-1 px-4 py-2 border border-gray-300 rounded-md w-full"
@@ -115,7 +94,7 @@ const CompanyInfo = ({ setUserInfo, userInfo, setCurrentTab, updateUser }: IProp
                         Company Phone
                     </label>
                     <input
-                        defaultValue={userInfo.companyPhone}
+                        defaultValue={userInfo?.companyPhone}
                         name="companyPhone"
                         type="text"
                         className="mt-1 px-4 py-2 border border-gray-300 rounded-md w-full"
@@ -126,7 +105,7 @@ const CompanyInfo = ({ setUserInfo, userInfo, setCurrentTab, updateUser }: IProp
                         Other Phone
                     </label>
                     <input
-                        defaultValue={userInfo.otherPhone}
+                        defaultValue={userInfo?.otherPhone}
                         name="otherPhone"
                         type="text"
                         className="mt-1 px-4 py-2 border border-gray-300 rounded-md w-full"
@@ -137,7 +116,7 @@ const CompanyInfo = ({ setUserInfo, userInfo, setCurrentTab, updateUser }: IProp
                         Pan card No
                     </label>
                     <input
-                        defaultValue={userInfo.otherPhone}
+                        defaultValue={userInfo?.otherPhone}
                         name="panCardNo"
                         type="text"
                         className="mt-1 px-4 py-2 border border-gray-300 rounded-md w-full"
@@ -148,7 +127,7 @@ const CompanyInfo = ({ setUserInfo, userInfo, setCurrentTab, updateUser }: IProp
                         GST No
                     </label>
                     <input
-                        defaultValue={userInfo.otherPhone}
+                        defaultValue={userInfo?.otherPhone}
                         name="gst"
                         type="text"
                         className="mt-1 px-4 py-2 border border-gray-300 rounded-md w-full"
@@ -159,7 +138,7 @@ const CompanyInfo = ({ setUserInfo, userInfo, setCurrentTab, updateUser }: IProp
                         Linkedin ID
                     </label>
                     <input
-                        defaultValue={userInfo.linkedin}
+                        defaultValue={userInfo?.linkedin}
                         name="linkedin"
                         type="text"
                         className="mt-1 px-4 py-2 border border-gray-300 rounded-md w-full"
@@ -170,7 +149,7 @@ const CompanyInfo = ({ setUserInfo, userInfo, setCurrentTab, updateUser }: IProp
                         twitter
                     </label>
                     <input
-                        defaultValue={userInfo.twitter}
+                        defaultValue={userInfo?.twitter}
                         name="twitter"
                         type="text"
                         className="mt-1 px-4 py-2 border border-gray-300 rounded-md w-full"
@@ -181,20 +160,111 @@ const CompanyInfo = ({ setUserInfo, userInfo, setCurrentTab, updateUser }: IProp
                         Skype Id
                     </label>
                     <input
-                        defaultValue={userInfo.skypeId}
+                        defaultValue={userInfo?.skypeId}
                         name="skypeId"
                         type="text"
                         className="mt-1 px-4 py-2 border border-gray-300 rounded-md w-full"
                     />
                 </div>
+                {/* new start ************************************************ */}
+                <div className="mb-5">
+                    <label className="block  text-gray-700 text-sm mb-1">
+                        Street
+                    </label>
+                    <input
+                        defaultValue={userInfo?.street}
+                        name="street"
+                        type="text"
+                        className="mt-1 px-4 py-2 border border-gray-300 rounded-md w-full"
+                    />
+                </div>
+                <div className="mb-5">
+                    <label className="block  text-gray-700 text-sm mb-1">
+                        City
+                    </label>
+                    <input
+                        defaultValue={userInfo?.city}
+                        name="city"
+                        type="text"
+                        className="mt-1 px-4 py-2 border border-gray-300 rounded-md w-full"
+                    />
+                </div>
+                <div className="mb-5">
+                    <label className="block  text-gray-700 text-sm mb-1">
+                        State
+                    </label>
+                    <input
+                        defaultValue={userInfo?.state}
+                        name="state"
+                        type="text"
+                        className="mt-1 px-4 py-2 border border-gray-300 rounded-md w-full"
+                    />
+                </div>
+                <div className="mb-5">
+                    <label className="block  text-gray-700 text-sm mb-1">
+                        Country
+                    </label>
+                    <input
+                        defaultValue={userInfo?.country}
+                        name="country"
+                        type="text"
+                        className="mt-1 px-4 py-2 border border-gray-300 rounded-md w-full"
+                    />
+                </div>
+                {/* other address */}
 
+
+                <div className="mb-5">
+                    <label className="block  text-gray-700 text-sm mb-1">
+                        Other Street
+                    </label>
+                    <input
+                        defaultValue={userInfo?.otherStreet}
+                        name="otherStreet"
+                        type="text"
+                        className="mt-1 px-4 py-2 border border-gray-300 rounded-md w-full"
+                    />
+                </div>
+                <div className="mb-5">
+                    <label className="block  text-gray-700 text-sm mb-1">
+                        Other  City
+                    </label>
+                    <input
+                        defaultValue={userInfo?.otherCity}
+                        name="otherCity"
+                        type="text"
+                        className="mt-1 px-4 py-2 border border-gray-300 rounded-md w-full"
+                    />
+                </div>
+                <div className="mb-5">
+                    <label className="block  text-gray-700 text-sm mb-1">
+                        Other State
+                    </label>
+                    <input
+                        defaultValue={userInfo?.otherState}
+                        name="otherState"
+                        type="text"
+                        className="mt-1 px-4 py-2 border border-gray-300 rounded-md w-full"
+                    />
+                </div>
+                <div className="mb-5">
+                    <label className="block  text-gray-700 text-sm mb-1">
+                        Other Country
+                    </label>
+                    <input
+                        defaultValue={userInfo?.otherCountry}
+                        name="otherCountry"
+                        type="text"
+                        className="mt-1 px-4 py-2 border border-gray-300 rounded-md w-full"
+                    />
+                </div>
 
                 <div className="mb-5 col-span-full">
                     <label className="block  text-gray-700 text-sm mb-1">
                         About Company
                     </label>
                     <textarea
-                        defaultValue={userInfo.aboutCompany}
+                        defaultValue={userInfo?.aboutCompany}
                         name="aboutCompany"
                         rows={7}
                         className="mt-1 px-4 py-2 border border-gray-300 rounded-md w-full"

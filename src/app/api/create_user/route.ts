@@ -4,7 +4,7 @@ import {v4 as uuid} from 'uuid'
 
 
 
-// Initialize the cors middleware
+
 
 export async function POST(request: Request){
     try{
@@ -24,16 +24,11 @@ export async function POST(request: Request){
                 console.log('Error creating new user: 00000000000', error);
                 return NextResponse.json({message: error?.message}, {status: 400})
             })
-
-
-
-
-       
-   
-
        
     }
     catch(e){
         return NextResponse.json({message: 'Something Went Wrong '}, {status: 500})
     }
 }
+
+

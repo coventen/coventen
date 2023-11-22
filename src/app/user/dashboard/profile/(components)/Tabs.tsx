@@ -120,9 +120,9 @@ const Tabs = ({ userInfo, setUserInfo, updateUser, getUser }: any) => {
                                 <CompanyInfo updateUser={updateUser} setCurrentTab={setCurrentTab} userInfo={userInfo} setUserInfo={setUserInfo} />
                             </Tab.Panel>
 
-                            <Tab.Panel>
+                            {/* <Tab.Panel>
                                 <AddressInfo updateUser={updateUser} setCurrentTab={setCurrentTab} userInfo={userInfo} setUserInfo={setUserInfo} />
-                            </Tab.Panel>
+                            </Tab.Panel> */}
                             {/* <Tab.Panel>
                                 <ServicesAndIndustryTab setCurrentTab={setCurrentTab} userInfo={userInfo} />
                             </Tab.Panel>
