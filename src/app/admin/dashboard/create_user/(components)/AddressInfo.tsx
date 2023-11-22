@@ -43,31 +43,24 @@ const AddressInfo = ({ setFormData, formData, setCurrentTab, handleCreateUser }:
     };
 
     const handleFirebaseUserCreate = async (email: string, password: string) => {
-
-
-        try {
-            setLoading(true);
-            const res: any = await fetch('/api/create_user', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ email, password })
-            });
-
-            if (res.status === 201) {
-                console.log('User created successfully');
-                setLoading(false);
-            } else {
-                console.log('Failed to create user');
-                throw new Error('User creation failed');
-                setLoading(false);
-            }
-
-        } catch (err) {
-            console.error(err, 'User creation error');
+        setLoading(true);
+        const res: any = await fetch('/api/create_new_user', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ email, password })
+        });
+        if (res.status === 200) {
+            console.log('User created successfully');
+            setLoading(false);
+        } else {
+            console.log('Failed to create user');
+            console.log(res);
             setLoading(false);
         }
+
+
     };
 
     if (loading) return <Loading />;

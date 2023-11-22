@@ -57,7 +57,7 @@ const Tabs = ({ userInfo, setUserInfo, updateUser, getUser }: any) => {
                             >
                                 Company Info
                             </Tab>
-                            <Tab
+                            {/* <Tab
                                 className={({ selected }: any) =>
                                     classNames(
                                         'w-full rounded-sm py-2.5 text-sm font-medium leading-5 text-gray-900',
@@ -69,7 +69,7 @@ const Tabs = ({ userInfo, setUserInfo, updateUser, getUser }: any) => {
                                 }
                             >
                                 Address
-                            </Tab>
+                            </Tab> */}
                             {/* <Tab
                                 className={({ selected }: any) =>
                                     classNames(

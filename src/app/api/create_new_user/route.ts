@@ -12,13 +12,19 @@ export async function POST(request: Request){
         const {email, password} = await request.json()
         const uid = uuid();
 
-     
+     console.log('email', email, '00000000000000000000000000000000')
         // Call the createUser function to create a new user
-
-        console.log('email', email, 'password', password, '000000000000000000000000000000000000')
         createUser(uid, email, password)
             .then((userRecord) => {
-                return NextResponse.json({message: "Account created successfully"}, {status: 201})
+                console.log('Successfully created new user:', userRecord.email)
+                return NextResponse.json({"message": "Account created successfully"}, {
+                    status: 200,
+                    headers: {
+                      'Access-Control-Allow-Origin': '*',
+                      'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
+                      'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+                    },
+                })
             })
             .catch((error) => {
                 console.log('Error creating new user: 00000000000', error);
