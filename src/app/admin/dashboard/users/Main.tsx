@@ -187,7 +187,7 @@ const Main = () => {
     let userCount: number
 
     if (userCountData?.counters[0]?.userCount == 1 || userCountData?.counters[0]?.userCount == null) {
-      userCount = 1001
+      userCount = 100000
     } else {
       userCount = userCountData?.counters[0]?.userCount + 1
     }

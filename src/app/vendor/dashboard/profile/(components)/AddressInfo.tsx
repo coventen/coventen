@@ -20,7 +20,11 @@ const AddressInfo = async ({ setUserInfo, userInfo, updateUser }: IProps) => {
 
         const { street, city, state, country, otherStreet, otherCity, otherState, otherCountry } = e.target
 
-        setUserInfo({
+
+
+
+        const updatedData =
+        {
             ...userInfo,
             street: street.value,
             city: city.value,
@@ -30,10 +34,11 @@ const AddressInfo = async ({ setUserInfo, userInfo, updateUser }: IProps) => {
             otherCity: otherCity.value,
             otherState: otherState.value,
             otherCountry: otherCountry.value,
-        })
+        }
+        setUserInfo(updatedData)
 
 
-        await updateUser()
+        await updateUser(updatedData)
 
     };
 

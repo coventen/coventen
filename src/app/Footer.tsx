@@ -70,7 +70,7 @@ const Footer = () => {
                     <div className="w-full lg:w-[40%] px-4 mb-8 lg:mb-0">
                         <img src="/assets/footerlogo.png" alt=" " className='w-40' />
                         <h5 className="text-sm mt-0 mb-2 text-white">
-                            Empowering Automotive Excellence Through Meticulous <br /> Machinery Forensic Testing
+                            Engineering Inspired by Life
                         </h5>
                         <div className='flex items-center mt-5 space-x-3 text-xl'>
                             <Link href='https://www.facebook.com/profile.php?id=61553710623584&mibextid=ZbWKwL' className='text-white '><FaFacebook /></Link>

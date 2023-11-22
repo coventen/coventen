@@ -14,6 +14,8 @@ export async function POST(request: Request){
 
      
         // Call the createUser function to create a new user
+
+        console.log('email', email, 'password', password, '000000000000000000000000000000000000')
         createUser(uid, email, password)
             .then((userRecord) => {
                 return NextResponse.json({message: "Account created successfully"}, {status: 201})

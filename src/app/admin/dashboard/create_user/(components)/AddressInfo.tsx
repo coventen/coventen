@@ -38,12 +38,13 @@ const AddressInfo = ({ setFormData, formData, setCurrentTab, handleCreateUser }:
             otherStreet
         };
 
-        await handleCreateUser(address);
-
         await handleFirebaseUserCreate(formData.email, formData.password);
+        await handleCreateUser(address);
     };
 
     const handleFirebaseUserCreate = async (email: string, password: string) => {
+
+
         try {
             setLoading(true);
             const res: any = await fetch('/api/create_user', {

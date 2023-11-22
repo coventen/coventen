@@ -149,11 +149,11 @@ const Main = () => {
                                     onChange={(e) => setSelectedUserType(e.target.value)}
                                     className=" h-full rounded-r border-t sm:rounded-r-none sm:border-r-0 border-r border-b block  w-full  bg-white border-gray-300  py-2 px-4 pr-8 leading-tight focus:outline-none focus:border-l focus:border-r text-xs  focus:border-gray-500  dark:bg-darkBg dark:border-darkBorder">
                                     <option value={"All"}>All</option>
-                                    <option value={"TEST"}>TEST</option>
-                                    <option value={"EVENT"}>EVENT</option>
+                                    <option value={"SERVICE"}>SERVICE</option>
                                     <option value={"PRODUCT"}>PRODUCT</option>
-                                    <option value={"LEARN"}>LEARN</option>
                                     <option value={"SOLUTION"}>SOLUTION</option>
+                                    <option value={"LEARN"}>LEARN</option>
+                                    <option value={"EVENT"}>EVENT</option>
                                 </select>
 
                             </div>

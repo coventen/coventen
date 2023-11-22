@@ -94,6 +94,13 @@ const Main = () => {
         ]
       }
     }
+    if (fetchDirection !== "All") {
+      where = {
+        sentBy_IN: ["ADMIN", "VENDOR"],
+        "isQuotation": true,
+        "status": fetchDirection
+      }
+    }
 
     getInvoiceData(where, fetchDirection)
     getInvoiceCount()
@@ -174,8 +181,9 @@ const Main = () => {
               onChange={(e) => setFetchDirection(e.target.value)}
               className=" h-full rounded-r border-t sm:rounded-r-none sm:border-r-0 border-r border-b block  w-full  bg-white border-gray-300  py-2 px-4 pr-8 leading-tight focus:outline-none focus:border-l focus:border-r text-xs  focus:border-gray-500  dark:bg-darkBg dark:border-darkBorder">
               <option value={"All"}>All</option>
-              <option value={"DESC"}>Descending Order</option>
-              <option value={"ASC"}>Ascending Order</option>
+              <option value={"CONFIRMED"}>CONFIRMED</option>
+              <option value={"COMPLAINED"}>COMPLAINED</option>
+              <option value={"SENT"}>SENT</option>
             </select>
 
           </div>

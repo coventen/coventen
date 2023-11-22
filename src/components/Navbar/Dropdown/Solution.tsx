@@ -55,7 +55,7 @@ const Solution = ({ solutionData }: SolutionPage) => {
                                                     `${currentSolution === item.name ?
                                                         'bg-gray-100 text-primary' : ''}    
                             flex items-center text-sm transition-all duration-300  `}>
-                                                <p className="block p-3   rounded ">{item.name}</p>
+                                                <p className="block p-3   rounded uppercase">{item.name}</p>
                                                 <span className={`${currentSolution === item.name ? 'block' : 'hidden'} transition-all duration-200`}><MdKeyboardArrowRight /></span>
                                             </div>
                                         </li>
@@ -72,7 +72,7 @@ const Solution = ({ solutionData }: SolutionPage) => {
                                             ?
                                             solutionData?.find((Solution: any) => Solution.name === currentSolution)?.hasService.map((sub: any) =>
                                                 <li key={sub?.id}>
-                                                    <Link href={`/services/${sub?.slug}`} className="block p-3 hover:bg-gray-100 rounded text-primaryText hover:text-primaryText hover:underline" > {sub?.title}</Link>
+                                                    <Link href={`/services/${sub?.slug}`} className="block p-3 hover:bg-gray-100 rounded text-primaryText hover:text-primaryText hover:underline uppercase" > {sub?.title}</Link>
                                                 </li>
                                             )
                                             :

@@ -39,7 +39,7 @@ const Main = () => {
 
     const handleSubmit = (e: any) => {
         e.preventDefault()
-        const { name, email, title, industry, linkedin, leadOwner, description, company, phone, twitter, officePhone, Website, leadSource, leadStatus, reportingTo, employeeCount, annualRevenue, skype, secondaryEmail, street, state, city, country, zip, ratting } = e.target.elements
+        const { name, email, title, industry, linkedin, leadOwner, description, company, phone, twitter, officePhone, Website, leadSource, leadStatus, reportingTo, employeeCount, annualRevenue, skype, secondaryEmail, street, state, city, country, zip, ratting, type } = e.target.elements
 
 
         const formData = {
@@ -67,6 +67,8 @@ const Main = () => {
             country: country.value,
             zip: zip.value,
             linkedin: linkedin.value,
+            type: type.value,
+            ratting: ratting.value,
         }
 
 
@@ -151,6 +153,7 @@ const Main = () => {
                         "description": formData.description,
                         "ratting": formData.ratting,
                         leadStatus: formData.leadStatus,
+                        type: formData.type,
                         createdBy: user.name,
                         "hasPrimaryaddress": {
                             "create": {
@@ -322,6 +325,20 @@ const Main = () => {
                     </div>
                 </div>
 
+                <div className="mb-5">
+                    <label className="block  text-gray-700 text-sm mb-1">
+                        Lead Type
+                    </label>
+                    <select className='mt-1 text-sm px-4 py-2 border border-gray-300 rounded-md w-full' name="type">
+                        <option >SELECT</option>
+                        <option value="SERVICE">SERVICE</option>
+                        <option value="PRODUCT">PRODUCT</option>
+                        <option value="SOLUTION">SOLUTION</option>
+                        <option value="EVENT">EVENT</option>
+                        <option value="LEARN">LEARN</option>
+
+                    </select>
+                </div>
                 <div className="mb-5">
                     <label className="block  text-gray-700 text-sm mb-1">
                         Lead Status

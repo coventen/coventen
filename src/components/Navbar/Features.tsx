@@ -30,7 +30,7 @@ const Features = ({ features }: any) => {
                         <div className="p-4 grid grid-cols-1 lg:grid-cols-2 lg:gap-2">
                             <Link
                                 href={`/about_us`}
-                                className="group relative flex items-center gap-x-4 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50"
+                                className="group relative flex items-center gap-x-4 rounded-lg p-4 text-sm leading-6 hover:bg-gray-200"
                             >
 
                                 <div className="flex-auto">
@@ -47,7 +47,7 @@ const Features = ({ features }: any) => {
                                 <Link
                                     href={`/features#${item?.id}`}
                                     key={item?.title}
-                                    className="group  relative flex items-center gap-x-4 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50"
+                                    className="group  relative flex items-center gap-x-4 rounded-lg p-4 text-sm leading-6 hover:bg-gray-200"
                                 >
 
                                     <div className="flex-auto">

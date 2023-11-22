@@ -157,7 +157,7 @@ const Main = ({ id }: { id: string }) => {
                     "email": formData.email,
                     "phone": formData.phone,
                     "industry": formData.industry,
-                    "createdAt": new Date().toISOString(),
+                    // "createdAt": new Date().toISOString(),
                     "leadOwner": formData.leadOwner,
                     "company": formData.company,
                     "Title": formData.title,
@@ -372,6 +372,21 @@ const Main = ({ id }: { id: string }) => {
                     </div>
                 </div>
 
+                <div className="mb-5">
+                    <label className="block  text-gray-700 text-sm mb-1">
+                        Lead Type
+                    </label>
+                    <select
+                        defaultValue={previousData?.leads[0]?.type as string}
+                        className='mt-1 text-sm px-4 py-2 border border-gray-300 rounded-md w-full' name="type">
+                        <option >SELECT</option>
+                        <option value="SERVICE">SERVICE</option>
+                        <option value="PRODUCT">PRODUCT</option>
+                        <option value="SOLUTION">SOLUTION</option>
+                        <option value="EVENT">EVENT</option>
+                        <option value="LEARN">LEARN</option>
+                    </select>
+                </div>
                 <div className="mb-5">
                     <label className="block  text-gray-700 text-sm mb-1">
                         Lead Status

@@ -123,9 +123,6 @@ const Main = () => {
     otherCountry: '',
     otherZip: '',
     documents: [],
-    equipments: [],
-    service: [],
-    industries: [],
     equipmentAttachments: [],
   })
 
@@ -174,6 +171,8 @@ const Main = () => {
       const equipmentAttachments = isVendor?.equipmentDocs || []
 
       const documents = hasDocuments?.hasFiles?.links || []
+
+
 
       setUserInfo({
         name,
@@ -241,21 +240,24 @@ const Main = () => {
   }
 
 
+  console.log(previousData, 'previous data')
 
 
   // updating the user node
 
-  const updateUser = async () => {
+  const updateUser = async (updatedData: any) => {
 
-    const { name, email, phone, title, department, education, experience, specialty, interest, bio, companyName, companyEmail, aboutCompany, companyPhone, panCardNo, gst, otherPhone, linkedin, twitter, skypeId, equipmentAttachments, industries, service, equipments, documents, otherZip, otherCountry, otherState, otherCity, otherStreet, Zip, country, state, city, street } = userInfo
+    const { name, email, phone, title, department, education, experience, specialty, interest, bio, companyName, companyEmail, aboutCompany, companyPhone, panCardNo, gst, otherPhone, linkedin, twitter, skypeId, equipmentAttachments, industries, service, equipments, documents, otherZip, otherCountry, otherState, otherCity, otherStreet, Zip, country, state, city, street } = updatedData
 
-    const { data, error } = await updateUserFn({
+    console.log(updatedData, 'user info 000000000 general')
+
+    const { data } = await updateUserFn({
       variables: {
         "where": {
           "email": user?.email
         },
         "update": {
-          "name": name,
+          "name": 'new test',
           "email": email,
           "phone": phone,
           "bio": bio,
@@ -275,32 +277,7 @@ const Main = () => {
           "specialty": specialty,
           "interest": interest,
           "companyDescription": aboutCompany,
-          "isVendor": {
-            "update": {
-              "node": {
-                // "industry": industries,
-                // "service": service,
-                // "equipmentDocs": equipmentAttachments,
-                "hasManyEquipment": equipments.map((equipment: any) => {
-                  return {
-                    "update": {
-                      "node": {
-                        "name": equipment.name,
-                        "model": equipment.model,
-                        "make": equipment?.make,
-                        "yearOfInstallation": equipment?.yearOfInstallation,
-                        "calibrationDetails": equipment?.calibrationDetails,
-                        "warranty": equipment?.warranty,
-                      }
-                    }
-                  }
-                }),
 
-
-
-              }
-            }
-          },
           "hasPrimaryaddress": {
             "update": {
               "node": {
@@ -326,12 +303,13 @@ const Main = () => {
         }
       }
     })
+
+    console.log(data, 'data')
     if (data.updateUsers.users[0].id) {
       toast.success('User updated successfully')
+      getUser()
     }
-    if (error) {
-      toast.success('Something went wrong')
-    }
+
   }
 
 
@@ -340,7 +318,7 @@ const Main = () => {
 
   if (updateUserState.loading || authLoading || userState.loading) return <div><Loading /></div>
 
-  if (userState.error || updateUserState.error) return <Error />
+  // if (userState.error || updateUserState.error) return <Error />
 
   return (
     <div className='bg-white p-4'>
