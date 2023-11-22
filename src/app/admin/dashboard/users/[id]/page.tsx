@@ -237,9 +237,7 @@ const UserInfo = async ({ params }: { params: any }) => {
                     <p>
                         Country : {userData?.hasPrimaryaddress?.Country || 'N/A'}
                     </p>
-                    <p>
-                        Zip Code : {userData?.hasPrimaryaddress?.zipCode || 'N/A'}
-                    </p>
+
                     <p className='col-span-full font-bold'>
                         Secondary Address
                     </p>
@@ -255,9 +253,7 @@ const UserInfo = async ({ params }: { params: any }) => {
                     <p>
                         Country : {userData?.hasSecondaryaddress?.Country || 'N/A'}
                     </p>
-                    <p>
-                        Zip Code : {userData?.hasSecondaryaddress?.zipCode || 'N/A'}
-                    </p>
+
                 </div>
             </div>
 

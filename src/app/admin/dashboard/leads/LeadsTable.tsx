@@ -27,7 +27,11 @@ const LeadsTable = ({ data, setIsModalOpen, setCurrentLead, currentPage, pageLim
                     </th>
                     <th
                         className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-dimText dark:text-darkDimText uppercase tracking-wider dark:bg-darkBg dark:border-darkBorder">
-                        Name
+                        Lead  Name
+                    </th>
+                    <th
+                        className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-dimText dark:text-darkDimText uppercase tracking-wider dark:bg-darkBg dark:border-darkBorder">
+                        Company
                     </th>
                     <th
                         className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-dimText dark:text-darkDimText uppercase tracking-wider dark:bg-darkBg dark:border-darkBorder">
@@ -41,10 +45,12 @@ const LeadsTable = ({ data, setIsModalOpen, setCurrentLead, currentPage, pageLim
                         className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-dimText dark:text-darkDimText uppercase tracking-wider dark:bg-darkBg dark:border-darkBorder">
                         Lead Source
                     </th>
-                    {/* <th
+
+                    <th
                         className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-dimText dark:text-darkDimText uppercase tracking-wider dark:bg-darkBg dark:border-darkBorder">
-                        Lead Status
-                    </th> */}
+                        Lead Owner
+                    </th>
+
                     <th
                         className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-dimText dark:text-darkDimText uppercase tracking-wider dark:bg-darkBg dark:border-darkBorder">
                         Zip Code
@@ -69,6 +75,9 @@ const LeadsTable = ({ data, setIsModalOpen, setCurrentLead, currentPage, pageLim
                                 <p className=" whitespace-no-wrap">{lead?.name}</p>
                             </td>
                             <td className="px-5 py-5  bg-white text-xs dark:bg-darkBg dark:border-darkBorder">
+                                <p className=" whitespace-no-wrap">{lead?.company?.slice(0, 16)}..</p>
+                            </td>
+                            <td className="px-5 py-5  bg-white text-xs dark:bg-darkBg dark:border-darkBorder">
                                 <p className=" whitespace-no-wrap lowercase">{lead?.email}</p>
                             </td>
                             <td className="px-5 py-5  bg-white text-xs dark:bg-darkBg dark:border-darkBorder">
@@ -79,11 +88,11 @@ const LeadsTable = ({ data, setIsModalOpen, setCurrentLead, currentPage, pageLim
                                     {lead?.leadSource || "N/A"}
                                 </p>
                             </td>
-                            {/* <td className="px-5 py-5  bg-white text-xs dark:bg-darkBg dark:border-darkBorder">
+                            <td className="px-5 py-5  bg-white text-xs dark:bg-darkBg dark:border-darkBorder">
                                 <p className=" whitespace-no-wrap">
-                                    {lead?.leadStatus}
+                                    {lead?.leadOwner || "N/A"}
                                 </p>
-                            </td> */}
+                            </td>
                             <td className="px-5 py-5  bg-white text-xs dark:bg-darkBg dark:border-darkBorder">
                                 <p className=" whitespace-no-wrap">
                                     {lead?.hasPrimaryaddress?.zipCode || "N/A"}

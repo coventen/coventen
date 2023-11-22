@@ -13,6 +13,7 @@ import { toast } from 'react-hot-toast';
 import { HiChevronLeft, HiChevronRight } from 'react-icons/hi';
 import { TfiReload } from 'react-icons/tfi';
 import { useCounterData } from '../../CounterProvider';
+import { getNormalDateAndTime } from '@/shared/getNormalDateAndTime';
 
 
 const GET_SET_MESSAGES = `
@@ -90,7 +91,7 @@ const Main = () => {
                     offset: (currentPage - 1) * pageLimit,
                     sort: [
                         {
-                            "date": "ASC"
+                            "date": "DESC"
                         }
                     ]
                 }
@@ -201,6 +202,9 @@ const Main = () => {
                                                         <span className=" text-gray-600 text-sm truncate mr-4">{item?.sub}</span>
                                                     </Link>
                                                     <div className=" flex items-center justify-end">
+                                                        <span x-show="!messageHover" className="text-xs mr-2 text-gray-500">
+                                                            {getNormalDateAndTime(item?.date)}
+                                                        </span>
                                                         <div className="flex items-center space-x-2" >
 
                                                             <button onClick={() => {
@@ -218,9 +222,7 @@ const Main = () => {
                                                                 </svg>
                                                             </button>
                                                         </div>
-                                                        <span x-show="!messageHover" className="text-xs text-gray-500">
-                                                            {item?.date?.slice(-10, -5)}
-                                                        </span>
+
                                                     </div>
                                                 </div>
                                             </div>

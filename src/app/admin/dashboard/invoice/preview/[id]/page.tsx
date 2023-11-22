@@ -10,7 +10,7 @@ import Content from './Content';
 
 
 const InvoicePreview = () => {
-    const [invoiceData, setInvoiceData] = React.useState<Invoice | null>(null)
+    const [invoiceData, setInvoiceData] = React.useState<any | null>(null)
 
     const { toPDF, targetRef } = usePDF({ filename: 'page.pdf' });
 
@@ -30,7 +30,6 @@ const InvoicePreview = () => {
     }
 
 
-    console.log(invoiceData, '000000000000000000000000000')
 
 
     return (
@@ -153,15 +152,8 @@ const InvoicePreview = () => {
                                             <dt className="col-span-2 font-semibold text-gray-800 dark:text-gray-200">Date:</dt>
                                             <dd className="col-span-1 text-gray-500">{convertISODateToDDMMYear(invoiceData?.createdAt) || 'N/A'}</dd>
                                         </dl>
-
                                     </div>
-                                    <div className="grid grid-cols-2 sm:grid-cols-1 gap-3 sm:gap-2">
-                                        <dl className="grid sm:grid-cols-3 gap-x-1">
-                                            <dt className="col-span-2 font-semibold text-gray-800 dark:text-gray-200">Expiry Date:</dt>
-                                            <dd className="col-span-1 text-gray-500">{convertISODateToDDMMYear(invoiceData?.expiryDate) || 'N/A'}</dd>
-                                        </dl>
 
-                                    </div>
                                     {/* <!-- End Grid --> */}
                                 </div>
                                 {/* <!-- Col --> */}
@@ -193,7 +185,7 @@ const InvoicePreview = () => {
 
 
                                         {
-                                            invoiceData?.hasPurchase?.map((service) =>
+                                            invoiceData?.hasPurchase?.map((service: any) =>
                                                 <div className="grid grid-cols-3 " key={service?.id}>
                                                     <div >
                                                         <p className="font-medium text-xs lg:text-base text-gray-800 dark:text-gray-200">{service?.itemName}</p>

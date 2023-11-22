@@ -1,7 +1,13 @@
 'use client'
 import React from 'react';
+import { useCounterData } from '../../CounterProvider';
 
 const Sidebar = ({ data, setCurrentSupportTicket, setQuery }: { data: any, setCurrentSupportTicket: any, setQuery: any }) => {
+
+
+
+    const counterData = useCounterData()
+
     return (
         <div className="flex flex-col py-8 pl-6 pr-2 w-80 rounded-lg bg-white flex-shrink-0">
             <div className="flex flex-row items-center  h-12 w-full">
@@ -37,10 +43,20 @@ const Sidebar = ({ data, setCurrentSupportTicket, setQuery }: { data: any, setCu
                     {
                         data && data?.map((item: any) =>
 
-                            <button onClick={() => setCurrentSupportTicket({
-                                ticket: item.ticket,
-                                id: item.id,
-                            })} key={data.id}
+                            <button
+
+                                onClick={
+                                    () => {
+                                        setCurrentSupportTicket({
+                                            ticket: item.ticket,
+                                            id: item.id,
+                                        })
+                                        counterData?.handleUpdateView(item.id, "support")
+                                        counterData?.newUserRefetch()
+                                    }
+
+                                }
+                                key={data.id}
                                 className="flex flex-row items-center hover:bg-gray-100 rounded-xl p-2 border-b"
                             >
 

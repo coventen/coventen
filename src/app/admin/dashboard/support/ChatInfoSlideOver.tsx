@@ -82,8 +82,9 @@ export default function ChatInfoSlideOver({ open, setOpen, data, loading }: Prop
                                                                 <p className='text-xl font-semibold '>Vendor/Service Provider</p>
                                                                 <p className='capitalize'>Company name: {data?.vendorHas?.userIs?.companyName || 'N/A'}</p>
                                                                 <p>Email: {data?.vendorHas?.userIs?.email || 'N/A'}</p>
-                                                                <p>City: {data?.vendorHas?.userIs?.hasPrimaryaddress?.city || 'N/A'}</p>
-                                                                <p>State: {data?.vendorHas?.userIs?.hasPrimaryaddress?.state || 'N/A'}</p>
+                                                                <Link href={`/admin/dashboard/users/${data?.clientHas?.userIs?.id}`}>User Id: {data?.vendorHas?.userIs?.userId || 'N/A'}</Link>
+                                                                {/* <p>City: {data?.vendorHas?.userIs?.hasPrimaryaddress?.city || 'N/A'}</p>
+                                                                <p>State: {data?.vendorHas?.userIs?.hasPrimaryaddress?.state || 'N/A'}</p> */}
                                                             </div>
                                                             :
                                                             data?.clientHas?.userIs?.email
@@ -92,8 +93,9 @@ export default function ChatInfoSlideOver({ open, setOpen, data, loading }: Prop
                                                                     <p className='text-xl font-semibold '>Client/Consumer:</p>
                                                                     <p className='capitalize'>Company name: {data?.clientHas?.userIs?.companyName || 'N/A'}</p>
                                                                     <p>Email: {data?.clientHas?.userIs?.email || 'N/A'}</p>
-                                                                    <p>City: {data?.clientHas?.userIs?.hasPrimaryaddress?.city || 'N/A'}</p>
-                                                                    <p>State: {data?.clientHas?.userIs?.hasPrimaryaddress?.state || 'N/A'}</p>
+                                                                    <Link href={`/admin/dashboard/users/${data?.clientHas?.userIs?.id}`}>User Id: {data?.clientHas?.userIs?.userId || 'N/A'}</Link>
+                                                                    {/* <p>City: {data?.clientHas?.userIs?.hasPrimaryaddress?.city || 'N/A'}</p>
+                                                                    <p>State: {data?.clientHas?.userIs?.hasPrimaryaddress?.state || 'N/A'}</p> */}
                                                                 </div>
                                                                 :
                                                                 <p>No data Found </p>

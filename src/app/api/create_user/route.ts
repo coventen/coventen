@@ -3,8 +3,12 @@ import { NextResponse } from "next/server"
 import {v4 as uuid} from 'uuid'
 
 
+
+// Initialize the cors middleware
+
 export async function POST(request: Request){
     try{
+
         const {email, password} = await request.json()
         const uid = uuid();
 

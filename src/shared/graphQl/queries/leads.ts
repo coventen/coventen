@@ -21,6 +21,7 @@ const GetLeads = async (where:any = {}, options: any = {})=> {
                 createdAt
                 company
                 isViewed
+                leadOwner
                 leadSource
                 leadStatus
                 hasPrimaryaddress {

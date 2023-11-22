@@ -33,20 +33,20 @@ query ModuleTickets($where: ModuleTicketWhere, $options: ModuleTicketOptions) {
       }
     vendorHas {
       userIs {
+        id
+        userId
         companyName
         email
         phone
-        state
-        city
       }
     }
     clientHas {
       userIs {
+        id
+        userId
         companyName
         email
         phone
-        state
-        city
       }
     }
   }

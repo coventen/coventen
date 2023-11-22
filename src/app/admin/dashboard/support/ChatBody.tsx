@@ -27,20 +27,20 @@ query SupportTickets($options: SupportTicketOptions, $where: SupportTicketWhere)
     supportTickets(options: $options, where: $where) {
       clientHas {
         userIs {
+            id
+            userId
          companyName
           email
-          phone
-          state
-          city  
+          phone 
         }
       }
       vendorHas {
          userIs {
+            id
+            userId
          companyName
           email
-          phone
-          state
-          city  
+          phone 
         }
       }
     }
@@ -101,6 +101,7 @@ const ChatBody = ({ messages, currentSupportTicket }: Props) => {
         }
     }
 
+    console.log(data, 'this is data', currentSupportTicket)
 
 
 

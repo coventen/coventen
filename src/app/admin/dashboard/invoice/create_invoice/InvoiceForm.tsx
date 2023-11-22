@@ -107,7 +107,7 @@ const InvoiceForm = ({ createInvoice }: IInvoiceForm) => {
                                                         className=" h-full  -r border-t   -l-md sm: -r-none sm:border-r-0 border-r border-b block  w-full bg-white border-gray-300 text-gray-700 py-2 px-4 pr-8 leading-tight focus:outline-none focus:border-l focus:border-r focus:bg-white focus:border-gray-500" {...register("taxType")}>
                                                         <option>GST</option>
                                                         <option>SGST</option>
-                                                        <option>UGST</option>
+                                                        <option>IGST</option>
                                                     </select>
 
                                                 </div>
@@ -121,15 +121,6 @@ const InvoiceForm = ({ createInvoice }: IInvoiceForm) => {
                                                     className="    border border-gray-300 border-b block pl-8 pr-6 py-2.5 w-full bg-white text-sm placeholder-gray-400 text-gray-700 focus:bg-white focus:placeholder-gray-600 focus:text-gray-700 focus:outline-none" {...register("taxRate")} />
                                             </div>
                                         </div>
-                                    </div>
-                                    <div className='col-span-2 '>
-                                        <p >Expiry Date</p>
-                                        <input
-                                            type="date"
-                                            required
-                                            placeholder="ends At"
-                                            className="border border-gray-300 border-b block pl-8 pr-6 py-2 w-full bg-white text-sm placeholder-gray-400 text-gray-700 focus:bg-white focus:placeholder-gray-600 focus:text-gray-700 focus:outline-none" {...register("expiryDate")} />
-
                                     </div>
 
                                     <div className="col-span-full  w-full mt-3">

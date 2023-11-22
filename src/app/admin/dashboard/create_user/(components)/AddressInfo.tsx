@@ -38,20 +38,15 @@ const AddressInfo = ({ setFormData, formData, setCurrentTab, handleCreateUser }:
             otherStreet
         };
 
-        setLoading(true);
+        await handleCreateUser(address);
 
-        try {
-            await handleFirebaseUserCreate(formData.email, formData.password, address);
-            setLoading(false);
-        } catch (error) {
-            console.error(error);
-            setLoading(false);
-        }
+        await handleFirebaseUserCreate(formData.email, formData.password);
     };
 
-    const handleFirebaseUserCreate = async (email: string, password: string, address: any) => {
+    const handleFirebaseUserCreate = async (email: string, password: string) => {
         try {
-            const res: any = await fetch('https://coveten.com/api/create_user', {
+            setLoading(true);
+            const res: any = await fetch('/api/create_user', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -61,16 +56,16 @@ const AddressInfo = ({ setFormData, formData, setCurrentTab, handleCreateUser }:
 
             if (res.status === 201) {
                 console.log('User created successfully');
+                setLoading(false);
             } else {
                 console.log('Failed to create user');
                 throw new Error('User creation failed');
+                setLoading(false);
             }
 
-            // Assuming handleCreateUser returns a Promise
-            await handleCreateUser(address);
         } catch (err) {
             console.error(err, 'User creation error');
-            throw err;
+            setLoading(false);
         }
     };
 

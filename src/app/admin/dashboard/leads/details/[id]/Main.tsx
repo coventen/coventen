@@ -252,7 +252,7 @@ const Main = ({ id }: { id: string }) => {
 
                 <div className="mb-5">
                     <label className="block  text-gray-700 text-sm mb-1">
-                        Name
+                        Lead Name
                     </label>
                     <input
                         defaultValue={previousData?.leads[0]?.name as string}

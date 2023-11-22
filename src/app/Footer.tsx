@@ -7,7 +7,7 @@ import React, { useEffect } from 'react';
 import { AiFillTwitterCircle } from 'react-icons/ai';
 import { BiLogoInstagramAlt } from 'react-icons/bi';
 import { BsPinterest, BsYoutube } from 'react-icons/bs';
-import { FaFacebook, FaReddit } from 'react-icons/fa';
+import { FaFacebook, FaLinkedin, FaReddit } from 'react-icons/fa';
 
 
 const GET_TERMS = `
@@ -73,11 +73,12 @@ const Footer = () => {
                             Empowering Automotive Excellence Through Meticulous <br /> Machinery Forensic Testing
                         </h5>
                         <div className='flex items-center mt-5 space-x-3 text-xl'>
-                            <p className='text-white hover:text-blue-600'><FaFacebook /></p>
-                            <p className='text-white hover:text-blue-600'><AiFillTwitterCircle /></p>
-                            <p className='text-white hover:text-pink-600 text-[25px]'><BiLogoInstagramAlt /></p>
-                            <p className='text-white hover:text-red-600' ><BsPinterest /></p>
-                            <p className='text-white hover:text-red-700' ><BsYoutube /></p>
+                            <Link href='https://www.facebook.com/profile.php?id=61553710623584&mibextid=ZbWKwL' className='text-white '><FaFacebook /></Link>
+                            <Link href='https://twitter.com/Xcoveten' className='text-white'><AiFillTwitterCircle /></Link>
+                            <Link href=' https://instagram.com/covetenqbees?igshid=OGQ5ZDc2ODk2ZA==' className='text-white  text-[25px]'><BiLogoInstagramAlt /></Link>
+                            <Link href='https://in.pinterest.com/pcoveten/' className='text-white ' ><BsPinterest /></Link>
+                            <Link href='https://www.youtube.com/@Coveten' className='text-white ' ><BsYoutube /></Link>
+                            <Link href=' https://www.linkedin.com/company/coveten-industrial-solutions/' className='text-white ' ><FaLinkedin /></Link>
 
                         </div>
 

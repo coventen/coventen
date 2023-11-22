@@ -13,7 +13,7 @@ export default function Login() {
                     <div className=" mt-16 space-y-3">
                         <h3 className="text-gray-900 text-3xl font-bold">Start growing your business quickly</h3>
                         <p className="text-gray-800">
-                            Log in  and get access to all features for 30-days, No credit card required.
+                            Log in and get access to all features of this innovative business community.
                         </p>
                         <div className="flex items-center -space-x-2 overflow-hidden">
                             <img src="https://randomuser.me/api/portraits/women/79.jpg" className="w-10 h-10 rounded-full border-2 border-white" />

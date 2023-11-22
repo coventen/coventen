@@ -163,7 +163,7 @@ const Sidebar = ({
                                                                     </span>
                                                                 }
                                                                 {
-                                                                    item.label === "Estimation" && counterData?.invoiceCounter as number > 0 && <span className="relative inline-flex text-[9px] bg-red-500 text-white rounded-full py-0.5 px-1.5">
+                                                                    item.label === "Quotation" && counterData?.invoiceCounter as number > 0 && <span className="relative inline-flex text-[9px] bg-red-500 text-white rounded-full py-0.5 px-1.5">
                                                                         {counterData?.invoiceCounter}
                                                                     </span>
                                                                 }

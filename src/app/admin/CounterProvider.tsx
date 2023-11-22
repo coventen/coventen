@@ -220,7 +220,7 @@ const CounterProvider = ({ children }: AuthProviderProps) => {
     client,
     variables: {
       "where": {
-        "isViewedByAdmin": false,
+        "isViewed": false,
       }
     }
   })
@@ -299,7 +299,7 @@ const CounterProvider = ({ children }: AuthProviderProps) => {
 
 
 
-
+  console.log(supportCounter, ' this is the support counter')
 
 
 
