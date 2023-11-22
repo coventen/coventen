@@ -127,7 +127,7 @@ const Main = () => {
     //handle project creation 
     const createProject = async (projectData: IProjectInput) => {
         setUploading(true)
-        const { projectDescription, projectName } = projectData
+        const { projectDescription, projectName, priority, type } = projectData
         const projectId = await generateProjectTicket()
         setUploading(false)
 
@@ -156,8 +156,8 @@ const Main = () => {
                         description: projectDescription,
                         email: user?.email,
                         companyName: userInfo.companyName,
-                        type: userInfo.type,
-                        priority: userInfo.priority,
+                        type: type,
+                        priority: priority,
                         createdAt: new Date().toISOString(),
                         projectticketFor: {
                             create: {
@@ -318,23 +318,25 @@ const Main = () => {
                                     <div className="col-span-full">
                                         <label htmlFor="city">Type</label>
                                         <select id="city" className=" border border-gray-300 mt-1 rounded px-4 w-full " placeholder="" {...register("type")} >
-                                            <option value="web">Service</option>
-                                            <option value="mobile">Product
+                                            <option >Select</option>
+                                            <option value="Service">Service</option>
+                                            <option value="Product">Product
                                             </option>
-                                            <option value="both">Solution</option>
-                                            <option value="both">Learn</option>
-                                            <option value="both">Events
+                                            <option value="Solution">Solution</option>
+                                            <option value="Learn">Learn</option>
+                                            <option value="Events">Events
                                             </option>
                                         </select>
                                     </div>
                                     <div className="col-span-full">
                                         <label htmlFor="city">Priority:</label>
                                         <select id="city" className=" border border-gray-300 mt-1 rounded px-4 w-full " placeholder="" {...register("priority")} >
-                                            <option value="web">Top Priority – response in 2hrs</option>
-                                            <option value="mobile">High Priority – response in 24hrs
+                                            <option >Select</option>
+                                            <option >Top Priority – response in 2hrs</option>
+                                            <option >High Priority – response in 24hrs
                                             </option>
-                                            <option value="both">Medium Priority</option>
-                                            <option value="both">Low Priority</option>
+                                            <option >Medium Priority</option>
+                                            <option >Low Priority</option>
 
                                         </select>
                                     </div>

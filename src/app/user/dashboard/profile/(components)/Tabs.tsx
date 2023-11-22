@@ -70,7 +70,7 @@ const Tabs = ({ userInfo, setUserInfo, updateUser, getUser }: any) => {
                             >
                                 Address
                             </Tab>
-                            {/* <Tab
+                            <Tab
                                 className={({ selected }: any) =>
                                     classNames(
                                         'w-full rounded-sm py-2.5 text-sm font-medium leading-5 text-gray-900',
@@ -82,7 +82,7 @@ const Tabs = ({ userInfo, setUserInfo, updateUser, getUser }: any) => {
                                 }
                             >
                                 Service and Industry
-                            </Tab> */}
+                            </Tab>
                             <Tab
                                 className={({ selected }: any) =>
                                     classNames(
@@ -123,14 +123,14 @@ const Tabs = ({ userInfo, setUserInfo, updateUser, getUser }: any) => {
                             <Tab.Panel>
                                 <AddressInfo updateUser={updateUser} setCurrentTab={setCurrentTab} userInfo={userInfo} setUserInfo={setUserInfo} />
                             </Tab.Panel>
-                            {/* <Tab.Panel>
+                            <Tab.Panel>
                                 <ServicesAndIndustryTab setCurrentTab={setCurrentTab} userInfo={userInfo} />
-                            </Tab.Panel> */}
+                            </Tab.Panel>
                             <Tab.Panel>
                                 <EquipmentTab getUser={getUser} setCurrentTab={setCurrentTab} userInfo={userInfo} />
                             </Tab.Panel>
                             <Tab.Panel>
-                                <DocumentTab setCurrentTab={setCurrentTab} userInfo={userInfo} />
+                                <DocumentTab setCurrentTab={setCurrentTab} userInfo={userInfo} getUser={getUser} />
                             </Tab.Panel>
 
                         </Tab.Panels>

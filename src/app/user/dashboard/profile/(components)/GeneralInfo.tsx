@@ -1,7 +1,7 @@
 import Loading from '@/app/loading';
 import { useGqlClient } from '@/hooks/UseGqlClient';
 import { useManualQuery, useQuery } from 'graphql-hooks';
-import React from 'react';
+import React, { useEffect } from 'react';
 import toast from 'react-hot-toast';
 
 interface IProps {
@@ -22,9 +22,8 @@ const GeneralInfo = ({ setUserInfo, userInfo, setCurrentTab, updateUser }: IProp
         e.preventDefault();
         const { name, email, phone, title, department, education, experience, specialty, interest, bio, } = e.target
 
-        console.log('userInfo', bio.value)
-
-        setUserInfo({
+        const updatedData =
+        {
             ...userInfo,
             name: name.value,
             email: email.value,
@@ -37,9 +36,23 @@ const GeneralInfo = ({ setUserInfo, userInfo, setCurrentTab, updateUser }: IProp
             interest: interest.value,
             bio: bio.value,
 
-        })
-        updateUser()
+        }
+        setUserInfo(updatedData)
+        await updateUser(updatedData)
     };
+
+
+
+
+
+    useEffect(() => { }, [userInfo])
+
+
+
+    console.log(userInfo, 'wwwwwwwwwwwwwwwwwwwwwww')
+
+
+
 
     return (
         <section className='mt-6'>
@@ -50,9 +63,8 @@ const GeneralInfo = ({ setUserInfo, userInfo, setCurrentTab, updateUser }: IProp
                         User Id
                     </label>
                     <input
+                        defaultValue={userInfo?.userId}
                         readOnly
-                        defaultValue={userInfo.userId}
-                        name="name"
                         type="text"
                         className="mt-1 px-4 py-2 border border-gray-300 rounded-md w-full"
                     />
@@ -62,7 +74,7 @@ const GeneralInfo = ({ setUserInfo, userInfo, setCurrentTab, updateUser }: IProp
                         Name
                     </label>
                     <input
-                        defaultValue={userInfo.name}
+                        defaultValue={userInfo?.name}
                         name="name"
                         type="text"
                         className="mt-1 px-4 py-2 border border-gray-300 rounded-md w-full"
@@ -73,7 +85,7 @@ const GeneralInfo = ({ setUserInfo, userInfo, setCurrentTab, updateUser }: IProp
                         Email
                     </label>
                     <input
-                        defaultValue={userInfo.email}
+                        defaultValue={userInfo?.email}
                         required
                         name="email"
                         type="text"
@@ -88,7 +100,7 @@ const GeneralInfo = ({ setUserInfo, userInfo, setCurrentTab, updateUser }: IProp
                         Phone
                     </label>
                     <input
-                        defaultValue={userInfo.phone}
+                        defaultValue={userInfo?.phone}
                         name="phone"
                         type="text"
                         className="mt-1 px-4 py-2 border border-gray-300 rounded-md w-full"
@@ -99,7 +111,7 @@ const GeneralInfo = ({ setUserInfo, userInfo, setCurrentTab, updateUser }: IProp
                         Title
                     </label>
                     <input
-                        defaultValue={userInfo.title}
+                        defaultValue={userInfo?.title}
                         name="title"
                         type="text"
                         className="mt-1 px-4 py-2 border border-gray-300 rounded-md w-full"
@@ -110,7 +122,7 @@ const GeneralInfo = ({ setUserInfo, userInfo, setCurrentTab, updateUser }: IProp
                         Department
                     </label>
                     <input
-                        defaultValue={userInfo.department}
+                        defaultValue={userInfo?.department}
                         name="department"
                         type="text"
                         className="mt-1 px-4 py-2 border border-gray-300 rounded-md w-full"
@@ -121,7 +133,7 @@ const GeneralInfo = ({ setUserInfo, userInfo, setCurrentTab, updateUser }: IProp
                         Education
                     </label>
                     <input
-                        defaultValue={userInfo.education}
+                        defaultValue={userInfo?.education}
                         name="education"
                         type="text"
                         className="mt-1 px-4 py-2 border border-gray-300 rounded-md w-full"
@@ -132,7 +144,7 @@ const GeneralInfo = ({ setUserInfo, userInfo, setCurrentTab, updateUser }: IProp
                         Experience
                     </label>
                     <input
-                        defaultValue={userInfo.experience}
+                        defaultValue={userInfo?.experience}
                         name="experience"
                         type="text"
                         className="mt-1 px-4 py-2 border border-gray-300 rounded-md w-full"
@@ -143,7 +155,7 @@ const GeneralInfo = ({ setUserInfo, userInfo, setCurrentTab, updateUser }: IProp
                         specialty
                     </label>
                     <input
-                        defaultValue={userInfo.specialty}
+                        defaultValue={userInfo?.specialty}
                         name="specialty"
                         type="text"
                         className="mt-1 px-4 py-2 border border-gray-300 rounded-md w-full"
@@ -154,7 +166,7 @@ const GeneralInfo = ({ setUserInfo, userInfo, setCurrentTab, updateUser }: IProp
                         Interest
                     </label>
                     <input
-                        defaultValue={userInfo.interest}
+                        defaultValue={userInfo?.interest}
                         name="interest"
                         type="text"
                         className="mt-1 px-4 py-2 border border-gray-300 rounded-md w-full"
@@ -168,7 +180,7 @@ const GeneralInfo = ({ setUserInfo, userInfo, setCurrentTab, updateUser }: IProp
                         Bio
                     </label>
                     <textarea
-                        defaultValue={userInfo.bio}
+                        defaultValue={userInfo?.bio}
                         name="bio"
                         rows={7}
                         className="mt-1 px-4 py-2 border border-gray-300 rounded-md w-full"
