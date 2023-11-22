@@ -15,16 +15,12 @@ interface IProps {
 const AddressInfo = async ({ setUserInfo, userInfo, updateUser }: IProps) => {
 
 
-    const handleSubmit = async (e: any) => {
+    const handleSubmit = (e: any) => {
         e.preventDefault();
 
-        const { street, city, state, country, otherStreet, otherCity, otherState, otherCountry } = e.target
+        const { street, city, state, country, otherStreet, otherCity, otherState, otherCountry } = e.target;
 
-
-
-
-        const updatedData =
-        {
+        const updatedData = {
             ...userInfo,
             street: street.value,
             city: city.value,
@@ -34,12 +30,10 @@ const AddressInfo = async ({ setUserInfo, userInfo, updateUser }: IProps) => {
             otherCity: otherCity.value,
             otherState: otherState.value,
             otherCountry: otherCountry.value,
-        }
-        setUserInfo(updatedData)
+        };
 
-
-        await updateUser(updatedData)
-
+        setUserInfo(updatedData);
+        updateUser(updatedData);
     };
 
 

@@ -31,6 +31,7 @@ const AttachmentModal = ({ isModalOpen, setIsModalOpen, getUser, oldData }: any)
     // states
     const [files, setFiles] = useState<File[]>([]);
     const [error, setError] = useState<string>('');
+    const [loading, setLoading] = useState<boolean>(false)
 
 
     // hooks
@@ -51,12 +52,15 @@ const AttachmentModal = ({ isModalOpen, setIsModalOpen, getUser, oldData }: any)
 
 
         if (files.length > 0) {
+            setLoading(true)
 
             docLinks = await Promise.all(files?.map(async (item: any) => {
                 const link = await uploadFile(item, uuidv4(), 'user-documents')
                 return link
             }))
+            setLoading(false)
         } else {
+            setLoading(false)
             docLinks = []
             toast.error('Please upload at least one document')
             return
@@ -145,7 +149,7 @@ const AttachmentModal = ({ isModalOpen, setIsModalOpen, getUser, oldData }: any)
 
 
 
-    if (updateUserState.loading) {
+    if (updateUserState.loading || loading) {
         return <Loading />
     }
 

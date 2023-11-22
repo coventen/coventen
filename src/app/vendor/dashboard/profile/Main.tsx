@@ -249,7 +249,6 @@ const Main = () => {
 
     const { name, email, phone, title, department, education, experience, specialty, interest, bio, companyName, companyEmail, aboutCompany, companyPhone, panCardNo, gst, otherPhone, linkedin, twitter, skypeId, equipmentAttachments, industries, service, equipments, documents, otherZip, otherCountry, otherState, otherCity, otherStreet, Zip, country, state, city, street } = updatedData
 
-    console.log(updatedData, 'user info 000000000 general')
 
     const { data } = await updateUserFn({
       variables: {

@@ -18,7 +18,7 @@ const DocumentTab = ({ userInfo, setCurrentTab, getUser }: any) => {
                 {
                     userInfo?.documents ?
                         userInfo?.documents?.map((item: any, index: number) =>
-                            <Link href={item || '#'}
+                            <Link target='_blank' href={item || '#'}
                                 key={index}
                                 style={{
                                     backgroundImage: `url(${'/assets/file.svg'})`,
@@ -58,7 +58,7 @@ const DocumentTab = ({ userInfo, setCurrentTab, getUser }: any) => {
                     {
                         userInfo?.equipmentAttachments ?
                             userInfo?.equipmentAttachments?.map((item: any, index: number) =>
-                                <Link href={item || '#'}
+                                <Link target='_blank' href={item || '#'}
                                     key={index}
                                     style={{
                                         backgroundImage: `url(${'/assets/file.svg'})`,
