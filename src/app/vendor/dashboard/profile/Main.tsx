@@ -153,17 +153,20 @@ const Main = () => {
 
 
 
-      const primaryStreet = hasSecondaryaddress?.street || ''
-      const primaryCity = hasSecondaryaddress?.city || ''
-      const primaryState = hasSecondaryaddress?.state || ''
-      const primaryCountry = hasSecondaryaddress?.Country || ''
-      const primaryZip = hasSecondaryaddress?.zipCode || ''
 
-      const secondaryStreet = hasPrimaryaddress?.street || ''
-      const secondaryCity = hasPrimaryaddress?.city || ''
-      const secondaryState = hasPrimaryaddress?.state || ''
-      const secondaryCountry = hasPrimaryaddress?.Country || ''
-      const secondaryZip = hasPrimaryaddress?.zipCode || ''
+
+
+      const primaryStreet = hasPrimaryaddress?.street || ''
+      const primaryCity = hasPrimaryaddress?.city || ''
+      const primaryState = hasPrimaryaddress?.state || ''
+      const primaryCountry = hasPrimaryaddress?.Country || ''
+      const primaryZip = hasPrimaryaddress?.zipCode || ''
+
+      const secondaryStreet = hasSecondaryaddress?.street || ''
+      const secondaryCity = hasSecondaryaddress?.city || ''
+      const secondaryState = hasSecondaryaddress?.state || ''
+      const secondaryCountry = hasSecondaryaddress?.Country || ''
+      const secondaryZip = hasSecondaryaddress?.zipCode || ''
 
       const service = isVendor?.service || []
       const industries = isVendor?.industry || []
@@ -240,74 +243,141 @@ const Main = () => {
   }
 
 
-  console.log(previousData, 'previous data')
+  console.log(userInfo, 'previous data')
 
 
   // updating the user node
 
   const updateUser = async (updatedData: any) => {
 
-    const { name, email, phone, title, department, education, experience, specialty, interest, bio, companyName, companyEmail, aboutCompany, companyPhone, panCardNo, gst, otherPhone, linkedin, twitter, skypeId, equipmentAttachments, industries, service, equipments, documents, otherZip, otherCountry, otherState, otherCity, otherStreet, Zip, country, state, city, street } = updatedData
+    const { name, email, phone, title, department, education, experience, specialty, interest, bio, companyName, companyEmail, aboutCompany, companyPhone, panCardNo, gst, otherPhone, linkedin, twitter, skypeId, otherZip, otherCountry, otherState, otherCity, otherStreet, Zip, country, state, city, street } = updatedData
 
 
-    const { data } = await updateUserFn({
-      variables: {
-        "where": {
-          "email": user?.email
-        },
-        "update": {
-          "name": 'new test',
-          "email": email,
-          "phone": phone,
-          "bio": bio,
-          "panCardNo": panCardNo,
-          "phoneNumber": otherPhone,
-          "companyName": companyName,
-          "companyEmail": companyEmail,
-          "gstNumber": gst,
-          "title": title,
-          "education": education,
-          "department": department,
-          "companyPhone": companyPhone,
-          "linkedin": linkedin,
-          "twitter": twitter,
-          "skypeId": skypeId,
-          "experience": experience,
-          "specialty": specialty,
-          "interest": interest,
-          "companyDescription": aboutCompany,
 
-          "hasPrimaryaddress": {
-            "update": {
-              "node": {
-                "street": city,
-                "city": city,
-                "state": state,
-                "Country": country,
-                "zipCode": Zip
-              }
-            }
+    if (!previousData.hasPrimaryaddress && !previousData.hasSecondaryaddress) {
+
+      const { data } = await updateUserFn({
+        variables: {
+          "where": {
+            "email": user?.email
           },
-          "hasSecondaryaddress": {
-            "update": {
-              "node": {
-                "street": otherState,
-                "city": otherCity,
-                "state": otherState,
-                "Country": otherCountry,
-                "zipCode": otherZip
+          "update": {
+            "name": name,
+            "email": email,
+            "phone": phone,
+            "bio": bio,
+            "panCardNo": panCardNo,
+            "phoneNumber": otherPhone,
+            "companyName": companyName,
+            "companyEmail": companyEmail,
+            "gstNumber": gst,
+            "title": title,
+            "education": education,
+            "department": department,
+            "companyPhone": companyPhone,
+            "linkedin": linkedin,
+            "twitter": twitter,
+            "skypeId": skypeId,
+            "experience": experience,
+            "specialty": specialty,
+            "interest": interest,
+            "companyDescription": aboutCompany,
+
+            "hasPrimaryaddress": {
+              "create": {
+                "node": {
+                  "street": street,
+                  "city": city,
+                  "state": state,
+                  "Country": country,
+                  "zipCode": Zip
+                }
+              }
+            },
+            "hasSecondaryaddress": {
+              "create": {
+                "node": {
+                  "street": otherStreet,
+                  "city": otherCity,
+                  "state": otherState,
+                  "Country": otherCountry,
+                  "zipCode": otherZip
+                }
               }
             }
           }
         }
-      }
-    })
+      })
 
-    console.log(data, 'data')
-    if (data.updateUsers.users[0].id) {
-      toast.success('User updated successfully')
-      getUser()
+      console.log(data, 'data')
+      if (data) {
+        toast.success('User updated successfully')
+        getUser()
+      }
+    } else {
+
+      const { data } = await updateUserFn({
+        variables: {
+          "where": {
+            "email": user?.email
+          },
+          "update": {
+            "name": name,
+            "email": email,
+            "phone": phone,
+            "bio": bio,
+            "panCardNo": panCardNo,
+            "phoneNumber": otherPhone,
+            "companyName": companyName,
+            "companyEmail": companyEmail,
+            "gstNumber": gst,
+            "title": title,
+            "education": education,
+            "department": department,
+            "companyPhone": companyPhone,
+            "linkedin": linkedin,
+            "twitter": twitter,
+            "skypeId": skypeId,
+            "experience": experience,
+            "specialty": specialty,
+            "interest": interest,
+            "companyDescription": aboutCompany,
+
+            "hasPrimaryaddress": {
+              "update": {
+                "node": {
+                  "street": city,
+                  "city": city,
+                  "state": state,
+                  "Country": country,
+                  "zipCode": Zip
+                }
+              }
+            },
+            "hasSecondaryaddress": {
+              "update": {
+                "node": {
+                  "street": otherState,
+                  "city": otherCity,
+                  "state": otherState,
+                  "Country": otherCountry,
+                  "zipCode": otherZip
+                }
+              }
+            }
+          }
+        }
+      })
+
+      console.log(data, 'data')
+      if (data) {
+        toast.success('User updated successfully')
+        getUser()
+      }
     }
+
+
+
 
   }
 

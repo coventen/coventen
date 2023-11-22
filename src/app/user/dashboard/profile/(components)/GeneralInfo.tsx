@@ -37,8 +37,8 @@ const GeneralInfo = ({ setUserInfo, userInfo, setCurrentTab, updateUser }: IProp
             bio: bio.value,
 
         }
-        setUserInfo(updatedData)
-        await updateUser(updatedData)
+
+        updateUser(updatedData)
     };
 
 
@@ -49,7 +49,7 @@ const GeneralInfo = ({ setUserInfo, userInfo, setCurrentTab, updateUser }: IProp
 
 
 
-    console.log(userInfo, 'wwwwwwwwwwwwwwwwwwwwwww')
+
 
 
 

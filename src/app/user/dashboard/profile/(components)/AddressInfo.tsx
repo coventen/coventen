@@ -32,7 +32,6 @@ const AddressInfo = async ({ setUserInfo, userInfo, updateUser }: IProps) => {
             otherCountry: otherCountry.value,
         };
 
-        setUserInfo(updatedData);
         updateUser(updatedData);
     };
 
@@ -41,7 +40,7 @@ const AddressInfo = async ({ setUserInfo, userInfo, updateUser }: IProps) => {
 
 
 
-
+    console.log(userInfo, 'address info')
 
 
     return (
@@ -56,7 +55,7 @@ const AddressInfo = async ({ setUserInfo, userInfo, updateUser }: IProps) => {
                     </label>
                     <input
                         name="street"
-                        defaultValue={userInfo.street}
+                        defaultValue={userInfo?.street}
                         type="text"
                         className="mt-1 px-4 py-2 border border-gray-300 rounded-md w-full"
                     />
@@ -68,7 +67,7 @@ const AddressInfo = async ({ setUserInfo, userInfo, updateUser }: IProps) => {
                     <input
 
                         name="city"
-                        defaultValue={userInfo.city}
+                        defaultValue={userInfo?.city}
                         type="text"
                         className="mt-1 px-4 py-2 border border-gray-300 rounded-md w-full"
                     />
@@ -80,7 +79,7 @@ const AddressInfo = async ({ setUserInfo, userInfo, updateUser }: IProps) => {
                     <input
 
                         name="state"
-                        defaultValue={userInfo.state}
+                        defaultValue={userInfo?.state}
                         type="text"
                         className="mt-1 px-4 py-2 border border-gray-300 rounded-md w-full"
                     />
@@ -92,7 +91,7 @@ const AddressInfo = async ({ setUserInfo, userInfo, updateUser }: IProps) => {
                     <input
 
                         name="country"
-                        defaultValue={userInfo.country}
+                        defaultValue={userInfo?.country}
                         type="text"
                         className="mt-1 px-4 py-2 border border-gray-300 rounded-md w-full"
                     />
@@ -106,7 +105,7 @@ const AddressInfo = async ({ setUserInfo, userInfo, updateUser }: IProps) => {
                     <input
 
                         name="otherStreet"
-                        defaultValue={userInfo.otherStreet}
+                        defaultValue={userInfo?.otherStreet}
                         type="text"
                         className="mt-1 px-4 py-2 border border-gray-300 rounded-md w-full"
                     />
@@ -118,7 +117,7 @@ const AddressInfo = async ({ setUserInfo, userInfo, updateUser }: IProps) => {
                     <input
 
                         name="otherCity"
-                        defaultValue={userInfo.otherCity}
+                        defaultValue={userInfo?.otherCity}
                         type="text"
                         className="mt-1 px-4 py-2 border border-gray-300 rounded-md w-full"
                     />
@@ -130,7 +129,7 @@ const AddressInfo = async ({ setUserInfo, userInfo, updateUser }: IProps) => {
                     <input
 
                         name="otherState"
-                        defaultValue={userInfo.otherState}
+                        defaultValue={userInfo?.otherState}
                         type="text"
                         className="mt-1 px-4 py-2 border border-gray-300 rounded-md w-full"
                     />
@@ -142,7 +141,7 @@ const AddressInfo = async ({ setUserInfo, userInfo, updateUser }: IProps) => {
                     <input
 
                         name="otherCountry"
-                        defaultValue={userInfo.otherCountry}
+                        defaultValue={userInfo?.otherCountry}
                         type="text"
                         className="mt-1 px-4 py-2 border border-gray-300 rounded-md w-full"
                     />

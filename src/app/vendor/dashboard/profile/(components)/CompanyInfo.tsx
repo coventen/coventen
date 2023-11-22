@@ -51,12 +51,11 @@ const CompanyInfo = ({ setUserInfo, userInfo, setCurrentTab, updateUser }: IProp
         {
             ...userInfo, companyName: companyName.value, companyEmail: companyEmail.value, companyPhone: companyPhone.value, otherPhone: otherPhone.value, linkedin: linkedin.value, twitter: twitter.value, skypeId: skypeId.value, aboutCompany: aboutCompany.value, gst: gst.value, panCardNo: panCardNo.value
         }
-        setUserInfo(updatedData)
 
 
 
 
-        await updateUser(updatedData)
+        updateUser(updatedData)
     };
 
 
@@ -210,12 +209,7 @@ const CompanyInfo = ({ setUserInfo, userInfo, setCurrentTab, updateUser }: IProp
 
 
                 <div className="mt-6">
-                    <button
-                        onClick={() => setCurrentTab(0)}
-                        className="px-10 py-2 bg-gary-300 text-gray-700 "
-                    >
-                        Back
-                    </button>
+
                     <button
                         type="submit"
                         className="px-10 py-2 bg-primary text-white hover:bg-blue-600"
