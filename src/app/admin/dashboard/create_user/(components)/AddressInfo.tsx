@@ -44,7 +44,7 @@ const AddressInfo = ({ setFormData, formData, setCurrentTab, handleCreateUser }:
 
     const handleFirebaseUserCreate = async (email: string, password: string) => {
         setLoading(true);
-        const res: any = await fetch('/api/create_new_user', {
+        const res: any = await fetch('api/create_new_user', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
