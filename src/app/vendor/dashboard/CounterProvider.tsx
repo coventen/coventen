@@ -168,7 +168,7 @@ const CounterProvider = ({ children }: AuthProviderProps) => {
                         email: labEmail || "no email"
                     }
                 },
-                status: "UNDER_REVIEW",
+                status: "COMPLAINED",
                 isComplainedViewed: false
             }
         }

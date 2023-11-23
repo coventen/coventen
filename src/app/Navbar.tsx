@@ -29,6 +29,8 @@ import DropdownIndustry from '@/components/Navbar/Dropdown/DropdownIndusty';
 import Solution from '@/components/Navbar/Dropdown/Solution';
 import { LuPlusCircle } from 'react-icons/lu';
 import { useAuth } from '@/firebase/AuthProvider';
+import MobileDropdown from '@/components/Navbar/MobileNav/MobileDropdown';
+import IndustryMobile from '@/components/Navbar/MobileNav/IndustryMobile';
 
 
 
@@ -50,7 +52,6 @@ export default function Navbar({ services, industries, solutions, features }: an
     const { user, logout, authLoading } = useAuth()
     const router = useRouter()
 
-    console.log(user, ' this is user 88888888888888888')
 
     useEffect(() => {
         getUserData()
@@ -266,6 +267,7 @@ export default function Navbar({ services, industries, solutions, features }: an
 
                     </div>
                 </nav>
+                {/* mobile */}
                 <Dialog
                     as="div"
                     className="lg:hidden"
@@ -333,6 +335,14 @@ export default function Navbar({ services, industries, solutions, features }: an
                                         >
                                             Events
                                         </Link>
+                                        <div
+                                        >
+                                            <MobileDropdown data={services} />
+                                        </div>
+                                        <div
+                                        >
+                                            <IndustryMobile data={industries} />
+                                        </div>
                                     </div>
 
 
