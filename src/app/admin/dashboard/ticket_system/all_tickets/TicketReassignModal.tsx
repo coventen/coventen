@@ -92,7 +92,8 @@ function TicketReassignModal({ isOpen, setIsOpen, currentModuleTicket, refetchMo
         variables: {
             userIsWhere2: {
                 status: "APPROVED"
-            }
+            },
+
         }
     })
 

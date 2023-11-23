@@ -116,6 +116,10 @@ function AssignmentModal({ isOpen, setIsOpen, currentProject, refetchProjects }:
                 input: [
                     {
                         status: "ASSIGNED",
+                        isViewedByVendor: false,
+                        isApproveRequestViewed: false,
+                        isComplainedViewed: false,
+                        isViewedByClient: false,
                         createdAt: new Date().toISOString(),
                         vendorHas: {
                             connect: {

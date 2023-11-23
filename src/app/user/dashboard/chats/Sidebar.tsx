@@ -1,7 +1,15 @@
 'use client'
 import React from 'react';
+import { useCounterData } from '../CounterProvider';
 
 const Sidebar = ({ data, setCurrentModule }: { data: any, setCurrentModule: any }) => {
+
+
+    //hooks
+    const counterData = useCounterData()
+
+
+
     return (
         <div className="flex flex-col py-8 pl-6 pr-2 w-80 rounded-lg bg-white flex-shrink-0">
             <div className="flex flex-row items-center  h-12 w-full">

@@ -152,13 +152,9 @@ const AcceptedModules = () => {
 
 
     // on status change to completed upload doc and update status
-    const handleStatusChange = (e: any, id: string) => {
-
-        if (e.target.value == 'UNDER_REVIEW') {
-            setIsDocModalOpen(true)
-            setCurrentModuleId(id)
-        }
-
+    const handleStatusChange = (id: string) => {
+        setIsDocModalOpen(true)
+        setCurrentModuleId(id)
     }
 
     // getting lab email if employee is logged in
@@ -190,7 +186,7 @@ const AcceptedModules = () => {
                         <th className="px-4 py-3">Serial</th>
                         <th className="px-4 py-3">Ticket-Id</th>
                         <th className="px-4 py-3">Module Title</th>
-                        <th className="px-4 py-3 text-center">Status</th>
+                        <th className="px-4 py-3">Status</th>
                         <th className="px-4 py-3 text-center">Action</th>
                     </tr>
                 </thead>
@@ -205,18 +201,22 @@ const AcceptedModules = () => {
                             <td className="px-4 py-3 text-sm">{module?.forModule
                                 ?.title || 'N/A'}</td>
                             <td className="px-4 py-3 text-sm">{module?.status || 'N/A'}</td>
-                            <td >
-                                <button
-                                    onClick={(e) => {
-                                        handleStatusChange(e, module?.id)
-                                        setClientId(module?.clientHas?.userIs?.id)
-                                    }
-                                    }
-                                    disabled={module?.status !== "ACCEPTED"}
-                                    className={`${module?.status !== "ACCEPTED" ? ' bg-gray-700' : 'bg-primary'} px-3 py-1 text-white text-sm rounded-md  cursor-pointer  flex items-center justify-center`}
-                                >
-                                    {module?.status === "ACCEPTED" ? "Submit Document" : 'Submitted'}
-                                </button>
+                            <td className="px-4 py-3 text-sm space-x-2 flex items-center justify-center">
+                                <div className="relative w-40 ">
+                                    <button
+                                        disabled={module?.status === 'UNDER_REVIEW' ? true : false}
+                                        onClick={() => {
+                                            handleStatusChange(module?.id)
+                                            setClientId(module?.clientHas?.userIs?.id)
+                                        }
+
+                                        }
+                                        className={`${module?.status === 'UNDER_REVIEW' ? "bg-gray-800 " : "bg-primary "}    h-full rounded-r block  w-full text-sm pr-8  py-1 px-3  text-white leading-tight focus:outline-none  dark:bg-darkBg dark:border-darkBorder`}>
+
+                                        {module?.status === 'UNDER_REVIEW' ? "Submitted" : "Submit Report"}
+                                    </button>
+
+                                </div>
 
                             </td>
 

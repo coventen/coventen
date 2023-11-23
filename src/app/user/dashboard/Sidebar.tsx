@@ -17,6 +17,7 @@ import Loading from "@/app/loading";
 import Error from "@/components/Error";
 import { LuLogOut } from "react-icons/lu";
 import AuthConfig from "@/firebase/oauth.config";
+import { useCounterData } from "./CounterProvider";
 
 const GET_USER = `
 query Users($where: UserWhere) {
@@ -51,6 +52,7 @@ const Sidebar = ({
     const { user, logout } = AuthConfig();
     const pathname = usePathname();
     const router = useRouter()
+    const counterData = useCounterData()
 
 
     const { data, loading, error } = useQuery(GET_USER, {
@@ -72,7 +74,6 @@ const Sidebar = ({
 
     }, [user?.email])
 
-    console.log(data?.users, 'this i s user data', data?.users[0])
 
     if (loading) return <Loading />
     if (error) return <Error />
@@ -142,7 +143,24 @@ const Sidebar = ({
                                                     })}
                                                 >
                                                     <p className="flex gap-2 items-center justify-center ">
-                                                        <span className="text-xl">  {item.icon}</span> <span className=" font-semibold">{!collapsed && item.label}</span>
+                                                        <span className="text-xl">  {item.icon}</span> <span className=" font-semibold flex  flex-grow  items-center justify-between">
+                                                            {!collapsed && item.label}
+
+
+
+
+                                                            {
+                                                                item.label === "Estimation" && counterData?.invoiceCounter as number > 0 && <span className="relative inline-flex text-[9px] bg-red-500 text-white rounded-full py-0.5 px-1.5 ml-3">
+                                                                    {counterData?.invoiceCounter}0
+                                                                </span>
+                                                            }
+                                                            {
+                                                                item.label === "Reports" && counterData?.invoiceCounter as number > 0 && <span className="relative inline-flex text-[9px] bg-red-500 text-white rounded-full py-0.5 px-1.5 ml-3">
+                                                                    {counterData?.moduleCounter}0
+                                                                </span>
+                                                            }
+
+                                                        </span>
                                                     </p>
                                                 </li>
                                             </Link>

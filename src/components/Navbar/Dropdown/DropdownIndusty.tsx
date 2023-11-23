@@ -38,7 +38,7 @@ const DropdownIndustry = ({ data }: IProps) => {
                                 data && data?.map((item: any) =>
 
                                     <div key={item?.id}>
-                                        <Link href={`/industries/${item?.id}`} className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
+                                        <Link href={`/industries/${item?.id}`} className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-200">
                                             <div className="flex-auto">
                                                 <p className="block font-semibold uppercase text-primaryText">
                                                     {item?.title}

@@ -18,6 +18,7 @@ query ModuleTickets($where: ModuleTicketWhere) {
     id
     reports
     ticket
+    isViewedByClient
     forModule {
       title
     }

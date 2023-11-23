@@ -1,12 +1,29 @@
 import { ModuleTicket } from '@/gql/graphql';
 import React from 'react';
+import { useCounterData } from '../CounterProvider';
 interface ISidebar {
 
-    data: ModuleTicket[]
+    data: any[]
     setCurrentModule: React.Dispatch<React.SetStateAction<string>>
 }
 
 const Sidebar = ({ data, setCurrentModule }: ISidebar) => {
+
+
+    const counterData = useCounterData()
+
+    const handleClick = async (id: string, isViewed: boolean) => {
+        console.log('outside', isViewed)
+
+        if (!isViewed) {
+            console.log('inside')
+            await counterData?.handleUpdateView(id, "Module")
+            counterData?.moduleRefetch()
+        }
+    }
+
+
+
     return (
         <div className="flex  flex-col py-8 pl-6 pr-2 relative w-80 rounded-lg bg-white flex-shrink-0">
             <div>
@@ -26,7 +43,10 @@ const Sidebar = ({ data, setCurrentModule }: ISidebar) => {
 
                                 <button
                                     key={item.id}
-                                    onClick={() => setCurrentModule(item.id)}
+                                    onClick={() => {
+                                        setCurrentModule(item?.id)
+                                        handleClick(item?.id, item.isViewedByClient)
+                                    }}
                                     className="flex flex-row items-center hover:bg-gray-100 rounded-xl p-2 border-b"
                                 >
                                     <div

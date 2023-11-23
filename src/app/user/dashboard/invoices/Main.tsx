@@ -11,6 +11,7 @@ import { toast } from 'react-hot-toast';
 import Loading from '@/app/loading';
 import Error from '@/components/Error';
 import createLog from '@/shared/graphQl/mutations/createLog';
+import { useCounterData } from '../CounterProvider';
 
 
 const GET_INVOICES = `
@@ -23,6 +24,7 @@ query Query($where: InvoiceWhere) {
       ticket
       priceWithTax
       id
+      isViewedByClient
     }
   }
 `
@@ -58,6 +60,7 @@ const Main = () => {
     //hooks
     const client = useGqlClient()
     const { user } = AuthConfig()
+    const counterData = useCounterData()
 
     // queries
     const { data, loading, error, refetch } = useQuery(GET_INVOICES, {
@@ -123,7 +126,15 @@ const Main = () => {
 
     }
 
+    const handleClick = async (id: string, isViewed: boolean) => {
+        console.log('outside', isViewed)
 
+        if (!isViewed) {
+            console.log('inside')
+            await counterData?.handleUpdateView(id, "email")
+            counterData?.invoiceRefetch()
+        }
+    }
 
 
     if (loading || state.loading) return <Loading />
@@ -155,7 +166,9 @@ const Main = () => {
                             <p>{invoice?.status === "SENT" ? "PENDING" : invoice?.status === "COMPLAINED" ? "COMMENTED" : invoice?.status || 'N/A'}</p>
                             <div className='space-x-3 col-span-2 flex items-center justify-center'>
 
-                                <Link href={`/user/dashboard/invoices/preview/${invoice.id}`} className='font-semibold border border-dimTetext-dimText px-3  py-1.5 rounded'>View</Link>
+                                <Link onClick={() => {
+                                    handleClick(invoice?.id, invoice?.isViewedByClient)
+                                }} href={`/user/dashboard/invoices/preview/${invoice.id}`} className='font-semibold border border-dimTetext-dimText px-3  py-1.5 rounded'>View</Link>
 
                                 {
                                     invoice?.status === "SENT" && (

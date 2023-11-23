@@ -11,6 +11,7 @@ import Pagination from '@/components/Pagination';
 import GetModules from '@/shared/graphQl/queries/modules';
 import { getEmployerEmail } from '@/shared/getEmployerEmail';
 import RejectModal from './RejectModal';
+import { useCounterData } from '../../CounterProvider';
 
 
 
@@ -63,6 +64,7 @@ const NewModules = () => {
     // hooks
     const { user, authLoading } = AuthConfig()
     const client = useGqlClient()
+    const counterData = useCounterData()
 
     // UPDATING MODULE STATUS
     const [updateModuleStatusFn, updateStatus] = useMutation(UPDATE_MODULE_STATUS, { client })
@@ -90,7 +92,7 @@ const NewModules = () => {
 
 
     // update module status
-    const updateModule = async (status: string, id: string, message?: string) => {
+    const updateModule = async (status: string, id: string, message: string = '') => {
         console.log('rejected', id, status)
         if (status === 'REJECTED') {
             console.log('rejected', id, status)
@@ -236,6 +238,14 @@ const NewModules = () => {
 
 
 
+    const handleClick = async (id: string, isViewed: boolean) => {
+        if (!isViewed) {
+            await counterData?.handleUpdateView(id, "newModule")
+            counterData?.moduleRefetch()
+        }
+    }
+
+
     if (loading || updateStatus.loading || authLoading) return <Loading />
 
     return (
@@ -260,7 +270,9 @@ const NewModules = () => {
                                 <td className="px-4 py-3 text-sm">{module?.ticket}</td>
                                 <td className="px-4 py-3 text-sm">{module?.forModule
                                     ?.title || 'N/A'}</td>
-                                <td className="px-4 py-3 text-sm space-x-2 text-center">
+                                <td
+                                    onClick={() => handleClick(module?.id, module?.isViewed || false)}
+                                    className="px-4 py-3 text-sm space-x-2 text-center">
                                     <button
                                         onClick={() => {
                                             setCurrentModuleId(module?.forModule?.id)
