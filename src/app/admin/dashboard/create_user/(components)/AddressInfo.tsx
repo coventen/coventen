@@ -56,7 +56,6 @@ const AddressInfo = ({ setFormData, formData, setCurrentTab, handleCreateUser }:
             setLoading(false);
         } else {
             console.log('Failed to create user');
-            console.log(res);
             setLoading(false);
         }
 

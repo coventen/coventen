@@ -6,7 +6,7 @@ const page = ({ params, searchParams }: any) => {
     const success = searchParams.success;
     const message = searchParams.message;
 
-    console.log(success, message)
+
 
     if (success === 'true') {
 

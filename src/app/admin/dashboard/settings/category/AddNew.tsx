@@ -25,7 +25,7 @@ const AddNewPage = ({ addNewItem }: any) => {
 
 
 
-    console.log(subCategoryName, 'subCategoryName')
+
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()

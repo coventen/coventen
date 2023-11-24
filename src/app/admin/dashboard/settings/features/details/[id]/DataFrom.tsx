@@ -23,7 +23,7 @@ const DataFrom = ({ currentData, setCurrentData, updateItem, setImageUploading }
     // states
     const [image, setImage] = useState<File | null>(null)
 
-    console.log(typeof image, ' this is image')
+
     // hooks
     const { uploadFile } = HandleFileUpload()
 

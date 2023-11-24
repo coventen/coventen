@@ -56,7 +56,7 @@ const AutoSelectService = ({ selected, setSelected }: any) => {
         })
 
         if (data?.services?.length) {
-            console.log(data.services, 'this is service data')
+
             setServiceData(data.services?.map((item: any) => item))
         }
     }
@@ -66,7 +66,7 @@ const AutoSelectService = ({ selected, setSelected }: any) => {
 
     const handleChange = (e: any) => {
 
-        console.log(e.target.value, 'this is e')
+
 
 
         setQuery(e.target.value)
@@ -125,7 +125,7 @@ const AutoSelectService = ({ selected, setSelected }: any) => {
                                         {({ selected, active }) => (
                                             <>
                                                 <span
-                                                    className={`block truncate ${selected ? 'font-medium' : 'font-normal'
+                                                    className={`block uppercase  truncate ${selected ? 'font-medium' : 'font-normal'
                                                         }`}
                                                 >
                                                     {service?.title || 'N/A'}

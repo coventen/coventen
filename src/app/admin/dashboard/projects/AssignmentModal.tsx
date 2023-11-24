@@ -238,7 +238,7 @@ function AssignmentModal({ isOpen, setIsOpen, currentProject, refetchProjects }:
                 ]
             }
         })
-        console.log(data, 'this is data')
+
     }
 
     // const sendNotificationToClient = async () => {

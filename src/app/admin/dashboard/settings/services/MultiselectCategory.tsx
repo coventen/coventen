@@ -43,11 +43,11 @@ function MultiSelect({ selectedCategory, setSelectedCategory }: Props) {
     //QUERY
     const [getCategoryFn, state] = useManualQuery(GET_CATEGORY, { client })
 
-    console.log(selectedCategory, 'selectedCategory')
+
 
 
     const getCategory = async () => {
-        console.log('inside3')
+
         const { data } = await getCategoryFn({
             variables: {
                 "where": {
@@ -56,7 +56,7 @@ function MultiSelect({ selectedCategory, setSelectedCategory }: Props) {
                 }
             }
         })
-        console.log(data, 'data')
+
         setOptions(data?.categories)
         // return data?.categories
     }
@@ -72,7 +72,7 @@ function MultiSelect({ selectedCategory, setSelectedCategory }: Props) {
         option?.name.toLowerCase().includes(searchTerm.toLowerCase())
     );
 
-    console.log(filteredOptions, 'filteredOptions')
+
 
 
     const toggleOption = (option: Option) => {

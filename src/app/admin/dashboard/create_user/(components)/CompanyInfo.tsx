@@ -73,8 +73,6 @@ const CompanyInfo = ({ setFormData, formData, setCurrentTab }: IProps) => {
 
 
 
-    console.log(equipments)
-    console.log(formData, ' this is form data')
 
     // handling files
     const handleDrop = useCallback((acceptedFiles: File[], fileRejections: any) => {
@@ -222,7 +220,7 @@ const CompanyInfo = ({ setFormData, formData, setCurrentTab }: IProps) => {
                 </div>
                 <div className="mb-5">
                     <label className="block  text-gray-700 text-sm mb-1">
-                        twitter
+                        Twitter
                     </label>
                     <input
                         defaultValue={formData.twitter}

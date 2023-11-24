@@ -101,7 +101,7 @@ const ChatBody = ({ messages, currentSupportTicket }: Props) => {
         }
     }
 
-    console.log(data, 'this is data', currentSupportTicket)
+
 
 
 
@@ -164,7 +164,7 @@ const ChatBody = ({ messages, currentSupportTicket }: Props) => {
     }
 
     const handleDownload = (link: string, index: number) => {
-        console.log(link, index)
+
         saveAs(link, 'image-' + index + '.png');
     };
 

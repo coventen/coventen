@@ -93,7 +93,7 @@ const Main = () => {
         }
     }
 
-    console.log(previoustermsData, ' this is current data', params?.id)
+
 
 
     if (loading || updateState.loading) return <Loading />

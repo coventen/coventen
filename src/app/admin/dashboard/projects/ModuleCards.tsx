@@ -82,10 +82,10 @@ const ModuleCards = ({ data, setCurrentProject, projectTicket, clientEmail, setI
                                                 <h5 className="text-primaryText font-bold text-md  mb-2">
                                                     Ticket Id: {module?.moduleticketFor?.ticket}
                                                 </h5>
-                                                <h5 className="text-desktopText font-semibold text-sm  mb-3">
+                                                <h5 className="text-desktopText uppercase font-semibold text-sm  mb-3">
                                                     {module?.title}
                                                 </h5>
-                                                <p className='text-desktopTextLight text-sm'>
+                                                <p className='text-desktopTextLight capitalize text-sm'>
                                                     {
                                                         module?.description
                                                     }

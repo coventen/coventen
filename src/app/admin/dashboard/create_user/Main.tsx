@@ -120,11 +120,11 @@ const Main = () => {
 
         setUploading(true)
 
-        console.log(formData, ' this is form data', address, ' this is address')
+
 
         if (userByEmailData?.users.length > 0) {
             toast.error('User Already Exists')
-            console.log('user already exists')
+
             return
         }
 

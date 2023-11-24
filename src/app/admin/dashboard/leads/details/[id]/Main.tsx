@@ -251,7 +251,7 @@ const Main = ({ id }: { id: string }) => {
             <form onSubmit={handleSubmit} className='grid grid-cols-1 lg:grid-cols-3 gap-4'>
 
                 <div className="mb-5">
-                    <label className="block  text-gray-700 text-sm mb-1">
+                    <label className="capitalize block  text-gray-700 text-sm mb-1">
                         Lead Name
                     </label>
                     <input
@@ -262,7 +262,7 @@ const Main = ({ id }: { id: string }) => {
                     />
                 </div>
                 <div className="mb-5">
-                    <label className="block  text-gray-700 text-sm mb-1">
+                    <label className="capitalize block  text-gray-700 text-sm mb-1">
                         Email
                     </label>
                     <input
@@ -273,7 +273,7 @@ const Main = ({ id }: { id: string }) => {
                     />
                 </div>
                 <div className="mb-5">
-                    <label className="block  text-gray-700 text-sm mb-1">
+                    <label className="capitalize block  text-gray-700 text-sm mb-1">
                         title
                     </label>
                     <input
@@ -284,8 +284,8 @@ const Main = ({ id }: { id: string }) => {
                     />
                 </div>
                 <div className="mb-5">
-                    <label className="block  text-gray-700 text-sm mb-1">
-                        leadOwner
+                    <label className="capitalize block  text-gray-700 text-sm mb-1">
+                        lead Owner
                     </label>
                     <input
                         defaultValue={previousData?.leads[0]?.leadOwner as string}
@@ -295,7 +295,7 @@ const Main = ({ id }: { id: string }) => {
                     />
                 </div>
                 <div className="mb-5">
-                    <label className="block  text-gray-700 text-sm mb-1">
+                    <label className="capitalize block  text-gray-700 text-sm mb-1">
                         company
                     </label>
                     <input
@@ -306,7 +306,7 @@ const Main = ({ id }: { id: string }) => {
                     />
                 </div>
                 <div className="mb-5">
-                    <label className="block  text-gray-700 text-sm mb-1">
+                    <label className="capitalize block  text-gray-700 text-sm mb-1">
                         phone
                     </label>
                     <input
@@ -317,7 +317,7 @@ const Main = ({ id }: { id: string }) => {
                     />
                 </div>
                 <div className="mb-5">
-                    <label className="block  text-gray-700 text-sm mb-1">
+                    <label className="capitalize block  text-gray-700 text-sm mb-1">
                         Office Phone
                     </label>
                     <input
@@ -328,7 +328,7 @@ const Main = ({ id }: { id: string }) => {
                     />
                 </div>
                 <div className="mb-5">
-                    <label className="block  text-gray-700 text-sm mb-1">
+                    <label className="capitalize block  text-gray-700 text-sm mb-1">
                         Website
                     </label>
                     <input
@@ -339,7 +339,7 @@ const Main = ({ id }: { id: string }) => {
                     />
                 </div>
                 <div className="mb-5">
-                    <label className="block  text-gray-700 text-sm mb-1">
+                    <label className="capitalize block  text-gray-700 text-sm mb-1">
                         No. Employee
                     </label>
                     <input
@@ -351,7 +351,7 @@ const Main = ({ id }: { id: string }) => {
                 </div>
 
                 <div className="mb-5">
-                    <label className="block  text-gray-700 text-sm mb-1">
+                    <label className="capitalize block  text-gray-700 text-sm mb-1">
                         Source
                     </label>
                     <div className="relative inline-flex w-full">
@@ -373,7 +373,7 @@ const Main = ({ id }: { id: string }) => {
                 </div>
 
                 <div className="mb-5">
-                    <label className="block  text-gray-700 text-sm mb-1">
+                    <label className="capitalize block  text-gray-700 text-sm mb-1">
                         Lead Type
                     </label>
                     <select
@@ -388,7 +388,7 @@ const Main = ({ id }: { id: string }) => {
                     </select>
                 </div>
                 <div className="mb-5">
-                    <label className="block  text-gray-700 text-sm mb-1">
+                    <label className="capitalize block  text-gray-700 text-sm mb-1">
                         Lead Status
                     </label>
                     <select
@@ -407,7 +407,7 @@ const Main = ({ id }: { id: string }) => {
                     </select>
                 </div>
                 <div className="mb-5">
-                    <label className="block  text-gray-700 text-sm mb-1">
+                    <label className="capitalize block  text-gray-700 text-sm mb-1">
                         Ratting
                     </label>
                     <select
@@ -425,34 +425,35 @@ const Main = ({ id }: { id: string }) => {
                     </select>
                 </div>
                 <div className="mb-5">
-                    <label className="block  text-gray-700 text-sm mb-1">
+                    <label className="capitalize block  text-gray-700 text-sm mb-1">
                         Industry
                     </label>
                     <select
                         defaultValue={previousData?.leads[0]?.industry as string}
                         className='mt-1 px-4 py-2 border border-gray-300 rounded-md w-full' name="industry">
-                        <option>-None-</option>
-                        <option>ASP (Application Service Provider)</option>
-                        <option> Data/Telecom OEM</option>
-                        <option>ERP (Enterprise Resource Planning)</option>
-                        <option>Government/Military</option>
-                        <option>Large Enterprise</option>
-                        <option>ManagementISV</option>
-                        <option>MSP (Management Service Provider)</option>
-                        <option>Network Equipment Enterprise</option>
-                        <option>Non-management ISV</option>
-                        <option> Optical Networking</option>
-                        <option>Service Provider</option>
-                        <option>Small/Medium Enterprise</option>
-                        <option>Storage Service Provider</option>
-                        <option>Systems Integrator</option>
-                        <option>Wireless Industry</option>
-                        <option>SEZ – Users/Companies</option>
+                        <option value="-NONE-">-NONE-</option>
+                        <option value="ASP">ASP (APPLICATION SERVICE PROVIDER)</option>
+                        <option value="DATA/TELECOM OEM">DATA/TELECOM OEM</option>
+                        <option value="ERP">ERP (ENTERPRISE RESOURCE PLANNING)</option>
+                        <option value="GOVERNMENT/MILITARY">GOVERNMENT/MILITARY</option>
+                        <option value="LARGE ENTERPRISE">LARGE ENTERPRISE</option>
+                        <option value="MANAGEMENTISV">MANAGEMENTISV</option>
+                        <option value="MSP">MSP (MANAGEMENT SERVICE PROVIDER)</option>
+                        <option value="NETWORK EQUIPMENT ENTERPRISE">NETWORK EQUIPMENT ENTERPRISE</option>
+                        <option value="NON-MANAGEMENT ISV">NON-MANAGEMENT ISV</option>
+                        <option value="OPTICAL NETWORKING">OPTICAL NETWORKING</option>
+                        <option value="SERVICE PROVIDER">SERVICE PROVIDER</option>
+                        <option value="SMALL/MEDIUM ENTERPRISE">SMALL/MEDIUM ENTERPRISE</option>
+                        <option value="STORAGE SERVICE PROVIDER">STORAGE SERVICE PROVIDER</option>
+                        <option value="SYSTEMS INTEGRATOR">SYSTEMS INTEGRATOR</option>
+                        <option value="WIRELESS INDUSTRY">WIRELESS INDUSTRY</option>
+                        <option value="SEZ – USERS/COMPANIES">SEZ – USERS/COMPANIES</option>
                     </select>
+
                 </div>
 
                 {/* <div className="mb-5">
-                    <label className="block  text-gray-700 text-sm mb-1">
+                    <label className="capitalize block  text-gray-700 text-sm mb-1">
                         Reporting To
                     </label>
                     <input
@@ -466,7 +467,7 @@ const Main = ({ id }: { id: string }) => {
 
 
                 <div className="mb-5">
-                    <label className="block  text-gray-700 text-sm mb-1">
+                    <label className="capitalize block  text-gray-700 text-sm mb-1">
                         Annual Revenue
                     </label>
                     <input
@@ -478,7 +479,7 @@ const Main = ({ id }: { id: string }) => {
                 </div>
 
                 <div className="mb-5">
-                    <label className="block  text-gray-700 text-sm mb-1">
+                    <label className="capitalize block  text-gray-700 text-sm mb-1">
                         Skype
                     </label>
                     <input
@@ -489,7 +490,7 @@ const Main = ({ id }: { id: string }) => {
                     />
                 </div>
                 <div className="mb-5">
-                    <label className="block  text-gray-700 text-sm mb-1">
+                    <label className="capitalize block  text-gray-700 text-sm mb-1">
                         twitter
                     </label>
                     <input
@@ -500,7 +501,7 @@ const Main = ({ id }: { id: string }) => {
                     />
                 </div>
                 <div className="mb-5">
-                    <label className="block  text-gray-700 text-sm mb-1">
+                    <label className="capitalize block  text-gray-700 text-sm mb-1">
                         linkedin
                     </label>
                     <input
@@ -512,8 +513,8 @@ const Main = ({ id }: { id: string }) => {
                 </div>
 
                 <div className="mb-5">
-                    <label className="block  text-gray-700 text-sm mb-1">
-                        secondaryEmail
+                    <label className="capitalize block  text-gray-700 text-sm mb-1">
+                        secondary Email
                     </label>
                     <input
                         defaultValue={previousData?.leads[0]?.secondaryEmail as string}
@@ -523,7 +524,7 @@ const Main = ({ id }: { id: string }) => {
                     />
                 </div>
                 <div className="mb-5">
-                    <label className="block  text-gray-700 text-sm mb-1">
+                    <label className="capitalize block  text-gray-700 text-sm mb-1">
                         street
                     </label>
                     <input
@@ -534,7 +535,7 @@ const Main = ({ id }: { id: string }) => {
                     />
                 </div>
                 <div className="mb-5">
-                    <label className="block  text-gray-700 text-sm mb-1">
+                    <label className="capitalize block  text-gray-700 text-sm mb-1">
                         State
                     </label>
                     <input
@@ -545,7 +546,7 @@ const Main = ({ id }: { id: string }) => {
                     />
                 </div>
                 <div className="mb-5">
-                    <label className="block  text-gray-700 text-sm mb-1">
+                    <label className="capitalize block  text-gray-700 text-sm mb-1">
                         City
                     </label>
                     <input
@@ -556,7 +557,7 @@ const Main = ({ id }: { id: string }) => {
                     />
                 </div>
                 <div className="mb-5">
-                    <label className="block  text-gray-700 text-sm mb-1">
+                    <label className="capitalize block  text-gray-700 text-sm mb-1">
                         Country
                     </label>
                     <input
@@ -568,7 +569,7 @@ const Main = ({ id }: { id: string }) => {
                     />
                 </div>
                 <div className="mb-5">
-                    <label className="block  text-gray-700 text-sm mb-1">
+                    <label className="capitalize block  text-gray-700 text-sm mb-1">
                         zip code
                     </label>
                     <input
@@ -579,7 +580,7 @@ const Main = ({ id }: { id: string }) => {
                     />
                 </div>
                 <div className="mb-5 col-span-full">
-                    <label className="block  text-gray-700 text-sm mb-1">
+                    <label className="capitalize block  text-gray-700 text-sm mb-1">
                         Description
                     </label>
                     <textarea

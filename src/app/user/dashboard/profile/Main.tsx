@@ -243,7 +243,7 @@ const Main = () => {
   }
 
 
-  console.log(userInfo, 'previous data')
+
 
 
   // updating the user node
@@ -309,7 +309,7 @@ const Main = () => {
         }
       })
 
-      console.log(data, 'data')
+
       if (data) {
         toast.success('User updated successfully')
         getUser()
@@ -369,7 +369,7 @@ const Main = () => {
         }
       })
 
-      console.log(data, 'data')
+
       if (data) {
         toast.success('User updated successfully')
         getUser()

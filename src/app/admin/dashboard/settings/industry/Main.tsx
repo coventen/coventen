@@ -121,7 +121,7 @@ const Main = () => {
         }
     }
 
-    console.log(IndustryData);
+
 
 
     if (loading || addNewIndustryState.loading || deleteIndustryState.loading) return <Loading />

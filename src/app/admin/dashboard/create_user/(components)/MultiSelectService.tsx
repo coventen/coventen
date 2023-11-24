@@ -123,7 +123,7 @@ function MultiSelectService({ selectedService, setSelectedService }: Props) {
                                         } cursor-default select-none relative py-2 pl-8 pr-4 `}
                                     onClick={() => toggleOption(option)}
                                 >
-                                    <span className="block truncate">{option?.title}</span>
+                                    <span className="block truncate uppercase">{option?.title}</span>
                                     {selectedService?.find((item: any) => item.id === option.id) && (
                                         <span className="absolute inset-y-0 left-0 flex items-center pl-3">
                                             <HiCheck className="w-5 h-5" />
@@ -135,10 +135,10 @@ function MultiSelectService({ selectedService, setSelectedService }: Props) {
 
 
 
-                        <div className="flex justify-center absolute bottom-0 w-full py-3 bg-gray-100 text-primary cursor-pointer">
+                        <div onClick={() => setIsOpen(false)} className="flex justify-center absolute bottom-0 w-full py-3 bg-gray-100 text-primary cursor-pointer">
                             <button
                                 type="button"
-                                onClick={() => setIsOpen(false)}
+
                             >
                                 Close
                             </button>

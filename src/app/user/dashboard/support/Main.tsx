@@ -116,7 +116,7 @@ const Main = () => {
         }
 
         await updateCount(supportCount)
-        console.log(supportCount);
+
 
         const { data } = await createSupportTicketFn({
             variables: {
@@ -198,7 +198,7 @@ const Main = () => {
 
     }
 
-    console.log(supportTicketData?.supportTickets[0]?.id, ' this is support ticket id')
+
 
 
     return (

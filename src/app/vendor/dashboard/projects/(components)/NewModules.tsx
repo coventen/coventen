@@ -93,9 +93,9 @@ const NewModules = () => {
 
     // update module status
     const updateModule = async (status: string, id: string, message: string = '') => {
-        console.log('rejected', id, status)
+
         if (status === 'REJECTED') {
-            console.log('rejected', id, status)
+
             const { data } = await updateModuleStatusFn({
                 variables: {
                     where: {
@@ -108,7 +108,7 @@ const NewModules = () => {
                 }
             })
             if (data.updateModuleTickets.moduleTickets.length) {
-                console.log('updated')
+
                 getModulesData()
                 sendNotificationToVendor('REJECTED')
                 toast.error('REJECTED successfully')
@@ -128,7 +128,7 @@ const NewModules = () => {
                 }
             })
             if (data.updateModuleTickets.moduleTickets.length) {
-                console.log('updated')
+
                 getModulesData()
                 sendNotificationToVendor('ACCEPTED')
                 toast.success('Module updated successfully')
@@ -233,7 +233,7 @@ const NewModules = () => {
                 ]
             }
         })
-        console.log(clientData, adminData, 'client notification')
+
     }
 
 

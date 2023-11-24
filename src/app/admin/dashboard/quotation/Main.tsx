@@ -41,7 +41,7 @@ mutation Mutation($where: InvoiceWhere) {
 const Main = () => {
   // search sates
   const [searchQuery, setSearchQuery] = useState('')
-  const [fetchDirection, setFetchDirection] = useState('DESC')
+  const [fetchDirection, setFetchDirection] = useState('All')
 
   // pagination states
   const [pageLimit, setPageLimit] = useState(10)
@@ -102,7 +102,7 @@ const Main = () => {
       }
     }
 
-    getInvoiceData(where, fetchDirection)
+    getInvoiceData(where)
     getInvoiceCount()
   }, [currentPage, searchQuery, fetchDirection]);
 

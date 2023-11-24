@@ -192,7 +192,7 @@ const CounterProvider = ({ children }: AuthProviderProps) => {
 
 
         if (type === "newModule") {
-            console.log('newModule000')
+
             const variables = {
                 "where": {
                     "id": id
@@ -254,7 +254,6 @@ const CounterProvider = ({ children }: AuthProviderProps) => {
 
 
 
-    console.log("moduleCounter", moduleCounter, "approveCounter", approveCounter, "complainCounter", complainCounter)
 
 
 

@@ -101,8 +101,8 @@ const GeneralInfo = ({ setFormData, formData, setCurrentTab, }: IProps) => {
                             className="mt-1 px-4 py-2 border border-gray-300 rounded-md w-full"
                         >
                             <option  >Select</option>
-                            <option value="CONSUMER" >Client</option>
-                            <option value="SERVICE_PROVIDER" >Vendor</option>
+                            <option value="CONSUMER" >Consumer</option>
+                            <option value="SERVICE_PROVIDER" >Service Provider</option>
 
                         </select>
 

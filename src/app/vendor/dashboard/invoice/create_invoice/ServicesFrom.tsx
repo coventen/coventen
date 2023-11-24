@@ -23,7 +23,7 @@ const ServicesFrom = ({ index, setServices, services }: IServiceFrom) => {
     // setting the module data
     const handleServices: SubmitHandler<any> = (data) => {
 
-        console.log("inside handle services")
+
         //getting the dynamic data
         const serviceName = data[`serviceName${index}`];
         const price = data[`price${index}`];

@@ -75,13 +75,12 @@ const AssignRole: React.FC<ModalProps> = ({
     // initializing  assignRole mutation
     const assignRoleToEmployee = async (e: any) => {
         e.preventDefault()
-        console.log(userData)
-        console.log(userData?.hasRole?.id)
+
         const findUser = userData?.users.find((user: any) => user.email === employeeEmail)
         if (findUser?.hasRole?.id) {
             const removeRole = await removePreviousRole(userData?.hasRole?.id)
             if (removeRole) {
-                console.log(removeRole, 'this i sremove role')
+
                 const { data } = await assignRoleFn({
                     variables: {
                         "where": {

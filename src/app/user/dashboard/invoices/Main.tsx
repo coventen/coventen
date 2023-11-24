@@ -92,7 +92,8 @@ const Main = () => {
                 },
                 update: {
                     complain: complain,
-                    status: status
+                    status: status,
+                    "isViewed": false,
                 }
             }
         })
@@ -100,7 +101,7 @@ const Main = () => {
             setIsOpen(false)
             refetch()
             toast.success('Updated successfully')
-            // sendNotification('complained')
+            sendNotification('complained')
             createLog(
                 `Invoice complained`,
                 `Invoice complained with id ${currentInvoiceTicketId} by ${user?.email}`
@@ -115,8 +116,8 @@ const Main = () => {
             variables: {
                 "input": [
                     {
-                        "title": `A user has ${type} invoice`,
-                        "description": `A user has ${type} invoice. Check the invoice with id ${currentInvoiceTicketId}.`,
+                        "title": `A user has ${type} on a quotation`,
+                        "description": `A user has ${type} quotation. Check the quotation with id ${currentInvoiceTicketId}.`,
                         "createdAt": new Date().toISOString(),
                         "notificationFor": "ADMIN",
                     }
@@ -127,11 +128,8 @@ const Main = () => {
     }
 
     const handleClick = async (id: string, isViewed: boolean) => {
-        console.log('outside', isViewed)
-
         if (!isViewed) {
-            console.log('inside')
-            await counterData?.handleUpdateView(id, "email")
+            await counterData?.handleUpdateView(id, "Estimation")
             counterData?.invoiceRefetch()
         }
     }
@@ -155,7 +153,7 @@ const Main = () => {
                 }
                 {
                     data?.invoices && data?.invoices?.map((invoice: any, i: number) =>
-                        <div key={i} className='bg-white  border-b px-4 py-5 text-sm border-gray-200  text-dimText grid grid-cols-7 min-w-[700px] overflow-x-scroll lg:overflow-hidden'>
+                        <div key={i} className={`${invoice?.isViewedByClient ? 'bg-white' : 'bg-gray-200'}   border-b px-4 py-5 text-sm border-gray-200  text-dimText grid grid-cols-7 min-w-[700px] overflow-x-scroll lg:overflow-hidden`}>
                             <p>{i + 1}</p>
                             <p className='col-span-2'>
                                 {

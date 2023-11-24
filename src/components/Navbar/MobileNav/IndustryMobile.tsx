@@ -14,7 +14,7 @@ const IndustryMobile = ({ data }: IAccordionItem) => {
 
     };
 
-    console.log(data)
+
 
 
     return (

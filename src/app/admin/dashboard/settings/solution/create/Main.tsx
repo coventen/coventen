@@ -130,7 +130,7 @@ const Main = () => {
     }, [data?.categories?.length])
 
 
-    console.log(data?.categories[0]?.id)
+
 
 
     //handle image upload to firebase

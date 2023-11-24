@@ -167,7 +167,7 @@ const AcceptedModules = () => {
 
     }
 
-    console.log('lab email', labEmail)
+
 
 
 

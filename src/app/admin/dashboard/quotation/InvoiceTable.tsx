@@ -43,8 +43,8 @@ const InvoiceTable = ({ data, deleteInvoice }: ITableItem) => {
             <tbody className="text-gray-600 divide-y">
                 {
                     data && data.map((item, idx) => (
-                        <tr key={item?.id} className=''>
-                            <td className="pr-6 py-4 whitespace-nowrap">{idx + 1}</td>
+                        <tr key={item?.id} className={item?.isViewed ? "bg-white" : 'bg-gray-200'}>
+                            <td className="pr-6 py-4 whitespace-nowrap text-center">{idx + 1}</td>
                             <td className="pr-6 py-4 whitespace-nowrap">
                                 {
                                     `CIS/QN${item?.ticket}`

@@ -77,7 +77,7 @@ const Sidebar = ({
 
 
 
-    console.log(counterData, "accessibleNavItems 00000000000000")
+
 
 
     const getUserAndAuthenticate = async (email: string) => {

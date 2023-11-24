@@ -13,7 +13,8 @@ query Users($where: UserWhere, $options: UserOptions) {
      id
      companyName
      status
-     email  
+     email
+     userId  
     }
   }
 `
@@ -48,18 +49,18 @@ const AutoSelectVendor = ({ selected, setSelected }: any) => {
         const { data } = await getVendorFn({
             variables: {
                 "where": {
-                    "companyName_CONTAINS": query,
+                    "userId_CONTAINS": query,
                     "status": "APPROVED",
                     "user_type": "SERVICE_PROVIDER"
                 },
                 "options": {
-                    "limit": 3
+                    "limit": 4
                 }
             }
         })
 
         if (data?.users?.length) {
-            console.log(data.users, 'this is vendor data')
+
             setVendorData(data.users?.map((item: any) => item))
         }
     }
@@ -74,7 +75,7 @@ const AutoSelectVendor = ({ selected, setSelected }: any) => {
                     <div className="relative w-full cursor-default overflow-hidden rounded bg-white text-left border border-gray-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-teal-300 sm:text-sm">
                         <Combobox.Input
                             className="w-full border-none py-2 pl-3 pr-10 text-sm leading-5 text-gray-900 focus:ring-0"
-                            displayValue={(vendor: any) => vendor?.companyName}
+                            displayValue={(vendor: any) => vendor?.userId}
                             onChange={(event) => setQuery(event.target.value)}
                         />
                         <Combobox.Button className="absolute inset-y-0 right-0 flex items-center pr-2">
@@ -121,7 +122,7 @@ const AutoSelectVendor = ({ selected, setSelected }: any) => {
                                                     className={`block truncate ${selected ? 'font-medium' : 'font-normal'
                                                         }`}
                                                 >
-                                                    {vendor?.companyName || 'N/A'}
+                                                    {vendor?.userId || 'N/A'}
                                                 </span>
                                                 {selected ? (
                                                     <span

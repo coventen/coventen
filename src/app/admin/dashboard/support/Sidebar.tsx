@@ -57,7 +57,7 @@ const Sidebar = ({ data, setCurrentSupportTicket, setQuery }: { data: any, setCu
 
                                 }
                                 key={data.id}
-                                className="flex flex-row items-center hover:bg-gray-100 rounded-xl p-2 border-b"
+                                className={`${item?.isViewed ? 'bg-white' : 'bg-gray-200'}  flex flex-row items-center hover:bg-gray-100 rounded-xl p-2 border-b`}
                             >
 
                                 <div>

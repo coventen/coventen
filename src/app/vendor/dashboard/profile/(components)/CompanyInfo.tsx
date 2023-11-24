@@ -38,9 +38,7 @@ const CompanyInfo = ({ setUserInfo, userInfo, setCurrentTab, updateUser }: IProp
     const handleSubmit = async (e: any) => {
         e.preventDefault();
 
-        console.log(
-            'i am inside'
-        )
+
 
         const { companyName, companyEmail, companyPhone, otherPhone, linkedin, twitter, skypeId, aboutCompany, gst, panCardNo, street, country, state, city, otherState, otherCountry, otherCity, otherStreet } = e.target
 

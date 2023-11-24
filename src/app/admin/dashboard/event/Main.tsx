@@ -92,7 +92,6 @@ const Main = () => {
     const [deleteEventFn, deleteEventState] = useMutation(DELETE_EVENT, { client, })
     const [updateFn, updateState] = useMutation(UPDATE_EVENT, { client, })
 
-    console.log(selectedCategory)
 
     // initialize the query and mutations
 
@@ -126,7 +125,7 @@ const Main = () => {
 
 
     const updateEvent = async (input: any, id: string) => {
-        console.log(input, ' this is input')
+
         const { data } = await updateFn({
             variables: {
                 update: {

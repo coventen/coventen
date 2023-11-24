@@ -59,7 +59,7 @@ const GeneralInfo = ({ setUserInfo, userInfo, setCurrentTab, updateUser }: IProp
             <form onSubmit={handleSubmit} className='grid grid-cols-1 lg:grid-cols-3 gap-4'>
 
                 <div className="mb-5">
-                    <label className="block  text-gray-700 text-sm mb-1">
+                    <label className="capitalize block  text-gray-700 text-sm mb-1">
                         User Id
                     </label>
                     <input
@@ -70,7 +70,7 @@ const GeneralInfo = ({ setUserInfo, userInfo, setCurrentTab, updateUser }: IProp
                     />
                 </div>
                 <div className="mb-5">
-                    <label className="block  text-gray-700 text-sm mb-1">
+                    <label className="capitalize block  text-gray-700 text-sm mb-1">
                         Name
                     </label>
                     <input
@@ -81,7 +81,7 @@ const GeneralInfo = ({ setUserInfo, userInfo, setCurrentTab, updateUser }: IProp
                     />
                 </div>
                 <div className="mb-5">
-                    <label className="block  text-gray-700 text-sm mb-1">
+                    <label className="capitalize block  text-gray-700 text-sm mb-1">
                         Email
                     </label>
                     <input
@@ -96,7 +96,7 @@ const GeneralInfo = ({ setUserInfo, userInfo, setCurrentTab, updateUser }: IProp
                 </div>
 
                 <div className="mb-5">
-                    <label className="block  text-gray-700 text-sm mb-1">
+                    <label className="capitalize block  text-gray-700 text-sm mb-1">
                         Phone
                     </label>
                     <input
@@ -107,7 +107,7 @@ const GeneralInfo = ({ setUserInfo, userInfo, setCurrentTab, updateUser }: IProp
                     />
                 </div>
                 <div className="mb-5">
-                    <label className="block  text-gray-700 text-sm mb-1">
+                    <label className="capitalize block  text-gray-700 text-sm mb-1">
                         Title
                     </label>
                     <input
@@ -118,7 +118,7 @@ const GeneralInfo = ({ setUserInfo, userInfo, setCurrentTab, updateUser }: IProp
                     />
                 </div>
                 <div className="mb-5">
-                    <label className="block  text-gray-700 text-sm mb-1">
+                    <label className="capitalize block  text-gray-700 text-sm mb-1">
                         Department
                     </label>
                     <input
@@ -129,7 +129,7 @@ const GeneralInfo = ({ setUserInfo, userInfo, setCurrentTab, updateUser }: IProp
                     />
                 </div>
                 <div className="mb-5">
-                    <label className="block  text-gray-700 text-sm mb-1">
+                    <label className="capitalize block  text-gray-700 text-sm mb-1">
                         Education
                     </label>
                     <input
@@ -140,7 +140,7 @@ const GeneralInfo = ({ setUserInfo, userInfo, setCurrentTab, updateUser }: IProp
                     />
                 </div>
                 <div className="mb-5">
-                    <label className="block  text-gray-700 text-sm mb-1">
+                    <label className="capitalize block  text-gray-700 text-sm mb-1">
                         Experience
                     </label>
                     <input
@@ -151,7 +151,7 @@ const GeneralInfo = ({ setUserInfo, userInfo, setCurrentTab, updateUser }: IProp
                     />
                 </div>
                 <div className="mb-5">
-                    <label className="block  text-gray-700 text-sm mb-1">
+                    <label className="capitalize block  text-gray-700 text-sm mb-1">
                         specialty
                     </label>
                     <input
@@ -162,7 +162,7 @@ const GeneralInfo = ({ setUserInfo, userInfo, setCurrentTab, updateUser }: IProp
                     />
                 </div>
                 <div className="mb-5">
-                    <label className="block  text-gray-700 text-sm mb-1">
+                    <label className="capitalize block  text-gray-700 text-sm mb-1">
                         Interest
                     </label>
                     <input
@@ -176,7 +176,7 @@ const GeneralInfo = ({ setUserInfo, userInfo, setCurrentTab, updateUser }: IProp
 
 
                 <div className="mb-5 col-span-full">
-                    <label className="block  text-gray-700 text-sm mb-1">
+                    <label className="capitalize block  text-gray-700 text-sm mb-1">
                         Bio
                     </label>
                     <textarea

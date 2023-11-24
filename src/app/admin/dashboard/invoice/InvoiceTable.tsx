@@ -77,7 +77,7 @@ const InvoiceTable = ({ data, deleteInvoice, getInvoiceData, setRefetch }: ITabl
 
     if (updateInvoiceState?.loading) return <Loading />
 
-    console.log(data, 'this is data')
+
 
     return (
         <table className="w-full table-auto text-sm text-left">

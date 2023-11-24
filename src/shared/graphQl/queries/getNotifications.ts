@@ -1,7 +1,7 @@
 
 import Cookies from "js-cookie";
 
-const getNotifications = async (variables: any) => {
+const getNotifications : any= async (variables: any) => {
 
 
   const token = Cookies.get('conventenToken');

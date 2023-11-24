@@ -40,7 +40,7 @@ const AddressInfo = async ({ setUserInfo, userInfo, updateUser }: IProps) => {
 
 
 
-    console.log(userInfo, 'address info')
+
 
 
     return (

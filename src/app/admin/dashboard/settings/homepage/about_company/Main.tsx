@@ -198,9 +198,7 @@ const Main = () => {
             setData({ title, id, imageUrl, hasPoints, description })
 
         }
-        console.log(data?.hasPoints.map(async (item: any) => {
-            return item
-        }), 'data 000000000')
+
 
     }, [previousData])
 

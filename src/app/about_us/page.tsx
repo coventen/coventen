@@ -31,12 +31,7 @@ const aboutUsPageDetails = async () => {
 
 
 const page = async ({ params, searchParams }: any) => {
-
-
     const details = await aboutUsPageDetails()
-
-    console.log(details)
-
 
     return (
         <>

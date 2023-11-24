@@ -5,6 +5,7 @@ import Link from 'next/link';
 import React, { useState } from 'react';
 import { AiFillEye, AiTwotoneDelete } from 'react-icons/ai';
 import ViewModal from './ViewModal';
+import { useCounterData } from '../../CounterProvider';
 interface ITableItem {
     data: Invoice[]
     deleteInvoice: (id: any) => void
@@ -15,6 +16,14 @@ interface ITableItem {
 
 const InvoiceTable = ({ data, deleteInvoice, setIsOpen, setCurrentComplain }: ITableItem) => {
 
+    const counterData = useCounterData()
+
+    const handleClick = async (id: string, isViewed: boolean) => {
+        if (!isViewed) {
+            counterData?.handleUpdateView(id, "complain")
+            counterData?.complaintsRefetch()
+        }
+    }
 
     return (
         <table className="w-full table-auto text-sm text-left">
@@ -40,10 +49,10 @@ const InvoiceTable = ({ data, deleteInvoice, setIsOpen, setCurrentComplain }: IT
 
                 {
                     data && data.map((item, idx) => (
-                        <tr key={item?.id} className=''>
+                        <tr key={item?.id} className={item?.isViewed ? "bg-white" : ' bg-gray-200 '}>
                             <td className="pr-6 py-4 whitespace-nowrap">{idx + 1}</td>
                             <td className="pr-6 py-4 whitespace-nowrap">
-                                {item?.ticket}
+                                {`CIS/QN${item?.ticket}`}
                             </td>
                             <td className="pr-6 py-4 whitespace-nowrap uppercase">
                                 <Link target='_blank' href={`/admin/dashboard/users/${item?.hasClient?.userIs?.id}`}>
@@ -57,7 +66,9 @@ const InvoiceTable = ({ data, deleteInvoice, setIsOpen, setCurrentComplain }: IT
 
                                 <button onClick={() => {
                                     setIsOpen(true)
+                                    handleClick(item?.id, item?.isViewed as boolean)
                                     setCurrentComplain(item?.complain)
+
                                 }} className="py-1.5 px-3   bg-blue-200 text-blue-700 ">
                                     View Complain
                                 </button>

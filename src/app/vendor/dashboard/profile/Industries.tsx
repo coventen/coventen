@@ -42,7 +42,7 @@ const Industries = ({ data, refetch }: { data: string[], refetch: any }) => {
 
 
 
-        console.log()
+
 
 
         const { data: updateDta } = await updateUserFn({
@@ -66,7 +66,7 @@ const Industries = ({ data, refetch }: { data: string[], refetch: any }) => {
 
 
     const addIndustry = async (industry: string) => {
-        console.log('i am here')
+
 
         const { data: updateDta } = await updateUserFn({
             variables: {

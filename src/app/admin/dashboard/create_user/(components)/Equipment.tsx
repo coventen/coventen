@@ -89,27 +89,27 @@ const Equipment = ({ index, setEquipments, equipments }: IModuleFrom) => {
                     <input type="text" className="h-10 border border-gray-300 mt-1 rounded px-4 w-full " placeholder=""   {...register(`name${index}`)} />
                 </div>
                 <div className="">
-                    <label htmlFor="address">model</label>
+                    <label htmlFor="address">Model</label>
 
                     <input type="text" className="h-10 border border-gray-300 mt-1 rounded px-4 w-full " placeholder=""   {...register(`model${index}`)} />
                 </div>
                 <div className="">
-                    <label htmlFor="address">make</label>
+                    <label htmlFor="address">Make</label>
 
                     <input type="text" className="h-10 border border-gray-300 mt-1 rounded px-4 w-full " placeholder=""   {...register(`make${index}`)} />
                 </div>
                 <div className="">
-                    <label htmlFor="address">calibrationDetails</label>
+                    <label htmlFor="address">CalibrationDetails</label>
 
                     <input type="text" className="h-10 border border-gray-300 mt-1 rounded px-4 w-full " placeholder=""   {...register(`calibrationDetails${index}`)} />
                 </div>
                 <div className="">
-                    <label htmlFor="address">year Of Installation</label>
+                    <label htmlFor="address">Year Of Installation</label>
 
                     <input type="text" className="h-10 border border-gray-300 mt-1 rounded px-4 w-full " placeholder=""   {...register(`yearOfInstallation${index}`)} />
                 </div>
                 <div className="">
-                    <label htmlFor="address">warranty</label>
+                    <label htmlFor="address">Warranty</label>
 
                     <input type="text" className="h-10 border border-gray-300 mt-1 rounded px-4 w-full " placeholder=""   {...register(`warranty${index}`)} />
                 </div>

@@ -62,7 +62,7 @@ const RestrictAdminRoute = ({ children, accessibleNavItems, setAccessibleNavItem
         }
 
         else if (data?.users?.length) {
-            console.log(user?.email, data?.users[0]?.user_type)
+
             if (data?.users[0]?.user_type === "ADMIN") {
                 setLoading(false)
                 setAccessibleNavItems(navItems)
@@ -94,7 +94,7 @@ const RestrictAdminRoute = ({ children, accessibleNavItems, setAccessibleNavItem
                 return item.label.toLowerCase()
             }));
 
-            console.log(fieldsOptions)
+
 
             // filtering nav items
             const filteredNavItems = fieldsOptions?.filter((navItem: any) => {

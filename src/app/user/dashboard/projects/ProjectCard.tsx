@@ -52,7 +52,7 @@ const ProjectCard = ({ data, deleteProjectById, deleteModuleById }: { data: Proj
                                     <i className={`fas ${expandedIndex === index ? "fa-minus" : "fa-plus"}`}></i>
                                     <div className="flex items-center justify-between w-full  p-3 ">
                                         <div className='flex  flex-col space-y-3 w-80% xl:w-[70%]'>
-                                            <p className="text-sm lg:text-xl text-gray-700 font-semibold ">
+                                            <p className="text-sm lg:text-xl text-gray-700 font-semibold capitalize ">
                                                 {project?.title?.slice(0, 50)}
                                             </p>
                                             <p className='text-xs xl:text-sm text-dimText'>{project?.description?.slice(0, 300)}</p>

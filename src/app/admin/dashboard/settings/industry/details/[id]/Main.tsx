@@ -38,7 +38,6 @@ const Main = () => {
     // states
     const [descriptionEditorState, setDescriptionEditorState] = useState('');
 
-    console.log('descriptionEditorState', descriptionEditorState)
 
     const [IndustryData, setIndustryData] = React.useState({
         description: '',

@@ -15,12 +15,11 @@ const ServicesFrom = ({ index, data, setPreviousData, previousData }: IServiceFr
 
     const [serviceData, setServiceData] = React.useState<any>(data)
 
-    console.log(serviceData, ' this is service data')
+
 
     useEffect(() => {
         const updatedHasPurchase = [...previousData.hasPurchase];
         updatedHasPurchase[index] = serviceData;
-        console.log(updatedHasPurchase, ' this is updated has purchase')
 
         setPreviousData({
             ...previousData,

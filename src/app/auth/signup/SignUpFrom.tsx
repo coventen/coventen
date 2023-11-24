@@ -169,7 +169,7 @@ const SignUpFrom = ({ createUser, setLoading, setError, loading, error }: ISignU
 
                 <div>
                     <label className="font-medium">
-                        User type
+                        User Type
                     </label>
                     <div className="relative inline-flex w-full">
                         <select
@@ -193,7 +193,7 @@ const SignUpFrom = ({ createUser, setLoading, setError, loading, error }: ISignU
 
                         <div>
                             <label className="font-medium">
-                                User sub type
+                                User Sub Type
                             </label>
                             <div className="relative inline-flex w-full">
                                 <select

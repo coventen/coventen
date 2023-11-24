@@ -151,14 +151,19 @@ const Sidebar = ({
 
                                                             {
                                                                 item.label === "Estimation" && counterData?.invoiceCounter as number > 0 && <span className="relative inline-flex text-[9px] bg-red-500 text-white rounded-full py-0.5 px-1.5 ml-3">
-                                                                    {counterData?.invoiceCounter}0
+                                                                    {counterData?.invoiceCounter}
                                                                 </span>
                                                             }
                                                             {
                                                                 item.label === "Reports" && counterData?.invoiceCounter as number > 0 && <span className="relative inline-flex text-[9px] bg-red-500 text-white rounded-full py-0.5 px-1.5 ml-3">
-                                                                    {counterData?.moduleCounter}0
+                                                                    {counterData?.moduleCounter}
                                                                 </span>
                                                             }
+                                                            {/* {
+                                                                item.label === "Notifications" && counterData?.notificationCounter as number > 0 && <span className="relative inline-flex text-[9px] bg-red-500 text-white rounded-full py-0.5 px-1.5 ml-3">
+                                                                    {counterData?.notificationCounter}
+                                                                </span>
+                                                            } */}
 
                                                         </span>
                                                     </p>

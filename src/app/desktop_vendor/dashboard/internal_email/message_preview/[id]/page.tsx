@@ -55,7 +55,7 @@ const page = async ({ params, searchParams }: any) => {
     const { id } = params
     const details = await getMessageDetails(id)
 
-    console.log(details?.hasReply)
+
 
 
     return (

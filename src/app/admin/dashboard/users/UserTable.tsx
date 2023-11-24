@@ -71,24 +71,24 @@ const UserTable = ({ data, setIsModalOpen, setCurrentData, loading }: IUserTable
 
                 {
                     data && data.map((user, index) =>
-                        <tr key={user?.id} className='border-b border-gray-200'>
-                            <td className="px-5 py-5  bg-white text-xs dark:bg-darkBg dark:border-darkBorder">
+                        <tr key={user?.id} className={`${user?.isViewed ? "bg-white" : "bg-gray-200"} border-b border-gray-200`}>
+                            <td className="px-5 py-5   text-xs dark:bg-darkBg dark:border-darkBorder">
                                 <Link href={`/admin/dashboard/users/${user?.id}`} className=" whitespace-no-wrap">{user?.userId || 'N/A'}</Link>
                             </td>
-                            <td className="px-5 py-5  bg-white text-xs dark:bg-darkBg dark:border-darkBorder">
+                            <td className="px-5 py-5   text-xs dark:bg-darkBg dark:border-darkBorder">
                                 <p className=" whitespace-no-wrap lowercase">{user?.email}</p>
                             </td>
-                            <td className="px-5 py-5  bg-white text-xs dark:bg-darkBg dark:border-darkBorder">
+                            <td className="px-5 py-5   text-xs dark:bg-darkBg dark:border-darkBorder">
                                 <p className=" whitespace-no-wrap">
                                     {user?.user_type}
                                 </p>
                             </td>
-                            <td className="px-5 py-5  bg-white text-xs dark:bg-darkBg dark:border-darkBorder rounded-xl font-semibold">
+                            <td className="px-5 py-5   text-xs dark:bg-darkBg dark:border-darkBorder  font-semibold">
                                 <p className=" whitespace-no-wrap">
                                     Offline
                                 </p>
                             </td>
-                            <td className="px-5 py-5 cursor-pointer  bg-white text-xs space-x-3 dark:bg-darkBg dark:border-darkBorder rounded-xl font-semibold">
+                            <td className="px-5 py-5 cursor-pointer   text-xs space-x-3 dark:bg-darkBg dark:border-darkBorder  font-semibold">
                                 <button
                                     onClick={() => {
                                         setCurrentData(user)
@@ -103,7 +103,7 @@ const UserTable = ({ data, setIsModalOpen, setCurrentData, loading }: IUserTable
                                     <span className="relative font-bold text-[10px] uppercase">{user.status === "APPROVED" ? 'Approved' : 'Approve'}</span>
                                 </button>
                             </td>
-                            <td onClick={() => handleClick(user?.id, user?.isViewed as boolean)} className="px-5 py-5 cursor-pointer  bg-white text-xs space-x-3 dark:bg-darkBg dark:border-darkBorder rounded-xl font-semibold">
+                            <td onClick={() => handleClick(user?.id, user?.isViewed as boolean)} className="px-5 py-5 cursor-pointer   text-xs space-x-3 dark:bg-darkBg dark:border-darkBorder  font-semibold">
                                 <Link href={`/admin/dashboard/users/${user?.id}`} className='font-bold px-4 py-2 bg-primary text-white rounded-md text-[10px] '>
                                     View Details
                                 </Link>

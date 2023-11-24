@@ -8,8 +8,6 @@ export default function SliderOver({ open, setOpen, setSelectedFilter, selectedF
 
 
 
-    console.log('selectedFilter -------------------------------', selectedFilter)
-
     const SystemDefinedFilters = [
         {
             id: 1,

@@ -137,6 +137,9 @@ type ContextType = {
   supportCounter: number;
   supportRefetch: any;
   supportCountLoading: boolean;
+  complaintsRefetch: any;
+  complaintsCountLoading: boolean;
+
 
 
 }
@@ -216,6 +219,15 @@ const CounterProvider = ({ children }: AuthProviderProps) => {
       }
     }
   })
+  const { data: complaintsCountData, error: complaintsCountError, loading: complaintsCountLoading, refetch: complaintsRefetch } = useQuery(GET_INVOICE_COUNT, {
+    client,
+    variables: {
+      "where": {
+        "isViewed": false,
+        status: "COMPLAINED",
+      }
+    }
+  })
   const { data: supportCountData, error: supportCountError, loading: supportCountLoading, refetch: supportRefetch } = useQuery(GET_SUPPORT_COUNT, {
     client,
     variables: {
@@ -263,6 +275,9 @@ const CounterProvider = ({ children }: AuthProviderProps) => {
     } else if (type === "support") {
       await updateSupportView({ variables })
     }
+    if (type === "complain") {
+      await updateInvoiceView({ variables })
+    }
 
 
   }
@@ -289,17 +304,20 @@ const CounterProvider = ({ children }: AuthProviderProps) => {
     if (supportCountData?.supportTickets.length) {
       setSupportCounter(supportCountData.supportTickets.length)
     }
+    if (complaintsCountData?.invoices.length) {
+      setComplainCounter(complaintsCountData.invoices.length)
+    }
 
 
 
-  }, [emailCountData, projectCountData, leadCountData, newUserCountData, invoiceCountData, supportCountData])
+  }, [emailCountData, projectCountData, leadCountData, newUserCountData, invoiceCountData, supportCountData, complaintsCountData])
 
 
 
 
 
 
-  console.log(supportCounter, ' this is the support counter')
+
 
 
 
@@ -324,7 +342,10 @@ const CounterProvider = ({ children }: AuthProviderProps) => {
     handleUpdateView,
     supportCounter,
     supportRefetch,
-    supportCountLoading
+    supportCountLoading,
+    complaintsRefetch,
+    complaintsCountLoading,
+
 
 
 

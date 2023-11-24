@@ -180,7 +180,6 @@ const Main = () => {
     }
 
 
-    console.log(employeeList, 'from roles')
 
 
     if (employeeLoading || roleLoading || updateEmployeeState.loading || createRoleStatus.loading) return <Loading />

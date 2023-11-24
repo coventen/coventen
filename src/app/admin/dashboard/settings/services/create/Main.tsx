@@ -142,7 +142,7 @@ const Main = () => {
     }, [data?.servicePages?.length])
 
 
-    console.log(title, ' this is title')
+
 
 
 

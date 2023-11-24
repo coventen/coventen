@@ -86,7 +86,7 @@ const Main = () => {
 
         const taxRate = parseInt(invoiceData?.taxRate)
         const { totalPriceWithTax, totalPrice } = calculateTotalPrice(invoiceData.hasPurchase, taxRate)
-        console.log(invoiceData, ' this is invoice data')
+
         const { data } = await updateInvoiceFn({
             variables: {
                 "where": {
@@ -98,6 +98,7 @@ const Main = () => {
                     "totalPrice": totalPrice,
                     "priceWithTax": totalPriceWithTax,
                     "status": "SENT",
+                    isViewedByClient: false,
                     "hasPurchase": invoiceData.hasPurchase.map((item: any) => {
                         return {
                             "update": {

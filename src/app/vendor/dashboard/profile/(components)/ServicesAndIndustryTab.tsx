@@ -34,7 +34,7 @@ const ServicesAndIndustryTab = ({ setCurrentTab, userInfo }: any) => {
     })
 
 
-    console.log(data, '8888888888888888888888888')
+
 
 
 

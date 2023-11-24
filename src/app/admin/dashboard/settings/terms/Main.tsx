@@ -106,7 +106,6 @@ const Main = () => {
         }
     }
 
-    console.log(TermsData);
 
 
     if (loading || addNewTermsState.loading || deleteTermsState.loading) return <Loading />

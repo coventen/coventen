@@ -96,20 +96,7 @@ const Main = () => {
 
 
 
-    console.log(selectedCategory.map((item: any) => {
-        return {
-            "connect": [
-                {
-                    "where": {
-                        "node": {
-                            "id": item.id
-                        }
-                    },
-                    "overwrite": true
-                }
-            ]
-        }
-    }))
+
 
 
 

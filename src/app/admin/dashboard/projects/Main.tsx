@@ -216,7 +216,7 @@ const Main = () => {
                         :
                         ProjectData && ProjectData.map((project: any, index: number) =>
                             <>
-                                <div onClick={() => handleClick(project?.id, project?.isViewed as boolean)} className="transition-all duration-500 my-2 hover:bg-white  text-gray-600 ">
+                                <div onClick={() => handleClick(project?.id, project?.isViewed as boolean)} className={`${project?.isViewed ? 'bg-white' : 'bg-gray-200'} transition-all duration-500 my-2  text-gray-600 `}>
                                     <>
                                         <div className="transition-all duration-500 my-2 hover:bg-white border text-gray-600 border-gray-200 ">
                                             <>
@@ -274,11 +274,11 @@ const Main = () => {
                                                         <div className="">
                                                             <div className="pb-10 relative">
 
-                                                                <h5 className="text-desktopText font-semibold text-md lg:text-lg mb-1">
-                                                                    Client: {project?.companyName}
+                                                                <h5 className="text-desktopText font-semibold text-md lg:text-lg capitalize mb-1">
+                                                                    Client Company Name: {project?.companyName}
                                                                 </h5>
                                                                 <Link href={`/admin/dashboard/users/${project?.clientOrdered?.userIs?.id}`} className="text-desktopText font-semibold lg:text-lg mb-3">
-                                                                    UserId: {project?.clientOrdered?.userIs?.userId || 'N/A'}
+                                                                    User Id: {project?.clientOrdered?.userIs?.userId || 'N/A'}
                                                                 </Link>
                                                                 <h5 className="text-desktopText font-semibold text-md lg:text-lg mb-1">
                                                                     Project name: {project?.title}

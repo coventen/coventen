@@ -70,7 +70,6 @@ const page = async ({ params, searchParams }: any) => {
     const { id } = params
     const details = await getMessageDetails(id)
 
-    console.log(details?.forVendor[0]?.userIs?.userId, 'this is the vendor id 000000000000')
 
     return (
         <section className="max-w-2xl px-6 py-8 mx-auto bg-white dark:bg-gray-900">

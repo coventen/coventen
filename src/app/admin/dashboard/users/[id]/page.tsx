@@ -2,6 +2,7 @@ import { User } from '@/gql/graphql';
 import Cookies from 'js-cookie';
 import React from 'react';
 import EquipmentTable from './EquipmentTable';
+import Link from 'next/link';
 
 
 
@@ -52,6 +53,7 @@ const getUser = async (id: string) => {
                   isVendor {
                     industry
                     service
+                    equipmentDocs
                     hasManyEquipment {
                         name
                         model
@@ -99,7 +101,7 @@ const UserInfo = async ({ params }: { params: any }) => {
 
     const userData: User = await getUser(params?.id || 'no id')
 
-    console.log(userData?.isVendor, '777')
+
 
     return (
         <section className='bg-white p-2 lg:p-8'>
@@ -114,7 +116,10 @@ const UserInfo = async ({ params }: { params: any }) => {
 
                 <div className='grid grid-cols-3 gap-3 text-sm'>
                     <p>
-                        Account Type : {userData?.user_type === "SERVICE_PROVIDER" ? "Vendor" : "Client"}
+                        Account Type : {userData?.user_type === "SERVICE_PROVIDER" ? "Service Provider" : "Consumer"}
+                    </p>
+                    <p>
+                        User Id : {userData?.userId || 'N/A'}
                     </p>
                     <p>
                         Name : {userData?.name || 'N/A'}
@@ -254,6 +259,70 @@ const UserInfo = async ({ params }: { params: any }) => {
                         Country : {userData?.hasSecondaryaddress?.Country || 'N/A'}
                     </p>
 
+                </div>
+            </div>
+
+            <div className="space-y-4 text-gray-800 mt-2 relative top-10 ">
+                <div className="my-2 space-y-1">
+                    <h2 className="text-xl font-semibold sm:text-2xl">Documents</h2>
+                </div>
+
+                <div className='mt-3 grid grid-cols-2 lg:grid-cols-5 gap-2 lg:gap-6'>
+                    {
+                        userData?.hasDocuments ?
+                            userData?.hasDocuments?.hasFiles?.links?.map((item: any, index: number) =>
+                                <Link target='_blank' href={item || '#'}
+                                    key={index}
+                                    style={{
+                                        backgroundImage: `url(${'/assets/file.svg'})`,
+                                        backgroundRepeat: 'no-repeat',
+                                        backgroundPosition: 'center',
+
+                                    }}
+                                    className=' h-28 w-24 text-sm flex items-center justify-center text-gray-800 font-semibold'>
+                                    document-{index + 1}
+                                </Link>
+
+                            )
+                            :
+
+                            <p className='mt-3 text-xs col-span-full'>No Document Found</p>
+                    }
+
+
+                </div>
+                <div className='relative bg-white mb-20'>
+
+                    <div className="my-2 space-y-1 ">
+                        <h2 className="text-xl font-semibold sm:text-2xl">Attachment</h2>
+                    </div>
+
+
+
+                    <div className='mt-3 grid grid-cols-2 lg:grid-cols-5 gap-2 lg:gap-6'>
+                        {
+                            userData?.isVendor ?
+                                userData?.isVendor?.equipmentDocs?.map((item: any, index: number) =>
+                                    <Link target='_blank' href={item || '#'}
+                                        key={index}
+                                        style={{
+                                            backgroundImage: `url(${'/assets/file.svg'})`,
+                                            backgroundRepeat: 'no-repeat',
+                                            backgroundPosition: 'center',
+
+                                        }}
+                                        className=' h-28 w-24 text-sm flex items-center justify-center text-gray-800 font-semibold'>
+                                        document-{index + 1}
+                                    </Link>
+
+                                )
+                                :
+
+                                <p className='mt-3 text-xs col-span-full'>No Document Found</p>
+                        }
+
+
+                    </div>
                 </div>
             </div>
 

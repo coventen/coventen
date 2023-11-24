@@ -22,7 +22,6 @@ const CheckNotification = ({ setNewNotificationCount }: Props) => {
     const getClinetNotification = async () => {
         const variables = {
             "where": {
-                "notificationFor_IN": ["GENERAL"],
                 "createdAt_GTE": fiveDaysAgo(),
                 "isViewed": false,
                 "OR": [
@@ -40,7 +39,7 @@ const CheckNotification = ({ setNewNotificationCount }: Props) => {
                 ]
             },
             "options": {
-                limit: 3,
+                limit: 8,
                 "sort": [
                     {
                         "createdAt": "DESC"

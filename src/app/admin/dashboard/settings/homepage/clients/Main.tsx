@@ -98,7 +98,7 @@ const Main = () => {
   //mutation
   const [updateHomePageFn, { loading, error }] = useMutation(UPDATE_client, { client })
 
-  console.log(clientData, ' client data')
+
 
 
 

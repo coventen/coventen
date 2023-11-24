@@ -56,7 +56,7 @@ const SearchInput = () => {
 
     useEffect(() => {
         searchData()
-        console.log('searching')
+
     }, [selectedValue, searchText])
 
 

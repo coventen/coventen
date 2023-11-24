@@ -132,10 +132,10 @@ const Main = () => {
 
 
     const handleClick = async (id: string, isViewed: boolean) => {
-        console.log('outside', isViewed)
+
 
         if (!isViewed) {
-            console.log('inside')
+
             await counterData?.handleUpdateView(id, "email")
             counterData?.emailRefetch()
         }
@@ -185,7 +185,7 @@ const Main = () => {
                                             onClick={() => handleClick(item?.id, item?.isViewed)}
                                             key={item?.id} >
                                             <div
-                                                className="flex items-center border-b hover:bg-gray-200 px-2 py-1 w-full"
+                                                className={`${!item.isViewed ? "bg-gray-200" : 'bg-white'} flex items-center border-b hover:bg-gray-200 px-2 py-1 w-full`}
                                             >
 
                                                 <div className=" flex items-center justify-between p-1 my-1 cursor-pointer  w-full">

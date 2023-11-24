@@ -50,7 +50,7 @@ const DataFrom = ({ IndustryData, setIndustryData, descriptionEditorState, setDe
             setImageUploading(false)
             const previousImage = IndustryData?.image
             deleteImage(previousImage)
-            console.log(imageLink, ' this is image link')
+
             const inputData = {
                 title: IndustryData?.title,
                 image: imageLink,

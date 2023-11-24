@@ -30,6 +30,13 @@ query Invoices($where: InvoiceWhere) {
     }
   }
 `
+const GET_NOTIFICATION_COUNT = `
+query Notifications($where: NotificationWhere, $options: NotificationOptions) {
+  notifications(where: $where, options: $options) {
+    id
+  }
+}
+`
 
 
 
@@ -55,7 +62,15 @@ mutation UpdateModuleTickets($where: ModuleTicketWhere, $update: ModuleTicketUpd
   }
 }
 `
-
+const UPDATE_NOTIFICATION = `
+mutation UpdateNotifications($where: NotificationWhere, $update: NotificationUpdateInput) {
+    updateNotifications(where: $where, update: $update) {
+      notifications {
+        id
+      }
+    }
+  }
+  `
 
 
 
@@ -71,6 +86,9 @@ type ContextType = {
   invoiceCountLoading: boolean,
   moduleRefetch: any,
   moduleCountLoading: boolean,
+  notificationCounter: number,
+  notificationRefetch: any,
+  notificationCountLoading: boolean,
 
 
 }
@@ -84,6 +102,7 @@ const CounterProvider = ({ children }: AuthProviderProps) => {
   const [emailCounter, setEmailCounter] = useState(0);
   const [invoiceCounter, setInvoiceCounter] = useState(0);
   const [moduleCounter, setModuleCounter] = useState(0);
+  const [notificationCounter, setNotificationCounter] = useState(0);
 
 
 
@@ -134,6 +153,29 @@ const CounterProvider = ({ children }: AuthProviderProps) => {
     }
   })
 
+  const { data: notificationCountData, error: notificationError, loading: notificationCountLoading, refetch: notificationRefetch } = useQuery(GET_NOTIFICATION_COUNT, {
+    client,
+    variables: {
+
+      "where": {
+        "isViewed": false,
+        "OR": [
+          {
+            "notificationFor": "CLIENT",
+            "clientHas": {
+              "userIs": {
+                "email": user?.email || 'no email'
+              }
+            }
+          },
+          {
+            "notificationFor": "GENERAL",
+          },
+        ]
+      }
+    }
+  })
+
 
 
 
@@ -142,6 +184,7 @@ const CounterProvider = ({ children }: AuthProviderProps) => {
 
   const [updateInvoiceView] = useMutation(UPDATE_INVOICE_VIEW, { client })
   const [updateModuleView] = useMutation(UPDATE_MODULE, { client })
+  const [updateNotificationView] = useMutation(UPDATE_NOTIFICATION, { client })
 
 
 
@@ -160,9 +203,26 @@ const CounterProvider = ({ children }: AuthProviderProps) => {
 
     if (type === "Estimation") {
       await updateInvoiceView({ variables })
-    } else if (type === "Module") {
+    }
+    if (type === "Module") {
       await updateModuleView({ variables })
     }
+
+    if (type === "Notification") {
+
+      const variables = {
+        where: {
+          id
+        },
+        update: {
+          isViewed: true
+        }
+      }
+
+      await updateNotificationView({ variables })
+    }
+
+
 
 
   }
@@ -187,14 +247,18 @@ const CounterProvider = ({ children }: AuthProviderProps) => {
       setModuleCounter(count)
     }
 
+    if (notificationCountData?.notifications.length) {
+      setNotificationCounter(notificationCountData?.notifications?.length)
+    }
 
 
-  }, [moduleCountData, invoiceCountData])
+
+  }, [moduleCountData, invoiceCountData, notificationCountData])
 
 
 
 
-  console.log("invoiceCountData", invoiceCountData, "moduleCountData", moduleCountData)
+
 
 
 
@@ -211,6 +275,9 @@ const CounterProvider = ({ children }: AuthProviderProps) => {
     invoiceCountLoading,
     moduleRefetch,
     moduleCountLoading,
+    notificationCounter,
+    notificationRefetch,
+    notificationCountLoading,
 
 
 

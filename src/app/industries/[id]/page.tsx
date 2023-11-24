@@ -40,7 +40,7 @@ const page = async ({ params, searchParams }: any) => {
 
     const details = await subServiceDetails(params.id || 'no slug')
 
-    console.log(params.id)
+
 
 
     return (

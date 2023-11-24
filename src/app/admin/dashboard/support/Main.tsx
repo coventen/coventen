@@ -20,6 +20,7 @@ query SupportTickets($options: SupportTicketOptions, $where: SupportTicketWhere)
   supportTickets(options: $options, where: $where) {
       id
       ticket
+      isViewed
     }
   }
 `

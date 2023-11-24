@@ -27,7 +27,6 @@ const fieldsOptions: Option[] = controlledNavItems.flatMap(section => section.li
     }
 }));
 
-console.log(fieldsOptions)
 
 // component
 const CreateRoleModal: React.FC<ModalProps> = ({ openModal, setOpenModal, createRole }) => {

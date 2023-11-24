@@ -66,34 +66,34 @@ const LeadsTable = ({ data, setIsModalOpen, setCurrentLead, currentPage, pageLim
 
                 {
                     data && data.map((lead, index) =>
-                        <tr key={lead?.id} className='border-b border-gray-200'>
+                        <tr key={lead?.id} className={`  ${lead?.isViewed ? " bg-white" : 'bg-gray-200 '}   border-b border-gray-200`}>
 
-                            <td className="px-5 py-5  bg-white text-xs dark:bg-darkBg dark:border-darkBorder">
+                            <td className="px-5 py-5   text-xs dark:bg-darkBg dark:border-darkBorder">
                                 <p className=" whitespace-no-wrap">L-{currentPage > 1 ? index + 1 + (pageLimit * currentPage) : index + 1}</p>
                             </td>
-                            <td className="px-5 py-5  bg-white text-xs dark:bg-darkBg dark:border-darkBorder">
+                            <td className="px-5 py-5   text-xs dark:bg-darkBg dark:border-darkBorder">
                                 <p className=" whitespace-no-wrap">{lead?.name}</p>
                             </td>
-                            <td className="px-5 py-5  bg-white text-xs dark:bg-darkBg dark:border-darkBorder">
+                            <td className="px-5 py-5   text-xs dark:bg-darkBg dark:border-darkBorder">
                                 <p className=" whitespace-no-wrap">{lead?.company?.slice(0, 16)}..</p>
                             </td>
-                            <td className="px-5 py-5  bg-white text-xs dark:bg-darkBg dark:border-darkBorder">
+                            <td className="px-5 py-5   text-xs dark:bg-darkBg dark:border-darkBorder">
                                 <p className=" whitespace-no-wrap lowercase">{lead?.email}</p>
                             </td>
-                            <td className="px-5 py-5  bg-white text-xs dark:bg-darkBg dark:border-darkBorder">
+                            <td className="px-5 py-5   text-xs dark:bg-darkBg dark:border-darkBorder">
                                 <p className=" whitespace-no-wrap lowercase">{lead?.phone}</p>
                             </td>
-                            <td className="px-5 py-5  bg-white text-xs dark:bg-darkBg dark:border-darkBorder">
+                            <td className="px-5 py-5   text-xs dark:bg-darkBg dark:border-darkBorder">
                                 <p className=" whitespace-no-wrap">
                                     {lead?.leadSource || "N/A"}
                                 </p>
                             </td>
-                            <td className="px-5 py-5  bg-white text-xs dark:bg-darkBg dark:border-darkBorder">
+                            <td className="px-5 py-5   text-xs dark:bg-darkBg dark:border-darkBorder">
                                 <p className=" whitespace-no-wrap">
                                     {lead?.leadOwner || "N/A"}
                                 </p>
                             </td>
-                            <td className="px-5 py-5  bg-white text-xs dark:bg-darkBg dark:border-darkBorder">
+                            <td className="px-5 py-5   text-xs dark:bg-darkBg dark:border-darkBorder">
                                 <p className=" whitespace-no-wrap">
                                     {lead?.hasPrimaryaddress?.zipCode || "N/A"}
                                 </p>

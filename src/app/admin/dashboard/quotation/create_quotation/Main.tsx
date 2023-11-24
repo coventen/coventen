@@ -82,7 +82,7 @@ const Main = () => {
 
     // initializing invoice creation function
     const createInvoice = async (invoiceData: any, purchases: any, company: any, terms: string) => {
-        console.log(terms, ' this is id')
+
         const taxRate = parseInt(invoiceData?.taxRate)
         const { totalPriceWithTax, totalPrice } = calculateTotalPrice(purchases, taxRate)
         const ticketId = await generateModuleTicket()

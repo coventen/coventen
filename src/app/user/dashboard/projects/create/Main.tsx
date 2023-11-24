@@ -317,15 +317,13 @@ const Main = () => {
                                     </div>
                                     <div className="col-span-full">
                                         <label htmlFor="city">Type</label>
-                                        <select id="city" className=" border border-gray-300 mt-1 rounded px-4 w-full " placeholder="" {...register("type")} >
-                                            <option >Select</option>
-                                            <option value="Service">Service</option>
-                                            <option value="Product">Product
-                                            </option>
-                                            <option value="Solution">Solution</option>
-                                            <option value="Learn">Learn</option>
-                                            <option value="Events">Events
-                                            </option>
+                                        <select className="border border-gray-300 mt-1 rounded px-4 w-full" placeholder="" {...register("type")}>
+                                            <option value="SELECT">SELECT</option>
+                                            <option value="SERVICE">SERVICE</option>
+                                            <option value="PRODUCT">PRODUCT</option>
+                                            <option value="SOLUTION">SOLUTION</option>
+                                            <option value="LEARN">LEARN</option>
+                                            <option value="EVENTS">EVENTS</option>
                                         </select>
                                     </div>
                                     <div className="col-span-full">
