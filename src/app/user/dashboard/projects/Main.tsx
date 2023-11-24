@@ -18,6 +18,8 @@ query Query($where: ProjectWhere, $options: ProjectOptions) {
         description
         createdAt
         status
+        priority
+        type
         projectticketFor {
          projectTicket
     }

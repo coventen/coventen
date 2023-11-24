@@ -138,6 +138,12 @@ const UserInfo = async ({ params }: { params: any }) => {
                         Eduction: {userData?.education || 'N/A'}
                     </p>
                     <p>
+                        Experience: {userData?.experience || 'N/A'}
+                    </p>
+                    <p>
+                        Specialty: {userData?.specialty || 'N/A'}
+                    </p>
+                    <p>
                         Department: {userData?.department || 'N/A'}
                     </p>
                     <p>

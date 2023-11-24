@@ -100,10 +100,10 @@ const page = async ({ params, searchParams }: any) => {
                 <div className="text-white">
                     <h2 className='text-4xl lg:text-5xl font-bold'>Service Detail</h2>
                     <ul className="flex items-center text-xs lg:text-base justify-center space-x-3">
-                        <li><Link href="/">home</Link></li>
+                        <li><Link href="/">HOME</Link></li>
                         <li>&#62;</li>
 
-                        <Link href={`/services/${details?.slug}`} >{details?.title}</Link>
+                        <Link href={`/services/${details?.slug}`} className='uppercase' >{details?.title}</Link>
                     </ul>
                 </div>
             </section>
@@ -217,7 +217,7 @@ const page = async ({ params, searchParams }: any) => {
                             <div className="w-full hidden lg:block ">
                                 <img src={details?.thumbnailUrl} className='w-full h-[450px]' alt="service image " />
                             </div>
-                            <h3 className='text-3xl capitalize py-5 lg:text-5xl font-semibold'>{details?.title}</h3>
+                            <h3 className='text-3xl uppercase py-5 lg:text-5xl font-semibold'>{details?.title}</h3>
                             <div>
                                 <Content content={JSON.parse(details?.pageContent)} />
                             </div>

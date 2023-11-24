@@ -153,7 +153,7 @@ const Main = () => {
                                             <div className="flex items-center">
 
                                                 <div className="">
-                                                    <p className="text-gray-700 font-bold  whitespace-nowrap ">
+                                                    <p className="text-gray-700 font-bold uppercase whitespace-nowrap ">
                                                         {item?.title?.slice(0, 30)}
                                                     </p>
                                                 </div>

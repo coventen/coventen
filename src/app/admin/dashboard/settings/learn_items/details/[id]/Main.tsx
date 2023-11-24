@@ -59,6 +59,9 @@ const Main = () => {
         endDate: '',
         rating: '',
         courseFor: '',
+        accredited: '',
+        certification: '',
+        duration: '',
 
     })
 
@@ -79,7 +82,7 @@ const Main = () => {
     // // action on change
     useEffect(() => {
         if (previoustermsData?.learnItems?.length) {
-            const { title, description, url, rating, imageUrl, courseFor, mode, seats, price, credit, startDate, endDate } = previoustermsData.learnItems[0]
+            const { title, description, url, rating, imageUrl, courseFor, mode, seats, price, credit, startDate, endDate, accredited, certification, duration } = previoustermsData.learnItems[0]
 
             setCurrentData({
                 title,
@@ -93,7 +96,10 @@ const Main = () => {
                 startDate,
                 endDate,
                 rating,
-                courseFor
+                courseFor,
+                accredited,
+                certification,
+                duration
             })
         }
 
@@ -136,6 +142,9 @@ const Main = () => {
                     "endDate": currentData.endDate,
                     rating: currentData.rating,
                     courseFor: currentData.courseFor,
+                    accredited: currentData.accredited,
+                    certification: currentData.certification,
+                    duration: currentData.duration,
                     "createdAt": new Date().toISOString()
                 }
             }

@@ -15,7 +15,7 @@ const EquipmentTable = ({ data }: any) => {
                                     <th scope="col" className="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">Name</th>
                                     <th scope="col" className="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">Model</th>
                                     <th scope="col" className="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">Make</th>
-                                    <th scope="col" className="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">CalibrationDetails</th>
+                                    <th scope="col" className="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">Calibration Details</th>
                                     <th scope="col" className="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">Warranty</th>
                                     <th scope="col" className="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">Year Of Installation</th>
                                 </tr>

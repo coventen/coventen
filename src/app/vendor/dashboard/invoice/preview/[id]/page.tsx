@@ -8,7 +8,7 @@ import { usePDF } from 'react-to-pdf';
 
 
 const InvoicePreview = () => {
-    const [invoiceData, setInvoiceData] = React.useState<Invoice | null>(null)
+    const [invoiceData, setInvoiceData] = React.useState<any | null>(null)
 
     const { toPDF, targetRef } = usePDF({ filename: 'page.pdf' });
 
@@ -46,8 +46,8 @@ const InvoicePreview = () => {
                                         <>
                                             <div>
 
-                                                <div className='mt-7'>
-                                                    <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-200 capitalize">{invoiceData?.vendorCreated?.userIs?.companyName} </h3>
+                                                <div className='mt-4'>
+                                                    <h3 className="text-3xl font-semibold text-gray-800 dark:text-gray-200 capitalize">{invoiceData?.vendorCreated?.userIs?.companyName} </h3>
                                                     <h3 className="text-sm  text-gray-600 dark:text-gray-200">{invoiceData?.vendorCreated?.userIs?.companyEmail} </h3>
                                                     <h3 className="text-sm  text-gray-600 dark:text-gray-200">GST Number: {invoiceData?.vendorCreated?.userIs?.gstNumber} </h3>
                                                     <address className="mt-1 text-sm not-italic text-gray-500">
@@ -84,7 +84,7 @@ const InvoicePreview = () => {
                                 {/* <!-- Col --> */}
 
                                 <div className="text-right">
-                                    <h2 className="text-2xl md:text-3xl font-semibold text-gray-800 dark:text-gray-200">Invoice</h2>
+                                    <h2 className="text-2xl md:text-3xl font-semibold text-gray-800 dark:text-gray-200">Quotation</h2>
                                     <span className="mt-1 block text-gray-500">#{invoiceData?.ticket}</span>
 
 
@@ -96,9 +96,9 @@ const InvoicePreview = () => {
                             {/* <!-- Grid --> */}
                             <div className="mt-8 grid sm:grid-cols-2 gap-3">
                                 <div className='mb-10'>
-                                    <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-200">Invoice For:</h3>
+                                    <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-200">Quotation For:</h3>
                                     <div className=''>
-                                        <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-200">Coveten Industrial Solutions </h3>
+                                        <h3 className=" font-semibold text-gray-800 dark:text-gray-200">Coveten Industrial Solutions </h3>
                                         <h3 className="text-sm  text-gray-600 dark:text-gray-200">An unit of N Square Corporation </h3>
                                         <address className="mt-1 text-sm not-italic text-gray-500">
                                             #504, 2nd Phase, 6th Stage, BTM Layout, Off Bannerghatta road<br />
@@ -139,6 +139,7 @@ const InvoicePreview = () => {
                             <div className='space-y-3 '>
                                 <p className='font-semibold'>Place Of Supply: <span className='text-dimText font-normal'>{invoiceData?.placeOfSupply}</span></p>
                                 <p className='font-semibold'>HSN/SAC: <span className='text-dimText font-normal'>{invoiceData?.hsn}</span></p>
+                                <p className='font-semibold'>Type: <span className='text-dimText font-normal'>{invoiceData?.type}</span></p>
                                 <p className='font-semibold'>Subject: <span className='text-dimText font-normal'>{invoiceData?.subject}</span></p>
                             </div>
 
@@ -160,7 +161,7 @@ const InvoicePreview = () => {
 
 
                                         {
-                                            invoiceData?.hasPurchase?.map((service) =>
+                                            invoiceData?.hasPurchase?.map((service: any) =>
                                                 <div className="grid grid-cols-3 " key={service?.id}>
                                                     <div >
                                                         <p className="font-medium text-xs lg:text-base text-gray-800 dark:text-gray-200">{service?.itemName}</p>

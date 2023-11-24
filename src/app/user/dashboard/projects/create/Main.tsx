@@ -67,6 +67,7 @@ const Main = () => {
     const [selectedCompany, setSelectCompany] = React.useState(null);
     const [modules, setModules] = React.useState<any[]>([]);
     const [uploading, setUploading] = React.useState(false);
+    const [type, setType] = React.useState("SERVICE")
     const [userInfo, setUserInfo] = React.useState({
 
         address: '',
@@ -76,7 +77,6 @@ const Main = () => {
         city: '',
         state: '',
         priority: '',
-        type: '',
     })
 
 
@@ -127,7 +127,7 @@ const Main = () => {
     //handle project creation 
     const createProject = async (projectData: IProjectInput) => {
         setUploading(true)
-        const { projectDescription, projectName, priority, type } = projectData
+        const { projectDescription, projectName, priority } = projectData
         const projectId = await generateProjectTicket()
         setUploading(false)
 
@@ -204,7 +204,7 @@ const Main = () => {
     const userData = data?.users[0]
     useEffect(() => {
         if (userData) {
-            const { address, companyName, gstNumber, zip, city, state, type, priority } = userData
+            const { address, companyName, gstNumber, zip, city, state, priority } = userData
             setUserInfo({
                 address,
                 companyName,
@@ -212,7 +212,6 @@ const Main = () => {
                 zip,
                 city,
                 state,
-                type,
                 priority
             })
         }
@@ -317,7 +316,10 @@ const Main = () => {
                                     </div>
                                     <div className="col-span-full">
                                         <label htmlFor="city">Type</label>
-                                        <select className="border border-gray-300 mt-1 rounded px-4 w-full" placeholder="" {...register("type")}>
+                                        <select
+                                            defaultValue={type}
+                                            onChange={(e) => setType(e.target.value)}
+                                            className="border border-gray-300 mt-1 rounded px-4 w-full" placeholder="" >
                                             <option value="SELECT">SELECT</option>
                                             <option value="SERVICE">SERVICE</option>
                                             <option value="PRODUCT">PRODUCT</option>
@@ -380,7 +382,7 @@ const Main = () => {
                                                 {
                                                     [...Array(moduleCount)].map((_, i) =>
                                                         <div key={i} className='grid grid-cols-1 gap-4 max-w-2xl'>
-                                                            <ModuleFrom index={i + 1} setModules={setModules} modules={modules} />
+                                                            <ModuleFrom index={i + 1} setModules={setModules} modules={modules} type={type} />
                                                         </div>
 
                                                     )

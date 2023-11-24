@@ -17,7 +17,7 @@ const Solution = ({ solutionData }: SolutionPage) => {
 
 
     useEffect(() => {
-        setCurrentSolution(solutionData[0]?.name)
+        setCurrentSolution(solutionData[0]?.name || '')
     }, [solutionData?.length])
 
 

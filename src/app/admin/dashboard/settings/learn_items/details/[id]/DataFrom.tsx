@@ -168,6 +168,53 @@ const DataFrom = ({ currentData, setCurrentData, updateItem }: IAddProductProps)
                                 className="mt-2 w-full block  placeholder-gray-400/70 rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-gray-700 focus:primary focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:primary/10"
                             />
                         </div>
+
+
+                        <div className="p-1  col-span-2">
+                            <label htmlFor="title" className="block text-gray-700 text-sm mb-1">
+                                Duration
+                            </label>
+                            <select
+                                defaultValue={currentData?.duration}
+                                onChange={(e) => setCurrentData({ ...currentData, duration: e.target.value })}
+                                className="mt-2 w-full block placeholder-gray-400/70 rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-gray-700 focus:primary focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:primary/10"
+                            >
+                                <option value="">Select</option>
+                                <option value="short-term">Short Term Course</option>
+                                <option value="long-term">Long Term Course</option>
+                            </select>
+                        </div>
+
+                        <div className="p-1 col-span-2">
+                            <label htmlFor="title" className="block text-gray-700 text-sm mb-1">
+                                Certification
+                            </label>
+                            <select
+                                defaultValue={currentData?.certification}
+                                onChange={(e) => setCurrentData({ ...currentData, certification: e.target.value })}
+                                className="mt-2 w-full block placeholder-gray-400/70 rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-gray-700 focus:primary focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:primary/10"
+                            >
+                                <option value="">Select</option>
+                                <option value="certificate">Certificate Course</option>
+                                <option value="non-certificate">Non Certificate Course</option>
+                            </select>
+                        </div>
+
+                        <div className="p-1 col-span-2">
+                            <label htmlFor="title" className="block text-gray-700 text-sm mb-1">
+                                Accredited
+                            </label>
+                            <select
+                                defaultValue={currentData?.accredited}
+                                onChange={(e) => setCurrentData({ ...currentData, accredited: e.target.value })}
+                                className="mt-2 w-full block placeholder-gray-400/70 rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-gray-700 focus:primary focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:primary/10"
+                            >
+                                <option value="">Select</option>
+                                <option value="national-accredited">National Accredited</option>
+                                <option value="internationally-accredited">Internationally Accredited</option>
+                            </select>
+                        </div>
+
                         <div className=" p-1  col-span-2">
                             <label htmlFor="title" className="block  text-gray-700 text-sm mb-1">
                                 Course For

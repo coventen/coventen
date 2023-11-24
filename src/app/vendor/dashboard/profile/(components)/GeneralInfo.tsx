@@ -152,7 +152,7 @@ const GeneralInfo = ({ setUserInfo, userInfo, setCurrentTab, updateUser }: IProp
                 </div>
                 <div className="mb-5">
                     <label className="block  text-gray-700 text-sm mb-1">
-                        specialty
+                        Specialty
                     </label>
                     <input
                         defaultValue={userInfo?.specialty}

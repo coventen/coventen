@@ -138,25 +138,25 @@ const EquipmentModal = ({ isModalOpen, setIsModalOpen, getUser }: any) => {
                                             type="text" className="h-10 border border-gray-300 mt-1 rounded px-4 w-full " name='name' placeholder="" />
                                     </div>
                                     <div className="">
-                                        <label htmlFor="address">model</label>
+                                        <label htmlFor="address">Model</label>
 
                                         <input
                                             type="text" name='model' className="h-10 border border-gray-300 mt-1 rounded px-4 w-full " placeholder="" />
                                     </div>
                                     <div className="">
-                                        <label htmlFor="address">make</label>
+                                        <label htmlFor="address">Make</label>
 
                                         <input
                                             type="text" className="h-10 border border-gray-300 mt-1 rounded px-4 w-full " name='make' placeholder="" />
                                     </div>
                                     <div className="">
-                                        <label htmlFor="address">CalibrationDetails</label>
+                                        <label htmlFor="address">Calibration Details</label>
 
                                         <input
                                             type="text" name='calibrationDetails' className="h-10 border border-gray-300 mt-1 rounded px-4 w-full " placeholder="" />
                                     </div>
                                     <div className="">
-                                        <label htmlFor="address">year Of Installation</label>
+                                        <label htmlFor="address">Year Of Installation</label>
 
                                         <input
 

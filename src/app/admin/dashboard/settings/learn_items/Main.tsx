@@ -52,6 +52,7 @@ query LearnItems($where: LearnItemWhere, $options: LearnItemOptions) {
       imageUrl
       duration
       certification
+      accredited
     }
   }
 
@@ -70,7 +71,7 @@ const Main = () => {
     // STATES
     const [learnData, setLearnData] = useState<any[]>([])
     const [searchTerm, setSearchTerm] = useState<string>('')
-    const [selectedUserType, setSelectedUserType] = useState('All')
+    const [selectedUserType, setSelectedUserType] = useState('')
 
     // HOOKS
     const client = useGqlClient()
@@ -175,14 +176,37 @@ const Main = () => {
                 "title_CONTAINS": searchTerm
             }
         }
+        if (selectedUserType !== 'All') {
+            where = {
+                "OR": [
+                    {
+                        "accredited_CONTAINS": selectedUserType,
+
+                    },
+                    {
+                        "duration_CONTAINS": selectedUserType,
+
+                    },
+                    {
+                        "certification_CONTAINS": selectedUserType,
+
+                    }
+                ]
+            }
+
+
+
+
+        }
 
         getData(where)
 
 
-    }, [searchTerm])
+    }, [searchTerm, selectedUserType])
 
 
 
+    console.log(selectedUserType, '000000000000000000000')
 
 
 

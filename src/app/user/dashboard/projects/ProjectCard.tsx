@@ -5,7 +5,7 @@ import ModuleCards from './ModuleCards';
 import { Module, Project } from '@/gql/graphql';
 import { getNormalDateAndTime } from '@/shared/getNormalDateAndTime';
 
-const ProjectCard = ({ data, deleteProjectById, deleteModuleById }: { data: Project[], deleteProjectById: (id: string, module: string[]) => void, deleteModuleById: any }) => {
+const ProjectCard = ({ data, deleteProjectById, deleteModuleById }: { data: any[], deleteProjectById: (id: string, module: string[]) => void, deleteModuleById: any }) => {
 
     //states
     const [expandedIndex, setExpandedIndex] = useState(null);
@@ -89,6 +89,12 @@ const ProjectCard = ({ data, deleteProjectById, deleteModuleById }: { data: Proj
                                                 <h5 className="text-desktopText font-semibold text-md  mb-3">
                                                     Project name: {project?.title}
                                                 </h5>
+                                                <h5 className="text-desktopText font-semibold text-md  mb-3">
+                                                    Project Type: {project?.type}
+                                                </h5>
+                                                <h5 className="text-desktopText font-semibold text-md  mb-3">
+                                                    Priority: {project?.priority}
+                                                </h5>
                                                 <p className='text-dimText text-sm'>
                                                     {project?.description}
                                                 </p>
@@ -106,7 +112,7 @@ const ProjectCard = ({ data, deleteProjectById, deleteModuleById }: { data: Proj
                                             {
                                                 !checkStatus(project?.hasModule) || project?.status === "PENDING" && <button
                                                     onClick={() => {
-                                                        let modules = project?.hasModule?.map((module) => module?.id)
+                                                        let modules = project?.hasModule?.map((module: any) => module?.id)
                                                         deleteProjectById(project?.id, modules)
 
                                                     }}

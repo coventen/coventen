@@ -30,14 +30,14 @@ const InvoiceTable = ({ data, deleteInvoice }: ITableItem) => {
                         <tr key={item?.id} className=''>
                             <td className="pr-6 py-4 whitespace-nowrap">{idx + 1}</td>
                             <td className="pr-6 py-4 whitespace-nowrap">
-                                CIS/IN{item?.ticket}
+                                CIS/QN{item?.ticket}
                             </td>
                             <td className="pr-6 py-4 whitespace-nowrap">
                                 {item?.status}
                             </td>
                             <td className="pr-6 py-4 whitespace-nowrap">{item?.priceWithTax || 0}</td>
                             <td className="text-right whitespace-nowrap space-x-3">
-                                <Link href={`/vendor/dashboard/invoice/preview/${item?.id}`} className="py-1.5 px-3 text-gray-600 hover:text-gray-500 duration-150 hover:bg-gray-50 border rounded-lg">
+                                <Link href={`/vendor/dashboard/invoice/preview/${item?.id}`} className="py-2 px-3 text-gray-600 hover:text-gray-500 duration-150 hover:bg-gray-50 border rounded-lg">
                                     View
                                 </Link>
                                 <button onClick={() => deleteInvoice(item?.id)} className="py-1.5 px-3 text-gray-600 hover:text-gray-500 duration-150 hover:bg-gray-50 border rounded-lg">

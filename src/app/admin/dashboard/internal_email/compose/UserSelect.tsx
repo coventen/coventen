@@ -9,13 +9,15 @@ import { useManualQuery } from 'graphql-hooks';
 type User = {
     id: string
     email: string
+    companyName: string
+    userId: string
 
 }
 
 interface Props {
     selectedUserType: string;
     setSelectedOptions: (User: any[]) => void;
-    selectedOptions: User[];
+    selectedOptions: any[];
 }
 
 
@@ -25,6 +27,8 @@ query Users($where: UserWhere, $options: UserOptions) {
       id
       email
       user_type
+      companyName
+      userId
     }
   }
 
@@ -153,7 +157,7 @@ function UserSelect({ selectedUserType, selectedOptions, setSelectedOptions }: P
                                 } cursor-default select-none relative py-2 pl-8 pr-4 `}
                             onClick={() => toggleOption(option)}
                         >
-                            <span className="block truncate">{option.email}</span>
+                            <span className="block truncate">{option?.companyName} - {option?.userId}</span>
                             {selectedOptions.find((item) => item.id === option.id) && (
                                 <span className="absolute inset-y-0 left-0 flex items-center pl-3">
                                     <HiCheck className="w-5 h-5" />

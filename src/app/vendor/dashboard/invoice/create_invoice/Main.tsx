@@ -127,6 +127,7 @@ const Main = () => {
                         hsn: invoiceData.hns,
                         placeOfSupply: invoiceData.placeOfSupply,
                         subject: invoiceData.subject,
+                        type: invoiceData.type,
                         vendorCreated: {
                             connect: {
                                 where: {
