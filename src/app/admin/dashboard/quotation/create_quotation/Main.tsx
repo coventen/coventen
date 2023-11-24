@@ -77,9 +77,6 @@ const Main = () => {
 
 
 
-
-
-
     // initializing invoice creation function
     const createInvoice = async (invoiceData: any, purchases: any, company: any, terms: string) => {
 

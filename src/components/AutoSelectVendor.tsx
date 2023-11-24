@@ -111,7 +111,7 @@ const AutoSelectVendor = ({ selected, setSelected }: any) => {
                                     <Combobox.Option
                                         key={vendor?.id || i}
                                         className={({ active }) =>
-                                            `relative cursor-default  select-none py-2 pl-10 pr-4 ${active ? 'bg-teal-600 text-white' : 'text-gray-900'
+                                            `relative cursor-default  select-none py-2 pl-10 pr-4 ${active ? 'bg-primary text-white' : 'text-gray-900'
                                             }`
                                         }
                                         value={vendor}
@@ -122,11 +122,11 @@ const AutoSelectVendor = ({ selected, setSelected }: any) => {
                                                     className={`block truncate ${selected ? 'font-medium' : 'font-normal'
                                                         }`}
                                                 >
-                                                    {vendor?.userId || 'N/A'}
+                                                    {vendor?.userId || 'N/A'} - {vendor?.companyName}
                                                 </span>
                                                 {selected ? (
                                                     <span
-                                                        className={`absolute inset-y-0 left-0 flex items-center pl-3 ${active ? 'text-white' : 'text-teal-600'
+                                                        className={`absolute inset-y-0 left-0 flex items-center pl-3 ${active ? 'text-white' : 'text-primary'
                                                             }`}
                                                     >
                                                         <CheckIcon className="h-5 w-5" aria-hidden="true" />

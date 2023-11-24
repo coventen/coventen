@@ -9,16 +9,31 @@ interface ITermsTableProps {
     deleteItem: (id: string) => void
     setSearchTerm: (term: string) => void
     loading: boolean
+    selectedUserType: string
+    setSelectedUserType: (type: string) => void
 }
 
-const DataTable = ({ learnData, deleteItem, setSearchTerm, loading }: ITermsTableProps) => {
+const DataTable = ({ learnData, deleteItem, setSearchTerm, loading, setSelectedUserType, selectedUserType }: ITermsTableProps) => {
 
 
 
     return (
         <>
-
             <div className="my-2 flex justify-end sm:flex-row flex-col mb-5">
+                {/* <div className="flex flex-row mb-1 sm:mb-0">
+
+                    <div className="relative">
+                        <select
+                            value={selectedUserType}
+                            onChange={(e) => setSelectedUserType(e.target.value)}
+                            className=" h-full rounded-r border-t sm:rounded-r-none sm:border-r-0 border-r border-b block  w-full  bg-white border-gray-300  py-2 px-4 pr-8 leading-tight focus:outline-none focus:border-l focus:border-r text-xs  focus:border-gray-500  dark:bg-darkBg dark:border-darkBorder">
+                            <option value={"All"}>All</option>
+                            <option value={"SERVICE_PROVIDER"}>Service Provider</option>
+                            <option value={"CONSUMER"}>Consumer</option>
+                        </select>
+
+                    </div>
+                </div> */}
                 <div className="block relative">
                     <span className="h-full absolute inset-y-0 left-0 flex items-center pl-2">
                         <svg viewBox="0 0 24 24" className="h-4 w-4 fill-current text-gray-500">
@@ -33,6 +48,8 @@ const DataTable = ({ learnData, deleteItem, setSearchTerm, loading }: ITermsTabl
                         className="  sm:rounded-l-none border border-gray-300 border-b block pl-8 pr-6 py-2 w-full bg-white text-sm placeholder-gray-400 text-gray-700 focus:bg-white focus:placeholder-gray-600 focus:text-gray-700 focus:outline-none" />
                 </div>
             </div>
+
+
 
             {
                 loading && <TableSkeleton />

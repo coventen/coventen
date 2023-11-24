@@ -70,6 +70,7 @@ const Main = () => {
     // STATES
     const [learnData, setLearnData] = useState<any[]>([])
     const [searchTerm, setSearchTerm] = useState<string>('')
+    const [selectedUserType, setSelectedUserType] = useState('All')
 
     // HOOKS
     const client = useGqlClient()
@@ -82,6 +83,7 @@ const Main = () => {
     // MUTATION
     const [addNewFn, addNewState] = useMutation(ADD_NEW, { client })
     const [deleteFn, deleteState] = useMutation(DELETE, { client, })
+
 
 
 
@@ -193,7 +195,7 @@ const Main = () => {
 
     return (
         <>
-            <Tab setSearchTerm={setSearchTerm} loading={getLearnDataState?.loading} learnData={learnData} addNewFn={addNewItem} deleteItem={deleteItem} />
+            <Tab setSearchTerm={setSearchTerm} selectedUserType={selectedUserType} setSelectedUserType={setSelectedUserType} loading={getLearnDataState?.loading} learnData={learnData} addNewFn={addNewItem} deleteItem={deleteItem} />
         </>
     );
 };

@@ -174,6 +174,7 @@ function AssignmentModal({ isOpen, setIsOpen, currentProject, refetchProjects }:
             toast.success('Module assigned successfully');
             refetchProjects()
             sendNotificationToVendor()
+            sendNotificationToClient()
             createLog(
                 `Module Assignment`,
                 ` Module assigned to ${selected.companyName} by ${user?.email} `
@@ -241,32 +242,32 @@ function AssignmentModal({ isOpen, setIsOpen, currentProject, refetchProjects }:
 
     }
 
-    // const sendNotificationToClient = async () => {
-    //     const { data } = await sendNotificationFn({
-    //         variables: {
-    //             "input": [
-    //                 {
-    //                     "title": "Your Module Has Been Assigned",
-    //                     "description": `Your module has been assigned to ${selected.companyName}.  `,
-    //                     // "type": null,
-    //                     "createdAt": new Date().toISOString(),
-    //                     "clientHas": {
-    //                         "connect": {
-    //                             "where": {
-    //                                 "node": {
-    //                                     "userIs": {
-    //                                         "email": null
-    //                                     }
-    //                                 }
-    //                             }
-    //                         }
-    //                     },
+    const sendNotificationToClient = async () => {
+        const { data } = await sendNotificationFn({
+            variables: {
+                "input": [
+                    {
+                        "title": "Your Module Has Been Assigned",
+                        "description": `Your module has been assigned to ${selected.companyName}.  `,
+                        notificationFor: "CLIENT",
+                        "createdAt": new Date().toISOString(),
+                        "clientHas": {
+                            "connect": {
+                                "where": {
+                                    "node": {
+                                        "userIs": {
+                                            "email": currentProject?.clientEmail
+                                        }
+                                    }
+                                }
+                            }
+                        },
 
-    //                 }
-    //             ]
-    //         }
-    //     })
-    // }
+                    }
+                ]
+            }
+        })
+    }
 
 
     if (loading || counterState.loading || updateState.loading || state.loading) return <Loading />
@@ -314,7 +315,7 @@ function AssignmentModal({ isOpen, setIsOpen, currentProject, refetchProjects }:
                         >
 
                             <div className="inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-2xl sm:w-full sm:p-6">
-                                <p className="focus:outline-none pt-4 pb-8 text-base text-center sm:text-lg md:text-xl lg:text-2xl font-bold leading-normal text-gray-800">Assing Tasks</p>
+                                <p className="focus:outline-none pt-4 pb-8 text-base text-center sm:text-lg md:text-xl lg:text-2xl font-bold leading-normal text-gray-800">Assign Tasks</p>
                                 <div className='p-8'>
                                     <div className='grid grid-cols-1 gap-6 mb-12'>
 

@@ -142,6 +142,7 @@ const Main = () => {
             if (data?.createCommunicationTickets?.info?.nodesCreated) {
                 toast.success("Message sent successfully")
                 router.push('/admin/dashboard/internal_email/sent')
+                sendNotification()
                 createLog(
                     `Internal Email`,
                     `New Email Sent to ${selectedUsers.map(user => user.email).join(', ')}`,
@@ -260,6 +261,8 @@ const Main = () => {
         return allFileLinks
 
     };
+
+
 
 
 
