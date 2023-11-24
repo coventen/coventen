@@ -101,7 +101,7 @@ export const controlledNavItems = [
                 icon: <LuSchool2 className="" />,
             },
             {
-                label: "Estimations",
+                label: "Quotation",
                 href: "/vendor/dashboard/invoice",
                 icon: <LuSchool2 className="" />,
             },

@@ -46,7 +46,7 @@ const Sidebar = ({ data, setCurrentModule, setQuery }: { data: any, setCurrentMo
                                     <div className="ml-2  ">
                                         <p className='text-desktopPrimary text-md text-left'>#{item.ticket}</p>
                                         <div>
-                                            <span className='text-sm font-semibold text-left'> {item?.forModule?.title.slice(0, 30)}</span>
+                                            <span className='text-sm font-semibold text-left uppercase'> {item?.forModule?.title.slice(0, 25)}</span>
 
                                         </div>
 
