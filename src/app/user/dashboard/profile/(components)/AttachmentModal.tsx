@@ -16,8 +16,8 @@ import HandleFileUpload from '@/shared/HandleFileUpload';
 import { v4 as uuidv4 } from 'uuid'
 
 
-const UPDATE_USER = `mutation UpdateVendors($where: VendorWhere, $update: VendorUpdateInput) {
-    updateVendors(where: $where, update: $update) {
+const UPDATE_USER = `mutation UpdateUsers($where: UserWhere, $update: UserUpdateInput) {
+    updateUsers(where: $where, update: $update) {
       info {
         nodesCreated
       }
@@ -84,20 +84,25 @@ const AttachmentModal = ({ isModalOpen, setIsModalOpen, getUser, oldData }: any)
         const { data: updateDta } = await updateUserFn({
             variables: {
                 "where": {
-                    "userIs": {
-                        "email": user?.email
-                    }
+                    "email": user?.email
                 },
+
                 "update": {
-                    "equipmentDocs": allLinks
+                    "isClient": {
+                        "update": {
+                            "node": {
+                                "equipmentDocs": allLinks
+                            }
+                        }
+                    }
                 }
             }
         })
 
 
 
-        if (updateDta?.updateVendors) {
-            toast.success('Industry added')
+        if (updateDta?.updateUsers) {
+            toast.success(' added successfully ')
             getUser()
             setIsModalOpen(false)
 

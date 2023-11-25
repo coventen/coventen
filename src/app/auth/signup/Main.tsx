@@ -88,7 +88,10 @@ const Main = () => {
                         isClient: {
                             create: {
                                 node: {
-                                    sub_type: sub_type
+                                    sub_type: sub_type,
+                                    industry: [],
+                                    service: [],
+                                    equipmentDocs: [],
                                 }
                             }
                         }

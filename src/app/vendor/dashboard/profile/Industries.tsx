@@ -67,6 +67,10 @@ const Industries = ({ data, refetch }: { data: string[], refetch: any }) => {
 
     const addIndustry = async (industry: string) => {
 
+        if (data?.includes(industry)) {
+            toast.error('Industry already exists')
+            return
+        }
 
         const { data: updateDta } = await updateUserFn({
             variables: {

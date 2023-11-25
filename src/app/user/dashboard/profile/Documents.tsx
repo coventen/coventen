@@ -12,8 +12,8 @@ import Link from 'next/link';
 
 
 
-const UPDATE_USER = `mutation UpdateVendors($where: VendorWhere, $update: VendorUpdateInput) {
-    updateVendors(where: $where, update: $update) {
+const UPDATE_USER = `mutation Mutation($where: ClientWhere, $update: ClientUpdateInput) {
+    updateClients(where: $where, update: $update) {
       info {
         nodesCreated
       }

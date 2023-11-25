@@ -12,8 +12,8 @@ import Loading from '@/app/loading';
 
 
 
-const UPDATE_USER = `mutation UpdateVendors($where: VendorWhere, $update: VendorUpdateInput) {
-    updateVendors(where: $where, update: $update) {
+const UPDATE_USER = `mutation UpdateUsers($where: UserWhere, $update: UserUpdateInput) {
+    updateUsers(where: $where, update: $update) {
       info {
         nodesCreated
       }
@@ -38,23 +38,27 @@ const Services = ({ data, refetch }: { data: string[], refetch: any }) => {
 
 
     const deleteService = async (industry: string) => {
+
         const updatedIndustries = data.filter((item: string) => item !== industry)
-
-
 
         const { data: updateDta } = await updateUserFn({
             variables: {
+
                 "where": {
-                    "userIs": {
-                        "email": user?.email
-                    }
+                    "email": user?.email
                 },
                 "update": {
-                    service: updatedIndustries
+                    "isClient": {
+                        "update": {
+                            "node": {
+                                "service": updatedIndustries
+                            }
+                        }
+                    }
                 }
             }
         })
-        if (updateDta?.updateVendors) {
+        if (updateDta?.updateUsers) {
             toast.error('Service deleted')
             refetch()
         }
@@ -64,44 +68,35 @@ const Services = ({ data, refetch }: { data: string[], refetch: any }) => {
 
     const addService = async (service: string) => {
 
-        if (data?.length) {
-            const { data: updateDta } = await updateUserFn({
-                variables: {
-                    "where": {
-                        "userIs": {
-                            "email": user?.email
-                        }
-                    },
-                    "update": {
-                        "service_PUSH": [service]
-                    }
-                }
-            })
-            if (updateDta?.updateVendors) {
-                toast.success('Service added')
-                setIsModalOpen(false)
-                refetch()
-            }
-        } else {
-            const { data: updateDta } = await updateUserFn({
-                variables: {
-                    "where": {
-                        "userIs": {
-                            "email": user?.email
-                        }
-                    },
-                    "update": {
-                        "service": service
-                    }
-                }
-            })
-            if (updateDta?.updateVendors) {
-                toast.success('Service added')
-                setIsModalOpen(false)
-                refetch()
-            }
+        if (data?.includes(service)) {
+            toast.error('service already exists')
+            return
         }
 
+        const serviceArray = data?.length ? [...data, service] : [service]
+
+
+        const { data: updateDta } = await updateUserFn({
+            variables: {
+                "where": {
+                    "email": user?.email
+                },
+                "update": {
+                    "isClient": {
+                        "update": {
+                            "node": {
+                                "service": serviceArray
+                            }
+                        }
+                    }
+                }
+            }
+        })
+        if (updateDta?.updateUsers) {
+            toast.success('Service added')
+            setIsModalOpen(false)
+            refetch()
+        }
 
 
 

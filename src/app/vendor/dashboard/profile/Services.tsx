@@ -64,6 +64,11 @@ const Services = ({ data, refetch }: { data: string[], refetch: any }) => {
 
     const addService = async (service: string) => {
 
+        if (data?.includes(service)) {
+            toast.error('service already exists')
+            return
+        }
+
         if (data?.length) {
             const { data: updateDta } = await updateUserFn({
                 variables: {

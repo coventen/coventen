@@ -11,8 +11,8 @@ import Loading from '@/app/loading';
 import { useAuth } from '@/firebase/AuthProvider';
 
 
-const UPDATE_USER = `mutation UpdateVendors($where: VendorWhere, $update: VendorUpdateInput) {
-    updateVendors(where: $where, update: $update) {
+const UPDATE_USER = `mutation UpdateUsers($where: UserWhere, $update: UserUpdateInput) {
+    updateUsers(where: $where, update: $update) {
       info {
         nodesCreated
       }
@@ -39,25 +39,23 @@ const Industries = ({ data, refetch }: { data: string[], refetch: any }) => {
     const deleteIndustry = async (industry: string) => {
         const updatedIndustries = data.filter((item: string) => item !== industry)
 
-
-
-
-        console.log()
-
-
         const { data: updateDta } = await updateUserFn({
             variables: {
                 "where": {
-                    "userIs": {
-                        "email": user?.email
-                    }
+                    "email": user?.email
                 },
                 "update": {
-                    industry: updatedIndustries
+                    "isClient": {
+                        "update": {
+                            "node": {
+                                "industry": updatedIndustries
+                            }
+                        }
+                    }
                 }
             }
         })
-        if (updateDta?.updateVendors) {
+        if (updateDta?.updateUsers) {
             toast.error('Industry deleted')
             refetch()
         }
@@ -66,24 +64,36 @@ const Industries = ({ data, refetch }: { data: string[], refetch: any }) => {
 
 
     const addIndustry = async (industry: string) => {
-        console.log('i am here')
+
+        console.log('this is inside add industry 88888888888888')
+
+        if (data?.includes(industry)) {
+            toast.error('Industry already exists')
+            return
+        }
+
+        const industryArray = data ? [...data, industry] : [industry]
 
         const { data: updateDta } = await updateUserFn({
             variables: {
                 "where": {
-                    "userIs": {
-                        "email": user?.email
-                    }
+                    "email": user?.email
                 },
                 "update": {
-                    "industry_PUSH": industry
+                    "isClient": {
+                        "update": {
+                            "node": {
+                                "industry": industryArray
+                            }
+                        }
+                    }
                 }
             }
         })
 
 
 
-        if (updateDta?.updateVendors) {
+        if (updateDta?.updateUsers) {
             toast.success('Industry added')
             setIsModalOpen(false)
             refetch()

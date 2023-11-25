@@ -8,7 +8,7 @@ import Services from '../Services';
 const GET_DATA = `
 query Query($where: UserWhere) {
     users(where: $where) {
-      isVendor {
+        isClient {
         id
         industry
         service
@@ -41,10 +41,10 @@ const ServicesAndIndustryTab = ({ setCurrentTab, userInfo }: any) => {
     return (
         <div className='grid grid-cols-1 lg:grid-cols-3 gap-4  mb-28'>
             <div >
-                <Industries data={data?.users[0]?.isVendor?.industry} refetch={refetch} />
+                <Industries data={data?.users[0]?.isClient?.industry} refetch={refetch} />
             </div>
             <div >
-                <Services data={data?.users[0]?.isVendor?.service} refetch={refetch} />
+                <Services data={data?.users[0]?.isClient?.service} refetch={refetch} />
             </div>
 
         </div>

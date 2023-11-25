@@ -57,7 +57,7 @@ const GET_USER = `query Query($where: UserWhere) {
         Country
         zipCode
       }
-      isVendor {
+      isClient {
         id
         industry
         service
@@ -149,7 +149,7 @@ const Main = () => {
   // setting the user data  to the state
   useEffect(() => {
     if (previousData) {
-      const { isVendor, hasSecondaryaddress, hasPrimaryaddress, hasDocuments, user_type, interest, companyDescription, specialty, experience, skypeId, twitter, linkedin, companyPhone, department, education, title, gstNumber, companyEmail, reportingTo, companyName, phoneNumber, panCardNo, bio, phone, email, name, userId } = previousData
+      const { isClient, hasSecondaryaddress, hasPrimaryaddress, hasDocuments, user_type, interest, companyDescription, specialty, experience, skypeId, twitter, linkedin, companyPhone, department, education, title, gstNumber, companyEmail, reportingTo, companyName, phoneNumber, panCardNo, bio, phone, email, name, userId } = previousData
 
 
 
@@ -168,10 +168,10 @@ const Main = () => {
       const secondaryCountry = hasSecondaryaddress?.Country || ''
       const secondaryZip = hasSecondaryaddress?.zipCode || ''
 
-      const service = isVendor?.service || []
-      const industries = isVendor?.industry || []
-      const equipments = isVendor?.hasManyEquipment || []
-      const equipmentAttachments = isVendor?.equipmentDocs || []
+      const service = isClient?.service || []
+      const industries = isClient?.industry || []
+      const equipments = isClient?.hasManyEquipment || []
+      const equipmentAttachments = isClient?.equipmentDocs || []
 
       const documents = hasDocuments?.hasFiles?.links || []
 

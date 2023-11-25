@@ -28,7 +28,7 @@ const DataTable = ({ learnData, deleteItem, setSearchTerm, loading, setSelectedU
                             onChange={(e) => setSelectedUserType(e.target.value)}
                             className=" h-full rounded-r border-t sm:rounded-r-none sm:border-r-0 border-r border-b block  w-full  bg-white border-gray-300  py-2 px-4 pr-8 leading-tight focus:outline-none focus:border-l focus:border-r text-xs  focus:border-gray-500  dark:bg-darkBg dark:border-darkBorder">
                             <option value={""}>All</option>
-                            <option value={"internationally-accredited"}>Internationally Accreditedr</option>
+                            <option value={"internationally-accredited"}>Internationally Accredited</option>
                             <option value={"national-accredited"}>National Accredited</option>
                             <option value={"non-certificate"}>Non Certificate Course</option>
                             <option value={"certificate"}>Certificate Course</option>

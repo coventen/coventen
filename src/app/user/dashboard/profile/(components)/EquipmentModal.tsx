@@ -11,8 +11,8 @@ import { useAuth } from '@/firebase/AuthProvider';
 import { Dialog, Transition } from '@headlessui/react';
 
 
-const UPDATE_USER = `mutation UpdateVendors($where: VendorWhere, $update: VendorUpdateInput) {
-    updateVendors(where: $where, update: $update) {
+const UPDATE_USER = `mutation UpdateUsers($where: UserWhere, $update: UserUpdateInput) {
+    updateUsers(where: $where, update: $update) {
       info {
         nodesCreated
       }
@@ -43,41 +43,41 @@ const EquipmentModal = ({ isModalOpen, setIsModalOpen, getUser }: any) => {
 
         const { data: updateDta } = await updateUserFn({
             variables: {
+
                 "where": {
-                    "userIs": {
-                        "email": user?.email
-                    }
+                    "email": user?.email
                 },
                 "update": {
-                    "hasManyEquipment": [
-                        {
-                            "create": [
-                                {
-                                    "node": {
-                                        "name": name.value,
-                                        "model": model.value,
-                                        "make": make.value,
-                                        "yearOfInstallation": yearOfInstallation.value,
-                                        "calibrationDetails": calibrationDetails.value,
-                                        "warranty": warranty.value
+                    "isClient": {
+                        "update": {
+                            "node": {
+                                "hasManyEquipment": [
+                                    {
+                                        "create": [
+                                            {
+                                                "node": {
+                                                    "name": name.value,
+                                                    "model": model.value,
+                                                    "make": make.value,
+                                                    "yearOfInstallation": yearOfInstallation.value,
+                                                    "calibrationDetails": calibrationDetails.value,
+                                                    "warranty": warranty.value
+                                                }
+                                            }
+                                        ]
                                     }
-                                }
-                            ]
+                                ]
+                            }
                         }
-                    ]
+                    }
+
                 }
             }
         })
-
-
-
-        if (updateDta?.updateVendors) {
-            toast.success('Industry added')
+        if (updateDta?.updateUsers) {
+            toast.success('Equipment added')
             getUser()
             setIsModalOpen(false)
-
-
-
         }
     }
 
@@ -138,25 +138,25 @@ const EquipmentModal = ({ isModalOpen, setIsModalOpen, getUser }: any) => {
                                             type="text" className="h-10 border border-gray-300 mt-1 rounded px-4 w-full " name='name' placeholder="" />
                                     </div>
                                     <div className="">
-                                        <label htmlFor="address">model</label>
+                                        <label htmlFor="address">Model</label>
 
                                         <input
                                             type="text" name='model' className="h-10 border border-gray-300 mt-1 rounded px-4 w-full " placeholder="" />
                                     </div>
                                     <div className="">
-                                        <label htmlFor="address">make</label>
+                                        <label htmlFor="address">Make</label>
 
                                         <input
                                             type="text" className="h-10 border border-gray-300 mt-1 rounded px-4 w-full " name='make' placeholder="" />
                                     </div>
                                     <div className="">
-                                        <label htmlFor="address">CalibrationDetails</label>
+                                        <label htmlFor="address">Calibration Details</label>
 
                                         <input
                                             type="text" name='calibrationDetails' className="h-10 border border-gray-300 mt-1 rounded px-4 w-full " placeholder="" />
                                     </div>
                                     <div className="">
-                                        <label htmlFor="address">year Of Installation</label>
+                                        <label htmlFor="address">Year Of Installation</label>
 
                                         <input
 

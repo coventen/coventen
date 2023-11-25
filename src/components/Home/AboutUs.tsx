@@ -12,8 +12,11 @@ const AboutUs = ({ data }: any) => {
                 {/* <div className="absolute inset-0 max-w-xs mx-auto h-96 blur-[90px] bg-gradient-to-br from-primary/30 to-slate-400" ></div> */}
 
                 <div className="max-w-screen-2xl m-auto px-2 lg:px-12  ">
-                    <div className="bg-gray-50  lg:p-16 rounded-xl space-y-6 md:flex flex-row-reverse md:gap-6 justify-center md:space-y-0 lg:items-center dark:bg-darkBgLight">
-                        <div className="md:5/12 lg:w-1/2 lg:h-96 ">
+                    <div
+                        // style={{ background: "linear-gradient(-45deg, #0f62fe 0%, #0f9efe 100% )" }} 
+
+                        className="bg-[#21618C]  lg:p-16 rounded-xl space-y-6 md:flex flex-row-reverse md:gap-6 justify-center md:space-y-0 lg:items-center dark:bg-darkBgLight">
+                        <div className="md:5/12 lg:w-1/2 lg:h-96  text-white">
                             <Image
                                 src={data?.imageUrl || '/assets/no_image.png'}
                                 alt="image"
@@ -24,13 +27,13 @@ const AboutUs = ({ data }: any) => {
                             />
                         </div>
                         <div className="md:7/12 lg:w-1/2">
-                            <h2 className="text-3xl font-bold md:text-4xl dark:text-white">
+                            <h2 className="text-3xl font-bold md:text-4xl text-white">
                                 {data?.title}
                             </h2>
                             {/* <p className="my-3 text-gray-600 dark:text-gray-300 md:text-sm">
                                 We create best in class product designs, validation and manufacturing support for automotive, aerospace, electrical and electronics industries globally at present and more services are on its way to simplify your manufacturing needs
                             </p> */}
-                            <p className="my-3 text-dimText dark:text-darkDimText ">
+                            <p className="my-3 text-white/70 dark:text-darkDimText ">
                                 {
                                     data?.description
                                 }
@@ -50,11 +53,11 @@ const AboutUs = ({ data }: any) => {
                                                 />
                                             </div>
                                             <div className="w-5/6">
-                                                <h4 className="font-semibold text-lg  dark:text-teal-300">{item.title}</h4>
-                                                <p className="text-dimText dark:text-darkDimText">
+                                                <h4 className="font-semibold text-white text-lg  dark:text-teal-300">{item.title}</h4>
+                                                <p className="text-white/70 dark:text-darkDimText">
                                                     {item?.description}
                                                     {
-                                                        item?.url && <Link href={item?.url} className='text-primary ml-2 hover:underline'>read more</Link>
+                                                        item?.url && <Link href={item?.url} className='text-white ml-2 hover:underline'>read more</Link>
                                                     }
                                                 </p>
 
