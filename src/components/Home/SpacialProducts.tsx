@@ -24,7 +24,7 @@ export default function SpacialProducts({ products }: { products: any }) {
                             Popular Products
                         </h3>
 
-                        <p className="mx-auto max-w-screen-md text-center text-dimText dark:text-darkDimText ">We’re India’s leading quality consciousness and test service providers, perhaps we are first in the domain to bring these services for manufacturers in India connecting global quality standards and labs</p>
+                        <p className="mx-auto max-w-screen-md text-center text-dimText dark:text-darkDimText ">You may find the majority of tests, technologies, processes, techniques, equipment, experts, and many more cutting-edge innovations</p>
                     </div>
                     {/* <div aria-hidden="true" className="absolute inset-0 my-auto max-w-xsh-32 rotate-45 bg-gradient-to-r from-[#00b1fd] to-[#71faca] blur-[90px] opacity-50 dark:opacity-20">
                     </div> */}

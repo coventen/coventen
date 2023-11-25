@@ -24,7 +24,7 @@ export default function Products({ products }: { products: any }) {
                             Popular Products
                         </h3>
 
-                        <p className="mx-auto max-w-screen-md text-center text-dimText dark:text-darkDimText ">You may find the majority of tests, technologies, processes, techniques, equipment, experts, and many more cutting-edge innovations</p>
+                        <p className="mx-auto max-w-screen-md text-center text-dimText dark:text-darkDimText ">Where we offer you a carefully chosen range of products intended to improve your working style. Our goal is to deliver excellent solutions that satisfy your requirements and tastes. Look through our wide selection of items to discover the ideal fit for your working style</p>
                     </div>
                     {/* <div aria-hidden="true" className="absolute inset-0 my-auto max-w-xsh-32 rotate-45 bg-gradient-to-r from-[#00b1fd] to-[#71faca] blur-[90px] opacity-50 dark:opacity-20">
                     </div> */}
