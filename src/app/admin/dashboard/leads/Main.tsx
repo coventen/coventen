@@ -188,7 +188,7 @@ const Main = () => {
                     </div>
                 </div>
 
-                <LeadsTable data={leads} setIsModalOpen={setIsModalOpen} setCurrentLead={setCurrentLead} currentPage={currentPage} pageLimit={pageLimit} />
+                <LeadsTable data={leads} totalPages={totalPages} setIsModalOpen={setIsModalOpen} setCurrentLead={setCurrentLead} currentPage={currentPage} pageLimit={pageLimit} />
                 <LeadsModal
                     isModalOpen={isModalOpen}
                     setIsModalOpen={setIsModalOpen}

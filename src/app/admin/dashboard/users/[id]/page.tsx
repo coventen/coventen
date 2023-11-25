@@ -87,7 +87,8 @@ const getUser = async (id: string) => {
                 },
             },
 
-        })
+        }),
+        next: { revalidate: 10 }
     })
 
     const { data } = await res.then(res => res.json())

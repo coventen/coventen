@@ -17,6 +17,7 @@ export interface ILeadsTableProps {
     setCurrentLead: (value: Leads) => void;
     currentPage: number
     pageLimit: number
+    totalPages: any
 
 }
 
