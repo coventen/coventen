@@ -11,6 +11,7 @@ import { useRouter } from "next/navigation";
 import AuthConfig from "@/firebase/oauth.config";
 import CheckNotification from "./CheckNotification";
 import { LuDownload } from "react-icons/lu";
+import { useAuth } from "@/firebase/AuthProvider";
 
 const DashboardBody = (props: PropsWithChildren) => {
 
@@ -22,6 +23,16 @@ const DashboardBody = (props: PropsWithChildren) => {
     // hooks 
     const router = useRouter()
     const { logout } = AuthConfig()
+    const { user, authLoading }: any = useAuth()
+
+
+
+    useEffect(() => {
+        if (user?.status !== "APPROVED")
+            router.replace('/not_authorized')
+    }, [user, authLoading])
+
+
 
 
     useEffect(() => {
