@@ -21,7 +21,7 @@ export default function SpacialProducts({ products }: { products: any }) {
                 <div className="relative max-w-2xl mx-auto sm:text-center">
                     <div className="relative z-10 ">
                         <h3 className=" text-3xl font-semibold text-center sm:text-4xl mb-3">
-                            Popular Products
+                            Our Innovations
                         </h3>
 
                         <p className="mx-auto max-w-screen-md text-center text-dimText dark:text-darkDimText ">You may find the majority of tests, technologies, processes, techniques, equipment, experts, and many more cutting-edge innovations</p>
