@@ -9,16 +9,16 @@ const SecurityProvider = () => {
     const router = useRouter()
 
 
-    useEffect(() => {
+    // useEffect(() => {
 
-        if (user.user_type !== "ADMIN" || user.user_type !== "COVENTEN_EMPLOYEE") {
-            router.replace('/not_authorized')
-        }
-        if (user.user_type === "COVENTEN_EMPLOYEE") {
-            router.replace('/admin/dashboard')
-        }
+    //     if (user.user_type !== "ADMIN" || user.user_type !== "COVENTEN_EMPLOYEE") {
+    //         router.replace('/not_authorized')
+    //     }
+    //     if (user.user_type === "COVENTEN_EMPLOYEE") {
+    //         router.replace('/admin/dashboard')
+    //     }
 
-    }, [user, authLoading])
+    // }, [user, authLoading])
 
 
 
