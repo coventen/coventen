@@ -57,7 +57,6 @@ const ModuleFrom = ({ index, setModules, modules }: IModuleFrom) => {
 
         const title = selected.title;
         const description = data[`moduleDescription${index}`];
-        console.log(data)
 
         // checking if all data is present
         if (title && description) {

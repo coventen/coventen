@@ -22,13 +22,13 @@ const ProjectCard = ({ data, deleteTestById, deleteModuleById }: { data: TestTic
 
     const checkStatus = (modules: any) => {
         const result = modules?.map((module: Module) => module?.testticketHas?.status)
-        console.log('pending', result)
+
         if (result?.includes('PENDING')) {
-            console.log('pending', "i am inside")
+
             setIsDeleteAble(true)
             return true
         } else {
-            console.log('pending', "i am outside")
+
             setIsDeleteAble(false)
             return false
 

@@ -206,7 +206,7 @@ const Main = () => {
 
 
 
-    console.log(selectedUserType, '000000000000000000000')
+
 
 
 

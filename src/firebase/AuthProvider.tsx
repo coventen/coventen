@@ -102,7 +102,7 @@ const AuthProvider = ({ children }: AuthProviderProps) => {
 
         const unSubscribe = onAuthStateChanged(auth, (currentUser: any) => {
             getUserDetailsFromDB(currentUser?.email).then((res) => {
-                console.log('useEffect 044444444444444', currentUser?.email)
+
                 setUser({
                     ...currentUser,
                     ...res

@@ -74,14 +74,12 @@ const Main = () => {
       }
     })
     if (data) {
-      console.log(data, 'data')
       setData(data?.supportTickets)
     }
   }
 
   //fetching data first time and after query change
   useEffect(() => {
-    console.log(query, 'dfklll')
     getTickets(query)
   }, [query]);
 

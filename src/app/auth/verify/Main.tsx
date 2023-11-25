@@ -129,7 +129,7 @@ const Main = () => {
                     })
 
                     if (updateData.updateUsers.info.nodesCreated) {
-                        console.log('success')
+
                         toast.success('Please wait for the admin to verify your account')
                         router.push('/')
                     }

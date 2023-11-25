@@ -71,7 +71,7 @@ const ChatBody = ({ messages, currentModule }: Props) => {
     const handleUploadImage = async (e: any) => {
         const files = e.target.files
         const filesArray = Array.from(files);
-        console.log(filesArray, 'file array')
+
         uploadFiles(filesArray as File[])
     }
 
@@ -105,7 +105,7 @@ const ChatBody = ({ messages, currentModule }: Props) => {
     }
 
     const handleDownload = (link: string, index: number) => {
-        console.log(link, index)
+
         saveAs(link, 'image-' + index + '.png');
     };
 

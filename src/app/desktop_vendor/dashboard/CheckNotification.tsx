@@ -77,7 +77,7 @@ const CheckPushNotification = () => {
     }, [data?.length]); //eslint-disable-line
 
 
-    console.log(data)
+
 
 
 
@@ -97,7 +97,7 @@ const CheckPushNotification = () => {
                 }
             }
         })
-        console.log(data)
+
     }
 
     // getting lab email if employee is logged in

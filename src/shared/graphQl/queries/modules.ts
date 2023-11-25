@@ -43,7 +43,7 @@ const GetModules = async (where: any={}, options: any={}) => {
 
     const {data} = await res.then(res => res.json())
 
-    console.log(data, 'ddota tdkjdsfkdsjfldjsfkjsdlkfjdskl')
+  
 
     return data?.moduleTickets
 }

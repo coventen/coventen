@@ -21,10 +21,10 @@ const ProjectCard = ({ data, deleteProjectById, deleteModuleById }: { data: Proj
     const checkStatus = (modules: any) => {
         const result = modules.map((module: Module) => module.moduleticketFor?.status)
         if (result.includes('PENDING')) {
-            console.log('pending', "i am inside")
+
             return true
         } else {
-            console.log('pending', "i am outside")
+
             return false
 
         }

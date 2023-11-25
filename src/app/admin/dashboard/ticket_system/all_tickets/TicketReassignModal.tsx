@@ -78,7 +78,7 @@ function TicketReassignModal({ isOpen, setIsOpen, currentModuleTicket, refetchMo
     //states
     const [selected, setSelected] = useState<any>({});
 
-    console.log(selected?.id, 'selected')
+
 
     //hooks
     const client = useGqlClient();
@@ -142,7 +142,7 @@ function TicketReassignModal({ isOpen, setIsOpen, currentModuleTicket, refetchMo
             setIsOpen(false);
             sendNotificationToVendor()
             toast.success('Module assigned successfully');
-            console.log('success')
+
             refetchModuleTickets()
         }
     }

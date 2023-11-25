@@ -140,7 +140,7 @@ const Main = () => {
         }
 
         await updateCount(supportCount)
-        console.log(supportCount);
+
 
         const { data } = await createSupportTicketFn({
             variables: {

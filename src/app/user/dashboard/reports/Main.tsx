@@ -86,7 +86,7 @@ const Main = () => {
 
   // initializing add complain function
   const addComplain = async (complain: string) => {
-    console.log(complain)
+
     const { data } = await addComplainFn({
       variables: {
         where: {
@@ -102,7 +102,7 @@ const Main = () => {
     if (data.updateModuleTickets.moduleTickets[0].id) {
       setIsOpen(false)
       resetFn()
-      console.log('updated')
+
       refetch()
       sendNotification('commented')
       toast.success('Complain Added Successfully')
@@ -129,7 +129,7 @@ const Main = () => {
       setIsOpen(false)
       resetFn()
       refetch()
-      console.log('updated')
+
       toast.success(' Project Completed')
       sendNotification('confirmed')
       createLog(

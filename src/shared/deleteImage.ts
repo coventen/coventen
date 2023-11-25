@@ -18,9 +18,9 @@ async function deleteImage(downloadURL: string) {
 
   // Delete the file
 deleteObject(fileRef).then(() => {
-    console.log('Image deleted successfully');
+
   }).catch((error) => {
-    console.log(error);
+
 
   });
 }

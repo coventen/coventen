@@ -48,7 +48,7 @@ const ModuleFrom = ({ index, setModules, modules }: IModuleFrom) => {
         //getting the dynamic data
         const title = data[`moduleTitle${index}`];
         const description = data[`moduleDescription${index}`];
-        console.log(data)
+
 
         // checking if all data is present
         if (title && description) {

@@ -102,7 +102,7 @@ const ChatBody = ({ messages, supportTicket, handleSupportTicket }: Props) => {
     }
 
     const handleDownload = (link: string, index: number) => {
-        console.log(link, index)
+
         saveAs(link, 'image-' + index + '.png');
     };
 

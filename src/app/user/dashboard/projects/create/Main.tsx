@@ -81,7 +81,7 @@ const Main = () => {
 
 
 
-    // console.log(modules, 'this is modules')
+
 
     //hooks
     const { user } = AuthConfig()

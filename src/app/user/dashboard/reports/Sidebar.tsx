@@ -13,10 +13,10 @@ const Sidebar = ({ data, setCurrentModule }: ISidebar) => {
     const counterData = useCounterData()
 
     const handleClick = async (id: string, isViewed: boolean) => {
-        console.log('outside', isViewed)
+
 
         if (!isViewed) {
-            console.log('inside')
+
             await counterData?.handleUpdateView(id, "Module")
             counterData?.moduleRefetch()
         }

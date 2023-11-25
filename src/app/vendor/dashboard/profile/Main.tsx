@@ -11,6 +11,8 @@ import Services from './Services';
 import Documents from './Documents';
 import toast from 'react-hot-toast';
 import Tabs from './(components)/Tabs';
+import { useAuth } from '@/firebase/AuthProvider';
+import GeneralInfo from './(components)/GeneralInfo';
 
 const GET_USER = `query Query($where: UserWhere) {
     users(where: $where) {
@@ -86,6 +88,8 @@ const UPDATE_USER = `mutation UpdateUsers($where: UserWhere, $update: UserUpdate
 
 const Main = () => {
 
+
+
   //states
   const [previousData, setPreviousData] = React.useState<any>(null)
   const [userInfo, setUserInfo] = React.useState<any>({
@@ -129,7 +133,7 @@ const Main = () => {
 
   //hooks
   const client = useGqlClient()
-  const { user, authLoading } = AuthConfig()
+  const { user, authLoading }: any = useAuth()
 
 
 
@@ -392,7 +396,19 @@ const Main = () => {
   return (
     <div className='bg-white p-4'>
 
-      <Tabs userInfo={userInfo} setUserInfo={setUserInfo} updateUser={updateUser} getUser={getUser} />
+      {
+        user?.user_type === "LAB_ASSISTANT"
+          ?
+          <>
+            <GeneralInfo updateUser={updateUser} userInfo={userInfo} setUserInfo={setUserInfo} />
+          </>
+          :
+          <>
+            <Tabs userInfo={userInfo} setUserInfo={setUserInfo} updateUser={updateUser} getUser={getUser} />
+          </>
+      }
+
+
 
     </div>
   );

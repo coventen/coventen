@@ -108,7 +108,7 @@ const Main = () => {
     })
 
 
-    console.log(notificationsData, 'notificationsData')
+
 
 
     // getting lab email if employee is logged in

@@ -150,7 +150,7 @@ function Modal({ isModalOpen, setIsModalOpen, event }: IModalProps) {
         }
     }, [userState.data?.users?.length])
 
-    console.log(userState?.data?.users[0])
+
 
 
     const closeModal = () => {

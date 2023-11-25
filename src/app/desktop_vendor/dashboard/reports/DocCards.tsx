@@ -47,7 +47,6 @@ const DocCards = ({ currentModule, setIsOpen, confirmComplete, setVendorId }: { 
     });
 
 
-    console.log(data?.modules[0]?.status, '555555555555555555')
 
 
     if (loading) return <p><Loading /></p>
@@ -56,7 +55,6 @@ const DocCards = ({ currentModule, setIsOpen, confirmComplete, setVendorId }: { 
 
 
 
-    console.log(data?.modules[0]?.status !== 'COMPLETED' && data?.modules[0]?.status !== 'COMPLAINED', '888888888')
 
 
 

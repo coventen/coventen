@@ -15,7 +15,7 @@ export async function POST(request: Request){
 const user = await createUser(uid, email, password)
 
 if(user.email){
-  console.log('email', user.email, '0')
+
   return NextResponse.json({"message": "Account created successfully"}, {
     status: 200,
     headers: {

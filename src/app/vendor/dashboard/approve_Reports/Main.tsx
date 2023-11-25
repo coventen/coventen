@@ -11,6 +11,7 @@ import Pagination from '@/components/Pagination';
 import Error from '@/components/Error';
 import GetModules from '@/shared/graphQl/queries/modules';
 import createLog from '@/shared/graphQl/mutations/createLog';
+import { useAuth } from '@/firebase/AuthProvider';
 
 
 
@@ -54,7 +55,7 @@ const Main = () => {
 
     // hooks
 
-    const { user } = AuthConfig()
+    const { user, authLoading }: any = useAuth()
     const client = useGqlClient()
 
     // mutations
@@ -124,7 +125,7 @@ const Main = () => {
 
         const modules = await GetModules(where)
         if (modules?.length) {
-            console.log(modules?.length, 'modules', modules)
+
             setTotalModules(modules?.length)
             setTotalPages(Math.ceil(modules?.length / pageLimit))
         }
@@ -140,7 +141,7 @@ const Main = () => {
         })
 
         if (data.updateModuleTickets.moduleTickets[0]?.id) {
-            console.log('updated')
+
             setReset(!reset)
             getModulesData()
             setIsOpen(false)

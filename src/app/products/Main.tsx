@@ -103,7 +103,7 @@ const Main = () => {
 
 
     useEffect(() => {
-        console.log(products, ' this is products')
+
     }, [products?.length])
 
 

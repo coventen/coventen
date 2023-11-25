@@ -39,7 +39,7 @@ const Main = () => {
     const client = useGqlClient()
     const { user } = AuthConfig()
 
-    console.log(user?.email, 'email')
+
 
     // fetching messages
     const { data, loading, error, refetch } = useQuery(GET_SET_MESSAGES, {
@@ -63,7 +63,7 @@ const Main = () => {
     // delete message INIT
 
     const deleteMessage = async (id: string) => {
-        console.log('I am in delete message', id)
+
         const { data } = await deleteMessageFn({
             variables: {
                 where: {

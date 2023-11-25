@@ -59,7 +59,6 @@ const Main = () => {
   });
 
 
-  console.log(messages)
 
 
 

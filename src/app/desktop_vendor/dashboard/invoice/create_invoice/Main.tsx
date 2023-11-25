@@ -90,7 +90,7 @@ const Main = () => {
 
     // getting lab email if employee is logged in
     const getLabEmail = async (userEmail: string) => {
-        console.log('i am inside get lab email', userEmail)
+
         const email = await getEmployerEmail(userEmail)
         setLabEmail(email)
     }

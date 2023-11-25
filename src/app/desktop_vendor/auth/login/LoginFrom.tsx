@@ -65,7 +65,7 @@ const LoginFrom = () => {
                     Cookies.set('conventenToken', tokenData.signIn)
                     setLoading(false)
                     toast.success('Login Successful')
-                    console.log("i am here")
+
                     router.push('/desktop_vendor/dashboard')
                 } else {
                     setError('User Not Found')

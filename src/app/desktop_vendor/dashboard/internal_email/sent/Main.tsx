@@ -119,7 +119,7 @@ const Main = () => {
     // delete message INIT
 
     const deleteMessage = async (id: string) => {
-        console.log('I am in delete message', id)
+
         const { data } = await deleteMessageFn({
             variables: {
                 where: {
@@ -135,7 +135,7 @@ const Main = () => {
     }
 
 
-    console.log(emailData, ' this is email data')
+
 
     if (internalEmailState.loading || deleteState.loading) return <Loading />
 

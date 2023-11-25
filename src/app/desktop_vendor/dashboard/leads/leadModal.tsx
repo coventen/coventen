@@ -19,7 +19,7 @@ import AuthConfig from '@/firebase/oauth.config';
 function LeadsModal({ setUserDetails, userDetails, data, setIsModalOpen, isModalOpen, updateLeads, loading }: IUserModalProps) {
 
 
-    console.log(data, 'this is lead data')
+
 
 
     //handle close modal

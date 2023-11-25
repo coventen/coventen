@@ -60,7 +60,6 @@ const LoginFrom = () => {
                         email: data?.email
                     }
                 })
-                console.log(tokenData, '555555555555555555555555555555')
                 if (tokenData.signIn) {
                     // saving token to cookie
                     Cookies.set('conventenToken', tokenData.signIn)

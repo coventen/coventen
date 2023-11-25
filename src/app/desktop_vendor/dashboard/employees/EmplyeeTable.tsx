@@ -16,7 +16,6 @@ const EmployeeTable = ({ employeeList, updateEmployeeStatus }: IRolesPeopleTable
 
 
 
-    console.log(employeeList, 'employee list')
 
 
     return (

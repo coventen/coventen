@@ -120,7 +120,7 @@ const Main = () => {
     // delete message INIT
 
     const deleteMessage = async (id: string) => {
-        console.log('I am in delete message', id)
+
         const { data } = await deleteMessageFn({
             variables: {
                 where: {

@@ -83,7 +83,7 @@ const Main = () => {
 
     // initializing add complain function
     const updateInvoice = async (complain: string, status: string, id?: string) => {
-        console.log(complain, status, id)
+
 
         const { data } = await updateInvoiceFn({
             variables: {

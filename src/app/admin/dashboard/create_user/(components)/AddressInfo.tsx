@@ -52,10 +52,10 @@ const AddressInfo = ({ setFormData, formData, setCurrentTab, handleCreateUser }:
             body: JSON.stringify({ email, password })
         });
         if (res.status === 200) {
-            console.log('User created successfully');
+
             setLoading(false);
         } else {
-            console.log('Failed to create user');
+
             setLoading(false);
         }
 

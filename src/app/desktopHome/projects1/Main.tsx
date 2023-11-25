@@ -78,8 +78,8 @@ const Main = () => {
         getProjectCount()
     }, [currentPage, user?.email]);
 
-    console.log(ProjectData, 'this is project data')
-    console.log(user?.email, 'this is user email')
+
+
 
     // initializing query and mutations
 

@@ -16,7 +16,7 @@ export async function createUser(uid: string, email: string, password: string) {
       password: password,
     });
 
-    console.log('Successfully created new user:', userRecord.uid);
+
     return userRecord;
   } catch (error) {
     console.error('Error creating new user:', error);

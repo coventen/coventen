@@ -49,7 +49,6 @@ const Main = () => {
 
   //getting data
   const getTickets = async (query: string = '') => {
-    console.log('i am getting', query)
     const { data } = await getModuleTicketFn({
       variables: {
         "where": {
@@ -65,7 +64,6 @@ const Main = () => {
       }
     })
     if (data) {
-      console.log(data, 'data')
       setData(data?.moduleTickets)
     }
   }
@@ -74,7 +72,6 @@ const Main = () => {
 
   //fetching data first time and after query change
   useEffect(() => {
-    console.log(query, 'dfklll')
     getTickets(query)
   }, [query]);
 
@@ -84,7 +81,6 @@ const Main = () => {
   // setting  the latest module as current module
   useEffect(() => {
     if (data) {
-      console.log('i am here')
       setCurrentModule(data[0]?.ticket)
     }
 

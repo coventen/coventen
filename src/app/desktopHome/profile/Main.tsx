@@ -98,7 +98,7 @@ const Main = () => {
     const updateUser = async () => {
         const { name, user_type, email, address, bio, companyName, companyEmail, gstNumber, image, zip, city, state } = userInfo
 
-        console.log(userInfo)
+
 
         const { data, error } = await updateUserFn({
             variables: {

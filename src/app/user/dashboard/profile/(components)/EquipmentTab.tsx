@@ -13,8 +13,7 @@ const EquipmentTab = ({ userInfo, setCurrentTab, getUser }: any) => {
 
     const [isModalOpen, setIsModalOpen] = React.useState(false);
 
-    console.log(
-        userInfo?.equipments, 'this is one')
+
 
     return (
         <>

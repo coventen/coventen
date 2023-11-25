@@ -105,7 +105,7 @@ const Main = () => {
     }, [currentPage, searchQuery, user?.email, labEmail]);
 
 
-    console.log(EmployeeData, 'employee data')
+
 
 
 
@@ -167,7 +167,7 @@ const Main = () => {
 
     const updateEmployeeStatus = async (id: string, status: string) => {
 
-        console.log(id, status, 'id and status')
+
 
 
         const { data } = await updateEmployeeStatusFn({
@@ -200,7 +200,7 @@ const Main = () => {
 
     if (EmployeeDataState.loading || updateEmployeeState.loading) return <Loading />
     if (EmployeeDataState.error || updateEmployeeState.error) return <Error />
-    console.log(EmployeeDataState.error)
+
 
     return (
         <>

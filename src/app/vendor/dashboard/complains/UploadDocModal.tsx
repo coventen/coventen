@@ -100,7 +100,7 @@ function UploadDocModal({ setIsDocModalOpen, isDocModalOpen, currentComplain, ge
     }, [setFiles]);
 
     const previousFiles = previousData?.moduleTickets[0]?.reports
-    console.log(previousFiles, 'previousFiles')
+
 
 
 
@@ -124,7 +124,7 @@ function UploadDocModal({ setIsDocModalOpen, isDocModalOpen, currentComplain, ge
 
                 // delete previous files
                 previousFiles?.map((item: string) => {
-                    console.log(item, 'item')
+
                     deleteImage(item)
                 })
 

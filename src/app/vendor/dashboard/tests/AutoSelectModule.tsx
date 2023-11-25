@@ -83,7 +83,7 @@ const AutoSelectModule = ({ selected, setSelected }: any) => {
 
 
         if (data?.moduleTickets?.length) {
-            console.log(data, 'this is ticket data0000000000')
+
             // console.log(data.moduleTickets, 'this is ticket data')
             setticketData(data.moduleTickets?.map((item: any) => item))
         }

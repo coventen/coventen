@@ -78,7 +78,7 @@ const Main = () => {
     const { user, authLoading } = AuthConfig()
 
 
-    console.log(user)
+
 
 
     // fetching data

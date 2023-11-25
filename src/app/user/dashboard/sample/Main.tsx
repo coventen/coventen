@@ -76,7 +76,7 @@ const Main = () => {
             }
         })
 
-        console.log(data)
+
         if (data.updateModules?.modules?.length) {
             toast.success('Updated')
             refetch()

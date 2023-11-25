@@ -49,7 +49,7 @@ const AuthConfig = () => {
       setAuthLoading(true)
         const userCredential = await signInWithEmailAndPassword(auth, email, password);
         const user = userCredential.user;
-        console.log("User signed in:", user.uid);
+
         return user;
     } catch (error: any) {
         console.error("Error signing in:", error.message);

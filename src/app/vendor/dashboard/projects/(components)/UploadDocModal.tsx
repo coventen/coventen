@@ -103,7 +103,7 @@ function UploadDocModal({ setIsDocModalOpen, isDocModalOpen, currentModuleId, up
             const uploadedFilesData = await Promise.all(uploadPromises);
             if (uploadedFilesData) {
 
-                console.log(uploadedFilesData, 'uploadedFilesData')
+
                 setUploading(false)
                 const { data } = await updateModuleReportFn({
                     variables: {

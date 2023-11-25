@@ -79,7 +79,7 @@ const Main = () => {
         }
     }, [supportTicketData?.supportTickets, user?.email]);
 
-    console.log(supportTicketData?.supportTickets[0]?.id, 'supportTicketData?.supportTickets[0]?.id')
+
 
     // checking if user has a support ticket and if not create one or update the date
     const handleSupportTicket = async () => {

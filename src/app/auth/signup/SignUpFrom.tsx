@@ -59,7 +59,7 @@ const SignUpFrom = ({ createUser, setLoading, setError, loading, error }: ISignU
     const [selectedVendor, setSelectedVendor] = useState<any>(null);
 
     // console.log(selectedVendor.id, 'vendor')
-    console.log(selectedIndustries)
+
     // hooks
     const {
         register,
@@ -75,7 +75,7 @@ const SignUpFrom = ({ createUser, setLoading, setError, loading, error }: ISignU
     const { data: industries, loading: industryLoading } = useQuery(GET_INDUSTRY, { client })
 
 
-    console.log(industries, 'industries')
+
 
 
     // handle authentication

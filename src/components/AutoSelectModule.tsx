@@ -72,13 +72,13 @@ const AutoSelectModule = ({ selected, setSelected, type }: any) => {
         } else if (type === 'LEARN') {
             getLearnData(query)
         } else if (type === 'PRODUCT') {
-            console.log('product00000000000000')
+
             getProductsData(query)
         } else if (type === 'EVENTS') {
-            console.log('event00000000000000')
+
             getEventsData(query)
         } else if (type === 'SOLUTION') {
-            console.log('solution00000000000000')
+
             getSolution(query)
         } else {
             setServiceData([])

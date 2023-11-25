@@ -77,7 +77,7 @@ const Main = () => {
 
     // // reloading component after data changes
     useEffect(() => {
-        console.log('uploded 3333333333...........')
+
     }, [data.length, totalComplain])
 
     // getting lab email if employee is logged in

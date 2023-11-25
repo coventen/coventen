@@ -52,7 +52,7 @@ const Main = ({ searchOption, searchTerm }: any) => {
     const searchParams = useSearchParams()
 
 
-    console.log(searchOption, ' this is search option', searchTerm, ' this is search term')
+
 
 
 
@@ -128,7 +128,7 @@ const Main = ({ searchOption, searchTerm }: any) => {
 
 
     useEffect(() => {
-        console.log(products, ' this is products')
+
     }, [products?.length])
 
 

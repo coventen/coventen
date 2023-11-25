@@ -132,7 +132,7 @@ const Main = () => {
 
         const modules = await GetModules(where)
         if (modules?.length) {
-            console.log(modules?.length, 'modules', modules)
+
             setTotalModules(modules?.length)
             setTotalPages(Math.ceil(modules?.length / pageLimit))
         }
@@ -148,7 +148,7 @@ const Main = () => {
         })
 
         if (data.updateModuleTickets.moduleTickets[0]?.id) {
-            console.log('updated')
+
             setReset(!reset)
             getModulesData()
             setIsOpen(false)

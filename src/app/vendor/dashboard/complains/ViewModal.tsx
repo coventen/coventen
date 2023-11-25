@@ -46,7 +46,7 @@ function ViewModal({ setIsModalOpen, isModalOpen, currentComplain }: IUserModalP
         }
     })
 
-    console.log(data, 'modal')
+
 
 
     //handle close modal

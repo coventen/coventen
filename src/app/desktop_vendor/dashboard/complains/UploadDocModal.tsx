@@ -101,7 +101,7 @@ function UploadDocModal({ setIsDocModalOpen, isDocModalOpen, currentComplain, ge
     }, [setFiles]);
 
     const previousFiles = previousData?.moduleTickets[0]?.reports
-    console.log(previousFiles, 'previousFiles')
+
 
 
 

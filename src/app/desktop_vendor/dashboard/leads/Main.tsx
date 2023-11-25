@@ -79,7 +79,7 @@ const Main = () => {
 
 
 
-    console.log(industries?.vendors[0]?.industry, ' this is industries')
+
 
 
 
@@ -193,7 +193,7 @@ const Main = () => {
 
     }
 
-    console.log(totalModules, ' this is total modules')
+
 
 
     if (industryLoading) return <Loading />

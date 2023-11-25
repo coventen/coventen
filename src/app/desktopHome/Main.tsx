@@ -202,16 +202,16 @@ const Main = () => {
             }
         })
 
-        console.log(data?.users[0].user_type, 'this is test')
+
 
         if (!user?.email && !authLoading) {
-            console.log('i am inside')
+
             router.push('/desktopHome/auth/login')
             toast.error('You are not authorized to access this page')
         } else {
             if (data?.users[0].user_type !== 'CONSUMER' && !loading) {
-                console.log('i am inside tooo')
-                console.log(data?.users[0].user_type, 'this is test 0000000000')
+
+
                 router.push('/desktopHome/auth/login')
                 toast.error('You are not authorized to access this page')
 
@@ -219,7 +219,7 @@ const Main = () => {
         }
     }
 
-    console.log(user?.email, authLoading, 'this is test')
+
 
     if (authLoading || loading) return <Loading />
 

@@ -60,7 +60,6 @@ const GeneralInfo = ({ setFormData, formData, setCurrentTab, }: IProps) => {
 
         if (isExists) {
             toast.error('User already exists')
-            console.log('User already exists')
             setError('User already exists')
             return
         }

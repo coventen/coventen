@@ -1,4 +1,5 @@
 import Loading from '@/app/loading';
+import { useAuth } from '@/firebase/AuthProvider';
 import { useGqlClient } from '@/hooks/UseGqlClient';
 import { useManualQuery, useQuery } from 'graphql-hooks';
 import React, { useEffect } from 'react';
@@ -7,7 +8,7 @@ import toast from 'react-hot-toast';
 interface IProps {
     setUserInfo: any,
     userInfo: any,
-    setCurrentTab: any,
+    setCurrentTab?: any,
     updateUser: any
 
 }
@@ -16,7 +17,7 @@ interface IProps {
 
 const GeneralInfo = ({ setUserInfo, userInfo, setCurrentTab, updateUser }: IProps) => {
 
-
+    const { user, authLoading }: any = useAuth()
 
     const handleSubmit = async (e: any) => {
         e.preventDefault();
@@ -58,17 +59,23 @@ const GeneralInfo = ({ setUserInfo, userInfo, setCurrentTab, updateUser }: IProp
         <section className='mt-6'>
             <form onSubmit={handleSubmit} className='grid grid-cols-1 lg:grid-cols-3 gap-4'>
 
-                <div className="mb-5">
-                    <label className="block  text-gray-700 text-sm mb-1">
-                        User Id
-                    </label>
-                    <input
-                        defaultValue={userInfo?.userId}
-                        readOnly
-                        type="text"
-                        className="mt-1 px-4 py-2 border border-gray-300 rounded-md w-full"
-                    />
-                </div>
+                {
+                    user?.user_type !== "LAB_ASSISTANT" &&
+                    <>
+                        <div className="mb-5">
+                            <label className="block  text-gray-700 text-sm mb-1">
+                                User Id
+                            </label>
+                            <input
+                                defaultValue={userInfo?.userId}
+                                readOnly
+                                type="text"
+                                className="mt-1 px-4 py-2 border border-gray-300 rounded-md w-full"
+                            />
+                        </div>
+                    </>
+                }
+
                 <div className="mb-5">
                     <label className="block  text-gray-700 text-sm mb-1">
                         Name

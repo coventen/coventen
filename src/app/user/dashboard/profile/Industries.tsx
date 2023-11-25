@@ -65,7 +65,7 @@ const Industries = ({ data, refetch }: { data: string[], refetch: any }) => {
 
     const addIndustry = async (industry: string) => {
 
-        console.log('this is inside add industry 88888888888888')
+
 
         if (data?.includes(industry)) {
             toast.error('Industry already exists')

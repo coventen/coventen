@@ -7,7 +7,7 @@ export async function POST(request: Request){
         const {email, password} = await request.json()
 
 
-        console.log('email', email, '0')
+
       
 
         return NextResponse.json({message: "User Already Exists"}, {status: 200})

@@ -150,7 +150,7 @@ const Main = () => {
         }
     }
 
-    console.log(SampleData)
+
 
 
     // initializing update module
@@ -168,9 +168,9 @@ const Main = () => {
             }
         })
 
-        console.log(data)
+
         if (data.updateModules?.modules?.length) {
-            console.log('updated')
+
             toast.success('Updated')
             createLog(
                 `Sample`,
@@ -192,7 +192,7 @@ const Main = () => {
 
     if (SampleDataState.loading || updateState.loading) return <div><Loading /></div>
 
-    console.log(labEmail)
+
 
 
     return (

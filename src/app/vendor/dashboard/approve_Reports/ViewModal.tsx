@@ -51,7 +51,7 @@ function ViewModal({ isViewModalOpen, setIsViewModalOpen, currentModuleId }: IUs
         }
     })
 
-    console.log(data, 'modal')
+
 
 
     //handle close modal

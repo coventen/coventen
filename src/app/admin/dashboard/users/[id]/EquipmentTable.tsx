@@ -1,7 +1,7 @@
 import React from 'react';
 
 const EquipmentTable = ({ data }: any) => {
-    console.log(data, 'data 000000000')
+
 
 
     return (

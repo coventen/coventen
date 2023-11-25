@@ -98,7 +98,7 @@ const Main = () => {
             }
         })
         if (data.communicationTickets.length) {
-            console.log('data', data)
+
             setEmailData(data?.communicationTickets)
         }
     }

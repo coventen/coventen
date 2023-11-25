@@ -69,7 +69,7 @@ function AssignmentModal({ isOpen, setIsOpen, currentModuleId }: any) {
     //states
     const [selected, setSelected] = useState<any>({});
 
-    console.log(currentModuleId, ' this is current module id')
+
 
     //hooks
     const client = useGqlClient();
