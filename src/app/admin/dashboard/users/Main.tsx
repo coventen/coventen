@@ -131,7 +131,9 @@ const Main = () => {
   }, [currentPage, searchQuery, selectedUserType]);
 
 
+  const count = userCountData?.counters[0]?.userCount
 
+  useEffect(() => { }, [count])
 
 
   // initializing query and mutations
@@ -194,7 +196,7 @@ const Main = () => {
 
     await updateUserCount(userCount)
 
-    console.log(userCount, '555555555555555555555')
+
 
     if (userCount) {
       const { data } = await updateUserFn({
