@@ -8,6 +8,7 @@ import React, { useEffect } from 'react';
 import Loading from '../loading';
 import Pagination from '@/components/Pagination';
 import { AiFillStar } from 'react-icons/ai';
+import Modal from './Modal';
 
 
 
@@ -36,6 +37,9 @@ query LearnItems($where: LearnItemWhere, $options: LearnItemOptions) {
 const Main = ({ searchOption, searchTerm }: any) => {
     // states
     const [products, setProducts] = React.useState<any[]>([])
+    const [isModalOpen, setIsModalOpen] = React.useState(false);
+    const [currentEvent, setCurrentEvent] = React.useState<any>(null);
+
     // pagination states
     const [pageLimit, setPageLimit] = React.useState(10)
     const [currentPage, setCurrentPage] = React.useState(1)
@@ -204,10 +208,10 @@ const Main = ({ searchOption, searchTerm }: any) => {
                                             </div>
 
                                             <button
-                                                // onClick={() => {
-                                                //     setIsModalOpen(true)
-                                                //     setCurrentEvent(item?.title)
-                                                // }}
+                                                onClick={() => {
+                                                    setIsModalOpen(true)
+                                                    setCurrentEvent(item?.title)
+                                                }}
                                                 className="relative group inline-block flex-shrink-0   py-3 px-5 text-sm font-semibold text-primary hover:text-white bg-transparent border border-primary  overflow-hidden" type="submit">
                                                 <div className="absolute top-0 right-full w-full h-full gradient-bg transform group-hover:translate-x-full group-hover:scale-102 transition duration-500"></div>
                                                 <div className="relative flex items-center justify-center">
@@ -234,6 +238,7 @@ const Main = ({ searchOption, searchTerm }: any) => {
                     <Pagination currentPage={currentPage} setCurrentPage={setCurrentPage} totalPages={totalPages} />}
 
             </div>
+            <Modal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} learn={currentEvent} />
         </>
     );
 };
