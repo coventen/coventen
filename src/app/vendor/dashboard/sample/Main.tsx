@@ -16,6 +16,10 @@ query Modules($where: ModuleWhere, $options: ModuleOptions) {
         id
       title
       sampleStatus
+      receivedBy
+      moduleticketFor {
+        ticket
+      }
       projectHas {
         title
       }
@@ -25,7 +29,6 @@ query Modules($where: ModuleWhere, $options: ModuleOptions) {
 const UPDATE_MODULE = `
 mutation Mutation($where: ModuleWhere, $update: ModuleUpdateInput) {
     updateModules(where: $where, update: $update) {
-  
       modules {
         id
       }
@@ -60,6 +63,7 @@ const Main = () => {
 
 
 
+
     // refetching data based on pagination and search query
     useEffect(() => {
 
@@ -68,9 +72,10 @@ const Main = () => {
             "moduleticketFor": {
                 "vendorHas": {
                     "userIs": {
-                        "email": labEmail
+                        "email": labEmail || 'no email'
                     }
-                }
+                },
+                "status_IN": ["ACCEPTED", "ASSIGNED"]
             }
         }
 
@@ -79,7 +84,7 @@ const Main = () => {
                 "moduleticketFor": {
                     "vendorHas": {
                         "userIs": {
-                            "email": labEmail
+                            "email": labEmail || 'no email'
                         }
                     }
                 },
@@ -90,11 +95,11 @@ const Main = () => {
         getLabEmail()
         getSampleData(where)
         getSampleCount()
-    }, [currentPage, searchQuery, user?.email, authLoading]);
+    }, [currentPage, searchQuery, user?.email, labEmail, authLoading]);
 
+    console.log(SampleData, 'oooooooooo')
 
-
-
+    useEffect(() => { }, [SampleData?.length])
 
 
     // getting lab email if employee is logged in
@@ -153,39 +158,46 @@ const Main = () => {
 
 
 
+
+
     // initializing update module
 
     const updateModuleStatus = async (id: string, status: string) => {
 
-        const { data } = await updateModule({
-            variables: {
-                where: {
-                    id: id
-                },
-                update: {
-                    sampleStatus: status
-                }
-            }
-        })
-
-        if (data.updateModules?.modules?.length) {
-
-            toast.success('Updated')
-            createLog(
-                `Sample`,
-                `Sample status updated to ${status} by ${user?.email}`)
-            // refetching data
-            getSampleData({
-                "moduleticketFor": {
-                    "vendorHas": {
-                        "userIs": {
-                            "email": labEmail
-                        }
+        if (status === "RECEIVED" || status === "ON_WAY") {
+            const { data } = await updateModule({
+                variables: {
+                    where: {
+                        id: id
+                    },
+                    update: {
+                        sampleStatus: status,
+                        receivedBy: status === "RECEIVED" ? user?.name || user?.email : ''
                     }
                 }
             })
 
+            if (data.updateModules?.modules?.length) {
+
+                toast.success('Updated')
+                // createLog(
+                //     `Sample`,
+                //     `Sample status updated to ${status} by ${user?.email}`)
+                // refetching data
+                getSampleData({
+                    "moduleticketFor": {
+                        "vendorHas": {
+                            "userIs": {
+                                "email": labEmail
+                            }
+                        }
+                    }
+                })
+
+            }
         }
+
+
     }
 
 

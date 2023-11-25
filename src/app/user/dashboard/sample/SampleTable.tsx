@@ -32,6 +32,10 @@ const SampleTable = ({ data, updateModuleStatus }: Props) => {
                         className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-dimText dark:text-darkDimText uppercase tracking-wider dark:bg-darkBg dark:border-darkBorder">
                         Module Name
                     </th>
+                    <th
+                        className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-dimText dark:text-darkDimText uppercase tracking-wider dark:bg-darkBg dark:border-darkBorder">
+                        Ticket
+                    </th>
 
                     <th
                         className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-dimText dark:text-darkDimText uppercase tracking-wider dark:bg-darkBg dark:border-darkBorder">
@@ -56,7 +60,12 @@ const SampleTable = ({ data, updateModuleStatus }: Props) => {
 
                             <td className="px-5 py-5  bg-white text-xs dark:bg-darkBg dark:border-darkBorder">
                                 <p className=" whitespace-no-wrap">
-                                    {module?.title?.slice(0, 20)}...
+                                    {module?.title?.slice(0, 30)}...
+                                </p>
+                            </td>
+                            <td className="px-5 py-5  bg-white text-xs dark:bg-darkBg dark:border-darkBorder">
+                                <p className=" whitespace-no-wrap">
+                                    {module?.moduleticketFor?.ticket}
                                 </p>
                             </td>
 
@@ -66,7 +75,7 @@ const SampleTable = ({ data, updateModuleStatus }: Props) => {
 
                                         <div className="relative">
                                             <select
-                                                value={module?.sampleStatus || 'NOT_SENT'}
+                                                value={module?.sampleStatus}
                                                 onChange={(e) => handleChange(e, module?.id as string)}
                                                 className=" h-full rounded-r block  w-full bg-white border text-sm pr-8 border-gray-300  py-1 px-3  leading-tight focus:outline-none  dark:bg-darkBg dark:border-darkBorder">
                                                 <option value='ON_WAY'>SENT</option>
