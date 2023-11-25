@@ -30,7 +30,7 @@ const DashboardBody = (props: PropsWithChildren) => {
     useEffect(() => {
         if (user?.status !== "APPROVED")
             router.replace('/not_authorized')
-    }, [user, authLoading])
+    }, [user])
 
 
 

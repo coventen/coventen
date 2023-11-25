@@ -8,7 +8,7 @@ import Sidebar from "./Sidebar";
 import { Toaster } from "react-hot-toast";
 import DashboardBody from "./DashboardBody";
 import CounterProvider from "./CounterProvider";
-import PrivateRoute from "./PrivateRoute";
+
 
 // component
 const Layout = (props: PropsWithChildren) => {
