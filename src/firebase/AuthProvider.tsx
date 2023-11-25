@@ -75,7 +75,9 @@ const AuthProvider = ({ children }: AuthProviderProps) => {
                 query: `query Users($where: UserWhere) {
                     users(where: $where) {
                       name
+                      userId
                       user_type
+                      status
                       createdAt
                       permissions
                     }

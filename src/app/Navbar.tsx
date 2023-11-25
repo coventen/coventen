@@ -106,7 +106,7 @@ export default function Navbar({ services, industries, solutions, features }: an
                             <Image
                                 height={200}
                                 width={200}
-                                className="block  h-8 w-auto rounded-lg"
+                                className="block  h-8 w-auto rounded-lg transform transition-all hover:scale-110 duration-200"
                                 src="/assets/log.png"
                                 alt="Logo"
                             />
@@ -127,7 +127,7 @@ export default function Navbar({ services, industries, solutions, features }: an
 
                         <Link
                             href="/"
-                            className="text-sm font-semibold leading-6 text-primaryText mr-8"
+                            className="text-sm font-semibold leading-6 text-primaryText mr-8 transform transition-all hover:scale-110 duration-200"
                         >
                             Home
                         </Link>
@@ -136,7 +136,7 @@ export default function Navbar({ services, industries, solutions, features }: an
                         <Services servicesData={services} />
                         <Link
                             href="/products"
-                            className="text-sm font-semibold leading-6 text-primaryText mr-8"
+                            className="text-sm font-semibold leading-6 text-primaryText mr-8 transform transition-all hover:scale-110 duration-200"
                         >
                             Products
                         </Link>
@@ -144,13 +144,13 @@ export default function Navbar({ services, industries, solutions, features }: an
 
                         <Link
                             href="/learn"
-                            className="text-sm font-semibold leading-6 text-primaryText mr-8"
+                            className="text-sm font-semibold leading-6 text-primaryText mr-8 transform transition-all hover:scale-110 duration-200"
                         >
                             Learn
                         </Link>
                         <Link
                             href="/events/search"
-                            className="text-sm font-semibold leading-6 text-primaryText mr-8"
+                            className="text-sm font-semibold leading-6 text-primaryText mr-8 transform transition-all hover:scale-110 duration-200"
                         >
                             Events
                         </Link>

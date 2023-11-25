@@ -13,7 +13,7 @@ const Features = ({ features }: any) => {
     return (
         <Popover.Group className="hidden lg:flex lg:gap-x-12 mr-8">
             <Popover className="relative">
-                <Popover.Button className="flex outline-none border-none ring-0 items-center gap-x-1 text-sm font-semibold leading-6 text-primaryText">
+                <Popover.Button className="flex outline-none border-none ring-0 items-center gap-x-1 text-sm font-semibold leading-6 text-primaryText transform transition-all hover:scale-110 duration-200">
                     Features
                 </Popover.Button>
 

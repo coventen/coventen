@@ -23,7 +23,7 @@ const Services = ({ servicesData }: ServicePage) => {
     return (
         <Popover.Group className="hidden lg:flex lg:gap-x-12 mr-8">
             <Popover className="relative">
-                <Popover.Button className="flex items-center outline-none border-none focus:outline-none gap-x-1 text-sm font-semibold leading-6 text-primaryText">
+                <Popover.Button className="flex items-center transform transition-all hover:scale-110 duration-200 outline-none border-none focus:outline-none gap-x-1 text-sm font-semibold leading-6 text-primaryText">
                     Services
                 </Popover.Button>
 

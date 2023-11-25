@@ -5,6 +5,8 @@ import React, { useEffect } from 'react';
 import UnAuthorized from './UnAuthorized';
 import Loading from '@/app/loading';
 import { NavItem } from '@/app/admin/NavItem';
+import { useRouter } from 'next/navigation';
+import { useAuth } from '@/firebase/AuthProvider';
 
 interface IRestrictAdminRouteProps {
     children: any;
@@ -35,8 +37,9 @@ const RestrictAdminRoute = ({ children, accessibleNavItems, setAccessibleNavItem
 
     // HOOKS
     const client = useGqlClient()
-    const { user, authLoading } = AuthConfig();
+    const { user, authLoading }: any = useAuth()
     const userEmail = user?.email
+    const router = useRouter()
 
     const [getUserFn, getUserState] = useManualQuery(GET_USER, { client })
 
@@ -148,11 +151,15 @@ const RestrictAdminRoute = ({ children, accessibleNavItems, setAccessibleNavItem
 
 
 
+    if (!accessibleNavItems.length) {
+        router.replace('/not_authorized')
+    }
+
 
     return (
         <>
             {
-                accessibleNavItems.length ? children : <UnAuthorized />
+                accessibleNavItems.length && children
             }
         </>
     );

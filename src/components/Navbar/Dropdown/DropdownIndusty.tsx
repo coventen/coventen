@@ -18,7 +18,7 @@ const DropdownIndustry = ({ data }: IProps) => {
     return (
         <Popover.Group className="hidden lg:flex lg:gap-x-12 mr-8">
             <Popover className="relative">
-                <Popover.Button className="flex items-center gap-x-1 text-sm font-semibold leading-6 text-primaryText outline-none border-none">
+                <Popover.Button className="flex items-center gap-x-1 transform transition-all hover:scale-110 duration-200 text-sm font-semibold leading-6 text-primaryText outline-none border-none">
                     Industry
 
                 </Popover.Button>
