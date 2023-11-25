@@ -200,7 +200,7 @@ const SignUpFrom = ({ createUser, setLoading, setError, loading, error }: ISignU
                                     value={selectSubType}
                                     onChange={handleSelectSub}
 
-                                    className="block w-full cursor-default overflow-hidden rounded bg-white text-left border border-gray-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-teal-300 sm:text-sm"
+                                    className="block w-full uppercase cursor-default overflow-hidden rounded bg-white text-left border border-gray-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-teal-300 sm:text-sm"
                                 >
                                     <option value="" disabled>Select an option</option>
                                     {SubType.map((option) => (

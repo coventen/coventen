@@ -69,7 +69,7 @@ const LeadsTable = ({ data, setIsModalOpen, setCurrentLead, currentPage, pageLim
                         <tr key={lead?.id} className={`  ${lead?.isViewed ? " bg-white" : 'bg-gray-200 '}   border-b border-gray-200`}>
 
                             <td className="px-5 py-5   text-xs dark:bg-darkBg dark:border-darkBorder">
-                                <p className=" whitespace-no-wrap">L-{currentPage > 1 ? index + 1 + (pageLimit * currentPage) : index + 1}</p>
+                                <p className=" whitespace-no-wrap">L-{data?.length - 1}</p>
                             </td>
                             <td className="px-5 py-5   text-xs dark:bg-darkBg dark:border-darkBorder">
                                 <p className=" whitespace-no-wrap">{lead?.name}</p>
