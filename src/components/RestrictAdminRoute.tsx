@@ -151,15 +151,15 @@ const RestrictAdminRoute = ({ children, accessibleNavItems, setAccessibleNavItem
 
 
 
-    if (!accessibleNavItems?.length && !loading && !authLoading && !getUserState.loading) {
-        router.replace('/not_authorized')
-    }
+    // if (!accessibleNavItems?.length && !loading && !authLoading && !getUserState.loading) {
+    //     router.replace('/not_authorized')
+    // }
 
 
     return (
         <>
             {
-                accessibleNavItems.length && children
+                accessibleNavItems.length ? children : <UnAuthorized />
             }
         </>
     );
