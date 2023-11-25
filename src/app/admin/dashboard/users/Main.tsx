@@ -90,7 +90,7 @@ const Main = () => {
   const { user } = AuthConfig()
 
   //quires 
-  const { data: userCountData, loading } = useQuery(GET_USER_COUNT, { client })
+  const { data: userCountData, loading, refetch } = useQuery(GET_USER_COUNT, { client })
   const [getUserFn, userDataState] = useManualQuery(GET_USER, { client })
 
 
@@ -193,27 +193,33 @@ const Main = () => {
     }
 
     await updateUserCount(userCount)
-    const { data } = await updateUserFn({
-      variables: {
-        where: {
-          email: email
-        },
-        update: {
-          status: status,
-          "userId": `${userCount}`
+
+    console.log(userCount, '555555555555555555555')
+
+    if (userCount) {
+      const { data } = await updateUserFn({
+        variables: {
+          where: {
+            email: email
+          },
+          update: {
+            status: status,
+            "userId": `${userCount}`
+          }
         }
+      })
+
+      if (data) {
+        getUserData({ user_type_IN: ["CONSUMER", "SERVICE_PROVIDER"] })
+        toast.success('User updated successfully')
+        refetch()
+        setIsModalOpen(false)
+        createLog(
+          `User Approval`,
+          `User Approved by ${user?.email}`
+        )
+
       }
-    })
-
-    if (data) {
-      getUserData({ user_type_IN: ["CONSUMER", "SERVICE_PROVIDER"] })
-      toast.success('User updated successfully')
-      setIsModalOpen(false)
-      createLog(
-        `User Approval`,
-        `User Approved by ${user?.email}`
-      )
-
     }
 
   }
@@ -228,6 +234,10 @@ const Main = () => {
         }
       }
     })
+
+
+
+    console.log(data, 'data')
   }
 
 
