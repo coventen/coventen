@@ -204,7 +204,7 @@ const SignUpFrom = ({ createUser, setLoading, setError, loading, error }: ISignU
                                 >
                                     <option value="" disabled>Select an option</option>
                                     {SubType.map((option) => (
-                                        <option key={option} value={option}>
+                                        <option key={option} value={option} className='uppercase'>
                                             {option}
                                         </option>
                                     ))}
