@@ -6,7 +6,7 @@ import Dropzone from 'react-dropzone';
 import { useForm, SubmitHandler } from "react-hook-form"
 import { IModuleInput } from './createProject.interface';
 import { HiOutlineTrash } from 'react-icons/hi';
-import FilePreview from '@/app/vendor/dashboard/projects/(components)/FilePreview';
+import FilePreview from '@/app/desktop_vendor/dashboard/projects/(components)/FilePreview';
 
 //interface props
 interface IModuleFrom {
@@ -48,6 +48,7 @@ const ModuleFrom = ({ index, setModules, modules }: IModuleFrom) => {
         //getting the dynamic data
         const title = data[`moduleTitle${index}`];
         const description = data[`moduleDescription${index}`];
+
 
         // checking if all data is present
         if (title && description) {

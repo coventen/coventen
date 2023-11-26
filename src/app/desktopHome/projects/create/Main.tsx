@@ -28,10 +28,6 @@ const CREATE_PROJECT = `mutation Mutation($input: [ProjectCreateInput!]!) {
 const GET_USER = `query Query($where: UserWhere) {
     users(where: $where) {
       companyName
-      city
-      address
-      zip
-      state
       gstNumber
     }
   }`
@@ -71,6 +67,7 @@ const Main = () => {
     const [selectedCompany, setSelectCompany] = React.useState(null);
     const [modules, setModules] = React.useState<any[]>([]);
     const [uploading, setUploading] = React.useState(false);
+    const [type, setType] = React.useState("SERVICE")
     const [userInfo, setUserInfo] = React.useState({
 
         address: '',
@@ -79,6 +76,7 @@ const Main = () => {
         zip: '',
         city: '',
         state: '',
+        priority: '',
     })
 
 
@@ -129,7 +127,7 @@ const Main = () => {
     //handle project creation 
     const createProject = async (projectData: IProjectInput) => {
         setUploading(true)
-        const { projectDescription, projectName } = projectData
+        const { projectDescription, projectName, priority } = projectData
         const projectId = await generateProjectTicket()
         setUploading(false)
 
@@ -158,9 +156,8 @@ const Main = () => {
                         description: projectDescription,
                         email: user?.email,
                         companyName: userInfo.companyName,
-                        // country: country,
-                        // city: city,
-                        // address: address,
+                        type: type,
+                        priority: priority,
                         createdAt: new Date().toISOString(),
                         projectticketFor: {
                             create: {
@@ -207,7 +204,7 @@ const Main = () => {
     const userData = data?.users[0]
     useEffect(() => {
         if (userData) {
-            const { address, companyName, gstNumber, zip, city, state } = userData
+            const { address, companyName, gstNumber, zip, city, state, priority } = userData
             setUserInfo({
                 address,
                 companyName,
@@ -215,6 +212,7 @@ const Main = () => {
                 zip,
                 city,
                 state,
+                priority
             })
         }
     }, [userData])
@@ -316,6 +314,32 @@ const Main = () => {
                                         <label htmlFor="city">Project Description</label>
                                         <textarea rows={4} id="city" className=" border border-gray-300 mt-1 rounded px-4 w-full " placeholder="" {...register("projectDescription")} />
                                     </div>
+                                    <div className="col-span-full">
+                                        <label htmlFor="city">Type</label>
+                                        <select
+                                            defaultValue={type}
+                                            onChange={(e) => setType(e.target.value)}
+                                            className="border border-gray-300 mt-1 rounded px-4 w-full" placeholder="" >
+                                            <option value="SELECT">SELECT</option>
+                                            <option value="SERVICE">SERVICE</option>
+                                            <option value="PRODUCT">PRODUCT</option>
+                                            <option value="SOLUTION">SOLUTION</option>
+                                            <option value="LEARN">LEARN</option>
+                                            <option value="EVENTS">EVENTS</option>
+                                        </select>
+                                    </div>
+                                    <div className="col-span-full">
+                                        <label htmlFor="city">Priority:</label>
+                                        <select id="city" className=" border border-gray-300 mt-1 rounded px-4 w-full " placeholder="" {...register("priority")} >
+                                            <option >Select</option>
+                                            <option >Top Priority – response in 2hrs</option>
+                                            <option >High Priority – response in 24hrs
+                                            </option>
+                                            <option >Medium Priority</option>
+                                            <option >Low Priority</option>
+
+                                        </select>
+                                    </div>
 
 
 
@@ -358,7 +382,7 @@ const Main = () => {
                                                 {
                                                     [...Array(moduleCount)].map((_, i) =>
                                                         <div key={i} className='grid grid-cols-1 gap-4 max-w-2xl'>
-                                                            <ModuleFrom index={i + 1} setModules={setModules} modules={modules} />
+                                                            <ModuleFrom index={i + 1} setModules={setModules} modules={modules} type={type} />
                                                         </div>
 
                                                     )
@@ -371,7 +395,7 @@ const Main = () => {
 
                                     <div className=" mt-8">
                                         <div className="">
-                                            <button type='submit' className="bg-desktopPrimary  text-white font-bold py-3 px-12 text-lg  rounded-md">{state.loading || uploading ? "loading" : 'Submit'}</button>
+                                            <button type='submit' className="bg-primary  text-white font-bold py-3 px-12 text-lg ">{state.loading || uploading ? "loading" : 'Submit'}</button>
                                         </div>
                                     </div>
 

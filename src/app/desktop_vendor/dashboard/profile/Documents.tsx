@@ -114,13 +114,6 @@ const Documents = ({ data, refetch }: { data: any, refetch: any }) => {
     // render
     return (
         <div className="relative flex flex-col mt-6 justify-center bg-white max-w-xs py-4 px-1  shadow-sm rounded-xl sm:px-7 dark:bg-gray-900 dark:text-gray-100">
-            {/* edit button */}
-            {/* <div>
-                <button type='button' onClick={() => setIsModalOpen(true)} className="absolute top-3 right-0 p-2 hover:bg-gray-200 rounded-full  dark:bg-gray-900 dark:text-gray-100">
-                    <BiMessageSquareEdit />
-                </button>
-            </div> */}
-
             <div className="space-y-4 text-gray-800 mt-2">
                 <div className="my-2 space-y-1">
                     <h2 className="text-xl font-semibold text-center sm:text-2xl">Documents</h2>
@@ -129,7 +122,7 @@ const Documents = ({ data, refetch }: { data: any, refetch: any }) => {
                     {
                         data?.links ?
                             data?.links?.map((item: any, index: number) =>
-                                <Link href={item || '#'} target='_blank'
+                                <Link href={item || '#'}
                                     key={index}
                                     style={{
                                         backgroundImage: `url(${'/assets/file.svg'})`,
@@ -151,7 +144,7 @@ const Documents = ({ data, refetch }: { data: any, refetch: any }) => {
                 </div>
 
             </div>
-            <AddServiceModal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} addService={addService} />
+
         </div>
     );
 };

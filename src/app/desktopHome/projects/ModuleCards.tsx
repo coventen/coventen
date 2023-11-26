@@ -71,7 +71,7 @@ const ModuleCards = ({ data, deleteModuleById }: { data: Module[], deleteModuleB
                                                 <h5 className="text-primaryText font-bold text-md  mb-2">
                                                     Ticket Id: {module?.moduleticketFor?.ticket || 'Not Assigned Yet'}
                                                 </h5>
-                                                <h5 className="text-desktopText font-semibold text-sm  mb-3">
+                                                <h5 className="text-desktopText uppercase font-semibold text-sm  mb-3">
                                                     {module?.title}
                                                 </h5>
                                                 <p className='text-desktopTextLight text-sm'>
@@ -85,7 +85,7 @@ const ModuleCards = ({ data, deleteModuleById }: { data: Module[], deleteModuleB
                                                     {
                                                         module?.files ?
                                                             module?.files?.map((item, index) =>
-                                                                <Link target='_blank' href={item || '#'} key={index} className=' h-14 w-full bg-gray-200 rounded-md lg:h-20 lg:w-full '>
+                                                                <Link href={item || '#'} target='_blank' key={index} className=' h-14 w-full bg-gray-200 rounded-md lg:h-20 lg:w-full '>
                                                                     <div className='flex items-center text-xl  justify-center space-x-2'>
                                                                         <p className='mt-5'><HiOutlineDocumentDownload /></p>
 

@@ -11,6 +11,7 @@ import Pagination from '@/components/Pagination';
 import GetModules from '@/shared/graphQl/queries/modules';
 import { getEmployerEmail } from '@/shared/getEmployerEmail';
 import RejectModal from './RejectModal';
+import { useCounterData } from '../../CounterProvider';
 
 
 
@@ -63,36 +64,21 @@ const NewModules = () => {
     // hooks
     const { user, authLoading } = AuthConfig()
     const client = useGqlClient()
+    const counterData = useCounterData()
 
     // UPDATING MODULE STATUS
     const [updateModuleStatusFn, updateStatus] = useMutation(UPDATE_MODULE_STATUS, { client })
     const [sendNotificationFn, notificationState] = useMutation(SEND_NOTIFICATION, { client })
 
 
-
-    //get lab email
-    useEffect(() => {
-        getLabEmail()
-    }, [user?.email]) //eslint-disable-line
-
-
-
     // getting module data
     useEffect(() => {
+        getLabEmail()
         getModulesData()
         getTotalModulesCount()
-    }, [currentPage, labEmail]);
+    }, [currentPage, labEmail, user?.email]);
 
 
-    //refreshing notification after 10 minutes
-    useEffect(() => {
-        if (labEmail) {
-            const intervalId = setInterval(getModulesData, 1200000)
-            return () => {
-                clearInterval(intervalId);
-            };
-        }
-    }, []);
 
 
     // getting lab email if employee is logged in
@@ -106,7 +92,7 @@ const NewModules = () => {
 
 
     // update module status
-    const updateModule = async (status: string, id: string, message?: string) => {
+    const updateModule = async (status: string, id: string, message: string = '') => {
 
         if (status === 'REJECTED') {
 
@@ -252,6 +238,23 @@ const NewModules = () => {
 
 
 
+    const handleClick = async (id: string, isViewed: boolean) => {
+        if (!isViewed) {
+            await counterData?.handleUpdateView(id, "newModule")
+            counterData?.moduleRefetch()
+        }
+    }
+
+
+
+
+
+    const removeNotification = async (id: string) => {
+
+    }
+
+
+
     if (loading || updateStatus.loading || authLoading) return <Loading />
 
     return (
@@ -270,13 +273,15 @@ const NewModules = () => {
                     {modules?.length ?
                         (modules?.map((module: any, index: number) =>
 
-                            <tr key={module?.id} className="bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-900 text-gray-700 dark:text-gray-400">
+                            <tr key={module?.id} className={`${module?.isViewedByVendor ? 'bg-white' : 'bg-gray-200'}  dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-900 text-gray-700 dark:text-gray-400`}>
 
                                 <td className="px-4 py-3 text-sm">{index + 1}</td>
                                 <td className="px-4 py-3 text-sm">{module?.ticket}</td>
                                 <td className="px-4 py-3 text-sm">{module?.forModule
                                     ?.title || 'N/A'}</td>
-                                <td className="px-4 py-3 text-sm space-x-2 text-center">
+                                <td
+                                    onClick={() => handleClick(module?.id, module?.isViewed || false)}
+                                    className="px-4 py-3 text-sm space-x-2 text-center">
                                     <button
                                         onClick={() => {
                                             setCurrentModuleId(module?.forModule?.id)
@@ -290,6 +295,7 @@ const NewModules = () => {
                                         onClick={() => {
                                             setClientId(module?.clientHas?.userIs?.id)
                                             updateModule('ACCEPTED', module?.id)
+
 
                                         }}
                                         className='px-3 py-1 bg-green-600 text-white rounded'>

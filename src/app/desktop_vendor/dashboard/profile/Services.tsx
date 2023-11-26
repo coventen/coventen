@@ -64,6 +64,11 @@ const Services = ({ data, refetch }: { data: string[], refetch: any }) => {
 
     const addService = async (service: string) => {
 
+        if (data?.includes(service)) {
+            toast.error('service already exists')
+            return
+        }
+
         if (data?.length) {
             const { data: updateDta } = await updateUserFn({
                 variables: {
@@ -117,7 +122,7 @@ const Services = ({ data, refetch }: { data: string[], refetch: any }) => {
 
     // render
     return (
-        <div className="relative flex flex-col mt-6 justify-center bg-white max-w-xs py-4 px-1  shadow-sm rounded-xl sm:px-7 dark:bg-gray-900 dark:text-gray-100">
+        <div className="relative border h-full flex flex-col mt-6 justify-center bg-white max-w-xs py-4 px-1  shadow-sm rounded-xl sm:px-7 dark:bg-gray-900 dark:text-gray-100">
             {/* edit button */}
             <div>
                 <button type='button' onClick={() => setIsModalOpen(true)} className="absolute top-3 right-0 p-2 hover:bg-gray-200 rounded-full  dark:bg-gray-900 dark:text-gray-100">

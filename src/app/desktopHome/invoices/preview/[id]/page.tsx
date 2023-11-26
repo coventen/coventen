@@ -86,7 +86,7 @@ const InvoicePreview = () => {
                                 <div className="text-right">
                                     <h2 className="text-2xl md:text-3xl font-semibold text-gray-800 dark:text-gray-200">
                                         {
-                                            invoiceData?.status === "CONFIRMED" ? "Invoice" : "Estimation"
+                                            invoiceData?.status === "CONFIRMED" ? "Invoice" : "Quotation"
                                         }
                                     </h2>
                                     <span className="mt-1 block font-semibold text-gray-900">
@@ -107,7 +107,12 @@ const InvoicePreview = () => {
                             {/* <!-- Grid --> */}
                             <div className="mt-8 grid sm:grid-cols-2 gap-3">
                                 <div>
-                                    <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-200">Invoice For:</h3>
+                                    <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-200">
+
+                                        {
+                                            invoiceData?.status === "CONFIRMED" ? "Invoice For" : "Quotation For"
+                                        }
+                                    </h3>
                                     {
                                         invoiceData?.sentBy === "VENDOR" ?
                                             <>
@@ -161,8 +166,13 @@ const InvoicePreview = () => {
                                     </div>
                                     <div className="grid grid-cols-2 sm:grid-cols-1 gap-3 sm:gap-2">
                                         <dl className="grid sm:grid-cols-3 gap-x-1">
-                                            <dt className="col-span-2 font-semibold text-gray-800 dark:text-gray-200">Expiry Date:</dt>
-                                            <dd className="col-span-1 text-gray-500">{convertISODateToDDMMYear(invoiceData?.expiryDate) || 'N/A'}</dd>
+                                            {
+                                                invoiceData?.status === "CONFIRMED" ? <></> : <>
+                                                    <dt className="col-span-2 font-semibold text-gray-800 dark:text-gray-200">Expiry Date:</dt>
+                                                    <dd className="col-span-1 text-gray-500">{convertISODateToDDMMYear(invoiceData?.expiryDate) || 'N/A'}</dd>
+                                                </>
+                                            }
+
                                         </dl>
 
                                     </div>

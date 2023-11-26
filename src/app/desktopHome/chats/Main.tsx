@@ -41,7 +41,6 @@ const Main = () => {
     client,
     variables: {
       where: {
-
         clientHas: {
           userIs: {
             email: user?.email || 'no email'
@@ -58,7 +57,6 @@ const Main = () => {
 
     }
   });
-
 
 
 

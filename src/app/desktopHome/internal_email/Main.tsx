@@ -76,6 +76,7 @@ const Main = () => {
         const { data } = await getInternalEmailFn({
             variables: {
                 where: {
+                    "sender": "ADMIN",
                     forClient_ALL: {
                         userIs: {
                             email: user.email || 'no email'

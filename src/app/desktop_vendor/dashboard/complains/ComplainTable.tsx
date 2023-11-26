@@ -1,5 +1,5 @@
 import { Leads } from '@/gql/graphql';
-import React from 'react';
+import React, { useEffect } from 'react';
 
 interface IComplainTableProps {
     data: any;
@@ -11,6 +11,10 @@ interface IComplainTableProps {
 
 
 const ComplainTable = ({ data, setIsModalOpen, setCurrentComplain, setIsDocModalOpen }: IComplainTableProps) => {
+
+
+    useEffect(() => { }, [data?.length])
+
     return (
         <table className="min-w-full leading-normal uppercase">
             <thead>

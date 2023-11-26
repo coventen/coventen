@@ -127,7 +127,6 @@ const Main = () => {
     if (internalEmailState.loading || deleteState.loading) return <Loading />
 
     if (internalEmailState.error || deleteState.error) return <Error />
-
     return (
         <div className="flex-1  w-full " >
             <div className=" flex items-center justify-between w-full">

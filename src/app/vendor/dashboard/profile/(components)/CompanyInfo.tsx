@@ -40,11 +40,11 @@ const CompanyInfo = ({ setUserInfo, userInfo, setCurrentTab, updateUser }: IProp
 
 
 
-        const { companyName, companyEmail, companyPhone, otherPhone, linkedin, twitter, skypeId, aboutCompany, gst, panCardNo, street, country, state, city, otherState, otherCountry, otherCity, otherStreet } = e.target
+        const { companyName, companyEmail, companyPhone, otherPhone, linkedin, twitter, skypeId, aboutCompany, gst, panCardNo, street, country, state, city, otherState, otherCountry, otherCity, otherStreet, zip, otherZip } = e.target
 
         const updatedData =
         {
-            ...userInfo, companyName: companyName.value, companyEmail: companyEmail.value, companyPhone: companyPhone.value, otherPhone: otherPhone.value, linkedin: linkedin.value, twitter: twitter.value, skypeId: skypeId.value, aboutCompany: aboutCompany.value, gst: gst.value, panCardNo: panCardNo.value, street: street.value, country: country.value, state: state.value, city: city.value, otherCity: otherCity.value, otherCountry: otherCountry.value, otherState: otherState.value, otherStreet: otherStreet.value,
+            ...userInfo, companyName: companyName.value, companyEmail: companyEmail.value, companyPhone: companyPhone.value, otherPhone: otherPhone.value, linkedin: linkedin.value, twitter: twitter.value, skypeId: skypeId.value, aboutCompany: aboutCompany.value, gst: gst.value, panCardNo: panCardNo.value, street: street.value, country: country.value, state: state.value, city: city.value, otherCity: otherCity.value, otherCountry: otherCountry.value, otherState: otherState.value, otherStreet: otherStreet.value, zip: zip.value, otherZip: otherZip.value
         }
 
 
@@ -209,6 +209,18 @@ const CompanyInfo = ({ setUserInfo, userInfo, setCurrentTab, updateUser }: IProp
                         className="mt-1 px-4 py-2 border border-gray-300 rounded-md w-full"
                     />
                 </div>
+
+                <div className="mb-5">
+                    <label className="block  text-gray-700 text-sm mb-1">
+                        Zip
+                    </label>
+                    <input
+                        defaultValue={userInfo?.zip}
+                        name="zip"
+                        type="text"
+                        className="mt-1 px-4 py-2 border border-gray-300 rounded-md w-full"
+                    />
+                </div>
                 {/* other address */}
 
 
@@ -252,6 +264,17 @@ const CompanyInfo = ({ setUserInfo, userInfo, setCurrentTab, updateUser }: IProp
                     <input
                         defaultValue={userInfo?.otherCountry}
                         name="otherCountry"
+                        type="text"
+                        className="mt-1 px-4 py-2 border border-gray-300 rounded-md w-full"
+                    />
+                </div>
+                <div className="mb-5">
+                    <label className="block  text-gray-700 text-sm mb-1">
+                        Other Zip
+                    </label>
+                    <input
+                        defaultValue={userInfo?.otherZip}
+                        name="otherZip"
                         type="text"
                         className="mt-1 px-4 py-2 border border-gray-300 rounded-md w-full"
                     />

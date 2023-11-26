@@ -75,7 +75,7 @@ const Main = () => {
                     {
                         sub: subject,
                         message: contentString,
-                        date: dateTime,
+                        date: new Date().toISOString(),
                         files: fileLinks,
                         sender: "CONSUMER",
                         forClient: {
@@ -175,7 +175,7 @@ const Main = () => {
 
     //render
     return (
-        <form onSubmit={handleSubmit} className='mb-20'>
+        <form onSubmit={handleSubmit}>
 
             <div className="mb-5 mt-16">
                 <label htmlFor="title" className="block  text-gray-700 text-sm mb-1">
@@ -248,7 +248,6 @@ const Main = () => {
                             </Dropzone>
 
                             <div className="border-0 flex flex-wrap mt-2">
-                                <p className='text-sm text-gray-600 mb-7'>Attachments: </p>
                                 {files.map((file, index) => (
                                     <div key={file.name} className="border-0 w-40 h-40 m-1 relative bg-gray-300 " >
 
@@ -299,8 +298,8 @@ const Main = () => {
                 </div>
             </div>
 
-            <div className='mb-10'>
-                <button type='submit' className='px-6 mb-20 rounded-md py-2 bg-desktopPrimary text-white font-semibold'>Submit</button>
+            <div>
+                <button type='submit' className='px-4 py-2 bg-primary text-white font-semibold'>Submit</button>
             </div>
         </form>
     );

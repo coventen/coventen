@@ -4,186 +4,410 @@ import Button from '@/components/Button';
 import Error from '@/components/Error';
 import AuthConfig from '@/firebase/oauth.config';
 import { useGqlClient } from '@/hooks/UseGqlClient';
-import { useMutation, useQuery } from 'graphql-hooks';
+import { useManualQuery, useMutation, useQuery } from 'graphql-hooks';
 import React, { useEffect } from 'react';
-import { toast } from 'react-hot-toast';
+import Industries from './Industries';
+import Services from './Services';
+import Documents from './Documents';
+import toast from 'react-hot-toast';
+import Tabs from './(components)/Tabs';
 
-const GET_USER = `query Users($where: UserWhere) {
+const GET_USER = `query Query($where: UserWhere) {
     users(where: $where) {
+      userId
       name
-      user_type
       email
-      address
+      phone
       bio
+      id
+      panCardNo
+      phoneNumber
       companyName
       companyEmail
       gstNumber
-      image
-      zip
-      city
-      state
+      title
+      education
+      department
+      companyPhone
+      isProfileCompleted
+      linkedin
+      twitter
+      skypeId
+      experience
+      specialty
+      companyDescription
+      interest
+      user_type
+      hasDocuments {
+        hasFiles {
+          links
+        }
+      }
+      hasPrimaryaddress {
+        street
+        city
+        state
+        Country
+        zipCode
+      }
+      hasSecondaryaddress {
+        id
+        street
+        city
+        state
+        Country
+        zipCode
+      }
+      isClient {
+        id
+        industry
+        service
+        equipmentDocs
+        hasManyEquipment {
+          id
+          name
+          model
+          make
+          yearOfInstallation
+          calibrationDetails
+          warranty
+        }
+      }
     }
   }`
 
-const UPDATE_USER = `mutation Mutation($where: UserWhere, $update: UserUpdateInput) {
-    updateUsers(where: $where, update: $update) {
-        users {
-          id
-        }
-      }
-  }`
+const UPDATE_USER = `mutation UpdateUsers($where: UserWhere, $update: UserUpdateInput) {
+  updateUsers(where: $where, update: $update) {
+    info {
+      nodesCreated
+      nodesDeleted
+    }
+  }
+}`
 
 const Main = () => {
 
-    //states
-    const [userInfo, setUserInfo] = React.useState({
-        name: '',
-        user_type: '',
-        email: '',
-        address: '',
-        bio: '',
-        companyName: '',
-        companyEmail: '',
-        gstNumber: '',
-        image: '',
-        zip: '',
-        city: '',
-        state: '',
+  //states
+  const [previousData, setPreviousData] = React.useState<any>(null)
+  const [userInfo, setUserInfo] = React.useState<any>({
+    name: '',
+    email: '',
+    userId: '',
+    phone: '',
+    title: '',
+    department: '',
+    education: '',
+    experience: '',
+    specialty: '',
+    interest: '',
+    // reportingTo: '',
+    bio: '',
+    companyName: '',
+    companyEmail: '',
+    aboutCompany: '',
+    companyPhone: '',
+    panCardNo: '',
+    gst: '',
+    otherPhone: '',
+    linkedin: '',
+    twitter: '',
+    skypeId: '',
+    street: '',
+    city: '',
+    state: '',
+    country: '',
+    Zip: '',
+    otherStreet: '',
+    otherCity: '',
+    userType: '',
+    otherState: '',
+    otherCountry: '',
+    otherZip: '',
+    documents: [],
+    equipmentAttachments: [],
+  })
+
+
+  //hooks
+  const client = useGqlClient()
+  const { user, authLoading } = AuthConfig()
+
+
+
+
+
+  // fetching data
+  const [getUserFn, userState] = useManualQuery(GET_USER, {
+    client,
+  })
+
+  // updating the user node
+  const [updateUserFn, updateUserState] = useMutation(UPDATE_USER, { client })
+
+
+
+
+  // setting the user data  to the state
+  useEffect(() => {
+    if (previousData) {
+      const { isClient, hasSecondaryaddress, hasPrimaryaddress, hasDocuments, user_type, interest, companyDescription, specialty, experience, skypeId, twitter, linkedin, companyPhone, department, education, title, gstNumber, companyEmail, reportingTo, companyName, phoneNumber, panCardNo, bio, phone, email, name, userId } = previousData
+
+
+
+
+
+
+      const primaryStreet = hasPrimaryaddress?.street || ''
+      const primaryCity = hasPrimaryaddress?.city || ''
+      const primaryState = hasPrimaryaddress?.state || ''
+      const primaryCountry = hasPrimaryaddress?.Country || ''
+      const primaryZip = hasPrimaryaddress?.zipCode || ''
+
+      const secondaryStreet = hasSecondaryaddress?.street || ''
+      const secondaryCity = hasSecondaryaddress?.city || ''
+      const secondaryState = hasSecondaryaddress?.state || ''
+      const secondaryCountry = hasSecondaryaddress?.Country || ''
+      const secondaryZip = hasSecondaryaddress?.zipCode || ''
+
+      const service = isClient?.service || []
+      const industries = isClient?.industry || []
+      const equipments = isClient?.hasManyEquipment || []
+      const equipmentAttachments = isClient?.equipmentDocs || []
+
+      const documents = hasDocuments?.hasFiles?.links || []
+
+
+
+      setUserInfo({
+        name,
+        userId,
+        email,
+        phone,
+        title,
+        department,
+        education,
+        experience,
+        specialty,
+        interest,
+        // reportingTo,
+        bio,
+        companyName,
+        companyEmail,
+        aboutCompany: companyDescription,
+        companyPhone,
+        panCardNo,
+        gst: gstNumber,
+        otherPhone: phoneNumber,
+        linkedin,
+        twitter,
+        skypeId,
+        street: primaryStreet,
+        city: primaryCity,
+        state: primaryState,
+        country: primaryCountry,
+        zip: primaryZip,
+        otherStreet: secondaryStreet,
+        otherCity: secondaryCity,
+        userType: user_type,
+        otherState: secondaryState,
+        otherCountry: secondaryCountry,
+        otherZip: secondaryZip,
+        documents,
+        equipments,
+        service,
+        industries,
+        equipmentAttachments,
+
+      })
+    }
+  }, [previousData])
+
+
+
+
+  useEffect(() => {
+    if (user?.email) {
+      getUser()
+    }
+  }, [user?.email, authLoading])
+
+
+
+  // get user 
+  const getUser = async () => {
+    const { data } = await getUserFn({
+      variables: { where: { email: user?.email || 'no user' } }
     })
-
-
-    //hooks
-    const client = useGqlClient()
-    const { user } = AuthConfig()
-
-
-    // fetching data
-    const { data, error, loading } = useQuery(GET_USER, {
-        client,
-        variables: { where: { email: user?.email, user_type: "CONSUMER" } }
-    })
-
-    // updating the user node
-    const [updateUserFn, updateUserState] = useMutation(UPDATE_USER, { client })
-
-
-    // updating the user node
-    const userData = data?.users[0]
-
-    // setting the user data  to the state
-    useEffect(() => {
-        if (userData) {
-            const { name, user_type, email, address, bio, companyName, companyEmail, gstNumber, image, zip, city, state } = userData
-            setUserInfo({
-                name,
-                user_type,
-                email,
-                address,
-                bio,
-                companyName,
-                companyEmail,
-                gstNumber,
-                image,
-                zip,
-                city,
-                state,
-            })
-        }
-    }, [userData])
+    if (data?.users[0]?.name) {
+      setPreviousData(data?.users[0])
+    }
+  }
 
 
 
-    // updating the user node
-
-    const updateUser = async () => {
-        const { name, user_type, email, address, bio, companyName, companyEmail, gstNumber, image, zip, city, state } = userInfo
 
 
+  // updating the user node
 
-        const { data, error } = await updateUserFn({
-            variables: {
-                where: { email },
-                update: {
-                    name,
-                    user_type,
-                    email,
-                    address,
-                    bio,
-                    companyName,
-                    companyEmail,
-                    gstNumber,
-                    image,
-                    zip,
-                    city,
-                    state,
-                }
-            }
-        })
-        if (data.updateUsers.users[0].id) {
-            toast.success('User updated successfully')
-        }
-        if (error) {
-            toast.success('Something went wrong')
-        }
+  const updateUser = async (updatedData: any) => {
+
+    const { name, email, phone, title, department, education, experience, specialty, interest, bio, companyName, companyEmail, aboutCompany, companyPhone, panCardNo, gst, otherPhone, linkedin, twitter, skypeId, otherZip, otherCountry, otherState, otherCity, otherStreet, zip, country, state, city, street } = updatedData
+
+    console.log(zip, otherZip)
+
+    let profileComplete = false
+
+    if (name && email && phone && title && department && education && experience && specialty && interest && bio && companyName && companyEmail && aboutCompany && companyPhone && panCardNo && gst && otherPhone && linkedin && twitter && skypeId && otherZip && otherCountry && otherState && otherCity && otherStreet && zip && country && state && city && street) {
+      console.log('profile complete')
+      profileComplete = true
+    } else {
+      profileComplete = false
     }
 
 
-    if (loading || updateUserState.loading) return <div><Loading /></div>
+    if (!previousData.hasPrimaryaddress && !previousData.hasSecondaryaddress) {
 
-    if (updateUserState.error || error) return <div><Error /></div>
+      const { data } = await updateUserFn({
+        variables: {
+          "where": {
+            "email": user?.email
+          },
+          "update": {
+            "name": name,
+            "email": email,
+            "phone": phone,
+            "bio": bio,
+            "panCardNo": panCardNo,
+            "phoneNumber": otherPhone,
+            "companyName": companyName,
+            "companyEmail": companyEmail,
+            "gstNumber": gst,
+            "title": title,
+            "education": education,
+            "department": department,
+            "companyPhone": companyPhone,
+            "linkedin": linkedin,
+            "twitter": twitter,
+            "skypeId": skypeId,
+            "experience": experience,
+            "specialty": specialty,
+            "interest": interest,
+            "companyDescription": aboutCompany,
+
+            "hasPrimaryaddress": {
+              "create": {
+                "node": {
+                  "street": street,
+                  "city": city,
+                  "state": state,
+                  "Country": country,
+                  "zipCode": zip
+                }
+              }
+            },
+            "hasSecondaryaddress": {
+              "create": {
+                "node": {
+                  "street": otherStreet,
+                  "city": otherCity,
+                  "state": otherState,
+                  "Country": otherCountry,
+                  "zipCode": otherZip
+                }
+              }
+            }
+          }
+        }
+      })
 
 
-    return (
-        <div className="grid grid-cols-1 md:grid-cols-2 w-full lg:w-3/4 gap-6">
-            <label className="block">
-                <span className="mb-1">User Name</span>
-                <input value={userInfo.name} onChange={(e) => setUserInfo({ ...userInfo, name: e.target.value })} type="text" placeholder="Leroy Jenkins" className="block w-full rounded-md shadow-sm focus:ring focus:ri focus:ri dark:bg-gray-800 py-4" />
-            </label>
-            <label className="block">
-                <span className="mb-1">Email address</span>
-                <input readOnly value={userInfo.email} type="text" placeholder="leroy@jenkins.com" className="block w-full rounded-md shadow-sm focus:ring focus:ri focus:ri dark:bg-gray-800 py-4" />
-            </label>
-            <label className="block lg:col-span-2">
-                <span className="mb-1">Company name</span>
-                <input value={userInfo.companyName} onChange={(e) => setUserInfo({ ...userInfo, companyName: e.target.value })} type="text" placeholder="Company name" className="block w-full rounded-md shadow-sm focus:ring focus:ri focus:ri dark:bg-gray-800 py-4" />
-            </label>
-            <label className="block">
-                <span className="mb-1">Company email</span>
-                <input value={userInfo.companyEmail} onChange={(e) => setUserInfo({ ...userInfo, companyEmail: e.target.value })} type="text" placeholder="45679" className="block w-full rounded-md shadow-sm focus:ring focus:ri focus:ri dark:bg-gray-800 py-4" />
-            </label>
-            <label className="block">
-                <span className="mb-1">Gst No.</span>
-                <input value={userInfo.gstNumber} onChange={(e) => setUserInfo({ ...userInfo, gstNumber: e.target.value })} type="text" placeholder="45679" className="block w-full rounded-md shadow-sm focus:ring focus:ri focus:ri dark:bg-gray-800 py-4" />
-            </label>
-            <label className="block lg:col-span-2">
-                <span className="mb-1">Address</span>
-                <input value={userInfo.address} onChange={(e) => setUserInfo({ ...userInfo, address: e.target.value })} type="text" placeholder="45679" className="block w-full rounded-md shadow-sm focus:ring focus:ri focus:ri dark:bg-gray-800 py-4" />
-            </label>
-            <label className="block">
-                <span className="mb-1">City</span>
-                <input value={userInfo.city} onChange={(e) => setUserInfo({ ...userInfo, city: e.target.value })} type="text" placeholder="45679" className="block w-full rounded-md shadow-sm focus:ring focus:ri focus:ri dark:bg-gray-800 py-4" />
-            </label>
-            <label className="block">
-                <span className="mb-1">State</span>
-                <input value={userInfo.state} onChange={(e) => setUserInfo({ ...userInfo, state: e.target.value })} type="text" placeholder="45679" className="block w-full rounded-md shadow-sm focus:ring focus:ri focus:ri dark:bg-gray-800 py-4" />
-            </label>
-            <label className="block">
-                <span className="mb-1">ZIP / Postal</span>
-                <input value={userInfo.zip} onChange={(e) => setUserInfo({ ...userInfo, zip: e.target.value })} type="text" placeholder="45679" className="block w-full rounded-md shadow-sm focus:ring focus:ri focus:ri dark:bg-gray-800 py-4" />
-            </label>
+      if (data) {
+        toast.success('User updated successfully')
+        getUser()
+      }
+    } else {
 
-            <label className="block col-span-2">
-                <span className="mb-1">Bio</span>
-                <textarea value={userInfo.bio} onChange={(e) => setUserInfo({ ...userInfo, bio: e.target.value })} rows={5} placeholder="Bio" className="block w-full rounded-md shadow-sm focus:ring focus:ri focus:ri dark:bg-gray-800 py-4" />
-            </label>
+      const { data } = await updateUserFn({
+        variables: {
+          "where": {
+            "email": user?.email
+          },
+          "update": {
+            "name": name,
+            "email": email,
+            "phone": phone,
+            "bio": bio,
+            "panCardNo": panCardNo,
+            "phoneNumber": otherPhone,
+            "companyName": companyName,
+            "companyEmail": companyEmail,
+            "gstNumber": gst,
+            "title": title,
+            "education": education,
+            "department": department,
+            "companyPhone": companyPhone,
+            "linkedin": linkedin,
+            "twitter": twitter,
+            "skypeId": skypeId,
+            "experience": experience,
+            "specialty": specialty,
+            "interest": interest,
+            "companyDescription": aboutCompany,
+            isProfileCompleted: profileComplete,
 
-            <div className="flex  w-full">
-                <div className="w-full mb-5 mt-6">
-                    <button onClick={updateUser} className="block text-xl w-full  bg-desktopPrimary/80 hover:bg-desktopPrimary focus:bg-desktopPrimary text-white rounded-lg px-3 py-4 font-semibold">Update Now</button>
-                </div>
-            </div>
-        </div>
-    );
+            "hasPrimaryaddress": {
+              "update": {
+                "node": {
+                  "street": city,
+                  "city": city,
+                  "state": state,
+                  "Country": country,
+                  "zipCode": zip
+                }
+              }
+            },
+            "hasSecondaryaddress": {
+              "update": {
+                "node": {
+                  "street": otherState,
+                  "city": otherCity,
+                  "state": otherState,
+                  "Country": otherCountry,
+                  "zipCode": otherZip
+                }
+              }
+            }
+          }
+        }
+      })
+
+
+      if (data) {
+        toast.success('User updated successfully')
+        getUser()
+      }
+    }
+
+
+
+
+  }
+
+
+
+
+
+  if (updateUserState.loading || authLoading || userState.loading) return <div><Loading /></div>
+
+  // if (userState.error || updateUserState.error) return <Error />
+
+  return (
+    <div className='bg-white p-4'>
+
+      <Tabs userInfo={userInfo} setUserInfo={setUserInfo} updateUser={updateUser} getUser={getUser} />
+
+    </div>
+  );
 };
 
 export default Main;

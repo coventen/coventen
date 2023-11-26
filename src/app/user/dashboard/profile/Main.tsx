@@ -29,6 +29,7 @@ const GET_USER = `query Query($where: UserWhere) {
       education
       department
       companyPhone
+      isProfileCompleted
       linkedin
       twitter
       skypeId
@@ -250,8 +251,18 @@ const Main = () => {
 
   const updateUser = async (updatedData: any) => {
 
-    const { name, email, phone, title, department, education, experience, specialty, interest, bio, companyName, companyEmail, aboutCompany, companyPhone, panCardNo, gst, otherPhone, linkedin, twitter, skypeId, otherZip, otherCountry, otherState, otherCity, otherStreet, Zip, country, state, city, street } = updatedData
+    const { name, email, phone, title, department, education, experience, specialty, interest, bio, companyName, companyEmail, aboutCompany, companyPhone, panCardNo, gst, otherPhone, linkedin, twitter, skypeId, otherZip, otherCountry, otherState, otherCity, otherStreet, zip, country, state, city, street } = updatedData
 
+    console.log(zip, otherZip)
+
+    let profileComplete = false
+
+    if (name && email && phone && title && department && education && experience && specialty && interest && bio && companyName && companyEmail && aboutCompany && companyPhone && panCardNo && gst && otherPhone && linkedin && twitter && skypeId && otherZip && otherCountry && otherState && otherCity && otherStreet && zip && country && state && city && street) {
+      console.log('profile complete')
+      profileComplete = true
+    } else {
+      profileComplete = false
+    }
 
 
     if (!previousData.hasPrimaryaddress && !previousData.hasSecondaryaddress) {
@@ -290,7 +301,7 @@ const Main = () => {
                   "city": city,
                   "state": state,
                   "Country": country,
-                  "zipCode": Zip
+                  "zipCode": zip
                 }
               }
             },
@@ -342,6 +353,7 @@ const Main = () => {
             "specialty": specialty,
             "interest": interest,
             "companyDescription": aboutCompany,
+            isProfileCompleted: profileComplete,
 
             "hasPrimaryaddress": {
               "update": {
@@ -350,7 +362,7 @@ const Main = () => {
                   "city": city,
                   "state": state,
                   "Country": country,
-                  "zipCode": Zip
+                  "zipCode": zip
                 }
               }
             },

@@ -3,8 +3,9 @@
 import React, { useState } from 'react';
 import ModuleCards from './ModuleCards';
 import { Module, Project } from '@/gql/graphql';
+import { getNormalDateAndTime } from '@/shared/getNormalDateAndTime';
 
-const ProjectCard = ({ data, deleteProjectById, deleteModuleById }: { data: Project[], deleteProjectById: (id: string, module: string[]) => void, deleteModuleById: any }) => {
+const ProjectCard = ({ data, deleteProjectById, deleteModuleById }: { data: any[], deleteProjectById: (id: string, module: string[]) => void, deleteModuleById: any }) => {
 
     //states
     const [expandedIndex, setExpandedIndex] = useState(null);
@@ -51,11 +52,11 @@ const ProjectCard = ({ data, deleteProjectById, deleteModuleById }: { data: Proj
                                     <i className={`fas ${expandedIndex === index ? "fa-minus" : "fa-plus"}`}></i>
                                     <div className="flex items-center justify-between w-full  p-3 ">
                                         <div className='flex  flex-col space-y-3 w-80% xl:w-[70%]'>
-                                            <p className="text-sm lg:text-xl text-gray-700 font-semibold ">
+                                            <p className="text-sm lg:text-xl text-gray-700 font-semibold capitalize ">
                                                 {project?.title?.slice(0, 50)}
                                             </p>
                                             <p className='text-xs xl:text-sm text-dimText'>{project?.description?.slice(0, 300)}</p>
-                                            <p className='text-desktopPrimary text-[10px] xl:text-sm    '>Created: {project.createdAt.slice(0, 10)}</p>
+                                            <p className='text-primary text-[10px] xl:text-sm    '>Created: {getNormalDateAndTime(project.createdAt)}</p>
                                         </div>
 
 
@@ -88,6 +89,12 @@ const ProjectCard = ({ data, deleteProjectById, deleteModuleById }: { data: Proj
                                                 <h5 className="text-desktopText font-semibold text-md  mb-3">
                                                     Project name: {project?.title}
                                                 </h5>
+                                                <h5 className="text-desktopText font-semibold text-md  mb-3">
+                                                    Project Type: {project?.type}
+                                                </h5>
+                                                <h5 className="text-desktopText font-semibold text-md  mb-3">
+                                                    Priority: {project?.priority}
+                                                </h5>
                                                 <p className='text-dimText text-sm'>
                                                     {project?.description}
                                                 </p>
@@ -105,7 +112,7 @@ const ProjectCard = ({ data, deleteProjectById, deleteModuleById }: { data: Proj
                                             {
                                                 !checkStatus(project?.hasModule) || project?.status === "PENDING" && <button
                                                     onClick={() => {
-                                                        let modules = project?.hasModule?.map((module) => module?.id)
+                                                        let modules = project?.hasModule?.map((module: any) => module?.id)
                                                         deleteProjectById(project?.id, modules)
 
                                                     }}

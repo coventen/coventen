@@ -4,6 +4,7 @@ import Error from '@/components/Error';
 import AuthConfig from '@/firebase/oauth.config';
 import { useGqlClient } from '@/hooks/UseGqlClient';
 import { getEmployerEmail } from '@/shared/getEmployerEmail';
+import { getNormalDateAndTime } from '@/shared/getNormalDateAndTime';
 import { useManualQuery, useMutation, useQuery } from 'graphql-hooks';
 import Link from 'next/link';
 import React, { useState, useEffect } from 'react';
@@ -136,7 +137,6 @@ const Main = () => {
 
 
 
-
     if (internalEmailState.loading || deleteState.loading) return <Loading />
 
     if (internalEmailState.error || deleteState.error) return <Error />
@@ -195,6 +195,9 @@ const Main = () => {
                                                         <span className=" text-gray-600 text-sm truncate mr-4">{item?.sub}</span>
                                                     </Link>
                                                     <div className=" flex items-center justify-end">
+                                                        <span x-show="!messageHover" className="text-xs mr-2 text-gray-500">
+                                                            {getNormalDateAndTime(item?.date)}
+                                                        </span>
                                                         <div className="flex items-center space-x-2" >
 
                                                             <button onClick={() => deleteMessage(item?.id)} title="Delete">
@@ -209,9 +212,7 @@ const Main = () => {
                                                                 </svg>
                                                             </button>
                                                         </div>
-                                                        <span x-show="!messageHover" className="text-xs text-gray-500">
-                                                            {item?.date?.slice(-10, -5)}
-                                                        </span>
+
                                                     </div>
                                                 </div>
                                             </div>

@@ -189,7 +189,7 @@ const Main = () => {
             })
             if (data.createTestTickets.info.nodesCreated) {
                 toast.success(' created successfully')
-                router.push('/vendor/dashboard/tests')
+                router.push('/desktop_vendor/dashboard/tests')
                 // sendNotification('')
                 // createLog(
                 //     `Test Creation`,

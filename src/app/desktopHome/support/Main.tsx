@@ -41,7 +41,23 @@ mutation UpdateSupportTickets($where: SupportTicketWhere, $update: SupportTicket
   }
 `
 
+const UPDATE_COUNTER = `
+mutation UpdateCounters($update: CounterUpdateInput) {
+  updateCounters(update: $update) {
+    info {
+      nodesCreated
+    }
+  }
+}
+`
 
+const GET_USER_COUNT = `
+query Counters {
+  counters {
+    supportCount
+  }
+}
+`
 // component
 const Main = () => {
     //states
@@ -52,6 +68,7 @@ const Main = () => {
     const client = useGqlClient()
 
     // queries
+    const { data: countData, loading: counterLoading } = useQuery(GET_USER_COUNT, { client })
     const { data: supportTicketData, error, loading, refetch } = useQuery(GET_SUPPORT_TICKETS, {
         client,
         variables: {
@@ -67,6 +84,7 @@ const Main = () => {
     })
 
     // mutations
+    const [updateCounterFn, updateCounterState] = useMutation(UPDATE_COUNTER, { client })
     const [createSupportTicketFn, createState] = useMutation(CREATE_SUPPORT_TICKET, { client })
     const [updateSupportTicketFn, updateState] = useMutation(UPDATE_SUPPORT_TICKET, { client })
 
@@ -83,21 +101,28 @@ const Main = () => {
 
     // checking if user has a support ticket and if not create one or update the date
     const handleSupportTicket = async () => {
-        if (!supportTicketData.supportTickets[0]?.id && !loading && !error) {
-            createTicket()
-        } else {
-            updateTicket()
-        }
+        updateTicket()
     }
 
     // CREATES A SUPPORT TICKET
     const createTicket = async () => {
 
+        let supportCount: number
+
+        if (countData?.counters[0]?.supportCount == 1 || countData?.counters[0]?.supportCount == null) {
+            supportCount = 1001
+        } else {
+            supportCount = countData?.counters[0]?.supportCount + 1
+        }
+
+        await updateCount(supportCount)
+
+
         const { data } = await createSupportTicketFn({
             variables: {
                 input: [
                     {
-                        ticket: `S-${uuidv4()}`,
+                        ticket: `S-${supportCount}`,
                         createdAt: new Date().toISOString(),
                         clientHas: {
                             connect: {
@@ -135,7 +160,18 @@ const Main = () => {
     }
 
 
-    if (loading || updateState.loading || createState.loading) return <Loading />
+    const updateCount = async (count: number) => {
+        const { data } = await updateCounterFn({
+            variables: {
+                update: {
+                    supportCount: count
+                }
+            }
+        })
+    }
+
+
+    if (createState.loading || loading) return <Loading />
 
     if (error || updateState.error || createState.error) return <Error />
 
@@ -163,9 +199,27 @@ const Main = () => {
     }
 
 
+
+
     return (
+
         <>
-            <ChatBody messages={messages} supportTicket={supportTicketData?.supportTickets[0]?.id} handleSupportTicket={handleSupportTicket} getData={getData} />
+            {
+                !loading && supportTicketData?.supportTickets[0]?.id ?
+                    <ChatBody
+                        messages={messages}
+                        supportTicket={supportTicketData?.supportTickets[0]?.id} handleSupportTicket={handleSupportTicket}
+                    />
+                    :
+                    <div className="flex justify-center items-center w-full h-screen">
+                        <button onClick={createTicket} className='gradient-bg rounded-md text-white px-10 py-2 font-semibold'>
+                            Continue
+                        </button>
+                    </div>
+
+            }
+
+
         </>
     );
 };

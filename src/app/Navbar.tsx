@@ -49,7 +49,7 @@ export default function Navbar({ services, industries, solutions, features }: an
 
     //hooks
     // const { user, logout, authLoading } = AuthConfig()
-    const { user, logout, authLoading } = useAuth()
+    const { user, logout, authLoading }: any = useAuth()
     const router = useRouter()
 
 
@@ -59,6 +59,8 @@ export default function Navbar({ services, industries, solutions, features }: an
 
 
 
+
+    console.log(user, 'nav bar 3040000000000')
 
 
 
@@ -72,18 +74,33 @@ export default function Navbar({ services, industries, solutions, features }: an
 
 
     const handleDifferentUserRouting = (dest: string) => {
-        if (userStatus !== 'APPROVED') {
+        if (user?.status !== 'APPROVED' && !authLoading) {
             return '/not_approved'
         }
-        else if (currentUserType === 'ADMIN' || currentUserType === 'COVENTEN_EMPLOYEE') {
+        else if (user?.user_type === 'ADMIN' || user?.user_type === 'COVENTEN_EMPLOYEE' && !authLoading) {
             return `/admin/${dest}`
         }
-        else if (currentUserType === 'CONSUMER') {
+        else if (user?.user_type === 'CONSUMER' && !authLoading) {
+            //redirect to profile if profile is not completed
+            if (user?.isProfileCompleted === false && !authLoading) {
+                // toast.success('Your profile is not completed, please complete your profile first')
+                return '/user/dashboard/profile'
+            }
             return `/user/${dest}`
         }
-        else if (currentUserType === 'SERVICE_PROVIDER' || currentUserType === 'LAB_ASSISTANT') {
+        else if (user?.user_type === 'SERVICE_PROVIDER' && !authLoading) {
+
+            //redirect to profile if profile is not completed
+            if (user?.isProfileCompleted === false && !authLoading) {
+                // toast.success('Your profile is not completed, please complete your profile first')
+                return '/vendor/dashboard/profile'
+            }
             return `/vendor/${dest}`
-        } else {
+        }
+        else if (user?.user_type === 'LAB_ASSISTANT' && !authLoading) {
+            return `/vendor/${dest}`
+        }
+        else {
             return '/'
         }
 

@@ -13,11 +13,10 @@ interface Props {
     messages: any[];
     supportTicket: string;
     handleSupportTicket: () => void;
-    getData: () => void;
 }
 
 
-const ChatBody = ({ messages, supportTicket, handleSupportTicket, getData }: Props) => {
+const ChatBody = ({ messages, supportTicket, handleSupportTicket }: Props) => {
 
     //states
     const [onClose, setOnClose] = useState(false)
@@ -50,7 +49,7 @@ const ChatBody = ({ messages, supportTicket, handleSupportTicket, getData }: Pro
         e.target.reset()
 
         if (text) {
-            await handleSupportTicket()
+            handleSupportTicket()
             await updateDoc(doc(db, "support", supportTicket), {
                 messages: arrayUnion({
                     id: uuidv4(),
@@ -60,7 +59,6 @@ const ChatBody = ({ messages, supportTicket, handleSupportTicket, getData }: Pro
                     date: Timestamp.now(),
                 })
             })
-            getData()
         }
 
 
@@ -68,12 +66,10 @@ const ChatBody = ({ messages, supportTicket, handleSupportTicket, getData }: Pro
     }
 
 
-
     // handling file upload
     const handleUploadImage = async (e: any) => {
         const files = e.target.files
         const filesArray = Array.from(files);
-
         uploadFiles(filesArray as File[])
     }
 
@@ -82,14 +78,13 @@ const ChatBody = ({ messages, supportTicket, handleSupportTicket, getData }: Pro
     const uploadFiles = async (files: File[]) => {
         setUploading(true)
         const filePromise = files.map(async (file) => {
-            const data = await uploadFile(file, `support-${uuidv4()}`, "support_Images");
+            const data = await uploadFile(file, `${file.name}-${uuidv4()}`, "ChatImages");
             return data;
 
         });
         const fileLinks = await Promise.all(filePromise);
         if (fileLinks.length) {
-            await handleSupportTicket()
-            await updateDoc(doc(db, "chats", supportTicket), {
+            await updateDoc(doc(db, "support", supportTicket), {
                 messages: arrayUnion({
                     id: uuidv4(),
                     text: "",
@@ -112,10 +107,8 @@ const ChatBody = ({ messages, supportTicket, handleSupportTicket, getData }: Pro
     };
 
 
-
-
     return (
-        <div className="flex flex-col flex-auto h-full  ml-6 shadow-md bg-white pb-2 rounded-lg border border-gray-100">
+        <div className="flex flex-col flex-auto h-full   shadow-md bg-white pb-2 rounded-lg border border-gray-100">
             <div
                 className="flex flex-col flex-auto flex-shrink-0  bg-white h-full "
             >
@@ -154,7 +147,7 @@ const ChatBody = ({ messages, supportTicket, handleSupportTicket, getData }: Pro
 
 
                                                         <div key={i} onClick={() => handleDownload(image, i)}>
-                                                            <img src={image} alt="" className='' />
+                                                            <img src={image} alt="" className='h-32 w-32' />
                                                         </div>
 
 

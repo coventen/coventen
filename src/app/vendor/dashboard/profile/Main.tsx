@@ -13,6 +13,7 @@ import toast from 'react-hot-toast';
 import Tabs from './(components)/Tabs';
 import { useAuth } from '@/firebase/AuthProvider';
 import GeneralInfo from './(components)/GeneralInfo';
+import { useRouter } from 'next/navigation';
 
 const GET_USER = `query Query($where: UserWhere) {
     users(where: $where) {
@@ -37,6 +38,7 @@ const GET_USER = `query Query($where: UserWhere) {
       experience
       specialty
       companyDescription
+      isProfileCompleted
       interest
       user_type
       hasDocuments {
@@ -119,7 +121,7 @@ const Main = () => {
     city: '',
     state: '',
     country: '',
-    Zip: '',
+    zip: '',
     otherStreet: '',
     otherCity: '',
     userType: '',
@@ -134,6 +136,7 @@ const Main = () => {
   //hooks
   const client = useGqlClient()
   const { user, authLoading }: any = useAuth()
+  const router = useRouter()
 
 
 
@@ -254,9 +257,16 @@ const Main = () => {
 
   const updateUser = async (updatedData: any) => {
 
-    const { name, email, phone, title, department, education, experience, specialty, interest, bio, companyName, companyEmail, aboutCompany, companyPhone, panCardNo, gst, otherPhone, linkedin, twitter, skypeId, otherZip, otherCountry, otherState, otherCity, otherStreet, Zip, country, state, city, street } = updatedData
+    const { name, email, phone, title, department, education, experience, specialty, interest, bio, companyName, companyEmail, aboutCompany, companyPhone, panCardNo, gst, otherPhone, linkedin, twitter, skypeId, otherZip, otherCountry, otherState, otherCity, otherStreet, zip, country, state, city, street } = updatedData
 
+    let profileComplete = false
 
+    if (name && email && phone && title && department && education && experience && specialty && interest && bio && companyName && companyEmail && aboutCompany && companyPhone && panCardNo && gst && otherPhone && linkedin && twitter && skypeId && otherZip && otherCountry && otherState && otherCity && otherStreet && zip && country && state && city && street) {
+      profileComplete = true
+
+    } else {
+      profileComplete = false
+    }
 
     if (!previousData.hasPrimaryaddress && !previousData.hasSecondaryaddress) {
 
@@ -285,6 +295,7 @@ const Main = () => {
             "experience": experience,
             "specialty": specialty,
             "interest": interest,
+            isProfileCompleted: profileComplete,
             "companyDescription": aboutCompany,
 
             "hasPrimaryaddress": {
@@ -294,7 +305,7 @@ const Main = () => {
                   "city": city,
                   "state": state,
                   "Country": country,
-                  "zipCode": Zip
+                  "zipCode": zip
                 }
               }
             },
@@ -316,6 +327,7 @@ const Main = () => {
 
       if (data) {
         toast.success('User updated successfully')
+        router.refresh()
         getUser()
       }
     } else {
@@ -345,6 +357,7 @@ const Main = () => {
             "experience": experience,
             "specialty": specialty,
             "interest": interest,
+            isProfileCompleted: profileComplete,
             "companyDescription": aboutCompany,
 
             "hasPrimaryaddress": {
@@ -354,7 +367,7 @@ const Main = () => {
                   "city": city,
                   "state": state,
                   "Country": country,
-                  "zipCode": Zip
+                  "zipCode": zip
                 }
               }
             },
@@ -376,6 +389,7 @@ const Main = () => {
 
       if (data) {
         toast.success('User updated successfully')
+        router.refresh()
         getUser()
       }
     }

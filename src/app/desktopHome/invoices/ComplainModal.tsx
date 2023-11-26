@@ -105,7 +105,7 @@ function ComplainModal({ isOpen, setIsOpen, addComplain }: IComplainModal) {
                                     <div className="mt-10">
                                         <button
                                             type="submit"
-                                            className="px-4 py-2 bg-desktopPrimary text-white  "
+                                            className="px-4 py-2 bg-primary text-white  "
                                         >
                                             Submit
                                         </button>

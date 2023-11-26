@@ -17,6 +17,7 @@ import Loading from "@/app/loading";
 import Error from "@/components/Error";
 import { LuLogOut } from "react-icons/lu";
 import AuthConfig from "@/firebase/oauth.config";
+import { useCounterData } from "./CounterProvider";
 
 const GET_USER = `
 query Users($where: UserWhere) {
@@ -52,7 +53,7 @@ const Sidebar = ({
     const { user, logout, authLoading } = AuthConfig();
     const pathname = usePathname();
     const router = useRouter()
-
+    const counterData = useCounterData()
     // query
     const [getDataFn, { data, loading, error }] = useManualQuery(GET_USER, { client })
 
@@ -73,6 +74,8 @@ const Sidebar = ({
         }
 
     }, [user?.email, authLoading])
+
+
 
 
 
@@ -144,7 +147,7 @@ const Sidebar = ({
 
                     })}
                 >
-                    {!collapsed && <Link href='/desktop_vendor/dashboard' className="whitespace-nowrap  font-bold w-full ">
+                    {!collapsed && <Link href='/' className="whitespace-nowrap  font-bold w-full ">
                         <img src="/assets/log.png" className="h-8 " alt="logo" />
                     </Link>}
 
@@ -222,7 +225,31 @@ const Sidebar = ({
                                                     })}
                                                 >
                                                     <p className="flex gap-2 items-center justify-center ">
-                                                        <span className="text-lg">  {item?.icon}</span> <span className=" font-semibold">{!collapsed && item.label}</span>
+                                                        <span className="text-lg">  {item?.icon}</span> <span className=" font-semibold">
+
+                                                            {!collapsed && item.label}
+
+
+
+                                                            {
+                                                                item.label === "Projects" && counterData?.moduleCounter as number > 0 && <span className="relative inline-flex text-[9px] bg-red-500 text-white rounded-full py-0.5 px-1.5 ml-3">
+                                                                    {counterData?.moduleCounter}
+                                                                </span>
+                                                            }
+                                                            {
+                                                                item.label === "Approve Projects" && counterData?.approveCounter as number > 0 && <span className="relative inline-flex text-[9px] bg-red-500 text-white rounded-full py-0.5 px-1.5 ml-3">
+                                                                    {counterData?.approveCounter}
+                                                                </span>
+                                                            }
+                                                            {
+                                                                item.label === "Complaints" && counterData?.complainCounter as number > 0 && <span className="relative inline-flex text-[9px] bg-red-500 text-white rounded-full py-0.5 px-1.5 ml-3">
+                                                                    {counterData?.complainCounter}
+                                                                </span>
+                                                            }
+
+
+
+                                                        </span>
                                                     </p>
                                                 </li>
                                             </Link>

@@ -64,18 +64,14 @@ const AcceptedModules = () => {
     const [sendNotificationFn, notificationState] = useMutation(SEND_NOTIFICATION, { client })
 
 
-    // get lab data
-    useEffect(() => {
-        getLabEmail()
-    }, [user?.email]) //eslint-disable-line
-
 
 
     // getting module data
     useEffect(() => {
+        getLabEmail()
         getModulesData()
         getTotalModulesCount()
-    }, [currentPage, authLoading, labEmail]);
+    }, [currentPage, user?.email, authLoading, labEmail]);
 
 
 
@@ -156,13 +152,9 @@ const AcceptedModules = () => {
 
 
     // on status change to completed upload doc and update status
-    const handleStatusChange = (e: any, id: string) => {
-
-        if (e.target.value == 'UNDER_REVIEW') {
-            setIsDocModalOpen(true)
-            setCurrentModuleId(id)
-        }
-
+    const handleStatusChange = (id: string) => {
+        setIsDocModalOpen(true)
+        setCurrentModuleId(id)
     }
 
     // getting lab email if employee is logged in
@@ -174,6 +166,8 @@ const AcceptedModules = () => {
 
 
     }
+
+
 
 
 
@@ -194,6 +188,7 @@ const AcceptedModules = () => {
                         <th className="px-4 py-3">Serial</th>
                         <th className="px-4 py-3">Ticket-Id</th>
                         <th className="px-4 py-3">Module Title</th>
+                        <th className="px-4 py-3">Status</th>
                         <th className="px-4 py-3 text-center">Action</th>
                     </tr>
                 </thead>
@@ -201,26 +196,27 @@ const AcceptedModules = () => {
 
                     {modules.length ? modules?.map((module: any, index: number) =>
 
-                        <tr key={module?.id} className="bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-900 text-gray-700 dark:text-gray-400">
+                        <tr key={module?.id} className={"bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-900 text-gray-700 dark:text-gray-400"}>
 
                             <td className="px-4 py-3 text-sm">{index + 1}</td>
                             <td className="px-4 py-3 text-sm">{module?.ticket}</td>
                             <td className="px-4 py-3 text-sm">{module?.forModule
                                 ?.title || 'N/A'}</td>
+                            <td className="px-4 py-3 text-sm">{module?.status || 'N/A'}</td>
                             <td className="px-4 py-3 text-sm space-x-2 flex items-center justify-center">
                                 <div className="relative w-40 ">
-                                    <select
-                                        value={module?.status || 'ACCEPTED'}
-                                        onChange={(e) => {
-                                            handleStatusChange(e, module?.id)
+                                    <button
+                                        disabled={module?.status === 'UNDER_REVIEW' ? true : false}
+                                        onClick={() => {
+                                            handleStatusChange(module?.id)
                                             setClientId(module?.clientHas?.userIs?.id)
                                         }
 
                                         }
-                                        className=" h-full rounded-r block  w-full bg-white border text-sm pr-8 border-gray-300  py-1 px-3  leading-tight focus:outline-none  dark:bg-darkBg dark:border-darkBorder">
-                                        <option value='ACCEPTED'>IN DEVELOPMENT</option>
-                                        <option value='UNDER_REVIEW'>UNDER REVIEW</option>
-                                    </select>
+                                        className={`${module?.status === 'UNDER_REVIEW' ? "bg-gray-800 " : "bg-primary "}    h-full rounded-r block  w-full text-sm pr-8  py-1 px-3  text-white leading-tight focus:outline-none  dark:bg-darkBg dark:border-darkBorder`}>
+
+                                        {module?.status === 'UNDER_REVIEW' ? "Submitted" : "Submit Report"}
+                                    </button>
 
                                 </div>
 

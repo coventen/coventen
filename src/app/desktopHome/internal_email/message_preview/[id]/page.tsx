@@ -48,7 +48,7 @@ const getMessageDetails = async (id: string) => {
 
 
 
-
+// component
 const page = async ({ params, searchParams }: any) => {
 
 
@@ -66,9 +66,10 @@ const page = async ({ params, searchParams }: any) => {
                 <h2 className="text-gray-700 text-xl font-bold dark:text-gray-200">Sub: {details?.sub}</h2>
 
                 <div className="mt-2 leading-loose text-gray-600 dark:text-gray-300">
-                    <MessageContent content={details?.message} />
+                    <MessageContent content={JSON.parse(details?.message)} />
                 </div>
                 <div className='grid grid-cols-1 lg:grid-cols-4 gap-2'>
+                    <p className='text-sm text-gray-600 mb-7'>Attachments: </p>
                     {
                         details?.files?.map((fileLink: any, i: number) =>
                             <Link href={fileLink} target='_blank' key={i}>
@@ -88,7 +89,7 @@ const page = async ({ params, searchParams }: any) => {
                     }
                 </div>
 
-                {/* 
+
                 {
                     details?.hasReply?.map((reply: any, i: number) =>
                         <div key={i}>
@@ -98,12 +99,12 @@ const page = async ({ params, searchParams }: any) => {
                                     <div className='text-dimText'>
                                         {reply?.replyMessage}
                                     </div>
-                             
+                                    {/* <textarea value={reply?.replyMessage} id="Reply" rows={5} placeholder="" className="w-full rounded-sm border border-gray-300 ring-primary dark:border-gray-700 dark:text-gray-900"></textarea> */}
                                 </div>
                             </div>
                         </div>
                     )
-                } */}
+                }
 
             </main>
 

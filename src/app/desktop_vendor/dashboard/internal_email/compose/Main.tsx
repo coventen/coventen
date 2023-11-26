@@ -12,7 +12,7 @@ import { useRouter } from 'next/navigation';
 import AuthConfig from '@/firebase/oauth.config';
 import HandleFileUpload from '@/shared/HandleFileUpload';
 import { HiOutlineTrash } from 'react-icons/hi';
-import FilePreview from '@/app/vendor/dashboard/projects/(components)/FilePreview';
+import FilePreview from '@/app/desktop_vendor/dashboard/projects/(components)/FilePreview';
 import Dropzone from 'react-dropzone';
 import { v4 as uuidv4 } from 'uuid';
 import { getEmployerEmail } from '@/shared/getEmployerEmail';

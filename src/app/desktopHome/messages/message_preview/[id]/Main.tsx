@@ -30,7 +30,7 @@ mutation Mutation($input: [ReplyCreateInput!]!) {
 `
 
 // component
-const Reply = ({ ticketId }: { ticketId: string }) => {
+const Main = ({ ticketId }: { ticketId: string }) => {
 
     //states
     const [isReply, setIsReply] = useState(false)
@@ -42,12 +42,13 @@ const Reply = ({ ticketId }: { ticketId: string }) => {
     const { user } = AuthConfig()
 
 
+
     // query replies
     const { data, error, loading, refetch } = useQuery(GET_REPLY, {
         client: client,
         variables: {
             where: {
-                vendorHas: {
+                clientHas: {
                     userIs: {
                         email: user?.email
                     }
@@ -68,25 +69,25 @@ const Reply = ({ ticketId }: { ticketId: string }) => {
     const createReply = async () => {
         const { data } = await createReplyFn({
             variables: {
-                input: [
+                "input": [
                     {
-                        replyMessage: replyMessage,
+                        "replyMessage": replyMessage,
                         senderEmail: user?.email,
-                        communicationticketHas: {
-                            connect: {
-                                where: {
-                                    node: {
-                                        id: ticketId
+                        "communicationticketHas": {
+                            "connect": {
+                                "where": {
+                                    "node": {
+                                        "id": ticketId
                                     }
                                 }
                             }
                         },
-                        vendorHas: {
-                            connect: {
-                                where: {
-                                    node: {
-                                        userIs: {
-                                            email: user?.email
+                        "clientHas": {
+                            "connect": {
+                                "where": {
+                                    "node": {
+                                        "userIs": {
+                                            "email": user?.email
                                         }
                                     }
                                 }
@@ -157,4 +158,4 @@ const Reply = ({ ticketId }: { ticketId: string }) => {
     );
 };
 
-export default Reply;
+export default Main;

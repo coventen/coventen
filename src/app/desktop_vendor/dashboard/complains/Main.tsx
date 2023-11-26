@@ -67,8 +67,10 @@ const Main = () => {
 
 
 
+
     // refetching data based on pagination and search query
     useEffect(() => {
+
         getComplainData()
         getTotalComplains()
     }, [currentPage, labEmail]);
@@ -76,7 +78,7 @@ const Main = () => {
     // // reloading component after data changes
     useEffect(() => {
 
-    }, [data.length, isDocModalOpen])
+    }, [data.length, totalComplain])
 
     // getting lab email if employee is logged in
     const getLabEmail = async () => {
@@ -110,7 +112,6 @@ const Main = () => {
     }
 
     const getComplainData = async () => {
-
         setLoading(true)
         const { data } = await getComplainFn({
             variables: {

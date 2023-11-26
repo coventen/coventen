@@ -176,7 +176,7 @@ const UserInfo = async ({ params }: { params: any }) => {
                         About : {userData?.companyDescription || 'N/A'}
                     </p>
                     <p>
-                        Company Name : {userData?.companyName || 'N/A'}
+                        Company Name : <span className='capitalize'>{userData?.companyName || 'N/A'}</span>
                     </p>
                     <p>
                         Company Email : {userData?.companyEmail || 'N/A'}
@@ -200,7 +200,7 @@ const UserInfo = async ({ params }: { params: any }) => {
                                 <h3>Services</h3>
                                 {
                                     userData?.isVendor && userData?.isVendor?.service?.map((service: any, index: number) => (
-                                        <li key={index}>{service}</li>
+                                        <li className='uppercase' key={index}>{service}</li>
                                     ))
                                 }
                             </ul>
@@ -208,7 +208,7 @@ const UserInfo = async ({ params }: { params: any }) => {
                                 <h3>Industries</h3>
                                 {
                                     userData?.isVendor && userData?.isVendor?.industry?.map((service: any, index: number) => (
-                                        <li key={index}>{service}</li>
+                                        <li className='uppercase' key={index}>{service}</li>
                                     ))
                                 }
                             </ul>
@@ -223,7 +223,7 @@ const UserInfo = async ({ params }: { params: any }) => {
                                     <h3>Services</h3>
                                     {
                                         userData?.isClient && userData?.isClient?.service?.map((service: any, index: number) => (
-                                            <li key={index}>{service}</li>
+                                            <li className='uppercase' key={index}>{service}</li>
                                         ))
                                     }
                                 </ul>
@@ -231,7 +231,7 @@ const UserInfo = async ({ params }: { params: any }) => {
                                     <h3>Industries</h3>
                                     {
                                         userData?.isClient && userData?.isClient?.industry?.map((service: any, index: number) => (
-                                            <li key={index}>{service}</li>
+                                            <li className='uppercase' key={index}>{service}</li>
                                         ))
                                     }
                                 </ul>
@@ -277,7 +277,7 @@ const UserInfo = async ({ params }: { params: any }) => {
                 <h3 className='text-lg font-semibold mb-3 mt-10'>Address</h3>
 
                 <div className='grid grid-cols-3 gap-3 text-sm'>
-                    <p className='col-span-full font-bold'>
+                    <p className='col-span-full font-bold '>
                         Primary Address
                     </p>
                     <p>

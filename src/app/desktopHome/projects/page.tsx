@@ -16,7 +16,7 @@ const Projects = () => {
             <section>
                 <div className='flex items-center justify-between'>
                     <h2 className='md:text-2xl xl:text-3xl font-semibold text-primaryText'>Projects</h2>
-                    <Link href='/user/dashboard/projects/create' className='bg-desktopPrimary md:text-base xl:text-lg font-semibold text-white px-6 xl:px-8 py-2 xl:py-4 rounded-md flex items-center justify-center space-x-3'>
+                    <Link href='/desktopHome/projects/create' className='bg-primary md:text-base xl:text-lg font-semibold text-white px-6 xl:px-8 py-2 xl:py-4 rounded-md flex items-center justify-center space-x-3'>
                         <p>Create Project</p>
                         <span><FaPlusCircle /></span>
                     </Link>

@@ -10,8 +10,6 @@ const Documents = () => {
                 <div className="w-full">
 
                     <Main />
-
-
                 </div>
             </div>
 

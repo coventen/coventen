@@ -12,7 +12,7 @@ const page = () => {
                         <div>
                             <h2 className="text-2xl font-semibold leading-tight">Samples</h2>
                         </div>
-                        <div className="my-2 flex justify-end sm:flex-row flex-col">
+                        {/* <div className="my-2 flex justify-end sm:flex-row flex-col">
                             <div className="flex flex-row mb-1 sm:mb-0">
 
                                 <div className="relative">
@@ -36,7 +36,7 @@ const page = () => {
                                 <input placeholder="Search"
                                     className="  sm:rounded-l-none border border-gray-300 border-b block pl-8 pr-6 py-2 w-full bg-white text-sm placeholder-gray-400 text-gray-700  focus:placeholder-gray-600 focus:text-gray-700 focus:outline-none dark:bg-darkBg dark:border-darkBorder" />
                             </div>
-                        </div>
+                        </div> */}
                         {/* table start */}
                         <div className="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
                             <div className="inline-block min-w-full  rounded-sm overflow-hidden">

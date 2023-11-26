@@ -40,13 +40,14 @@ const GeneralInfo = ({ setUserInfo, userInfo, setCurrentTab, updateUser }: IProp
         }
 
         updateUser(updatedData)
+        setCurrentTab(1)
     };
 
 
 
 
 
-    useEffect(() => { }, [userInfo])
+    useEffect(() => { }, [userInfo?.email])
 
 
 

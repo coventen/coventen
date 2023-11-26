@@ -48,7 +48,7 @@ const ChatBody = ({ messages, supportTicket, handleSupportTicket, getData }: Pro
         e.preventDefault()
 
         e.target.reset()
-        console.log(supportTicket)
+
         if (text) {
             handleSupportTicket()
             await updateDoc(doc(db, "support", supportTicket), {
@@ -104,7 +104,7 @@ const ChatBody = ({ messages, supportTicket, handleSupportTicket, getData }: Pro
     }
 
     const handleDownload = (link: string, index: number) => {
-        console.log(link, index)
+
         saveAs(link, 'image-' + index + '.png');
     };
 

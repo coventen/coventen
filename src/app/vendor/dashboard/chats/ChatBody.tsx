@@ -162,7 +162,7 @@ const ChatBody = ({ messages, currentModule }: Props) => {
 
                                                         <div key={i} onClick={() => handleDownload(image, i)}>
                                                             <img src={image} alt="" className='' />
-                                                            <p className='text-[8px] text-gray-600 mt-1'>send by {message?.senderName === user.name ? 'you' : message?.senderName} </p>
+
                                                         </div>
 
 
@@ -173,7 +173,7 @@ const ChatBody = ({ messages, currentModule }: Props) => {
                                                         <p>
                                                             {message.text}
                                                         </p>
-                                                        <p className='text-[8px] text-gray-600 mt-1'>send by {message?.senderName === user.name ? 'you' : message?.senderName} </p>
+
                                                     </div>
                                                 }
 

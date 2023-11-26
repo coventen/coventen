@@ -103,6 +103,8 @@ function UploadDocModal({ setIsDocModalOpen, isDocModalOpen, currentModuleId, up
             const uploadedFilesData = await Promise.all(uploadPromises);
             if (uploadedFilesData) {
 
+
+                setUploading(false)
                 const { data } = await updateModuleReportFn({
                     variables: {
                         where: {
@@ -117,9 +119,6 @@ function UploadDocModal({ setIsDocModalOpen, isDocModalOpen, currentModuleId, up
                 if (data.updateModuleTickets.moduleTickets.length) {
                     updateModule('UNDER_REVIEW', currentModuleId)
                     closeModal()
-                    setUploading(false)
-                } else {
-                    setUploading(false)
                 }
             }
 

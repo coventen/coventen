@@ -17,7 +17,7 @@ const Complain = () => {
             <div className="container mx-auto px-4 sm:px-8">
                 <div className="py-8">
                     <div>
-                        <h2 className="text-2xl font-semibold leading-tight">Complains</h2>
+                        <h2 className="text-2xl font-semibold leading-tight">Complaints</h2>
                     </div>
 
                     {/* table start */}

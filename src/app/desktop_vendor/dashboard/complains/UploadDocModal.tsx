@@ -17,7 +17,7 @@ import HandleFileUpload from '@/shared/HandleFileUpload';
 import FilePreview from '../projects/(components)/FilePreview';
 import { toast } from 'react-hot-toast';
 import deleteImage from '@/shared/deleteImage';
-import { set } from 'react-hook-form';
+import { FaBullseye } from 'react-icons/fa';
 import { useRouter } from 'next/navigation';
 
 //props interface
@@ -63,8 +63,7 @@ function UploadDocModal({ setIsDocModalOpen, isDocModalOpen, currentComplain, ge
     //hooks
     const client = useGqlClient();
     const { uploadFile } = HandleFileUpload()
-    const router = useRouter()
-
+    const router = useRouter();
 
 
     // QUERIES
@@ -78,7 +77,7 @@ function UploadDocModal({ setIsDocModalOpen, isDocModalOpen, currentComplain, ge
     })
 
     // MUTATIONS
-    const [updateModuleReportFn, updateStatus] = useMutation(UPDATE_MODULE_REPORT, { client })
+    const [updateModuleReportFn, updateStatus, resetFn] = useMutation(UPDATE_MODULE_REPORT, { client })
 
 
 
@@ -117,20 +116,23 @@ function UploadDocModal({ setIsDocModalOpen, isDocModalOpen, currentComplain, ge
 
             const previousFiles = previousData?.moduleTickets[0]?.reports
             if (!previousFiles?.length) {
-                toast.error('Something went wrong, please try again later')
                 setUploading(false)
+                toast.error('Something went wrong, please try again later')
             }
             else {
                 setUploading(true)
 
                 // delete previous files
                 previousFiles?.map((item: string) => {
+
                     deleteImage(item)
                 })
 
                 const uploadedFilesData = await Promise.all(uploadPromises);
 
                 if (uploadedFilesData) {
+
+
                     const { data } = await updateModuleReportFn({
                         variables: {
                             where: {
@@ -143,12 +145,13 @@ function UploadDocModal({ setIsDocModalOpen, isDocModalOpen, currentComplain, ge
                         },
                     })
 
-                    if (data?.updateModuleTickets?.moduleTickets.length) {
-                        setUploading(false)
-                        getComplainData()
+                    if (data.updateModuleTickets.moduleTickets.length) {
+                        // getComplainData()
                         closeModal()
+                        setUploading(false)
                         router.push('/desktop_vendor/dashboard');
                         toast.success('Report Uploaded Successfully')
+
                     }
                 } else {
                     setUploading(false)

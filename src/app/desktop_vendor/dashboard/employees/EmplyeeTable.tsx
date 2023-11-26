@@ -17,7 +17,6 @@ const EmployeeTable = ({ employeeList, updateEmployeeStatus }: IRolesPeopleTable
 
 
 
-
     return (
         <div className="container mx-auto">
             <table className="table-auto w-full">

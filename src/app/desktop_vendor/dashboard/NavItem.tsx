@@ -61,13 +61,18 @@ export const controlledNavItems = [
                 icon: <LuSchool2 className="" />,
             },
             {
-                label: "Complains",
+                label: "Complaints",
                 href: "/desktop_vendor/dashboard/complains",
                 icon: <LuSchool2 className="" />,
             },
             {
                 label: "Leads",
                 href: "/desktop_vendor/dashboard/leads",
+                icon: <LuUser className="" />,
+            },
+            {
+                label: "Samples",
+                href: "/desktop_vendor/dashboard/sample",
                 icon: <LuUser className="" />,
             },
             // {
@@ -101,7 +106,7 @@ export const controlledNavItems = [
                 icon: <LuSchool2 className="" />,
             },
             {
-                label: "Estimations",
+                label: "Quotation",
                 href: "/desktop_vendor/dashboard/invoice",
                 icon: <LuSchool2 className="" />,
             },

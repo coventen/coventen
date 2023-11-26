@@ -1,14 +1,18 @@
+
+
 import React from 'react';
+import { BiMessageSquareEdit } from 'react-icons/bi';
+import Industries from './Industries';
 import Main from './Main';
 
-const ProfilePage = () => {
+const Profilepage = () => {
     return (
-        <div className='w-full h-full lg:p-12'>
-            <h1 className='text-desktopPrimary text-5xl font-bold mb-8'>Profile</h1>
-            <Main />
-
-        </div>
+        <>
+            <section className=" dark:bg-gray-800 dark:text-gray-50">
+                <Main />
+            </section>
+        </>
     );
 };
 
-export default ProfilePage;
+export default Profilepage;

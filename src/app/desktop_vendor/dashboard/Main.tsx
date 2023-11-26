@@ -10,7 +10,6 @@ import NotificationCard from '@/components/NotificationCard';
 
 import InfoCards from '@/components/InfoCards';
 import NotificationBlock from '@/components/NotificationBlock';
-import { getEmployerEmail } from '@/shared/getEmployerEmail';
 
 
 
@@ -46,18 +45,11 @@ const Main = () => {
     const [latestTickets, setLatestTickets] = React.useState<any>('')
     const [rejectionTickets, setRejectionTickets] = React.useState<any>(0)
     const [underReviewTickets, setUnderReviewTickets] = React.useState<any>(0)
-    const [labEmail, setLabEmail] = React.useState<string>('')
-
 
     // HOOKS 
     const client = useGqlClient()
     const { user } = AuthConfig()
 
-    // useEffects
-    // getting lab data if employee is logged in
-    useEffect(() => {
-        getLabEmail()
-    }, [user?.email]) //eslint-disable-line
 
     // getting data based on user
     useEffect(() => {
@@ -67,7 +59,7 @@ const Main = () => {
         getCompletedTicket()
         getLatestTicket()
         getRejectedTicket()
-    }, [labEmail])
+    }, [user?.email])
 
 
 
@@ -77,24 +69,12 @@ const Main = () => {
     const [moduleTicketDataFn, state] = useManualQuery(GET_MODULE_TICKET, { client })
     const { data: notificationsData, error: notificationError, loading: notificationLoading } = useQuery(GET_NOTIFICATIONS, {
         client,
-        revalidateOnMount: true,
-        revalidateOnReconnect: true,
-        revalidateOnFocus: true,
+        revalidateOnMount: 3600,
+        revalidateOnReconnect: 3600,
+        revalidateOnFocus: false,
         variables: {
             "where": {
-                "OR": [
-                    {
-                        "notificationFor": "VENDOR",
-                        "vendorHas": {
-                            "userIs": {
-                                "email": labEmail || 'no email'
-                            }
-                        }
-                    },
-                    {
-                        "notificationFor": "GENERAL",
-                    },
-                ]
+                "type_IN": ["VENDOR", "GENERAL"]
             },
             "options": {
                 "limit": 3,
@@ -110,16 +90,6 @@ const Main = () => {
 
 
 
-
-    // getting lab email if employee is logged in
-    const getLabEmail = async () => {
-        if (user?.email) {
-            const email = await getEmployerEmail(user?.email)
-            setLabEmail(email)
-        }
-    }
-
-
     // fetching functions
     const getModuleTicketCount = async () => {
         const { data } = await moduleTicketDataFn({
@@ -127,7 +97,7 @@ const Main = () => {
                 "where": {
                     "vendorHas": {
                         "userIs": {
-                            "email": labEmail || 'no email'
+                            "email": user?.email || 'no email'
                         }
                     }
 
@@ -144,7 +114,7 @@ const Main = () => {
                     "status": "PENDING",
                     "vendorHas": {
                         "userIs": {
-                            "email": labEmail || 'no email'
+                            "email": user?.email || 'no email'
                         }
                     }
 
@@ -160,7 +130,7 @@ const Main = () => {
                     "status": "UNDER_REVIEW",
                     "vendorHas": {
                         "userIs": {
-                            "email": labEmail || 'no email'
+                            "email": user?.email || 'no email'
                         }
                     }
 
@@ -176,7 +146,7 @@ const Main = () => {
                     status: "COMPLETED",
                     "vendorHas": {
                         "userIs": {
-                            "email": labEmail || 'no email'
+                            "email": user?.email || 'no email'
                         }
                     }
 
@@ -201,7 +171,7 @@ const Main = () => {
                 "where": {
                     "vendorHas": {
                         "userIs": {
-                            "email": labEmail || 'no email'
+                            "email": user?.email || 'no email'
                         }
                     }
                 },

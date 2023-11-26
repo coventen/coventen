@@ -8,6 +8,8 @@ export  interface IProjectInput {
     gstNumber: string;
     projectName: string;
     projectDescription: string;
+    type: string;
+    priority: string;
 }
 
 export interface IModuleInput {

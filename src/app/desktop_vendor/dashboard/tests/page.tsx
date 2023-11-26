@@ -15,7 +15,7 @@ const Projects = () => {
             <section>
                 <div className='flex items-center justify-between'>
                     <h2 className='md:text-2xl xl:text-3xl font-semibold text-primaryText'>Tests</h2>
-                    <Link href='/vendor/dashboard/tests/create' className='md:text-base xl:text-lg font-semibold text-white bg-primary px-6  py-2  flex items-center justify-center space-x-3'>
+                    <Link href='/desktop_vendor/dashboard/tests/create' className='md:text-base xl:text-lg font-semibold text-white bg-primary px-6  py-2  flex items-center justify-center space-x-3'>
                         <p>Create</p>
                         <span><FaPlusCircle /></span>
                     </Link>

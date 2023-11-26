@@ -17,6 +17,9 @@ query Modules($where: ModuleWhere) {
       projectHas {
         title
       }
+      moduleticketFor {
+        ticket
+      }
     }
   }
 `
@@ -54,6 +57,9 @@ const Main = () => {
                             email: user?.email || 'no user'
                         }
                     }
+                },
+                "moduleticketFor": {
+                    "status_IN": ["ACCEPTED", "ASSIGNED"]
                 }
             }
         }

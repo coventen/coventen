@@ -11,6 +11,7 @@ import { toast } from 'react-hot-toast';
 import Loading from '@/app/loading';
 import Error from '@/components/Error';
 import createLog from '@/shared/graphQl/mutations/createLog';
+import { useCounterData } from '../CounterProvider';
 
 
 const GET_INVOICES = `
@@ -23,6 +24,7 @@ query Query($where: InvoiceWhere) {
       ticket
       priceWithTax
       id
+      isViewedByClient
     }
   }
 `
@@ -58,6 +60,7 @@ const Main = () => {
     //hooks
     const client = useGqlClient()
     const { user } = AuthConfig()
+    const counterData = useCounterData()
 
     // queries
     const { data, loading, error, refetch } = useQuery(GET_INVOICES, {
@@ -79,23 +82,25 @@ const Main = () => {
     const [sendNotificationFn, notificationState] = useMutation(SEND_NOTIFICATION, { client })
 
     // initializing add complain function
-    const updateInvoice = async (complain: string, status: string) => {
+    const updateInvoice = async (complain: string, status: string, id?: string) => {
+
 
         const { data } = await updateInvoiceFn({
             variables: {
                 where: {
-                    id: currentInvoiceId
+                    id: currentInvoiceId || id
                 },
                 update: {
                     complain: complain,
-                    status: status
+                    status: status,
+                    "isViewed": false,
                 }
             }
         })
         if (data?.updateInvoices?.invoices[0]?.id) {
             setIsOpen(false)
             refetch()
-            toast.success('Complain added successfully')
+            toast.success('Updated successfully')
             sendNotification('complained')
             createLog(
                 `Invoice complained`,
@@ -111,8 +116,8 @@ const Main = () => {
             variables: {
                 "input": [
                     {
-                        "title": `A user has ${type} invoice`,
-                        "description": `A user has ${type} invoice. Check the invoice with id ${currentInvoiceTicketId}.`,
+                        "title": `A user has ${type} on a quotation`,
+                        "description": `A user has ${type} quotation. Check the quotation with id ${currentInvoiceTicketId}.`,
                         "createdAt": new Date().toISOString(),
                         "notificationFor": "ADMIN",
                     }
@@ -122,7 +127,12 @@ const Main = () => {
 
     }
 
-
+    const handleClick = async (id: string, isViewed: boolean) => {
+        if (!isViewed) {
+            await counterData?.handleUpdateView(id, "Estimation")
+            counterData?.invoiceRefetch()
+        }
+    }
 
 
     if (loading || state.loading) return <Loading />
@@ -130,28 +140,34 @@ const Main = () => {
 
 
 
-
     // render
     return (
         <>
-            <div >
+            <div className='w-full'>
                 {
                     data?.invoices.length === 0 && (
-                        <div className='bg-white border-b px-4 py-5 text-sm border-gray-200  text-desktopPrimary flex items-center justify-between'>
-                            <p>No data found</p>
+                        <div className='bg-white border-b px-4 py-5 text-sm border-gray-200  text-dimText flex items-center justify-between'>
+                            <p>No Estimation found</p>
                         </div>
                     )
                 }
                 {
                     data?.invoices && data?.invoices?.map((invoice: any, i: number) =>
-                        <div key={i} className='bg-white  border-b px-4 py-5 text-sm border-gray-200  text-desktopPrimary grid grid-cols-7'>
+                        <div key={i} className={`${invoice?.isViewedByClient ? 'bg-white' : 'bg-gray-200'}   border-b px-4 py-5 text-sm border-gray-200  text-dimText grid grid-cols-7 min-w-[700px] overflow-x-scroll lg:overflow-hidden`}>
                             <p>{i + 1}</p>
-                            <p className='col-span-2'>{invoice?.ticket}</p>
+                            <p className='col-span-2'>
+                                {
+                                    invoice?.status === "CONFIRMED" ? `CIS/IN${invoice?.ticket}` : `CIS/QN${invoice?.ticket}`
+                                }
+                            </p>
                             <p>{invoice.priceWithTax}</p>
                             <p>{invoice?.status === "SENT" ? "PENDING" : invoice?.status === "COMPLAINED" ? "COMMENTED" : invoice?.status || 'N/A'}</p>
                             <div className='space-x-3 col-span-2 flex items-center justify-center'>
 
-                                <Link href={`/desktopHome/invoices/preview/${invoice.id}`} className='font-semibold border border-desktopPrimary px-3  py-1.5 rounded'>View</Link>
+                                <Link onClick={() => {
+                                    handleClick(invoice?.id, invoice?.isViewedByClient)
+                                }} href={`/desktopHome/invoices/preview/${invoice.id}`} className='font-semibold border border-dimTetext-dimText px-3  py-1.5 rounded'>View</Link>
+
                                 {
                                     invoice?.status === "SENT" && (
                                         <>
@@ -162,9 +178,8 @@ const Main = () => {
                                             }} className='font-semibold border border-dimTetext-dimText px-3  py-1.5 rounded'>Comment</button>
                                             <button onClick={() => {
                                                 setCurrentInvoiceId(invoice?.id)
-                                                updateInvoice('', "CONFIRMED")
                                                 setCurrentInvoiceTicketId(invoice?.ticket)
-                                                sendNotification('confirmed')
+                                                updateInvoice('', "CONFIRMED", invoice?.id)
 
                                             }} className='font-semibold border border-dimTetext-dimText px-3  py-1.5 rounded'>Confirm</button>
 

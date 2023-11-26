@@ -90,7 +90,6 @@ const Main = () => {
 
     // getting lab email if employee is logged in
     const getLabEmail = async (userEmail: string) => {
-
         const email = await getEmployerEmail(userEmail)
         setLabEmail(email)
     }
@@ -128,6 +127,7 @@ const Main = () => {
                         hsn: invoiceData.hns,
                         placeOfSupply: invoiceData.placeOfSupply,
                         subject: invoiceData.subject,
+                        type: invoiceData.type,
                         vendorCreated: {
                             connect: {
                                 where: {

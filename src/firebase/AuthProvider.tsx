@@ -80,6 +80,7 @@ const AuthProvider = ({ children }: AuthProviderProps) => {
                       status
                       createdAt
                       permissions
+                      isProfileCompleted
                     }
                   }`,
                 variables: {

@@ -43,7 +43,7 @@ query Notifications($where: NotificationWhere, $options: NotificationOptions) {
     }
   }
   `
-
+//query for getting notification data
 const UPDATE_NOTIFICATION = `
 mutation UpdateNotifications($where: NotificationWhere, $update: NotificationUpdateInput) {
     updateNotifications(where: $where, update: $update) {
@@ -78,9 +78,7 @@ const Main = () => {
     const { user, authLoading } = AuthConfig()
 
     //quires 
-    const [getNotificationFn, dataState] = useManualQuery(GET_NOTIFICATION, {
-        client
-    })
+    const [getNotificationFn, dataState] = useManualQuery(GET_NOTIFICATION, { client })
 
 
     // mutation
@@ -92,7 +90,7 @@ const Main = () => {
         getLabEmail()
         getNotifications()
         getNotificationCount()
-    }, [labEmail, authLoading, user?.email, currentPage])
+    }, [labEmail, authLoading])
 
 
     const updateNotification = async (id: string) => {

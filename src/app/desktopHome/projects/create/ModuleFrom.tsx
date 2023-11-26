@@ -9,18 +9,20 @@ import { HiOutlineTrash } from 'react-icons/hi';
 import FilePreview from '@/app/vendor/dashboard/projects/(components)/FilePreview';
 import AutoSelectService from '@/components/AutoSelectService';
 import toast, { Toaster } from 'react-hot-toast';
+import AutoSelectModule from '@/components/AutoSelectModule';
 
 //interface props
 interface IModuleFrom {
     index: number
     modules: any[]
     setModules: (modules: any[]) => void
+    type: string
 }
 
 
 
 //component
-const ModuleFrom = ({ index, setModules, modules }: IModuleFrom) => {
+const ModuleFrom = ({ index, setModules, modules, type }: IModuleFrom) => {
 
 
     //states
@@ -57,6 +59,7 @@ const ModuleFrom = ({ index, setModules, modules }: IModuleFrom) => {
 
         const title = selected.title;
         const description = data[`moduleDescription${index}`];
+
 
         // checking if all data is present
         if (title && description) {
@@ -115,7 +118,7 @@ const ModuleFrom = ({ index, setModules, modules }: IModuleFrom) => {
                 <label htmlFor="address">Service-{index}</label>
                 <div className='relative mb-4'>
 
-                    <AutoSelectService selected={selected} setSelected={setSelected} />
+                    <AutoSelectModule selected={selected} setSelected={setSelected} type={type} />
                 </div>
                 {/* <input type="text" id="address" className="h-10 border border-gray-300 mt-1 rounded px-4 w-full " placeholder=""   {...register(`moduleTitle${index}`)} /> */}
             </div>

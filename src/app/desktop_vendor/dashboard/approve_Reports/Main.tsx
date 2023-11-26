@@ -11,6 +11,8 @@ import Pagination from '@/components/Pagination';
 import Error from '@/components/Error';
 import GetModules from '@/shared/graphQl/queries/modules';
 import createLog from '@/shared/graphQl/mutations/createLog';
+import { useAuth } from '@/firebase/AuthProvider';
+import { useRouter } from 'next/navigation';
 
 
 
@@ -54,13 +56,30 @@ const Main = () => {
 
     // hooks
 
-    const { user } = AuthConfig()
+    const { user, authLoading }: any = useAuth()
     const client = useGqlClient()
+    const router = useRouter()
 
     // mutations
     const [updateModuleStatusFn, updateStatus] = useMutation(UPDATE_MODULE, { client })
     const [sendNotificationFn, notificationState] = useMutation(SEND_NOTIFICATION, { client })
 
+
+
+
+
+
+
+
+    useEffect(() => {
+        if (!authLoading && user?.user_type !== "SERVICE_PROVIDER") {
+
+            return router.replace('/not_authorized')
+        }
+
+
+
+    }, [authLoading, user?.email]);
 
 
 
@@ -72,15 +91,8 @@ const Main = () => {
     }, [currentPage, user?.email]);
 
 
-    //refreshing notification after 10 minutes
-    useEffect(() => {
-        if (user?.email) {
-            const intervalId = setInterval(getModulesData, 1200000)
-            return () => {
-                clearInterval(intervalId);
-            };
-        }
-    }, []);
+
+
 
 
     // get module data
@@ -94,6 +106,7 @@ const Main = () => {
                 }
             },
             status: "UNDER_REVIEW"
+
         }
 
         const options = {
@@ -246,7 +259,7 @@ const Main = () => {
 
                     {modules && modules?.map((module: any, index: number) =>
 
-                        <tr key={module?.id} className="bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-900 text-gray-700 dark:text-gray-400">
+                        <tr key={module?.id} className={`${module?.isApproveRequestViewed ? 'bg-white' : "bg-gray-200"} dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-900 text-gray-700 dark:text-gray-400`}>
 
                             <td className="px-4 py-3 text-sm">{index + 1}</td>
                             <td className="px-4 py-3 text-sm">{module?.ticket}</td>
