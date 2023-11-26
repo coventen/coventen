@@ -119,7 +119,7 @@ const Main = () => {
     const getTotalLeadsCount = async () => {
         const result = await GetLeads({}, {});
         if (result) {
-            setTotalLeads(result?.length)
+            setTotalLeads(parseInt(result?.length))
             setTotalPages(Math.ceil(result?.length / pageLimit))
         }
     }
@@ -188,7 +188,7 @@ const Main = () => {
                     </div>
                 </div>
 
-                <LeadsTable data={leads} totalPages={totalPages} setIsModalOpen={setIsModalOpen} setCurrentLead={setCurrentLead} currentPage={currentPage} pageLimit={pageLimit} />
+                <LeadsTable data={leads} totalLeads={totalLeads} setIsModalOpen={setIsModalOpen} setCurrentLead={setCurrentLead} currentPage={currentPage} pageLimit={pageLimit} />
                 <LeadsModal
                     isModalOpen={isModalOpen}
                     setIsModalOpen={setIsModalOpen}

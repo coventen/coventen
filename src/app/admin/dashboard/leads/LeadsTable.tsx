@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { useCounterData } from '../../CounterProvider';
 
 
-const LeadsTable = ({ data, setIsModalOpen, totalPages, setCurrentLead, currentPage, pageLimit }: ILeadsTableProps) => {
+const LeadsTable = ({ data, setIsModalOpen, totalLeads, setCurrentLead, currentPage, pageLimit }: ILeadsTableProps) => {
 
     //hooks
     const counterData = useCounterData()
@@ -16,6 +16,9 @@ const LeadsTable = ({ data, setIsModalOpen, totalPages, setCurrentLead, currentP
             counterData?.leadRefetch()
         }
     }
+
+
+
 
     return (
         <table className="min-w-full leading-normal uppercase">
@@ -69,7 +72,9 @@ const LeadsTable = ({ data, setIsModalOpen, totalPages, setCurrentLead, currentP
                         <tr key={lead?.id} className={`  ${lead?.isViewed ? " bg-white" : 'bg-gray-200 '}   border-b border-gray-200`}>
 
                             <td className="px-5 py-5   text-xs dark:bg-darkBg dark:border-darkBorder">
-                                <p className=" whitespace-no-wrap">L-{currentPage > 1 ? index + 1 + (pageLimit * currentPage) : index + 1}</p>
+                                <p className=" whitespace-no-wrap">
+
+                                    L-{currentPage > 1 ? parseInt(totalLeads) - (index + 1 + (pageLimit * (currentPage - 1))) : totalLeads - index}</p>
                             </td>
                             <td className="px-5 py-5   text-xs dark:bg-darkBg dark:border-darkBorder">
                                 <p className=" whitespace-no-wrap">{lead?.name}</p>
