@@ -26,6 +26,8 @@ const AddressInfo = ({ setFormData, formData, setCurrentTab, handleCreateUser }:
         const otherState = e.target.otherState.value;
         const otherCountry = e.target.otherCountry.value;
         const otherStreet = e.target.otherStreet.value;
+        const zipCode = e.target.zipCode.value;
+        const otherZipCode = e.target.otherZipCode.value;
 
         const address = {
             city,
@@ -35,7 +37,9 @@ const AddressInfo = ({ setFormData, formData, setCurrentTab, handleCreateUser }:
             otherCity,
             otherState,
             otherCountry,
-            otherStreet
+            otherStreet,
+            zipCode,
+            otherZipCode
         };
         // formData.email
         await handleFirebaseUserCreate(formData.email, formData.password);
@@ -113,6 +117,17 @@ const AddressInfo = ({ setFormData, formData, setCurrentTab, handleCreateUser }:
                         className="mt-1 px-4 py-2 border border-gray-300 rounded-md w-full"
                     />
                 </div>
+                <div className="mb-5">
+                    <label className="block  text-gray-700 text-sm mb-1">
+                        Zip Code
+                    </label>
+                    <input
+                        // onChange={(e) => setFormData({ ...formData, zipCode: e.target.value })}
+                        name="zipCode"
+                        type="text"
+                        className="mt-1 px-4 py-2 border border-gray-300 rounded-md w-full"
+                    />
+                </div>
                 <p className='text-gray-700 mt-5 text-md font-semibold mb-4 col-span-full'>Other Address</p>
 
                 <div className="mb-5">
@@ -155,6 +170,17 @@ const AddressInfo = ({ setFormData, formData, setCurrentTab, handleCreateUser }:
                     <input
                         // onChange={(e) => setFormData({ ...formData, otherCountry: e.target.value })}
                         name="otherCountry"
+                        type="text"
+                        className="mt-1 px-4 py-2 border border-gray-300 rounded-md w-full"
+                    />
+                </div>
+                <div className="mb-5">
+                    <label className="block  text-gray-700 text-sm mb-1">
+                        Zip Code
+                    </label>
+                    <input
+                        // onChange={(e) => setFormData({ ...formData, otherZipCode: e.target.value })}
+                        name="otherZipCode"
                         type="text"
                         className="mt-1 px-4 py-2 border border-gray-300 rounded-md w-full"
                     />

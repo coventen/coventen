@@ -63,6 +63,19 @@ const getUser = async (id: string) => {
                         yearOfInstallation
                       }
                   }
+                  isClient {
+                    industry
+                    service
+                    equipmentDocs
+                    hasManyEquipment {
+                        name
+                        model
+                        make
+                        calibrationDetails
+                        warranty
+                        yearOfInstallation
+                      }
+                  }
                   hasPrimaryaddress {
                     id
                     street
@@ -100,7 +113,7 @@ const getUser = async (id: string) => {
 
 const UserInfo = async ({ params }: { params: any }) => {
 
-    const userData: User = await getUser(params?.id || 'no id')
+    const userData: any = await getUser(params?.id || 'no id')
 
 
 
@@ -182,11 +195,11 @@ const UserInfo = async ({ params }: { params: any }) => {
                     </p>
 
                     {
-                        userData?.user_type === "SERVICE_PROVIDER" && <>
+                        userData?.user_type === "SERVICE_PROVIDER" ? <>
                             <ul className='list-disc list-inside'>
                                 <h3>Services</h3>
                                 {
-                                    userData?.isVendor && userData?.isVendor?.service?.map((service, index) => (
+                                    userData?.isVendor && userData?.isVendor?.service?.map((service: any, index: number) => (
                                         <li key={index}>{service}</li>
                                     ))
                                 }
@@ -194,7 +207,7 @@ const UserInfo = async ({ params }: { params: any }) => {
                             <ul className='list-disc list-inside'>
                                 <h3>Industries</h3>
                                 {
-                                    userData?.isVendor && userData?.isVendor?.industry?.map((service, index) => (
+                                    userData?.isVendor && userData?.isVendor?.industry?.map((service: any, index: number) => (
                                         <li key={index}>{service}</li>
                                     ))
                                 }
@@ -202,6 +215,28 @@ const UserInfo = async ({ params }: { params: any }) => {
 
 
                         </>
+                            :
+
+                            <>
+
+                                <ul className='list-disc list-inside'>
+                                    <h3>Services</h3>
+                                    {
+                                        userData?.isClient && userData?.isClient?.service?.map((service: any, index: number) => (
+                                            <li key={index}>{service}</li>
+                                        ))
+                                    }
+                                </ul>
+                                <ul className='list-disc list-inside'>
+                                    <h3>Industries</h3>
+                                    {
+                                        userData?.isClient && userData?.isClient?.industry?.map((service: any, index: number) => (
+                                            <li key={index}>{service}</li>
+                                        ))
+                                    }
+                                </ul>
+
+                            </>
                     }
                     <ul className='list-disc list-inside'>
                         <h3>Social Media</h3>
@@ -217,14 +252,22 @@ const UserInfo = async ({ params }: { params: any }) => {
                     </ul>
 
                     {
-                        userData?.user_type === "SERVICE_PROVIDER" &&
-                        <div className='col-span-full'>
+                        userData?.user_type === "SERVICE_PROVIDER" ?
+                            <div className='col-span-full'>
 
-                            <h4 className='font-semibold mt-6 mb-3'>
-                                Equipment Details
-                            </h4>
-                            <EquipmentTable data={userData?.isVendor?.hasManyEquipment} />
-                        </div>
+                                <h4 className='font-semibold mt-6 mb-3'>
+                                    Equipment Details
+                                </h4>
+                                <EquipmentTable data={userData?.isVendor?.hasManyEquipment} />
+                            </div>
+                            :
+                            <div className='col-span-full'>
+
+                                <h4 className='font-semibold mt-6 mb-3'>
+                                    Equipment Details
+                                </h4>
+                                <EquipmentTable data={userData?.isClient?.hasManyEquipment} />
+                            </div>
                     }
 
                 </div>
@@ -249,6 +292,9 @@ const UserInfo = async ({ params }: { params: any }) => {
                     <p>
                         Country : {userData?.hasPrimaryaddress?.Country || 'N/A'}
                     </p>
+                    <p>
+                        Zip Code : {userData?.hasPrimaryaddress?.zipCode || 'N/A'}
+                    </p>
 
                     <p className='col-span-full font-bold'>
                         Secondary Address
@@ -264,6 +310,9 @@ const UserInfo = async ({ params }: { params: any }) => {
                     </p>
                     <p>
                         Country : {userData?.hasSecondaryaddress?.Country || 'N/A'}
+                    </p>
+                    <p>
+                        Zip Code : {userData?.hasSecondaryaddress?.zipCode || 'N/A'}
                     </p>
 
                 </div>
@@ -325,7 +374,27 @@ const UserInfo = async ({ params }: { params: any }) => {
                                 )
                                 :
 
-                                <p className='mt-3 text-xs col-span-full'>No Document Found</p>
+                                <p className='mt-3 text-xs col-span-full'></p>
+                        }
+                        {
+                            userData?.isClient ?
+                                userData?.isClient?.equipmentDocs?.map((item: any, index: number) =>
+                                    <Link target='_blank' href={item || '#'}
+                                        key={index}
+                                        style={{
+                                            backgroundImage: `url(${'/assets/file.svg'})`,
+                                            backgroundRepeat: 'no-repeat',
+                                            backgroundPosition: 'center',
+
+                                        }}
+                                        className=' h-28 w-24 text-sm flex items-center justify-center text-gray-800 font-semibold'>
+                                        document-{index + 1}
+                                    </Link>
+
+                                )
+                                :
+
+                                <p className='mt-3 text-xs col-span-full'></p>
                         }
 
 

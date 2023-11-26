@@ -15,13 +15,7 @@ const GET_USER = `query Users($where: UserWhere) {
       email
       address
       bio
-      companyName
-      companyEmail
-      gstNumber
-      image
-      zip
-      city
-      state
+    
     }
   }`
 

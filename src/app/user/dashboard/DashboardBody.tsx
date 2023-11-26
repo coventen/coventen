@@ -12,6 +12,7 @@ import AuthConfig from "@/firebase/oauth.config";
 import CheckNotification from "./CheckNotification";
 import { LuDownload } from "react-icons/lu";
 import { useAuth } from "@/firebase/AuthProvider";
+import Loading from "@/app/loading";
 
 const DashboardBody = (props: PropsWithChildren) => {
 
@@ -28,9 +29,10 @@ const DashboardBody = (props: PropsWithChildren) => {
 
 
     useEffect(() => {
-        if (user?.status !== "APPROVED")
+        if (user?.status !== "APPROVED" && !authLoading)
             router.replace('/not_authorized')
-    }, [user])
+    }, [user.email, authLoading])
+
 
 
 
@@ -38,6 +40,14 @@ const DashboardBody = (props: PropsWithChildren) => {
     useEffect(() => {
 
     }, [newNotificationCount])
+
+
+
+
+    if (authLoading) {
+        return <Loading />
+    }
+
 
     return (
         <div

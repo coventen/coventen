@@ -172,6 +172,8 @@ const AcceptedModules = () => {
 
 
 
+
+
     if (loading || updateStatus.loading || authLoading) return <Loading />
 
 
@@ -194,7 +196,7 @@ const AcceptedModules = () => {
 
                     {modules.length ? modules?.map((module: any, index: number) =>
 
-                        <tr key={module?.id} className="bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-900 text-gray-700 dark:text-gray-400">
+                        <tr key={module?.id} className={"bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-900 text-gray-700 dark:text-gray-400"}>
 
                             <td className="px-4 py-3 text-sm">{index + 1}</td>
                             <td className="px-4 py-3 text-sm">{module?.ticket}</td>

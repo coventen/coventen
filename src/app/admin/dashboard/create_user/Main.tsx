@@ -85,6 +85,8 @@ const Main = () => {
         city: '',
         state: '',
         country: '',
+        zipCode: '',
+        otherZipCode: '',
         otherStreet: '',
         otherCity: '',
         userType: '',
@@ -230,6 +232,7 @@ const Main = () => {
                                         "city": address.city,
                                         "state": address.state,
                                         "Country": address.country,
+                                        zipCode: address.zipCode
 
                                     }
                                 }
@@ -241,6 +244,7 @@ const Main = () => {
                                         "city": address.otherCity,
                                         "state": address.otherState,
                                         "Country": address.otherCountry,
+                                        zipCode: address.otherZipCode
 
                                     }
                                 }
@@ -248,7 +252,11 @@ const Main = () => {
                             "isClient": {
                                 "create": {
                                     "node": {
-                                        "sub_type": ""
+                                        "sub_type": "",
+                                        "industry": formData.industries,
+                                        "service": formData.service,
+                                        "equipmentDocs": equipmentAttachmentsLinks,
+                                        "hasManyEquipment": equipment
                                     }
                                 }
                             }
@@ -313,6 +321,7 @@ const Main = () => {
                                         "city": address.city,
                                         "state": address.state,
                                         "Country": address.country,
+                                        zipCode: address.zipCode
 
                                     }
                                 }
@@ -324,6 +333,7 @@ const Main = () => {
                                         "city": address.otherCity,
                                         "state": address.otherState,
                                         "Country": address.otherCountry,
+                                        zipCode: address.otherZipCode
 
                                     }
                                 }
