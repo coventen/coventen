@@ -49,7 +49,7 @@ const DocumentTab = ({ userInfo, setCurrentTab, getUser }: any) => {
                 <div className='absolute top-0 right-0'>
                     <button
                         onClick={() => setIsModalOpen(true)}
-                        className="bg-primary  px-4 py-2 text-sm rounded-md text-white ">
+                        className="bg-desktopPrimary px-4 py-2 text-sm rounded-md text-white ">
                         Add Attachment
                     </button>
                 </div>

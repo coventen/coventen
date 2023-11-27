@@ -395,7 +395,7 @@ const Main = () => {
 
                                     <div className=" mt-8">
                                         <div className="">
-                                            <button type='submit' className="bg-primary  text-white font-bold py-3 px-12 text-lg ">{state.loading || uploading ? "loading" : 'Submit'}</button>
+                                            <button type='submit' className="bg-desktopPrimary  text-white font-bold py-3 px-12 text-lg ">{state.loading || uploading ? "loading" : 'Submit'}</button>
                                         </div>
                                     </div>
 

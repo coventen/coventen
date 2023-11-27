@@ -19,26 +19,26 @@ const SampleTable = ({ data, updateModuleStatus }: Props) => {
     return (
         <table className="min-w-full leading-normal uppercase">
             <thead>
-                <tr className='border-b border-gray-200'>
+                <tr className='border-b border-gray-200 bg-desktopBgLight text-desktopPrimary'>
                     <th
-                        className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-dimText dark:text-darkDimText uppercase tracking-wider dark:bg-darkBg dark:border-darkBorder">
+                        className="px-5 py-3 border-b-2 border-gray-200 text-left text-xs font-semibold  dark:text-darkDimText uppercase tracking-wider dark:bg-darkBg dark:border-darkBorder">
                         Serial
                     </th>
                     <th
-                        className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-dimText dark:text-darkDimText uppercase tracking-wider dark:bg-darkBg dark:border-darkBorder">
+                        className="px-5 py-3 border-b-2 border-gray-200 text-left text-xs font-semibold  dark:text-darkDimText uppercase tracking-wider dark:bg-darkBg dark:border-darkBorder">
                         Project Name
                     </th>
                     <th
-                        className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-dimText dark:text-darkDimText uppercase tracking-wider dark:bg-darkBg dark:border-darkBorder">
+                        className="px-5 py-3 border-b-2 border-gray-200  text-left text-xs font-semibold  dark:text-darkDimText uppercase tracking-wider dark:bg-darkBg dark:border-darkBorder">
                         Module Name
                     </th>
                     <th
-                        className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-dimText dark:text-darkDimText uppercase tracking-wider dark:bg-darkBg dark:border-darkBorder">
+                        className="px-5 py-3 border-b-2 border-gray-200 text-left text-xs font-semibold tdark:text-darkDimText uppercase tracking-wider dark:bg-darkBg dark:border-darkBorder">
                         Ticket
                     </th>
 
                     <th
-                        className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-dimText dark:text-darkDimText uppercase tracking-wider dark:bg-darkBg dark:border-darkBorder">
+                        className="px-5 py-3 border-b-2 border-gray-200  text-left text-xs font-semibold  dark:text-darkDimText uppercase tracking-wider dark:bg-darkBg dark:border-darkBorder">
                         Sample Status
                     </th>
 

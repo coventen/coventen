@@ -299,7 +299,7 @@ const Main = () => {
             </div>
 
             <div>
-                <button type='submit' className='px-4 py-2 bg-primary text-white font-semibold'>Submit</button>
+                <button type='submit' className='px-6 py-3 bg-desktopPrimary rounded-md text-white font-semibold'>Submit</button>
             </div>
         </form>
     );

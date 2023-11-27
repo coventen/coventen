@@ -151,7 +151,7 @@ const AddressInfo = async ({ setUserInfo, userInfo, updateUser }: IProps) => {
                 <div className="mt-6 col-span-full">
                     <button
                         type="submit"
-                        className="px-10 py-2 bg-primary text-white hover:bg-blue-600"
+                        className="px-12 rounded-md py-3 bg-desktopPrimary text-white "
                     >
                         Update
                     </button>

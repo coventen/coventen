@@ -11,6 +11,7 @@ const Page = () => {
 
     return (
         <>
+
             <Main />
 
         </>

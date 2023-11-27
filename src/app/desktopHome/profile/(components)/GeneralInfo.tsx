@@ -205,7 +205,7 @@ const GeneralInfo = ({ setUserInfo, userInfo, setCurrentTab, updateUser }: IProp
                 <div className="mt-6">
                     <button
                         type="submit"
-                        className="px-10 py-2 bg-primary text-white hover:bg-blue-600"
+                        className="px-12 rounded-md py-3 bg-desktopPrimary text-white "
                     >
                         Update
                     </button>

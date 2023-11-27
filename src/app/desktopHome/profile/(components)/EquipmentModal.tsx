@@ -170,7 +170,7 @@ const EquipmentModal = ({ isModalOpen, setIsModalOpen, getUser }: any) => {
                                             type="text" name='warranty' className="h-10 border border-gray-300 mt-1 rounded px-4 w-full " placeholder="" />
                                     </div>
                                     <div className="col-span-full mt-6">
-                                        <button type='submit' className=' bg-primary text-white px-4 py-2'>
+                                        <button type='submit' className=' bg-desktopPrimary text-white px-4 py-2'>
                                             Add Equipment
                                         </button>
                                     </div>

@@ -39,7 +39,7 @@ const ModuleCards = ({ data, deleteModuleById }: { data: Module[], deleteModuleB
                                     <i className={`fas ${expandedIndex === index ? "fa-minus" : "fa-plus"}`}></i>
                                     <div className="flex items-center justify-between w-full   p-3 ">
                                         <div className='flex  flex-col space-y-3 w-80% xl:w-[70%]'>
-                                            <p className='text-primaryText font-semibold text-[10px] xl:text-sm'>
+                                            <p className='text-desktopPrimary font-semibold text-[10px] xl:text-sm'>
                                                 Module-{index + 1}
                                             </p>
                                         </div>

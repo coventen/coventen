@@ -147,7 +147,7 @@ const Main = () => {
                 {
                     data?.invoices.length === 0 && (
                         <div className='bg-white border-b px-4 py-5 text-sm border-gray-200  text-dimText flex items-center justify-between'>
-                            <p>No Estimation found</p>
+                            <p>No Quotation found</p>
                         </div>
                     )
                 }

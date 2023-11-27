@@ -53,7 +53,7 @@ const Sidebar = ({
                         "py-4 justify-center": collapsed,
                     })}
                 >
-                    {!collapsed && <span className="whitespace-nowrap text-desktopPrimary font-bold text-xl">Brand Name</span>}
+                    {!collapsed && <img src="/assets/log.png" className="h-8 " alt="logo" />}
                     <button
                         className={classNames({
                             "grid place-content-center": true,

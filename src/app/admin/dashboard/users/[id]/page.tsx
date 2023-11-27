@@ -3,6 +3,7 @@ import Cookies from 'js-cookie';
 import React from 'react';
 import EquipmentTable from './EquipmentTable';
 import Link from 'next/link';
+import { getNormalDateAndTime } from '@/shared/getNormalDateAndTime';
 
 
 
@@ -119,16 +120,19 @@ const UserInfo = async ({ params }: { params: any }) => {
 
     return (
         <section className='bg-white p-2 lg:p-8'>
-            <div>
+            <div className='lg:flex items-center justify-between'>
                 <h1 className='text-4xl font-semibold my-6'>
                     User Details
                 </h1>
+                <p className='text-sm text-gray-600'>
+                    Created At:  {getNormalDateAndTime(userData?.createdAt)}
+                </p>
             </div>
 
             <div>
-                <h3 className='text-lg font-semibold mb-3'>General Information</h3>
+                <h3 className='text-lg font-semibold mb-3 mt-5'>General Information</h3>
 
-                <div className='grid grid-cols-3 gap-3 text-sm'>
+                <div className='grid grid-cols-2 lg:grid-cols-3 gap-3 text-sm'>
                     <p>
                         Account Type : {userData?.user_type === "SERVICE_PROVIDER" ? "Service Provider" : "Consumer"}
                     </p>
@@ -171,7 +175,7 @@ const UserInfo = async ({ params }: { params: any }) => {
             <div>
                 <h3 className='text-lg font-semibold mb-3 mt-8'>Company Information</h3>
 
-                <div className='grid grid-cols-3 gap-3 text-sm'>
+                <div className='grid grid-cols-2 lg:grid-cols-3  gap-3 text-sm'>
                     <p className='col-span-full'>
                         About : {userData?.companyDescription || 'N/A'}
                     </p>
@@ -197,18 +201,18 @@ const UserInfo = async ({ params }: { params: any }) => {
                     {
                         userData?.user_type === "SERVICE_PROVIDER" ? <>
                             <ul className='list-disc list-inside'>
-                                <h3>Services</h3>
+                                <h3 className='mb-4'>Services</h3>
                                 {
                                     userData?.isVendor && userData?.isVendor?.service?.map((service: any, index: number) => (
-                                        <li className='uppercase' key={index}>{service}</li>
+                                        <li className='uppercase text-xs' key={index}>{service}</li>
                                     ))
                                 }
                             </ul>
                             <ul className='list-disc list-inside'>
-                                <h3>Industries</h3>
+                                <h3 className='mb-4'>Industries</h3>
                                 {
                                     userData?.isVendor && userData?.isVendor?.industry?.map((service: any, index: number) => (
-                                        <li className='uppercase' key={index}>{service}</li>
+                                        <li className='uppercase text-xs' key={index}>{service}</li>
                                     ))
                                 }
                             </ul>
@@ -220,18 +224,18 @@ const UserInfo = async ({ params }: { params: any }) => {
                             <>
 
                                 <ul className='list-disc list-inside'>
-                                    <h3>Services</h3>
+                                    <h3 className='mb-4'>Services</h3>
                                     {
                                         userData?.isClient && userData?.isClient?.service?.map((service: any, index: number) => (
-                                            <li className='uppercase' key={index}>{service}</li>
+                                            <li className='uppercase text-xs' key={index}>{service}</li>
                                         ))
                                     }
                                 </ul>
                                 <ul className='list-disc list-inside'>
-                                    <h3>Industries</h3>
+                                    <h3 className='mb-4'>Industries</h3>
                                     {
                                         userData?.isClient && userData?.isClient?.industry?.map((service: any, index: number) => (
-                                            <li className='uppercase' key={index}>{service}</li>
+                                            <li className='uppercase text-xs' key={index}>{service}</li>
                                         ))
                                     }
                                 </ul>
@@ -239,7 +243,7 @@ const UserInfo = async ({ params }: { params: any }) => {
                             </>
                     }
                     <ul className='list-disc list-inside'>
-                        <h3>Social Media</h3>
+                        <h3 className='mb-4'>Social Media</h3>
                         <li>
                             Linkedin : {userData?.linkedin}
                         </li>
@@ -276,7 +280,7 @@ const UserInfo = async ({ params }: { params: any }) => {
             <div>
                 <h3 className='text-lg font-semibold mb-3 mt-10'>Address</h3>
 
-                <div className='grid grid-cols-3 gap-3 text-sm'>
+                <div className='grid grid-cols-2 lg:grid-cols-3  gap-3 text-sm'>
                     <p className='col-span-full font-bold '>
                         Primary Address
                     </p>

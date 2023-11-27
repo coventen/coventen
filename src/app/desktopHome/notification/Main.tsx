@@ -12,6 +12,7 @@ import { getEmployerEmail } from '@/shared/getEmployerEmail';
 import AuthConfig from '@/firebase/oauth.config';
 import Loading from '@/app/loading';
 import Pagination from '@/components/Pagination';
+import { getNormalDateAndTime } from '@/shared/getNormalDateAndTime';
 
 //props interface
 interface INotificationTab {
@@ -213,7 +214,7 @@ const Main = () => {
 
 
                                                 <td className="ml-2  text-center col-span-2 ">
-                                                    <button className="py-3 px-3 text-sm focus:outline-none leading-none text-primary  bg-primary/10 rounded">Published  at {item?.createdAt.slice(11, 16)}</button>
+                                                    <button className="py-3 px-3 text-sm focus:outline-none leading-none text-desktopPrimary  bg-desktopBgLight  10 rounded">Published  at {getNormalDateAndTime(item?.createdAt).slice(getNormalDateAndTime(item?.createdAt).indexOf("at") + 3)}</button>
                                                 </td>
 
                                                 <td className="  text-center col-span-2 ">
@@ -222,7 +223,7 @@ const Main = () => {
                                                             setIsNotificationViewModalOpen(true);
                                                             setCurrentNotification(item);
                                                             updateNotification(item?.id);
-                                                        }} className="focus:ring-2 focus:ring-offset-2  text-sm leading-none text-primary py-2 px-2 bg-gray-100 rounded hover:bg-gray-200 focus:outline-none"><AiFillEye /></button>
+                                                        }} className="focus:ring-2 focus:ring-offset-2  text-sm leading-none text-desktopPrimary py-2 px-2 bg-gray-100 rounded hover:bg-gray-200 focus:outline-none"><AiFillEye /></button>
 
                                                     </div>
                                                 </td>

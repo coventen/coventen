@@ -56,13 +56,13 @@ const ProjectCard = ({ data, deleteProjectById, deleteModuleById }: { data: any[
                                                 {project?.title?.slice(0, 50)}
                                             </p>
                                             <p className='text-xs xl:text-sm text-dimText'>{project?.description?.slice(0, 300)}</p>
-                                            <p className='text-primary text-[10px] xl:text-sm    '>Created: {getNormalDateAndTime(project.createdAt)}</p>
+                                            <p className='text-desktopPrimary text-[10px] xl:text-sm    '>Created: {getNormalDateAndTime(project.createdAt)}</p>
                                         </div>
 
 
                                         <div className='flex items-center justify-center ml-3'>
                                             <button
-                                                className=" bg-white border-2 border-gray-700 text-gray-700 font-bold text-sm xl:text-base rounded-lg px-4 xl:px-6 py-2 xl:py-3"
+                                                className=" bg-white border-2 border-desktopPrimary text-desktopPrimary font-bold text-sm xl:text-base rounded-lg px-4 xl:px-6 py-2 xl:py-3"
                                             // onClick={() => handleOpen(1)}
                                             >
                                                 {expandedIndex === index ? 'Hide Details' : 'View'}

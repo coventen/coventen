@@ -10,7 +10,7 @@ const page = () => {
                 <div className="container mx-auto px-4 sm:px-8">
                     <div className="py-8">
                         <div>
-                            <h2 className="text-2xl font-semibold leading-tight">Samples</h2>
+                            <h2 className="text-3xl text-desktopPrimary font-semibold leading-tight">Samples</h2>
                         </div>
 
                         {/* table start */}

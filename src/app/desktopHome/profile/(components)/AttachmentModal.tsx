@@ -291,7 +291,7 @@ const AttachmentModal = ({ isModalOpen, setIsModalOpen, getUser, oldData }: any)
                                 </div>
                             </div>
 
-                            <button onClick={addEquipment} className='px-8 py-2 bg-primary text-white rounded-md'>Submit</button>
+                            <button onClick={addEquipment} className='px-8 py-2 bg-desktopPrimary text-white rounded-md'>Submit</button>
                         </div>
                     </Transition.Child>
                 </div>

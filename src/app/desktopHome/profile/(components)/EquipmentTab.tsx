@@ -18,7 +18,7 @@ const EquipmentTab = ({ userInfo, setCurrentTab, getUser }: any) => {
     return (
         <>
             <div className='w-full flex items-center justify-end mt-8'>
-                <button onClick={() => setIsModalOpen(true)} className='bg-primary px-4 py-2 rounded-md text-white'>
+                <button onClick={() => setIsModalOpen(true)} className='bg-desktopPrimary px-4 py-2 rounded-md text-white'>
                     Add New
                 </button>
             </div>
