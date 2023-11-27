@@ -60,8 +60,6 @@ export default function Navbar({ services, industries, solutions, features }: an
 
 
 
-    console.log(user, 'nav bar 3040000000000')
-
 
 
     const getUserData = async () => {

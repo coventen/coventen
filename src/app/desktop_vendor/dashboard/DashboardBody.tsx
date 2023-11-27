@@ -10,6 +10,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import AuthConfig from "@/firebase/oauth.config";
 import CheckNotification from "./CheckNotification";
+import { useAuth } from "@/firebase/AuthProvider";
 
 const DashboardBody = (props: PropsWithChildren) => {
 
@@ -21,11 +22,23 @@ const DashboardBody = (props: PropsWithChildren) => {
     // hooks 
     const router = useRouter()
     const { logout } = AuthConfig()
+    const { user, authLoading }: any = useAuth()
 
 
     useEffect(() => {
         // console.log(newNotificationCount)
     }, [newNotificationCount])
+
+    useEffect(() => {
+        if (!authLoading && user?.user_type !== "SERVICE_PROVIDER") {
+
+            return router.replace('/desktop_vendor/auth/login')
+        }
+
+
+
+    }, [authLoading, user?.email]);
+
 
 
 
@@ -114,7 +127,7 @@ const DashboardBody = (props: PropsWithChildren) => {
                                                     <button
                                                         type="submit"
                                                         onClick={() => {
-                                                            router.push('/auth/login')
+                                                            router.push('/desktop_vendor/auth/login')
                                                             logout()
                                                         }}
                                                         className={classNames(

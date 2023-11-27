@@ -74,7 +74,7 @@ const Main = () => {
     useEffect(() => {
         if (!authLoading && user?.user_type !== "SERVICE_PROVIDER") {
 
-            return router.replace('/not_authorized')
+            return router.replace('/desktop_vendor/dashboard')
         }
 
 

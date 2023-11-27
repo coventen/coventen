@@ -51,32 +51,37 @@ const LoginFrom = () => {
     // handle authentication
     const handleAuthentication: SubmitHandler<IFormInput> = async (data) => {
         setLoading(true)
+        let newUser: any = null
+
         try {
-            const newUser = await logInWithEmailAndPassword(data?.email, data?.password);
-            if (newUser.uid) {
 
-                const { data: tokenData } = await getTokenFn({
-                    variables: {
-                        email: data?.email
-                    }
-                })
-                if (tokenData.signIn) {
-                    // saving token to cookie
-                    Cookies.set('conventenToken', tokenData.signIn)
-                    setLoading(false)
-                    toast.success('Login Successful')
-                    router.push('/')
-                } else {
-                    setError('User Not Found')
-                    setLoading(false)
-                }
-
-
-            }
-        } catch (error: any) {
-            // setError(error.message)
+            newUser = await logInWithEmailAndPassword(data?.email, data?.password);
+        }
+        catch (err: any) {
+            setError(err.message)
             setLoading(false)
         }
+        if (newUser?.uid) {
+
+            const { data: tokenData } = await getTokenFn({
+                variables: {
+                    email: data?.email
+                }
+            })
+            if (tokenData.signIn) {
+                // saving token to cookie
+                Cookies.set('conventenToken', tokenData.signIn)
+                setLoading(false)
+                toast.success('Login Successful')
+                router.push('/')
+            } else {
+                setError('User Not Found')
+                setLoading(false)
+            }
+        } else {
+            setLoading(false)
+        }
+
 
 
     }

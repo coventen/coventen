@@ -11,7 +11,7 @@ const NotificationCard = ({ data }: { data: Notification }) => {
                     <p className='bg-yellow-100  text-yellow-500 font-normal px-2 py-1 rounded-full'>New</p>
 
                 </div>
-                <p className='text-[10px] xl:text-sm text-desktopTextLight w-full'>{data?.description?.slice(0, 80)}</p>
+                <p className='text-[10px] xl:text-sm text-desktopTextLight w-full'>{data?.description?.slice(0, 50)}</p>
             </div>
 
 

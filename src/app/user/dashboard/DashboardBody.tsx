@@ -87,14 +87,14 @@ const DashboardBody = (props: PropsWithChildren) => {
                                 </svg>
                             </button>
 
-                            <div className="hidden lg:flex gradient-bg px-2 py-2 rounded-md font-semibold text-white text-sm  items-center justify-center space-x-2">
+                            <Link target="_blank" href='https://drive.google.com/uc?export=download&id=1JU6UFv2uQTv-ZsP4pw_o2tDYEJ5HFeuy' className="hidden lg:flex gradient-bg px-2 py-2 rounded-md font-semibold text-white text-sm  items-center justify-center space-x-2">
                                 <span>
                                     Get Our Application
                                 </span>
                                 <span className="text-lg">
                                     <LuDownload />
                                 </span>
-                            </div>
+                            </Link>
                         </div>
 
 
