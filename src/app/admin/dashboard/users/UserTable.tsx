@@ -7,6 +7,7 @@ import React from 'react';
 import { AiTwotoneDelete } from 'react-icons/ai';
 import { BiSolidEditAlt } from 'react-icons/bi';
 import { useCounterData } from '../../CounterProvider';
+import DeleteModal from './DeleteModal';
 
 interface IUserTable {
     data: User[]
@@ -18,6 +19,9 @@ interface IUserTable {
 
 //component
 const UserTable = ({ data, setIsModalOpen, setCurrentData, loading }: IUserTable) => {
+
+    //states
+    const [isDeleteModalOpen, setIsDeleteModalOpen] = React.useState(false)
 
     const counterData = useCounterData()
 
@@ -103,10 +107,14 @@ const UserTable = ({ data, setIsModalOpen, setCurrentData, loading }: IUserTable
                                     <span className="relative font-bold text-[10px] uppercase">{user.status === "APPROVED" ? 'Approved' : 'Approve'}</span>
                                 </button>
                             </td>
-                            <td onClick={() => handleClick(user?.id, user?.isViewed as boolean)} className="px-5 py-5 cursor-pointer   text-xs space-x-3 dark:bg-darkBg dark:border-darkBorder  font-semibold">
-                                <Link href={`/admin/dashboard/users/${user?.id}`} className='font-bold px-4 py-2 bg-primary text-white rounded-md text-[10px] '>
+                            <td onClick={() => handleClick(user?.id, user?.isViewed as boolean)} className="px-5 py-5 cursor-pointer   text-xs space-x-3 dark:bg-darkBg dark:border-darkBorder  font-semibold flex items-center justify-center space-x-2">
+                                <Link href={`/admin/dashboard/users/${user?.id}`} className='font-bold px-4 py-2 bg-primary text-white rounded-md text-[10px]  '>
                                     View Details
                                 </Link>
+                                {/* 
+                                <button onClick={() => setIsDeleteModalOpen(true)} className='text-red-700 text-2xl bg-white'>
+                                    <AiTwotoneDelete />
+                                </button> */}
                             </td>
 
                         </tr>
@@ -118,6 +126,8 @@ const UserTable = ({ data, setIsModalOpen, setCurrentData, loading }: IUserTable
 
 
             </tbody>
+
+            <DeleteModal isOpen={isDeleteModalOpen} setIsOpen={setIsDeleteModalOpen} />
         </table>
     );
 };

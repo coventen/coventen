@@ -189,7 +189,7 @@ const Leads = () => {
             <div className={`transition-all duration-500 transform ${isLeadFromOpen ? 'translate-x-0' : 'translate-x-[42%]'
                 } `}>
                 <div className="flex  ">
-                    <button onClick={() => setIsLeadFromOpen(!isLeadFromOpen)} className="gradient-bg text-white px-2 text-4xl rounded-sm hidden lg:block h-28 ">
+                    <button onClick={() => setIsLeadFromOpen(!isLeadFromOpen)} className="bg-[#21618C] text-white px-2 text-4xl rounded-sm hidden lg:block h-28 ">
 
                         {
                             isLeadFromOpen ? <HiChevronRight /> : <p className='text-[10px]  w-full font-bold' style={{ textOrientation: "upright", writingMode: 'vertical-lr' }}>INQUIRY</p>

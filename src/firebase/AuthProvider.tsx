@@ -32,6 +32,7 @@ type AuthContextType = {
     login: (email: string, password: string) => Promise<UserCredential>;
     socialLogin: (provider: AuthCredential) => Promise<UserCredential>;
     logout: () => Promise<void>;
+    // deleteUser: () => Promise<void>; // Add this line
     // upDateUserInfo: (upDateInfo: { displayName?: string; photoURL?: string }) => Promise<void>;
     // removeUser: () => Promise<void>;
 };

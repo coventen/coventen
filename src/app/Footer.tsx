@@ -64,7 +64,7 @@ const Footer = () => {
     return (
 
 
-        <footer className="relative bg-[#000080] pt-8 pb-6 ">
+        <footer className="relative bg-[#21618C] pt-8 pb-6 ">
             <div className="container mx-auto px-3 lg:px-4">
                 <div className="flex flex-wrap text-left lg:text-left">
                     <div className="w-full lg:w-[40%] px-4 mb-8 lg:mb-0">

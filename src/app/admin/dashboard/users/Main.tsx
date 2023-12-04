@@ -66,6 +66,13 @@ mutation UpdateCounters($update: CounterUpdateInput) {
 }
 `
 
+const DELETE_USER = `
+mutation DeleteUsers($where: UserWhere) {
+  deleteUsers(where: $where) {
+    nodesDeleted
+  }
+}
+`
 
 
 const Main = () => {
@@ -97,6 +104,7 @@ const Main = () => {
   //mutations
   const [updateCounterFn, updateCounterState] = useMutation(UPDATE_COUNTER, { client })
   const [updateUserFn, updateUserState] = useMutation(UPDATE_USER, { client })
+  const [deleteUserFn, deleteSate] = useMutation(DELETE_USER, { client })
 
 
 
@@ -178,11 +186,6 @@ const Main = () => {
   }
 
 
-
-
-
-
-
   // initializing update user mutation
 
   const updateUser = async (email: string, status: string) => {
@@ -240,6 +243,24 @@ const Main = () => {
 
 
 
+  }
+
+
+
+
+  const deleteUser = async (id: string) => {
+    const { data } = await deleteUserFn({
+      variables: {
+        "where": {
+          "id": id
+        }
+      }
+
+    })
+
+    if (data) {
+      toast.error('User deleted')
+    }
   }
 
 

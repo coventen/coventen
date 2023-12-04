@@ -41,7 +41,7 @@ const Main = ({ searchOption, searchTerm }: any) => {
     const [currentEvent, setCurrentEvent] = React.useState<any>(null);
 
     // pagination states
-    const [pageLimit, setPageLimit] = React.useState(10)
+    const [pageLimit, setPageLimit] = React.useState(6)
     const [currentPage, setCurrentPage] = React.useState(1)
     const [totalPages, setTotalPages] = React.useState(0)
     const [totalProduct, setTotalProduct] = React.useState(0)
@@ -119,12 +119,14 @@ const Main = ({ searchOption, searchTerm }: any) => {
 
     const getItemsCount = async () => {
         const { data } = await getProductsFn()
-
-        if (data?.products?.length > 0) {
-            setTotalProduct(data?.products?.length)
-            setTotalPages(Math.ceil(data?.products?.length / pageLimit))
+        if (data?.learnItems?.length > 0) {
+            setTotalProduct(data?.learnItems?.length)
+            setTotalPages(Math.ceil(data?.learnItems?.length / pageLimit))
         }
     }
+
+
+
 
 
     useEffect(() => {
