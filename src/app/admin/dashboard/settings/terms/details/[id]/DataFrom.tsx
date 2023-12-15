@@ -47,8 +47,6 @@ const DataFrom = ({
     updatetermsFn(inputData);
   };
 
-  console.log(termsData?.docUrl, "form data form");
-
   useEffect(() => {
     if (termsData?.docUrl) {
       setDocUrl(termsData?.docUrl);
