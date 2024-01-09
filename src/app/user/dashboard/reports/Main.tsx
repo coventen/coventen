@@ -164,8 +164,6 @@ const Main = () => {
     });
   };
 
-  console.log(data, "4444444444444444444444444444444");
-
   if (loading || state.loading) return <Loading />;
 
   return (
