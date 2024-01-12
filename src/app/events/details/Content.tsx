@@ -5,7 +5,7 @@ function Content({ content }: any) {
   return (
     <div
       className="text-justify"
-      dangerouslySetInnerHTML={{ __html: content }}
+      dangerouslySetInnerHTML={{ __html: content || "" }}
     />
   );
 }
