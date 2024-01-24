@@ -4,14 +4,14 @@
 
 /* @import url('https://fonts.googleapis.com/css2?family=Nosifer&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap'); */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
-@import 'swiper/css';
-@import 'swiper/css/pagination';
-@import 'swiper/css/grid';
-@import 'swiper/css/navigation';
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+@import "swiper/css";
+@import "swiper/css/pagination";
+@import "swiper/css/grid";
+@import "swiper/css/navigation";
 
 * {
-  font-family: 'Montserrat', sans-serif !important;
+  font-family: "Montserrat", sans-serif !important;
   line-height: 1.6 !important;
   /* Add more common styles here */
 }
@@ -19,51 +19,46 @@
 html {
   scroll-behavior: smooth;
   /* font-family: 'Poppins', sans-serif; */
-
 }
 
-
-
-.btn2 span:first-child{
+.btn2 span:first-child {
   transform: translateX(-101%);
-  transition: transform .3s ease-in
+  transition: transform 0.3s ease-in;
 }
-.btn2:hover span{
-  transform: translateX(0)
+.btn2:hover span {
+  transform: translateX(0);
 }
 
-.btn3{
+.btn3 {
   transform: scale(1);
-  transition: transform .2s ease-in
+  transition: transform 0.2s ease-in;
 }
 
-.btn3:hover{
+.btn3:hover {
   transform: scale(1.1);
 }
 
-.btn3 span{
+.btn3 span {
   transform: scale(1);
-  transition: transform .3s ease-in
+  transition: transform 0.3s ease-in;
 }
 
-.btn3:hover span{
+.btn3:hover span {
   transform: scale(1.1, 1.2);
 }
 
-.btn4 span{
+.btn4 span {
   transform: translateX(-101%);
-  transition: transform .2s ease-in
+  transition: transform 0.2s ease-in;
 }
 
-.btn4:hover span{
-  transform: translateX(0)
+.btn4:hover span {
+  transform: translateX(0);
 }
-
 
 /* Path: src\app\app.component.html */
 
-
-  /* #Mega Menu Styles
+/* #Mega Menu Styles
   if you use sass, convert all this additional css to tailwindcss using the 'hack' @apply for all element.style (css properties)
 [ https://tailwindcss.com/docs/functions-and-directives/#apply ]
 example:
@@ -78,178 +73,168 @@ example:
 
 
 /* common */
- 
-.gradient-text   {
-  color : linear-gradient(-45deg, #0f62fe 0%, #0f9efe 100% )
+
+.gradient-text {
+  color: linear-gradient(-45deg, #0f62fe 0%, #0f9efe 100%);
 }
 
 .gradient-bg {
-  background: linear-gradient(-45deg, #0f62fe 0%, #0f9efe 100% )
+  background: linear-gradient(-45deg, #0f62fe 0%, #0f9efe 100%);
 }
 
 .border-gradient {
-  border-image-source: linear-gradient(-45deg, #0f62fe 0%, #0f9efe 100% );
+  border-image-source: linear-gradient(-45deg, #0f62fe 0%, #0f9efe 100%);
 }
 
-
-
-
-
-
 /* scrollbar */
-  
 
-  .scrollbar-w-2::-webkit-scrollbar {
-    width: 0.20rem;
-    height: 0.25rem;
-  }
-  
-  .scrollbar-track-blue-lighter::-webkit-scrollbar-track {
-    --bg-opacity: 1;
-    background-color: #e2e2e7;
-    /* background-color: rgba(247, 250, 252, var(--bg-opacity)); */
-  }
-  
-  .scrollbar-thumb-blue::-webkit-scrollbar-thumb {
-    --bg-opacity: 1;
-    background-color: #16161628;
-    opacity: 0.3;
-    /* background-color: rgba(237, 242, 247, var(--bg-opacity)); */
-  }
-  
-  .scrollbar-thumb-rounded::-webkit-scrollbar-thumb {
-    border-radius: 0.25rem;
-  }
+.scrollbar-w-2::-webkit-scrollbar {
+  width: 0.2rem;
+  height: 0.25rem;
+}
 
+.scrollbar-track-blue-lighter::-webkit-scrollbar-track {
+  --bg-opacity: 1;
+  background-color: #e2e2e7;
+  /* background-color: rgba(247, 250, 252, var(--bg-opacity)); */
+}
 
+.scrollbar-thumb-blue::-webkit-scrollbar-thumb {
+  --bg-opacity: 1;
+  background-color: #16161628;
+  opacity: 0.3;
+  /* background-color: rgba(237, 242, 247, var(--bg-opacity)); */
+}
 
-  /* service  card */
+.scrollbar-thumb-rounded::-webkit-scrollbar-thumb {
+  border-radius: 0.25rem;
+}
 
-  .card {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 400px;
-    box-shadow: 0 0 3px 0px rgba(0, 0, 0, 0.2);
-    padding: 32px;
-    overflow: hidden;
-    color: #1f2937;
-    border-radius: 10px;
-    transition: all 0.5s cubic-bezier(0.23, 1, 0.320, 1);
-  }
-  
-  .content {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 20px;
-    transition: all 0.5s cubic-bezier(0.23, 1, 0.320, 1);
-  }
-  
-  .content .heading {
-    font-weight: 700;
-    font-size: 25px;
-  }
-  
-  .content .para {
-    line-height: 1.5;
-  }
-  
-  .content .btn {
-    color: #e8e8e8;
-    text-decoration: none;
-    padding: 10px;
-    font-weight: 600;
-    border: none;
-    cursor: pointer;
-    background: #21618C;
-    /* background: linear-gradient(-45deg, #0f62fe 0%, #0f9efe 100% ); */
-    border-radius: 5px;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-  }
-  
-  .card::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    height: 5px;
-    /* background: linear-gradient(-45deg, #0f62fe 0%, #0f9efe 100% ); */
-    background: #21618C;
-    z-index: -1;
-    transition: all 0.5s cubic-bezier(0.23, 1, 0.320, 1);
-  }
-  
-  .card:hover::before {
-    height: 100%;
-  }
-  
-  .card:hover {
-    box-shadow: none;
-    color: white;
-  }
-  
-  .card:hover .btn {
-    color: #21618C ;
-    background: #e8e8e8;
-  }
-  
-  .content .btn:hover {
-    outline: 2px solid #e8e8e8;
-    background: transparent;
-    color: #e8e8e8;
-  }
-  
-  .content .btn:active {
-    box-shadow: none;
-  }
-  
+/* service  card */
 
-  /* product card */
+.card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 400px;
+  box-shadow: 0 0 3px 0px rgba(0, 0, 0, 0.2);
+  padding: 32px;
+  overflow: hidden;
+  color: #1f2937;
+  border-radius: 10px;
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
 
-  .productCard {
-    color: white;
-    width: 100%;
-    height: 470px;
-    position: relative;
-    outline: 6px solid #f5f5f5;
-    border-radius: 8px;
-    line-height: 150%;
-    padding: 16px;
-    background: #ff930f;
-    background-blend-mode: multiply;
-    background: linear-gradient(to top, #ff930f, #ffcc33);
-    transition: background-color 1s ease-in-out;
-    overflow: hidden;
-  }
-  
-  .productCard-front {
-    bottom: 40px;
-    left: 0;
-    position: absolute;
-    width: 100%;
-    text-align: center;
-    transition: transform 1s cubic-bezier(0.785, 0.135, 0.150, 0.860);
-  }
-  
-  .productCard-back {
-    transform: translateX(120%);
-    height: 100%;
-    transition: transform 1s cubic-bezier(0.785, 0.135, 0.150, 0.860);
-  }
-  
-  
-  /*Text*/
-  .productTitle {
-    font-size: 1.3rem;
-    font-weight: bold;
-    color: white;
-  }
-  /*Text divider*/
-  /* .productTitle::after {
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.content .heading {
+  font-weight: 700;
+  font-size: 25px;
+}
+
+.content .para {
+  line-height: 1.5;
+}
+
+.content .btn {
+  color: #e8e8e8;
+  text-decoration: none;
+  padding: 10px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  background: #21618c;
+  /* background: linear-gradient(-45deg, #0f62fe 0%, #0f9efe 100% ); */
+  border-radius: 5px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 5px;
+  /* background: linear-gradient(-45deg, #0f62fe 0%, #0f9efe 100% ); */
+  background: #21618c;
+  z-index: -1;
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.card:hover::before {
+  height: 100%;
+}
+
+.card:hover {
+  box-shadow: none;
+  color: white;
+}
+
+.card:hover .btn {
+  color: #21618c;
+  background: #e8e8e8;
+}
+
+.content .btn:hover {
+  outline: 2px solid #e8e8e8;
+  background: transparent;
+  color: #e8e8e8;
+}
+
+.content .btn:active {
+  box-shadow: none;
+}
+
+/* product card */
+
+.productCard {
+  color: white;
+  width: 100%;
+  height: 470px;
+  position: relative;
+  outline: 6px solid #f5f5f5;
+  border-radius: 8px;
+  line-height: 150%;
+  padding: 16px;
+  background: #ff930f;
+  background-blend-mode: multiply;
+  background: linear-gradient(to top, #ff930f, #ffcc33);
+  transition: background-color 1s ease-in-out;
+  overflow: hidden;
+}
+
+.productCard-front {
+  bottom: 40px;
+  left: 0;
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  transition: transform 1s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+}
+
+.productCard-back {
+  transform: translateX(120%);
+  height: 100%;
+  width: 100%;
+  transition: transform 1s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+}
+
+/*Text*/
+.productTitle {
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+/*Text divider*/
+/* .productTitle::after {
     content: "";
     display: block;
     width: 50%;
@@ -258,83 +243,77 @@ example:
     margin: 2px auto;
     background-color: white;
   } */
-  
-  
-  /*Hover*/
-  .productCard:hover {
-    background-color: #1b1b1b25;
-  }
-  
-  .productCard:hover .productCard-front {
-    transform: translateX(-100%);
-  }
-  
-  .productCard:hover .productCard-back {
-    transform: translateX(0);
-  }
-  
 
+/*Hover*/
+.productCard:hover {
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+}
 
+.productCard:hover .productCard-front {
+  transform: translateX(-100%);
+}
 
-  /* learn card */
-    .learn_card {
-      border-radius: 16px;
-      margin: 0 auto;
-      width: 100%;
-      max-width: 100%;
-      height: 350px;
-      box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2),
-        0px 5px 8px 0px rgba(0, 0, 0, 0.14),
-        0px 1px 14px 0px rgba(0, 0, 0, 0.12);
-      /* background-image: url(https://source.unsplash.com/collection/905011/1000x1000); */
-      background-size: cover;
-    }
-  
-    .learn_info {
-      position: relative;
-      width: 100%;
-      height: 600px;
-      background-color: #fff;
-      transform: translateY(100%) translateY(-330px) translateZ(0);
-      transition: transform 0.5s ease-out;
-    }
-  
-    .learn_info:before {
-      z-index: -1;
-      display: block;
-      position: absolute;
-      content: ' ';
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-      /* background-image: url(https://source.unsplash.com/collection/905011/1000x1000); */
-      filter: blur(10px);
-      background-size: cover;
-      opacity: 0.25;
-      transform: translateY(-100%) translateY(88px) translateZ(0);
-      transition: transform 0.5s ease-out;
-    }
-  
-    .learn_card:hover .learn_info,
-    .learn_card:hover .learn_info:before {
-      transform: translateY(0) translateZ(0);
-    }
-    .learn_card:hover .learn_card_title{
-            margin-bottom: 20px;
-    }
+.productCard:hover .productCard-back {
+  transform: translateX(0);
+}
 
+/* learn card */
+.learn_card {
+  border-radius: 16px;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 100%;
+  height: 350px;
+  /* box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2),
+    0px 5px 8px 0px rgba(0, 0, 0, 0.14), 0px 1px 14px 0px rgba(0, 0, 0, 0.12); */
+  /* background-image: url(https://source.unsplash.com/collection/905011/1000x1000); */
+  background-size: cover;
+}
 
-        .learn_card_title {
-          font-size: 14px;
-          /* padding: 20px 10px 0px 10px; */
-          font-weight: 600;
-          color: rgba(0, 0, 0, 0.87);
-          margin-bottom: 30px;
-          margin-top: 10px;
-        }
-    
-        .learn_card_description {
-          margin: 0;
-          font-size: 12px;
-          
-        }
+.learn_info {
+  position: relative;
+  width: 100%;
+  height: 600px;
+  background-color: #fff;
+  transform: translateY(100%) translateY(-330px) translateZ(0);
+  transition: transform 0.5s ease-out;
+}
+
+.learn_info:before {
+  z-index: -1;
+  display: block;
+  position: absolute;
+  content: " ";
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  /* background-image: url(https://source.unsplash.com/collection/905011/1000x1000); */
+  filter: blur(10px);
+  background-size: cover;
+  opacity: 0.25;
+  transform: translateY(-100%) translateY(88px) translateZ(0);
+  transition: transform 0.5s ease-out;
+}
+
+.learn_card:hover .learn_info,
+.learn_card:hover .learn_info:before {
+  transform: translateY(0) translateZ(0);
+}
+.learn_card:hover .learn_card_title {
+  margin-bottom: 20px;
+}
+
+.learn_card_title {
+  font-size: 14px;
+  /* padding: 20px 10px 0px 10px; */
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.87);
+  margin-bottom: 30px;
+  margin-top: 10px;
+}
+
+.learn_card_description {
+  margin: 0;
+  font-size: 12px;
+}

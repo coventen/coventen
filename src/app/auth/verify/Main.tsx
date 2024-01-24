@@ -312,11 +312,16 @@ const Main = () => {
             <AnimatedButton title="Submit" />
           </div>
         </div>
+
         {/* <Toaster
                 position="top-center"
                 reverseOrder={false}
             /> */}
       </form>
+
+      {/* <p onClick={sendEmail} className="bg-red-900 px-4 py-5">
+        send
+      </p> */}
     </>
   );
 };
